@@ -38,7 +38,7 @@ export async function sendContactNotification(data: ContactEmailData) {
     try {
         const result = await resend.emails.send({
             from: 'Litus <onboarding@resend.dev>',
-            to: ['litusagency@gmail.com'],
+            to: ['aksel.roca@hotmail.com'],
             subject: `🔔 Nouveau lead : ${data.nom} - ${serviceLabels[data.service] || data.service}`,
             html: `
                 <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
