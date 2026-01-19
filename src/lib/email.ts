@@ -37,7 +37,7 @@ export async function sendContactNotification(data: ContactEmailData) {
 
     try {
         const result = await resend.emails.send({
-            from: 'Litus <noreply@litus.fr>',
+            from: 'Litus <onboarding@resend.dev>',
             to: ['litusagency@gmail.com'],
             subject: `🔔 Nouveau lead : ${data.nom} - ${serviceLabels[data.service] || data.service}`,
             html: `
@@ -110,7 +110,7 @@ export async function sendContactConfirmation(data: ContactEmailData) {
 
     try {
         const result = await resend.emails.send({
-            from: 'Litus <noreply@litus.fr>',
+            from: 'Litus <onboarding@resend.dev>',
             to: [data.email],
             subject: `Merci pour votre demande, ${data.nom.split(' ')[0]} !`,
             html: `
