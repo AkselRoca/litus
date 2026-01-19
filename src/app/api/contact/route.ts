@@ -17,10 +17,10 @@ const contactSchema = z.object({
 export async function POST(request: NextRequest) {
     try {
         console.log('[API Contact] Starting request processing')
-        
+
         const body = await request.json()
         console.log('[API Contact] Body parsed:', JSON.stringify(body, null, 2))
-        
+
         const data = contactSchema.parse(body)
         console.log('[API Contact] Data validated successfully')
 
@@ -74,7 +74,8 @@ export async function POST(request: NextRequest) {
             { status: 201 }
         )
     } catch (error) {
-        console.error('API contact error:', error)
+        console.error('[API Contact] ERROR:', error)
+        console.error('[API Contact] Error stack:', error instanceof Error ? error.stack : 'No stack')
 
         if (error instanceof z.ZodError) {
             return NextResponse.json(
@@ -83,8 +84,17 @@ export async function POST(request: NextRequest) {
             )
         }
 
+        // Return more details for debugging
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        const errorStack = error instanceof Error ? error.stack : undefined
+
         return NextResponse.json(
-            { success: false, error: 'Erreur serveur' },
+            {
+                success: false,
+                error: 'Erreur serveur',
+                details: errorMessage,
+                stack: process.env.NODE_ENV !== 'production' ? errorStack : undefined
+            },
             { status: 500 }
         )
     }
