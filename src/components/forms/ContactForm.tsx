@@ -57,6 +57,7 @@ export function ContactForm() {
 
     // Enhanced styling - Light/Dark Theme Support
     const inputClasses = "w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 backdrop-blur-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 hover:border-gray-300 dark:hover:border-white/20 hover:bg-white dark:hover:bg-white/10"
+    const selectClasses = "w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 hover:border-gray-300 dark:hover:border-white/20 appearance-none cursor-pointer [&>option]:bg-white [&>option]:dark:bg-gray-800 [&>option]:text-gray-900 [&>option]:dark:text-white"
     const labelClasses = "block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1.5 ml-1"
 
     return (
@@ -131,7 +132,7 @@ export function ContactForm() {
                         <select
                             id="service"
                             {...register('service')}
-                            className={`${inputClasses} appearance-none cursor-pointer`}
+                            className={selectClasses}
                         >
                             <option value="">Sélectionnez une option</option>
                             <option value="sites-vitrine">Site Vitrine</option>
@@ -156,7 +157,7 @@ export function ContactForm() {
                         <select
                             id="budget"
                             {...register('budget')}
-                            className={`${inputClasses} appearance-none cursor-pointer`}
+                            className={selectClasses}
                         >
                             <option value="">Sélectionnez une fourchette</option>
                             <option value="moins-1000">Moins de 1 000€</option>
