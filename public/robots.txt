@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /login-admin
+Disallow: /api
+
+# Host
+Host: https://litus.fr
+
+# Sitemaps
+Sitemap: https://litus.fr/sitemap.xml

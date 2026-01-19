@@ -1,0 +1,108 @@
+// This is your Prisma schema file
+// Schema validé dans l'ADD (Architecture Decision Document)
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+  output     = "../src/generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Admin users (Aksel + Arthur)
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String // Hashed avec bcrypt
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Leads (tous types confondus)
+model Lead {
+  id        String   @id @default(cuid())
+  type      String // "estimateur" | "audit" | "cartographie" | "guide" | "contact"
+  email     String?
+  phone     String?
+  data      String // JSON stringifié - données spécifiques au type
+  source    String // Page d'origine (URL)
+  treated   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([type])
+  @@index([createdAt])
+  @@index([treated])
+}
+
+// Articles de blog
+model BlogPost {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  content     String // MDX content
+  metaTitle   String? // SEO meta title
+  metaDesc    String? // SEO meta description
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([published])
+  @@index([publishedAt])
+}
+
+// Configuration globale (badge dispo, etc.)
+model Config {
+  id    String  @id @default("main")
+  dispo Boolean @default(true) // Badge "Dispo projet" dans header
+}
+
+// Données Estimateur de Potentiel (pré-calculées)
+// Note: Pour MVP, on peut aussi utiliser un JSON statique
+model EstimatorData {
+  id               String @id @default(cuid())
+  metier           String
+  ville            String
+  searchesPerMonth Int // Volume recherches Google
+  avgBasket        Int // Panier moyen en euros
+
+  @@unique([metier, ville])
+  @@index([metier])
+  @@index([ville])
+}
+
+// Tracking téléchargements lead magnets
+model LeadMagnetDownload {
+  id        String   @id @default(cuid())
+  type      String // "guide-collectivites" | etc.
+  email     String?
+  source    String // Page d'origine
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+// Portfolio Projects
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  category    String // e.g., "E-commerce", "Site Vitrine", "Google Ads"
+  imageUrl    String
+  link        String?
+  stats       String // JSON string: [{ label: "ROI", value: "+200%" }]
+  tags        String // JSON string: ["Next.js", "Shopify"]
+  featured    Boolean  @default(false) // Pour afficher sur la home/services
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([featured])
+}
