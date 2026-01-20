@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Users, FileText, TrendingUp, Euro, Clock, Image, Briefcase, ArrowUpRight, ArrowDownRight, Settings, Check, Loader2, Mail, Phone, Eye, MousePointer } from 'lucide-react'
+import { useState, useEffect, useCallback } from 'react'
+import { Users, FileText, TrendingUp, Euro, Clock, Image, Briefcase, ArrowUpRight, ArrowDownRight, Settings, Check, Loader2, Mail, Phone, Eye, MousePointer, Calendar } from 'lucide-react'
 import Link from 'next/link'
 
 interface Stats {
@@ -50,6 +50,16 @@ const availableTiles = [
 
 const defaultVisibleTiles = ['leadsMonth', 'totalLeads', 'conversion', 'caOneShot', 'caRecurrent', 'visitorsToday']
 
+// Presets de dates
+const datePresets = [
+    { label: 'Aujourd\'hui', value: 'today' },
+    { label: '7 derniers jours', value: '7d' },
+    { label: '30 derniers jours', value: '30d' },
+    { label: 'Ce mois', value: 'month' },
+    { label: 'Cette année', value: 'year' },
+    { label: 'Toute la période', value: 'all' },
+]
+
 export default function AdminDashboardPage() {
     const [stats, setStats] = useState<Stats | null>(null)
     const [recentLeads, setRecentLeads] = useState<Lead[]>([])
@@ -63,20 +73,34 @@ export default function AdminDashboardPage() {
         }
         return defaultVisibleTiles
     })
+    // Filtre de dates
+    const [datePreset, setDatePreset] = useState('30d')
 
-    useEffect(() => {
-        loadStats()
-    }, [])
+    const getDateRange = useCallback(() => {
+        const now = new Date()
+        let startDate = ''
+        const endDate = now.toISOString().split('T')[0]
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('dashboardTiles', JSON.stringify(visibleTiles))
+        switch (datePreset) {
+            case 'today': startDate = endDate; break
+            case '7d': startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]; break
+            case '30d': startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]; break
+            case 'month': startDate = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0]; break
+            case 'year': startDate = `${now.getFullYear()}-01-01`; break
+            default: return { startDate: '', endDate: '' }
         }
-    }, [visibleTiles])
+        return { startDate, endDate }
+    }, [datePreset])
 
-    const loadStats = async () => {
+    const loadStats = useCallback(async () => {
+        setLoading(true)
         try {
-            const res = await fetch('/api/admin/dashboard/stats')
+            const { startDate, endDate } = getDateRange()
+            const params = new URLSearchParams()
+            if (startDate) params.set('startDate', startDate)
+            if (endDate) params.set('endDate', endDate)
+
+            const res = await fetch(`/api/admin/dashboard/stats?${params}`)
             const data = await res.json()
             if (data.success) {
                 setStats(data.data.stats)
@@ -88,7 +112,17 @@ export default function AdminDashboardPage() {
         } finally {
             setLoading(false)
         }
-    }
+    }, [getDateRange])
+
+    useEffect(() => {
+        loadStats()
+    }, [loadStats])
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('dashboardTiles', JSON.stringify(visibleTiles))
+        }
+    }, [visibleTiles])
 
     const toggleTile = (tileId: string) => {
         setVisibleTiles(prev =>
@@ -146,13 +180,28 @@ export default function AdminDashboardPage() {
                     <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
                     <p className="text-gray-400">Vue d'ensemble de vos performances</p>
                 </div>
-                <button
-                    onClick={() => setShowSettings(!showSettings)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-colors ${showSettings ? 'bg-primary text-white' : 'text-gray-400 hover:text-white border border-white/20 hover:bg-white/10'}`}
-                >
-                    <Settings className="w-5 h-5" />
-                    Personnaliser
-                </button>
+                <div className="flex items-center gap-3">
+                    {/* Sélecteur de dates */}
+                    <div className="flex items-center gap-2">
+                        <Calendar className="w-5 h-5 text-gray-400" />
+                        <select
+                            value={datePreset}
+                            onChange={(e) => setDatePreset(e.target.value)}
+                            className="px-4 py-2 bg-gray-900 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                        >
+                            {datePresets.map(p => (
+                                <option key={p.value} value={p.value}>{p.label}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <button
+                        onClick={() => setShowSettings(!showSettings)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-colors ${showSettings ? 'bg-primary text-white' : 'text-gray-400 hover:text-white border border-white/20 hover:bg-white/10'}`}
+                    >
+                        <Settings className="w-5 h-5" />
+                        Personnaliser
+                    </button>
+                </div>
             </div>
 
             {/* Settings Panel */}
