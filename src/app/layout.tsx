@@ -5,6 +5,7 @@ import './globals.css'
 import { PublicLayoutWrapper } from '@/components/layout/PublicLayoutWrapper'
 import { LenisProvider } from '@/components/providers/LenisProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
+import { AnalyticsProvider } from '@/components/providers/AnalyticsProvider'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -82,9 +83,11 @@ export default function RootLayout({
       <body className="min-h-screen-dynamic flex flex-col">
         <ThemeProvider>
           <LenisProvider>
-            <PublicLayoutWrapper>
-              {children}
-            </PublicLayoutWrapper>
+            <AnalyticsProvider>
+              <PublicLayoutWrapper>
+                {children}
+              </PublicLayoutWrapper>
+            </AnalyticsProvider>
           </LenisProvider>
         </ThemeProvider>
         <Analytics />

@@ -148,3 +148,32 @@ model Media {
   @@index([createdAt])
 }
 
+// Page views tracking (custom analytics)
+model PageView {
+  id        String   @id @default(cuid())
+  path      String   // URL path visited
+  referrer  String?  // Source of traffic
+  userAgent String?  // Browser/device info
+  country   String?  // Country from IP (optional)
+  sessionId String?  // Anonymous session identifier
+  createdAt DateTime @default(now())
+
+  @@index([path])
+  @@index([createdAt])
+  @@index([sessionId])
+}
+
+// Web Vitals tracking (LCP, FID, CLS)
+model WebVital {
+  id        String   @id @default(cuid())
+  name      String   // LCP, FID, CLS, TTFB, FCP
+  value     Float    // Metric value
+  rating    String   // good, needs-improvement, poor
+  path      String   // Page where measured
+  sessionId String?  // Anonymous session identifier
+  createdAt DateTime @default(now())
+
+  @@index([name])
+  @@index([createdAt])
+  @@index([rating])
+}

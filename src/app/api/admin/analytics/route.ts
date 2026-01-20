@@ -1,32 +1,12 @@
 import { NextResponse } from 'next/server'
 
-// Vercel Analytics API endpoint
-const VERCEL_ANALYTICS_API = 'https://vercel.com/api/web-analytics'
-
-interface VercelAnalyticsResponse {
-    data: any
-}
-
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const period = searchParams.get('period') || '7d' // 24h, 7d, 30d
 
-    // Check for Vercel token
-    const token = process.env.VERCEL_API_TOKEN
-    const projectId = process.env.VERCEL_PROJECT_ID
-    const teamId = process.env.VERCEL_TEAM_ID // Optional
-
-    if (!token || !projectId) {
-        // Return mock data if no token configured
-        return NextResponse.json({
-            success: true,
-            source: 'mock',
-            message: 'Vercel API token not configured - showing demo data',
-            data: getMockData(period)
-        })
-    }
-
     try {
+        const { prisma } = await import('@/lib/database_final')
+
         // Calculate date range
         const now = new Date()
         const from = new Date()
@@ -34,128 +14,132 @@ export async function GET(request: Request) {
         else if (period === '7d') from.setDate(from.getDate() - 7)
         else from.setDate(from.getDate() - 30)
 
-        const fromStr = from.toISOString()
-        const toStr = now.toISOString()
-
-        // Build URL with team ID if present
-        const baseUrl = `${VERCEL_ANALYTICS_API}/timeseries`
-        const queryParams = new URLSearchParams({
-            from: fromStr,
-            to: toStr,
-            projectId: projectId,
-            ...(teamId && { teamId })
-        })
-
-        // Fetch visitors data
-        const visitorsRes = await fetch(`${baseUrl}?${queryParams}&metric=visitors`, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
+        // Get page views from our database
+        const pageViews = await prisma.pageView.findMany({
+            where: {
+                createdAt: { gte: from }
             },
+            orderBy: { createdAt: 'desc' }
         })
 
-        // Fetch page views data
-        const pageViewsRes = await fetch(`${baseUrl}?${queryParams}&metric=pageViews`, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
+        // Get unique visitors (by sessionId)
+        const uniqueSessionIds = new Set(pageViews.map(pv => pv.sessionId).filter(Boolean))
+        const totalVisitors = uniqueSessionIds.size
+
+        // Get Web Vitals
+        const webVitals = await prisma.webVital.findMany({
+            where: {
+                createdAt: { gte: from }
+            }
         })
 
-        // Fetch top pages
-        const topPagesUrl = `${VERCEL_ANALYTICS_API}/pages?${queryParams}&limit=10`
-        const topPagesRes = await fetch(topPagesUrl, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
+        // Calculate Web Vitals averages
+        const vitalsByName: Record<string, { values: number[], ratings: string[] }> = {}
+        webVitals.forEach(wv => {
+            if (!vitalsByName[wv.name]) {
+                vitalsByName[wv.name] = { values: [], ratings: [] }
+            }
+            vitalsByName[wv.name].values.push(wv.value)
+            vitalsByName[wv.name].ratings.push(wv.rating)
         })
 
-        // Fetch referrer data (sources)
-        const referrersUrl = `${VERCEL_ANALYTICS_API}/referrers?${queryParams}&limit=10`
-        const referrersRes = await fetch(referrersUrl, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
+        const getAvgVital = (name: string) => {
+            const data = vitalsByName[name]
+            if (!data || data.values.length === 0) return null
+            const avg = data.values.reduce((a, b) => a + b, 0) / data.values.length
+            // Determine rating based on majority
+            const ratings = data.ratings
+            const goodCount = ratings.filter(r => r === 'good').length
+            const rating = goodCount > ratings.length / 2 ? 'good' :
+                ratings.filter(r => r === 'poor').length > ratings.length / 2 ? 'poor' : 'needs-improvement'
+            return { value: Math.round(avg * 100) / 100, rating }
+        }
+
+        // Group page views by path
+        const pathCounts: Record<string, number> = {}
+        pageViews.forEach(pv => {
+            pathCounts[pv.path] = (pathCounts[pv.path] || 0) + 1
         })
+        const topPages = Object.entries(pathCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 6)
+            .map(([path, views]) => ({
+                path,
+                views,
+                title: path === '/' ? 'Accueil' : path.replace(/^\//, '').charAt(0).toUpperCase() + path.slice(2)
+            }))
 
-        // Fetch device data
-        const devicesUrl = `${VERCEL_ANALYTICS_API}/devices?${queryParams}`
-        const devicesRes = await fetch(devicesUrl, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
+        // Group by referrer (sources)
+        const referrerCounts: Record<string, number> = {}
+        pageViews.forEach(pv => {
+            const ref = pv.referrer ? new URL(pv.referrer).hostname : 'Direct'
+            referrerCounts[ref] = (referrerCounts[ref] || 0) + 1
         })
+        const colors = ['#f97316', '#3b82f6', '#8b5cf6', '#10b981', '#ef4444']
+        const sources = Object.entries(referrerCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5)
+            .map(([name, value], i) => ({ name, value, color: colors[i] }))
 
-        // Parse all responses
-        const [visitorsData, pageViewsData, topPagesData, referrersData, devicesData] = await Promise.all([
-            visitorsRes.ok ? visitorsRes.json() : null,
-            pageViewsRes.ok ? pageViewsRes.json() : null,
-            topPagesRes.ok ? topPagesRes.json() : null,
-            referrersRes.ok ? referrersRes.json() : null,
-            devicesRes.ok ? devicesRes.json() : null,
-        ])
+        // Group by device (from userAgent)
+        const deviceCounts = { Mobile: 0, Desktop: 0, Tablet: 0 }
+        pageViews.forEach(pv => {
+            if (!pv.userAgent) return
+            const ua = pv.userAgent.toLowerCase()
+            if (/mobile|android|iphone/.test(ua)) deviceCounts.Mobile++
+            else if (/tablet|ipad/.test(ua)) deviceCounts.Tablet++
+            else deviceCounts.Desktop++
+        })
+        const devices = Object.entries(deviceCounts)
+            .filter(([_, v]) => v > 0)
+            .map(([name, value]) => ({ name, value }))
 
-        // Calculate totals
-        let totalVisitors = 0
-        let totalPageViews = 0
+        // Daily visitors (last 7 days)
         const dailyData: { day: string; visitors: number }[] = []
+        for (let i = 6; i >= 0; i--) {
+            const d = new Date()
+            d.setDate(d.getDate() - i)
+            const dayStart = new Date(d.setHours(0, 0, 0, 0))
+            const dayEnd = new Date(d.setHours(23, 59, 59, 999))
 
-        if (visitorsData?.data) {
-            visitorsData.data.forEach((item: any) => {
-                totalVisitors += item.value || 0
-                dailyData.push({
-                    day: new Date(item.timestamp).toLocaleDateString('fr-FR', { weekday: 'short' }),
-                    visitors: item.value || 0
-                })
+            const dayViews = pageViews.filter(pv => {
+                const pvDate = new Date(pv.createdAt)
+                return pvDate >= dayStart && pvDate <= dayEnd
+            })
+            const daySessions = new Set(dayViews.map(pv => pv.sessionId).filter(Boolean))
+
+            dailyData.push({
+                day: dayStart.toLocaleDateString('fr-FR', { weekday: 'short' }),
+                visitors: daySessions.size
             })
         }
-
-        if (pageViewsData?.data) {
-            pageViewsData.data.forEach((item: any) => {
-                totalPageViews += item.value || 0
-            })
-        }
-
-        // Format top pages
-        const topPages = topPagesData?.data?.map((page: any) => ({
-            path: page.key,
-            views: page.value,
-            title: page.key === '/' ? 'Accueil' : page.key
-        })) || []
-
-        // Format sources
-        const sources = referrersData?.data?.map((ref: any, i: number) => ({
-            name: ref.key || 'Direct',
-            value: ref.value,
-            color: ['#f97316', '#3b82f6', '#8b5cf6', '#10b981', '#ef4444'][i % 5]
-        })) || []
-
-        // Format devices
-        const devices = devicesData?.data?.map((device: any) => ({
-            name: device.key,
-            value: device.value
-        })) || []
 
         return NextResponse.json({
             success: true,
-            source: 'vercel',
+            source: 'database',
             data: {
                 visitors: {
                     total: totalVisitors,
-                    change: 0, // Would need comparison data
+                    change: 0,
                 },
                 pageViews: {
-                    total: totalPageViews,
+                    total: pageViews.length,
                 },
-                dailyVisitors: dailyData.slice(-7), // Last 7 days
-                topPages: topPages.slice(0, 6),
+                dailyVisitors: dailyData,
+                topPages,
                 sources,
                 devices,
-                // Ces métriques ne sont PAS disponibles via l'API Vercel Analytics de base
-                // Bounce rate et durée moyenne nécessitent Google Analytics ou Plausible
-                // Web Vitals sont dans Speed Insights (dashboard Vercel uniquement)
                 metrics: {
-                    bounceRate: null, // Non disponible via API
-                    avgDuration: null, // Non disponible via API  
-                    pagesPerSession: totalVisitors > 0 ? Math.round((totalPageViews / totalVisitors) * 10) / 10 : null,
+                    bounceRate: null,
+                    avgDuration: null,
+                    pagesPerSession: totalVisitors > 0 ? Math.round((pageViews.length / totalVisitors) * 10) / 10 : null,
+                },
+                webVitals: {
+                    LCP: getAvgVital('LCP'),
+                    FID: getAvgVital('FID'),
+                    CLS: getAvgVital('CLS'),
+                    TTFB: getAvgVital('TTFB'),
+                    FCP: getAvgVital('FCP'),
                 }
             }
         })
@@ -166,54 +150,6 @@ export async function GET(request: Request) {
             success: false,
             source: 'error',
             error: error instanceof Error ? error.message : 'Unknown error',
-            data: getMockData(period)
         }, { status: 500 })
-    }
-}
-
-function getMockData(period: string) {
-    const multiplier = period === '24h' ? 1 : period === '7d' ? 7 : 30
-
-    return {
-        visitors: {
-            total: 47 * multiplier,
-            change: 12,
-        },
-        pageViews: {
-            total: 156 * multiplier,
-        },
-        dailyVisitors: [
-            { day: 'Lun', visitors: 42 },
-            { day: 'Mar', visitors: 38 },
-            { day: 'Mer', visitors: 56 },
-            { day: 'Jeu', visitors: 48 },
-            { day: 'Ven', visitors: 62 },
-            { day: 'Sam', visitors: 35 },
-            { day: 'Dim', visitors: 31 },
-        ],
-        topPages: [
-            { path: '/', views: 456, title: 'Accueil' },
-            { path: '/services', views: 234, title: 'Services' },
-            { path: '/contact', views: 189, title: 'Contact' },
-            { path: '/blog', views: 156, title: 'Blog' },
-            { path: '/realisations', views: 134, title: 'Réalisations' },
-            { path: '/estimateur', views: 98, title: 'Estimateur' },
-        ],
-        sources: [
-            { name: 'Direct', value: 45, color: '#f97316' },
-            { name: 'Google', value: 32, color: '#3b82f6' },
-            { name: 'Réseaux sociaux', value: 15, color: '#8b5cf6' },
-            { name: 'Referral', value: 8, color: '#10b981' },
-        ],
-        devices: [
-            { name: 'Mobile', value: 58 },
-            { name: 'Desktop', value: 38 },
-            { name: 'Tablet', value: 4 },
-        ],
-        metrics: {
-            bounceRate: 42,
-            avgDuration: '2m 34s',
-            pagesPerSession: 2.8,
-        }
     }
 }

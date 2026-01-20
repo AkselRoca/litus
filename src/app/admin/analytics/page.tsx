@@ -15,11 +15,18 @@ interface AnalyticsData {
     sources: { name: string; value: number; color: string }[]
     devices: { name: string; value: number }[]
     metrics: { bounceRate: number | null; avgDuration: string | null; pagesPerSession: number | null }
+    webVitals?: {
+        LCP: { value: number; rating: string } | null
+        FID: { value: number; rating: string } | null
+        CLS: { value: number; rating: string } | null
+        TTFB: { value: number; rating: string } | null
+        FCP: { value: number; rating: string } | null
+    }
 }
 
 interface APIResponse {
     success: boolean
-    source: 'vercel' | 'mock' | 'error'
+    source: 'database' | 'mock' | 'error'
     message?: string
     data: AnalyticsData
 }
