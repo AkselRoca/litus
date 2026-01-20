@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Users, FileText, TrendingUp, Euro, Clock, Image, Briefcase, ArrowUpRight, ArrowDownRight, Settings, Check, Loader2, Mail, Phone } from 'lucide-react'
+import { Users, FileText, TrendingUp, Euro, Clock, Image, Briefcase, ArrowUpRight, ArrowDownRight, Settings, Check, Loader2, Mail, Phone, Eye, MousePointer } from 'lucide-react'
 import Link from 'next/link'
 
 interface Stats {
@@ -41,9 +41,12 @@ const availableTiles = [
     { id: 'articles', label: 'Articles publiés', icon: FileText, category: 'content' },
     { id: 'projects', label: 'Projets portfolio', icon: Briefcase, category: 'content' },
     { id: 'media', label: 'Médias', icon: Image, category: 'content' },
+    { id: 'visitorsToday', label: 'Visiteurs (jour)', icon: Eye, category: 'analytics' },
+    { id: 'pageViews', label: 'Pages vues', icon: Eye, category: 'analytics' },
+    { id: 'bounceRate', label: 'Taux de rebond', icon: MousePointer, category: 'analytics' },
 ]
 
-const defaultVisibleTiles = ['leadsMonth', 'totalLeads', 'conversion', 'caOneShot', 'caRecurrent', 'articles']
+const defaultVisibleTiles = ['leadsMonth', 'totalLeads', 'conversion', 'caOneShot', 'caRecurrent', 'visitorsToday']
 
 export default function AdminDashboardPage() {
     const [stats, setStats] = useState<Stats | null>(null)
@@ -117,6 +120,10 @@ export default function AdminDashboardPage() {
             case 'articles': return { value: stats.publishedArticles.toString(), change: null }
             case 'projects': return { value: stats.projects.toString(), change: null }
             case 'media': return { value: stats.media.toString(), change: null }
+            // Analytics tiles (mock data pour demo)
+            case 'visitorsToday': return { value: '47', change: 12 }
+            case 'pageViews': return { value: '892', change: 8 }
+            case 'bounceRate': return { value: '42%', change: null }
             default: return { value: '-', change: null }
         }
     }
@@ -156,8 +163,8 @@ export default function AdminDashboardPage() {
                                 key={tile.id}
                                 onClick={() => toggleTile(tile.id)}
                                 className={`flex items-center gap-3 p-3 rounded-xl transition-colors ${visibleTiles.includes(tile.id)
-                                        ? 'bg-primary/20 text-primary border border-primary/50'
-                                        : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
+                                    ? 'bg-primary/20 text-primary border border-primary/50'
+                                    : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
                                     }`}
                             >
                                 <tile.icon className="w-5 h-5" />

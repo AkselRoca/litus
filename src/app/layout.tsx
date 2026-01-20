@@ -5,6 +5,8 @@ import './globals.css'
 import { PublicLayoutWrapper } from '@/components/layout/PublicLayoutWrapper'
 import { LenisProvider } from '@/components/providers/LenisProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 // Fonts (Inter + Cal Sans + Borel locaux à ajouter)
 const inter = Inter({
@@ -85,8 +87,9 @@ export default function RootLayout({
             </PublicLayoutWrapper>
           </LenisProvider>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
 }
-
