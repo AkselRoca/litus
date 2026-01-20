@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { Search, Mail, Phone, Calendar, Download, Trash2, Loader2, X, Edit3, Save, Euro, Clock } from 'lucide-react'
+import { Search, Mail, Phone, Calendar, Download, Trash2, Loader2, X, Edit3, Save, Euro, Clock, CheckSquare, Square, ChevronDown } from 'lucide-react'
 
 interface Lead {
     id: string
@@ -66,6 +66,10 @@ export default function AdminLeadsPage() {
     const [selectedLead, setSelectedLead] = useState<Lead | null>(null)
     const [updating, setUpdating] = useState(false)
     const [editing, setEditing] = useState(false)
+    // Multi-sélection
+    const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
+    const [bulkActionOpen, setBulkActionOpen] = useState(false)
+    const [bulkUpdating, setBulkUpdating] = useState(false)
 
     // Champs en édition
     const [editForm, setEditForm] = useState({
@@ -187,6 +191,66 @@ export default function AdminLeadsPage() {
         }
     }
 
+    // Multi-sélection
+    const toggleSelect = (id: string, e: React.MouseEvent) => {
+        e.stopPropagation()
+        setSelectedIds(prev => {
+            const newSet = new Set(prev)
+            if (newSet.has(id)) newSet.delete(id)
+            else newSet.add(id)
+            return newSet
+        })
+    }
+
+    const selectAll = () => {
+        if (selectedIds.size === leads.length) {
+            setSelectedIds(new Set())
+        } else {
+            setSelectedIds(new Set(leads.map(l => l.id)))
+        }
+    }
+
+    const bulkDelete = async () => {
+        if (selectedIds.size === 0) return
+        if (!confirm(`Supprimer ${selectedIds.size} lead(s) ?\n\nCette action est irréversible.`)) return
+        setBulkUpdating(true)
+        try {
+            const deletePromises = Array.from(selectedIds).map(id =>
+                fetch(`/api/admin/leads/${id}`, { method: 'DELETE' })
+            )
+            await Promise.all(deletePromises)
+            setSelectedIds(new Set())
+            setSelectedLead(null)
+            loadLeads()
+        } catch (error) {
+            console.error('Bulk delete error:', error)
+        } finally {
+            setBulkUpdating(false)
+        }
+    }
+
+    const bulkUpdateStatus = async (newStatus: string) => {
+        if (selectedIds.size === 0) return
+        setBulkUpdating(true)
+        try {
+            const updatePromises = Array.from(selectedIds).map(id =>
+                fetch(`/api/admin/leads/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                })
+            )
+            await Promise.all(updatePromises)
+            setSelectedIds(new Set())
+            setBulkActionOpen(false)
+            loadLeads()
+        } catch (error) {
+            console.error('Bulk update error:', error)
+        } finally {
+            setBulkUpdating(false)
+        }
+    }
+
     const exportCSV = () => {
         const { startDate, endDate } = getDateRange()
         const params = new URLSearchParams()
@@ -274,6 +338,56 @@ export default function AdminLeadsPage() {
                     </div>
                 </div>
 
+                {/* Barre d'actions bulk */}
+                {selectedIds.size > 0 && (
+                    <div className="bg-primary/10 border border-primary/30 rounded-xl p-3 mb-4 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <span className="text-primary font-medium">{selectedIds.size} lead(s) sélectionné(s)</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            {/* Menu statut */}
+                            <div className="relative">
+                                <button
+                                    onClick={() => setBulkActionOpen(!bulkActionOpen)}
+                                    className="flex items-center gap-2 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm transition-colors"
+                                    disabled={bulkUpdating}
+                                >
+                                    Modifier statut <ChevronDown className="w-4 h-4" />
+                                </button>
+                                {bulkActionOpen && (
+                                    <div className="absolute right-0 top-full mt-1 bg-gray-800 border border-white/10 rounded-lg shadow-xl z-10 min-w-[150px] py-1">
+                                        {crmStatuses.map(s => (
+                                            <button
+                                                key={s.value}
+                                                onClick={() => bulkUpdateStatus(s.value)}
+                                                className={`w-full text-left px-3 py-2 hover:bg-white/10 text-sm ${s.color.split(' ')[0]}`}
+                                            >
+                                                {s.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                            {/* Supprimer */}
+                            <button
+                                onClick={bulkDelete}
+                                disabled={bulkUpdating}
+                                className="flex items-center gap-2 px-3 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm transition-colors"
+                            >
+                                {bulkUpdating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                                Supprimer
+                            </button>
+                            {/* Annuler */}
+                            <button
+                                onClick={() => setSelectedIds(new Set())}
+                                className="p-1.5 text-gray-400 hover:bg-white/10 rounded-lg transition-colors"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        </div>
+                    </div>
+                )}
+
                 {/* Liste des leads */}
                 <div className="bg-gray-900 rounded-2xl border border-white/10 divide-y divide-white/10">
                     {loading ? (
@@ -281,34 +395,56 @@ export default function AdminLeadsPage() {
                     ) : leads.length === 0 ? (
                         <div className="p-12 text-center text-gray-400">Aucun lead trouvé</div>
                     ) : (
-                        leads.map((lead) => {
-                            const statusInfo = getStatusInfo(lead.status)
-                            return (
-                                <div key={lead.id} className={`p-4 hover:bg-white/5 transition-colors cursor-pointer ${selectedLead?.id === lead.id ? 'bg-white/5' : ''}`} onClick={() => { setSelectedLead(lead); setEditing(false) }}>
-                                    <div className="flex items-start justify-between">
-                                        <div className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center text-white font-bold flex-shrink-0">
-                                                {getLeadName(lead).charAt(0).toUpperCase()}
+                        <>
+                            {/* Header avec checkbox tout sélectionner */}
+                            <div className="p-3 flex items-center gap-3 bg-gray-800/50">
+                                <button onClick={selectAll} className="text-gray-400 hover:text-white transition-colors">
+                                    {selectedIds.size === leads.length && leads.length > 0 ? (
+                                        <CheckSquare className="w-5 h-5 text-primary" />
+                                    ) : (
+                                        <Square className="w-5 h-5" />
+                                    )}
+                                </button>
+                                <span className="text-gray-400 text-sm">Tout sélectionner ({leads.length})</span>
+                            </div>
+                            {leads.map((lead) => {
+                                const statusInfo = getStatusInfo(lead.status)
+                                const isSelected = selectedIds.has(lead.id)
+                                return (
+                                    <div key={lead.id} className={`p-4 hover:bg-white/5 transition-colors cursor-pointer ${selectedLead?.id === lead.id ? 'bg-white/5' : ''} ${isSelected ? 'bg-primary/5' : ''}`} onClick={() => { setSelectedLead(lead); setEditing(false) }}>
+                                        <div className="flex items-start justify-between">
+                                            <div className="flex items-start gap-4">
+                                                {/* Checkbox */}
+                                                <button onClick={(e) => toggleSelect(lead.id, e)} className="mt-1 text-gray-400 hover:text-white transition-colors flex-shrink-0">
+                                                    {isSelected ? (
+                                                        <CheckSquare className="w-5 h-5 text-primary" />
+                                                    ) : (
+                                                        <Square className="w-5 h-5" />
+                                                    )}
+                                                </button>
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center text-white font-bold flex-shrink-0">
+                                                    {getLeadName(lead).charAt(0).toUpperCase()}
+                                                </div>
+                                                <div>
+                                                    <div className="text-white font-medium">{getLeadName(lead)}</div>
+                                                    <div className="text-gray-400 text-sm">{lead.email}</div>
+                                                    <div className="text-gray-500 text-xs mt-1">{formatDate(lead.createdAt)}</div>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <div className="text-white font-medium">{getLeadName(lead)}</div>
-                                                <div className="text-gray-400 text-sm">{lead.email}</div>
-                                                <div className="text-gray-500 text-xs mt-1">{formatDate(lead.createdAt)}</div>
+                                            <div className="flex items-center gap-3">
+                                                {(lead.oneShot || lead.monthlyAmount) && (
+                                                    <span className="text-green-400 text-sm font-medium">
+                                                        {lead.oneShot ? `${lead.oneShot}€` : ''}{lead.oneShot && lead.monthlyAmount ? ' + ' : ''}{lead.monthlyAmount ? `${lead.monthlyAmount}€/m` : ''}
+                                                    </span>
+                                                )}
+                                                <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">{lead.type}</span>
+                                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusInfo.color}`}>{statusInfo.label}</span>
                                             </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            {(lead.oneShot || lead.monthlyAmount) && (
-                                                <span className="text-green-400 text-sm font-medium">
-                                                    {lead.oneShot ? `${lead.oneShot}€` : ''}{lead.oneShot && lead.monthlyAmount ? ' + ' : ''}{lead.monthlyAmount ? `${lead.monthlyAmount}€/m` : ''}
-                                                </span>
-                                            )}
-                                            <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">{lead.type}</span>
-                                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusInfo.color}`}>{statusInfo.label}</span>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })
+                                )
+                            })}
+                        </>
                     )}
                 </div>
             </div>
