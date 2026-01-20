@@ -209,10 +209,23 @@ export default function AdminAnalyticsPage() {
                 </div>
             )}
 
-            {source === 'vercel' && (
-                <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-3 flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <p className="text-green-400 text-sm">Données en temps réel depuis Vercel Analytics</p>
+            {source === 'database' && (
+                <div className="bg-primary/10 border border-primary/30 rounded-xl p-4">
+                    <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 mt-2 rounded-full bg-primary animate-pulse" />
+                        <div className="flex-1">
+                            <p className="text-primary text-sm font-medium">Tracking actif - Donnees collectees</p>
+                            <p className="text-gray-400 text-xs mt-1">
+                                Visite le site depuis un autre navigateur pour voir les stats augmenter.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-white/10">
+                        <p className="text-gray-400 text-xs mb-2">Prompt IA pour Google Analytics (une fois le domaine configure) :</p>
+                        <div className="bg-gray-800 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">
+                            Ajoute Google Analytics 4 au site litus.fr avec le Measurement ID [GA_MEASUREMENT_ID]. Configure le tracking des evenements : soumission formulaire contact, clics CTA, scroll profondeur. Integre les donnees bounce rate et session duration dans l&apos;onglet analytics de l&apos;admin.
+                        </div>
+                    </div>
                 </div>
             )}
 
