@@ -44,6 +44,24 @@ export async function GET() {
             // Table media peut ne pas exister
         }
 
+        // Analytics réelles depuis PageView
+        let visitorsToday = 0
+        let pageViewsToday = 0
+        try {
+            const todayStart = new Date()
+            todayStart.setHours(0, 0, 0, 0)
+
+            const todayPageViews = await (prisma as any).pageView.findMany({
+                where: { createdAt: { gte: todayStart } }
+            })
+
+            pageViewsToday = todayPageViews.length
+            const uniqueSessions = new Set(todayPageViews.map((pv: any) => pv.sessionId).filter(Boolean))
+            visitorsToday = uniqueSessions.size
+        } catch (e) {
+            // Table PageView peut ne pas exister
+        }
+
         // Leads récents
         const recentLeads = leads
             .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -76,6 +94,9 @@ export async function GET() {
                     quoteSent: leads.filter(l => (l as any).status === 'quote_sent').length,
                     signed: signedLeads.length,
                     refused: leads.filter(l => (l as any).status === 'refused').length,
+                    // Analytics réelles
+                    visitorsToday,
+                    pageViewsToday,
                 },
                 recentLeads,
                 lastArticle,

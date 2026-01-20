@@ -20,6 +20,8 @@ interface Stats {
     quoteSent: number
     signed: number
     refused: number
+    visitorsToday?: number
+    pageViewsToday?: number
 }
 
 interface Lead {
@@ -120,10 +122,10 @@ export default function AdminDashboardPage() {
             case 'articles': return { value: stats.publishedArticles.toString(), change: null }
             case 'projects': return { value: stats.projects.toString(), change: null }
             case 'media': return { value: stats.media.toString(), change: null }
-            // Analytics tiles (mock data pour demo)
-            case 'visitorsToday': return { value: '47', change: 12 }
-            case 'pageViews': return { value: '892', change: 8 }
-            case 'bounceRate': return { value: '42%', change: null }
+            // Analytics réelles depuis la base de données
+            case 'visitorsToday': return { value: (stats.visitorsToday || 0).toString(), change: null }
+            case 'pageViews': return { value: (stats.pageViewsToday || 0).toString(), change: null }
+            case 'bounceRate': return { value: '-', change: null }
             default: return { value: '-', change: null }
         }
     }
