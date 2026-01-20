@@ -14,7 +14,7 @@ interface AnalyticsData {
     topPages: { path: string; views: number; title: string }[]
     sources: { name: string; value: number; color: string }[]
     devices: { name: string; value: number }[]
-    metrics: { bounceRate: number; avgDuration: string; pagesPerSession: number }
+    metrics: { bounceRate: number | null; avgDuration: string | null; pagesPerSession: number | null }
 }
 
 interface APIResponse {
@@ -177,8 +177,8 @@ export default function AdminAnalyticsPage() {
                                 key={range}
                                 onClick={() => setTimeRange(range)}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${timeRange === range
-                                        ? 'bg-primary text-white'
-                                        : 'text-gray-400 hover:text-white'
+                                    ? 'bg-primary text-white'
+                                    : 'text-gray-400 hover:text-white'
                                     }`}
                             >
                                 {range === '24h' ? "24h" : range === '7d' ? '7 jours' : '30 jours'}
@@ -223,15 +223,16 @@ export default function AdminAnalyticsPage() {
                     value={data.pageViews.total.toLocaleString()}
                 />
                 <StatCard
-                    icon={Clock}
-                    title="Durée moyenne"
-                    value={data.metrics.avgDuration}
-                    subtitle="par session"
+                    icon={TrendingUp}
+                    title="Pages / session"
+                    value={data.metrics.pagesPerSession !== null ? data.metrics.pagesPerSession.toFixed(1) : 'N/A'}
+                    subtitle="moyenne"
                 />
                 <StatCard
-                    icon={MousePointer}
-                    title="Taux de rebond"
-                    value={`${data.metrics.bounceRate}%`}
+                    icon={Activity}
+                    title="Taux engagement"
+                    value={data.visitors.total > 0 ? `${Math.round((data.pageViews.total / data.visitors.total) * 100)}%` : 'N/A'}
+                    subtitle="pages vues / visiteurs"
                 />
             </div>
 
@@ -286,21 +287,30 @@ export default function AdminAnalyticsPage() {
                 {/* Core Web Vitals */}
                 <div className="bg-gray-900 rounded-2xl p-6 border border-white/10">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                            <Zap className="w-5 h-5 text-green-400" />
+                        <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <Zap className="w-5 h-5 text-blue-400" />
                         </div>
                         <div>
                             <h3 className="text-lg font-semibold text-white">Core Web Vitals</h3>
                             <p className="text-sm text-gray-400">Performance du site</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
-                        <WebVitalBadge label="LCP" value={1.8} unit="s" status="good" />
-                        <WebVitalBadge label="FID" value={45} unit="ms" status="good" />
-                        <WebVitalBadge label="CLS" value={0.05} unit="" status="good" />
+                    <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
+                        <p className="text-blue-300 text-sm mb-3">
+                            Les Core Web Vitals (LCP, FID, CLS) sont disponibles dans le dashboard Vercel Speed Insights.
+                        </p>
+                        <a
+                            href="https://vercel.com/dashboard"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg transition-colors text-sm"
+                        >
+                            Voir sur Vercel Dashboard
+                            <ArrowUpRight className="w-4 h-4" />
+                        </a>
                     </div>
                     <p className="text-xs text-gray-500 mt-4">
-                        * Données Web Vitals disponibles via Vercel Speed Insights dashboard
+                        * Speed Insights collecte automatiquement les données de performance réelles des visiteurs.
                     </p>
                 </div>
 

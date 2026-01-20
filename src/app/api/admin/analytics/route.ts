@@ -149,10 +149,13 @@ export async function GET(request: Request) {
                 topPages: topPages.slice(0, 6),
                 sources,
                 devices,
+                // Ces métriques ne sont PAS disponibles via l'API Vercel Analytics de base
+                // Bounce rate et durée moyenne nécessitent Google Analytics ou Plausible
+                // Web Vitals sont dans Speed Insights (dashboard Vercel uniquement)
                 metrics: {
-                    bounceRate: 42, // Not available in basic API
-                    avgDuration: '2m 34s', // Not available in basic API
-                    pagesPerSession: totalPageViews / (totalVisitors || 1),
+                    bounceRate: null, // Non disponible via API
+                    avgDuration: null, // Non disponible via API  
+                    pagesPerSession: totalVisitors > 0 ? Math.round((totalPageViews / totalVisitors) * 10) / 10 : null,
                 }
             }
         })
