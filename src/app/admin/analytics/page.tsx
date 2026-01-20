@@ -107,7 +107,7 @@ export default function AdminAnalyticsPage() {
     const [data, setData] = useState<AnalyticsData | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-    const [source, setSource] = useState<'vercel' | 'mock' | 'error'>('mock')
+    const [source, setSource] = useState<'database' | 'mock' | 'error'>('mock')
     const [message, setMessage] = useState<string | null>(null)
 
     const fetchAnalytics = async () => {
