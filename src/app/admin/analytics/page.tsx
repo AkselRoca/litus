@@ -307,30 +307,71 @@ export default function AdminAnalyticsPage() {
                 {/* Core Web Vitals */}
                 <div className="bg-gray-900 rounded-2xl p-6 border border-white/10">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                            <Zap className="w-5 h-5 text-blue-400" />
+                        <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
+                            <Zap className="w-5 h-5 text-green-400" />
                         </div>
                         <div>
                             <h3 className="text-lg font-semibold text-white">Core Web Vitals</h3>
                             <p className="text-sm text-gray-400">Performance du site</p>
                         </div>
                     </div>
-                    <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
-                        <p className="text-blue-300 text-sm mb-3">
-                            Les Core Web Vitals (LCP, FID, CLS) sont disponibles dans le dashboard Vercel Speed Insights.
-                        </p>
-                        <a
-                            href="https://vercel.com/dashboard"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg transition-colors text-sm"
-                        >
-                            Voir sur Vercel Dashboard
-                            <ArrowUpRight className="w-4 h-4" />
-                        </a>
-                    </div>
+                    {data.webVitals && (data.webVitals.LCP || data.webVitals.FID || data.webVitals.CLS) ? (
+                        <div className="grid grid-cols-3 gap-4">
+                            {data.webVitals.LCP && (
+                                <div className={`rounded-xl p-4 ${data.webVitals.LCP.rating === 'good' ? 'bg-green-500/10 border border-green-500/30' :
+                                        data.webVitals.LCP.rating === 'poor' ? 'bg-red-500/10 border border-red-500/30' :
+                                            'bg-yellow-500/10 border border-yellow-500/30'
+                                    }`}>
+                                    <p className="text-xs text-gray-400 mb-1">LCP</p>
+                                    <p className={`text-2xl font-bold ${data.webVitals.LCP.rating === 'good' ? 'text-green-400' :
+                                            data.webVitals.LCP.rating === 'poor' ? 'text-red-400' : 'text-yellow-400'
+                                        }`}>{(data.webVitals.LCP.value / 1000).toFixed(1)}s</p>
+                                    <p className={`text-xs ${data.webVitals.LCP.rating === 'good' ? 'text-green-500' :
+                                            data.webVitals.LCP.rating === 'poor' ? 'text-red-500' : 'text-yellow-500'
+                                        }`}>✓ {data.webVitals.LCP.rating === 'good' ? 'Bon' : data.webVitals.LCP.rating === 'poor' ? 'Mauvais' : 'A ameliorer'}</p>
+                                </div>
+                            )}
+                            {data.webVitals.FID && (
+                                <div className={`rounded-xl p-4 ${data.webVitals.FID.rating === 'good' ? 'bg-green-500/10 border border-green-500/30' :
+                                        data.webVitals.FID.rating === 'poor' ? 'bg-red-500/10 border border-red-500/30' :
+                                            'bg-yellow-500/10 border border-yellow-500/30'
+                                    }`}>
+                                    <p className="text-xs text-gray-400 mb-1">FID</p>
+                                    <p className={`text-2xl font-bold ${data.webVitals.FID.rating === 'good' ? 'text-green-400' :
+                                            data.webVitals.FID.rating === 'poor' ? 'text-red-400' : 'text-yellow-400'
+                                        }`}>{Math.round(data.webVitals.FID.value)}ms</p>
+                                    <p className={`text-xs ${data.webVitals.FID.rating === 'good' ? 'text-green-500' :
+                                            data.webVitals.FID.rating === 'poor' ? 'text-red-500' : 'text-yellow-500'
+                                        }`}>✓ {data.webVitals.FID.rating === 'good' ? 'Bon' : data.webVitals.FID.rating === 'poor' ? 'Mauvais' : 'A ameliorer'}</p>
+                                </div>
+                            )}
+                            {data.webVitals.CLS && (
+                                <div className={`rounded-xl p-4 ${data.webVitals.CLS.rating === 'good' ? 'bg-green-500/10 border border-green-500/30' :
+                                        data.webVitals.CLS.rating === 'poor' ? 'bg-red-500/10 border border-red-500/30' :
+                                            'bg-yellow-500/10 border border-yellow-500/30'
+                                    }`}>
+                                    <p className="text-xs text-gray-400 mb-1">CLS</p>
+                                    <p className={`text-2xl font-bold ${data.webVitals.CLS.rating === 'good' ? 'text-green-400' :
+                                            data.webVitals.CLS.rating === 'poor' ? 'text-red-400' : 'text-yellow-400'
+                                        }`}>{data.webVitals.CLS.value.toFixed(3)}</p>
+                                    <p className={`text-xs ${data.webVitals.CLS.rating === 'good' ? 'text-green-500' :
+                                            data.webVitals.CLS.rating === 'poor' ? 'text-red-500' : 'text-yellow-500'
+                                        }`}>✓ {data.webVitals.CLS.rating === 'good' ? 'Bon' : data.webVitals.CLS.rating === 'poor' ? 'Mauvais' : 'A ameliorer'}</p>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="bg-gray-800 rounded-xl p-4 text-center">
+                            <p className="text-gray-400 text-sm mb-2">
+                                Pas encore de donnees Web Vitals.
+                            </p>
+                            <p className="text-gray-500 text-xs">
+                                Les metriques apparaitront apres quelques visites reelles sur le site.
+                            </p>
+                        </div>
+                    )}
                     <p className="text-xs text-gray-500 mt-4">
-                        * Speed Insights collecte automatiquement les données de performance réelles des visiteurs.
+                        * Donnees collectees automatiquement sur les visiteurs reels.
                     </p>
                 </div>
 
