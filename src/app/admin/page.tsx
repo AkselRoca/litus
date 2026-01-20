@@ -35,20 +35,19 @@ interface Lead {
 
 // Tuiles disponibles
 const availableTiles = [
-    { id: 'leadsMonth', label: 'Leads ce mois', icon: Users, category: 'leads' },
-    { id: 'totalLeads', label: 'Leads total', icon: Users, category: 'leads' },
+    { id: 'leadsMonth', label: 'Leads', icon: Users, category: 'leads' },
     { id: 'conversion', label: 'Taux de conversion', icon: TrendingUp, category: 'leads' },
     { id: 'caOneShot', label: 'CA One-shot', icon: Euro, category: 'finance' },
     { id: 'caRecurrent', label: 'CA Récurrent', icon: Clock, category: 'finance' },
     { id: 'articles', label: 'Articles publiés', icon: FileText, category: 'content' },
     { id: 'projects', label: 'Projets portfolio', icon: Briefcase, category: 'content' },
     { id: 'media', label: 'Médias', icon: Image, category: 'content' },
-    { id: 'visitorsToday', label: 'Visiteurs (jour)', icon: Eye, category: 'analytics' },
+    { id: 'visitorsToday', label: 'Visiteurs', icon: Eye, category: 'analytics' },
     { id: 'pageViews', label: 'Pages vues', icon: Eye, category: 'analytics' },
     { id: 'bounceRate', label: 'Taux de rebond', icon: MousePointer, category: 'analytics' },
 ]
 
-const defaultVisibleTiles = ['leadsMonth', 'totalLeads', 'conversion', 'caOneShot', 'caRecurrent', 'visitorsToday']
+const defaultVisibleTiles = ['leadsMonth', 'conversion', 'caOneShot', 'caRecurrent', 'visitorsToday']
 
 // Presets de dates
 const datePresets = [

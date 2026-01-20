@@ -94,8 +94,8 @@ export async function GET(request: Request) {
             // Table PageView peut ne pas exister
         }
 
-        // Leads récents (dans la période)
-        const recentLeads = leads
+        // Leads récents (toujours les 5 derniers, indépendamment du filtre)
+        const recentLeads = allLeads
             .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
             .slice(0, 5)
             .map(lead => ({
