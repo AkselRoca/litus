@@ -1,11 +1,12 @@
 /**
  * API Market Analysis - Analyse de marché dynamique
  * Combine DataForSEO (volumes Google) + Gemini (analyse IA)
+ * Stocke les analyses détaillées pour consultation admin
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { getKeywordData, estimateSearchVolume } from '@/lib/dataforseo'
+import { getKeywordData, estimateSearchVolume, KeywordData } from '@/lib/dataforseo'
 import { generateMarketAnalysis, MarketAnalysis } from '@/lib/gemini'
 
 const analysisSchema = z.object({
@@ -17,6 +18,7 @@ const analysisSchema = z.object({
 export interface MarketAnalysisResponse {
     success: boolean
     analysis?: MarketAnalysis
+    analysisId?: string
     error?: string
 }
 
@@ -31,60 +33,89 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
         console.log(`[Market Analysis] Analyzing: ${keyword}`)
 
         // 1. Récupérer les données de mots-clés
-        let keywordData = await getKeywordData(keyword)
+        let keywordData: KeywordData | null = await getKeywordData(keyword)
+        let dataSource: 'dataforseo' | 'estimation' = 'dataforseo'
 
         // Fallback si DataForSEO n'est pas configuré ou échoue
         if (!keywordData) {
             console.log('[Market Analysis] Using fallback estimation')
             keywordData = estimateSearchVolume(metier, ville)
+            dataSource = 'estimation'
         }
 
-        console.log('[Market Analysis] Keyword data:', keywordData)
+        console.log('[Market Analysis] Keyword data:', {
+            source: dataSource,
+            searchVolume: keywordData.searchVolume,
+            competition: keywordData.competition,
+        })
 
-        // 2. Générer l'analyse IA
+        // 2. Générer l'analyse IA avec calculs réalistes
         const analysis = await generateMarketAnalysis(metier, ville, keywordData)
 
         console.log('[Market Analysis] Analysis generated:', {
-            potentiel: analysis.potentielAnnuel,
-            recherches: analysis.recherchesMensuelles,
+            potentielMensuel: analysis.potentielMensuel,
+            potentielAnnuel: analysis.potentielAnnuel,
+            tauxCapture: analysis.tauxCapture,
         })
 
-        // 3. Sauvegarder le lead
+        // 3. Sauvegarder l'analyse dans la nouvelle table MarketAnalysis
         const { prisma } = await import('@/lib/database_final')
 
-        await prisma.lead.create({
+        // Créer d'abord un lead si email fourni
+        let leadId: string | null = null
+        if (email) {
+            const lead = await prisma.lead.create({
+                data: {
+                    type: 'market-analysis',
+                    email: email,
+                    phone: null,
+                    data: JSON.stringify({ metier, ville }),
+                    source: 'Estimateur de Potentiel',
+                    status: 'new',
+                    treated: false,
+                },
+            })
+            leadId = lead.id
+        }
+
+        // Créer l'analyse détaillée
+        const savedAnalysis = await prisma.marketAnalysis.create({
             data: {
-                type: 'market-analysis',
+                metier,
+                ville,
+                keyword,
+
+                // Données SEO
+                searchVolume: keywordData.searchVolume,
+                cpc: keywordData.cpc,
+                competition: keywordData.competition,
+                competitionIndex: keywordData.competitionIndex,
+                dataSource,
+
+                // Calculs
+                panierMoyen: analysis.panierMoyen,
+                tauxConversion: analysis.tauxConversion,
+                tauxCapture: analysis.tauxCapture,
+                potentielMensuel: analysis.potentielMensuel,
+                potentielAnnuel: analysis.potentielAnnuel,
+
+                // Analyse IA
+                tendance: analysis.tendance,
+                analyse: analysis.analyse,
+                conseils: JSON.stringify(analysis.conseils),
+
+                // Relation lead
+                leadId,
                 email: email || null,
-                phone: null,
-                data: JSON.stringify({
-                    metier,
-                    ville,
-                    analysis: {
-                        potentielAnnuel: analysis.potentielAnnuel,
-                        recherchesMensuelles: analysis.recherchesMensuelles,
-                        concurrence: analysis.concurrence,
-                        tendance: analysis.tendance,
-                        panierMoyen: analysis.panierMoyen,
-                        analyse: analysis.analyse,
-                        conseils: analysis.conseils,
-                    },
-                    keywordData: {
-                        searchVolume: keywordData.searchVolume,
-                        cpc: keywordData.cpc,
-                        competition: keywordData.competition,
-                    },
-                }),
-                source: 'Estimateur de Potentiel',
-                treated: false,
             },
         })
 
-        console.log('[Market Analysis] Lead saved:', email || 'anonymous')
+        console.log('[Market Analysis] Saved:', savedAnalysis.id, email ? `(lead: ${leadId})` : '(anonymous)')
 
         return NextResponse.json({
             success: true,
             analysis,
+            analysisId: savedAnalysis.id,
         })
     } catch (error) {
         console.error('[Market Analysis] Error:', error)

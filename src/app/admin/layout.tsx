@@ -1,7 +1,7 @@
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { LayoutDashboard, FileText, Users, Settings, LogOut, Home, BarChart, Briefcase, Image } from 'lucide-react'
+import { LayoutDashboard, FileText, Users, Settings, LogOut, Home, BarChart, Briefcase, Image, TrendingUp } from 'lucide-react'
 import { signOut } from '@/auth'
 
 async function SignOutButton() {
@@ -40,6 +40,7 @@ export default async function AdminLayout({
         { href: '/admin/portfolio', icon: Briefcase, label: 'Portfolio' },
         { href: '/admin/media', icon: Image, label: 'Médias' },
         { href: '/admin/leads', icon: Users, label: 'Leads' },
+        { href: '/admin/market-analysis', icon: TrendingUp, label: 'Analyses Marché' },
         { href: '/admin/blog', icon: FileText, label: 'Blog' },
         { href: '/admin/analytics', icon: BarChart, label: 'Analytics' },
         { href: '/admin/settings', icon: Settings, label: 'Paramètres' },

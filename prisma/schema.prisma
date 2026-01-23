@@ -177,3 +177,43 @@ model WebVital {
   @@index([createdAt])
   @@index([rating])
 }
+
+// Analyses de marché (Estimateur de Potentiel)
+model MarketAnalysis {
+  id                  String   @id @default(cuid())
+  
+  // Données de recherche
+  metier              String
+  ville               String
+  keyword             String   // "couvreur lorient"
+  
+  // Données SEO (DataForSEO ou estimation)
+  searchVolume        Int      // Recherches/mois
+  cpc                 Float    // Coût par clic
+  competition         String   // LOW, MEDIUM, HIGH
+  competitionIndex    Int      // 0-100
+  dataSource          String   // "dataforseo" | "estimation"
+  
+  // Calculs
+  panierMoyen         Int      // € panier moyen du métier
+  tauxConversion      Float    // % de conversion estimé
+  tauxCapture         Float    // % de part de marché réaliste
+  potentielMensuel    Int      // CA mensuel potentiel
+  potentielAnnuel     Int      // CA annuel potentiel
+  
+  // Analyse IA
+  tendance            String   // Hausse, Stable, Baisse
+  analyse             String   // Texte généré par IA
+  conseils            String   // JSON array de conseils
+  
+  // Relation Lead (optionnel - si email fourni)
+  leadId              String?  @unique
+  email               String?
+  
+  createdAt           DateTime @default(now())
+  
+  @@index([metier])
+  @@index([ville])
+  @@index([createdAt])
+}
+
