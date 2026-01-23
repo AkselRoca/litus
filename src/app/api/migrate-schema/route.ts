@@ -28,6 +28,35 @@ export async function GET() {
             `ALTER TABLE Lead ADD COLUMN contractMonths INTEGER`,
             `ALTER TABLE Lead ADD COLUMN notes TEXT`,
             `ALTER TABLE Lead ADD COLUMN assignedToId TEXT`,
+
+            // Création de la table MarketAnalysis
+            `CREATE TABLE IF NOT EXISTS MarketAnalysis (
+                id TEXT PRIMARY KEY,
+                metier TEXT NOT NULL,
+                ville TEXT NOT NULL,
+                keyword TEXT NOT NULL,
+                searchVolume INTEGER NOT NULL,
+                cpc REAL NOT NULL,
+                competition TEXT NOT NULL,
+                competitionIndex INTEGER NOT NULL,
+                dataSource TEXT NOT NULL,
+                panierMoyen INTEGER NOT NULL,
+                tauxConversion REAL NOT NULL,
+                tauxCapture REAL NOT NULL,
+                potentielMensuel INTEGER NOT NULL,
+                potentielAnnuel INTEGER NOT NULL,
+                tendance TEXT NOT NULL,
+                analyse TEXT NOT NULL,
+                conseils TEXT NOT NULL,
+                leadId TEXT UNIQUE,
+                email TEXT,
+                createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+            )`,
+
+            // Index pour MarketAnalysis
+            `CREATE INDEX IF NOT EXISTS idx_market_analysis_metier ON MarketAnalysis(metier)`,
+            `CREATE INDEX IF NOT EXISTS idx_market_analysis_ville ON MarketAnalysis(ville)`,
+            `CREATE INDEX IF NOT EXISTS idx_market_analysis_created ON MarketAnalysis(createdAt)`,
         ]
 
         for (const sql of migrations) {
