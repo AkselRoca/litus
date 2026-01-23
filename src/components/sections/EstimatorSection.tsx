@@ -2,25 +2,43 @@
 
 import { Button, Input } from '@/components/ui'
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter'
-import { Search, TrendingUp, Users, Activity, CheckCircle2 } from 'lucide-react'
+import { Search, TrendingUp, Users, Activity, CheckCircle2, Mail, ArrowRight, Sparkles } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import * as React from 'react'
-import { availableMetiers, availableVilles } from '@/lib/estimator-data'
 import { Card } from '@/components/ui/Card'
+import type { MarketAnalysis } from '@/lib/gemini'
+
+// Liste des métiers et villes suggérés
+const suggestedMetiers = [
+    'Plombier', 'Électricien', 'Couvreur', 'Chauffagiste', 'Serrurier',
+    'Menuisier', 'Peintre', 'Maçon', 'Jardinier', 'Coiffeur',
+    'Avocat', 'Dentiste', 'Architecte', 'Carreleur', 'Vitrier',
+    'Climaticien', 'Pisciniste', 'Ostéopathe', 'Kinésithérapeute'
+]
+
+const suggestedVilles = [
+    'Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes',
+    'Montpellier', 'Strasbourg', 'Bordeaux', 'Lille', 'Rennes',
+    'Lorient', 'Le Mans', 'Vannes', 'Quimper', 'Brest'
+]
+
+type StepType = 'idle' | 'analyzing' | 'result' | 'email'
 
 export function EstimatorSection() {
     const [metier, setMetier] = React.useState('')
     const [ville, setVille] = React.useState('')
-    const [result, setResult] = React.useState<number | null>(null)
+    const [email, setEmail] = React.useState('')
+    const [analysis, setAnalysis] = React.useState<MarketAnalysis | null>(null)
     const [isCalculating, setIsCalculating] = React.useState(false)
     const [progress, setProgress] = React.useState(0)
-    const [step, setStep] = React.useState('idle') // idle, analyzing, result
+    const [step, setStep] = React.useState<StepType>('idle')
+    const [emailSent, setEmailSent] = React.useState(false)
 
-    const steps = [
-        "Analyse du volume de recherche...",
-        "Calcul de la concurrence locale...",
-        "Estimation du taux de conversion...",
-        "Finalisation du rapport..."
+    const analysisSteps = [
+        "Analyse du volume de recherche Google...",
+        "Évaluation de la concurrence locale...",
+        "Calcul du taux de conversion...",
+        "Génération de l'analyse IA..."
     ]
     const [currentStepIndex, setCurrentStepIndex] = React.useState(0)
 
@@ -33,15 +51,22 @@ export function EstimatorSection() {
         setProgress(0)
         setCurrentStepIndex(0)
 
-        // Simulation d'une analyse complexe (pour l'effet "Wow")
-        const duration = 2500 // 2.5s d'animation
+        // Animation de progression pendant l'appel API
+        const duration = 3000 // 3s d'animation
         const intervalTime = 50
         const stepsCount = duration / intervalTime
         let currentStep = 0
 
+        // Lancer l'appel API en parallèle
+        const apiPromise = fetch('/api/market-analysis', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ metier, ville }),
+        }).then(res => res.json())
+
         const timer = setInterval(() => {
             currentStep++
-            const newProgress = Math.min((currentStep / stepsCount) * 100, 100)
+            const newProgress = Math.min((currentStep / stepsCount) * 100, 95) // Max 95% pendant l'attente
             setProgress(newProgress)
 
             // Change text steps
@@ -51,30 +76,55 @@ export function EstimatorSection() {
 
             if (currentStep >= stepsCount) {
                 clearInterval(timer)
-                finishCalculation()
             }
         }, intervalTime)
-    }
 
-    const finishCalculation = async () => {
         try {
-            const response = await fetch('/api/estimator', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ metier, ville }),
-            })
-            const data = await response.json()
-            if (response.ok) {
-                setResult(data.potentiel)
-                setStep('result')
+            const data = await apiPromise
+            clearInterval(timer)
+            setProgress(100)
+
+            if (data.success && data.analysis) {
+                setAnalysis(data.analysis)
+                setTimeout(() => {
+                    setStep('result')
+                    setIsCalculating(false)
+                }, 300)
             } else {
-                setStep('idle') // Reset on error for now
+                setStep('idle')
+                setIsCalculating(false)
             }
         } catch (err) {
+            clearInterval(timer)
             setStep('idle')
-        } finally {
             setIsCalculating(false)
         }
+    }
+
+    const handleEmailSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!email) return
+
+        // Envoyer l'email au serveur pour update le lead
+        try {
+            await fetch('/api/market-analysis', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ metier, ville, email }),
+            })
+            setEmailSent(true)
+        } catch (err) {
+            console.error('Error saving email:', err)
+        }
+    }
+
+    const resetForm = () => {
+        setStep('idle')
+        setMetier('')
+        setVille('')
+        setEmail('')
+        setAnalysis(null)
+        setEmailSent(false)
     }
 
     return (
@@ -123,8 +173,8 @@ export function EstimatorSection() {
                                         <Users className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <div className="font-bold">Données Google Officielles</div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-500">basées sur les volumes de recherche réels</div>
+                                        <div className="font-bold">Données Google + Analyse IA</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-500">volumes de recherche réels et conseils personnalisés</div>
                                     </div>
                                 </div>
                             </div>
@@ -143,12 +193,12 @@ export function EstimatorSection() {
                                     <span className="font-bold font-heading text-lg">Litus Intelligence™</span>
                                 </div>
                                 <div className="flex gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-700" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-700" />
                                 </div>
                             </div>
 
-                            <div className="p-8 relative min-h-[400px] flex flex-col justify-center">
+                            <div className="p-8 relative min-h-[450px] flex flex-col justify-center">
                                 <AnimatePresence mode="wait">
                                     {/* STATE: IDLE (Form) */}
                                     {step === 'idle' && (
@@ -167,7 +217,7 @@ export function EstimatorSection() {
                                                         <Input
                                                             type="text"
                                                             list="metiers-list"
-                                                            placeholder="Ex: Plombier, Avocat..."
+                                                            placeholder="Ex: Couvreur, Plombier..."
                                                             value={metier}
                                                             onChange={e => setMetier(e.target.value)}
                                                             className="pl-5 h-14 bg-gray-50 dark:bg-[#0A0A0A] border-gray-200 dark:border-white/10 focus:ring-primary/20 text-lg transition-all group-hover:border-primary/50"
@@ -183,7 +233,7 @@ export function EstimatorSection() {
                                                         <Input
                                                             type="text"
                                                             list="villes-list"
-                                                            placeholder="Ex: Paris, Lyon..."
+                                                            placeholder="Ex: Lorient, Paris..."
                                                             value={ville}
                                                             onChange={e => setVille(e.target.value)}
                                                             className="pl-5 h-14 bg-gray-50 dark:bg-[#0A0A0A] border-gray-200 dark:border-white/10 focus:ring-primary/20 text-lg transition-all group-hover:border-primary/50"
@@ -198,7 +248,8 @@ export function EstimatorSection() {
                                                 size="xl"
                                                 className="w-full text-lg h-16 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all font-bold"
                                             >
-                                                Lancer l'analyse
+                                                <Sparkles className="w-5 h-5 mr-2" />
+                                                Lancer l&apos;analyse IA
                                             </Button>
                                             <div className="text-center text-xs text-gray-400">Gratuit, instantané et sans engagement.</div>
                                         </motion.form>
@@ -222,50 +273,95 @@ export function EstimatorSection() {
                                                     {Math.round(progress)}%
                                                 </div>
                                             </div>
-                                            <h3 className="text-xl font-bold mb-2 animate-pulse">{steps[currentStepIndex]}</h3>
-                                            <p className="text-sm text-gray-500">Interrogation de la base de données Google...</p>
+                                            <h3 className="text-xl font-bold mb-2 animate-pulse">{analysisSteps[currentStepIndex]}</h3>
+                                            <p className="text-sm text-gray-500">Analyse de &quot;{metier}&quot; à {ville}</p>
                                         </motion.div>
                                     )}
 
                                     {/* STATE: RESULT */}
-                                    {step === 'result' && result !== null && (
+                                    {step === 'result' && analysis && (
                                         <motion.div
                                             key="result"
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            className="text-center"
+                                            className="space-y-6"
                                         >
-                                            <div className="w-16 h-16 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500">
-                                                <CheckCircle2 className="w-8 h-8" />
-                                            </div>
-                                            <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-2">Potentiel Annuel Identifié</p>
-                                            <div className="text-5xl md:text-6xl font-bold font-heading text-primary mb-2 tracking-tight">
-                                                <AnimatedCounter target={result} suffix=" €" />
-                                            </div>
-                                            <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-xs mx-auto">
-                                                C'est le chiffre d'affaires que vous laissez à vos concurrents à {ville}.
-                                            </p>
-
-                                            <div className="grid grid-cols-2 gap-4 mb-8">
-                                                <div className="bg-gray-50 dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/5">
-                                                    <div className="text-xl font-bold text-gray-900 dark:text-white mb-1">~500</div>
-                                                    <div className="text-xs text-gray-500">Recherches / mois</div>
+                                            <div className="text-center">
+                                                <div className="w-14 h-14 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-green-500">
+                                                    <CheckCircle2 className="w-7 h-7" />
                                                 </div>
-                                                <div className="bg-gray-50 dark:bg-white/5 p-4 rounded-xl border border-gray-100 dark:border-white/5">
-                                                    <div className="text-xl font-bold text-gray-900 dark:text-white mb-1">Faible</div>
+                                                <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-1">Potentiel Annuel Identifié</p>
+                                                <div className="text-5xl md:text-6xl font-bold font-heading text-primary mb-1 tracking-tight">
+                                                    <AnimatedCounter target={analysis.potentielAnnuel} suffix=" €" />
+                                                </div>
+                                                <p className="text-sm text-gray-500">de CA que vous laissez à vos concurrents</p>
+                                            </div>
+
+                                            {/* Stats Grid */}
+                                            <div className="grid grid-cols-3 gap-3">
+                                                <div className="bg-gray-50 dark:bg-white/5 p-3 rounded-xl border border-gray-100 dark:border-white/5 text-center">
+                                                    <div className="text-lg font-bold text-gray-900 dark:text-white">{analysis.recherchesMensuelles}</div>
+                                                    <div className="text-xs text-gray-500">Recherches/mois</div>
+                                                </div>
+                                                <div className="bg-gray-50 dark:bg-white/5 p-3 rounded-xl border border-gray-100 dark:border-white/5 text-center">
+                                                    <div className="text-lg font-bold text-gray-900 dark:text-white">{analysis.concurrence}</div>
                                                     <div className="text-xs text-gray-500">Concurrence</div>
                                                 </div>
+                                                <div className="bg-gray-50 dark:bg-white/5 p-3 rounded-xl border border-gray-100 dark:border-white/5 text-center">
+                                                    <div className="text-lg font-bold text-gray-900 dark:text-white">{analysis.tendance}</div>
+                                                    <div className="text-xs text-gray-500">Tendance</div>
+                                                </div>
                                             </div>
 
-                                            <Button size="lg" href="/contact" className="w-full shadow-lg shadow-primary/20 hover:shadow-primary/30">
-                                                Récupérer ce CA maintenant
-                                            </Button>
-                                            <button
-                                                onClick={() => setStep('idle')}
-                                                className="mt-4 text-sm text-gray-500 hover:text-primary transition-colors underline decoration-dotted"
-                                            >
-                                                Faire une autre estimation
-                                            </button>
+                                            {/* Analysis Preview */}
+                                            <div className="bg-gradient-to-br from-primary/5 to-orange-500/5 p-4 rounded-xl border border-primary/10">
+                                                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3">
+                                                    {analysis.analyse}
+                                                </p>
+                                            </div>
+
+                                            {/* Email Capture */}
+                                            {!emailSent ? (
+                                                <form onSubmit={handleEmailSubmit} className="space-y-3">
+                                                    <div className="flex gap-2">
+                                                        <div className="relative flex-1">
+                                                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                                                            <Input
+                                                                type="email"
+                                                                placeholder="Votre email pour le rapport complet"
+                                                                value={email}
+                                                                onChange={e => setEmail(e.target.value)}
+                                                                className="pl-10 h-12 bg-white dark:bg-[#0A0A0A]"
+                                                            />
+                                                        </div>
+                                                        <Button type="submit" size="lg" className="h-12 px-6">
+                                                            <ArrowRight className="w-4 h-4" />
+                                                        </Button>
+                                                    </div>
+                                                    <p className="text-xs text-gray-400 text-center">
+                                                        Recevez l&apos;analyse complète avec les conseils personnalisés
+                                                    </p>
+                                                </form>
+                                            ) : (
+                                                <div className="bg-green-50 dark:bg-green-500/10 p-4 rounded-xl border border-green-200 dark:border-green-500/20 text-center">
+                                                    <CheckCircle2 className="w-5 h-5 text-green-500 mx-auto mb-2" />
+                                                    <p className="text-sm text-green-700 dark:text-green-400 font-medium">
+                                                        Merci ! Nous vous recontacterons sous 24h avec votre analyse détaillée.
+                                                    </p>
+                                                </div>
+                                            )}
+
+                                            <div className="flex justify-between items-center pt-2">
+                                                <button
+                                                    onClick={resetForm}
+                                                    className="text-sm text-gray-500 hover:text-primary transition-colors underline decoration-dotted"
+                                                >
+                                                    Nouvelle analyse
+                                                </button>
+                                                <Button variant="outline" size="sm" href="/contact">
+                                                    Prendre RDV
+                                                </Button>
+                                            </div>
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
@@ -276,10 +372,10 @@ export function EstimatorSection() {
 
                 {/* Datalists for Autocomplete */}
                 <datalist id="metiers-list">
-                    {availableMetiers.map(m => <option key={m} value={m} />)}
+                    {suggestedMetiers.map(m => <option key={m} value={m} />)}
                 </datalist>
                 <datalist id="villes-list">
-                    {availableVilles.map(v => <option key={v} value={v} />)}
+                    {suggestedVilles.map(v => <option key={v} value={v} />)}
                 </datalist>
             </div>
         </section>
