@@ -572,6 +572,17 @@ export default function AdminLeadsPage() {
                                     <div><label className="block text-gray-500 text-xs mb-1">Service</label><div className="text-white capitalize">{selectedLead.parsedData.service.replace(/-/g, ' ')}</div></div>
                                 )}
                                 <div><label className="block text-gray-500 text-xs mb-1">Source</label><div className="text-white">{selectedLead.source}</div></div>
+
+                                {/* Lien vers l'analyse de marché si c'est un lead market-analysis */}
+                                {selectedLead.type === 'market-analysis' && selectedLead.parsedData && (
+                                    <a
+                                        href={`/admin/market-analysis?email=${encodeURIComponent(selectedLead.email || '')}`}
+                                        className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+                                    >
+                                        📊 Voir l&apos;analyse de marché →
+                                    </a>
+                                )}
+
                                 <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-gray-500" /><span className="text-white">{formatDate(selectedLead.createdAt)}</span></div>
 
                                 {/* Message */}

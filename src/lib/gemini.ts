@@ -1,9 +1,13 @@
 /**
  * Service Google Gemini - Génération d'analyses de marché
  * 
- * FORMULE DE CALCUL RÉALISTE:
- * - Volume recherche × Taux clic (30%) × Taux conversion × Taux capture × Panier × 12
- * - Taux capture = Part de marché réaliste qu'un nouvel acteur peut capter (5-15%)
+ * FORMULE DE CALCUL SIMPLE ET RÉALISTE:
+ * Volume recherche × Taux de capture (5-15%) × Panier moyen = CA mensuel
+ * 
+ * EXPLICATION:
+ * - "Taux de capture" = % des recherches qui finissent par devenir VOS clients
+ * - Inclut implicitement : CTR, taux de conversion, et part de marché
+ * - Plus la concurrence est forte, moins on capte
  */
 
 import { KeywordData } from './dataforseo'
@@ -17,7 +21,6 @@ export interface MarketAnalysis {
     analyse: string
     conseils: string[]
     panierMoyen: number
-    tauxConversion: number
     tauxCapture: number
 }
 
@@ -57,43 +60,39 @@ const PANIERS_MOYENS: Record<string, number> = {
 }
 
 /**
- * Calcule le potentiel de CA de manière réaliste
+ * Calcule le potentiel de CA de manière simple et réaliste
  * 
- * Formule:
- * Volume × CTR organique (30%) × Taux conversion × Taux capture marché × Panier × 12
+ * FORMULE SIMPLE:
+ * Recherches × Taux capture × Panier = CA mensuel
  * 
- * Où:
- * - CTR organique = 30% des recherches cliquent sur un résultat organique local
- * - Taux conversion = % de visiteurs qui deviennent clients (1.5-3.5%)
- * - Taux capture = Part de marché réaliste pour UN acteur (5-15%)
+ * Le "taux de capture" représente le % des recherches mensuelles
+ * qui finissent par devenir TES clients. Il intègre :
+ * - Le taux de clic
+ * - Le taux de conversion
+ * - Ta part de marché face aux concurrents
+ * 
+ * Valeurs réalistes basées sur l'industrie :
+ * - Concurrence forte : 0.5% (beaucoup de concurrents, difficile de se démarquer)
+ * - Concurrence moyenne : 1% (position classique)
+ * - Concurrence faible : 2% (peu de concurrents, plus facile)
  */
-function calculateRealisticPotential(
+function calculatePotential(
     searchVolume: number,
     competition: 'LOW' | 'MEDIUM' | 'HIGH',
     panierMoyen: number
-): { potentielMensuel: number; potentielAnnuel: number; tauxConversion: number; tauxCapture: number } {
+): { potentielMensuel: number; potentielAnnuel: number; tauxCapture: number } {
 
-    // CTR organique moyen (combien cliquent sur un résultat local)
-    const ctrOrganique = 0.30 // 30%
+    // Taux de capture réaliste (% des recherches qui deviennent TES clients)
+    const tauxCapture = competition === 'HIGH' ? 0.005 : // 0.5%
+        competition === 'MEDIUM' ? 0.01 : // 1%
+            0.02 // 2%
 
-    // Taux de conversion (visiteurs → clients)
-    const tauxConversion = competition === 'HIGH' ? 0.015 : // 1.5%
-        competition === 'MEDIUM' ? 0.025 : // 2.5%
-            0.035 // 3.5%
-
-    // Taux de capture marché (part qu'UN acteur peut raisonnablement capter)
-    // Plus la concurrence est forte, moins on capte
-    const tauxCapture = competition === 'HIGH' ? 0.05 : // 5%
-        competition === 'MEDIUM' ? 0.10 : // 10%
-            0.15 // 15%
-
-    // Calcul
-    const visiteursMensuels = searchVolume * ctrOrganique
-    const clientsMensuels = visiteursMensuels * tauxConversion * tauxCapture
+    // Calcul simple
+    const clientsMensuels = searchVolume * tauxCapture
     const potentielMensuel = Math.round(clientsMensuels * panierMoyen)
     const potentielAnnuel = potentielMensuel * 12
 
-    return { potentielMensuel, potentielAnnuel, tauxConversion, tauxCapture }
+    return { potentielMensuel, potentielAnnuel, tauxCapture }
 }
 
 /**
@@ -109,8 +108,8 @@ export async function generateMarketAnalysis(
     const metierLower = metier.toLowerCase()
     const panierMoyen = PANIERS_MOYENS[metierLower] || 500
 
-    // Calcul réaliste du potentiel
-    const { potentielMensuel, potentielAnnuel, tauxConversion, tauxCapture } = calculateRealisticPotential(
+    // Calcul du potentiel
+    const { potentielMensuel, potentielAnnuel, tauxCapture } = calculatePotential(
         keywordData.searchVolume,
         keywordData.competition,
         panierMoyen
@@ -129,9 +128,8 @@ export async function generateMarketAnalysis(
             concurrence,
             tendance: 'Stable',
             panierMoyen,
-            tauxConversion,
             tauxCapture,
-            analyse: `Avec ${keywordData.searchVolume} recherches mensuelles pour "${metier}" à ${ville}, vous pouvez raisonnablement capter ${(tauxCapture * 100).toFixed(0)}% du marché. La concurrence est ${concurrence.toLowerCase()}, ce qui représente une opportunité intéressante.`,
+            analyse: `Avec ${keywordData.searchVolume.toLocaleString('fr-FR')} recherches mensuelles pour "${metier}" à ${ville}, vous pouvez raisonnablement capter ${(tauxCapture * 100).toFixed(1)}% du marché. La concurrence est ${concurrence.toLowerCase()}, ce qui représente une opportunité intéressante.`,
             conseils: [
                 'Créez un site web optimisé pour le référencement local',
                 'Inscrivez-vous sur Google Business Profile',
@@ -147,10 +145,12 @@ export async function generateMarketAnalysis(
 Analyse le marché pour un ${metier} situé à ${ville}.
 
 Données de recherche Google:
-- Volume de recherche mensuel: ${keywordData.searchVolume} recherches/mois
+- Volume de recherche mensuel: ${keywordData.searchVolume} recherches/mois pour "${metier} ${ville}"
 - Coût par clic moyen: ${keywordData.cpc.toFixed(2)}€
 - Niveau de concurrence: ${concurrence}
 - Panier moyen du secteur: ${panierMoyen}€
+- Taux de capture estimé: ${(tauxCapture * 100).toFixed(1)}%
+- Potentiel mensuel calculé: ${potentielMensuel.toLocaleString('fr-FR')}€
 - Potentiel annuel calculé: ${potentielAnnuel.toLocaleString('fr-FR')}€
 
 Génère une réponse JSON avec cette structure exacte (sans markdown, juste le JSON):
@@ -160,8 +160,7 @@ Génère une réponse JSON avec cette structure exacte (sans markdown, juste le 
     "conseils": ["conseil 1", "conseil 2", "conseil 3", "conseil 4"]
 }
 
-IMPORTANT: Sois réaliste dans ton analyse. Le potentiel calculé tient compte qu'un seul acteur ne peut capter qu'une fraction du marché (${(tauxCapture * 100).toFixed(0)}%).
-Les conseils doivent être spécifiques au métier de ${metier}.`
+IMPORTANT: Sois réaliste. Les conseils doivent être spécifiques au métier de ${metier}.`
 
         const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
             method: 'POST',
@@ -201,7 +200,6 @@ Les conseils doivent être spécifiques au métier de ${metier}.`
                 concurrence,
                 tendance: geminiAnalysis.tendance || 'Stable',
                 panierMoyen,
-                tauxConversion,
                 tauxCapture,
                 analyse: geminiAnalysis.analyse || `Marché prometteur pour ${metier} à ${ville}.`,
                 conseils: geminiAnalysis.conseils || [
@@ -223,9 +221,8 @@ Les conseils doivent être spécifiques au métier de ${metier}.`
             concurrence,
             tendance: 'Stable',
             panierMoyen,
-            tauxConversion,
             tauxCapture,
-            analyse: `Le marché pour "${metier}" à ${ville} présente un potentiel réaliste de ${potentielAnnuel.toLocaleString('fr-FR')}€ de chiffre d'affaires annuel. Avec ${keywordData.searchVolume} recherches mensuelles et une concurrence ${concurrence.toLowerCase()}, vous pouvez capter environ ${(tauxCapture * 100).toFixed(0)}% du marché.`,
+            analyse: `Le marché pour "${metier}" à ${ville} présente un potentiel de ${potentielAnnuel.toLocaleString('fr-FR')}€ de chiffre d'affaires annuel. Avec ${keywordData.searchVolume.toLocaleString('fr-FR')} recherches mensuelles et une concurrence ${concurrence.toLowerCase()}, vous pouvez capter environ ${(tauxCapture * 100).toFixed(1)}% du marché.`,
             conseils: [
                 `Créez un site web professionnel optimisé pour "${metier} ${ville}"`,
                 'Activez votre fiche Google Business Profile avec photos et avis',

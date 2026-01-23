@@ -1,7 +1,10 @@
 /**
  * API Market Analysis - Analyse de marché dynamique
  * Combine DataForSEO (volumes Google) + Gemini (analyse IA)
- * Stocke les analyses détaillées pour consultation admin
+ * 
+ * FLUX:
+ * 1. Première requête (sans email) → Crée analyse, retourne analysisId
+ * 2. Deuxième requête (avec email + analysisId) → Met à jour l'analyse existante + crée Lead
  */
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -13,6 +16,7 @@ const analysisSchema = z.object({
     metier: z.string().min(2, 'Métier requis'),
     ville: z.string().min(2, 'Ville requise'),
     email: z.string().email('Email invalide').optional().or(z.literal('')),
+    analysisId: z.string().optional(), // ID d'une analyse existante à mettre à jour
 })
 
 export interface MarketAnalysisResponse {
@@ -27,9 +31,46 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
         const body = await request.json()
         const data = analysisSchema.parse(body)
 
-        const { metier, ville, email } = data
+        const { metier, ville, email, analysisId } = data
         const keyword = `${metier} ${ville}`
 
+        const { prisma } = await import('@/lib/database_final')
+
+        // Si on a un analysisId ET un email, on met à jour l'analyse existante
+        if (analysisId && email) {
+            console.log(`[Market Analysis] Updating existing analysis ${analysisId} with email`)
+
+            // Créer le lead
+            const lead = await prisma.lead.create({
+                data: {
+                    type: 'market-analysis',
+                    email: email,
+                    phone: null,
+                    data: JSON.stringify({ metier, ville, analysisId }),
+                    source: 'Estimateur de Potentiel',
+                    status: 'new',
+                    treated: false,
+                },
+            })
+
+            // Mettre à jour l'analyse avec l'email et le leadId
+            await prisma.marketAnalysis.update({
+                where: { id: analysisId },
+                data: {
+                    email: email,
+                    leadId: lead.id,
+                },
+            })
+
+            console.log(`[Market Analysis] Updated analysis ${analysisId} with lead ${lead.id}`)
+
+            return NextResponse.json({
+                success: true,
+                analysisId,
+            })
+        }
+
+        // Sinon, créer une nouvelle analyse
         console.log(`[Market Analysis] Analyzing: ${keyword}`)
 
         // 1. Récupérer les données de mots-clés
@@ -58,27 +99,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
             tauxCapture: analysis.tauxCapture,
         })
 
-        // 3. Sauvegarder l'analyse dans la nouvelle table MarketAnalysis
-        const { prisma } = await import('@/lib/database_final')
-
-        // Créer d'abord un lead si email fourni
-        let leadId: string | null = null
-        if (email) {
-            const lead = await prisma.lead.create({
-                data: {
-                    type: 'market-analysis',
-                    email: email,
-                    phone: null,
-                    data: JSON.stringify({ metier, ville }),
-                    source: 'Estimateur de Potentiel',
-                    status: 'new',
-                    treated: false,
-                },
-            })
-            leadId = lead.id
-        }
-
-        // Créer l'analyse détaillée
+        // 3. Sauvegarder l'analyse (sans email pour l'instant)
         const savedAnalysis = await prisma.marketAnalysis.create({
             data: {
                 metier,
@@ -94,7 +115,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
 
                 // Calculs
                 panierMoyen: analysis.panierMoyen,
-                tauxConversion: analysis.tauxConversion,
+                tauxConversion: 0, // Deprecated, kept for schema compatibility
                 tauxCapture: analysis.tauxCapture,
                 potentielMensuel: analysis.potentielMensuel,
                 potentielAnnuel: analysis.potentielAnnuel,
@@ -104,13 +125,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
                 analyse: analysis.analyse,
                 conseils: JSON.stringify(analysis.conseils),
 
-                // Relation lead
-                leadId,
-                email: email || null,
+                // Pas d'email ni de lead pour l'instant
+                leadId: null,
+                email: null,
             },
         })
 
-        console.log('[Market Analysis] Saved:', savedAnalysis.id, email ? `(lead: ${leadId})` : '(anonymous)')
+        console.log('[Market Analysis] Saved:', savedAnalysis.id)
 
         return NextResponse.json({
             success: true,

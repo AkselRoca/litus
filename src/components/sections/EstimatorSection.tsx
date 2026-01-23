@@ -29,6 +29,7 @@ export function EstimatorSection() {
     const [ville, setVille] = React.useState('')
     const [email, setEmail] = React.useState('')
     const [analysis, setAnalysis] = React.useState<MarketAnalysis | null>(null)
+    const [analysisId, setAnalysisId] = React.useState<string | null>(null)
     const [isCalculating, setIsCalculating] = React.useState(false)
     const [progress, setProgress] = React.useState(0)
     const [step, setStep] = React.useState<StepType>('idle')
@@ -86,6 +87,7 @@ export function EstimatorSection() {
 
             if (data.success && data.analysis) {
                 setAnalysis(data.analysis)
+                setAnalysisId(data.analysisId) // Store for later update
                 setTimeout(() => {
                     setStep('result')
                     setIsCalculating(false)
@@ -105,12 +107,12 @@ export function EstimatorSection() {
         e.preventDefault()
         if (!email) return
 
-        // Envoyer l'email au serveur pour update le lead
+        // Envoyer l'email + analysisId pour mettre à jour l'analyse existante
         try {
             await fetch('/api/market-analysis', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ metier, ville, email }),
+                body: JSON.stringify({ metier, ville, email, analysisId }),
             })
             setEmailSent(true)
         } catch (err) {
@@ -124,6 +126,7 @@ export function EstimatorSection() {
         setVille('')
         setEmail('')
         setAnalysis(null)
+        setAnalysisId(null)
         setEmailSent(false)
     }
 
