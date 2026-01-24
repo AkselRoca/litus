@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { TrendingUp, TrendingDown, Minus, Search, Calendar, Mail, BarChart3, Target, DollarSign, ExternalLink } from 'lucide-react'
+import { TrendingUp, TrendingDown, Minus, Search, Calendar, Mail, BarChart3, Target, DollarSign, ExternalLink, Trash2, CheckSquare, Square, X, Loader2 } from 'lucide-react'
 
 interface MarketAnalysisData {
     id: string
@@ -28,18 +28,78 @@ export default function MarketAnalysisPage() {
     const [analyses, setAnalyses] = useState<MarketAnalysisData[]>([])
     const [loading, setLoading] = useState(true)
     const [selectedAnalysis, setSelectedAnalysis] = useState<MarketAnalysisData | null>(null)
+    const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
+    const [deleting, setDeleting] = useState(false)
 
     useEffect(() => {
-        fetch('/api/admin/market-analysis')
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setAnalyses(data)
-                }
-            })
-            .catch(console.error)
-            .finally(() => setLoading(false))
+        loadAnalyses()
     }, [])
+
+    const loadAnalyses = async () => {
+        try {
+            const res = await fetch('/api/admin/market-analysis')
+            const data = await res.json()
+            if (Array.isArray(data)) {
+                setAnalyses(data)
+            }
+        } catch (error) {
+            console.error('Error loading analyses:', error)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const deleteAnalysis = async (id: string) => {
+        if (!confirm('Supprimer cette analyse ?')) return
+        setDeleting(true)
+        try {
+            await fetch(`/api/admin/market-analysis/${id}`, { method: 'DELETE' })
+            setAnalyses(prev => prev.filter(a => a.id !== id))
+            if (selectedAnalysis?.id === id) setSelectedAnalysis(null)
+        } catch (error) {
+            console.error('Delete error:', error)
+        } finally {
+            setDeleting(false)
+        }
+    }
+
+    const bulkDelete = async () => {
+        if (selectedIds.size === 0) return
+        if (!confirm(`Supprimer ${selectedIds.size} analyse(s) ?`)) return
+        setDeleting(true)
+        try {
+            await Promise.all(
+                Array.from(selectedIds).map(id =>
+                    fetch(`/api/admin/market-analysis/${id}`, { method: 'DELETE' })
+                )
+            )
+            setAnalyses(prev => prev.filter(a => !selectedIds.has(a.id)))
+            setSelectedIds(new Set())
+            setSelectedAnalysis(null)
+        } catch (error) {
+            console.error('Bulk delete error:', error)
+        } finally {
+            setDeleting(false)
+        }
+    }
+
+    const toggleSelect = (id: string, e: React.MouseEvent) => {
+        e.stopPropagation()
+        setSelectedIds(prev => {
+            const newSet = new Set(prev)
+            if (newSet.has(id)) newSet.delete(id)
+            else newSet.add(id)
+            return newSet
+        })
+    }
+
+    const selectAll = () => {
+        if (selectedIds.size === analyses.length) {
+            setSelectedIds(new Set())
+        } else {
+            setSelectedIds(new Set(analyses.map(a => a.id)))
+        }
+    }
 
     const formatCurrency = (value: number) =>
         new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value)
@@ -91,46 +151,106 @@ export default function MarketAnalysisPage() {
                 </div>
             </div>
 
+            {/* Barre d'actions bulk */}
+            {selectedIds.size > 0 && (
+                <div className="bg-primary/10 border border-primary/30 rounded-xl p-3 flex items-center justify-between">
+                    <span className="text-primary font-medium">{selectedIds.size} analyse(s) sélectionnée(s)</span>
+                    <div className="flex items-center gap-2">
+                        <button
+                            onClick={bulkDelete}
+                            disabled={deleting}
+                            className="flex items-center gap-2 px-3 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm transition-colors"
+                        >
+                            {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                            Supprimer
+                        </button>
+                        <button
+                            onClick={() => setSelectedIds(new Set())}
+                            className="p-1.5 text-gray-400 hover:bg-white/10 rounded-lg transition-colors"
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
+                    </div>
+                </div>
+            )}
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Liste des analyses */}
                 <div className="lg:col-span-1 space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
-                    {analyses.map(analysis => (
-                        <button
-                            key={analysis.id}
-                            onClick={() => setSelectedAnalysis(analysis)}
-                            className={`w-full text-left p-4 rounded-xl border transition-all ${selectedAnalysis?.id === analysis.id
-                                    ? 'border-primary bg-primary/5 dark:bg-primary/10'
-                                    : 'border-gray-200 dark:border-gray-800 hover:border-primary/50'
-                                }`}
-                        >
-                            <div className="flex items-start justify-between">
-                                <div>
-                                    <div className="font-semibold">{analysis.metier}</div>
-                                    <div className="text-sm text-gray-500">{analysis.ville}</div>
-                                    {/* Email affiché directement */}
-                                    {analysis.email && (
-                                        <div className="text-xs text-blue-500 mt-1 flex items-center gap-1">
-                                            <Mail className="w-3 h-3" />
-                                            {analysis.email}
+                    {/* Header sélection */}
+                    {analyses.length > 0 && (
+                        <div className="flex items-center gap-3 p-2 bg-gray-800/50 rounded-lg">
+                            <button onClick={selectAll} className="text-gray-400 hover:text-white transition-colors">
+                                {selectedIds.size === analyses.length ? (
+                                    <CheckSquare className="w-5 h-5 text-primary" />
+                                ) : (
+                                    <Square className="w-5 h-5" />
+                                )}
+                            </button>
+                            <span className="text-gray-400 text-sm">Tout sélectionner ({analyses.length})</span>
+                        </div>
+                    )}
+
+                    {analyses.map(analysis => {
+                        const isSelected = selectedIds.has(analysis.id)
+                        return (
+                            <div
+                                key={analysis.id}
+                                className={`relative p-4 rounded-xl border transition-all cursor-pointer ${selectedAnalysis?.id === analysis.id
+                                        ? 'border-primary bg-primary/5 dark:bg-primary/10'
+                                        : isSelected
+                                            ? 'border-primary/50 bg-primary/5'
+                                            : 'border-gray-200 dark:border-gray-800 hover:border-primary/50'
+                                    }`}
+                            >
+                                <div className="flex items-start gap-3">
+                                    {/* Checkbox */}
+                                    <button
+                                        onClick={(e) => toggleSelect(analysis.id, e)}
+                                        className="mt-1 text-gray-400 hover:text-white transition-colors flex-shrink-0"
+                                    >
+                                        {isSelected ? (
+                                            <CheckSquare className="w-5 h-5 text-primary" />
+                                        ) : (
+                                            <Square className="w-5 h-5" />
+                                        )}
+                                    </button>
+
+                                    {/* Content */}
+                                    <div
+                                        className="flex-1"
+                                        onClick={() => setSelectedAnalysis(analysis)}
+                                    >
+                                        <div className="flex items-start justify-between">
+                                            <div>
+                                                <div className="font-semibold">{analysis.metier}</div>
+                                                <div className="text-sm text-gray-500">{analysis.ville}</div>
+                                                {analysis.email && (
+                                                    <div className="text-xs text-blue-500 mt-1 flex items-center gap-1">
+                                                        <Mail className="w-3 h-3" />
+                                                        {analysis.email}
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="text-right">
+                                                <div className="font-bold text-primary">
+                                                    {formatCurrency(analysis.potentielAnnuel)}
+                                                </div>
+                                                <div className="flex items-center gap-1 text-xs text-gray-500">
+                                                    <Search className="w-3 h-3" />
+                                                    {analysis.searchVolume.toLocaleString('fr-FR')}/mois
+                                                </div>
+                                            </div>
                                         </div>
-                                    )}
-                                </div>
-                                <div className="text-right">
-                                    <div className="font-bold text-primary">
-                                        {formatCurrency(analysis.potentielAnnuel)}
-                                    </div>
-                                    <div className="flex items-center gap-1 text-xs text-gray-500">
-                                        <Search className="w-3 h-3" />
-                                        {analysis.searchVolume.toLocaleString('fr-FR')}/mois
+                                        <div className="flex items-center gap-2 mt-2 text-xs">
+                                            <CompetitionBadge level={analysis.competition} />
+                                            <TrendIcon trend={analysis.tendance} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2 mt-2 text-xs">
-                                <CompetitionBadge level={analysis.competition} />
-                                <TrendIcon trend={analysis.tendance} />
-                            </div>
-                        </button>
-                    ))}
+                        )
+                    })}
 
                     {analyses.length === 0 && (
                         <div className="text-center py-12 text-gray-500">
@@ -179,7 +299,7 @@ export default function MarketAnalysisPage() {
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                                     <div>
                                         <div className="text-gray-500 dark:text-gray-400">Mot-clé analysé</div>
-                                        <div className="font-medium text-blue-600 dark:text-blue-400">"{selectedAnalysis.keyword}"</div>
+                                        <div className="font-medium text-blue-600 dark:text-blue-400">&quot;{selectedAnalysis.keyword}&quot;</div>
                                     </div>
                                     <div>
                                         <div className="text-gray-500 dark:text-gray-400">Volume mensuel</div>
@@ -267,18 +387,26 @@ export default function MarketAnalysisPage() {
                                 </div>
                             </div>
 
-                            {/* Lien lead */}
-                            {selectedAnalysis.leadId && (
-                                <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
+                            {/* Actions */}
+                            <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-gray-800">
+                                {selectedAnalysis.leadId && (
                                     <a
-                                        href={`/admin/leads`}
-                                        className="text-primary hover:underline text-sm font-medium flex items-center gap-1"
+                                        href="/admin/leads"
+                                        className="flex-1 flex items-center justify-center gap-2 py-2 bg-white/10 text-white rounded-xl hover:bg-white/20 transition-colors"
                                     >
                                         <ExternalLink className="w-4 h-4" />
-                                        Voir dans les leads
+                                        Voir le lead
                                     </a>
-                                </div>
-                            )}
+                                )}
+                                <button
+                                    onClick={() => deleteAnalysis(selectedAnalysis.id)}
+                                    disabled={deleting}
+                                    className="flex items-center justify-center gap-2 px-6 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-xl transition-colors"
+                                >
+                                    {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                                    Supprimer
+                                </button>
+                            </div>
                         </div>
                     ) : (
                         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-12 text-center text-gray-500">
