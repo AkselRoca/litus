@@ -1,16 +1,18 @@
 /**
- * API Market Analysis - Analyse de marché avec vraies données
+ * API Market Analysis - Analyse de marché avec estimation intelligente
  * 
- * Combine DataForSEO (volumes Google réels) + Gemini (analyse IA)
+ * Utilise un système d'estimation basé sur :
+ * - Population des villes françaises
+ * - Ratios de recherche par métier
  * 
  * FLUX:
- * 1. Première requête (sans email) → Crée analyse, retourne analysisId
- * 2. Deuxième requête (avec email + analysisId) → Met à jour l'analyse + crée Lead
+ * 1. Première requête (sans email) → Crée analyse estimée, retourne analysisId
+ * 2. Deuxième requête (avec email + analysisId) → Met à jour l'analyse + crée Lead pour audit réel
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { getKeywordData } from '@/lib/dataforseo'
+import { getEstimatedKeywordData } from '@/lib/estimation'
 import { generateMarketAnalysis, MarketAnalysis } from '@/lib/gemini'
 
 const analysisSchema = z.object({
@@ -22,7 +24,7 @@ const analysisSchema = z.object({
 
 export interface MarketAnalysisResponse {
     success: boolean
-    analysis?: MarketAnalysis
+    analysis?: MarketAnalysis & { isEstimation?: boolean }
     analysisId?: string
     error?: string
 }
@@ -33,20 +35,19 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
         const data = analysisSchema.parse(body)
 
         const { metier, ville, email, analysisId } = data
-        const keyword = `${metier} ${ville}`
 
         const { prisma } = await import('@/lib/database_final')
 
         // Si on a un analysisId ET un email, on met à jour l'analyse existante
         if (analysisId && email) {
-            console.log(`[Market Analysis] Updating analysis ${analysisId} with email`)
+            console.log(`[Market Analysis] Updating analysis ${analysisId} with email for real audit`)
 
             const lead = await prisma.lead.create({
                 data: {
                     type: 'market-analysis',
                     email: email,
                     phone: null,
-                    data: JSON.stringify({ metier, ville, analysisId }),
+                    data: JSON.stringify({ metier, ville, analysisId, wantsRealAudit: true }),
                     source: 'Estimateur de Potentiel',
                     status: 'new',
                     treated: false,
@@ -61,18 +62,19 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
             return NextResponse.json({ success: true, analysisId })
         }
 
-        // Nouvelle analyse avec vraies données
-        console.log(`[Market Analysis] Fetching real data for: ${keyword}`)
+        // Nouvelle analyse avec estimation intelligente
+        console.log(`[Market Analysis] Generating estimation for: ${metier} ${ville}`)
 
-        // Récupérer les vraies données DataForSEO (obligatoire, pas de fallback)
-        const keywordData = await getKeywordData(keyword)
+        // Utiliser l'estimation intelligente (gratuite)
+        const keywordData = getEstimatedKeywordData(metier, ville)
 
-        console.log('[Market Analysis] DataForSEO data:', {
+        console.log('[Market Analysis] Estimation data:', {
             keyword: keywordData.keyword,
             searchVolume: keywordData.searchVolume,
             cpc: keywordData.cpc,
             competition: keywordData.competition,
             competitionIndex: keywordData.competitionIndex,
+            populationUsed: keywordData.populationUsed,
         })
 
         // Générer l'analyse IA
@@ -91,12 +93,12 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
                 ville,
                 keyword: keywordData.keyword,
 
-                // Données SEO réelles
+                // Données estimées
                 searchVolume: keywordData.searchVolume,
                 cpc: keywordData.cpc,
                 competition: keywordData.competition,
                 competitionIndex: keywordData.competitionIndex,
-                dataSource: 'dataforseo',
+                dataSource: 'estimation', // Indique que c'est une estimation
 
                 // Calculs
                 panierMoyen: analysis.panierMoyen,
@@ -119,7 +121,10 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
 
         return NextResponse.json({
             success: true,
-            analysis,
+            analysis: {
+                ...analysis,
+                isEstimation: true,
+            },
             analysisId: savedAnalysis.id,
         })
     } catch (error) {

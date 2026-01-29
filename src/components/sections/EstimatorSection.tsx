@@ -176,8 +176,8 @@ export function EstimatorSection() {
                                         <Users className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <div className="font-bold">Données Google + Analyse IA</div>
-                                        <div className="text-sm text-gray-500 dark:text-gray-500">volumes de recherche réels et conseils personnalisés</div>
+                                        <div className="font-bold">Estimation intelligente + IA</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-500">analyse de marché et potentiel de croissance</div>
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +293,10 @@ export function EstimatorSection() {
                                                 <div className="w-14 h-14 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-green-500">
                                                     <CheckCircle2 className="w-7 h-7" />
                                                 </div>
-                                                <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-1">Potentiel Annuel Identifié</p>
+                                                <div className="flex items-center justify-center gap-2 mb-1">
+                                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-widest">Potentiel Annuel Estimé</p>
+                                                    <span className="px-2 py-0.5 bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 text-xs rounded-full">Estimation</span>
+                                                </div>
                                                 <div className="text-5xl md:text-6xl font-bold font-heading text-primary mb-1 tracking-tight">
                                                     <AnimatedCounter target={analysis.potentielAnnuel} suffix=" €" />
                                                 </div>
@@ -325,32 +328,37 @@ export function EstimatorSection() {
 
                                             {/* Email Capture */}
                                             {!emailSent ? (
-                                                <form onSubmit={handleEmailSubmit} className="space-y-3">
-                                                    <div className="flex gap-2">
+                                                <div className="bg-gradient-to-br from-blue-50 to-primary/5 dark:from-blue-900/20 dark:to-primary/10 p-4 rounded-xl border border-blue-200 dark:border-blue-500/20">
+                                                    <h4 className="font-bold text-sm mb-2 flex items-center gap-2">
+                                                        <Sparkles className="w-4 h-4 text-primary" />
+                                                        Vous voulez les vraies statistiques Google ?
+                                                    </h4>
+                                                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
+                                                        Laissez votre email et recevez un audit complet avec les données réelles de votre marché.
+                                                    </p>
+                                                    <form onSubmit={handleEmailSubmit} className="flex gap-2">
                                                         <div className="relative flex-1">
                                                             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                                             <Input
                                                                 type="email"
-                                                                placeholder="Votre email pour le rapport complet"
+                                                                placeholder="Votre email"
                                                                 value={email}
                                                                 onChange={e => setEmail(e.target.value)}
-                                                                className="pl-10 h-12 bg-white dark:bg-[#0A0A0A]"
+                                                                className="pl-10 h-11 bg-white dark:bg-[#0A0A0A]"
                                                             />
                                                         </div>
-                                                        <Button type="submit" size="lg" className="h-12 px-6">
+                                                        <Button type="submit" size="lg" className="h-11 px-5">
                                                             <ArrowRight className="w-4 h-4" />
                                                         </Button>
-                                                    </div>
-                                                    <p className="text-xs text-gray-400 text-center">
-                                                        Recevez l&apos;analyse complète avec les conseils personnalisés
-                                                    </p>
-                                                </form>
+                                                    </form>
+                                                </div>
                                             ) : (
                                                 <div className="bg-green-50 dark:bg-green-500/10 p-4 rounded-xl border border-green-200 dark:border-green-500/20 text-center">
                                                     <CheckCircle2 className="w-5 h-5 text-green-500 mx-auto mb-2" />
                                                     <p className="text-sm text-green-700 dark:text-green-400 font-medium">
-                                                        Merci ! Nous vous recontacterons sous 24h avec votre analyse détaillée.
+                                                        Merci ! Nous préparons votre audit avec les vraies données Google.
                                                     </p>
+                                                    <p className="text-xs text-green-600 dark:text-green-500 mt-1">Vous serez recontacté sous 24h.</p>
                                                 </div>
                                             )}
 
