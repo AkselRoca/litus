@@ -155,34 +155,86 @@ L'analyse doit être factuelle et basée sur les données fournies.`
         })
 
         if (!response.ok) {
-            throw new Error(`Gemini API error: ${response.status}`)
+            // Rate limit ou autre erreur - utiliser fallback local
+            console.warn(`Gemini API error: ${response.status} - using local fallback`)
+            return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
         }
 
         const data: GeminiResponse = await response.json()
         const textContent = data.candidates?.[0]?.content?.parts?.[0]?.text
 
         if (textContent) {
-            const cleanJson = textContent.replace(/```json\n?|\n?```/g, '').trim()
-            const geminiAnalysis = JSON.parse(cleanJson)
+            try {
+                const cleanJson = textContent.replace(/```json\n?|\n?```/g, '').trim()
+                const geminiAnalysis = JSON.parse(cleanJson)
 
-            return {
-                potentielAnnuel,
-                potentielMensuel,
-                recherchesMensuelles: keywordData.searchVolume,
-                concurrence,
-                tendance: geminiAnalysis.tendance || 'Stable',
-                panierMoyen,
-                tauxCapture,
-                cpc: keywordData.cpc,
-                keyword,
-                analyse: geminiAnalysis.analyse,
+                return {
+                    potentielAnnuel,
+                    potentielMensuel,
+                    recherchesMensuelles: keywordData.searchVolume,
+                    concurrence,
+                    tendance: geminiAnalysis.tendance || 'Stable',
+                    panierMoyen,
+                    tauxCapture,
+                    cpc: keywordData.cpc,
+                    keyword,
+                    analyse: geminiAnalysis.analyse,
+                }
+            } catch {
+                // JSON parsing failed, use fallback
+                return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
             }
         }
 
-        throw new Error('Invalid Gemini response')
+        // No content, use fallback
+        return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
     } catch (error) {
         console.error('Gemini analysis error:', error)
-        throw error
+        // Always return fallback instead of throwing
+        return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
+    }
+}
+
+/**
+ * Génère une analyse locale sans appel API
+ */
+function generateLocalAnalysis(
+    metier: string,
+    ville: string,
+    keywordData: KeywordData,
+    potentielMensuel: number,
+    potentielAnnuel: number,
+    concurrence: 'Faible' | 'Moyenne' | 'Forte',
+    panierMoyen: number,
+    tauxCapture: number
+): MarketAnalysis {
+    const keyword = `${metier} ${ville}`
+
+    // Déterminer la tendance basée sur le volume
+    const tendance = keywordData.searchVolume > 500 ? 'Hausse' :
+        keywordData.searchVolume > 100 ? 'Stable' : 'Stable'
+
+    // Générer une analyse textuelle basée sur les données
+    const volumeText = keywordData.searchVolume > 1000 ? 'très recherché' :
+        keywordData.searchVolume > 300 ? 'bien recherché' : 'modérément recherché'
+
+    const concurrenceText = concurrence === 'Forte' ? 'un marché compétitif avec de nombreux acteurs' :
+        concurrence === 'Moyenne' ? 'un marché avec une concurrence modérée' :
+            'un marché avec peu de concurrents'
+
+    const analyse = `Le marché "${metier}" à ${ville} est ${volumeText} avec environ ${keywordData.searchVolume.toLocaleString('fr-FR')} recherches mensuelles. C'est ${concurrenceText}. Avec un panier moyen de ${panierMoyen}€ et un taux de capture de ${(tauxCapture * 100).toFixed(0)}%, le potentiel de chiffre d'affaires est estimé à ${potentielMensuel.toLocaleString('fr-FR')}€/mois.`
+
+    return {
+        potentielAnnuel,
+        potentielMensuel,
+        recherchesMensuelles: keywordData.searchVolume,
+        concurrence,
+        tendance,
+        panierMoyen,
+        tauxCapture,
+        cpc: keywordData.cpc,
+        keyword,
+        analyse,
     }
 }
 
