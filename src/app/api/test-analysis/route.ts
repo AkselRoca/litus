@@ -1,9 +1,10 @@
 /**
  * Test endpoint pour débugger l'API market-analysis
+ * Utilise l'estimation intelligente (gratuit)
  */
 
 import { NextResponse } from 'next/server'
-import { getKeywordData } from '@/lib/dataforseo'
+import { getEstimatedKeywordData } from '@/lib/estimation'
 import { generateMarketAnalysis } from '@/lib/gemini'
 
 export async function GET() {
@@ -17,15 +18,15 @@ export async function GET() {
 
         logs.push(`1. Keyword: ${keyword}`)
 
-        // 1. Test DataForSEO
-        logs.push('2. Appel DataForSEO...')
+        // 1. Test Estimation intelligente
+        logs.push('2. Estimation intelligente...')
         let keywordData
         try {
-            keywordData = await getKeywordData(keyword)
-            logs.push(`3. DataForSEO OK: ${JSON.stringify(keywordData)}`)
+            keywordData = getEstimatedKeywordData(metier, ville)
+            logs.push(`3. Estimation OK: ${JSON.stringify(keywordData)}`)
         } catch (error) {
-            logs.push(`3. DataForSEO ERREUR: ${error instanceof Error ? error.message : String(error)}`)
-            return NextResponse.json({ success: false, logs, step: 'dataforseo' })
+            logs.push(`3. Estimation ERREUR: ${error instanceof Error ? error.message : String(error)}`)
+            return NextResponse.json({ success: false, logs, step: 'estimation' })
         }
 
         // 2. Test Gemini
@@ -53,7 +54,7 @@ export async function GET() {
                     cpc: keywordData.cpc,
                     competition: keywordData.competition,
                     competitionIndex: keywordData.competitionIndex,
-                    dataSource: 'dataforseo',
+                    dataSource: 'estimation',
                     panierMoyen: analysis.panierMoyen,
                     tauxConversion: 0,
                     tauxCapture: analysis.tauxCapture,
