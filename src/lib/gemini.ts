@@ -98,10 +98,17 @@ Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exac
         const textContent = data.candidates?.[0]?.content?.parts?.[0]?.text
 
         if (textContent) {
-            // Nettoyage au cas où Gemini ajoute des balises Markdown ```json ... ```
-            const cleanJson = textContent.replace(/```json\n?|\n?```/g, '').trim()
-            const result = JSON.parse(cleanJson)
-
+            // Extraction robuste du JSON (ignore le texte avant ou après et gère les coupures)
+            const match = textContent.match(/\{[\s\S]*\}/)
+            const cleanJson = match ? match[0] : textContent.replace(/```json\n?|\n?```/g, '').trim()
+            
+            let result
+            try {
+                result = JSON.parse(cleanJson)
+            } catch (e) {
+                // Si l'IA a vraiment renvoyé n'importe quoi, on debug ici
+                throw new Error(`JSON invalide ou coupé. Reçu: ${cleanJson.substring(0, 50)}...`)
+            }
             // Sécurité pour éviter les erreurs de format strict
             return {
                 keyword,
