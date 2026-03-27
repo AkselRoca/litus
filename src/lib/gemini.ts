@@ -60,11 +60,12 @@ Instructions :
 4. Estime le panier moyen réaliste d'un client pour cette activité (en euros).
 5. Calcule un taux de conversion / capture réaliste (le % de recherches mensuelles qui deviennent de vrais clients si l'entreprise est en 1ère page Google grâce à Litus). Souvent entre 3% (Forte concurrence) et 8% (Faible concurrence).
 6. Calcule le CA mensuel (Volume * Taux * Panier) et annuel (Mensuel * 12).
+IMPORTANT: Tous les nombres générés (volume, cpc, ca) ne doivent comporter AUCUN ESPACE ni séparateur de milliers. (Ex: écris 15000 et NON 15 000 ou 15,000).
 7. Rédige un court paragraphe d'analyse (3 phrases max) très orienté VENTE (Copywriting). 
    - Le message doit faire un électrochoc à l'artisan/entreprise : un marché énorme l'attend, il laisse tout cet argent sur la table à ses concurrents chaque mois.
    - Mentionne très subtilement que l'agence Litus est là pour l'aider à capter toute cette demande avec un site web performant, du SEO et du Google Ads.
 
-Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exacte (SANS balises markdown autour) :
+Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exacte (SANS balises markdown ni espaces dans les nombres) :
 {
     "recherchesMensuelles": 1500,
     "cpc": 2.50,
