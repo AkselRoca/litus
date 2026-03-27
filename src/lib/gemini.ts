@@ -29,7 +29,7 @@ interface GeminiResponse {
     }>
 }
 
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent'
 
 /**
  * Génère une analyse de marché complète via Gemini (Volume estimé + Pitch)
@@ -83,13 +83,14 @@ Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exac
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 600 },
+                generationConfig: { temperature: 0.7, maxOutputTokens: 600, responseMimeType: 'application/json' },
             }),
         })
 
         if (!response.ok) {
-            console.warn(`Gemini API error: ${response.status}`)
-            throw new Error('Erreur API Gemini')
+            const errorText = await response.text();
+            console.warn(`Gemini API error: ${response.status} - ${errorText}`)
+            throw new Error(`API: ${response.status} ${errorText.substring(0, 100)}`)
         }
 
         const data: GeminiResponse = await response.json()
@@ -130,7 +131,7 @@ Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exac
             potentielMensuel: 5250,
             potentielAnnuel: 63000,
             tendance: 'Stable',
-            analyse: `Le marché pour "${keyword}" présente de belles opportunités. Sans visibilité optimale sur Google, vos concurrents captent une majorité de cette demande. Litus met en place des stratégies digitales performantes (Site Web, SEO, Ads) pour vous aider à devenir le leader local dans votre domaine.`
+            analyse: `[MODE DÉGRADÉ] L'IA a rencontré une erreur (${error instanceof Error ? error.message : 'Inconnue'}). Néanmoins, le marché pour "${keyword}" présente de belles opportunités. Sans visibilité optimale sur Google, vos concurrents captent une majorité de cette demande. Litus met en place des stratégies digitales performantes (Site Web, SEO, Ads) pour vous aider à devenir le leader local dans votre domaine.`
         }
     }
 }
