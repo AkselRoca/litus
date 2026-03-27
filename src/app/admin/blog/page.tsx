@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Plus, Search, Edit, Trash2, Eye, EyeOff, Calendar, Clock } from 'lucide-react'
+import { Plus, Search, Edit, Trash2, Eye, EyeOff, Calendar, Clock, ChevronDown } from 'lucide-react'
 
 // Mock data - will be replaced with DB calls
 const mockArticles = [
@@ -48,104 +48,104 @@ export default function AdminBlogPage() {
     )
 
     return (
-        <div>
+        <div className="space-y-6">
             {/* Header */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Gestion du Blog</h1>
-                    <p className="text-gray-400">Créer et gérer vos articles</p>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Gestion du Blog</h1>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Créer et gérer vos articles</p>
                 </div>
                 <Link
                     href="/admin/blog/new"
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-orange-500 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary/90 transition-colors w-full sm:w-auto"
                 >
-                    <Plus className="w-5 h-5" />
+                    <Plus className="w-4 h-4" />
                     Nouvel article
                 </Link>
             </div>
 
             {/* Search & Filters */}
-            <div className="bg-gray-900 rounded-2xl border border-white/10 p-4 mb-6">
+            <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-5">
                 <div className="relative">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                     <input
                         type="text"
                         placeholder="Rechercher un article..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-transparent border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50"
                     />
                 </div>
             </div>
 
             {/* Articles Table */}
-            <div className="bg-gray-900 rounded-2xl border border-white/10 overflow-hidden">
+            <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-white/10">
-                                <th className="text-left px-6 py-4 text-gray-400 font-medium">Article</th>
-                                <th className="text-left px-6 py-4 text-gray-400 font-medium">Catégorie</th>
-                                <th className="text-left px-6 py-4 text-gray-400 font-medium">Statut</th>
-                                <th className="text-left px-6 py-4 text-gray-400 font-medium">Date</th>
-                                <th className="text-right px-6 py-4 text-gray-400 font-medium">Actions</th>
+                            <tr className="border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#1a1a1a]">
+                                <th className="text-left px-6 py-4 text-gray-500 dark:text-gray-400 font-medium text-xs uppercase tracking-wider">Article</th>
+                                <th className="text-left px-6 py-4 text-gray-500 dark:text-gray-400 font-medium text-xs uppercase tracking-wider">Catégorie</th>
+                                <th className="text-left px-6 py-4 text-gray-500 dark:text-gray-400 font-medium text-xs uppercase tracking-wider">Statut</th>
+                                <th className="text-left px-6 py-4 text-gray-500 dark:text-gray-400 font-medium text-xs uppercase tracking-wider">Date</th>
+                                <th className="text-right px-6 py-4 text-gray-500 dark:text-gray-400 font-medium text-xs uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-white/10">
+                        <tbody className="divide-y divide-gray-100 dark:divide-white/10">
                             {filteredArticles.map((article) => (
-                                <tr key={article.id} className="hover:bg-white/5 transition-colors">
+                                <tr key={article.id} className="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                                     <td className="px-6 py-4">
                                         <div>
-                                            <div className="text-white font-medium mb-1">{article.title}</div>
-                                            <div className="text-gray-500 text-sm line-clamp-1">{article.excerpt}</div>
+                                            <div className="text-gray-900 dark:text-white font-medium text-sm mb-1">{article.title}</div>
+                                            <div className="text-gray-500 dark:text-gray-400 text-xs line-clamp-1">{article.excerpt}</div>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
+                                        <span className="inline-flex px-2.5 py-1 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md">
                                             {article.category}
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
                                         {article.published ? (
-                                            <span className="flex items-center gap-2 text-green-400 text-sm">
-                                                <Eye className="w-4 h-4" />
+                                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-medium rounded-md">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                                                 Publié
                                             </span>
                                         ) : (
-                                            <span className="flex items-center gap-2 text-gray-400 text-sm">
-                                                <EyeOff className="w-4 h-4" />
+                                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs font-medium rounded-md">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-gray-400" />
                                                 Brouillon
                                             </span>
                                         )}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex items-center gap-2 text-gray-400 text-sm">
-                                            <Calendar className="w-4 h-4" />
+                                        <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-sm">
+                                            <Calendar className="w-3.5 h-3.5" />
                                             {article.createdAt}
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex items-center justify-end gap-2">
+                                        <div className="flex items-center justify-end gap-1">
                                             <Link
                                                 href={`/admin/blog/${article.id}`}
-                                                className="p-2 text-gray-400 hover:text-primary hover:bg-white/10 rounded-lg transition-colors"
+                                                className="p-2 text-gray-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors"
                                                 title="Éditer"
                                             >
-                                                <Edit className="w-5 h-5" />
+                                                <Edit className="w-4 h-4" />
                                             </Link>
                                             <Link
                                                 href={`/blog/${article.slug}`}
                                                 target="_blank"
-                                                className="p-2 text-gray-400 hover:text-blue-400 hover:bg-white/10 rounded-lg transition-colors"
+                                                className="p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors"
                                                 title="Voir"
                                             >
-                                                <Eye className="w-5 h-5" />
+                                                <Eye className="w-4 h-4" />
                                             </Link>
                                             <button
-                                                className="p-2 text-gray-400 hover:text-red-400 hover:bg-white/10 rounded-lg transition-colors"
+                                                className="p-2 text-gray-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
                                                 title="Supprimer"
                                             >
-                                                <Trash2 className="w-5 h-5" />
+                                                <Trash2 className="w-4 h-4" />
                                             </button>
                                         </div>
                                     </td>
@@ -156,7 +156,7 @@ export default function AdminBlogPage() {
                 </div>
 
                 {filteredArticles.length === 0 && (
-                    <div className="p-12 text-center text-gray-400">
+                    <div className="p-12 text-center text-gray-500 text-sm">
                         Aucun article trouvé
                     </div>
                 )}

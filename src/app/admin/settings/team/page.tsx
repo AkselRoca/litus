@@ -15,9 +15,9 @@ interface TeamMember {
 }
 
 const roles = [
-    { value: 'admin', label: 'Administrateur', description: 'Accès complet à tout', color: 'text-red-400 bg-red-400/20' },
-    { value: 'commercial', label: 'Commercial', description: 'Leads + Analytics', color: 'text-blue-400 bg-blue-400/20' },
-    { value: 'dev', label: 'Développeur', description: 'Médias + Portfolio + Blog + Analytics', color: 'text-green-400 bg-green-400/20' },
+    { value: 'admin', label: 'Administrateur', description: 'Accès complet à tout', color: 'text-red-700 bg-red-50 border-red-200 dark:text-red-400 dark:bg-red-500/10 dark:border-red-500/20' },
+    { value: 'commercial', label: 'Commercial', description: 'Leads + Analytics', color: 'text-blue-700 bg-blue-50 border-blue-200 dark:text-blue-400 dark:bg-blue-500/10 dark:border-blue-500/20' },
+    { value: 'dev', label: 'Développeur', description: 'Médias + Portfolio + Blog + Analytics', color: 'text-green-700 bg-green-50 border-green-200 dark:text-green-400 dark:bg-green-500/10 dark:border-green-500/20' },
 ]
 
 export default function TeamSettingsPage() {
@@ -118,14 +118,14 @@ export default function TeamSettingsPage() {
     }
 
     return (
-        <div>
-            <div className="flex items-center justify-between mb-8">
+        <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Gestion de l'équipe</h1>
-                    <p className="text-gray-400">{members.length} membre{members.length > 1 ? 's' : ''}</p>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Équipe</h1>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">{members.length} membre{members.length > 1 ? 's' : ''}</p>
                 </div>
-                <button onClick={() => openModal()} className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors">
-                    <Plus className="w-5 h-5" /> Ajouter un membre
+                <button onClick={() => openModal()} className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors text-sm font-medium w-full sm:w-auto">
+                    <Plus className="w-4 h-4" /> Ajouter un membre
                 </button>
             </div>
 
@@ -134,42 +134,43 @@ export default function TeamSettingsPage() {
                 {members.map(member => {
                     const roleInfo = getRoleInfo(member.role)
                     return (
-                        <div key={member.id} className="bg-gray-900 rounded-2xl border border-white/10 p-6">
-                            <div className="flex items-center justify-between">
+                        <div key={member.id} className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-5 hover:border-gray-300 dark:hover:border-white/20 transition-colors shadow-sm dark:shadow-none">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center text-white text-xl font-bold">
+                                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white text-lg font-bold shadow-md shadow-primary/20 shrink-0 border border-primary/20">
                                         {member.avatar ? (
                                             <img src={member.avatar} alt={member.name} className="w-full h-full rounded-full object-cover" />
                                         ) : (
                                             member.name.charAt(0).toUpperCase()
                                         )}
                                     </div>
-                                    <div>
-                                        <div className="text-xl font-semibold text-white">{member.name}</div>
-                                        <div className="text-gray-400 text-sm flex items-center gap-2">
-                                            <Mail className="w-4 h-4" /> {member.email}
+                                    <div className="min-w-0">
+                                        <div className="text-base font-bold text-gray-900 dark:text-white truncate">{member.name}</div>
+                                        <div className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1.5 truncate">
+                                            <Mail className="w-3.5 h-3.5 flex-shrink-0" /> {member.email}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-4">
-                                    <div className="text-right">
-                                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${roleInfo.color}`}>
+                                
+                                <div className="flex items-center justify-between sm:justify-end gap-6 sm:gap-8 border-t border-gray-100 dark:border-white/5 sm:border-0 pt-4 sm:pt-0">
+                                    <div className="text-left sm:text-right">
+                                        <span className={`px-2.5 py-1 rounded-md text-xs font-semibold border ${roleInfo.color} inline-block mb-1`}>
                                             {roleInfo.label}
                                         </span>
-                                        <div className="text-gray-500 text-xs mt-1">{roleInfo.description}</div>
+                                        <div className="text-gray-500 dark:text-gray-400 text-[11px] truncate max-w-[150px]">{roleInfo.description}</div>
                                     </div>
                                     {member._count && (
-                                        <div className="text-center px-4 border-l border-white/10">
-                                            <div className="text-2xl font-bold text-white">{member._count.assignedLeads}</div>
-                                            <div className="text-gray-500 text-xs">Leads assignés</div>
+                                        <div className="text-center px-4 sm:border-l border-gray-200 dark:border-white/10">
+                                            <div className="text-xl font-bold text-gray-900 dark:text-white leading-none">{member._count.assignedLeads}</div>
+                                            <div className="text-gray-400 text-[10px] font-medium uppercase tracking-wider mt-1">Leads</div>
                                         </div>
                                     )}
-                                    <div className="flex gap-2">
-                                        <button onClick={() => openModal(member)} className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors">
-                                            <Edit3 className="w-5 h-5" />
+                                    <div className="flex gap-1.5 shrink-0">
+                                        <button onClick={() => openModal(member)} className="p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-white/10 rounded-lg transition-colors" title="Modifier">
+                                            <Edit3 className="w-4 h-4" />
                                         </button>
-                                        <button onClick={() => deleteMember(member.id)} className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors">
-                                            <Trash2 className="w-5 h-5" />
+                                        <button onClick={() => deleteMember(member.id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:hover:text-red-400 dark:hover:bg-red-500/10 rounded-lg transition-colors border border-transparent hover:border-red-100 dark:hover:border-red-500/20" title="Supprimer">
+                                            <Trash2 className="w-4 h-4" />
                                         </button>
                                     </div>
                                 </div>
@@ -179,68 +180,81 @@ export default function TeamSettingsPage() {
                 })}
 
                 {members.length === 0 && (
-                    <div className="text-center text-gray-400 py-12">Aucun membre dans l'équipe</div>
+                    <div className="text-center text-gray-500 dark:text-gray-400 py-12 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-2xl">
+                        <Users className="w-10 h-10 mx-auto mb-3 text-gray-300 dark:text-gray-600" />
+                        <p className="text-sm">Aucun membre dans l'équipe</p>
+                    </div>
                 )}
             </div>
 
             {/* Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50" onClick={() => setShowModal(false)}>
-                    <div className="bg-gray-900 rounded-2xl border border-white/10 p-6 w-full max-w-md" onClick={e => e.stopPropagation()}>
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-xl font-bold text-white">{editing ? 'Modifier' : 'Nouveau membre'}</h2>
-                            <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-white"><X className="w-5 h-5" /></button>
+                <div className="fixed inset-0 bg-gray-900/60 dark:bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowModal(false)}>
+                    <div className="bg-white dark:bg-[#181818] rounded-2xl border border-gray-200 dark:border-gray-800 p-6 w-full max-w-md shadow-2xl" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100 dark:border-white/5">
+                            <h2 className="text-lg font-bold text-gray-900 dark:text-white">{editing ? 'Modifier le membre' : 'Nouveau membre'}</h2>
+                            <button onClick={() => setShowModal(false)} className="p-1 text-gray-400 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-white/10 rounded-lg transition-colors">
+                                <X className="w-5 h-5" />
+                            </button>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-5">
                             <div>
-                                <label className="block text-gray-400 text-sm mb-1">Nom</label>
+                                <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5">Nom complet</label>
                                 <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                    className="w-full px-4 py-3 bg-gray-800 border border-white/10 rounded-xl text-white" placeholder="Prénom Nom" />
+                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Prénom Nom" />
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-sm mb-1">Email</label>
+                                <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5">Email</label>
                                 <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                    className="w-full px-4 py-3 bg-gray-800 border border-white/10 rounded-xl text-white" placeholder="email@litus.fr" />
+                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="email@litus.fr" />
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-sm mb-1">{editing ? 'Nouveau mot de passe (laisser vide pour garder)' : 'Mot de passe'}</label>
+                                <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5">{editing ? 'Nouveau mot de passe (optionnel)' : 'Mot de passe'}</label>
                                 <div className="relative">
                                     <input type={showPassword ? 'text' : 'password'} value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })}
-                                        className="w-full px-4 py-3 bg-gray-800 border border-white/10 rounded-xl text-white pr-12" placeholder="••••••••" />
-                                    <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
-                                        {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                                        className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary pr-12" placeholder={editing ? 'Laisser vide pour garder l\'actuel' : '••••••••'} />
+                                    <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 dark:hover:text-white">
+                                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                     </button>
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-sm mb-2">Rôle</label>
+                                <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2 pb-2 border-b border-gray-100 dark:border-white/5">Niveau de permission</label>
                                 <div className="grid gap-2">
                                     {roles.map(role => (
                                         <button key={role.value} type="button" onClick={() => setForm({ ...form, role: role.value })}
-                                            className={`flex items-center gap-3 p-3 rounded-xl border transition-colors ${form.role === role.value ? 'bg-primary/20 border-primary' : 'bg-gray-800 border-white/10 hover:border-white/20'}`}>
-                                            <Shield className={`w-5 h-5 ${form.role === role.value ? 'text-primary' : 'text-gray-400'}`} />
-                                            <div className="text-left">
-                                                <div className="text-white font-medium">{role.label}</div>
-                                                <div className="text-gray-500 text-xs">{role.description}</div>
+                                            className={`flex items-start gap-3 p-3 rounded-xl border transition-all text-left ${form.role === role.value ? 'bg-primary/5 border-primary ring-1 ring-primary/20 shadow-sm' : 'bg-white dark:bg-[#111] border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20'}`}>
+                                            <Shield className={`w-5 h-5 shrink-0 mt-0.5 ${form.role === role.value ? 'text-primary' : 'text-gray-400'}`} />
+                                            <div>
+                                                <div className={`font-semibold text-sm ${form.role === role.value ? 'text-primary' : 'text-gray-900 dark:text-white'}`}>{role.label}</div>
+                                                <div className={`text-[11px] leading-snug mt-0.5 ${form.role === role.value ? 'text-primary/70' : 'text-gray-500'}`}>{role.description}</div>
                                             </div>
                                         </button>
                                     ))}
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <input type="checkbox" id="emailNotif" checked={form.emailNotifications} onChange={(e) => setForm({ ...form, emailNotifications: e.target.checked })}
-                                    className="w-5 h-5 rounded border-white/10 bg-gray-800 text-primary" />
-                                <label htmlFor="emailNotif" className="text-white">Recevoir les notifications par email</label>
+                            
+                            <div className="pt-2">
+                                <label className="flex items-center gap-3 cursor-pointer group">
+                                    <div className="relative flex items-center">
+                                        <input type="checkbox" checked={form.emailNotifications} onChange={(e) => setForm({ ...form, emailNotifications: e.target.checked })}
+                                            className="w-5 h-5 rounded border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 transition-colors" />
+                                    </div>
+                                    <div>
+                                        <div className="text-gray-900 dark:text-white text-sm font-medium group-hover:text-primary transition-colors">Recevoir les notifications par email</div>
+                                        <div className="text-gray-500 dark:text-gray-400 text-[11px] mt-0.5">Nouveaux leads, messages système, etc.</div>
+                                    </div>
+                                </label>
                             </div>
                         </div>
 
-                        <div className="flex gap-3 mt-6">
-                            <button onClick={() => setShowModal(false)} className="flex-1 py-3 bg-white/10 text-white rounded-xl hover:bg-white/20 transition-colors">
+                        <div className="flex gap-3 mt-8 pt-4 border-t border-gray-100 dark:border-white/5">
+                            <button onClick={() => setShowModal(false)} className="flex-1 py-2.5 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-sm">
                                 Annuler
                             </button>
-                            <button onClick={saveMember} disabled={saving} className="flex-1 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
-                                {saving ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
+                            <button onClick={saveMember} disabled={saving} className="flex-1 py-2.5 bg-primary text-white font-medium rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 shadow-md shadow-primary/20 text-sm">
+                                {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                                 {editing ? 'Enregistrer' : 'Créer'}
                             </button>
                         </div>

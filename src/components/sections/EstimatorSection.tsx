@@ -8,19 +8,9 @@ import * as React from 'react'
 import { Card } from '@/components/ui/Card'
 import type { MarketAnalysis } from '@/lib/gemini'
 
-// Liste des métiers et villes suggérés
-const suggestedMetiers = [
-    'Plombier', 'Électricien', 'Couvreur', 'Chauffagiste', 'Serrurier',
-    'Menuisier', 'Peintre', 'Maçon', 'Jardinier', 'Coiffeur',
-    'Avocat', 'Dentiste', 'Architecte', 'Carreleur', 'Vitrier',
-    'Climaticien', 'Pisciniste', 'Ostéopathe', 'Kinésithérapeute'
-]
-
-const suggestedVilles = [
-    'Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes',
-    'Montpellier', 'Strasbourg', 'Bordeaux', 'Lille', 'Rennes',
-    'Lorient', 'Le Mans', 'Vannes', 'Quimper', 'Brest'
-]
+// Villes et métiers pour placeholders seulement
+const suggestedMetiers = ['Plombier', 'Électricien', 'Couvreur', 'Avocat', 'Dentiste', 'Architecte']
+const suggestedVilles = ['Paris', 'Marseille', 'Lyon', 'Bordeaux', 'Lille']
 
 type StepType = 'idle' | 'analyzing' | 'result' | 'email'
 
@@ -219,8 +209,7 @@ export function EstimatorSection() {
                                                     <div className="relative group">
                                                         <Input
                                                             type="text"
-                                                            list="metiers-list"
-                                                            placeholder="Ex: Couvreur, Plombier..."
+                                                            placeholder="Ex: Plombier, Avocat, Coiffeur..."
                                                             value={metier}
                                                             onChange={e => setMetier(e.target.value)}
                                                             className="pl-5 h-14 bg-gray-50 dark:bg-[#0A0A0A] border-gray-200 dark:border-white/10 focus:ring-primary/20 text-lg transition-all group-hover:border-primary/50"
@@ -235,8 +224,7 @@ export function EstimatorSection() {
                                                     <div className="relative group">
                                                         <Input
                                                             type="text"
-                                                            list="villes-list"
-                                                            placeholder="Ex: Lorient, Paris..."
+                                                            placeholder="Ex: Paris, Lorient, Lyon..."
                                                             value={ville}
                                                             onChange={e => setVille(e.target.value)}
                                                             className="pl-5 h-14 bg-gray-50 dark:bg-[#0A0A0A] border-gray-200 dark:border-white/10 focus:ring-primary/20 text-lg transition-all group-hover:border-primary/50"
@@ -331,10 +319,10 @@ export function EstimatorSection() {
                                                 <div className="bg-gradient-to-br from-blue-50 to-primary/5 dark:from-blue-900/20 dark:to-primary/10 p-4 rounded-xl border border-blue-200 dark:border-blue-500/20">
                                                     <h4 className="font-bold text-sm mb-2 flex items-center gap-2">
                                                         <Sparkles className="w-4 h-4 text-primary" />
-                                                        Vous voulez les vraies statistiques Google ?
+                                                        Passez à l'étape suivante : l'Audit Complet
                                                     </h4>
                                                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
-                                                        Laissez votre email et recevez un audit complet avec les données réelles de votre marché.
+                                                        Laissez votre email pour recevoir une analyse détaillée de vos concurrents et notre plan d'action personnalisé.
                                                     </p>
                                                     <form onSubmit={handleEmailSubmit} className="flex gap-2">
                                                         <div className="relative flex-1">
@@ -381,13 +369,6 @@ export function EstimatorSection() {
                     </div>
                 </div>
 
-                {/* Datalists for Autocomplete */}
-                <datalist id="metiers-list">
-                    {suggestedMetiers.map(m => <option key={m} value={m} />)}
-                </datalist>
-                <datalist id="villes-list">
-                    {suggestedVilles.map(v => <option key={v} value={v} />)}
-                </datalist>
             </div>
         </section>
     )

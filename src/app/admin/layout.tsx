@@ -14,9 +14,9 @@ async function SignOutButton() {
         >
             <button
                 type="submit"
-                className="flex items-center gap-3 w-full px-4 py-3 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+                className="flex items-center gap-3 w-full px-3 py-2.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors text-sm"
             >
-                <LogOut className="w-5 h-5" />
+                <LogOut className="w-[18px] h-[18px]" />
                 Déconnexion
             </button>
         </form>
@@ -30,7 +30,6 @@ export default async function AdminLayout({
 }) {
     const session = await auth()
 
-    // If not logged in, redirect to login (but this layout won't apply to login page)
     if (!session?.user) {
         redirect('/login-admin')
     }
@@ -47,47 +46,47 @@ export default async function AdminLayout({
     ]
 
     return (
-        <div className="min-h-screen bg-gray-950 flex">
+        <div className="min-h-screen bg-gray-50 dark:bg-[#0A0A0A] flex">
             {/* Sidebar */}
-            <aside className="w-64 bg-gray-900 border-r border-white/10 flex flex-col">
+            <aside className="w-60 bg-white dark:bg-[#111] border-r border-gray-200 dark:border-white/10 flex flex-col sticky top-0 h-screen">
                 {/* Logo */}
-                <div className="p-6 border-b border-white/10">
-                    <Link href="/admin" className="text-2xl font-bold text-primary">
+                <div className="px-5 py-5 border-b border-gray-200 dark:border-white/10">
+                    <Link href="/admin" className="text-xl font-bold text-primary">
                         Litus Admin
                     </Link>
                 </div>
 
                 {/* Nav */}
-                <nav className="flex-1 p-4 space-y-2">
+                <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
-                            className="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+                            className="flex items-center gap-3 px-3 py-2.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors text-sm"
                         >
-                            <item.icon className="w-5 h-5" />
+                            <item.icon className="w-[18px] h-[18px]" />
                             {item.label}
                         </Link>
                     ))}
                 </nav>
 
                 {/* User section */}
-                <div className="p-4 border-t border-white/10">
-                    <div className="flex items-center gap-3 px-4 py-3 mb-2">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center text-white font-bold">
+                <div className="px-3 py-4 border-t border-gray-200 dark:border-white/10">
+                    <div className="flex items-center gap-3 px-3 py-2.5 mb-1">
+                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
                             {session.user.name?.charAt(0) || 'A'}
                         </div>
-                        <div>
-                            <div className="text-white font-medium">{session.user.name}</div>
-                            <div className="text-gray-500 text-sm">{session.user.email}</div>
+                        <div className="min-w-0">
+                            <div className="text-gray-900 dark:text-white font-medium text-sm truncate">{session.user.name}</div>
+                            <div className="text-gray-400 dark:text-gray-500 text-xs truncate">{session.user.email}</div>
                         </div>
                     </div>
                     <SignOutButton />
                     <Link
                         href="/"
-                        className="flex items-center gap-3 w-full px-4 py-3 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors mt-2"
+                        className="flex items-center gap-3 w-full px-3 py-2.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors text-sm mt-1"
                     >
-                        <Home className="w-5 h-5" />
+                        <Home className="w-[18px] h-[18px]" />
                         Voir le site
                     </Link>
                 </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Cookie, X, Settings, Check } from 'lucide-react'
+import { X, Shield, Check } from 'lucide-react'
 import Link from 'next/link'
 
 type ConsentType = 'all' | 'essential' | 'custom' | null
@@ -25,8 +25,7 @@ export function CookieBanner() {
     useEffect(() => {
         const consent = localStorage.getItem('cookie-consent')
         if (!consent) {
-            // Show banner after a short delay
-            setTimeout(() => setIsVisible(true), 1000)
+            setTimeout(() => setIsVisible(true), 1500)
         }
     }, [])
 
@@ -57,13 +56,10 @@ export function CookieBanner() {
         localStorage.setItem('cookie-consent-date', new Date().toISOString())
         setIsVisible(false)
 
-        // Here you would initialize analytics/marketing based on consent
         if (prefs.analytics) {
-            // Initialize analytics (e.g., Plausible, GA)
             console.log('Analytics enabled')
         }
         if (prefs.marketing) {
-            // Initialize marketing pixels
             console.log('Marketing enabled')
         }
     }
@@ -75,126 +71,137 @@ export function CookieBanner() {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
-                    className="fixed bottom-0 left-0 right-0 z-50 p-4"
+                    transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                    className="fixed bottom-4 left-4 right-4 z-50 flex justify-center"
                 >
-                    <div className="max-w-4xl mx-auto bg-gray-900 border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
+                    <div className="w-full max-w-2xl bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden">
                         {!showDetails ? (
-                            /* Simple View */
-                            <div className="p-6">
+                            /* Vue simple */
+                            <div className="p-5">
                                 <div className="flex items-start gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                                        <Cookie className="w-6 h-6 text-primary" />
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <Shield className="w-5 h-5 text-primary" />
                                     </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-lg font-bold text-white mb-2">
-                                            🍪 Ce site utilise des cookies
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                                            Cookies
                                         </h3>
-                                        <p className="text-gray-400 text-sm mb-4">
+                                        <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mb-4">
                                             Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.
-                                            Vous pouvez accepter tous les cookies ou personnaliser vos préférences.{' '}
+                                            <br />
                                             <Link href="/politique-confidentialite" className="text-primary hover:underline">
                                                 En savoir plus
                                             </Link>
                                         </p>
-                                        <div className="flex flex-wrap gap-3">
+                                        <div className="flex flex-wrap items-center gap-2">
                                             <button
                                                 onClick={handleAcceptAll}
-                                                className="px-5 py-2 bg-gradient-to-r from-primary to-orange-500 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+                                                className="px-4 py-2 bg-primary text-white text-xs font-semibold rounded-lg hover:bg-primary/90 transition-colors"
                                             >
                                                 Tout accepter
                                             </button>
                                             <button
                                                 onClick={handleAcceptEssential}
-                                                className="px-5 py-2 bg-white/10 text-white font-medium rounded-lg hover:bg-white/20 transition-colors"
+                                                className="px-4 py-2 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 transition-colors border border-gray-200 dark:border-white/10"
                                             >
                                                 Essentiels uniquement
                                             </button>
                                             <button
                                                 onClick={() => setShowDetails(true)}
-                                                className="flex items-center gap-2 px-5 py-2 text-gray-400 hover:text-white transition-colors"
+                                                className="px-3 py-2 text-gray-400 hover:text-gray-600 dark:hover:text-white text-xs transition-colors"
                                             >
-                                                <Settings className="w-4 h-4" />
                                                 Personnaliser
                                             </button>
                                         </div>
                                     </div>
+                                    <button
+                                        onClick={handleAcceptEssential}
+                                        className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+                                        aria-label="Fermer"
+                                    >
+                                        <X className="w-4 h-4" />
+                                    </button>
                                 </div>
                             </div>
                         ) : (
-                            /* Detailed View */
-                            <div className="p-6">
-                                <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-lg font-bold text-white">Préférences cookies</h3>
+                            /* Vue détaillée */
+                            <div className="p-5">
+                                <div className="flex items-center justify-between mb-4">
+                                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Préférences cookies</h3>
                                     <button
                                         onClick={() => setShowDetails(false)}
-                                        className="p-2 text-gray-400 hover:text-white"
+                                        className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                                     >
-                                        <X className="w-5 h-5" />
+                                        <X className="w-4 h-4" />
                                     </button>
                                 </div>
 
-                                <div className="space-y-4 mb-6">
-                                    {/* Essential */}
-                                    <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
+                                <div className="space-y-2 mb-4">
+                                    {/* Essentiels */}
+                                    <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-white/5 rounded-xl">
                                         <div>
-                                            <div className="text-white font-medium">Essentiels</div>
-                                            <div className="text-gray-400 text-sm">Nécessaires au fonctionnement du site</div>
+                                            <div className="text-xs font-medium text-gray-900 dark:text-white">Essentiels</div>
+                                            <div className="text-[11px] text-gray-500 dark:text-gray-400">Nécessaires au fonctionnement</div>
                                         </div>
-                                        <div className="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">
+                                        <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-medium rounded-full">
                                             Toujours actif
-                                        </div>
+                                        </span>
                                     </div>
 
-                                    {/* Analytics */}
-                                    <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
+                                    {/* Analytiques */}
+                                    <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-white/5 rounded-xl">
                                         <div>
-                                            <div className="text-white font-medium">Analytiques</div>
-                                            <div className="text-gray-400 text-sm">Mesure d'audience anonymisée</div>
+                                            <div className="text-xs font-medium text-gray-900 dark:text-white">Analytiques</div>
+                                            <div className="text-[11px] text-gray-500 dark:text-gray-400">Mesure d&apos;audience anonymisée</div>
                                         </div>
                                         <button
                                             onClick={() => setPreferences({ ...preferences, analytics: !preferences.analytics })}
-                                            className={`relative w-12 h-7 rounded-full transition-colors ${preferences.analytics ? 'bg-primary' : 'bg-gray-600'
-                                                }`}
+                                            className={`relative w-10 h-6 rounded-full transition-colors ${
+                                                preferences.analytics ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
+                                            }`}
                                         >
                                             <span
-                                                className={`absolute top-1 left-1 w-5 h-5 bg-white rounded-full transition-transform ${preferences.analytics ? 'translate-x-5' : ''
-                                                    }`}
+                                                className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform shadow-sm ${
+                                                    preferences.analytics ? 'translate-x-4' : ''
+                                                }`}
                                             />
                                         </button>
                                     </div>
 
                                     {/* Marketing */}
-                                    <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl">
+                                    <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-white/5 rounded-xl">
                                         <div>
-                                            <div className="text-white font-medium">Marketing</div>
-                                            <div className="text-gray-400 text-sm">Personnalisation et publicités</div>
+                                            <div className="text-xs font-medium text-gray-900 dark:text-white">Marketing</div>
+                                            <div className="text-[11px] text-gray-500 dark:text-gray-400">Personnalisation et publicités</div>
                                         </div>
                                         <button
                                             onClick={() => setPreferences({ ...preferences, marketing: !preferences.marketing })}
-                                            className={`relative w-12 h-7 rounded-full transition-colors ${preferences.marketing ? 'bg-primary' : 'bg-gray-600'
-                                                }`}
+                                            className={`relative w-10 h-6 rounded-full transition-colors ${
+                                                preferences.marketing ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
+                                            }`}
                                         >
                                             <span
-                                                className={`absolute top-1 left-1 w-5 h-5 bg-white rounded-full transition-transform ${preferences.marketing ? 'translate-x-5' : ''
-                                                    }`}
+                                                className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform shadow-sm ${
+                                                    preferences.marketing ? 'translate-x-4' : ''
+                                                }`}
                                             />
                                         </button>
                                     </div>
                                 </div>
 
-                                <div className="flex justify-end gap-3">
+                                <div className="flex justify-end gap-2">
                                     <button
                                         onClick={handleAcceptEssential}
-                                        className="px-5 py-2 bg-white/10 text-white font-medium rounded-lg hover:bg-white/20 transition-colors"
+                                        className="px-4 py-2 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 transition-colors border border-gray-200 dark:border-white/10"
                                     >
                                         Refuser optionnels
                                     </button>
                                     <button
                                         onClick={handleSaveCustom}
-                                        className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-primary to-orange-500 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+                                        className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-xs font-semibold rounded-lg hover:bg-primary/90 transition-colors"
                                     >
-                                        <Check className="w-4 h-4" />
-                                        Enregistrer mes choix
+                                        <Check className="w-3.5 h-3.5" />
+                                        Enregistrer
                                     </button>
                                 </div>
                             </div>

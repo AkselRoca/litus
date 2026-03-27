@@ -179,11 +179,11 @@ export default function MediaPage() {
     }
 
     return (
-        <div className="p-6 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-8">
+        <div className="relative min-h-[calc(100vh-200px)]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-white">Médias</h1>
-                    <p className="text-gray-400 text-sm mt-1">
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Médias</h1>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                         {media.length} image{media.length > 1 ? 's' : ''} •
                         Cloudinary (AVIF/WebP auto, compression)
                     </p>
@@ -191,7 +191,7 @@ export default function MediaPage() {
                 <button
                     onClick={handleMigrate}
                     disabled={migrating}
-                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-50 rounded-lg text-white transition-colors"
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 disabled:opacity-50 rounded-xl text-white font-medium text-sm transition-colors w-full sm:w-auto"
                 >
                     {migrating ? (
                         <Loader2 className="w-4 h-4 animate-spin" />
@@ -208,10 +208,10 @@ export default function MediaPage() {
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
                 className={`
-                    border-2 border-dashed rounded-xl p-8 mb-8 text-center transition-all cursor-pointer
+                    border-2 border-dashed rounded-2xl p-8 mb-8 text-center transition-all cursor-pointer bg-white dark:bg-[#111]
                     ${dragOver
-                        ? 'border-orange-500 bg-orange-500/10'
-                        : 'border-gray-700 hover:border-gray-600 bg-gray-900/50'
+                        ? 'border-primary bg-primary/5 dark:bg-primary/5'
+                        : 'border-gray-300 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/20 hover:bg-gray-50 dark:hover:bg-white/5'
                     }
                 `}
             >
@@ -223,19 +223,21 @@ export default function MediaPage() {
                     onChange={(e) => handleUpload(e.target.files)}
                     className="hidden"
                 />
-                <label htmlFor="file-upload" className="cursor-pointer">
+                <label htmlFor="file-upload" className="cursor-pointer block">
                     {uploading ? (
-                        <div className="flex flex-col items-center gap-2">
-                            <Loader2 className="w-10 h-10 text-orange-500 animate-spin" />
-                            <span className="text-gray-400">Upload en cours...</span>
+                        <div className="flex flex-col items-center gap-3 py-4">
+                            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+                            <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">Upload en cours...</span>
                         </div>
                     ) : (
-                        <div className="flex flex-col items-center gap-2">
-                            <Upload className="w-10 h-10 text-gray-500" />
-                            <span className="text-gray-400">
-                                Glissez vos images ici ou <span className="text-orange-500">cliquez pour upload</span>
+                        <div className="flex flex-col items-center gap-2 py-4">
+                            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                                <Upload className="w-6 h-6 text-primary" />
+                            </div>
+                            <span className="text-gray-600 dark:text-gray-300 font-medium">
+                                Glissez vos images ici ou <span className="text-primary hover:underline">cliquez pour upload</span>
                             </span>
-                            <span className="text-gray-600 text-xs">
+                            <span className="text-gray-400 dark:text-gray-500 text-xs mt-1">
                                 JPG, PNG, WebP • Max 10MB
                             </span>
                         </div>
@@ -246,52 +248,54 @@ export default function MediaPage() {
             {/* Grille des médias */}
             {loading ? (
                 <div className="flex items-center justify-center py-20">
-                    <Loader2 className="w-8 h-8 text-orange-500 animate-spin" />
+                    <Loader2 className="w-8 h-8 text-primary animate-spin" />
                 </div>
             ) : media.length === 0 ? (
-                <div className="text-center py-20 text-gray-500">
-                    <ImageIcon className="w-16 h-16 mx-auto mb-4 opacity-30" />
-                    <p>Aucun média uploadé</p>
+                <div className="text-center py-20 text-gray-500 dark:text-gray-400">
+                    <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center mx-auto mb-4">
+                        <ImageIcon className="w-8 h-8 opacity-30" />
+                    </div>
+                    <p className="text-sm">Aucun média uploadé</p>
                 </div>
             ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                     {media.map((item) => (
                         <div
                             key={item.id}
                             onClick={() => setSelectedMedia(item)}
                             className={`
-                                relative group rounded-xl overflow-hidden bg-gray-900 border cursor-pointer
-                                transition-all hover:border-orange-500/50
-                                ${selectedMedia?.id === item.id ? 'border-orange-500 ring-2 ring-orange-500/20' : 'border-gray-800'}
+                                relative group rounded-xl overflow-hidden bg-white dark:bg-[#111] border cursor-pointer
+                                transition-all hover:border-primary/50
+                                ${selectedMedia?.id === item.id ? 'border-primary ring-2 ring-primary/20' : 'border-gray-200 dark:border-white/10'}
                             `}
                         >
-                            <div className="aspect-square">
+                            <div className="aspect-square bg-gray-100 dark:bg-black/50">
                                 <img
                                     src={item.url}
                                     alt={item.alt || item.filename}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                                 <div className="absolute bottom-0 left-0 right-0 p-3">
-                                    <p className="text-white text-xs truncate">{item.filename}</p>
-                                    <p className="text-gray-400 text-xs">{formatBytes(item.bytes)}</p>
+                                    <p className="text-white text-xs font-medium truncate mb-0.5">{item.filename}</p>
+                                    <p className="text-gray-300 text-[11px]">{formatBytes(item.bytes)}</p>
                                 </div>
                             </div>
                             {/* Actions rapides */}
-                            <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute top-2 right-2 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation()
                                         copyUrl(item.url, item.id)
                                     }}
-                                    className="p-1.5 bg-black/70 rounded-lg hover:bg-black transition-colors"
+                                    className="p-1.5 bg-gray-900/80 backdrop-blur-sm rounded-lg hover:bg-gray-900 transition-colors"
                                     title="Copier l'URL"
                                 >
                                     {copiedId === item.id ? (
-                                        <Check className="w-4 h-4 text-green-500" />
+                                        <Check className="w-3.5 h-3.5 text-green-400" />
                                     ) : (
-                                        <Copy className="w-4 h-4 text-white" />
+                                        <Copy className="w-3.5 h-3.5 text-white" />
                                     )}
                                 </button>
                                 <button
@@ -299,10 +303,10 @@ export default function MediaPage() {
                                         e.stopPropagation()
                                         handleDelete(item.id)
                                     }}
-                                    className="p-1.5 bg-black/70 rounded-lg hover:bg-red-500/50 transition-colors"
+                                    className="p-1.5 bg-gray-900/80 backdrop-blur-sm rounded-lg hover:bg-red-500/90 transition-colors border border-transparent hover:border-red-500"
                                     title="Supprimer"
                                 >
-                                    <Trash2 className="w-4 h-4 text-white" />
+                                    <Trash2 className="w-3.5 h-3.5 text-white" />
                                 </button>
                             </div>
                         </div>
@@ -310,99 +314,110 @@ export default function MediaPage() {
                 </div>
             )}
 
-            {/* Panel de détails */}
+            {/* Panel de détails - Overlay en mobile/tablet, Side panel en desktop */}
             {selectedMedia && (
-                <div className="fixed inset-y-0 right-0 w-96 bg-gray-950 border-l border-gray-800 p-6 overflow-y-auto">
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-lg font-semibold text-white">Détails</h2>
-                        <button
-                            onClick={() => setSelectedMedia(null)}
-                            className="p-1 hover:bg-gray-800 rounded-lg transition-colors"
-                        >
-                            <X className="w-5 h-5 text-gray-400" />
-                        </button>
-                    </div>
-
-                    <div className="space-y-6">
-                        {/* Preview */}
-                        <div className="rounded-xl overflow-hidden bg-gray-900">
-                            <img
-                                src={selectedMedia.url}
-                                alt={selectedMedia.alt || selectedMedia.filename}
-                                className="w-full"
-                            />
+                <>
+                    {/* Overlay cliquable mobile */}
+                    <div 
+                        className="fixed inset-0 bg-gray-900/20 dark:bg-black/40 backdrop-blur-sm z-40 xl:hidden"
+                        onClick={() => setSelectedMedia(null)}
+                    />
+                    
+                    <div className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white dark:bg-[#111] border-l border-gray-200 dark:border-white/10 p-6 overflow-y-auto z-50 shadow-2xl xl:shadow-none transition-transform duration-300">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Détails de l'image</h2>
+                            <button
+                                onClick={() => setSelectedMedia(null)}
+                                className="p-1.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-colors"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
                         </div>
 
-                        {/* Infos */}
-                        <div className="space-y-4">
-                            <div>
-                                <label className="block text-gray-400 text-xs mb-1">Nom du fichier</label>
-                                <p className="text-white text-sm">{selectedMedia.filename}</p>
-                            </div>
-
-                            <div>
-                                <label className="block text-gray-400 text-xs mb-1">Dimensions</label>
-                                <p className="text-white text-sm">
-                                    {selectedMedia.width} × {selectedMedia.height} px
-                                </p>
-                            </div>
-
-                            <div>
-                                <label className="block text-gray-400 text-xs mb-1">Taille</label>
-                                <p className="text-white text-sm">{formatBytes(selectedMedia.bytes)}</p>
-                            </div>
-
-                            <div>
-                                <label className="block text-gray-400 text-xs mb-1">Format</label>
-                                <p className="text-white text-sm uppercase">{selectedMedia.format}</p>
-                            </div>
-
-                            {/* Alt text editable */}
-                            <div>
-                                <label className="block text-gray-400 text-xs mb-1">Texte alternatif (Alt)</label>
-                                <input
-                                    type="text"
-                                    value={selectedMedia.alt || ''}
-                                    onChange={(e) => handleUpdateAlt(selectedMedia.id, e.target.value)}
-                                    placeholder="Description de l'image..."
-                                    className="w-full px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-white text-sm focus:border-orange-500 focus:outline-none"
+                        <div className="space-y-6">
+                            {/* Preview */}
+                            <div className="rounded-xl overflow-hidden bg-gray-100 dark:bg-black/50 border border-gray-200 dark:border-white/10 aspect-square flex items-center justify-center">
+                                <img
+                                    src={selectedMedia.url}
+                                    alt={selectedMedia.alt || selectedMedia.filename}
+                                    className="max-h-full max-w-full object-contain"
                                 />
                             </div>
 
-                            {/* URL à copier */}
-                            <div>
-                                <label className="block text-gray-400 text-xs mb-1">URL de l'image</label>
-                                <div className="flex gap-2">
+                            {/* Infos */}
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-gray-500 dark:text-gray-400 text-xs font-medium mb-1">Nom du fichier</label>
+                                    <p className="text-gray-900 dark:text-white text-sm font-medium truncate">{selectedMedia.filename}</p>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="bg-gray-50 dark:bg-white/5 p-3 rounded-xl border border-gray-100 dark:border-white/5">
+                                        <label className="block text-gray-500 dark:text-gray-400 text-[10px] font-medium uppercase tracking-wider mb-1">Dimensions</label>
+                                        <p className="text-gray-900 dark:text-white text-sm font-semibold">
+                                            {selectedMedia.width} × {selectedMedia.height} <span className="text-xs font-normal text-gray-500">px</span>
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-gray-50 dark:bg-white/5 p-3 rounded-xl border border-gray-100 dark:border-white/5">
+                                        <label className="block text-gray-500 dark:text-gray-400 text-[10px] font-medium uppercase tracking-wider mb-1">Poids & Format</label>
+                                        <p className="text-gray-900 dark:text-white text-sm font-semibold">
+                                            {formatBytes(selectedMedia.bytes)} <span className="text-xs font-normal uppercase text-gray-500">{selectedMedia.format}</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Alt text editable */}
+                                <div>
+                                    <label className="block text-gray-500 dark:text-gray-400 text-xs font-medium mb-1.5">Texte alternatif (SEO)</label>
                                     <input
                                         type="text"
-                                        value={selectedMedia.url}
-                                        readOnly
-                                        className="flex-1 px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-white text-xs focus:outline-none"
+                                        value={selectedMedia.alt || ''}
+                                        onChange={(e) => handleUpdateAlt(selectedMedia.id, e.target.value)}
+                                        placeholder="Description de l'image pour le SEO..."
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow"
                                     />
+                                    <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1.5">Indispensable pour l'accessibilité et le référencement naturel.</p>
+                                </div>
+
+                                {/* URL à copier */}
+                                <div className="pt-2">
+                                    <label className="block text-gray-500 dark:text-gray-400 text-xs font-medium mb-1.5">URL Cloudinary</label>
+                                    <div className="flex gap-2 relative">
+                                        <input
+                                            type="text"
+                                            value={selectedMedia.url}
+                                            readOnly
+                                            className="w-full pl-3 pr-10 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-xs font-mono focus:outline-none"
+                                        />
+                                        <button
+                                            onClick={() => copyUrl(selectedMedia.url, selectedMedia.id)}
+                                            className={`absolute right-1 top-1 bottom-1 px-3 rounded-lg flex items-center justify-center transition-colors ${copiedId === selectedMedia.id ? 'bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400' : 'bg-primary text-white hover:bg-primary/90'}`}
+                                            title="Copier l'URL"
+                                        >
+                                            {copiedId === selectedMedia.id ? (
+                                                <Check className="w-4 h-4" />
+                                            ) : (
+                                                <Copy className="w-4 h-4" />
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Supprimer */}
+                                <div className="pt-4 mt-4 border-t border-gray-100 dark:border-white/10">
                                     <button
-                                        onClick={() => copyUrl(selectedMedia.url, selectedMedia.id)}
-                                        className="px-3 py-2 bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors"
+                                        onClick={() => handleDelete(selectedMedia.id)}
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 border border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400 font-medium rounded-xl transition-colors text-sm"
                                     >
-                                        {copiedId === selectedMedia.id ? (
-                                            <Check className="w-4 h-4 text-white" />
-                                        ) : (
-                                            <Copy className="w-4 h-4 text-white" />
-                                        )}
+                                        <Trash2 className="w-4 h-4" />
+                                        Supprimer ce média
                                     </button>
                                 </div>
                             </div>
-
-                            {/* Supprimer */}
-                            <button
-                                onClick={() => handleDelete(selectedMedia.id)}
-                                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-colors"
-                            >
-                                <Trash2 className="w-4 h-4" />
-                                Supprimer
-                            </button>
                         </div>
                     </div>
-                </div>
+                </>
             )}
         </div>
     )

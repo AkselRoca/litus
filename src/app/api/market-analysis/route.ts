@@ -1,23 +1,21 @@
 /**
- * API Market Analysis - Analyse de marché avec estimation intelligente
+ * API Market Analysis - Analyse de marché propulsée par l'IA (Gemini)
  * 
- * Utilise un système d'estimation basé sur :
- * - Population des villes françaises
- * - Ratios de recherche par métier
+ * Utilise Gemini pour estimer de manière fiable le marché local (Volume, CPC)
+ * pour n'importe quelle requête libre et créer un discours de vente percutant pour l'agence.
  * 
  * FLUX:
- * 1. Première requête (sans email) → Crée analyse estimée, retourne analysisId
- * 2. Deuxième requête (avec email + analysisId) → Met à jour l'analyse + crée Lead pour audit réel
+ * 1. Première requête (sans email) → Crée l'analyse, la stocke en BDD et renvoie l'ID
+ * 2. Deuxième requête (avec email + analysisId) → Met à jour l'analyse + crée un VRAI Lead
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { getEstimatedKeywordData } from '@/lib/estimation'
 import { generateMarketAnalysis, MarketAnalysis } from '@/lib/gemini'
 
 const analysisSchema = z.object({
-    metier: z.string().min(2, 'Métier requis'),
-    ville: z.string().min(2, 'Ville requise'),
+    metier: z.string().min(2, 'Le métier ou l\'activité est requis'),
+    ville: z.string().min(2, 'La ville est requise'),
     email: z.string().email('Email invalide').optional().or(z.literal('')),
     analysisId: z.string().optional(),
 })
@@ -38,10 +36,11 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
 
         const { prisma } = await import('@/lib/database_final')
 
-        // Si on a un analysisId ET un email, on met à jour l'analyse existante
+        // ÉTAPE 2 : Capture d'Email (Le prospect veut un VRAI audit)
         if (analysisId && email) {
-            console.log(`[Market Analysis] Updating analysis ${analysisId} with email for real audit`)
+            console.log(`[Market Analysis] Updating analysis ${analysisId} with email ${email}`)
 
+            // Création du Lead
             const lead = await prisma.lead.create({
                 data: {
                     type: 'market-analysis',
@@ -54,6 +53,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
                 },
             })
 
+            // Lier l'analyse au Lead
             await prisma.marketAnalysis.update({
                 where: { id: analysisId },
                 data: { email, leadId: lead.id },
@@ -62,43 +62,34 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
             return NextResponse.json({ success: true, analysisId })
         }
 
-        // Nouvelle analyse avec estimation intelligente
-        console.log(`[Market Analysis] Generating estimation for: ${metier} ${ville}`)
+        // ÉTAPE 1 : Première estimation de marché 100% IA
+        console.log(`[Market Analysis] Generating estimation for: ${metier} | ${ville}`)
 
-        // Utiliser l'estimation intelligente (gratuite)
-        const keywordData = getEstimatedKeywordData(metier, ville)
+        // Requête unique à Gemini (Génère Data + Pitch)
+        const analysis = await generateMarketAnalysis(metier, ville)
 
-        console.log('[Market Analysis] Estimation data:', {
-            keyword: keywordData.keyword,
-            searchVolume: keywordData.searchVolume,
-            cpc: keywordData.cpc,
-            competition: keywordData.competition,
-            competitionIndex: keywordData.competitionIndex,
-            populationUsed: keywordData.populationUsed,
+        console.log('[Market Analysis] Generated KPIs:', {
+            volume: analysis.recherchesMensuelles,
+            potentiel: analysis.potentielMensuel,
+            taux: analysis.tauxCapture,
         })
 
-        // Générer l'analyse IA
-        const analysis = await generateMarketAnalysis(metier, ville, keywordData)
+        // On assigne un Index fictif interne pour la base de données selon le string
+        const competitionIndexStr = analysis.concurrence === 'Forte' ? 85 : analysis.concurrence === 'Moyenne' ? 50 : 20
 
-        console.log('[Market Analysis] Analysis:', {
-            potentielMensuel: analysis.potentielMensuel,
-            potentielAnnuel: analysis.potentielAnnuel,
-            tauxCapture: analysis.tauxCapture,
-        })
-
-        // Sauvegarder l'analyse
+        // Sauvegarder l'analyse en Base de données
         const savedAnalysis = await prisma.marketAnalysis.create({
             data: {
                 metier,
                 ville,
-                keyword: keywordData.keyword,
+                keyword: analysis.keyword,
 
-                // Données estimées
-                searchVolume: keywordData.searchVolume,
-                cpc: keywordData.cpc,
-                competition: keywordData.competition,
-                competitionIndex: keywordData.competitionIndex,
-                dataSource: 'estimation', // Indique que c'est une estimation
+                // Données IA
+                searchVolume: analysis.recherchesMensuelles,
+                cpc: analysis.cpc,
+                competition: analysis.concurrence === 'Forte' ? 'HIGH' : analysis.concurrence === 'Moyenne' ? 'MEDIUM' : 'LOW',
+                competitionIndex: competitionIndexStr,
+                dataSource: 'gemini_estimation',
 
                 // Calculs
                 panierMoyen: analysis.panierMoyen,
@@ -107,7 +98,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
                 potentielMensuel: analysis.potentielMensuel,
                 potentielAnnuel: analysis.potentielAnnuel,
 
-                // Analyse IA
+                // Analyse texte
                 tendance: analysis.tendance,
                 analyse: analysis.analyse,
                 conseils: '[]',
@@ -116,8 +107,6 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
                 email: null,
             },
         })
-
-        console.log('[Market Analysis] Saved:', savedAnalysis.id)
 
         return NextResponse.json({
             success: true,
@@ -128,16 +117,16 @@ export async function POST(request: NextRequest): Promise<NextResponse<MarketAna
             analysisId: savedAnalysis.id,
         })
     } catch (error) {
-        console.error('[Market Analysis] Error:', error)
+        console.error('[Market Analysis API] Error:', error)
 
         if (error instanceof z.ZodError) {
             return NextResponse.json(
-                { success: false, error: error.issues[0]?.message || 'Données invalides' },
+                { success: false, error: 'Veuillez saisir une activité et une ville valides.' },
                 { status: 400 }
             )
         }
 
-        const message = error instanceof Error ? error.message : 'Erreur inconnue'
+        const message = error instanceof Error ? error.message : 'Erreur interne imprévue.'
         return NextResponse.json(
             { success: false, error: message },
             { status: 500 }

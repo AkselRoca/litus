@@ -33,7 +33,6 @@ interface Lead {
     parsedData: { nom?: string; name?: string }
 }
 
-// Tuiles disponibles
 const availableTiles = [
     { id: 'leadsMonth', label: 'Leads', icon: Users, category: 'leads' },
     { id: 'conversion', label: 'Taux de conversion', icon: TrendingUp, category: 'leads' },
@@ -49,7 +48,6 @@ const availableTiles = [
 
 const defaultVisibleTiles = ['leadsMonth', 'conversion', 'caOneShot', 'caRecurrent', 'visitorsToday']
 
-// Presets de dates
 const datePresets = [
     { label: 'Aujourd\'hui', value: 'today' },
     { label: '7 derniers jours', value: '7d' },
@@ -72,7 +70,6 @@ export default function AdminDashboardPage() {
         }
         return defaultVisibleTiles
     })
-    // Filtre de dates
     const [datePreset, setDatePreset] = useState('30d')
 
     const getDateRange = useCallback(() => {
@@ -155,7 +152,6 @@ export default function AdminDashboardPage() {
             case 'articles': return { value: stats.publishedArticles.toString(), change: null }
             case 'projects': return { value: stats.projects.toString(), change: null }
             case 'media': return { value: stats.media.toString(), change: null }
-            // Analytics réelles depuis la base de données
             case 'visitorsToday': return { value: (stats.visitorsToday || 0).toString(), change: null }
             case 'pageViews': return { value: (stats.pageViewsToday || 0).toString(), change: null }
             case 'bounceRate': return { value: '-', change: null }
@@ -176,17 +172,16 @@ export default function AdminDashboardPage() {
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-                    <p className="text-gray-400">Vue d'ensemble de vos performances</p>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Dashboard</h1>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">Vue d&apos;ensemble de vos performances</p>
                 </div>
                 <div className="flex items-center gap-3">
-                    {/* Sélecteur de dates */}
                     <div className="flex items-center gap-2">
-                        <Calendar className="w-5 h-5 text-gray-400" />
+                        <Calendar className="w-4 h-4 text-gray-400" />
                         <select
                             value={datePreset}
                             onChange={(e) => setDatePreset(e.target.value)}
-                            className="px-4 py-2 bg-gray-900 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="px-3 py-2 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                         >
                             {datePresets.map(p => (
                                 <option key={p.value} value={p.value}>{p.label}</option>
@@ -195,9 +190,9 @@ export default function AdminDashboardPage() {
                     </div>
                     <button
                         onClick={() => setShowSettings(!showSettings)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-colors ${showSettings ? 'bg-primary text-white' : 'text-gray-400 hover:text-white border border-white/20 hover:bg-white/10'}`}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-colors ${showSettings ? 'bg-primary text-white' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10'}`}
                     >
-                        <Settings className="w-5 h-5" />
+                        <Settings className="w-4 h-4" />
                         Personnaliser
                     </button>
                 </div>
@@ -205,21 +200,21 @@ export default function AdminDashboardPage() {
 
             {/* Settings Panel */}
             {showSettings && (
-                <div className="bg-gray-900 rounded-2xl border border-white/10 p-6 mb-8">
-                    <h3 className="text-lg font-semibold text-white mb-4">Tuiles à afficher</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-5 mb-8">
+                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Tuiles à afficher</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                         {availableTiles.map(tile => (
                             <button
                                 key={tile.id}
                                 onClick={() => toggleTile(tile.id)}
-                                className={`flex items-center gap-3 p-3 rounded-xl transition-colors ${visibleTiles.includes(tile.id)
-                                    ? 'bg-primary/20 text-primary border border-primary/50'
-                                    : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
+                                className={`flex items-center gap-2.5 p-2.5 rounded-xl transition-colors text-sm ${visibleTiles.includes(tile.id)
+                                    ? 'bg-primary/10 text-primary border border-primary/30'
+                                    : 'bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10'
                                     }`}
                             >
-                                <tile.icon className="w-5 h-5" />
-                                <span className="text-sm">{tile.label}</span>
-                                {visibleTiles.includes(tile.id) && <Check className="w-4 h-4 ml-auto" />}
+                                <tile.icon className="w-4 h-4" />
+                                <span>{tile.label}</span>
+                                {visibleTiles.includes(tile.id) && <Check className="w-3.5 h-3.5 ml-auto" />}
                             </button>
                         ))}
                     </div>
@@ -227,26 +222,26 @@ export default function AdminDashboardPage() {
             )}
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-8">
                 {availableTiles
                     .filter(tile => visibleTiles.includes(tile.id))
                     .map((tile) => {
                         const data = getTileData(tile.id)
                         return (
-                            <div key={tile.id} className="bg-gray-900 rounded-2xl p-6 border border-white/10">
-                                <div className="flex items-start justify-between mb-4">
-                                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                                        <tile.icon className="w-6 h-6 text-primary" />
+                            <div key={tile.id} className="bg-white dark:bg-[#111] rounded-2xl p-5 border border-gray-200 dark:border-white/10">
+                                <div className="flex items-start justify-between mb-3">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                                        <tile.icon className="w-5 h-5 text-primary" />
                                     </div>
                                     {data.change !== null && (
-                                        <div className={`flex items-center gap-1 text-sm ${data.change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                        <div className={`flex items-center gap-0.5 text-xs font-medium ${data.change >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-500 dark:text-red-400'}`}>
                                             {data.change > 0 ? '+' : ''}{data.change}%
-                                            {data.change >= 0 ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
+                                            {data.change >= 0 ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
                                         </div>
                                     )}
                                 </div>
-                                <div className="text-3xl font-bold text-white mb-1">{data.value}</div>
-                                <div className="text-gray-400 text-sm">{tile.label}</div>
+                                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-0.5">{data.value}</div>
+                                <div className="text-gray-500 dark:text-gray-400 text-xs">{tile.label}</div>
                             </div>
                         )
                     })}
@@ -255,37 +250,37 @@ export default function AdminDashboardPage() {
             {/* Contenu en 2 colonnes */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Leads récents */}
-                <div className="lg:col-span-2 bg-gray-900 rounded-2xl border border-white/10 overflow-hidden">
-                    <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                        <h2 className="text-xl font-bold text-white">Leads récents</h2>
-                        <Link href="/admin/leads" className="text-primary hover:underline text-sm">Voir tout →</Link>
+                <div className="lg:col-span-2 bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden">
+                    <div className="px-5 py-4 border-b border-gray-200 dark:border-white/10 flex items-center justify-between">
+                        <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Leads récents</h2>
+                        <Link href="/admin/leads" className="text-primary hover:underline text-xs font-medium">Voir tout →</Link>
                     </div>
-                    <div className="divide-y divide-white/10">
+                    <div className="divide-y divide-gray-100 dark:divide-white/10">
                         {recentLeads.length === 0 ? (
-                            <div className="p-6 text-center text-gray-400">Aucun lead</div>
+                            <div className="p-8 text-center text-gray-400 text-sm">Aucun lead</div>
                         ) : (
                             recentLeads.map((lead) => (
-                                <div key={lead.id} className="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center text-white font-bold">
+                                <div key={lead.id} className="px-5 py-3.5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
                                             {(lead.parsedData?.nom || lead.parsedData?.name || lead.email || '?').charAt(0).toUpperCase()}
                                         </div>
                                         <div>
-                                            <div className="text-white font-medium">{lead.parsedData?.nom || lead.parsedData?.name || lead.email}</div>
-                                            <div className="text-gray-400 text-sm">{lead.email}</div>
+                                            <div className="text-gray-900 dark:text-white font-medium text-sm">{lead.parsedData?.nom || lead.parsedData?.name || lead.email}</div>
+                                            <div className="text-gray-400 text-xs">{lead.email}</div>
                                         </div>
                                     </div>
-                                    <div className="text-right">
-                                        <div className="text-gray-500 text-xs">{formatDate(lead.createdAt)}</div>
-                                        <div className="flex gap-2 mt-1">
+                                    <div className="text-right flex items-center gap-3">
+                                        <span className="text-gray-400 text-xs">{formatDate(lead.createdAt)}</span>
+                                        <div className="flex gap-1">
                                             {lead.email && (
                                                 <a href={`mailto:${lead.email}`} className="p-1.5 text-gray-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
-                                                    <Mail className="w-4 h-4" />
+                                                    <Mail className="w-3.5 h-3.5" />
                                                 </a>
                                             )}
                                             {lead.phone && (
                                                 <a href={`tel:${lead.phone}`} className="p-1.5 text-gray-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
-                                                    <Phone className="w-4 h-4" />
+                                                    <Phone className="w-3.5 h-3.5" />
                                                 </a>
                                             )}
                                         </div>
@@ -297,18 +292,18 @@ export default function AdminDashboardPage() {
                 </div>
 
                 {/* Sidebar: Médias récents */}
-                <div className="bg-gray-900 rounded-2xl border border-white/10 overflow-hidden">
-                    <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                        <h2 className="text-lg font-bold text-white">Médias récents</h2>
-                        <Link href="/admin/media" className="text-primary hover:underline text-sm">Voir tout →</Link>
+                <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden">
+                    <div className="px-5 py-4 border-b border-gray-200 dark:border-white/10 flex items-center justify-between">
+                        <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Médias récents</h2>
+                        <Link href="/admin/media" className="text-primary hover:underline text-xs font-medium">Voir tout →</Link>
                     </div>
                     <div className="p-4">
                         {recentMedia.length === 0 ? (
-                            <div className="text-center text-gray-400 py-6">Aucun média</div>
+                            <div className="text-center text-gray-400 py-8 text-sm">Aucun média</div>
                         ) : (
                             <div className="grid grid-cols-3 gap-2">
                                 {recentMedia.map((media: any) => (
-                                    <div key={media.id} className="aspect-square rounded-lg overflow-hidden bg-gray-800">
+                                    <div key={media.id} className="aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
                                         <img src={media.url} alt={media.alt || media.filename} className="w-full h-full object-cover" />
                                     </div>
                                 ))}

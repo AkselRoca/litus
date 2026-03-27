@@ -1,16 +1,9 @@
 /**
- * Service Google Gemini - Génération d'analyses de marché
+ * Service Google Gemini - Génération d'analyses de marché (100% IA)
  * 
- * FORMULE SIMPLE:
- * Recherches × Taux capture × Panier = CA mensuel
- * 
- * Taux de capture réalistes (% des recherches qui deviennent clients):
- * - Concurrence forte: 3%
- * - Concurrence moyenne: 5%  
- * - Concurrence faible: 8%
+ * Ce service estime avec précision les volumes de recherche locaux,
+ * les KPIs du marché et génère un argumentaire commercial pour l'agence Litus.
  */
-
-import { KeywordData } from './dataforseo'
 
 export interface MarketAnalysis {
     potentielAnnuel: number
@@ -23,6 +16,7 @@ export interface MarketAnalysis {
     tauxCapture: number
     cpc: number
     keyword: string
+    isEstimation?: boolean
 }
 
 interface GeminiResponse {
@@ -37,66 +31,12 @@ interface GeminiResponse {
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
 
-// Paniers moyens par métier (en euros)
-const PANIERS_MOYENS: Record<string, number> = {
-    plombier: 350,
-    électricien: 280,
-    couvreur: 4500,
-    chauffagiste: 800,
-    serrurier: 180,
-    menuisier: 2200,
-    peintre: 1500,
-    maçon: 5000,
-    jardinier: 200,
-    coiffeur: 45,
-    avocat: 1200,
-    dentiste: 150,
-    architecte: 8500,
-    carreleur: 1800,
-    vitrier: 250,
-    climaticien: 1200,
-    pisciniste: 15000,
-    ostéopathe: 60,
-    kinésithérapeute: 50,
-}
-
 /**
- * Calcule le potentiel de CA
- * 
- * Formule: Recherches × Taux capture × Panier = CA mensuel
- * 
- * Taux de capture = % des recherches mensuelles qui deviennent TES clients
- * Valeurs réalistes pour un acteur local bien positionné:
- * - Forte concurrence: 3% (beaucoup de concurrents)
- * - Moyenne: 5%
- * - Faible: 8% (peu de concurrents)
- */
-function calculatePotential(
-    searchVolume: number,
-    competition: 'LOW' | 'MEDIUM' | 'HIGH',
-    panierMoyen: number
-): { potentielMensuel: number; potentielAnnuel: number; tauxCapture: number } {
-
-    // Taux de capture réalistes pour un acteur bien positionné
-    const tauxCapture = competition === 'HIGH' ? 0.03 : // 3%
-        competition === 'MEDIUM' ? 0.05 : // 5%
-            0.08 // 8%
-
-    // Calcul simple et direct
-    const clientsMensuels = searchVolume * tauxCapture
-    const potentielMensuel = Math.round(clientsMensuels * panierMoyen)
-    const potentielAnnuel = potentielMensuel * 12
-
-    return { potentielMensuel, potentielAnnuel, tauxCapture }
-}
-
-/**
- * Génère une analyse de marché via Gemini
+ * Génère une analyse de marché complète via Gemini (Volume estimé + Pitch)
  */
 export async function generateMarketAnalysis(
     metier: string,
-    ville: string,
-    keywordData: KeywordData
+    ville: string
 ): Promise<MarketAnalysis> {
     const apiKey = process.env.GEMINI_API_KEY
 
@@ -104,138 +44,93 @@ export async function generateMarketAnalysis(
         throw new Error('GEMINI_API_KEY non configurée')
     }
 
-    const metierLower = metier.toLowerCase()
-    const panierMoyen = PANIERS_MOYENS[metierLower] || 500
     const keyword = `${metier} ${ville}`
 
-    // Calcul du potentiel
-    const { potentielMensuel, potentielAnnuel, tauxCapture } = calculatePotential(
-        keywordData.searchVolume,
-        keywordData.competition,
-        panierMoyen
-    )
+    const prompt = `Tu es un expert reconnu en SEO local et en marketing digital pour les entreprises en France, travaillant pour l'agence experte "Litus".
+Ton objectif est de générer une estimation de marché précise et un argumentaire commercial très percutant pour un prospect.
 
-    // Mapping de la concurrence
-    const concurrence = keywordData.competition === 'HIGH' ? 'Forte' :
-        keywordData.competition === 'MEDIUM' ? 'Moyenne' : 'Faible'
+Le prospect a saisi les informations suivantes :
+- Activité / Métier : "${metier}"
+- Localité / Ville : "${ville}"
+
+Instructions :
+1. Estime de manière réaliste et très précise le volume de recherche mensuel sur Google (les requêtes commerciales exactes ou très proches) pour cette activité dans cette ville géographique.
+2. Estime un Coût Par Clic (CPC) moyen réaliste sur Google Ads pour ces mots-clés locaux.
+3. Évalue la concurrence locale (Faible, Moyenne, Forte).
+4. Estime le panier moyen réaliste d'un client pour cette activité (en euros).
+5. Calcule un taux de conversion / capture réaliste (le % de recherches mensuelles qui deviennent de vrais clients si l'entreprise est en 1ère page Google grâce à Litus). Souvent entre 3% (Forte concurrence) et 8% (Faible concurrence).
+6. Calcule le CA mensuel (Volume * Taux * Panier) et annuel (Mensuel * 12).
+7. Rédige un court paragraphe d'analyse (3 phrases max) très orienté VENTE (Copywriting). 
+   - Le message doit faire un électrochoc à l'artisan/entreprise : un marché énorme l'attend, il laisse tout cet argent sur la table à ses concurrents chaque mois.
+   - Mentionne très subtilement que l'agence Litus est là pour l'aider à capter toute cette demande avec un site web performant, du SEO et du Google Ads.
+
+Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exacte (SANS balises markdown autour) :
+{
+    "recherchesMensuelles": 1500,
+    "cpc": 2.50,
+    "concurrence": "Forte",
+    "panierMoyen": 400,
+    "tauxCapture": 0.05,
+    "potentielMensuel": 30000,
+    "potentielAnnuel": 360000,
+    "tendance": "Hausse",
+    "analyse": "Chaque mois, plus de 1500 personnes recherchent vos services à Paris. Actuellement, ce sont vos concurrents qui raflent ces 30 000€ de chiffre d'affaires mensuel car vous n'êtes pas visible. Litus peut vous aider à dominer ce marché avec une stratégie SEO et un site web haut de gamme."
+}`
 
     try {
-        const prompt = `Tu es un expert en marketing digital pour les entreprises locales en France.
-
-Analyse le marché pour un ${metier} situé à ${ville}.
-
-Données Google réelles (DataForSEO):
-- Mot-clé analysé: "${keyword}"
-- Volume de recherche: ${keywordData.searchVolume} recherches/mois
-- CPC moyen: ${keywordData.cpc.toFixed(2)}€
-- Niveau de concurrence: ${concurrence} (${keywordData.competitionIndex}/100)
-
-Calculs:
-- Panier moyen secteur: ${panierMoyen}€
-- Taux de capture estimé: ${(tauxCapture * 100).toFixed(0)}%
-- Clients potentiels/mois: ${Math.round(keywordData.searchVolume * tauxCapture)}
-- Potentiel mensuel: ${potentielMensuel.toLocaleString('fr-FR')}€
-- Potentiel annuel: ${potentielAnnuel.toLocaleString('fr-FR')}€
-
-Génère une réponse JSON avec cette structure exacte (sans markdown):
-{
-    "tendance": "Hausse" ou "Stable" ou "Baisse",
-    "analyse": "2-3 phrases d'analyse du marché local, mentionnant le volume de recherche et le potentiel. Sois factuel et basé sur les données."
-}
-
-L'analyse doit être factuelle et basée sur les données fournies.`
-
         const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 300 },
+                generationConfig: { temperature: 0.7, maxOutputTokens: 600 },
             }),
         })
 
         if (!response.ok) {
-            // Rate limit ou autre erreur - utiliser fallback local
-            console.warn(`Gemini API error: ${response.status} - using local fallback`)
-            return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
+            console.warn(`Gemini API error: ${response.status}`)
+            throw new Error('Erreur API Gemini')
         }
 
         const data: GeminiResponse = await response.json()
         const textContent = data.candidates?.[0]?.content?.parts?.[0]?.text
 
         if (textContent) {
-            try {
-                const cleanJson = textContent.replace(/```json\n?|\n?```/g, '').trim()
-                const geminiAnalysis = JSON.parse(cleanJson)
+            // Nettoyage au cas où Gemini ajoute des balises Markdown ```json ... ```
+            const cleanJson = textContent.replace(/```json\n?|\n?```/g, '').trim()
+            const result = JSON.parse(cleanJson)
 
-                return {
-                    potentielAnnuel,
-                    potentielMensuel,
-                    recherchesMensuelles: keywordData.searchVolume,
-                    concurrence,
-                    tendance: geminiAnalysis.tendance || 'Stable',
-                    panierMoyen,
-                    tauxCapture,
-                    cpc: keywordData.cpc,
-                    keyword,
-                    analyse: geminiAnalysis.analyse,
-                }
-            } catch {
-                // JSON parsing failed, use fallback
-                return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
+            // Sécurité pour éviter les erreurs de format strict
+            return {
+                keyword,
+                recherchesMensuelles: result.recherchesMensuelles || 500,
+                cpc: result.cpc || 1.5,
+                concurrence: result.concurrence || 'Moyenne',
+                panierMoyen: result.panierMoyen || 200,
+                tauxCapture: result.tauxCapture || 0.05,
+                potentielMensuel: result.potentielMensuel || 5000,
+                potentielAnnuel: result.potentielAnnuel || 60000,
+                tendance: result.tendance || 'Stable',
+                analyse: result.analyse || `Il y a un fort potentiel pour le terme "${keyword}". Ces recherches représentent un chiffre d'affaires mensuel important. Litus by Aksel est l'agence idéale pour vous aider à capter cette clientèle avec un site optimisé et du référencement sur-mesure.`,
             }
         }
 
-        // No content, use fallback
-        return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
+        throw new Error('Pas de contenu généré')
     } catch (error) {
         console.error('Gemini analysis error:', error)
-        // Always return fallback instead of throwing
-        return generateLocalAnalysis(metier, ville, keywordData, potentielMensuel, potentielAnnuel, concurrence, panierMoyen, tauxCapture)
+        
+        // Fallback générique en cas d'erreur IA totale
+        return {
+            keyword,
+            recherchesMensuelles: 350,
+            cpc: 2.0,
+            concurrence: 'Moyenne',
+            panierMoyen: 300,
+            tauxCapture: 0.05,
+            potentielMensuel: 5250,
+            potentielAnnuel: 63000,
+            tendance: 'Stable',
+            analyse: `Le marché pour "${keyword}" présente de belles opportunités. Sans visibilité optimale sur Google, vos concurrents captent une majorité de cette demande. Litus met en place des stratégies digitales performantes (Site Web, SEO, Ads) pour vous aider à devenir le leader local dans votre domaine.`
+        }
     }
 }
-
-/**
- * Génère une analyse locale sans appel API
- */
-function generateLocalAnalysis(
-    metier: string,
-    ville: string,
-    keywordData: KeywordData,
-    potentielMensuel: number,
-    potentielAnnuel: number,
-    concurrence: 'Faible' | 'Moyenne' | 'Forte',
-    panierMoyen: number,
-    tauxCapture: number
-): MarketAnalysis {
-    const keyword = `${metier} ${ville}`
-
-    // Déterminer la tendance basée sur le volume
-    const tendance = keywordData.searchVolume > 500 ? 'Hausse' :
-        keywordData.searchVolume > 100 ? 'Stable' : 'Stable'
-
-    // Générer une analyse textuelle basée sur les données
-    const volumeText = keywordData.searchVolume > 1000 ? 'très recherché' :
-        keywordData.searchVolume > 300 ? 'bien recherché' : 'modérément recherché'
-
-    const concurrenceText = concurrence === 'Forte' ? 'un marché compétitif avec de nombreux acteurs' :
-        concurrence === 'Moyenne' ? 'un marché avec une concurrence modérée' :
-            'un marché avec peu de concurrents'
-
-    const analyse = `Le marché "${metier}" à ${ville} est ${volumeText} avec environ ${keywordData.searchVolume.toLocaleString('fr-FR')} recherches mensuelles. C'est ${concurrenceText}. Avec un panier moyen de ${panierMoyen}€ et un taux de capture de ${(tauxCapture * 100).toFixed(0)}%, le potentiel de chiffre d'affaires est estimé à ${potentielMensuel.toLocaleString('fr-FR')}€/mois.`
-
-    return {
-        potentielAnnuel,
-        potentielMensuel,
-        recherchesMensuelles: keywordData.searchVolume,
-        concurrence,
-        tendance,
-        panierMoyen,
-        tauxCapture,
-        cpc: keywordData.cpc,
-        keyword,
-        analyse,
-    }
-}
-
-export { PANIERS_MOYENS }

@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Gift, ArrowRight, Sparkles } from 'lucide-react'
+import { X, BarChart3, ArrowRight, CheckCircle } from 'lucide-react'
 
 interface LeadCapturePopupProps {
     delayMs?: number
@@ -10,36 +10,47 @@ interface LeadCapturePopupProps {
 }
 
 export function LeadCapturePopup({
-    delayMs = 60000, // 60 seconds
-    scrollTriggerPercent = 50, // 50% scroll
+    delayMs = 45000, // 45 seconds
+    scrollTriggerPercent = 65, // 65% scroll
 }: LeadCapturePopupProps) {
     const [isOpen, setIsOpen] = useState(false)
     const [email, setEmail] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [error, setError] = useState('')
+
+    const dismiss = useCallback(() => {
+        setIsOpen(false)
+        try {
+            localStorage.setItem('popup-dismissed', 'true')
+        } catch {
+            // sessionStorage peut être indisponible en navigation privée
+        }
+    }, [])
 
     useEffect(() => {
-        // Check if already shown in this session
-        const alreadyShown = sessionStorage.getItem('popup-shown')
-        if (alreadyShown) return
+        // Ne jamais afficher si déjà fermé dans cette session
+        try {
+            if (localStorage.getItem('popup-dismissed')) return
+        } catch {
+            return
+        }
 
-        // Time-based trigger
+        // Timer principal
         const timer = setTimeout(() => {
             setIsOpen(true)
-            sessionStorage.setItem('popup-shown', 'true')
         }, delayMs)
 
-        // Scroll-based trigger
+        // Scroll trigger
         const handleScroll = () => {
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
             if (scrollPercent >= scrollTriggerPercent) {
                 setIsOpen(true)
-                sessionStorage.setItem('popup-shown', 'true')
                 window.removeEventListener('scroll', handleScroll)
             }
         }
 
-        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', handleScroll, { passive: true })
 
         return () => {
             clearTimeout(timer)
@@ -49,17 +60,41 @@ export function LeadCapturePopup({
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+        setError('')
         setIsSubmitting(true)
 
-        // TODO: Send to API
-        await new Promise(resolve => setTimeout(resolve, 1000))
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nom: 'Prospect (popup)',
+                    email,
+                    service: 'autre',
+                    budget: 'ne-sais-pas',
+                    message: 'Demande d\'audit SEO gratuit via le popup du site.',
+                    rgpd: true,
+                }),
+            })
 
-        setIsSubmitting(false)
-        setIsSubmitted(true)
+            if (!response.ok) {
+                throw new Error('Erreur lors de l\'envoi')
+            }
 
-        setTimeout(() => {
-            setIsOpen(false)
-        }, 3000)
+            setIsSubmitted(true)
+            // Marquer comme fermé après soumission
+            try {
+                localStorage.setItem('popup-dismissed', 'true')
+            } catch { /* ignore */ }
+
+            setTimeout(() => {
+                setIsOpen(false)
+            }, 3000)
+        } catch {
+            setError('Une erreur est survenue. Réessayez.')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -71,86 +106,85 @@ export function LeadCapturePopup({
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
-                        onClick={() => setIsOpen(false)}
+                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9998]"
+                        onClick={dismiss}
                     />
 
-                    {/* Popup Container - Flexbox pour centrage parfait */}
+                    {/* Popup */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                         className="fixed inset-0 z-[9999] flex items-center justify-center p-4 pointer-events-none"
                     >
-                        <div className="relative w-full max-w-lg pointer-events-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl border border-white/20 p-8 shadow-2xl overflow-hidden">
-                            {/* Close button - z-index élevé pour être au-dessus des glow effects */}
+                        <div className="relative w-full max-w-md pointer-events-auto bg-white dark:bg-[#111111] rounded-2xl border border-gray-200 dark:border-white/10 p-8 shadow-xl">
+                            {/* Close button */}
                             <button
-                                onClick={() => setIsOpen(false)}
-                                className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+                                onClick={dismiss}
+                                className="absolute top-4 right-4 p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-white rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                                 aria-label="Fermer"
                             >
-                                <X className="w-5 h-5" />
+                                <X className="w-4 h-4" />
                             </button>
-
-                            {/* Glow effect - pointer-events-none pour ne pas bloquer les clics */}
-                            <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/30 rounded-full blur-3xl pointer-events-none" />
-                            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl pointer-events-none" />
 
                             <div className="relative">
                                 {!isSubmitted ? (
                                     <>
                                         {/* Icon */}
-                                        <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center">
-                                            <Gift className="w-8 h-8 text-white" />
+                                        <div className="w-12 h-12 mx-auto mb-5 rounded-xl bg-primary/10 flex items-center justify-center">
+                                            <BarChart3 className="w-6 h-6 text-primary" />
                                         </div>
 
                                         {/* Title */}
-                                        <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-3">
-                                            🎁 Audit SEO Gratuit
+                                        <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-2">
+                                            Audit SEO Gratuit
                                         </h2>
-                                        <p className="text-gray-400 text-center mb-6">
-                                            Recevez un audit personnalisé de votre présence en ligne
-                                            et découvrez vos axes d'amélioration.
+                                        <p className="text-gray-500 dark:text-gray-400 text-sm text-center mb-6 leading-relaxed">
+                                            Recevez un audit personnalisé de votre présence en ligne et découvrez vos axes d&apos;amélioration.
                                         </p>
 
                                         {/* Form */}
-                                        <form onSubmit={handleSubmit} className="space-y-4">
+                                        <form onSubmit={handleSubmit} className="space-y-3">
                                             <input
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 placeholder="votre@email.com"
                                                 required
-                                                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+                                                className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-sm"
                                             />
+                                            {error && (
+                                                <p className="text-red-500 text-xs">{error}</p>
+                                            )}
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full py-3 bg-gradient-to-r from-primary to-orange-500 text-white font-bold rounded-xl hover:opacity-90 disabled:opacity-50 transition-opacity flex items-center justify-center gap-2"
+                                                className="w-full py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 disabled:opacity-50 transition-all flex items-center justify-center gap-2 text-sm"
                                             >
                                                 {isSubmitting ? (
-                                                    'Envoi...'
+                                                    'Envoi en cours...'
                                                 ) : (
                                                     <>
                                                         Recevoir mon audit gratuit
-                                                        <ArrowRight className="w-5 h-5" />
+                                                        <ArrowRight className="w-4 h-4" />
                                                     </>
                                                 )}
                                             </button>
                                         </form>
 
                                         {/* Trust */}
-                                        <p className="text-gray-500 text-xs text-center mt-4">
-                                            🔒 Vos données restent confidentielles. Pas de spam.
+                                        <p className="text-gray-400 dark:text-gray-500 text-xs text-center mt-4">
+                                            Vos données restent confidentielles. Pas de spam.
                                         </p>
                                     </>
                                 ) : (
-                                    <div className="text-center py-8">
-                                        <Sparkles className="w-16 h-16 text-primary mx-auto mb-4" />
-                                        <h2 className="text-2xl font-bold text-white mb-2">
-                                            Merci ! 🎉
+                                    <div className="text-center py-6">
+                                        <CheckCircle className="w-12 h-12 text-primary mx-auto mb-4" />
+                                        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                            Merci !
                                         </h2>
-                                        <p className="text-gray-400">
+                                        <p className="text-gray-500 dark:text-gray-400 text-sm">
                                             Votre audit vous sera envoyé sous 24h.
                                         </p>
                                     </div>
