@@ -1,10 +1,9 @@
 /**
  * Test endpoint pour débugger l'API market-analysis
- * Utilise l'estimation intelligente (gratuit)
+ * Utilise l'estimation IA Gemini
  */
 
 import { NextResponse } from 'next/server'
-import { getEstimatedKeywordData } from '@/lib/estimation'
 import { generateMarketAnalysis } from '@/lib/gemini'
 
 export async function GET() {
@@ -18,43 +17,35 @@ export async function GET() {
 
         logs.push(`1. Keyword: ${keyword}`)
 
-        // 1. Test Estimation intelligente
-        logs.push('2. Estimation intelligente...')
-        let keywordData
-        try {
-            keywordData = getEstimatedKeywordData(metier, ville)
-            logs.push(`3. Estimation OK: ${JSON.stringify(keywordData)}`)
-        } catch (error) {
-            logs.push(`3. Estimation ERREUR: ${error instanceof Error ? error.message : String(error)}`)
-            return NextResponse.json({ success: false, logs, step: 'estimation' })
-        }
-
-        // 2. Test Gemini
-        logs.push('4. Appel Gemini...')
+        // 1. Test Gemini
+        logs.push('2. Appel Gemini...')
         let analysis
         try {
-            analysis = await generateMarketAnalysis(metier, ville, keywordData)
-            logs.push(`5. Gemini OK: potentiel=${analysis.potentielAnnuel}€`)
+            analysis = await generateMarketAnalysis(metier, ville)
+            logs.push(`3. Gemini OK: potentiel=${analysis.potentielAnnuel}€`)
         } catch (error) {
-            logs.push(`5. Gemini ERREUR: ${error instanceof Error ? error.message : String(error)}`)
+            logs.push(`3. Gemini ERREUR: ${error instanceof Error ? error.message : String(error)}`)
             return NextResponse.json({ success: false, logs, step: 'gemini' })
         }
 
-        // 3. Test save to DB
-        logs.push('6. Sauvegarde en base...')
+        // 2. Test save to DB
+        logs.push('4. Sauvegarde en base...')
         try {
             const { prisma } = await import('@/lib/database_final')
+
+            // Simulation index
+            const competitionIndexStr = analysis.concurrence === 'Forte' ? 85 : analysis.concurrence === 'Moyenne' ? 50 : 20
 
             const savedAnalysis = await prisma.marketAnalysis.create({
                 data: {
                     metier,
                     ville,
-                    keyword: keywordData.keyword,
-                    searchVolume: keywordData.searchVolume,
-                    cpc: keywordData.cpc,
-                    competition: keywordData.competition,
-                    competitionIndex: keywordData.competitionIndex,
-                    dataSource: 'estimation',
+                    keyword: analysis.keyword,
+                    searchVolume: analysis.recherchesMensuelles,
+                    cpc: analysis.cpc,
+                    competition: analysis.concurrence === 'Forte' ? 'HIGH' : analysis.concurrence === 'Moyenne' ? 'MEDIUM' : 'LOW',
+                    competitionIndex: competitionIndexStr,
+                    dataSource: 'gemini_test',
                     panierMoyen: analysis.panierMoyen,
                     tauxConversion: 0,
                     tauxCapture: analysis.tauxCapture,
@@ -67,9 +58,9 @@ export async function GET() {
                     email: null,
                 },
             })
-            logs.push(`7. Sauvegarde OK: id=${savedAnalysis.id}`)
+            logs.push(`5. Sauvegarde OK: id=${savedAnalysis.id}`)
         } catch (error) {
-            logs.push(`7. Sauvegarde ERREUR: ${error instanceof Error ? error.message : String(error)}`)
+            logs.push(`5. Sauvegarde ERREUR: ${error instanceof Error ? error.message : String(error)}`)
             return NextResponse.json({ success: false, logs, step: 'database' })
         }
 
@@ -79,7 +70,7 @@ export async function GET() {
             analysis: {
                 potentielAnnuel: analysis.potentielAnnuel,
                 potentielMensuel: analysis.potentielMensuel,
-                searchVolume: keywordData.searchVolume,
+                searchVolume: analysis.recherchesMensuelles,
             }
         })
 
