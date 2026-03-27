@@ -29,7 +29,7 @@ interface GeminiResponse {
     }>
 }
 
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
 
 /**
  * Génère une analyse de marché complète via Gemini (Volume estimé + Pitch)
@@ -83,7 +83,7 @@ Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exac
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 600, responseMimeType: 'application/json' },
+                generationConfig: { temperature: 0.7, maxOutputTokens: 600 },
             }),
         })
 
