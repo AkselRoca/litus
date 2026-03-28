@@ -79,8 +79,9 @@ model BlogPost {
   authorId    String?
   author      User?     @relation(fields: [authorId], references: [id])
   
-  // Image à la une
-  coverImage  String?
+  // Données de l'article
+  coverImage      String?
+  tableOfContents String?
 
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt

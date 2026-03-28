@@ -25,6 +25,7 @@ export default function NewArticlePage() {
     })
 
     const [uploadingImage, setUploadingImage] = useState(false)
+    const [tableOfContents, setTableOfContents] = useState('')
 
     const [team, setTeam] = useState<{ id: string; name: string }[]>([])
 
@@ -102,7 +103,7 @@ export default function NewArticlePage() {
             const res = await fetch('/api/admin/blog', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ ...formData, tableOfContents })
             })
             const data = await res.json()
             if (data.success) {

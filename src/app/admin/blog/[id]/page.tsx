@@ -16,6 +16,7 @@ export default function EditArticlePage() {
     const [isSaving, setIsSaving] = useState(false)
     const [uploadingImage, setUploadingImage] = useState(false)
     const [team, setTeam] = useState<{ id: string; name: string }[]>([])
+    const [tableOfContents, setTableOfContents] = useState('')
 
     const [formData, setFormData] = useState({
         id: '',
@@ -30,6 +31,7 @@ export default function EditArticlePage() {
         authorId: '',
         coverImage: '',
         publishedAt: '',
+        tableOfContents: '',
     })
 
     useEffect(() => {
@@ -61,7 +63,9 @@ export default function EditArticlePage() {
                         authorId: post.authorId || (teamData.data?.[0]?.id || ''),
                         coverImage: post.coverImage || '',
                         publishedAt: post.publishedAt ? new Date(post.publishedAt).toISOString().slice(0, 16) : '',
+                        tableOfContents: post.tableOfContents || '',
                     })
+                    setTableOfContents(post.tableOfContents || '')
                 }
             } catch (err) {
                 console.error('Failed to load data', err)
@@ -108,7 +112,7 @@ export default function EditArticlePage() {
             const res = await fetch(`/api/admin/blog/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ ...formData, tableOfContents })
             })
             const data = await res.json()
             if (data.success) {

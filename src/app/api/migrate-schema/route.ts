@@ -32,6 +32,7 @@ export async function GET() {
             // Ajout des colonnes pour le nouveau CMS Blog
             `ALTER TABLE BlogPost ADD COLUMN category TEXT DEFAULT 'SEO'`,
             `ALTER TABLE BlogPost ADD COLUMN coverImage TEXT`,
+            `ALTER TABLE BlogPost ADD COLUMN tableOfContents TEXT`,
             `ALTER TABLE BlogPost ADD COLUMN authorId TEXT`,
             `ALTER TABLE BlogPost ADD COLUMN publishedAt DATETIME`,
 
