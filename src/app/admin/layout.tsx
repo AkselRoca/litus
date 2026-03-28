@@ -76,9 +76,13 @@ export default async function AdminLayout({
                 {/* User section */}
                 <div className="px-3 py-4 border-t border-gray-200 dark:border-white/10">
                     <div className="flex items-center gap-3 px-3 py-2.5 mb-1">
-                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
-                            {session.user.name?.charAt(0) || 'A'}
-                        </div>
+                        {session.user.image ? (
+                            <img src={session.user.image} alt={session.user.name || ''} className="w-9 h-9 rounded-full object-cover shrink-0" />
+                        ) : (
+                            <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm shrink-0">
+                                {session.user.name?.charAt(0) || 'A'}
+                            </div>
+                        )}
                         <div className="min-w-0">
                             <div className="text-gray-900 dark:text-white font-medium text-sm truncate">{session.user.name}</div>
                             <div className="text-gray-400 dark:text-gray-500 text-xs truncate">{session.user.email}</div>

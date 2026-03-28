@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Save, Eye, Loader2 } from 'lucide-react'
@@ -19,7 +19,29 @@ export default function NewArticlePage() {
         metaTitle: '',
         metaDescription: '',
         published: false,
+        authorId: '',
     })
+
+    const [team, setTeam] = useState<{ id: string; name: string }[]>([])
+
+    useEffect(() => {
+        const fetchTeam = async () => {
+            try {
+                const res = await fetch('/api/admin/team')
+                const data = await res.json()
+                if (data.success && data.data) {
+                    setTeam(data.data)
+                    // Select first member by default if none selected
+                    if (data.data.length > 0) {
+                        setFormData(prev => ({ ...prev, authorId: data.data[0].id }))
+                    }
+                }
+            } catch (err) {
+                console.error('Failed to load team', err)
+            }
+        }
+        fetchTeam()
+    }, [])
 
     const generateSlug = (title: string) => {
         return title
@@ -176,6 +198,23 @@ export default function NewArticlePage() {
                                 {categories.map((cat) => (
                                     <option key={cat} value={cat} className="bg-white dark:bg-gray-900">
                                         {cat}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        {/* Author */}
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
+                            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Auteur</h2>
+
+                            <select
+                                value={formData.authorId}
+                                onChange={(e) => setFormData({ ...formData, authorId: e.target.value })}
+                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary cursor-pointer"
+                            >
+                                {team.map((member) => (
+                                    <option key={member.id} value={member.id} className="bg-white dark:bg-gray-900">
+                                        {member.name}
                                     </option>
                                 ))}
                             </select>

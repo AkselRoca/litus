@@ -22,7 +22,8 @@ model User {
   emailNotifications Boolean  @default(true)
   
   // Relations
-  assignedLeads      Lead[]   @relation("AssignedTo")
+  assignedLeads      Lead[]     @relation("AssignedTo")
+  blogPosts          BlogPost[]
   
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
@@ -72,6 +73,11 @@ model BlogPost {
   metaDesc    String?   // SEO meta description
   published   Boolean   @default(false)
   publishedAt DateTime?
+  
+  // Relation Auteur
+  authorId    String?
+  author      User?     @relation(fields: [authorId], references: [id])
+
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 

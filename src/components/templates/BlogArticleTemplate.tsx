@@ -11,6 +11,7 @@ interface BlogArticleData {
     author: {
         name: string
         role: string
+        avatar?: string | null
     }
     publishedAt: string
     readTime: string
@@ -67,9 +68,18 @@ export function BlogArticleTemplate({ data }: BlogArticleTemplateProps) {
 
                         {/* Meta */}
                         <div className="flex flex-wrap items-center gap-6 text-gray-500 dark:text-gray-400">
-                            <div className="flex items-center gap-2">
-                                <User className="w-5 h-5" />
-                                <span>{data.author.name}</span>
+                            <div className="flex items-center gap-3">
+                                {data.author.avatar ? (
+                                    <img src={data.author.avatar} alt={data.author.name} className="w-10 h-10 rounded-full object-cover shrink-0 border border-gray-200 dark:border-white/10" />
+                                ) : (
+                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                        <User className="w-5 h-5 text-primary" />
+                                    </div>
+                                )}
+                                <div>
+                                    <div className="text-gray-900 dark:text-white font-medium">{data.author.name}</div>
+                                    <div className="text-xs">{data.author.role}</div>
+                                </div>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Calendar className="w-5 h-5" />
