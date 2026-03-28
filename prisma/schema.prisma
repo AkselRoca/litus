@@ -71,6 +71,7 @@ model BlogPost {
   content     String    // MDX content
   metaTitle   String?   // SEO meta title
   metaDesc    String?   // SEO meta description
+  category    String?   @default("SEO")
   published   Boolean   @default(false)
   publishedAt DateTime?
   

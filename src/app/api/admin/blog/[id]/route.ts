@@ -28,7 +28,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     try {
         const { id } = await params
         const body = await request.json()
-        const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, publishedAt } = body
+        const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, publishedAt, category } = body
 
         // Handle publishedAt logic: if published and no publishedAt yet, set to now. 
         // If the user sends a specific date, we use it.
@@ -49,6 +49,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
             published,
             authorId: authorId || null,
             coverImage: coverImage !== undefined ? coverImage : undefined,
+            category: category !== undefined ? category : undefined,
         }
 
         if (actualPublishedAt !== undefined) {

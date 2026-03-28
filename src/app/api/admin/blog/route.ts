@@ -39,7 +39,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
-        const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, publishedAt } = body
+        const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, publishedAt, category } = body
 
         if (!title || !slug || !content) {
             return NextResponse.json({ success: false, error: 'Titre, slug et contenu requis' }, { status: 400 })
@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
                 published: published || false,
                 authorId: authorId || null,
                 coverImage: coverImage || null,
+                category: category || 'SEO',
                 publishedAt: publishedAt ? new Date(publishedAt) : (published ? new Date() : null),
             }
         })
