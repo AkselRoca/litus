@@ -309,7 +309,7 @@ export function EstimatorSection() {
 
                                             {/* Analysis Preview */}
                                             <div className="bg-gradient-to-br from-primary/5 to-orange-500/5 p-4 rounded-xl border border-primary/10">
-                                                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3">
+                                                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                                                     {analysis.analyse}
                                                 </p>
                                             </div>

@@ -63,6 +63,7 @@ Instructions :
 IMPORTANT: Tous les nombres générés (volume, cpc, ca) ne doivent comporter AUCUN ESPACE ni séparateur de milliers. (Ex: écris 15000 et NON 15 000 ou 15,000).
 7. Rédige un court paragraphe d'analyse (3 phrases max) très orienté VENTE (Copywriting). 
    - Le message doit faire un électrochoc à l'artisan/entreprise : un marché énorme l'attend, il laisse tout cet argent sur la table à ses concurrents chaque mois.
+   - IMPORTANT: Dans le texte d'analyse, mentionne le chiffre du POTENTIEL ANNUEL (pas mensuel), car c'est celui affiché en gros sur l'écran du prospect.
    - Mentionne très subtilement que l'agence Litus est là pour l'aider à capter toute cette demande avec un site web performant, du SEO et du Google Ads.
 
 Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exacte (SANS balises markdown ni espaces dans les nombres) :
@@ -75,7 +76,7 @@ Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exac
     "potentielMensuel": 30000,
     "potentielAnnuel": 360000,
     "tendance": "Hausse",
-    "analyse": "Chaque mois, plus de 1500 personnes recherchent vos services à Paris. Actuellement, ce sont vos concurrents qui raflent ces 30 000€ de chiffre d'affaires mensuel car vous n'êtes pas visible. Litus peut vous aider à dominer ce marché avec une stratégie SEO et un site web haut de gamme."
+    "analyse": "Chaque mois, plus de 1500 personnes recherchent vos services à Paris. Ce sont 360000€ de chiffre d'affaires annuel que vos concurrents captent car vous n'êtes pas visible. Litus peut vous aider à dominer ce marché avec une stratégie SEO et un site web haut de gamme."
 }`
 
     try {
