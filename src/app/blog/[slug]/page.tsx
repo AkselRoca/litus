@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { BlogArticleTemplate, generateBlogArticleMetadata } from '@/components/templates/BlogArticleTemplate'
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/lib/database_final'
 
 export const revalidate = 60 // Revalidation optionnelle pour la mise en cache (1 minute)
 

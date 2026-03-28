@@ -34,7 +34,7 @@ export interface BlogPost {
 // Helper pour obtenir Prisma dynamiquement
 async function getPrisma() {
     try {
-        const { prisma } = await import('@/lib/prisma')
+        const { prisma } = await import('@/lib/database_final')
         return prisma
     } catch {
         return null

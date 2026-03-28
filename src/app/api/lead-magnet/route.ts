@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
         // Tenter de sauvegarder en DB si Prisma est configuré
         try {
             // Import dynamique pour éviter erreur de build si DB non configurée
-            const { prisma } = await import('@/lib/prisma')
+            const { prisma } = await import('@/lib/database_final')
 
             await prisma.lead.create({
                 data: {

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Calendar, Clock, BookOpen } from 'lucide-react'
 
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/lib/database_final'
 
 export const metadata: Metadata = {
     title: 'Blog - Conseils Marketing Digital Local | Litus',

@@ -2,6 +2,12 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaLibSQL } from '@prisma/adapter-libsql'
 import { createClient } from '@libsql/client'
 
+// Hack Vercel : Prisma exige DATABASE_URL pour valider le schéma à l'initialisation, 
+// même si on override avec l'adapter LibSQL par la suite.
+if (!process.env.DATABASE_URL) {
+    process.env.DATABASE_URL = "file:./dev.db"
+}
+
 const globalForPrisma = globalThis as unknown as {
     prisma_database_final: PrismaClient | undefined
 }
