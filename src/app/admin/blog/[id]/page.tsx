@@ -1,37 +1,149 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Save, Eye, Trash2, Loader2 } from 'lucide-react'
+import { ArrowLeft, Save, Eye, Trash2, Loader2, Upload, X } from 'lucide-react'
 
 const categories = ['SEO', 'Stratégie', 'Site Web', 'Google Ads', 'E-commerce']
 
-// Mock data - will be replaced with DB fetch
-const mockArticle = {
-    id: '1',
-    title: 'Guide Complet du SEO Local en 2024',
-    slug: 'seo-local-guide-2024',
-    excerpt: 'Tout ce que vous devez savoir pour apparaître en première page Google.',
-    content: `## Qu'est-ce que le SEO Local ?\n\nLe SEO local est l'ensemble des techniques permettant d'optimiser votre visibilité sur les moteurs de recherche pour les requêtes géolocalisées.\n\n### Les 3 Piliers du SEO Local\n\n1. **Google Business Profile**\n2. **Optimisation On-Site**\n3. **Citations et Backlinks Locaux**`,
-    category: 'SEO',
-    metaTitle: 'Guide Complet du SEO Local en 2024 | Litus',
-    metaDescription: 'Tout ce que vous devez savoir pour apparaître en première page Google dans votre zone géographique.',
-    published: true,
-}
-
 export default function EditArticlePage() {
-    const [isLoading, setIsLoading] = useState(false)
-    const [formData, setFormData] = useState(mockArticle)
+    const router = useRouter()
+    const params = useParams()
+    const id = params.id as string
+
+    const [isLoading, setIsLoading] = useState(true)
+    const [isSaving, setIsSaving] = useState(false)
+    const [uploadingImage, setUploadingImage] = useState(false)
+    const [team, setTeam] = useState<{ id: string; name: string }[]>([])
+
+    const [formData, setFormData] = useState({
+        id: '',
+        title: '',
+        slug: '',
+        excerpt: '',
+        content: '',
+        category: 'SEO',
+        metaTitle: '',
+        metaDescription: '',
+        published: false,
+        authorId: '',
+        coverImage: '',
+        publishedAt: '',
+    })
+
+    useEffect(() => {
+        const loadInitialData = async () => {
+            try {
+                // Charger l'équipe
+                const teamRes = await fetch('/api/admin/team')
+                const teamData = await teamRes.json()
+                if (teamData.success) {
+                    setTeam(teamData.data)
+                }
+
+                // Charger l'article
+                const articleRes = await fetch(`/api/admin/blog/${id}`)
+                const articleData = await articleRes.json()
+                
+                if (articleData.success) {
+                    const post = articleData.data
+                    setFormData({
+                        id: post.id,
+                        title: post.title,
+                        slug: post.slug,
+                        excerpt: post.excerpt || '',
+                        content: post.content,
+                        category: post.category || 'SEO',
+                        metaTitle: post.metaTitle || '',
+                        metaDescription: post.metaDesc || '',
+                        published: post.published,
+                        authorId: post.authorId || (teamData.data?.[0]?.id || ''),
+                        coverImage: post.coverImage || '',
+                        publishedAt: post.publishedAt ? new Date(post.publishedAt).toISOString().slice(0, 16) : '',
+                    })
+                }
+            } catch (err) {
+                console.error('Failed to load data', err)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+        loadInitialData()
+    }, [id])
+
+    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]
+        if (!file) return
+
+        setUploadingImage(true)
+        try {
+            const uploadData = new FormData()
+            uploadData.append('file', file)
+
+            const res = await fetch('/api/admin/media', {
+                method: 'POST',
+                body: uploadData
+            })
+            const data = await res.json()
+
+            if (data.success) {
+                setFormData(prev => ({ ...prev, coverImage: data.data.url }))
+            } else {
+                alert('Erreur lors de l\'upload')
+            }
+        } catch (error) {
+            console.error('Upload Error:', error)
+            alert('Échec de l\'upload de l\'image')
+        } finally {
+            setUploadingImage(false)
+        }
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        setIsLoading(true)
+        setIsSaving(true)
 
-        // TODO: Save to database via API
-        console.log('Updating article:', formData)
+        try {
+            const res = await fetch(`/api/admin/blog/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            const data = await res.json()
+            if (data.success) {
+                router.push('/admin/blog')
+            } else {
+                alert(data.error || 'Erreur lors de la modification')
+            }
+        } catch (error) {
+            console.error('Update Error:', error)
+            alert('Erreur serveur')
+        } finally {
+            setIsSaving(false)
+        }
+    }
 
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setIsLoading(false)
+    const deleteArticle = async () => {
+        if (!confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) return
+        try {
+            const res = await fetch(`/api/admin/blog/${id}`, { method: 'DELETE' })
+            const data = await res.json()
+            if (data.success) {
+                router.push('/admin/blog')
+            }
+        } catch (error) {
+            console.error('Delete Error:', error)
+        }
+    }
+
+    if (isLoading) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[400px]">
+                <Loader2 className="w-8 h-8 animate-spin text-primary mb-4" />
+                <p className="text-gray-500">Chargement de l'article...</p>
+            </div>
+        )
     }
 
     return (
@@ -53,6 +165,7 @@ export default function EditArticlePage() {
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <button
                         type="button"
+                        onClick={deleteArticle}
                         className="flex items-center gap-2 px-3 py-2 text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 dark:text-red-400 dark:bg-transparent border border-red-200 dark:border-red-400/30 rounded-xl dark:hover:bg-red-400/10 transition-colors text-sm font-medium"
                     >
                         <Trash2 className="w-4 h-4" />
@@ -68,10 +181,10 @@ export default function EditArticlePage() {
                     </Link>
                     <button
                         onClick={handleSubmit}
-                        disabled={isLoading}
+                        disabled={isSaving}
                         className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-primary text-white font-medium text-sm rounded-xl hover:bg-primary/90 disabled:opacity-50 transition-colors shadow-sm shadow-primary/20"
                     >
-                        {isLoading ? (
+                        {isSaving ? (
                             <Loader2 className="w-4 h-4 animate-spin" />
                         ) : (
                             <Save className="w-4 h-4" />
@@ -108,13 +221,13 @@ export default function EditArticlePage() {
                         <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
                             <div className="flex justify-between items-center mb-2">
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    Contenu (Markdown) *
+                                    Contenu (HTML/CSS personnalisé) *
                                 </label>
-                                <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank" rel="noreferrer" className="text-xs text-primary hover:underline">Guide Markdown</a>
                             </div>
                             <textarea
                                 value={formData.content}
                                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                                placeholder={`<div class="article-content">\n  <h2>Introduction</h2>\n  <p>Votre contenu ici...</p>\n</div>`}
                                 rows={24}
                                 className="w-full px-4 py-3 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-y font-mono text-sm leading-relaxed"
                             />
@@ -125,20 +238,76 @@ export default function EditArticlePage() {
                     <div className="space-y-6">
                         <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
                             <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Publication</h2>
-                            <label className="flex items-center gap-3 cursor-pointer group">
-                                <div className="relative flex items-center">
+                            
+                            <div className="space-y-4">
+                                <label className="flex items-center gap-3 cursor-pointer group">
+                                    <div className="relative flex items-center">
+                                        <input
+                                            type="checkbox"
+                                            checked={formData.published}
+                                            onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
+                                            className="w-5 h-5 rounded border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <div className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors">Article public</div>
+                                        <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Visible par tout le monde sur le site.</div>
+                                    </div>
+                                </label>
+
+                                {formData.published && (
+                                    <div>
+                                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">
+                                            Date de publication (optionnel)
+                                        </label>
+                                        <input
+                                            type="datetime-local"
+                                            value={formData.publishedAt}
+                                            onChange={(e) => setFormData({ ...formData, publishedAt: e.target.value })}
+                                            className="w-full px-3 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50"
+                                        />
+                                        <p className="text-[10px] text-gray-500 mt-1">Laissez vide pour publier immédiatement.</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Image de couverture */}
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
+                            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Image à la une</h2>
+
+                            {formData.coverImage ? (
+                                <div className="relative rounded-xl overflow-hidden aspect-video bg-gray-100 dark:bg-white/5 group">
+                                    <img src={formData.coverImage} alt="Cover" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, coverImage: '' })}
+                                            className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                                        >
+                                            <X className="w-5 h-5" />
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 dark:border-white/20 rounded-xl bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 cursor-pointer transition-colors relative overflow-hidden">
+                                    {uploadingImage ? (
+                                        <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                                    ) : (
+                                        <>
+                                            <Upload className="w-6 h-6 text-gray-400 mb-2" />
+                                            <span className="text-sm text-gray-500 dark:text-gray-400">Importer une image</span>
+                                        </>
+                                    )}
                                     <input
-                                        type="checkbox"
-                                        checked={formData.published}
-                                        onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
-                                        className="w-5 h-5 rounded border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 transition-colors"
+                                        type="file"
+                                        className="hidden"
+                                        accept="image/*"
+                                        onChange={handleImageUpload}
+                                        disabled={uploadingImage}
                                     />
-                                </div>
-                                <div>
-                                    <div className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors">Article publié</div>
-                                    <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Visible par tout le monde sur le site.</div>
-                                </div>
-                            </label>
+                                </label>
+                            )}
                         </div>
 
                         <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
@@ -150,6 +319,23 @@ export default function EditArticlePage() {
                             >
                                 {categories.map((cat) => (
                                     <option key={cat} value={cat} className="bg-white dark:bg-gray-900">{cat}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        {/* Author */}
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
+                            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Auteur</h2>
+
+                            <select
+                                value={formData.authorId}
+                                onChange={(e) => setFormData({ ...formData, authorId: e.target.value })}
+                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary cursor-pointer"
+                            >
+                                {team.map((member) => (
+                                    <option key={member.id} value={member.id} className="bg-white dark:bg-gray-900">
+                                        {member.name}
+                                    </option>
                                 ))}
                             </select>
                         </div>

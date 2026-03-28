@@ -2,41 +2,52 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Calendar, Clock, BookOpen } from 'lucide-react'
 
+import { prisma } from '@/lib/prisma'
+
 export const metadata: Metadata = {
     title: 'Blog - Conseils Marketing Digital Local | Litus',
     description: 'Découvrez nos conseils et guides pour développer votre visibilité en ligne et attirer plus de clients locaux.',
 }
 
-const articles = [
-    {
-        slug: 'seo-local-guide-2024',
-        title: 'Guide Complet du SEO Local en 2024',
-        excerpt: 'Tout ce que vous devez savoir pour apparaître en première page Google dans votre zone géographique.',
-        category: 'SEO',
-        publishedAt: '10 janvier 2024',
-        readTime: '8 min',
-    },
-    {
-        slug: 'google-ads-vs-seo',
-        title: 'Google Ads vs SEO : Que Choisir ?',
-        excerpt: 'Comparatif détaillé pour vous aider à choisir la meilleure stratégie selon votre budget et vos objectifs.',
-        category: 'Stratégie',
-        publishedAt: '5 janvier 2024',
-        readTime: '6 min',
-    },
-    {
-        slug: 'site-vitrine-artisan',
-        title: 'Pourquoi un Site Vitrine est Indispensable pour les Artisans',
-        excerpt: 'Les 5 raisons pour lesquelles chaque artisan devrait avoir un site web professionnel en 2024.',
-        category: 'Site Web',
-        publishedAt: '2 janvier 2024',
-        readTime: '5 min',
-    },
-]
+export const revalidate = 60 // Cache de 60 secondes pour les nouveaux articles
 
 const categories = ['Tous', 'SEO', 'Stratégie', 'Site Web', 'Google Ads']
 
-export default function BlogPage() {
+export default async function BlogPage({
+    searchParams
+}: {
+    searchParams: { category?: string }
+}) {
+    const activeCategory = searchParams.category || 'Tous'
+
+    // Requête Prisma pour récupérer les articles publiés
+    const whereClause: any = { published: true }
+    if (activeCategory !== 'Tous') {
+        whereClause.category = activeCategory
+    }
+
+    const posts = await prisma.blogPost.findMany({
+        where: whereClause,
+        orderBy: { createdAt: 'desc' }
+    })
+
+    // Transformation pour l'affichage
+    const articles = posts.map(post => {
+        const wordCount = post.content.split(/\s+/).length
+        const readTimeMinutes = Math.max(1, Math.ceil(wordCount / 200))
+        
+        return {
+            slug: post.slug,
+            title: post.title,
+            excerpt: post.excerpt,
+            category: post.category || 'Actualités',
+            publishedAt: post.publishedAt 
+                ? post.publishedAt.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
+                : post.createdAt.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }),
+            readTime: `${readTimeMinutes} min`,
+            coverImage: post.coverImage,
+        }
+    })
     return (
         <div className="min-h-screen bg-white dark:bg-black">
             {/* Hero */}
@@ -69,15 +80,16 @@ export default function BlogPage() {
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-wrap gap-3 justify-center">
                             {categories.map((category) => (
-                                <button
+                                <Link
                                     key={category}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${category === 'Tous'
+                                    href={category === 'Tous' ? '/blog' : `/blog?category=${encodeURIComponent(category)}`}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${category === activeCategory
                                             ? 'bg-primary text-white'
                                             : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary'
                                         }`}
                                 >
                                     {category}
-                                </button>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -104,8 +116,20 @@ export default function BlogPage() {
                                         transition-all duration-500
                                         hover:-translate-y-1
                                     ">
-                                        {/* Image placeholder */}
-                                        <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700" />
+                                        {/* Image de couverture */}
+                                        {article.coverImage ? (
+                                            <div className="h-48 relative overflow-hidden bg-gray-100 dark:bg-gray-800">
+                                                <img 
+                                                    src={article.coverImage} 
+                                                    alt={article.title} 
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center">
+                                                <BookOpen className="w-8 h-8 text-gray-400 opacity-50" />
+                                            </div>
+                                        )}
 
                                         <div className="p-6">
                                             {/* Category */}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Save, Eye, Loader2 } from 'lucide-react'
+import { ArrowLeft, Save, Eye, Loader2, Upload, X } from 'lucide-react'
 
 const categories = ['SEO', 'Stratégie', 'Site Web', 'Google Ads', 'E-commerce']
 
@@ -20,7 +20,11 @@ export default function NewArticlePage() {
         metaDescription: '',
         published: false,
         authorId: '',
+        coverImage: '',
+        publishedAt: '',
     })
+
+    const [uploadingImage, setUploadingImage] = useState(false)
 
     const [team, setTeam] = useState<{ id: string; name: string }[]>([])
 
@@ -62,18 +66,56 @@ export default function NewArticlePage() {
         })
     }
 
+    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]
+        if (!file) return
+
+        setUploadingImage(true)
+        try {
+            const formData = new FormData()
+            formData.append('file', file)
+
+            const res = await fetch('/api/admin/media', {
+                method: 'POST',
+                body: formData
+            })
+            const data = await res.json()
+
+            if (data.success) {
+                setFormData(prev => ({ ...prev, coverImage: data.data.url }))
+            } else {
+                alert('Erreur lors de l\'upload')
+            }
+        } catch (error) {
+            console.error('Upload Error:', error)
+            alert('Échec de l\'upload de l\'image')
+        } finally {
+            setUploadingImage(false)
+        }
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsLoading(true)
 
-        // TODO: Save to database via API
-        console.log('Saving article:', formData)
-
-        // Simulate save
-        await new Promise(resolve => setTimeout(resolve, 1000))
-
-        setIsLoading(false)
-        router.push('/admin/blog')
+        try {
+            const res = await fetch('/api/admin/blog', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            const data = await res.json()
+            if (data.success) {
+                router.push('/admin/blog')
+            } else {
+                alert(data.error || 'Erreur lors de la création')
+            }
+        } catch (error) {
+            console.error('Submit Error:', error)
+            alert('Erreur serveur')
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -153,14 +195,13 @@ export default function NewArticlePage() {
                         <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
                             <div className="flex justify-between items-center mb-2">
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    Contenu (Markdown) *
+                                    Contenu (HTML/CSS personnalisé) *
                                 </label>
-                                <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank" rel="noreferrer" className="text-xs text-primary hover:underline">Guide Markdown</a>
                             </div>
                             <textarea
                                 value={formData.content}
                                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                                placeholder={`## Introduction\n\nÉcrivez votre article en Markdown...\n\n### Section 1\n\nContenu de la section...\n\n- Point 1\n- Point 2\n- Point 3`}
+                                placeholder={`<div class="article-content">\n  <h2>Introduction</h2>\n  <p>Votre contenu ici...</p>\n</div>`}
                                 rows={24}
                                 className="w-full px-4 py-3 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-y font-mono text-sm leading-relaxed"
                             />
@@ -173,17 +214,72 @@ export default function NewArticlePage() {
                         <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
                             <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Publication</h2>
 
-                            <label className="flex items-center gap-3 cursor-pointer group">
-                                <div className="relative flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        checked={formData.published}
-                                        onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
-                                        className="w-5 h-5 rounded border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 transition-colors"
-                                    />
+                            <div className="space-y-4">
+                                <label className="flex items-center gap-3 cursor-pointer group">
+                                    <div className="relative flex items-center">
+                                        <input
+                                            type="checkbox"
+                                            checked={formData.published}
+                                            onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
+                                            className="w-5 h-5 rounded border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 transition-colors"
+                                        />
+                                    </div>
+                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors">Article public</span>
+                                </label>
+
+                                {formData.published && (
+                                    <div>
+                                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">
+                                            Date de publication (optionnel)
+                                        </label>
+                                        <input
+                                            type="datetime-local"
+                                            value={formData.publishedAt}
+                                            onChange={(e) => setFormData({ ...formData, publishedAt: e.target.value })}
+                                            className="w-full px-3 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-primary/50"
+                                        />
+                                        <p className="text-[10px] text-gray-500 mt-1">Laissez vide pour publier immédiatement.</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Image de couverture */}
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
+                            <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Image à la une</h2>
+
+                            {formData.coverImage ? (
+                                <div className="relative rounded-xl overflow-hidden aspect-video bg-gray-100 dark:bg-white/5 group">
+                                    <img src={formData.coverImage} alt="Cover" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, coverImage: '' })}
+                                            className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                                        >
+                                            <X className="w-5 h-5" />
+                                        </button>
+                                    </div>
                                 </div>
-                                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors">Publier immédiatement</span>
-                            </label>
+                            ) : (
+                                <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 dark:border-white/20 rounded-xl bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 cursor-pointer transition-colors relative overflow-hidden">
+                                    {uploadingImage ? (
+                                        <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                                    ) : (
+                                        <>
+                                            <Upload className="w-6 h-6 text-gray-400 mb-2" />
+                                            <span className="text-sm text-gray-500 dark:text-gray-400">Importer une image</span>
+                                        </>
+                                    )}
+                                    <input
+                                        type="file"
+                                        className="hidden"
+                                        accept="image/*"
+                                        onChange={handleImageUpload}
+                                        disabled={uploadingImage}
+                                    />
+                                </label>
+                            )}
                         </div>
 
                         {/* Category */}
