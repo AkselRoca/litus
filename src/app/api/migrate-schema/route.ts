@@ -29,6 +29,10 @@ export async function GET() {
             `ALTER TABLE Lead ADD COLUMN notes TEXT`,
             `ALTER TABLE Lead ADD COLUMN assignedToId TEXT`,
 
+            // Ajout des colonnes pour le nouveau CMS Blog
+            `ALTER TABLE BlogPost ADD COLUMN category TEXT DEFAULT 'SEO'`,
+            `ALTER TABLE BlogPost ADD COLUMN coverImage TEXT`,
+
             // Création de la table MarketAnalysis
             `CREATE TABLE IF NOT EXISTS MarketAnalysis (
                 id TEXT PRIMARY KEY,
