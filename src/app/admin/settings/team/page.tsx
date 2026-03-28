@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Users, Plus, Edit3, Trash2, Loader2, X, Save, Mail, Shield, Eye, EyeOff } from 'lucide-react'
+import { Users, Plus, Edit3, Trash2, Loader2, X, Save, Mail, Shield, Eye, EyeOff, User } from 'lucide-react'
 
 interface TeamMember {
     id: string
@@ -34,6 +34,7 @@ export default function TeamSettingsPage() {
         password: '',
         role: 'commercial',
         emailNotifications: true,
+        avatar: null as string | null,
     })
 
     useEffect(() => { loadMembers() }, [])
@@ -59,12 +60,37 @@ export default function TeamSettingsPage() {
                 password: '',
                 role: member.role,
                 emailNotifications: member.emailNotifications,
+                avatar: member.avatar,
             })
         } else {
             setEditing(null)
-            setForm({ name: '', email: '', password: '', role: 'commercial', emailNotifications: true })
+            setForm({ name: '', email: '', password: '', role: 'commercial', emailNotifications: true, avatar: null })
         }
         setShowModal(true)
+    }
+    const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]
+        if (!file) return
+        
+        const formData = new FormData()
+        formData.append('file', file)
+        formData.append('folder', 'team')
+        
+        try {
+            const res = await fetch('/api/admin/media', {
+                method: 'POST',
+                body: formData
+            })
+            const data = await res.json()
+            if (data.success) {
+                setForm(prev => ({ ...prev, avatar: data.data.optimizedUrl || data.data.url }))
+            } else {
+                alert('Erreur: ' + data.error)
+            }
+        } catch (err) {
+            console.error('Upload error:', err)
+            alert("Erreur lors de l'upload")
+        }
     }
 
     const saveMember = async () => {
@@ -78,6 +104,7 @@ export default function TeamSettingsPage() {
                 email: form.email,
                 role: form.role,
                 emailNotifications: form.emailNotifications,
+                avatar: form.avatar,
             }
             if (form.password) body.password = form.password
 
@@ -91,6 +118,7 @@ export default function TeamSettingsPage() {
             if (data.success) {
                 setShowModal(false)
                 loadMembers()
+                // Indicate to user they might need to refresh if changing own picture
             } else {
                 alert(data.error || 'Erreur')
             }
@@ -199,6 +227,22 @@ export default function TeamSettingsPage() {
                         </div>
 
                         <div className="space-y-5">
+                            {/* Upload Avatar */}
+                            <div className="flex flex-col items-center gap-3">
+                                <div className="relative group w-20 h-20 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                                    {form.avatar ? (
+                                        <img src={form.avatar} alt="Avatar" className="w-full h-full object-cover" />
+                                    ) : (
+                                        <User className="w-8 h-8 text-gray-400" />
+                                    )}
+                                    <label className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity">
+                                        <Edit3 className="w-5 h-5 text-white" />
+                                        <input type="file" className="hidden" accept="image/*" onChange={handleAvatarUpload} />
+                                    </label>
+                                </div>
+                                <div className="text-[11px] text-gray-500 text-center">Cliquez pour modifier la photo</div>
+                            </div>
+                            
                             <div>
                                 <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-1.5">Nom complet</label>
                                 <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}

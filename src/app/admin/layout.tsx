@@ -34,16 +34,19 @@ export default async function AdminLayout({
         redirect('/login-admin')
     }
 
-    const navItems = [
-        { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
-        { href: '/admin/portfolio', icon: Briefcase, label: 'Portfolio' },
-        { href: '/admin/media', icon: Image, label: 'Médias' },
-        { href: '/admin/leads', icon: Users, label: 'Leads' },
-        { href: '/admin/market-analysis', icon: TrendingUp, label: 'Analyses Marché' },
-        { href: '/admin/blog', icon: FileText, label: 'Blog' },
-        { href: '/admin/analytics', icon: BarChart, label: 'Analytics' },
-        { href: '/admin/settings', icon: Settings, label: 'Paramètres' },
+    const allNavItems = [
+        { href: '/admin', icon: LayoutDashboard, label: 'Dashboard', roles: ['admin', 'commercial', 'dev'] },
+        { href: '/admin/portfolio', icon: Briefcase, label: 'Portfolio', roles: ['admin', 'dev'] },
+        { href: '/admin/media', icon: Image, label: 'Médias', roles: ['admin', 'dev'] },
+        { href: '/admin/leads', icon: Users, label: 'Leads', roles: ['admin', 'commercial'] },
+        { href: '/admin/market-analysis', icon: TrendingUp, label: 'Analyses Marché', roles: ['admin', 'commercial'] },
+        { href: '/admin/blog', icon: FileText, label: 'Blog', roles: ['admin', 'dev'] },
+        { href: '/admin/analytics', icon: BarChart, label: 'Analytics', roles: ['admin', 'commercial', 'dev'] },
+        { href: '/admin/settings', icon: Settings, label: 'Paramètres', roles: ['admin'] },
     ]
+
+    const userRole = (session.user as any).role || 'commercial'
+    const navItems = allNavItems.filter(item => item.roles.includes(userRole))
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-[#0A0A0A] flex">

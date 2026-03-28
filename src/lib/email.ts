@@ -1,4 +1,5 @@
 import { Resend } from 'resend'
+import { prisma } from './database_final'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
@@ -36,9 +37,21 @@ export async function sendContactNotification(data: ContactEmailData) {
     }
 
     try {
+        const notifiableUsers = await prisma.user.findMany({
+            where: { emailNotifications: true },
+            select: { email: true }
+        })
+        
+        const toList = notifiableUsers.map(user => user.email)
+        
+        if (toList.length === 0) {
+            console.log('No admin users configured for notifications, skipping email')
+            return { success: true, message: 'No recipients configured' }
+        }
+
         const result = await resend.emails.send({
             from: 'Litus <onboarding@resend.dev>',
-            to: ['aksel.roca@hotmail.com'],
+            to: toList,
             subject: `🔔 Nouveau lead : ${data.nom} - ${serviceLabels[data.service] || data.service}`,
             html: `
                 <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
