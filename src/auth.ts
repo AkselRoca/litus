@@ -1,24 +1,7 @@
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
-
-// Hardcoded admin users (for simplicity - in production use DB)
-const ADMIN_USERS = [
-    {
-        id: '1',
-        email: 'aksel@litus.fr',
-        name: 'Aksel',
-        // Password: "litus2024!"
-        passwordHash: '$2b$12$z74G5v0Trwj.f24hfCfJM.n34Hevl.UV6ASqP/TM/ywbFFGuSoooK',
-    },
-    {
-        id: '2',
-        email: 'arthur@litus.fr',
-        name: 'Arthur',
-        // Password: "litus2024!"
-        passwordHash: '$2b$12$z74G5v0Trwj.f24hfCfJM.n34Hevl.UV6ASqP/TM/ywbFFGuSoooK',
-    },
-]
+import { prisma } from '@/lib/prisma'
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -33,27 +16,35 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     return null
                 }
 
-                const user = ADMIN_USERS.find(
-                    (u) => u.email === credentials.email
-                )
+                try {
+                    const user = await prisma.user.findUnique({
+                        where: { email: credentials.email as string }
+                    })
 
-                if (!user) {
+                    if (!user) {
+                        return null
+                    }
+
+                    const isValidPassword = await bcrypt.compare(
+                        credentials.password as string,
+                        user.password
+                    )
+
+                    if (!isValidPassword) {
+                        return null
+                    }
+
+                    // Return user object including extra fields needed in session
+                    return {
+                        id: user.id,
+                        email: user.email,
+                        name: user.name,
+                        image: user.avatar, // Map Prisma "avatar" to NextAuth "image"
+                        role: user.role,
+                    } as any // Cast to any to bypass strict internal DB types mismatching adapter types if any
+                } catch (error) {
+                    console.error("Auth DB error:", error)
                     return null
-                }
-
-                const isValidPassword = await bcrypt.compare(
-                    credentials.password as string,
-                    user.passwordHash
-                )
-
-                if (!isValidPassword) {
-                    return null
-                }
-
-                return {
-                    id: user.id,
-                    email: user.email,
-                    name: user.name,
                 }
             },
         }),
@@ -62,6 +53,30 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         signIn: '/login-admin',
     },
     callbacks: {
+        // Enriched JWT token with extra user data
+        async jwt({ token, user, trigger, session }) {
+            if (user) {
+                token.id = user.id
+                token.role = (user as any).role
+                token.picture = user.image
+            }
+            // Mettre à jour la session si l'utilisateur modifie son profil
+            if (trigger === "update" && session) {
+                if (session.name) token.name = session.name
+                if (session.image) token.picture = session.image
+                if (session.role) token.role = session.role
+            }
+            return token
+        },
+        // Populate actual session object from JWT token
+        async session({ session, token }) {
+            if (token && session.user) {
+                session.user.id = token.id as string
+                ;(session.user as any).role = token.role as string
+                if (token.picture) session.user.image = token.picture
+            }
+            return session
+        },
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user
             const isOnLogin = nextUrl.pathname === '/login-admin'
