@@ -6,15 +6,16 @@ import { prisma } from '@/lib/database_final'
 export const revalidate = 60 // Revalidation optionnelle pour la mise en cache (1 minute)
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
 
 // Génération dynamique des métadonnées
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params
     const post = await prisma.blogPost.findUnique({
-        where: { slug: params.slug },
+        where: { slug },
         include: { author: true } // On a besoin de l'auteur pour les metas
     })
 
@@ -50,8 +51,9 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
+    const { slug } = await params
     const post = await prisma.blogPost.findUnique({
-        where: { slug: params.slug },
+        where: { slug },
         include: { author: true }
     })
 
