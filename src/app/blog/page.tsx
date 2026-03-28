@@ -26,8 +26,10 @@ export default async function BlogPage({
         whereClause.category = activeCategory
     }
 
-    // FIX MIGRATION: Table is not migrated on Turso yet, bypassing to let Vercel build.
-    const posts: any[] = [] // await prisma.blogPost.findMany({ where: whereClause, orderBy: { createdAt: 'desc' } })
+    const posts = await prisma.blogPost.findMany({
+        where: whereClause,
+        orderBy: { createdAt: 'desc' }
+    })
 
     // Transformation pour l'affichage
     const articles = posts.map(post => {

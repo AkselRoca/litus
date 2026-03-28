@@ -40,8 +40,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // Fonction pour générer les params statiques au build (optionnel mais bon pour les perfs)
 export async function generateStaticParams() {
-    // FIX MIGRATION: Table is not migrated on Turso yet, bypassing static params.
-    /*
     const posts = await prisma.blogPost.findMany({
         where: { published: true },
         select: { slug: true }
@@ -49,8 +47,6 @@ export async function generateStaticParams() {
     return posts.map((post) => ({
         slug: post.slug,
     }))
-    */
-    return []
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
