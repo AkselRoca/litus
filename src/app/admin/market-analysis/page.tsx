@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { TrendingUp, TrendingDown, Minus, Search, Calendar, Mail, BarChart3, Target, DollarSign, ExternalLink, Trash2, CheckSquare, Square, X, Loader2 } from 'lucide-react'
+import { useEffect, useState, useMemo } from 'react'
+import { TrendingUp, TrendingDown, Minus, Search, Calendar, Mail, BarChart3, Target, DollarSign, ExternalLink, Trash2, CheckSquare, Square, X, Loader2, Filter, MailX } from 'lucide-react'
 
 interface MarketAnalysisData {
     id: string
@@ -24,12 +24,36 @@ interface MarketAnalysisData {
     createdAt: string
 }
 
+type EmailFilter = 'all' | 'with' | 'without'
+type DateFilter = 'all' | 'today' | '7days' | '30days'
+
 export default function MarketAnalysisPage() {
     const [analyses, setAnalyses] = useState<MarketAnalysisData[]>([])
     const [loading, setLoading] = useState(true)
     const [selectedAnalysis, setSelectedAnalysis] = useState<MarketAnalysisData | null>(null)
     const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
     const [deleting, setDeleting] = useState(false)
+    const [emailFilter, setEmailFilter] = useState<EmailFilter>('all')
+    const [dateFilter, setDateFilter] = useState<DateFilter>('all')
+
+    const filteredAnalyses = useMemo(() => {
+        return analyses.filter(a => {
+            // Email filter
+            if (emailFilter === 'with' && !a.email) return false
+            if (emailFilter === 'without' && a.email) return false
+            // Date filter
+            if (dateFilter !== 'all') {
+                const created = new Date(a.createdAt)
+                const now = new Date()
+                const diffMs = now.getTime() - created.getTime()
+                const diffDays = diffMs / (1000 * 60 * 60 * 24)
+                if (dateFilter === 'today' && diffDays > 1) return false
+                if (dateFilter === '7days' && diffDays > 7) return false
+                if (dateFilter === '30days' && diffDays > 30) return false
+            }
+            return true
+        })
+    }, [analyses, emailFilter, dateFilter])
 
     useEffect(() => {
         loadAnalyses()
@@ -94,11 +118,18 @@ export default function MarketAnalysisPage() {
     }
 
     const selectAll = () => {
-        if (selectedIds.size === analyses.length) {
+        const filteredIds = filteredAnalyses.map(a => a.id)
+        const allFilteredSelected = filteredIds.every(id => selectedIds.has(id))
+        if (allFilteredSelected) {
             setSelectedIds(new Set())
         } else {
-            setSelectedIds(new Set(analyses.map(a => a.id)))
+            setSelectedIds(new Set(filteredIds))
         }
+    }
+
+    const selectAllWithoutEmail = () => {
+        const noEmailIds = filteredAnalyses.filter(a => !a.email).map(a => a.id)
+        setSelectedIds(new Set(noEmailIds))
     }
 
     const formatCurrency = (value: number) =>
@@ -145,10 +176,67 @@ export default function MarketAnalysisPage() {
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Analyses de Marché</h1>
                     <p className="text-gray-500 dark:text-gray-400 text-sm">
-                        {analyses.length} analyse{analyses.length > 1 ? 's' : ''} •
+                        {filteredAnalyses.length} sur {analyses.length} analyse{analyses.length > 1 ? 's' : ''} •
                         {analyses.filter(a => a.email).length} avec email
                     </p>
                 </div>
+            </div>
+
+            {/* Filtres */}
+            <div className="flex flex-wrap items-center gap-3 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-xl p-3">
+                <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
+                    <Filter className="w-4 h-4" />
+                    <span className="text-xs font-semibold uppercase tracking-wider">Filtres</span>
+                </div>
+                <div className="w-px h-6 bg-gray-200 dark:bg-white/10" />
+
+                {/* Email filter */}
+                <div className="flex items-center gap-1 bg-gray-50 dark:bg-white/5 rounded-lg p-0.5 border border-gray-100 dark:border-white/10">
+                    {([['all', 'Tous'], ['with', '✉️ Avec email'], ['without', '🚫 Sans email']] as const).map(([value, label]) => (
+                        <button
+                            key={value}
+                            onClick={() => { setEmailFilter(value); setSelectedIds(new Set()) }}
+                            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                                emailFilter === value
+                                    ? 'bg-white dark:bg-white/15 text-gray-900 dark:text-white shadow-sm border border-gray-200 dark:border-white/10'
+                                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white'
+                            }`}
+                        >
+                            {label}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Date filter */}
+                <div className="flex items-center gap-1 bg-gray-50 dark:bg-white/5 rounded-lg p-0.5 border border-gray-100 dark:border-white/10">
+                    {([['all', 'Tout'], ['today', 'Aujourd\'hui'], ['7days', '7 jours'], ['30days', '30 jours']] as const).map(([value, label]) => (
+                        <button
+                            key={value}
+                            onClick={() => { setDateFilter(value); setSelectedIds(new Set()) }}
+                            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                                dateFilter === value
+                                    ? 'bg-white dark:bg-white/15 text-gray-900 dark:text-white shadow-sm border border-gray-200 dark:border-white/10'
+                                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white'
+                            }`}
+                        >
+                            {label}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Raccourci suppression sans email */}
+                {emailFilter !== 'with' && filteredAnalyses.some(a => !a.email) && (
+                    <>
+                        <div className="w-px h-6 bg-gray-200 dark:bg-white/10" />
+                        <button
+                            onClick={selectAllWithoutEmail}
+                            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 border border-red-100 dark:border-red-500/10 rounded-lg transition-colors"
+                        >
+                            <MailX className="w-3.5 h-3.5" />
+                            Sélectionner sans email ({filteredAnalyses.filter(a => !a.email).length})
+                        </button>
+                    </>
+                )}
             </div>
 
             {/* Barre d'actions bulk */}
@@ -178,20 +266,20 @@ export default function MarketAnalysisPage() {
                 {/* Liste des analyses */}
                 <div className="lg:col-span-1 space-y-3 lg:max-h-[calc(100vh-180px)] lg:overflow-y-auto pr-1 pb-10">
                     {/* Header sélection */}
-                    {analyses.length > 0 && (
+                    {filteredAnalyses.length > 0 && (
                         <div className="flex items-center gap-3 p-3 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-xl">
                             <button onClick={selectAll} className="text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
-                                {selectedIds.size === analyses.length ? (
+                                {filteredAnalyses.length > 0 && filteredAnalyses.every(a => selectedIds.has(a.id)) ? (
                                     <CheckSquare className="w-4 h-4 text-primary" />
                                 ) : (
                                     <Square className="w-4 h-4" />
                                 )}
                             </button>
-                            <span className="text-gray-500 dark:text-gray-400 text-xs font-medium uppercase tracking-wider">Tout sélectionner ({analyses.length})</span>
+                            <span className="text-gray-500 dark:text-gray-400 text-xs font-medium uppercase tracking-wider">Tout sélectionner ({filteredAnalyses.length})</span>
                         </div>
                     )}
 
-                    {analyses.map(analysis => {
+                    {filteredAnalyses.map(analysis => {
                         const isSelected = selectedIds.has(analysis.id)
                         return (
                             <div
@@ -255,10 +343,10 @@ export default function MarketAnalysisPage() {
                         )
                     })}
 
-                    {analyses.length === 0 && (
+                    {filteredAnalyses.length === 0 && (
                         <div className="text-center py-12 text-gray-500 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-xl text-sm">
                             <BarChart3 className="w-8 h-8 mx-auto mb-3 opacity-30" />
-                            Aucune analyse pour le moment
+                            {analyses.length === 0 ? 'Aucune analyse pour le moment' : 'Aucune analyse ne correspond aux filtres'}
                         </div>
                     )}
                 </div>
