@@ -236,6 +236,21 @@ export default function EditArticlePage() {
                                 className="w-full px-4 py-3 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-y font-mono text-sm leading-relaxed"
                             />
                         </div>
+
+                        {/* Table of Contents */}
+                        <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 shadow-sm dark:shadow-none">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Sommaire (HTML/CSS)
+                            </label>
+                            <textarea
+                                value={tableOfContents}
+                                onChange={(e) => setTableOfContents(e.target.value)}
+                                placeholder={`<ul class="sommaire">\n  <li><a href="#intro">Introduction</a></li>\n</ul>`}
+                                rows={6}
+                                className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-y font-mono text-sm leading-relaxed"
+                            />
+                            <p className="text-xs text-gray-500 mt-2">Code HTML brut pour le sommaire de l'article (apparaitra dans la sidebar).</p>
+                        </div>
                     </div>
 
                     {/* Sidebar */}
