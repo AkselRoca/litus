@@ -1,10 +1,11 @@
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
+        const { id } = await params
         const post = await prisma.blogPost.findUnique({
-            where: { id: params.id },
+            where: { id },
             include: {
                 author: {
                     select: { name: true, avatar: true }
@@ -23,8 +24,9 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
     }
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
+        const { id } = await params
         const body = await request.json()
         const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, publishedAt } = body
 
@@ -54,7 +56,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
         }
 
         const updatedPost = await prisma.blogPost.update({
-            where: { id: params.id },
+            where: { id },
             data: dataToUpdate
         })
 
@@ -65,10 +67,11 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
+        const { id } = await params
         await prisma.blogPost.delete({
-            where: { id: params.id },
+            where: { id },
         })
 
         return NextResponse.json({ success: true })
