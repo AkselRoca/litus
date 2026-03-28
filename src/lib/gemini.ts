@@ -84,7 +84,7 @@ Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exac
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7, maxOutputTokens: 600, responseMimeType: 'application/json' },
+                generationConfig: { temperature: 0.7, maxOutputTokens: 8192, responseMimeType: 'application/json' },
             }),
         })
 
