@@ -46,37 +46,74 @@ export async function generateMarketAnalysis(
 
     const keyword = `${metier} ${ville}`
 
-    const prompt = `Tu es un expert reconnu en SEO local et en marketing digital pour les entreprises en France, travaillant pour l'agence experte "Litus".
-Ton objectif est de générer une estimation de marché précise et un argumentaire commercial très percutant pour un prospect.
+    const prompt = `Tu es un consultant senior Google Ads et SEO local en France avec 10 ans d'expérience. Tu travailles pour l'agence digitale "Litus".
+Un prospect vient de tester notre outil d'estimation. Tu dois produire une analyse de marché RÉALISTE, comme si tu préparais une vraie campagne Google Ads pour ce client.
 
-Le prospect a saisi les informations suivantes :
-- Activité / Métier : "${metier}"
-- Localité / Ville : "${ville}"
+PROSPECT :
+- Activité : "${metier}"
+- Ville principale : "${ville}"
 
-Instructions :
-1. Estime de manière réaliste et très précise le volume de recherche mensuel sur Google (les requêtes commerciales exactes ou très proches) pour cette activité dans cette ville géographique.
-2. Estime un Coût Par Clic (CPC) moyen réaliste sur Google Ads pour ces mots-clés locaux.
-3. Évalue la concurrence locale (Faible, Moyenne, Forte).
-4. Estime le panier moyen réaliste d'un client pour cette activité (en euros).
-5. Calcule un taux de conversion / capture réaliste (le % de recherches mensuelles qui deviennent de vrais clients si l'entreprise est en 1ère page Google grâce à Litus). Souvent entre 3% (Forte concurrence) et 8% (Faible concurrence).
-6. Calcule le CA mensuel (Volume * Taux * Panier) et annuel (Mensuel * 12).
-IMPORTANT: Tous les nombres générés (volume, cpc, ca) ne doivent comporter AUCUN ESPACE ni séparateur de milliers. (Ex: écris 15000 et NON 15 000 ou 15,000).
-7. Rédige un court paragraphe d'analyse (3 phrases max) très orienté VENTE (Copywriting). 
-   - Le message doit faire un électrochoc à l'artisan/entreprise : un marché énorme l'attend, il laisse tout cet argent sur la table à ses concurrents chaque mois.
-   - IMPORTANT: Dans le texte d'analyse, mentionne le chiffre du POTENTIEL ANNUEL (pas mensuel), car c'est celui affiché en gros sur l'écran du prospect.
-   - Mentionne très subtilement que l'agence Litus est là pour l'aider à capter toute cette demande avec un site web performant, du SEO et du Google Ads.
+MÉTHODOLOGIE (applique-la rigoureusement) :
 
-Génère UNIQUEMENT une réponse en format JSON valide avec cette structure exacte (SANS balises markdown ni espaces dans les nombres) :
+1. ZONE DE CHALANDISE RÉALISTE
+   - Prends en compte la ville indiquée + son agglomération/bassin de vie naturel (les communes limitrophes où un habitant irait logiquement chercher ce type de professionnel).
+   - Pour une grande ville (Paris, Lyon, Marseille...) : reste sur la métropole.
+   - Pour une ville moyenne (Lorient, Vannes, Annecy...) : inclus les 3-5 communes principales autour (rayon ~15-20km max).
+   - Pour une petite ville : inclus le bassin d'emploi logique.
+   - Le volume de recherche que tu donnes doit refléter TOUTE cette zone, pas juste la ville exacte.
+
+2. VOLUME DE RECHERCHE MENSUEL (recherchesMensuelles)
+   - Agrège les variantes de mots-clés à INTENTION COMMERCIALE que tu ciblerais dans une vraie campagne Ads :
+     • Requête principale : "${metier} ${ville}"
+     • Variantes géographiques : "${metier}" + communes principales de la zone
+     • Variantes de service les plus courantes (2-3 max, pas plus) : ex pour un couvreur → "réparation toiture", "couvreur urgence", "devis toiture"
+   - NE PAS gonfler artificiellement : ne prends que les requêtes qu'un vrai gestionnaire Ads ciblerait, avec une intention d'achat claire.
+   - Estime un volume réaliste basé sur la taille de la population de la zone et de la demande typique pour ce secteur.
+
+3. CPC MOYEN (cpc)
+   - Estime le Coût Par Clic moyen réaliste sur Google Ads pour ces mots-clés dans cette zone géographique.
+
+4. CONCURRENCE (concurrence) : "Faible", "Moyenne" ou "Forte"
+
+5. PANIER MOYEN (panierMoyen)
+   - Base-toi sur la PRESTATION LA PLUS COURANTE pour ce métier (pas la plus chère, pas la moins chère).
+   - Ex: pour un couvreur → réparation/entretien (~800-1500€), PAS une toiture neuve à 15000€.
+   - Ex: pour un avocat → consultation + dossier standard, PAS un procès à 50000€.
+
+6. TAUX DE CAPTURE (tauxCapture)
+   - Pourcentage réaliste des recherches mensuelles qui se convertissent en clients payants quand l'entreprise est bien positionnée (SEO + Ads combinés).
+   - Fourchette réaliste : 3% (secteur très concurrentiel, grande ville) à 8% (niche, petite ville).
+   - Ajuste selon le secteur et la concurrence.
+
+7. CALCULS
+   - potentielMensuel = recherchesMensuelles × tauxCapture × panierMoyen
+   - potentielAnnuel = potentielMensuel × 12
+   - Vérifie que les calculs sont MATHÉMATIQUEMENT CORRECTS avant de répondre.
+
+8. ANALYSE / COPYWRITING (analyse)
+   - 3 phrases max, ton commercial percutant.
+   - Mentionne le chiffre du POTENTIEL ANNUEL (pas mensuel), car c'est celui affiché en gros sur l'écran.
+   - Fais comprendre au prospect que cette demande existe MAINTENANT et que ses concurrents la captent à sa place.
+   - Mentionne subtilement que Litus peut l'aider (site web, SEO, Google Ads).
+
+9. TENDANCE (tendance) : "Hausse", "Stable" ou "Baisse" - selon l'évolution du secteur dans cette zone.
+
+RÈGLES STRICTES :
+- Tous les nombres : AUCUN ESPACE ni séparateur de milliers (écris 15000, PAS 15 000).
+- Les calculs doivent être mathématiquement vérifiés.
+- Sois RÉALISTE : ni trop optimiste (le prospect doit trouver ça crédible), ni trop pessimiste (c'est un outil de prospection commerciale).
+
+Réponds UNIQUEMENT avec ce JSON :
 {
-    "recherchesMensuelles": 1500,
-    "cpc": 2.50,
+    "recherchesMensuelles": 720,
+    "cpc": 3.20,
     "concurrence": "Forte",
-    "panierMoyen": 400,
+    "panierMoyen": 1200,
     "tauxCapture": 0.05,
-    "potentielMensuel": 30000,
-    "potentielAnnuel": 360000,
-    "tendance": "Hausse",
-    "analyse": "Chaque mois, plus de 1500 personnes recherchent vos services à Paris. Ce sont 360000€ de chiffre d'affaires annuel que vos concurrents captent car vous n'êtes pas visible. Litus peut vous aider à dominer ce marché avec une stratégie SEO et un site web haut de gamme."
+    "potentielMensuel": 43200,
+    "potentielAnnuel": 518400,
+    "tendance": "Stable",
+    "analyse": "Dans l'agglomération de Lyon, plus de 720 recherches mensuelles ciblent vos services. C'est un potentiel de 518400€ de chiffre d'affaires annuel que vos concurrents captent grâce à leur visibilité en ligne. Litus peut vous positionner en tête de Google avec un site performant, du SEO local et des campagnes Ads ciblées."
 }`
 
     try {
