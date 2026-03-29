@@ -59,7 +59,7 @@ export function AvailabilityBadge() {
                         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                     />
                     <span className="text-amber-500 dark:text-amber-400">
-                        Nouveau projet dès {data.nextAvailableDate ? formatDate(data.nextAvailableDate) : 'bientôt'}
+                        Disponible pour nouveau projet dès le {data.nextAvailableDate ? formatDate(data.nextAvailableDate) : 'bientôt'}
                     </span>
                 </>
             )}
