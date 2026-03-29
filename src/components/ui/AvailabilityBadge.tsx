@@ -1,36 +1,67 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-interface AvailabilityBadgeProps {
-    isAvailable?: boolean
-    nextAvailableDate?: string
+interface AvailabilityData {
+    dispo: boolean
+    nextAvailableDate: string | null
 }
 
-export function AvailabilityBadge({
-    isAvailable = true,
-    nextAvailableDate = 'Février 2024',
-}: AvailabilityBadgeProps) {
+export function AvailabilityBadge() {
+    const [data, setData] = useState<AvailabilityData | null>(null)
+
+    useEffect(() => {
+        fetch('/api/config')
+            .then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    setData(json.data)
+                }
+            })
+            .catch(console.error)
+    }, [])
+
+    if (!data) return null
+
+    const formatDate = (dateStr: string) => {
+        const date = new Date(dateStr)
+        return date.toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        })
+    }
+
     return (
         <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium ${isAvailable
-                ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                }`}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="flex items-center gap-2 text-xs font-medium whitespace-nowrap"
         >
-            <motion.span
-                className={`w-2 h-2 rounded-full ${isAvailable ? 'bg-green-400' : 'bg-amber-400'}`}
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-            />
-            {isAvailable ? (
-                <span className="flex items-center gap-1">
-                    Disponible pour nouveaux projets
-                </span>
+            {data.dispo ? (
+                <>
+                    <motion.span
+                        className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_rgba(74,222,128,0.6)]"
+                        animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <span className="text-green-500 dark:text-green-400">
+                        Disponible pour projet
+                    </span>
+                </>
             ) : (
-                `Prochain slot : ${nextAvailableDate}`
+                <>
+                    <motion.span
+                        className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.5)]"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <span className="text-amber-500 dark:text-amber-400">
+                        Prochaine dispo : {data.nextAvailableDate ? formatDate(data.nextAvailableDate) : 'Bientôt'}
+                    </span>
+                </>
             )}
         </motion.div>
     )

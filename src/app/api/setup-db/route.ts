@@ -50,7 +50,8 @@ export async function GET() {
             
             CREATE TABLE IF NOT EXISTS Config (
                 id TEXT PRIMARY KEY DEFAULT 'main',
-                dispo INTEGER DEFAULT 1
+                dispo INTEGER DEFAULT 1,
+                nextAvailableDate TEXT
             );
             
             CREATE TABLE IF NOT EXISTS EstimatorData (
@@ -133,9 +134,23 @@ export async function GET() {
             }
         }
 
+        // Migrations : ajouter les colonnes manquantes aux tables existantes
+        // SQLite ne supporte pas "ADD COLUMN IF NOT EXISTS", on catch l'erreur si déjà présente
+        const migrations = [
+            'ALTER TABLE Config ADD COLUMN nextAvailableDate TEXT',
+        ]
+
+        for (const sql of migrations) {
+            try {
+                await prisma.$executeRawUnsafe(sql)
+            } catch (e) {
+                // Colonne existe déjà — on ignore
+            }
+        }
+
         return NextResponse.json({
             success: true,
-            message: 'Tables created successfully. Now call /api/seed to populate data.'
+            message: 'Tables created/migrated successfully. Now call /api/seed to populate data.'
         })
 
     } catch (error) {

@@ -1,18 +1,59 @@
 'use client'
 
-import { useState } from 'react'
-import { Calendar, Check, Users, ChevronRight, Settings } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Calendar, Check, Users, ChevronRight, Settings, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AdminSettingsPage() {
     const [isAvailable, setIsAvailable] = useState(true)
-    const [nextDate, setNextDate] = useState('Février 2024')
+    const [nextDate, setNextDate] = useState('')
     const [saved, setSaved] = useState(false)
+    const [saving, setSaving] = useState(false)
+    const [loading, setLoading] = useState(true)
 
-    const handleSave = () => {
-        // TODO: Save to API/DB
-        setSaved(true)
-        setTimeout(() => setSaved(false), 2000)
+    // Charger la config depuis l'API
+    useEffect(() => {
+        fetch('/api/admin/config')
+            .then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    setIsAvailable(json.data.dispo)
+                    setNextDate(json.data.nextAvailableDate || '')
+                }
+            })
+            .catch(console.error)
+            .finally(() => setLoading(false))
+    }, [])
+
+    const handleSave = async () => {
+        setSaving(true)
+        try {
+            const res = await fetch('/api/admin/config', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    dispo: isAvailable,
+                    nextAvailableDate: isAvailable ? null : (nextDate || null),
+                }),
+            })
+            const json = await res.json()
+            if (json.success) {
+                setSaved(true)
+                setTimeout(() => setSaved(false), 2000)
+            }
+        } catch (error) {
+            console.error('Error saving config:', error)
+        } finally {
+            setSaving(false)
+        }
+    }
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-64">
+                <Loader2 className="w-8 h-8 text-primary animate-spin" />
+            </div>
+        )
     }
 
     return (
@@ -74,16 +115,17 @@ export default function AdminSettingsPage() {
                         <div className={`transition-all duration-300 overflow-hidden ${isAvailable ? 'max-h-0 opacity-0' : 'max-h-[200px] opacity-100'}`}>
                             <div className="pt-2">
                                 <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                                    Estimation de la prochaine disponibilité
+                                    Date de prochaine disponibilité
                                 </label>
                                 <input
-                                    type="text"
+                                    type="date"
                                     value={nextDate}
                                     onChange={(e) => setNextDate(e.target.value)}
-                                    placeholder="Ex: Février 2024"
                                     className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-shadow"
                                 />
-                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">Sera affiché à la place de "Disponible" de manière élégante.</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                                    Sera affiché dans le header : "Prochaine dispo : [date choisie]"
+                                </p>
                             </div>
                         </div>
 
@@ -91,9 +133,12 @@ export default function AdminSettingsPage() {
                         <div className="pt-4 border-t border-gray-100 dark:border-white/5 flex justify-end">
                             <button
                                 onClick={handleSave}
-                                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white font-medium rounded-xl hover:bg-primary/90 transition-all min-w-[140px]"
+                                disabled={saving}
+                                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white font-medium rounded-xl hover:bg-primary/90 transition-all min-w-[140px] disabled:opacity-50"
                             >
-                                {saved ? (
+                                {saving ? (
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                ) : saved ? (
                                     <>
                                         <Check className="w-4 h-4" />
                                         Enregistré

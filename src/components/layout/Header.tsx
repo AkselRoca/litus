@@ -54,8 +54,7 @@ export function Header() {
                     )}
                 >
                     <div className="relative w-full flex items-center justify-between">
-                        {/* Logo & Availability Group */}
-                        {/* Logo Group */}
+                        {/* Logo & Availability Group — mirrors right side spacing */}
                         <div className="flex items-center gap-0 z-50">
                             <Link href="/" className="relative h-10 flex items-center transition-transform duration-300 hover:scale-105">
                                 {/* Light Mode Logo */}
@@ -71,6 +70,12 @@ export function Header() {
                                     className="hidden w-full h-full object-contain object-left dark:block"
                                 />
                             </Link>
+
+                            <div className="h-6 w-px bg-gray-200 dark:bg-white/10 hidden xl:block mx-4" />
+
+                            <div className="hidden xl:block">
+                                <AvailabilityBadge />
+                            </div>
                         </div>
 
                         {/* Desktop Navigation "Island" - ABSOLUTELY CENTERED */}

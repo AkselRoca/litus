@@ -93,8 +93,9 @@ model BlogPost {
 
 // Configuration globale (badge dispo, etc.)
 model Config {
-  id    String  @id @default("main")
-  dispo Boolean @default(true) // Badge "Dispo projet" dans header
+  id                String   @id @default("main")
+  dispo             Boolean  @default(true) // Badge "Dispo projet" dans header
+  nextAvailableDate String?  // Date prochaine dispo (ISO string, ex: "2026-05-15")
 }
 
 // Données Estimateur de Potentiel (pré-calculées)
