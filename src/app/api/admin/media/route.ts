@@ -19,10 +19,11 @@ export async function POST(request: NextRequest) {
         const buffer = Buffer.from(bytes)
         const base64 = `data:${file.type};base64,${buffer.toString('base64')}`
 
-        // Upload vers Cloudinary
+        // Upload vers Cloudinary (conversion WebP + nom SEO)
         const result = await uploadImage(base64, {
             folder,
             alt: alt || undefined,
+            filename: file.name,
         })
 
         if (!result.success || !result.data) {
@@ -46,10 +47,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({
             success: true,
-            data: {
-                ...media,
-                optimizedUrl: result.data.optimizedUrl,
-            }
+            data: media,
         })
 
     } catch (error) {

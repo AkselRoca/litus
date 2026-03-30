@@ -147,14 +147,9 @@ export default function MediaPage() {
         }
     }
 
-    // Générer l'URL optimisée (avec f_auto, q_auto)
-    const getOptimizedUrl = (url: string) => {
-        return url.replace('/upload/', '/upload/f_auto,q_auto/')
-    }
-
     // Copier l'URL
     const copyUrl = (url: string, id: string) => {
-        navigator.clipboard.writeText(getOptimizedUrl(url))
+        navigator.clipboard.writeText(url)
         setCopiedId(id)
         setTimeout(() => setCopiedId(null), 2000)
     }
@@ -402,9 +397,8 @@ export default function MediaPage() {
                                     <div className="bg-gray-50 dark:bg-white/5 p-3 rounded-xl border border-gray-100 dark:border-white/5">
                                         <label className="block text-gray-500 dark:text-gray-400 text-[10px] font-medium uppercase tracking-wider mb-1">Poids & Format</label>
                                         <p className="text-gray-900 dark:text-white text-sm font-semibold">
-                                            {formatBytes(selectedMedia.bytes)}
+                                            {formatBytes(selectedMedia.bytes)} <span className="text-xs font-normal uppercase text-gray-500">{selectedMedia.format}</span>
                                         </p>
-                                        <p className="text-[10px] text-green-600 dark:text-green-400 mt-0.5">Servi en WebP/AVIF auto</p>
                                     </div>
                                 </div>
 
@@ -423,11 +417,11 @@ export default function MediaPage() {
 
                                 {/* URL à copier */}
                                 <div className="pt-2">
-                                    <label className="block text-gray-500 dark:text-gray-400 text-xs font-medium mb-1.5">URL optimisée (WebP/AVIF auto)</label>
+                                    <label className="block text-gray-500 dark:text-gray-400 text-xs font-medium mb-1.5">URL Cloudinary</label>
                                     <div className="flex gap-2 relative">
                                         <input
                                             type="text"
-                                            value={getOptimizedUrl(selectedMedia.url)}
+                                            value={selectedMedia.url}
                                             readOnly
                                             className="w-full pl-3 pr-10 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white text-xs font-mono focus:outline-none"
                                         />

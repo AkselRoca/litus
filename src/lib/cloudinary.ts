@@ -11,22 +11,42 @@ cloudinary.config({
 // Tailles responsive standard
 export const RESPONSIVE_WIDTHS = [320, 640, 768, 1024, 1280, 1920]
 
-// Upload une image avec optimisation
+// Nettoyer un nom de fichier pour en faire un publicId SEO-friendly
+export function cleanFilenameForPublicId(filename: string): string {
+    const nameWithoutExt = filename.replace(/\.[^.]+$/, '')
+    return nameWithoutExt
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Supprimer accents
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '') // Garder que alphanum, espaces, tirets
+        .replace(/\s+/g, '-') // Espaces → tirets
+        .replace(/-+/g, '-') // Pas de double tirets
+        .replace(/^-|-$/g, '') // Pas de tiret début/fin
+        || 'image' // Fallback si le nom est vide après nettoyage
+}
+
+// Upload une image avec conversion WebP et nom SEO-friendly
 export async function uploadImage(
     file: Buffer | string,
     options?: {
         folder?: string
         publicId?: string
         alt?: string
+        filename?: string // Nom original du fichier pour générer un publicId SEO
     }
 ) {
     try {
+        // Générer un publicId SEO-friendly à partir du nom de fichier
+        const seoPublicId = options?.publicId
+            || (options?.filename ? cleanFilenameForPublicId(options.filename) : undefined)
+
         const result = await cloudinary.uploader.upload(
             typeof file === 'string' ? file : `data:image/jpeg;base64,${file.toString('base64')}`,
             {
                 folder: options?.folder || 'litus',
-                public_id: options?.publicId,
+                public_id: seoPublicId,
                 resource_type: 'image',
+                format: 'webp', // Convertir en WebP à l'upload
+                quality: 'auto:best', // Compression intelligente
                 context: options?.alt ? `alt=${options.alt}` : undefined,
             }
         )
@@ -35,11 +55,9 @@ export async function uploadImage(
             data: {
                 publicId: result.public_id,
                 url: result.secure_url,
-                optimizedUrl: getOptimizedUrl(result.public_id),
-                srcset: generateSrcset(result.public_id),
                 width: result.width,
                 height: result.height,
-                format: result.format,
+                format: result.format, // Sera 'webp'
                 bytes: result.bytes,
             }
         }
