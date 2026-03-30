@@ -46,7 +46,7 @@ export async function uploadImage(
                 public_id: seoPublicId,
                 resource_type: 'image',
                 format: 'webp', // Convertir en WebP à l'upload
-                quality: 'auto:best', // Compression intelligente
+                quality: 95, // Haute qualité, compression légère
                 context: options?.alt ? `alt=${options.alt}` : undefined,
             }
         )
