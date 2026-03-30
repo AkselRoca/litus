@@ -79,9 +79,7 @@ export async function GET(request: Request) {
         try {
             const pvDateFilter = startDate && endDate ? {
                 createdAt: { gte: startDate, lte: endDate }
-            } : {
-                createdAt: { gte: new Date(now.setHours(0, 0, 0, 0)) }
-            }
+            } : {}
 
             const pageViewsData = await (prisma as any).pageView.findMany({
                 where: pvDateFilter

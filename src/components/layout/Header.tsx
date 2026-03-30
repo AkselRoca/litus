@@ -190,6 +190,13 @@ export function Header() {
                             </Link>
 
                             <Link
+                                href="/blog"
+                                className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors whitespace-nowrap"
+                            >
+                                Blog
+                            </Link>
+
+                            <Link
                                 href="/contact"
                                 className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors whitespace-nowrap"
                             >
@@ -313,6 +320,13 @@ export function Header() {
                                                 className="block p-3 font-medium text-gray-900 dark:text-white hover:text-orange-500 transition-colors"
                                             >
                                                 Tarifs
+                                            </Link>
+                                            <Link
+                                                href="/blog"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                                className="block p-3 font-medium text-gray-900 dark:text-white hover:text-orange-500 transition-colors"
+                                            >
+                                                Blog
                                             </Link>
                                             <Link
                                                 href="/contact"

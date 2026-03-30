@@ -17,6 +17,7 @@ export const contactFormSchema = z.object({
         'seo-local',
         'google-ads',
         'e-commerce',
+        'audit',
         'autre',
     ]),
     budget: z.enum(['moins-1000', '1000-3000', '3000-5000', 'plus-5000', 'ne-sais-pas']),

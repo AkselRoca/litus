@@ -139,6 +139,7 @@ export function ContactForm() {
                             <option value="seo-local">Référencement (SEO)</option>
                             <option value="google-ads">Publicité Google Ads</option>
                             <option value="e-commerce">Site E-commerce</option>
+                            <option value="audit">Audit</option>
                             <option value="autre">Autre demande</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">

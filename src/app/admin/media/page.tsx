@@ -348,7 +348,42 @@ export default function MediaPage() {
                             <div className="space-y-4">
                                 <div>
                                     <label className="block text-gray-500 dark:text-gray-400 text-xs font-medium mb-1">Nom du fichier</label>
-                                    <p className="text-gray-900 dark:text-white text-sm font-medium truncate">{selectedMedia.filename}</p>
+                                    {editingFilename === selectedMedia.id ? (
+                                        <div className="flex gap-2">
+                                            <input
+                                                type="text"
+                                                value={newFilename}
+                                                onChange={(e) => setNewFilename(e.target.value)}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter') handleRename(selectedMedia.id, newFilename)
+                                                    if (e.key === 'Escape') setEditingFilename(null)
+                                                }}
+                                                onBlur={() => {
+                                                    if (newFilename.trim() && newFilename !== selectedMedia.filename) {
+                                                        handleRename(selectedMedia.id, newFilename)
+                                                    } else {
+                                                        setEditingFilename(null)
+                                                    }
+                                                }}
+                                                autoFocus
+                                                className="flex-1 px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-primary rounded-lg text-gray-900 dark:text-white text-sm focus:ring-1 focus:ring-primary outline-none"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center gap-2 group/filename">
+                                            <p className="text-gray-900 dark:text-white text-sm font-medium truncate flex-1">{selectedMedia.filename}</p>
+                                            <button
+                                                onClick={() => {
+                                                    setEditingFilename(selectedMedia.id)
+                                                    setNewFilename(selectedMedia.filename)
+                                                }}
+                                                className="p-1 rounded-md text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-white/10 opacity-0 group-hover/filename:opacity-100 transition-all"
+                                                title="Renommer"
+                                            >
+                                                <Edit3 className="w-3.5 h-3.5" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">
