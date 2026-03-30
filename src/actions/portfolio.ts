@@ -129,6 +129,24 @@ export async function deleteProject(id: string) {
     if (!session?.user) return { success: false, error: 'Non autorisé' }
 
     try {
+        // Récupérer le projet pour avoir l'URL de l'image
+        const project = await prisma.project.findUnique({ where: { id } })
+
+        // Supprimer l'image de Cloudinary si elle existe
+        if (project?.imageUrl?.includes('cloudinary.com')) {
+            try {
+                // Extraire le publicId depuis l'URL Cloudinary
+                // URL: https://res.cloudinary.com/.../upload/v123/litus/mon-image.webp
+                const match = project.imageUrl.match(/\/upload\/(?:v\d+\/)?(.+?)(?:\.\w+)?$/)
+                if (match?.[1]) {
+                    const { deleteImage } = await import('@/lib/cloudinary')
+                    await deleteImage(match[1])
+                }
+            } catch (e) {
+                console.warn('Cloudinary delete failed for project image:', e)
+            }
+        }
+
         await prisma.project.delete({
             where: { id },
         })
