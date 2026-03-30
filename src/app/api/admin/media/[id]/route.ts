@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/database_final'
-import { deleteImage } from '@/lib/cloudinary'
+import { deleteImage, renameImage } from '@/lib/cloudinary'
 import { NextRequest, NextResponse } from 'next/server'
 
 // DELETE /api/admin/media/[id] - Supprimer un média
@@ -34,7 +34,7 @@ export async function DELETE(
     }
 }
 
-// PATCH /api/admin/media/[id] - Modifier un média (alt, filename)
+// PATCH /api/admin/media/[id] - Modifier un média (alt, filename avec renommage Cloudinary)
 export async function PATCH(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
@@ -43,11 +43,61 @@ export async function PATCH(
         const { id } = await params
         const body = await request.json()
 
+        // Si on renomme le fichier, on renomme aussi sur Cloudinary
+        if (body.filename !== undefined) {
+            const currentMedia = await prisma.media.findUnique({ where: { id } })
+            if (!currentMedia) {
+                return NextResponse.json({ success: false, error: 'Media not found' }, { status: 404 })
+            }
+
+            // Nettoyer le nouveau nom pour en faire un publicId valide
+            const ext = body.filename.split('.').pop() || ''
+            const nameWithoutExt = body.filename.replace(/\.[^.]+$/, '')
+            const cleanPublicId = nameWithoutExt
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Supprimer accents
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, '') // Garder que alphanum, espaces, tirets
+                .replace(/\s+/g, '-') // Espaces → tirets
+                .replace(/-+/g, '-') // Pas de double tirets
+                .replace(/^-|-$/g, '') // Pas de tiret début/fin
+
+            const folder = currentMedia.folder || 'litus'
+            const newPublicId = `${folder}/${cleanPublicId}`
+
+            // Renommer sur Cloudinary
+            const renameResult = await renameImage(currentMedia.publicId, newPublicId)
+
+            if (renameResult.success && renameResult.data) {
+                // Mise à jour DB avec le nouveau publicId + URL
+                const media = await prisma.media.update({
+                    where: { id },
+                    data: {
+                        filename: body.filename,
+                        publicId: renameResult.data.publicId,
+                        url: renameResult.data.url,
+                        alt: body.alt !== undefined ? body.alt : undefined,
+                    }
+                })
+                return NextResponse.json({ success: true, data: media })
+            } else {
+                // Cloudinary rename a échoué, on met à jour juste le nom en DB
+                console.warn('Cloudinary rename failed, updating DB only:', renameResult.error)
+                const media = await prisma.media.update({
+                    where: { id },
+                    data: {
+                        filename: body.filename,
+                        alt: body.alt !== undefined ? body.alt : undefined,
+                    }
+                })
+                return NextResponse.json({ success: true, data: media })
+            }
+        }
+
+        // Mise à jour simple (alt text seulement)
         const media = await prisma.media.update({
             where: { id },
             data: {
                 alt: body.alt !== undefined ? body.alt : undefined,
-                filename: body.filename !== undefined ? body.filename : undefined,
             }
         })
 
