@@ -103,10 +103,13 @@ export function getResponsiveUrls(publicId: string) {
     }
 }
 
-// Supprime une image
+// Supprime une image (+ purge du cache CDN)
 export async function deleteImage(publicId: string) {
     try {
-        const result = await cloudinary.uploader.destroy(publicId)
+        const result = await cloudinary.uploader.destroy(publicId, {
+            invalidate: true, // Force la purge du cache CDN
+        })
+        console.log(`Cloudinary delete [${publicId}]:`, result.result)
         return { success: result.result === 'ok' }
     } catch (error) {
         console.error('Cloudinary delete error:', error)
