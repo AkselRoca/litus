@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Button } from '@/components/ui'
 import { ArrowRight, Phone, Shield } from 'lucide-react'
 import { PricingContent } from '@/components/sections/PricingContent'
+import { LeadMagnetSection } from '@/components/lead-magnets'
 
 export const metadata: Metadata = {
     title: 'Tarifs - Agence Web Transparente | Litus',
@@ -43,6 +44,13 @@ export default function PricingPage() {
 
             {/* Pricing Content (Client Component) */}
             <PricingContent />
+
+            {/* Lead Magnet - Guide des Prix */}
+            <LeadMagnetSection
+                magnetId="guide-prix"
+                heading="Vous hésitez encore ?"
+                subheading="Téléchargez notre guide comparatif des prix du marché pour faire le bon choix."
+            />
 
             {/* CTA Final */}
             <section className="py-20 bg-gradient-to-br from-primary via-primary to-orange-600 text-white">

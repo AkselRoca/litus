@@ -59,10 +59,18 @@ export function LeadMagnetForm({
 
             if (!response.ok) throw new Error('Erreur lors de l\'envoi')
 
+            const result = await response.json()
             onSuccess?.()
 
-            // Rediriger vers la page de confirmation
-            router.push(`/ressources/confirmation?magnet=${magnetId}`)
+            // Téléchargement automatique du PDF
+            if (result.downloadUrl) {
+                const link = document.createElement('a')
+                link.href = result.downloadUrl
+                link.download = ''
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+            }
         } catch (err) {
             console.error('Erreur:', err)
             setError('Une erreur est survenue. Veuillez réessayer.')

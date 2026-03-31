@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CookieBanner } from '@/components/ui/CookieBanner'
-import { LeadCapturePopup } from '@/components/ui/LeadCapturePopup'
+import { LeadMagnetSlideIn } from '@/components/lead-magnets'
 
 interface PublicLayoutWrapperProps {
     children: React.ReactNode
@@ -13,13 +13,23 @@ interface PublicLayoutWrapperProps {
 export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
     const pathname = usePathname()
     const isAdminPage = pathname?.startsWith('/admin')
+    const isLoginPage = pathname?.startsWith('/login')
 
-    if (isAdminPage) {
-        // Pour les pages admin, on retourne juste le contenu sans header/footer/popup
+    if (isAdminPage || isLoginPage) {
         return <>{children}</>
     }
 
-    // Pour les pages publiques, on affiche tout
+    // Choisir le lead magnet en fonction de la page
+    const getMagnetId = () => {
+        if (pathname?.includes('tarifs') || pathname?.includes('creation-site') || pathname?.includes('sites-vitrine') || pathname?.includes('e-commerce')) {
+            return 'guide-prix' as const
+        }
+        if (pathname?.includes('application') || pathname?.includes('automatisation')) {
+            return 'audit-productivite' as const
+        }
+        return 'checklist-gmb' as const
+    }
+
     return (
         <>
             <Header />
@@ -28,7 +38,8 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
             </main>
             <Footer />
             <CookieBanner />
-            <LeadCapturePopup />
+            <LeadMagnetSlideIn magnetId={getMagnetId()} scrollTriggerPercent={65} delayMs={45000} />
         </>
     )
 }
+
