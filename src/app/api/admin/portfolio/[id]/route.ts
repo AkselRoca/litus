@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 import { deleteImage } from '@/lib/cloudinary'
+import { revalidatePath } from 'next/cache'
 
 // PATCH /api/admin/portfolio/[id] - Toggle visibility, etc.
 export async function PATCH(
@@ -19,6 +20,11 @@ export async function PATCH(
             where: { id },
             data: updateData,
         })
+
+        // Forcer la re-génération des pages qui affichent le portfolio
+        revalidatePath('/realisations')
+        revalidatePath('/')
+        revalidatePath('/admin/portfolio')
 
         return NextResponse.json({ success: true, data: project })
     } catch (error) {
@@ -54,6 +60,10 @@ export async function DELETE(
         }
 
         await prisma.project.delete({ where: { id } })
+
+        revalidatePath('/realisations')
+        revalidatePath('/')
+        revalidatePath('/admin/portfolio')
 
         return NextResponse.json({ success: true })
     } catch (error) {
