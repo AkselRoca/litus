@@ -91,24 +91,27 @@ export function Footer() {
                                 <Link href="/services/google-ads" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     Google Ads
                                 </Link>
+                                <Link href="/services/applications" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Applications
+                                </Link>
                             </nav>
                         </div>
 
-                        {/* Secteurs */}
+                        {/* Vous êtes */}
                         <div>
-                            <div className="font-bold mb-4 text-white">Secteurs</div>
+                            <div className="font-bold mb-4 text-white">Vous êtes</div>
                             <nav className="flex flex-col gap-2">
-                                <Link href="/metiers/paysagiste-lorient" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Paysagistes
+                                <Link href="/artisans" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Artisan
                                 </Link>
-                                <Link href="/metiers/plombier-le-mans" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Plombiers
+                                <Link href="/pme" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    PME
                                 </Link>
-                                <Link href="/metiers/electricien-lorient" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Électriciens
+                                <Link href="/grands-comptes" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Grand Compte
                                 </Link>
                                 <Link href="/collectivites" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Collectivités
+                                    Collectivité
                                 </Link>
                             </nav>
                         </div>
@@ -117,6 +120,12 @@ export function Footer() {
                         <div>
                             <div className="font-bold mb-4 text-white">Entreprise</div>
                             <nav className="flex flex-col gap-2">
+                                <Link href="/a-propos" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    À Propos
+                                </Link>
+                                <Link href="/realisations" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Réalisations
+                                </Link>
                                 <Link href="/tarifs" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     Tarifs
                                 </Link>
@@ -125,25 +134,6 @@ export function Footer() {
                                 </Link>
                                 <Link href="/contact" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     Contact
-                                </Link>
-                                <Link href="/ressources/audit-google-ads" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Audit Gratuit
-                                </Link>
-                            </nav>
-                        </div>
-
-                        {/* Ressources */}
-                        <div>
-                            <div className="font-bold mb-4 text-white">Ressources</div>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="/ressources/audit-google-ads" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Audit Google Ads
-                                </Link>
-                                <Link href="/ressources/carto-productivite" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Carto Productivité
-                                </Link>
-                                <Link href="/ressources/guide-appel-offres" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Guide Collectivités
                                 </Link>
                             </nav>
                         </div>
@@ -154,12 +144,12 @@ export function Footer() {
                 <div className="border-t border-white/10">
                     <div className="container-fluid py-6">
                         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-                            <div>© 2025 Litus. Tous droits réservés.</div>
+                            <div>© 2026 Litus. Tous droits réservés.</div>
                             <div className="flex gap-6">
                                 <Link href="/mentions-legales" className="hover:text-white transition-colors">
                                     Mentions Légales
                                 </Link>
-                                <Link href="/confidentialite" className="hover:text-white transition-colors">
+                                <Link href="/politique-confidentialite" className="hover:text-white transition-colors">
                                     Confidentialité
                                 </Link>
                                 <Link href="/cookies" className="hover:text-white transition-colors">
