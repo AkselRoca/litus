@@ -18,7 +18,7 @@ import {
     useSortable
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { GripVertical, Pencil, Trash2, Loader2, Star } from 'lucide-react'
+import { GripVertical, Pencil, Trash2, Loader2, Star, Eye, EyeOff } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -29,6 +29,7 @@ type Project = {
     imageUrl: string
     order?: number
     featured?: boolean
+    visible?: boolean
 }
 
 export function SortableProjectList({ projects }: { projects: Project[] }) {
@@ -91,6 +92,24 @@ export function SortableProjectList({ projects }: { projects: Project[] }) {
         }
     }
 
+    async function handleToggleVisibility(id: string, currentVisible: boolean) {
+        try {
+            const res = await fetch(`/api/admin/portfolio/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ visible: !currentVisible })
+            })
+            if (res.ok) {
+                setItems(items.map(item =>
+                    item.id === id ? { ...item, visible: !currentVisible } : item
+                ))
+                router.refresh()
+            }
+        } catch (error) {
+            console.error('Toggle visibility error', error)
+        }
+    }
+
     if (items.length === 0) {
         return (
             <div className="text-center py-12 text-gray-500 dark:text-gray-400 text-sm">
@@ -128,6 +147,7 @@ export function SortableProjectList({ projects }: { projects: Project[] }) {
                                 id={project.id}
                                 project={project}
                                 onDelete={handleDelete}
+                                onToggleVisibility={handleToggleVisibility}
                             />
                         ))}
                     </div>
@@ -137,7 +157,7 @@ export function SortableProjectList({ projects }: { projects: Project[] }) {
     )
 }
 
-function SortableItem({ id, project, onDelete }: { id: string, project: Project, onDelete: (id: string) => void }) {
+function SortableItem({ id, project, onDelete, onToggleVisibility }: { id: string, project: Project, onDelete: (id: string) => void, onToggleVisibility: (id: string, visible: boolean) => void }) {
     const {
         attributes,
         listeners,
@@ -163,7 +183,7 @@ function SortableItem({ id, project, onDelete }: { id: string, project: Project,
         <div
             ref={setNodeRef}
             style={style}
-            className="flex items-center gap-4 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 rounded-xl hover:border-gray-300 dark:hover:border-white/20 transition-colors group"
+            className={`flex items-center gap-4 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 rounded-xl hover:border-gray-300 dark:hover:border-white/20 transition-colors group ${project.visible === false ? 'opacity-50' : ''}`}
         >
             <div {...attributes} {...listeners} className="cursor-grab hover:text-gray-900 dark:hover:text-white text-gray-400 p-2">
                 <GripVertical className="w-4 h-4" />
@@ -182,6 +202,17 @@ function SortableItem({ id, project, onDelete }: { id: string, project: Project,
             </div>
 
             <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity pr-2">
+                <button
+                    onClick={() => onToggleVisibility(project.id, project.visible !== false)}
+                    className={`p-2 rounded-lg transition-colors ${
+                        project.visible !== false
+                            ? 'text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10'
+                            : 'text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10'
+                    }`}
+                    title={project.visible !== false ? 'Visible — cliquer pour masquer' : 'Masqué — cliquer pour afficher'}
+                >
+                    {project.visible !== false ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                </button>
                 <Link
                     href={`/admin/portfolio/${project.id}`}
                     className="p-2 text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white rounded-lg transition-colors"

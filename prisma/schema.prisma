@@ -134,11 +134,13 @@ model Project {
   stats       String   // JSON string: [{ label: "ROI", value: "+200%" }]
   tags        String   // JSON string: ["Next.js", "Shopify"]
   featured    Boolean  @default(false) // Pour afficher sur la home/services
+  visible     Boolean  @default(true)  // Afficher ou non dans le portfolio public
   order       Int      @default(0)     // Ordre d'affichage
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   @@index([featured])
+  @@index([visible])
 }
 
 // Media Library (Cloudinary)

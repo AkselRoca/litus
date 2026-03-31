@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, Calendar, Clock, User, ArrowRight, Share2, Facebook, Twitter, Linkedin, CheckCircle2, Mail, Sparkles } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock, User, ArrowRight, Share2, Facebook, Twitter, Linkedin, CheckCircle2, Mail, Sparkles, Search, Phone, MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export interface BlogArticleData {
@@ -217,6 +217,79 @@ export function BlogArticleTemplate({ data }: BlogArticleTemplateProps) {
                                         </button>
                                     </form>
                                     <p className="text-[10px] text-gray-500 mt-3">Désabonnement possible à tout moment.</p>
+                                </div>
+
+                                {/* Lead Magnet CTA 3 (Audit SEO) */}
+                                <div className="p-1 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-emerald-400/5 to-transparent dark:from-emerald-500/30 dark:to-transparent relative overflow-hidden group shadow-lg">
+                                    <div className="absolute inset-0 bg-gradient-to-b from-emerald-400/10 to-transparent blur-xl pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity"></div>
+                                    <div className="relative p-6 lg:p-8 rounded-[23px] bg-white/95 dark:bg-black/95 backdrop-blur-3xl border border-gray-200/50 dark:border-white/10">
+                                        <div className="w-14 h-14 mx-auto bg-emerald-50 dark:bg-gradient-to-br dark:from-emerald-500 dark:to-teal-600 rounded-2xl flex items-center justify-center mb-5 shadow-inner dark:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                                            <Search className="w-7 h-7 text-emerald-600 dark:text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">Audit SEO Gratuit</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed text-center">
+                                            Découvrez les points faibles de votre référencement et nos recommandations pour gagner en visibilité.
+                                        </p>
+                                        <ul className="text-left text-sm text-gray-600 dark:text-gray-400 space-y-2 mb-6">
+                                            <li className="flex items-start gap-2">
+                                                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                                                <span>Analyse de votre positionnement</span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                                                <span>Audit technique du site</span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                                                <span>Plan d'action personnalisé</span>
+                                            </li>
+                                        </ul>
+                                        <form className="space-y-3">
+                                            <input
+                                                type="url"
+                                                placeholder="https://votre-site.fr"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-black/50 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-sm transition-all shadow-sm"
+                                            />
+                                            <input
+                                                type="email"
+                                                placeholder="Votre email"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-black/50 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-sm transition-all shadow-sm"
+                                            />
+                                            <button className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-sm transition-colors flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(16,185,129,0.25)]">
+                                                Recevoir mon audit <ArrowRight className="w-4 h-4" />
+                                            </button>
+                                        </form>
+                                        <p className="text-[10px] text-gray-500 mt-3 text-center">Gratuit & sans engagement — résultat sous 48h</p>
+                                    </div>
+                                </div>
+
+                                {/* Bloc Contact */}
+                                <div className="p-6 lg:p-8 rounded-3xl bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-gray-200/80 dark:border-white/10 shadow-md dark:shadow-none">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                        <MessageCircle className="w-5 h-5 text-primary" />
+                                        Contactez-nous
+                                    </h3>
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-5 leading-relaxed">
+                                        Une question sur votre projet digital ? Notre équipe est disponible pour vous accompagner.
+                                    </p>
+                                    <div className="space-y-3 mb-6">
+                                        <a href="tel:+33612345678" className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors group/link">
+                                            <div className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover/link:bg-primary/10 transition-colors">
+                                                <Phone className="w-4 h-4 text-gray-500 group-hover/link:text-primary" />
+                                            </div>
+                                            <span className="font-medium">06 12 34 56 78</span>
+                                        </a>
+                                        <a href="mailto:contact@litus.agency" className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors group/link">
+                                            <div className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover/link:bg-primary/10 transition-colors">
+                                                <Mail className="w-4 h-4 text-gray-500 group-hover/link:text-primary" />
+                                            </div>
+                                            <span className="font-medium">contact@litus.agency</span>
+                                        </a>
+                                    </div>
+                                    <Button href="/contact" variant="outline" className="w-full justify-center text-sm">
+                                        Demander un devis gratuit
+                                        <ArrowRight className="w-4 h-4 ml-2" />
+                                    </Button>
                                 </div>
                                 
                             </div>

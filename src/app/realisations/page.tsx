@@ -1,4 +1,4 @@
-import { getProjects } from '@/actions/portfolio'
+import { getVisibleProjects } from '@/actions/portfolio'
 import { Badge } from '@/components/ui/Badge'
 import { PortfolioEditorial } from '@/components/portfolio/PortfolioEditorial'
 import { Sparkles } from 'lucide-react'
@@ -9,7 +9,7 @@ export const metadata = {
 }
 
 export default async function RealisationsPage() {
-    const { success, data: projects, error } = await getProjects()
+    const { success, data: projects, error } = await getVisibleProjects()
 
     if (!success || !projects) {
         return (

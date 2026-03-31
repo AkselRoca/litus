@@ -33,6 +33,23 @@ export async function getProjects() {
     }
 }
 
+// Projets visibles uniquement (pour le site public)
+export async function getVisibleProjects() {
+    try {
+        const projects = await prisma.project.findMany({
+            where: { visible: true },
+            orderBy: [
+                { order: 'asc' },
+                { createdAt: 'desc' }
+            ],
+        })
+        return { success: true, data: projects }
+    } catch (error: any) {
+        console.error('Detailed DB Error:', error)
+        return { success: false, error: 'DB Error: ' + (error?.message || String(error)) }
+    }
+}
+
 export async function getFeaturedProjects() {
     try {
         const projects = await prisma.project.findMany({

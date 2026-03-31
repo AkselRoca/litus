@@ -138,6 +138,7 @@ export async function GET() {
         // SQLite ne supporte pas "ADD COLUMN IF NOT EXISTS", on catch l'erreur si déjà présente
         const migrations = [
             'ALTER TABLE Config ADD COLUMN nextAvailableDate TEXT',
+            'ALTER TABLE Project ADD COLUMN visible INTEGER DEFAULT 1',
         ]
 
         for (const sql of migrations) {
