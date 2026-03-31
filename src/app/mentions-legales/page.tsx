@@ -23,8 +23,8 @@ export default function MentionsLegalesPage() {
                                 France
                             </p>
                             <p>
-                                Email : contact@litus.fr<br />
-                                Téléphone : 02 97 00 00 00
+                                Email : litusagency@gmail.com<br />
+                                Téléphone : 07 44 98 55 21
                             </p>
                             <p>
                                 SIRET : [À compléter]<br />

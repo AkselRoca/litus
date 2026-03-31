@@ -124,9 +124,9 @@ export default function CollectivitesPage() {
                                 Demander une présentation
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
-                            <Button size="lg" variant="secondary" href="tel:+33123456789">
+                            <Button size="lg" variant="secondary" href="tel:+33744985521">
                                 <Phone className="w-5 h-5 mr-2" />
-                                01 23 45 67 89
+                                07 44 98 55 21
                             </Button>
                         </div>
                     </div>
@@ -260,7 +260,7 @@ export default function CollectivitesPage() {
                                             Demander notre dossier de candidature
                                             <ArrowRight className="w-5 h-5 ml-2" />
                                         </Button>
-                                        <Button variant="secondary" href="tel:+33123456789">
+                                        <Button variant="secondary" href="tel:+33744985521">
                                             <Phone className="w-5 h-5 mr-2" />
                                             Nous appeler
                                         </Button>
@@ -290,11 +290,11 @@ export default function CollectivitesPage() {
                             <Button
                                 size="lg"
                                 variant="ghost"
-                                href="tel:+33123456789"
+                                href="tel:+33744985521"
                                 className="bg-white/10 hover:bg-white/20 border-white text-white"
                             >
                                 <Phone className="w-5 h-5 mr-2" />
-                                01 23 45 67 89
+                                07 44 98 55 21
                             </Button>
                         </div>
                     </div>

@@ -235,24 +235,24 @@ export function ContactInfo() {
                 <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Canaux Directs</h3>
                 <div className="space-y-6">
                     {/* Phone */}
-                    <a href="tel:+33789603321" className="group flex items-center gap-4 hover:translate-x-2 transition-transform duration-300">
+                    <a href="tel:+33744985521" className="group flex items-center gap-4 hover:translate-x-2 transition-transform duration-300">
                         <div className="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:bg-orange-600 group-hover:text-white transition-colors">
                             <Phone className="w-5 h-5" />
                         </div>
                         <div>
                             <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Appel direct</p>
-                            <p className="text-lg font-bold text-gray-900 dark:text-white">07 89 60 33 21</p>
+                            <p className="text-lg font-bold text-gray-900 dark:text-white">07 44 98 55 21</p>
                         </div>
                     </a>
 
                     {/* Email */}
-                    <a href="mailto:contact@litus.fr" className="group flex items-center gap-4 hover:translate-x-2 transition-transform duration-300">
+                    <a href="mailto:litusagency@gmail.com" className="group flex items-center gap-4 hover:translate-x-2 transition-transform duration-300">
                         <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                             <Mail className="w-5 h-5" />
                         </div>
                         <div>
                             <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Par écrit</p>
-                            <p className="text-lg font-bold text-gray-900 dark:text-white">contact@litus.fr</p>
+                            <p className="text-lg font-bold text-gray-900 dark:text-white">litusagency@gmail.com</p>
                         </div>
                     </a>
 

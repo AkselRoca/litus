@@ -30,7 +30,7 @@ export default function PolitiqueConfidentialitePage() {
                                     La présente politique de confidentialité vise à vous informer de la manière dont l'agence <strong>Litus</strong> collecte, utilise et protège vos données à caractère personnel lorsque vous naviguez sur notre site internet ou utilisez nos services. 
                                 </p>
                                 <p>
-                                    Le responsable du traitement des données est l'agence Litus, joignable à l'adresse email suivante : <strong>contact@litus.fr</strong>.
+                                    Le responsable du traitement des données est l'agence Litus, joignable à l'adresse email suivante : <strong>litusagency@gmail.com</strong>.
                                 </p>
                             </section>
 
@@ -102,7 +102,7 @@ export default function PolitiqueConfidentialitePage() {
                                     </div>
                                 </div>
                                 <p className="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-xl text-primary text-sm font-medium">
-                                    Pour exercer ces droits, veuillez nous contacter à l'adresse suivante : <strong>contact@litus.fr</strong> en joignant une copie d'un titre d'identité valide.
+                                    Pour exercer ces droits, veuillez nous contacter à l'adresse suivante : <strong>litusagency@gmail.com</strong> en joignant une copie d'un titre d'identité valide.
                                 </p>
                             </section>
 

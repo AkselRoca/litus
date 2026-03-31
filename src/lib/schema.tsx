@@ -74,8 +74,8 @@ export function generateOrganizationSchema() {
         logo: 'https://litus.fr/logo.png',
         description:
             'Agence web locale spécialisée en création de sites, SEO local et Google Ads pour PME et artisans à Lorient et Le Mans.',
-        telephone: '+33123456789',
-        email: 'contact@litus.fr',
+        telephone: '+33744985521',
+        email: 'litusagency@gmail.com',
         address: [
             {
                 '@type': 'PostalAddress',

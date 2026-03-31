@@ -49,7 +49,7 @@ export function JobPageTemplate({ job }: JobPageProps) {
         name: `${job.name} ${job.city} - Litus`,
         description: job.description,
         url: `https://litus.fr/metiers/${job.slug}-${job.citySlug}`,
-        telephone: '+33123456789',
+        telephone: '+33744985521',
         address: {
             streetAddress: '',
             addressLocality: job.city,
@@ -101,9 +101,9 @@ export function JobPageTemplate({ job }: JobPageProps) {
                                 Devis Gratuit
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
-                            <Button size="lg" variant="secondary" href="tel:+33123456789">
+                            <Button size="lg" variant="secondary" href="tel:+33744985521">
                                 <Phone className="w-5 h-5 mr-2" />
-                                01 23 45 67 89
+                                07 44 98 55 21
                             </Button>
                         </div>
                     </div>
@@ -206,11 +206,11 @@ export function JobPageTemplate({ job }: JobPageProps) {
                             <Button
                                 size="lg"
                                 variant="ghost"
-                                href="tel:+33123456789"
+                                href="tel:+33744985521"
                                 className="bg-white/10 hover:bg-white/20 border-white text-white"
                             >
                                 <Phone className="w-5 h-5 mr-2" />
-                                01 23 45 67 89
+                                07 44 98 55 21
                             </Button>
                         </div>
                     </div>

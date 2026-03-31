@@ -138,7 +138,7 @@ export async function sendContactConfirmation(data: ContactEmailData) {
                         </p>
                         
                         <p style="font-size: 14px; color: #9ca3af; line-height: 1.6; margin: 0;">
-                            En attendant, vous pouvez nous joindre directement au <a href="tel:+33789603321" style="color: #f97316;">07 89 60 33 21</a>.
+                            En attendant, vous pouvez nous joindre directement au <a href="tel:+33744985521" style="color: #f97316;">07 44 98 55 21</a>.
                         </p>
                     </div>
                     

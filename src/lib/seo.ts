@@ -6,8 +6,8 @@ const siteConfig = {
     url: 'https://litus.fr',
     ogImage: '/og-image.jpg',
     author: 'Litus',
-    phone: '+33 2 97 00 00 00',
-    email: 'contact@litus.fr',
+    phone: '+33 7 44 98 55 21',
+    email: 'litusagency@gmail.com',
     address: {
         lorient: {
             street: 'Lorient, Morbihan',

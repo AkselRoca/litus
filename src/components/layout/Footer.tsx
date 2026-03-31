@@ -37,9 +37,9 @@ export function Footer() {
                             <Button size="lg" href="/contact" className="shadow-xl shadow-primary/20">
                                 Demander un devis gratuit
                             </Button>
-                            <Button size="lg" variant="secondary" href="tel:+33123456789" className="bg-white/10 hover:bg-white/20 border-white text-white">
+                            <Button size="lg" variant="secondary" href="tel:+33744985521" className="bg-white/10 hover:bg-white/20 border-white text-white">
                                 <Phone className="w-5 h-5 mr-2" />
-                                01 23 45 67 89
+                                07 44 98 55 21
                             </Button>
                         </div>
                     </div>
@@ -63,14 +63,14 @@ export function Footer() {
                             </div>
                             <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                                 <Phone className="w-4 h-4 text-primary" />
-                                <a href="tel:+33123456789" className="hover:text-white transition-colors">
-                                    01 23 45 67 89
+                                <a href="tel:+33744985521" className="hover:text-white transition-colors">
+                                    07 44 98 55 21
                                 </a>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-gray-400">
                                 <Mail className="w-4 h-4 text-primary" />
-                                <a href="mailto:contact@litus.fr" className="hover:text-white transition-colors">
-                                    contact@litus.fr
+                                <a href="mailto:litusagency@gmail.com" className="hover:text-white transition-colors">
+                                    litusagency@gmail.com
                                 </a>
                             </div>
                         </div>
