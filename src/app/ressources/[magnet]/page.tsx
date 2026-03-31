@@ -1,0 +1,60 @@
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { LEAD_MAGNETS, LeadMagnetId } from '@/components/lead-magnets'
+import { LeadMagnetSection } from '@/components/lead-magnets'
+
+interface LeadMagnetPageProps {
+    params: {
+        magnet: string
+    }
+}
+
+export function generateMetadata({ params }: LeadMagnetPageProps): Metadata {
+    const magnetId = params.magnet as LeadMagnetId
+    const magnet = LEAD_MAGNETS[magnetId]
+
+    if (!magnet) {
+        return { title: 'Ressource introuvable | Litus' }
+    }
+
+    return {
+        title: `${magnet.title} - Ressource Gratuite | Litus`,
+        description: magnet.description,
+    }
+}
+
+// Générer les pages statiques pour tous nos lead magnets
+export function generateStaticParams() {
+    return Object.keys(LEAD_MAGNETS).map((magnetId) => ({
+        magnet: magnetId,
+    }))
+}
+
+export default function LeadMagnetPage({ params }: LeadMagnetPageProps) {
+    const magnetId = params.magnet as LeadMagnetId
+    const magnet = LEAD_MAGNETS[magnetId]
+
+    if (!magnet) {
+        notFound()
+    }
+
+    return (
+        <div className="min-h-screen-dynamic pt-24 pb-12 bg-gray-50 dark:bg-[#050505]">
+            <div className="container-fluid">
+                <div className="max-w-3xl mx-auto text-center mb-8">
+                    <span className="inline-block px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+                        Ressource Gratuite
+                    </span>
+                    <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 mb-6">
+                        {magnet.title}
+                    </h1>
+                </div>
+
+                <LeadMagnetSection 
+                    magnetId={magnetId}
+                    maxWidth="max-w-xl"
+                />
+            </div>
+        </div>
+    )
+}

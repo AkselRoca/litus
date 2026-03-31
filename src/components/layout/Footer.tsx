@@ -137,6 +137,22 @@ export function Footer() {
                                 </Link>
                             </nav>
                         </div>
+
+                        {/* Ressources */}
+                        <div>
+                            <div className="font-bold mb-4 text-white">Ressources</div>
+                            <nav className="flex flex-col gap-2">
+                                <Link href="/ressources/checklist-gmb" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Checklist GMB
+                                </Link>
+                                <Link href="/ressources/guide-prix" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Guide Tarifs Web
+                                </Link>
+                                <Link href="/ressources/audit-productivite" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Checklist Productivité
+                                </Link>
+                            </nav>
+                        </div>
                     </div>
                 </div>
 
