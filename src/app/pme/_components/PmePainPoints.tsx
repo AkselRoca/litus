@@ -7,8 +7,8 @@ export function PmePainPoints() {
     const painpoints = [
         {
             icon: MonitorX,
-            title: "Votre site fait \"petite boîte\"",
-            description: "Vous réalisez des millions de CA, mais votre site ressemble à celui d'un auto-entrepreneur débutant créé en 2012.",
+            title: "Des processus internes sous Excel",
+            description: "Votre PME grandit, mais votre équipe perd des heures chaque semaine à copier-coller des données entre différents logiciels ou fichiers Excel non connectés.",
             colSpan: "col-span-1 md:col-span-2",
         },
         {

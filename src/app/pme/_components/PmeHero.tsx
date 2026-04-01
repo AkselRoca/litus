@@ -40,7 +40,7 @@ export function PmeHero() {
                             transition={{ delay: 0.2 }}
                             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed font-light"
                         >
-                            Un site internet sur-mesure pour asseoir votre crédibilité B2B, attirer les meilleurs profils et transformer vos visiteurs en prospects qualifiés.
+                            Digitalisez chaque aspect de votre entreprise : acquisition B2B via Google Ads et SEO, automatisation de vos processus (CRM/Hubspot) et logiciels métiers sur-mesure pour accélérer votre croissance.
                         </motion.p>
 
                         <motion.div 

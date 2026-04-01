@@ -6,8 +6,8 @@ import { LayoutTemplate, Cog, Megaphone, Users2 } from 'lucide-react'
 export function PmeSolutions() {
     const solutions = [
         {
-            title: "Site Corporate Époustouflant",
-            description: "Un web design ultra-premium (animations, 3D, typographie) qui donne immédiatement à vos prospects B2B confiance en votre solidité financière et technique.",
+            title: "Logiciels Métiers & Portails",
+            description: "On conçoit et développe vos outils internes (Web Apps) ou portails clients B2B sur-mesure pour fluidifier l'expérience client et accélérer vos équipes.",
             icon: LayoutTemplate,
         },
         {
