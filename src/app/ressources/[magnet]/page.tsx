@@ -41,7 +41,7 @@ export default async function LeadMagnetPage({ params }: LeadMagnetPageProps) {
     }
 
     return (
-        <div className="min-h-screen-dynamic pt-24 pb-12 bg-gray-50 dark:bg-[#050505]">
+        <div className="min-h-screen-dynamic pt-32 lg:pt-40 pb-20 bg-gray-50 dark:bg-[#050505]">
             <div className="container-fluid">
                 <div className="max-w-3xl mx-auto text-center mb-8">
                     <span className="inline-block px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">

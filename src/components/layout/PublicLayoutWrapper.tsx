@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CookieBanner } from '@/components/ui/CookieBanner'
 import { LeadMagnetSlideIn } from '@/components/lead-magnets'
+import { LeadCapturePopup } from '@/components/ui/LeadCapturePopup'
 
 interface PublicLayoutWrapperProps {
     children: React.ReactNode
@@ -27,7 +28,7 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
         if (pathname?.includes('application') || pathname?.includes('automatisation')) {
             return 'audit-productivite'
         }
-        return null // Pas de popup par défaut
+        return null // Pas de slide-in par défaut
     }
 
     const magnetId = getMagnetId()
@@ -40,8 +41,10 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
             </main>
             <Footer />
             <CookieBanner />
-            {magnetId && (
+            {magnetId ? (
                 <LeadMagnetSlideIn magnetId={magnetId} scrollTriggerPercent={65} delayMs={45000} />
+            ) : (
+                <LeadCapturePopup delayMs={45000} scrollTriggerPercent={65} />
             )}
         </>
     )
