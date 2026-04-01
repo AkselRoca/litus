@@ -22,8 +22,8 @@ export function ArtisansSolutions() {
             icon: CheckCircle,
         },
         {
-            title: "Propriété totale à 100%",
-            description: "Zéro abonnement mensuel caché, zéro location. Une fois la machine lancée, elle vous appartient. Vous restez maître de votre trésorerie.",
+            title: "Des contacts 100% exclusifs",
+            description: "Contrairement aux plateformes qui envoient les prospects à tous les artisans du coin, la machine que nous concevons pour vous génère des contacts qui n'appellent que vous.",
             icon: Shield,
         }
     ]

@@ -13,8 +13,8 @@ export function ArtisansPainPoints() {
         },
         {
             icon: BadgeEuro,
-            title: "Les plateformes vous saignent",
-            description: "Travaux.com et les annuaires vous font payer des abonnements ou prennent une commission sur vos devis.",
+            title: "Des prospects partagés à vos concurrents",
+            description: "Sur les annuaires (Travaux.com, etc.), vous payez au prix fort pour des contacts qui sont aussi envoyés à 5 de vos concurrents.",
             colSpan: "col-span-1 border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-900/10",
         },
         {
