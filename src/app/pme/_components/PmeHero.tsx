@@ -80,48 +80,51 @@ export function PmeHero() {
                                 </div>
                             </div>
                             
-                            <div className="flex-1 relative overflow-hidden bg-white dark:bg-[#050505]">
-                                {/* Fake Mini Website */}
-                                <div className="h-8 border-b border-gray-100 dark:border-white/5 flex items-center justify-between px-6">
-                                    <div className="text-[10px] font-bold text-gray-900 dark:text-white">EXALYS</div>
-                                    <div className="flex gap-3 text-[8px] font-medium text-gray-500">
-                                        <span>Expertises</span>
-                                        <span>Carrières</span>
-                                        <span className="text-blue-600 dark:text-blue-400">Contact</span>
+                            <div className="flex-1 relative overflow-hidden bg-white dark:bg-[#050505] p-6 flex flex-col items-center justify-center">
+                                {/* Fake Mini Website B2B */}
+                                <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-br from-blue-600 to-blue-900" />
+                                
+                                {/* Floating Google Position */}
+                                <motion.div 
+                                    animate={{ y: [-5, 5, -5] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute top-8 left-4 p-3 rounded-xl bg-white dark:bg-[#1a1a1a] shadow-xl border border-gray-100 dark:border-white/10 flex items-center gap-3 backdrop-blur-sm z-20"
+                                >
+                                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center">
+                                        <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                                     </div>
-                                </div>
-                                <div className="p-8 flex flex-col items-center justify-center text-center mt-4">
-                                    <div className="inline-block px-2 py-1 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[8px] font-bold uppercase rounded-full mb-3">
-                                        Leader Européen
+                                    <div>
+                                        <div className="text-xs text-gray-500 dark:text-gray-400">Position Google N°1</div>
+                                        <div className="text-sm font-bold text-gray-900 dark:text-white">Trafic ciblé +210%</div>
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
-                                        L'ingénierie au service <br/> de demain.
-                                    </h3>
-                                    <div className="w-24 h-6 mt-4 bg-blue-600 text-white text-[8px] flex items-center justify-center rounded-md font-bold shadow-md">
-                                        Prendre Rendez-vous
+                                </motion.div>
+
+                                {/* Center Website Visual */}
+                                <div className="relative z-10 w-full max-w-sm mt-8 bg-white dark:bg-[#111] rounded-xl shadow-2xl border border-gray-100 dark:border-white/5 overflow-hidden">
+                                    <div className="h-32 bg-gray-100 dark:bg-white/5 flex items-center justify-center">
+                                        <Building2 className="w-12 h-12 text-blue-500 opacity-50" />
+                                    </div>
+                                    <div className="p-4 text-center">
+                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">PME Bâtiment Pro</h3>
+                                        <div className="w-3/4 h-2 bg-gray-200 dark:bg-gray-800 mx-auto rounded-full mb-4" />
+                                        <div className="w-full py-2 bg-blue-600 text-white rounded-lg text-xs font-bold shadow-md">
+                                            Demande de DEVIS B2B
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Floating CRM Notification */}
+                                {/* Floating Lead Notification */}
                                 <motion.div 
-                                    animate={{ y: [-5, 5, -5] }}
-                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute bottom-6 left-6 right-6 p-3 bg-white dark:bg-[#1a1a1a] rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] border border-gray-100 dark:border-white/10 flex items-center gap-3 backdrop-blur-md"
+                                    animate={{ y: [5, -5, 5] }}
+                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                    className="absolute bottom-6 right-4 p-4 rounded-xl bg-white dark:bg-[#1a1a1a] shadow-xl border border-gray-100 dark:border-white/10 flex flex-col gap-2 backdrop-blur-sm z-20"
                                 >
-                                    <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center shrink-0">
-                                        <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                        </svg>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                        <span className="text-xs font-semibold text-gray-900 dark:text-white uppercase tracking-wider">Nouveau Lead B2B</span>
                                     </div>
-                                    <div className="flex-1">
-                                        <div className="text-[10px] font-bold text-gray-900 dark:text-white flex justify-between items-center">
-                                            Nouveau Prospect B2B
-                                            <span className="text-emerald-500 text-[8px] bg-emerald-100 dark:bg-emerald-500/20 px-1.5 py-0.5 rounded-sm">Validé</span>
-                                        </div>
-                                        <div className="text-[9px] text-gray-500 mt-0.5 truncate">
-                                            Directeur Achats — Ajouté à Hubspot
-                                        </div>
-                                    </div>
+                                    <div className="text-sm font-bold text-blue-600 dark:text-blue-400">Projet Rénovation Bureaux</div>
+                                    <div className="text-xs text-gray-500">Contact : Directeur des Achats</div>
                                 </motion.div>
                             </div>
                         </div>
