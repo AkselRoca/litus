@@ -7,8 +7,8 @@ export function PmePainPoints() {
     const painpoints = [
         {
             icon: MonitorX,
-            title: "Des processus internes sous Excel",
-            description: "Votre PME grandit, mais votre équipe perd des heures chaque semaine à copier-coller des données entre différents logiciels ou fichiers Excel non connectés.",
+            title: "Votre site et vos outils font \"petite boîte\"",
+            description: "Vous réalisez des millions de CA, mais votre site est daté et vos équipes perdent des heures sous Excel car aucun de vos logiciels n'est connecté.",
             colSpan: "col-span-1 md:col-span-2",
         },
         {

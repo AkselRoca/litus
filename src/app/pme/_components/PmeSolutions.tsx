@@ -6,8 +6,8 @@ import { LayoutTemplate, Cog, Megaphone, Users2 } from 'lucide-react'
 export function PmeSolutions() {
     const solutions = [
         {
-            title: "Logiciels Métiers & Portails",
-            description: "On conçoit et développe vos outils internes (Web Apps) ou portails clients B2B sur-mesure pour fluidifier l'expérience client et accélérer vos équipes.",
+            title: "Site Corporate & Portails",
+            description: "Un développement sur-mesure combinant un design ultra-premium pour votre image de marque à des outils internes ou portails clients B2B pour fluidifier l'expérience.",
             icon: LayoutTemplate,
         },
         {

@@ -40,7 +40,7 @@ export function PmeHero() {
                             transition={{ delay: 0.2 }}
                             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed font-light"
                         >
-                            Digitalisez chaque aspect de votre entreprise : acquisition B2B via Google Ads et SEO, automatisation de vos processus (CRM/Hubspot) et logiciels métiers sur-mesure pour accélérer votre croissance.
+                            Ne vous contentez plus d'une simple plaquette numérique. Obtenez un site web B2B d'exception, parfaitement connecté à votre CRM, et alimenté par nos campagnes Google Ads & SEO pour piloter toute votre croissance sur une seule plateforme.
                         </motion.p>
 
                         <motion.div 
