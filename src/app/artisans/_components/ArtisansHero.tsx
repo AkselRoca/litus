@@ -43,7 +43,7 @@ export function ArtisansHero() {
                             transition={{ delay: 0.2 }}
                             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed font-light"
                         >
-                            Un site web clé-en-main, optimisé pour que les particuliers de votre ville vous trouvent *avant* vos concurrents. Zéro abonnement mensuel, 100% à vous.
+                            Nous mettons en place votre <strong className="font-bold text-gray-900 dark:text-white">machine à devis</strong> : Campagnes Google Ads ciblées, optimisation locale et site vitrine ultra-performant pour que les clients de votre ville vous appellent *vous*.
                         </motion.p>
 
                         <motion.div 

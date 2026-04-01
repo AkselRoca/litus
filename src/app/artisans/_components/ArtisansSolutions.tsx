@@ -7,24 +7,24 @@ import Image from 'next/image'
 export function ArtisansSolutions() {
     const solutions = [
         {
-            title: "Création de Site Clé-en-main",
-            description: "On s'occupe de TOUT. Design, textes métier, hébergement, mise en ligne. Vous ne nous donnez que des photos de vos réalisations et on fait le reste.",
+            title: "Campagnes Google Ads Rentables",
+            description: "On positionne votre entreprise tout en haut de Google quand un client cherche votre métier en urgence dans votre ville. Résultat immédiat : vous recevez des appels dès les premières 24h.",
             icon: Zap,
         },
         {
-            title: "Optimisation Google My Business",
-            description: "On configure et on optimise votre fiche Google Maps pour que vous sortiez dans les premiers, au-dessus de vos concurrents.",
+            title: "SEO Local & Fiche Maps",
+            description: "On configure et on optimise votre fiche Google Maps pour vous ancrer durablement en numéro 1 de votre zone géographique sans payer le clic.",
             icon: Map,
         },
         {
-            title: "Propriété totale à 100%",
-            description: "Zéro abonnement mensuel caché, zéro location. Une fois le site payé, il vous appartient à vie. Votre nom de domaine est à VOUS.",
-            icon: Shield,
+            title: "Création de Site / Landing Page",
+            description: "Un site web ou une page de vente conçue uniquement dans un but : convertir le clic en demande de devis. Pas de blabla, de l'efficacité pure.",
+            icon: CheckCircle,
         },
         {
-            title: "Contact Direct & Rapide",
-            description: "Des boutons d'appel immédiats, des formulaires de demande de devis simples. Le site est fait pour convertir le visiteur en client au téléphone.",
-            icon: CheckCircle,
+            title: "Propriété totale à 100%",
+            description: "Zéro abonnement mensuel caché, zéro location. Une fois la machine lancée, elle vous appartient. Vous restez maître de votre trésorerie.",
+            icon: Shield,
         }
     ]
 
@@ -72,10 +72,10 @@ export function ArtisansSolutions() {
                             className="mb-12"
                         >
                             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                                La solution <span className="text-emerald-500 shrink-0">Litus.</span>
+                                Notre solution : L'écosystème <span className="text-emerald-500 shrink-0">Litus.</span>
                             </h2>
                             <p className="text-lg text-gray-600 dark:text-gray-400">
-                                Nous créons des "machines à devis" : des sites internet pensés pour le référencement local et la conversion immédiate. Vous vous concentrez sur vos chantiers, le site fait le reste.
+                                Nous refusons de vous vendre "juste un site web". Nous mettons en place de véritables <strong>machines à obtenir des devis</strong> grâce à la puissance cumulée de Google Ads et du référencement local. Vous gérez vos chantiers, la machine s'occupe des appels.
                             </p>
                         </motion.div>
 

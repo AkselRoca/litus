@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-    title: 'Création de Site Web pour Artisans & Indépendants | Litus',
-    description: "Plombier, électricien, paysagiste, couvreur... Obtenez un site internet clé-en-main optimisé pour votre ville. Ne laissez plus vos concurrents prendre vos chantiers sur Google.",
+    title: 'Génération de devis pour Artisans & Indépendants | Litus',
+    description: "Plombier, électricien, paysagiste, couvreur... Obtenez votre machine à devis : Google Ads, SEO local et fiche Google Maps optimisés pour dominer votre ville.",
 }
 
 export default function ArtisansPage() {
