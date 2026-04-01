@@ -40,7 +40,7 @@ export function GrandsComptesHero() {
                             transition={{ delay: 0.2 }}
                             className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed font-light"
                         >
-                            Oubliez les dépendances toxiques (WordPress) et les délais absurdes des ESN traditionnelles. Nous concevons l'architecture digitale de votre Groupe en React/Node, <strong className="font-semibold text-slate-900 dark:text-white">branchée en direct sur votre SI</strong> (SAP, Salesforce).
+                            Oubliez les dépendances toxiques (WordPress) et les délais absurdes des ESN traditionnelles. Nous concevons l'architecture digitale de votre Groupe autour de <strong className="font-semibold text-slate-900 dark:text-white">technologies Cloud modernes, rapides et ultra-sécurisées</strong>, directement interfacées avec votre SI existant.
                         </motion.p>
 
                         <motion.div 

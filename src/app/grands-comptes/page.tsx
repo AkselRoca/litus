@@ -3,7 +3,6 @@ import { GrandsComptesHero } from './_components/GrandsComptesHero'
 import { GrandsComptesStats } from './_components/GrandsComptesStats'
 import { GrandsComptesPainPoints } from './_components/GrandsComptesPainPoints'
 import { GrandsComptesSolutions } from './_components/GrandsComptesSolutions'
-import { LeadMagnetInline } from '@/components/lead-magnets'
 import { ArrowRight, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -36,8 +35,15 @@ export default function GrandsComptesPage() {
                         </p>
                     </div>
                     
-                    <div className="max-w-2xl mx-auto">
-                        <LeadMagnetInline magnetId="audit-productivite" />
+                    <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-2xl p-2 pl-6 flex items-center shadow-lg hover:shadow-xl transition-shadow dark:bg-[#111]">
+                        <input 
+                            type="email" 
+                            placeholder="votre-email@entreprise.com" 
+                            className="bg-transparent border-none outline-none flex-1 text-slate-900 dark:text-white placeholder:text-slate-400 w-full"
+                        />
+                        <Button className="shrink-0 bg-indigo-600 hover:bg-indigo-500 rounded-xl" href="/contact">
+                            Demander un Audit
+                        </Button>
                     </div>
                 </div>
             </section>
