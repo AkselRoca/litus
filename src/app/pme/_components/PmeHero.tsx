@@ -69,50 +69,60 @@ export function PmeHero() {
                             {/* Browser Header */}
                             <div className="h-12 border-b border-gray-100 dark:border-white/5 flex items-center px-4 gap-2 bg-gray-50/50 dark:bg-white/5">
                                 <div className="flex gap-1.5">
-                                    <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700" />
-                                    <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700" />
-                                    <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700" />
+                                    <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                                    <div className="w-3 h-3 rounded-full bg-amber-400/80" />
+                                    <div className="w-3 h-3 rounded-full bg-emerald-400/80" />
                                 </div>
-                                <div className="mx-4 flex-1 h-6 bg-white dark:bg-[#111] rounded-md border border-gray-100 dark:border-white/5" />
+                                <div className="mx-4 flex-1 h-6 bg-white dark:bg-[#111] rounded-md border border-gray-100 dark:border-white/5 flex items-center px-3 justify-center">
+                                    <span className="text-[10px] text-gray-400 font-mono flex items-center gap-1">
+                                        <Globe2 className="w-3 h-3" /> groupe-exalys.fr
+                                    </span>
+                                </div>
                             </div>
                             
-                            <div className="flex-1 p-8 bg-blue-50/30 dark:bg-blue-900/5 relative overflow-hidden flex items-center justify-center">
-                                {/* Corporate UI Elements */}
+                            <div className="flex-1 relative overflow-hidden bg-white dark:bg-[#050505]">
+                                {/* Fake Mini Website */}
+                                <div className="h-8 border-b border-gray-100 dark:border-white/5 flex items-center justify-between px-6">
+                                    <div className="text-[10px] font-bold text-gray-900 dark:text-white">EXALYS</div>
+                                    <div className="flex gap-3 text-[8px] font-medium text-gray-500">
+                                        <span>Expertises</span>
+                                        <span>Carrières</span>
+                                        <span className="text-blue-600 dark:text-blue-400">Contact</span>
+                                    </div>
+                                </div>
+                                <div className="p-8 flex flex-col items-center justify-center text-center mt-4">
+                                    <div className="inline-block px-2 py-1 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[8px] font-bold uppercase rounded-full mb-3">
+                                        Leader Européen
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                                        L'ingénierie au service <br/> de demain.
+                                    </h3>
+                                    <div className="w-24 h-6 mt-4 bg-blue-600 text-white text-[8px] flex items-center justify-center rounded-md font-bold shadow-md">
+                                        Prendre Rendez-vous
+                                    </div>
+                                </div>
+
+                                {/* Floating CRM Notification */}
                                 <motion.div 
                                     animate={{ y: [-5, 5, -5] }}
                                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute top-8 right-8 p-4 bg-white dark:bg-[#111] rounded-xl shadow-xl border border-gray-100 dark:border-white/5 flex items-center gap-4"
+                                    className="absolute bottom-6 left-6 right-6 p-3 bg-white dark:bg-[#1a1a1a] rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] border border-gray-100 dark:border-white/10 flex items-center gap-3 backdrop-blur-md"
                                 >
-                                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/20 rounded-lg flex items-center justify-center">
-                                        <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                                    <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center shrink-0">
+                                        <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <div className="text-sm font-bold text-gray-900 dark:text-white">Candidature reçue</div>
-                                        <div className="text-xs text-gray-500">Ingénieur Commercial</div>
+                                    <div className="flex-1">
+                                        <div className="text-[10px] font-bold text-gray-900 dark:text-white flex justify-between items-center">
+                                            Nouveau Prospect B2B
+                                            <span className="text-emerald-500 text-[8px] bg-emerald-100 dark:bg-emerald-500/20 px-1.5 py-0.5 rounded-sm">Validé</span>
+                                        </div>
+                                        <div className="text-[9px] text-gray-500 mt-0.5 truncate">
+                                            Directeur Achats — Ajouté à Hubspot
+                                        </div>
                                     </div>
                                 </motion.div>
-
-                                <motion.div 
-                                    animate={{ y: [5, -5, 5] }}
-                                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                    className="absolute bottom-12 left-8 p-4 bg-white dark:bg-[#111] rounded-xl shadow-xl border border-gray-100 dark:border-white/5 flex flex-col gap-3"
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <BarChart3 className="w-4 h-4 text-cyan-500" />
-                                        <span className="text-xs text-gray-500 font-medium">Acquisition B2B</span>
-                                    </div>
-                                    <div className="text-2xl font-bold text-gray-900 dark:text-white">+ 45%</div>
-                                    <div className="w-32 h-1 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                                        <div className="w-3/4 h-full bg-cyan-500 rounded-full" />
-                                    </div>
-                                </motion.div>
-
-                                {/* Main central brand block */}
-                                <div className="p-8 rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-500 shadow-2xl text-center text-white scale-110">
-                                    <Globe2 className="w-12 h-12 mx-auto mb-4 opacity-80" />
-                                    <h3 className="font-bold text-3xl mb-2 tracking-tight">Groupe Industriel</h3>
-                                    <p className="text-blue-100/80 text-sm font-medium">Leader Européen</p>
-                                </div>
                             </div>
                         </div>
 
