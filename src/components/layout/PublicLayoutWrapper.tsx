@@ -19,16 +19,18 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
         return <>{children}</>
     }
 
-    // Choisir le lead magnet en fonction de la page
-    const getMagnetId = () => {
+    // Choisir le lead magnet en fonction de la page (seulement sur certaines pages)
+    const getMagnetId = (): 'guide-prix' | 'audit-productivite' | null => {
         if (pathname?.includes('tarifs') || pathname?.includes('creation-site') || pathname?.includes('sites-vitrine') || pathname?.includes('e-commerce')) {
-            return 'guide-prix' as const
+            return 'guide-prix'
         }
         if (pathname?.includes('application') || pathname?.includes('automatisation')) {
-            return 'audit-productivite' as const
+            return 'audit-productivite'
         }
-        return 'checklist-gmb' as const
+        return null // Pas de popup par défaut
     }
+
+    const magnetId = getMagnetId()
 
     return (
         <>
@@ -38,8 +40,9 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
             </main>
             <Footer />
             <CookieBanner />
-            <LeadMagnetSlideIn magnetId={getMagnetId()} scrollTriggerPercent={65} delayMs={45000} />
+            {magnetId && (
+                <LeadMagnetSlideIn magnetId={magnetId} scrollTriggerPercent={65} delayMs={45000} />
+            )}
         </>
     )
 }
-

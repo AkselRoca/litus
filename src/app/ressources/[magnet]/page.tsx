@@ -4,13 +4,14 @@ import { LEAD_MAGNETS, LeadMagnetId } from '@/components/lead-magnets'
 import { LeadMagnetSection } from '@/components/lead-magnets'
 
 interface LeadMagnetPageProps {
-    params: {
+    params: Promise<{
         magnet: string
-    }
+    }>
 }
 
-export function generateMetadata({ params }: LeadMagnetPageProps): Metadata {
-    const magnetId = params.magnet as LeadMagnetId
+export async function generateMetadata({ params }: LeadMagnetPageProps): Promise<Metadata> {
+    const resolvedParams = await params
+    const magnetId = resolvedParams.magnet as LeadMagnetId
     const magnet = LEAD_MAGNETS[magnetId]
 
     if (!magnet) {
@@ -24,14 +25,15 @@ export function generateMetadata({ params }: LeadMagnetPageProps): Metadata {
 }
 
 // Générer les pages statiques pour tous nos lead magnets
-export function generateStaticParams() {
+export async function generateStaticParams() {
     return Object.keys(LEAD_MAGNETS).map((magnetId) => ({
         magnet: magnetId,
     }))
 }
 
-export default function LeadMagnetPage({ params }: LeadMagnetPageProps) {
-    const magnetId = params.magnet as LeadMagnetId
+export default async function LeadMagnetPage({ params }: LeadMagnetPageProps) {
+    const resolvedParams = await params
+    const magnetId = resolvedParams.magnet as LeadMagnetId
     const magnet = LEAD_MAGNETS[magnetId]
 
     if (!magnet) {

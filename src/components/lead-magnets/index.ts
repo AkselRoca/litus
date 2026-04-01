@@ -1,4 +1,5 @@
-export { LeadMagnetInline, LEAD_MAGNETS } from './LeadMagnetInline'
-export type { LeadMagnetId } from './LeadMagnetInline'
+export { LeadMagnetInline } from './LeadMagnetInline'
+export { LEAD_MAGNETS } from './config'
+export type { LeadMagnetId } from './config'
 export { LeadMagnetSlideIn } from './LeadMagnetSlideIn'
 export { LeadMagnetSection } from './LeadMagnetSection'

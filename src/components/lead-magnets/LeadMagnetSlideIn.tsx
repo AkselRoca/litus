@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Download, Loader2, CheckCircle, FileText } from 'lucide-react'
-import { LEAD_MAGNETS, type LeadMagnetId } from './LeadMagnetInline'
+import { X, Download, Loader2, CheckCircle } from 'lucide-react'
+import { LEAD_MAGNETS } from './config'
+import type { LeadMagnetId } from './config'
 
 interface LeadMagnetSlideInProps {
     magnetId: LeadMagnetId

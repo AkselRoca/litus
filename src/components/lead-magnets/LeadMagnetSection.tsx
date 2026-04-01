@@ -1,7 +1,7 @@
 'use client'
 
 import { LeadMagnetInline } from '@/components/lead-magnets/LeadMagnetInline'
-import type { LeadMagnetId } from '@/components/lead-magnets/LeadMagnetInline'
+import type { LeadMagnetId } from '@/components/lead-magnets/config'
 
 interface LeadMagnetSectionProps {
     magnetId: LeadMagnetId
