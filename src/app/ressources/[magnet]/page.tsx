@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { LEAD_MAGNETS, LeadMagnetId } from '@/components/lead-magnets'
-import { LeadMagnetSection } from '@/components/lead-magnets'
+import { LEAD_MAGNETS, LeadMagnetId, LeadMagnetInline } from '@/components/lead-magnets'
 
 interface LeadMagnetPageProps {
     params: Promise<{
@@ -43,19 +42,18 @@ export default async function LeadMagnetPage({ params }: LeadMagnetPageProps) {
     return (
         <div className="min-h-screen-dynamic pt-32 lg:pt-40 pb-20 bg-gray-50 dark:bg-[#050505]">
             <div className="container-fluid">
-                <div className="max-w-3xl mx-auto text-center mb-8">
+                <div className="max-w-4xl mx-auto text-center mb-8">
                     <span className="inline-block px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
                         Ressource Gratuite
                     </span>
-                    <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 mb-6">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 text-balance leading-tight">
                         {magnet.title}
                     </h1>
                 </div>
 
-                <LeadMagnetSection 
-                    magnetId={magnetId}
-                    maxWidth="max-w-xl"
-                />
+                <div className="max-w-xl mx-auto">
+                    <LeadMagnetInline magnetId={magnetId} />
+                </div>
             </div>
         </div>
     )
