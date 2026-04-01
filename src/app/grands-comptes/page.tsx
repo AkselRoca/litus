@@ -67,11 +67,6 @@ export default function GrandsComptesPage() {
                             <Button size="lg" className="h-16 px-10 text-lg bg-indigo-600 hover:bg-indigo-500 text-white shadow-xl shadow-indigo-600/20 rounded-full" href="/contact">
                                 <span className="mr-2">⚡</span> Déployer notre projet
                             </Button>
-
-                            <Button size="lg" variant="secondary" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white hover:text-slate-900 rounded-full bg-white/5 backdrop-blur-sm" href="/portfolio">
-                                <ArrowRight className="mr-2 w-5 h-5" />
-                                Voir nos cas d'usage techniques
-                            </Button>
                         </div>
                     </div>
                 </div>
