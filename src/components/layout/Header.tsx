@@ -20,11 +20,12 @@ export function Header() {
     })
 
     const services = [
-        { name: 'Sites Vitrine', href: '/services/sites-vitrine', icon: Monitor, color: 'text-blue-500' },
-        { name: 'E-commerce', href: '/services/e-commerce', icon: ShoppingBag, color: 'text-purple-500' },
-        { name: 'SEO Local', href: '/services/seo-local', icon: MapPin, color: 'text-green-500' },
-        { name: 'Google Ads', href: '/services/google-ads', icon: BarChart, color: 'text-orange-500' },
-        { name: 'Applications', href: '/services/applications', icon: Smartphone, color: 'text-pink-500' },
+        { name: 'Sites Vitrine', href: '/creation-site-internet', icon: Monitor, color: 'text-blue-500' },
+        { name: 'E-commerce', href: '/creation-site-ecommerce', icon: ShoppingBag, color: 'text-purple-500' },
+        { name: 'SEO Local', href: '/seo-local', icon: MapPin, color: 'text-green-500' },
+        { name: 'Google Ads', href: '/google-ads', icon: BarChart, color: 'text-orange-500' },
+        { name: 'Applications', href: '/creation-application-web', icon: Smartphone, color: 'text-pink-500' },
+        { name: 'Automatisation', href: '/automatisation', icon: Sparkles, color: 'text-orange-500' },
     ]
 
     const personas = [

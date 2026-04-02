@@ -55,7 +55,7 @@ export function ServicesSection() {
                             viewport={{ once: true }}
                             className="lg:col-span-2 group h-full"
                         >
-                            <Link href="/services/sites-vitrine" className="block h-full">
+                            <Link href="/creation-site-internet" className="block h-full">
                                 <Card variant="hover-3d" className="h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative p-8">
                                     {/* Unique Gradient Background */}
                                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
@@ -105,7 +105,7 @@ export function ServicesSection() {
                             transition={{ delay: 0.1 }}
                             className="group h-full"
                         >
-                            <Link href="/services/seo-local" className="block h-full">
+                            <Link href="/seo-local" className="block h-full">
                                 <Card variant="hover-3d" className="h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative p-8 flex flex-col">
                                     <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-orange-500/5 to-yellow-500/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
 
@@ -136,7 +136,7 @@ export function ServicesSection() {
                             transition={{ delay: 0.2 }}
                             className="group h-full"
                         >
-                            <Link href="/services/google-ads" className="block h-full">
+                            <Link href="/google-ads" className="block h-full">
                                 <Card variant="hover-3d" className="h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative p-8 flex flex-col">
                                     <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-green-500/5 to-emerald-500/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
 
@@ -167,7 +167,7 @@ export function ServicesSection() {
                             transition={{ delay: 0.3 }}
                             className="lg:col-span-2 group h-full"
                         >
-                            <Link href="/services/e-commerce" className="block h-full">
+                            <Link href="/creation-site-ecommerce" className="block h-full">
                                 <Card variant="hover-3d" className="h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative p-8">
                                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
 
@@ -218,7 +218,7 @@ export function ServicesSection() {
                             transition={{ delay: 0.4 }}
                             className="lg:col-span-3 group"
                         >
-                            <Link href="/services/applications" className="block h-full">
+                            <Link href="/creation-application-web" className="block h-full">
                                 <Card variant="hover-3d" className="h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative p-8">
                                     <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-indigo-500/5 to-violet-500/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
 
@@ -278,4 +278,5 @@ export function ServicesSection() {
         </section>
     )
 }
+
 

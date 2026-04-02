@@ -79,20 +79,23 @@ export function Footer() {
                         <div>
                             <div className="font-bold mb-4 text-white">Services</div>
                             <nav className="flex flex-col gap-2">
-                                <Link href="/services/sites-vitrine" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                <Link href="/creation-site-internet" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     Sites Vitrine
                                 </Link>
-                                <Link href="/services/e-commerce" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                <Link href="/creation-site-ecommerce" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     E-commerce
                                 </Link>
-                                <Link href="/services/seo-local" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                <Link href="/seo-local" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     SEO Local
                                 </Link>
-                                <Link href="/services/google-ads" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                <Link href="/google-ads" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     Google Ads
                                 </Link>
-                                <Link href="/services/applications" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                <Link href="/creation-application-web" className="text-gray-400 hover:text-primary transition-colors text-sm">
                                     Applications
+                                </Link>
+                                <Link href="/automatisation" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                                    Automatisation
                                 </Link>
                             </nav>
                         </div>

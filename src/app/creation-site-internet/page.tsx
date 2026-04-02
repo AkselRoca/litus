@@ -231,7 +231,7 @@ export default function SitesVitrinePage() {
                     question: 'Comment référencer mon site sur Google ?',
                     answer: (
                         <span>
-                            Chaque site vitrine Litus inclut une base <Link href="/services/seo-local" className="text-orange-600 underline hover:text-orange-700">SEO technique</Link> solide. Pour aller chercher la 1ère position, nous proposons des stratégies de <Link href="/services/seo-local" className="text-orange-600 underline hover:text-orange-700">Référencement Local</Link> avancées.
+                            Chaque site vitrine Litus inclut une base <Link href="/seo-local" className="text-orange-600 underline hover:text-orange-700">SEO technique</Link> solide. Pour aller chercher la 1ère position, nous proposons des stratégies de <Link href="/seo-local" className="text-orange-600 underline hover:text-orange-700">Référencement Local</Link> avancées.
                         </span>
                     ) as any
                 },
@@ -243,7 +243,7 @@ export default function SitesVitrinePage() {
                     question: 'Faites-vous du E-commerce ?',
                     answer: (
                         <span>
-                            Absolument. Pour la vente en ligne, nous déployons des solutions robustes (Shopify ou Woocommerce sur-mesure). Découvrez notre offre <Link href="/services/e-commerce" className="text-orange-600 underline hover:text-orange-700">E-commerce</Link>.
+                            Absolument. Pour la vente en ligne, nous déployons des solutions robustes (Shopify ou Woocommerce sur-mesure). Découvrez notre offre <Link href="/creation-site-ecommerce" className="text-orange-600 underline hover:text-orange-700">E-commerce</Link>.
                         </span>
                     ) as any
                 },
@@ -251,7 +251,7 @@ export default function SitesVitrinePage() {
                     question: 'Et si je veux faire de la publicité ?',
                     answer: (
                         <span>
-                            Le site est le moteur, la publicité est le carburant. Nous gérons vos compagnes <Link href="/services/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> pour amener du trafic qualifié dès le premier jour.
+                            Le site est le moteur, la publicité est le carburant. Nous gérons vos compagnes <Link href="/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> pour amener du trafic qualifié dès le premier jour.
                         </span>
                     ) as any
                 },
@@ -259,3 +259,4 @@ export default function SitesVitrinePage() {
         />
     )
 }
+

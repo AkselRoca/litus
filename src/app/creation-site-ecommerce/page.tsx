@@ -175,7 +175,7 @@ export default function EcommercePage() {
                     question: 'Comment attirer des clients ?',
                     answer: (
                         <span>
-                            Une belle boutique vide ne sert à rien. Nous pouvons coupler la création avec une stratégie <Link href="/services/seo-local" className="text-orange-600 underline hover:text-orange-700">SEO</Link> ou <Link href="/services/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> pour générer des ventes dès le lancement.
+                            Une belle boutique vide ne sert à rien. Nous pouvons coupler la création avec une stratégie <Link href="/seo-local" className="text-orange-600 underline hover:text-orange-700">SEO</Link> ou <Link href="/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> pour générer des ventes dès le lancement.
                         </span>
                     ) as any
                 },
@@ -187,3 +187,4 @@ export default function EcommercePage() {
         />
     )
 }
+

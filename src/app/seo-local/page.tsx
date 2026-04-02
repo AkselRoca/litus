@@ -208,7 +208,7 @@ export default function SeoLocalPage() {
                     question: 'Quelle différence avec Google Ads ?',
                     answer: (
                         <span>
-                            <Link href="/services/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> est immédiat (locatif). Le SEO est plus lent mais vous appartient (propriétaire). Les deux sont complémentaires.
+                            <Link href="/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> est immédiat (locatif). Le SEO est plus lent mais vous appartient (propriétaire). Les deux sont complémentaires.
                         </span>
                     ) as any
                 },
@@ -220,3 +220,4 @@ export default function SeoLocalPage() {
         />
     )
 }
+
