@@ -40,7 +40,7 @@ export function CollectivitesSolutions() {
                             className="mb-12"
                         >
                             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-                                Notre solution : <span className="text-blue-500 shrink-0">L'Inclusion Numérique.</span>
+                                Notre solution : <span className="text-orange-500 shrink-0">L'Inclusion Numérique.</span>
                             </h2>
                             <p className="text-lg text-slate-600 dark:text-slate-400">
                                 Nous combinons des standards d'accessibilité drastiques avec des logiciels sur-mesure pour que votre commune brille en ligne, en toute sécurité.
@@ -57,8 +57,8 @@ export function CollectivitesSolutions() {
                                     transition={{ delay: index * 0.1 }}
                                     className="flex gap-4 group"
                                 >
-                                    <div className="w-12 h-12 shrink-0 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-500 transition-colors">
-                                        <item.icon className="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors" />
+                                    <div className="w-12 h-12 shrink-0 rounded-xl bg-orange-50 dark:bg-orange-500/10 border border-orange-100 dark:border-orange-500/20 flex items-center justify-center group-hover:bg-orange-600 group-hover:border-orange-500 transition-colors">
+                                        <item.icon className="w-6 h-6 text-orange-600 dark:text-orange-400 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
@@ -76,7 +76,7 @@ export function CollectivitesSolutions() {
                         viewport={{ once: true }}
                         className="flex-1 relative w-full order-1 lg:order-2"
                     >
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/20 to-emerald-500/5 rounded-[2.5rem] blur-2xl z-0" />
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/20 to-emerald-500/5 rounded-[2.5rem] blur-2xl z-0" />
                         <div className="relative z-10 w-full aspect-[4/5] rounded-[2rem] bg-white dark:bg-[#111] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col font-sans">
                             {/* Editor Header */}
                             <div className="flex gap-4 items-center px-6 py-4 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5">
@@ -105,7 +105,7 @@ export function CollectivitesSolutions() {
                                 </div>
 
                                 <div className="flex justify-end mt-2">
-                                    <div className="px-6 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer">
+                                    <div className="px-6 py-2 bg-orange-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer">
                                         Publier en 1 clic
                                     </div>
                                 </div>

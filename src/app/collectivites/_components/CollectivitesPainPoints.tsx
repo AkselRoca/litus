@@ -41,7 +41,7 @@ export function CollectivitesPainPoints() {
                         viewport={{ once: true }}
                         className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6"
                     >
-                        Le constat public <span className="text-blue-500">actuel.</span>
+                        Le constat public <span className="text-orange-500">actuel.</span>
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -62,10 +62,10 @@ export function CollectivitesPainPoints() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className={`p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0b0f19] shadow-xl shadow-slate-200/50 dark:shadow-none hover:border-blue-500/30 transition-colors ${item.colSpan}`}
+                            className={`p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0b0f19] shadow-xl shadow-slate-200/50 dark:shadow-none hover:border-orange-500/30 transition-colors ${item.colSpan}`}
                         >
                             <div className="w-12 h-12 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 flex items-center justify-center mb-6 shadow-sm">
-                                <item.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                                <item.icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
                                 {item.title}

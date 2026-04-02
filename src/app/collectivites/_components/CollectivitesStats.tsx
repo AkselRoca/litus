@@ -72,12 +72,12 @@ export function CollectivitesStats() {
                                 transition={{ delay: index * 0.1 }}
                                 className="text-center group"
                             >
-                                <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-white dark:bg-[#111] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-lg shadow-blue-500/5 group-hover:-translate-y-1 transition-transform duration-300">
-                                    <stat.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                                <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-white dark:bg-[#111] border border-slate-200 dark:border-white/5 flex items-center justify-center shadow-lg shadow-orange-500/5 group-hover:-translate-y-1 transition-transform duration-300">
+                                    <stat.icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                                 </div>
                                 <div className="text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight font-mono">
                                     <Counter value={stat.value} decimals={stat.decimals} />
-                                    <span className="text-blue-500">{stat.suffix}</span>
+                                    <span className="text-orange-500">{stat.suffix}</span>
                                 </div>
                                 <div className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
                                     {stat.label}
