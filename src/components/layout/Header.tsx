@@ -28,10 +28,10 @@ export function Header() {
     ]
 
     const personas = [
-        { name: 'Artisans', href: '/artisans', icon: Store, color: 'text-amber-600' },
-        { name: 'PME', href: '/pme', icon: Building2, color: 'text-blue-600' },
-        { name: 'Grands Comptes', href: '/grands-comptes', icon: Users, color: 'text-purple-600' },
-        { name: 'Collectivités', href: '/collectivites', icon: MapPin, color: 'text-indigo-600' },
+        { name: 'Artisans', href: '/artisans', icon: Store, color: 'text-emerald-500' },
+        { name: 'PME', href: '/pme', icon: Building2, color: 'text-cyan-500' },
+        { name: 'Grands Comptes', href: '/grands-comptes', icon: Users, color: 'text-indigo-500' },
+        { name: 'Collectivités', href: '/collectivites', icon: MapPin, color: 'text-orange-500' },
     ]
 
     return (
