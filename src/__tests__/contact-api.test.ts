@@ -2,7 +2,7 @@
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 import { NextRequest } from 'next/server'
 import { POST } from '@/app/api/contact/route'
-import { CLAIM_SCRIPT, FINISH_SCRIPT, RATE_SCRIPT, clientAddress } from '@/lib/contact/store'
+import { CLAIM_SCRIPT, FINISH_SCRIPT, RATE_SCRIPT, clientAddress, resetContactStoreForTests } from '@/lib/contact/store'
 import { contactConfirmationEmail, contactEmail } from '@/lib/email'
 import { contactFormSchema } from '@/lib/validations/contact'
 
@@ -158,6 +158,20 @@ describe('contact API', () => {
     infra.fetcher.mockRejectedValueOnce(new Error('Redis offline'))
     expect((await POST(request())).status).toBe(503)
     expect(infra.emails).toHaveLength(0)
+  })
+  it('uses the shared Turso store when Upstash is not configured', async () => {
+    delete process.env.UPSTASH_REDIS_REST_URL
+    delete process.env.UPSTASH_REDIS_REST_TOKEN
+    vi.stubEnv('TURSO_DATABASE_URL', 'file::memory:?cache=shared')
+    vi.stubEnv('TURSO_AUTH_TOKEN', 'local-test-token')
+    try {
+      const infra = infrastructure()
+      const response = await POST(request())
+      expect(response.status).toBe(201)
+      expect(infra.emails).toHaveLength(2)
+    } finally {
+      await resetContactStoreForTests()
+    }
   })
   it('does not trust spoofed forwarding headers; IPv6 /64 is shared', () => {
     expect(clientAddress(new Headers({ 'x-vercel-forwarded-for': '198.51.100.1', 'x-forwarded-for': 'evil' }))).toBe('198.51.100.1')

@@ -5,14 +5,20 @@ const settings = z.object({
   RESEND_API_KEY: z.string().min(8),
   RESEND_FROM_EMAIL: z.string().email().refine(value => !/@(?:resend\.dev|gmail\.com|outlook\.com|hotmail\.com)$/i.test(value)),
   CONTACT_ALLOWED_ORIGINS: z.string().min(1),
-  UPSTASH_REDIS_REST_URL: z.string().url().startsWith('https://'),
-  UPSTASH_REDIS_REST_TOKEN: z.string().min(8),
+  UPSTASH_REDIS_REST_URL: z.string().url().startsWith('https://').optional(),
+  UPSTASH_REDIS_REST_TOKEN: z.string().min(8).optional(),
+  TURSO_DATABASE_URL: z.string().min(1).optional(),
+  TURSO_AUTH_TOKEN: z.string().min(8).optional(),
   CONTACT_HASH_SECRET: z.string().min(32),
   CONTACT_RATE_IP_LIMIT: z.coerce.number().int().min(1).max(100).default(5),
   CONTACT_RATE_IP_WINDOW_SECONDS: z.coerce.number().int().min(60).max(86400).default(900),
   CONTACT_RATE_GLOBAL_LIMIT: z.coerce.number().int().min(1).max(1000).default(30),
   CONTACT_RATE_GLOBAL_WINDOW_SECONDS: z.coerce.number().int().min(10).max(3600).default(60),
   CONTACT_REDIS_PREFIX: z.string().regex(/^[a-zA-Z0-9:_-]{1,60}$/).default('litus:contact:v1'),
+}).superRefine((value, context) => {
+  const redisReady = Boolean(value.UPSTASH_REDIS_REST_URL && value.UPSTASH_REDIS_REST_TOKEN)
+  const tursoReady = Boolean(value.TURSO_DATABASE_URL && value.TURSO_AUTH_TOKEN)
+  if (!redisReady && !tursoReady) context.addIssue({ code: 'custom', path: ['CONTACT_STORE'], message: 'A shared contact store is required' })
 })
 
 export function contactConfiguration() {

@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
   try {
     const retryAfter = await checkRate(config, clientAddress(request.headers))
     if (retryAfter > 0) return json({ success: false, error: 'Trop de tentatives rapprochées. Patientez quelques minutes avant de réessayer.' }, 429, { 'Retry-After': String(retryAfter) })
-  } catch { console.error('[contact] Protection antispam indisponible'); return unavailable() }
+  } catch (error) { console.error('[contact] Protection antispam indisponible', error instanceof Error ? error.message : 'unknown'); return unavailable() }
   const parsed = schema.safeParse(raw)
   if (!parsed.success) return json({ success: false, error: 'Vérifiez les champs du formulaire.', errors: parsed.error.flatten().fieldErrors }, 400)
   const id = z.string().uuid().safeParse(request.headers.get('idempotency-key'))
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     const claim = await claimSubmission(config, key, digest(config, JSON.stringify(data)), owner)
     if (claim === 'sent') return json({ success: true, message: 'Votre demande a bien été envoyée.' }, 200)
     if (claim !== 'claimed') return json({ success: false, error: claim === 'pending' ? 'Un envoi est déjà en cours. Patientez quelques instants avant de réessayer.' : 'Cette demande ne peut pas être renvoyée. Contactez-nous directement si vous avez un doute sur sa réception.' }, 409, { 'Retry-After': '10' })
-  } catch { console.error('[contact] Vérification de la demande indisponible'); return unavailable() }
+  } catch (error) { console.error('[contact] Vérification de la demande indisponible', error instanceof Error ? error.message : 'unknown'); return unavailable() }
   try {
     await sendContactEmails(data, config, `contact/${id.data}`)
     await finishSubmission(config, key, owner, true)
