@@ -16,8 +16,9 @@ export const metadata: Metadata = {
     title: 'Litus, agence web au Mans et en Sarthe',
     description: 'Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.',
     url: 'https://litus.fr/agence-web-le-mans',
-    images: [{ url: '/le-mans-centre-cathedrale.webp', width: 2200, height: 1458, alt: 'Cathédrale Saint-Julien et centre-ville du Mans' }],
+    images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Litus, agence web au Mans et en Sarthe', description: 'Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.', images: ['/litus-og-social.png'] },
 }
 
 const services = [

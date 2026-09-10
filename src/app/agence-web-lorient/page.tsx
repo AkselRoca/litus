@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   openGraph: {
     title, description, url: 'https://litus.fr/agence-web-lorient',
     type: 'website', locale: 'fr_FR', siteName: 'Litus',
-    images: [{ url: '/territories/lorient-port.webp', alt: 'Voiliers et immeubles autour du port de plaisance de Lorient' }],
+    images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }],
   },
-  twitter: { card: 'summary_large_image', title, description, images: ['/territories/lorient-port.webp'] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
 }
 
 const services = [

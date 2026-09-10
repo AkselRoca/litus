@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     title: 'Des solutions web pensées pour les artisans | Litus Agency',
     description: 'Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe.',
     url: '/artisans',
+    images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Des solutions web pensées pour les artisans | Litus Agency', description: 'Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe.', images: ['/litus-og-social.png'] },
 }
 
 export default function ArtisansPage() {

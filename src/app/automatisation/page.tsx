@@ -15,8 +15,8 @@ const contactHref = '/contact?objet=Automatisation%20%26%20int%C3%A9grations%20A
 export const metadata: Metadata = {
   title: { absolute: title }, description,
   alternates: { canonical: '/automatisation' },
-  openGraph: { title, description, url: pageUrl, siteName: 'Litus', type: 'website', locale: 'fr_FR', images: [{ url: '/blog/photos/bureau-notes-analyse.webp', alt: 'Un espace de travail avec ordinateur et notes' }] },
-  twitter: { card: 'summary_large_image', title, description, images: ['/blog/photos/bureau-notes-analyse.webp'] },
+  openGraph: { title, description, url: pageUrl, siteName: 'Litus', type: 'website', locale: 'fr_FR', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
 }
 
 const needs = [

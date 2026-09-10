@@ -46,12 +46,29 @@ export const metadata: Metadata = {
     description:
       'Agence web locale spécialisée en création de sites, SEO et applications sur-mesure.',
     siteName: 'Litus',
+    images: [
+      {
+        url: '/litus-og-social.png',
+        width: 1200,
+        height: 630,
+        alt: 'Litus — Votre agence web pour développer votre activité.',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Litus - Agence Web Lorient & Le Mans',
     description:
       'Agence web locale spécialisée en création de sites, SEO et applications sur-mesure.',
+    images: ['/litus-og-social.png'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [{ url: '/apple-icon.png', type: 'image/png', sizes: '180x180' }],
   },
   robots: {
     index: true,

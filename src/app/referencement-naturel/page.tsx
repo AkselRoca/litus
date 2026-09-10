@@ -13,8 +13,8 @@ const url = 'https://litus.fr/referencement-naturel'
 const contact = '/contact?objet=R%C3%A9f%C3%A9rencement%20naturel%20SEO'
 export const metadata: Metadata = {
   title: { absolute: title }, description, alternates: { canonical: url },
-  openGraph: { title, description, url, siteName: 'Litus', type: 'website', locale: 'fr_FR', images: [{ url: '/blog/photos/planning-bureau.webp', alt: 'Carnet, ordinateur et téléphone pour préparer une stratégie de référencement' }] },
-  twitter: { card: 'summary_large_image', title, description, images: ['/blog/photos/planning-bureau.webp'] },
+  openGraph: { title, description, url, siteName: 'Litus', type: 'website', locale: 'fr_FR', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
 }
 const services = [
   { icon: FileSearch, title: 'Audit & priorités SEO', text: 'Comprendre les pages, les recherches et les obstacles actuels. Nous examinons les données disponibles et distinguons les corrections nécessaires des pistes à tester.', result: 'Un état des lieux et une feuille de route.' },

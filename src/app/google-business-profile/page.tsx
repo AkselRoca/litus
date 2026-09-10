@@ -13,8 +13,8 @@ const url = 'https://litus.fr/google-business-profile'
 const contact = '/contact?objet=Google%20Business%20Profile'
 export const metadata: Metadata = {
   title: { absolute: title }, description, alternates: { canonical: url },
-  openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/blog/photos/commerce-vitrine.webp', alt: 'Une passante observe une vitrine de commerce' }] },
-  twitter: { card: 'summary_large_image', title, description, images: ['/blog/photos/commerce-vitrine.webp'] },
+  openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
 }
 const pillars = [
   { icon: Store, title: 'Les bonnes informations', text: 'Nom réel, catégorie pertinente, coordonnées, horaires habituels et exceptionnels : nous passons en revue les informations qui permettent de comprendre votre activité.', deliverable: 'Une base cohérente et documentée.' },

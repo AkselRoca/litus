@@ -58,8 +58,8 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
   const title = `${data.client} — Étude de cas`
   return {
     title, description: data.statement, alternates: { canonical: `/realisations/${slug}` },
-    openGraph: { title, description: data.statement, type: 'article', url: `/realisations/${slug}`, images: [{ url: data.hero.desktop, alt: data.hero.alt }] },
-    twitter: { card: 'summary_large_image', title, description: data.statement, images: [data.hero.desktop] },
+    openGraph: { title, description: data.statement, type: 'article', url: `/realisations/${slug}`, images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
+    twitter: { card: 'summary_large_image', title, description: data.statement, images: ['/litus-og-social.png'] },
   }
 }
 

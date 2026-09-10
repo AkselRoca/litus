@@ -11,8 +11,8 @@ const description = 'Des conseils concrets pour les entreprises de Lorient et du
 export const metadata: Metadata = {
   title: { absolute: title }, description, keywords: null,
   alternates: { canonical: '/blog' },
-  openGraph: { title, description, url: 'https://litus.fr/blog', type: 'website', locale: 'fr_FR', siteName: 'Litus', images: [{ url: '/territories/lorient-port.webp', alt: 'Le port de Lorient' }] },
-  twitter: { card: 'summary_large_image', title, description, images: ['/territories/lorient-port.webp'] },
+  openGraph: { title, description, url: 'https://litus.fr/blog', type: 'website', locale: 'fr_FR', siteName: 'Litus', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
 }
 
 export const revalidate = 60
