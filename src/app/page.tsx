@@ -6,10 +6,11 @@ import { EstimatorSection } from '@/components/sections/EstimatorSection'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { StatsSection } from '@/components/sections/StatsSection'
 import { MassiveCTA } from '@/components/sections/MassiveCTA'
+import './home-reference.css'
 
 export default function HomePage() {
     return (
-        <main>
+        <div className="litus-editorial">
             <HeroSection />
             <LogoCloud />
             <ServicesSection />
@@ -18,6 +19,6 @@ export default function HomePage() {
             <ProcessTimeline />
             <StatsSection />
             <MassiveCTA />
-        </main>
+        </div>
     )
 }

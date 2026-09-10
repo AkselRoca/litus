@@ -1,287 +1,140 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from '@/components/ui'
-import { Check, ArrowRight, Zap } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import Link from 'next/link'
+import {
+  ArrowLeft, ArrowRight, BarChart3, Bot, Check, ChevronDown, Code2,
+  Gauge, Globe2, Headphones, Heart, Megaphone, RefreshCw, Search,
+  Settings2, ShieldCheck, ShoppingCart, Sparkles, Wrench,
+} from 'lucide-react'
+import { ServiceReveal } from '@/components/sections/services/ServiceReveal'
 
-type BillingCycle = 'mensuel' | 'annuel' | 'one-shot'
+type Choice = 'site' | 'seo' | 'ads' | 'complete' | 'specific'
+type Situation = 'none' | 'existing' | 'refonte' | 'active'
+type Support = 'simple' | 'regular' | 'delegate'
+type Recommendation = { name: string; price: string; explanation: string; href: string }
 
-interface PricingItem {
-    name: string
-    description: string
-    oneShot: { price: number; setup: number } | null
-    mensuel: { price: number; setup: number } | null
-    annuel: { price: number; setup: number } | null
-    features: string[]
-    popular?: boolean
+const entryOffers = [
+  {
+    name: 'Site Essentiel', kicker: 'Votre présence en ligne', price: '99 €', suffix: '/mois',
+    description: 'Un site vitrine professionnel, entretenu et prêt à transformer vos visiteurs en demandes.',
+    note: 'Périmètre et durée précisés au devis.', cta: 'Créer mon site', href: '/contact?objet=site-essentiel', icon: Globe2, featured: true,
+    features: ['Site vitrine responsive', 'Formulaire de contact', 'Optimisation SEO de base', 'Hébergement et maintenance', 'Reporting trimestriel', 'Petites modifications trimestrielles', 'Ajustements SEO légers trimestriels'],
+  },
+  {
+    name: 'SEO Essentiel', kicker: 'Votre visibilité durable', price: '99 €', suffix: '/mois',
+    description: 'Un suivi régulier pour améliorer progressivement la visibilité de votre site sur Google.',
+    note: 'Après validation de l’état initial du site.', cta: 'Améliorer mon référencement', href: '/contact?objet=seo-essentiel', icon: Search,
+    features: ['Suivi du référencement', 'Optimisations techniques', 'Amélioration des pages existantes', 'SEO local lorsque pertinent', 'Analyse des positions', 'Ajustements réguliers', 'Progression suivie dans le temps'],
+  },
+  {
+    name: 'Gestion Google Ads', kicker: 'Vos demandes dès maintenant', price: '129 €', suffix: '/mois',
+    description: 'La gestion de vos campagnes Google Ads sans vous imposer un accompagnement complet.',
+    note: 'Budget publicitaire Google non inclus.', cta: 'Lancer mes campagnes', href: '/contact?objet=gestion-google-ads', icon: BarChart3,
+    features: ['Mise en place de la campagne', 'Configuration du compte et des conversions', 'Sélection et organisation des mots-clés', 'Optimisation des annonces', 'Suivi et améliorations continues', 'Ajustement des enchères et du ciblage'],
+  },
+]
+
+const completeOffers = [
+  { name: 'Visibilité', price: '229 €', suffix: '/mois', badge: 'Le meilleur point de départ', description: 'Le bon compromis pour une entreprise qui veut un site suivi et une visibilité qui progresse.', href: '/contact?objet=visibilite', features: ['Site avec design sur mesure', 'SEO mensuel', 'Modifications mensuelles', 'Suivi mensuel', 'Hébergement et maintenance', 'Conseils personnalisés'] },
+  { name: 'Growth', price: '590 €', suffix: '/mois', description: 'Pour les entreprises qui veulent accélérer leur acquisition.', href: '/contact?objet=growth', features: ['Site vitrine ou avancé selon le projet', 'Stratégie SEO et SEO local', 'Gestion Google Ads', 'Optimisation et reporting mensuels', 'Maintenance', 'Support prioritaire'] },
+  { name: 'Premium', price: '890 €', suffix: '/mois', description: 'Pour déléguer davantage votre acquisition et piloter une stratégie plus ambitieuse.', href: '/contact?objet=premium', features: ['Accompagnement marketing renforcé', 'SEO avancé', 'Google Ads et Meta Ads selon le périmètre', 'Optimisation des conversions', 'Reporting avancé', 'Interlocuteur dédié'] },
+  { name: 'Entreprise', price: 'Sur devis', suffix: '', description: 'Une réponse construite autour d’un projet spécifique ou d’une organisation complexe.', href: '/contact?objet=entreprise', features: ['Développement web sur mesure', 'Intégrations et automatisations', 'Outils internes et applications web', 'E-commerce avancé', 'SEO national ou international', 'Grands comptes et collectivités'] },
+]
+
+const comparisonRows = [
+  ['Site internet', 'Vitrine', '—', '—', 'Sur mesure', 'Selon projet', 'Selon projet', 'Selon projet'],
+  ['Nombre de pages', 'Essentiel', '—', '—', 'Selon besoin', 'Selon besoin', 'Selon besoin', 'Sur mesure'],
+  ['Design sur mesure', '—', '—', '—', 'Inclus', 'Inclus', 'Inclus', 'Inclus'],
+  ['SEO', 'Bases', 'Essentiel', '—', 'Mensuel', 'Avancé', 'Avancé', 'National / international'],
+  ['Fréquence du suivi', 'Trimestrielle', 'Régulière', 'Régulière', 'Mensuelle', 'Mensuelle', 'Renforcée', 'Sur mesure'],
+  ['Modifications', 'Trimestrielles', 'SEO', 'Campagnes', 'Mensuelles', 'Mensuelles', 'Selon périmètre', 'Selon périmètre'],
+  ['Google Ads', '—', '—', 'Gestion', 'En option', 'Inclus', 'Inclus', 'Selon stratégie'],
+  ['Meta Ads', '—', '—', '—', '—', 'En option', 'Selon périmètre', 'Selon stratégie'],
+  ['Reporting', 'Trimestriel', 'Positions', 'Campagnes', 'Mensuel', 'Mensuel', 'Avancé', 'Sur mesure'],
+  ['Maintenance', 'Incluse', '—', '—', 'Incluse', 'Incluse', 'Incluse', 'Selon périmètre'],
+  ['Accompagnement stratégique', 'Essentiel', 'SEO', 'Ads', 'Régulier', 'Régulier', 'Renforcé', 'Dédié'],
+]
+
+const specificServices = [
+  { name: 'Création de site', detail: 'Vitrine, refonte ou landing page', icon: Globe2, href: '/creation-site-internet' },
+  { name: 'E-commerce', detail: 'Shopify et WooCommerce', icon: ShoppingCart, href: '/creation-site-ecommerce' },
+  { name: 'Référencement SEO', detail: 'Technique, contenu et local', icon: Search, href: '/seo-local' },
+  { name: 'Google Ads', detail: 'Campagnes et suivi SEA', icon: Megaphone, href: '/google-ads' },
+  { name: 'Développement spécifique', detail: 'Applications et outils métier', icon: Code2, href: '/creation-application-web' },
+  { name: 'Automatisation', detail: 'Processus et connexions', icon: RefreshCw, href: '/automatisation' },
+  { name: 'Outils IA', detail: 'Solutions IA utiles et sur mesure', icon: Bot, href: '/creation-outils-ia' },
+  { name: 'Maintenance', detail: 'Suivi, sécurité et évolutions', icon: Wrench, href: '/contact?objet=maintenance' },
+  { name: 'Audit', detail: 'Technique, SEO ou acquisition', icon: Gauge, href: '/contact?objet=audit' },
+]
+
+const trustItems = [
+  { icon: ShieldCheck, title: 'Un périmètre clair', detail: 'Chaque prestation est cadrée' },
+  { icon: Heart, title: 'Un accompagnement humain', detail: 'Vous échangez avec notre équipe' },
+  { icon: BarChart3, title: 'Des résultats suivis', detail: 'Des indicateurs compréhensibles' },
+  { icon: Headphones, title: 'Une montée en gamme libre', detail: 'Vous avancez à votre rythme' },
+]
+
+function getRecommendation(choice: Choice, situation: Situation, support: Support): Recommendation {
+  if (choice === 'specific') return { name: 'Entreprise', price: 'sur devis', explanation: 'Votre besoin mérite un cadrage dédié avant de définir la solution et son budget.', href: '/contact?objet=entreprise' }
+  if (support === 'delegate') {
+    if (choice === 'complete' || choice === 'ads') return { name: 'Premium', price: '890 €/mois', explanation: 'Vous souhaitez déléguer une part importante de l’acquisition avec un pilotage renforcé.', href: '/contact?objet=premium' }
+    return { name: 'Growth', price: '590 €/mois', explanation: 'Le pack réunit site, référencement et acquisition pour accélérer avec un suivi régulier.', href: '/contact?objet=growth' }
+  }
+  if (choice === 'complete') return support === 'regular'
+    ? { name: 'Growth', price: '590 €/mois', explanation: 'Vous avez besoin de plusieurs leviers pilotés ensemble chaque mois.', href: '/contact?objet=growth' }
+    : { name: 'Visibilité', price: '229 €/mois', explanation: 'Cette formule pose une base solide avec un site suivi et un travail SEO mensuel.', href: '/contact?objet=visibilite' }
+  if (choice === 'site') return support === 'regular' || situation === 'refonte'
+    ? { name: 'Visibilité', price: '229 €/mois', explanation: 'Votre site bénéficie d’un design sur mesure, de modifications et d’un suivi SEO mensuel.', href: '/contact?objet=visibilite' }
+    : { name: 'Site Essentiel', price: '99 €/mois', explanation: 'Vous obtenez une présence professionnelle avec l’essentiel du suivi technique inclus.', href: '/contact?objet=site-essentiel' }
+  if (choice === 'seo') return support === 'regular' && situation === 'active'
+    ? { name: 'Visibilité', price: '229 €/mois', explanation: 'Votre base existe déjà : la formule Visibilité permet un suivi mensuel plus complet.', href: '/contact?objet=visibilite' }
+    : { name: 'SEO Essentiel', price: 'à partir de 99 €/mois', explanation: 'Vous commencez par les optimisations qui comptent et mesurez la progression dans le temps.', href: '/contact?objet=seo-essentiel' }
+  return support === 'regular'
+    ? { name: 'Growth', price: '590 €/mois', explanation: 'Le pack associe campagnes, optimisation continue et les leviers nécessaires autour de votre acquisition.', href: '/contact?objet=growth' }
+    : { name: 'Gestion Google Ads', price: '129 €/mois', explanation: 'Vous nous confiez vos campagnes sans devoir souscrire un pack complet.', href: '/contact?objet=gestion-google-ads' }
 }
 
 export function PricingContent() {
-    const [billingCycle, setBillingCycle] = useState<BillingCycle>('mensuel')
+  const [step, setStep] = useState(0)
+  const [choice, setChoice] = useState<Choice | null>(null)
+  const [situation, setSituation] = useState<Situation | null>(null)
+  const [support, setSupport] = useState<Support | null>(null)
+  const [comparisonOpen, setComparisonOpen] = useState(false)
+  const recommendation = useMemo(() => choice && situation && support ? getRecommendation(choice, situation, support) : null, [choice, situation, support])
+  const resetAdvisor = () => { setStep(0); setChoice(null); setSituation(null); setSupport(null) }
 
-    const pricingData = {
-        // Packs
-        packStarter: {
-            name: 'Pack Starter',
-            description: 'Parfait pour démarrer sur le digital',
-            oneShot: { price: 2490, setup: 0 },
-            mensuel: null,
-            annuel: null,
-            features: [
-                'Site vitrine premium',
-                'Google Business optimisé',
-                'Formation SEO de base',
-                '3 mois maintenance incluse',
-                'Support prioritaire',
-            ],
-            popular: false,
-        },
-        packGrowth: {
-            name: 'Pack Growth',
-            description: 'Pour scaler votre business rapidement',
-            oneShot: { price: 3990, setup: 0 },
-            mensuel: { price: 590, setup: 1000 },
-            annuel: { price: 531, setup: 0 },
-            features: [
-                'Site vitrine OU e-commerce',
-                'SEO Local inclus',
-                'Google Ads setup',
-                '6 mois maintenance incluse',
-                'Reporting mensuel',
-                'Support prioritaire',
-            ],
-            popular: true,
-        },
-        packPremium: {
-            name: 'Pack Premium',
-            description: 'Solution complète tout-en-un',
-            oneShot: { price: 6990, setup: 0 },
-            mensuel: { price: 890, setup: 2000 },
-            annuel: { price: 801, setup: 0 },
-            features: [
-                'Site e-commerce complet',
-                'SEO Local premium',
-                'Google Ads + Meta Ads',
-                '12 mois maintenance incluse',
-                'Stratégie marketing trimestrielle',
-                'Support VIP 24h/24',
-            ],
-            popular: false,
-        },
-        // Services
-        siteVitrine: {
-            name: 'Site Vitrine',
-            description: 'Site professionnel responsive',
-            oneShot: { price: 1990, setup: 0 },
-            mensuel: null,
-            annuel: null,
-            features: ['Design sur-mesure', '5-7 pages', 'SEO de base', 'Formulaire contact'],
-        },
-        siteEcommerce: {
-            name: 'E-commerce',
-            description: 'Boutique en ligne complète',
-            oneShot: { price: 3990, setup: 0 },
-            mensuel: { price: 199, setup: 1500 },
-            annuel: { price: 179, setup: 1500 },
-            features: ['Plateforme complète', 'Paiement sécurisé', 'Produits illimités', 'Formation'],
-        },
-        seoLocal: {
-            name: 'SEO Local',
-            description: 'Référencement local',
-            oneShot: null,
-            mensuel: { price: 490, setup: 0 },
-            annuel: { price: 441, setup: 0 },
-            features: ['Audit SEO', 'Google Business', 'Mots-clés locaux', 'Rapports mensuels'],
-        },
-        googleAds: {
-            name: 'Google Ads',
-            description: 'Publicité locale',
-            oneShot: null,
-            mensuel: { price: 290, setup: 150 },
-            annuel: { price: 261, setup: 0 },
-            features: ['Campagnes locales', 'Optimisation quotidienne', 'Suivi conversions', 'Budget en sus'],
-        },
-    }
+  return <div className="pricing-content">
+    <section className="pricing-entry" aria-labelledby="pricing-entry-title"><ServiceReveal className="pricing-shell">
+      <header className="pricing-section-heading"><p className="pricing-section-label">COMMENCER SIMPLEMENT</p><h2 id="pricing-entry-title">Choisissez uniquement ce dont <span>vous avez besoin.</span></h2><p>Des solutions simples pour démarrer, puis des accompagnements plus complets quand votre activité grandit.</p></header>
+      <div className="pricing-entry-grid">{entryOffers.map(offer => { const Icon = offer.icon; return <article className={`pricing-entry-card${offer.featured ? ' is-featured' : ''}`} key={offer.name}>
+        <div className="pricing-entry-topline"><span><Icon aria-hidden="true" /></span><small>{offer.kicker}</small></div><h3>{offer.name}</h3><div className="pricing-entry-price"><strong>{offer.price}</strong><span>{offer.suffix}</span></div><p>{offer.description}</p>
+        <ul>{offer.features.map(feature => <li key={feature}><Check aria-hidden="true" />{feature}</li>)}</ul><small className="pricing-entry-note">{offer.note}</small><Link href={offer.href}>{offer.cta}<ArrowRight aria-hidden="true" /></Link>
+      </article> })}</div>
+      <ol className="pricing-ladder" aria-label="Progression des offres">{['Site 99 €', 'SEO 99 €', 'Google Ads 129 €', 'Visibilité 229 €', 'Growth 590 €', 'Premium 890 €', 'Sur devis'].map((label, index) => <li key={label}><span>{String(index + 1).padStart(2, '0')}</span>{label}</li>)}</ol>
+    </ServiceReveal></section>
 
-    const getDisplayPrice = (item: PricingItem) => {
-        if (billingCycle === 'one-shot') {
-            return item.oneShot
-                ? { price: item.oneShot.price, setup: item.oneShot.setup, suffix: '' }
-                : null
-        } else if (billingCycle === 'mensuel') {
-            return item.mensuel
-                ? { price: item.mensuel.price, setup: item.mensuel.setup, suffix: '/mois' }
-                : null
-        } else {
-            return item.annuel
-                ? {
-                    price: item.annuel.price,
-                    setup: item.annuel.setup,
-                    suffix: '/mois',
-                    yearly: item.annuel.price * 12,
-                }
-                : null
-        }
-    }
+    <section className="pricing-advisor" aria-labelledby="pricing-advisor-title"><ServiceReveal className="pricing-shell pricing-advisor-grid">
+      <div className="pricing-advisor-copy"><p className="pricing-section-label">VOTRE POINT DE DÉPART</p><h2 id="pricing-advisor-title">Quelle offre correspond à <span>votre situation&nbsp;?</span></h2><p>Trois réponses suffisent. Le résultat s’appuie sur votre besoin, votre situation actuelle et le niveau de suivi souhaité.</p><ul><li><Check />Une recommandation immédiate</li><li><Check />Aucune donnée personnelle demandée</li><li><Check />Vous pouvez modifier vos réponses</li></ul></div>
+      <div className="pricing-advisor-panel" aria-live="polite"><div className="pricing-advisor-progress" aria-label={`Étape ${Math.min(step + 1, 4)} sur 4`}>{[0, 1, 2, 3].map(index => <span key={index} className={step >= index ? 'is-active' : ''} />)}</div>
+        {step === 0 && <fieldset className="pricing-question"><legend>Quel est votre objectif principal&nbsp;?</legend><p>Choisissez le besoin le plus urgent aujourd’hui.</p><div>{([['site', 'Créer ou refaire mon site'], ['seo', 'Être mieux visible sur Google'], ['ads', 'Générer des demandes rapidement'], ['complete', 'Obtenir un accompagnement complet'], ['specific', 'Réaliser un projet spécifique']] as [Choice, string][]).map(([value, label]) => <button type="button" key={value} className={choice === value ? 'is-selected' : ''} onClick={() => { setChoice(value); setStep(1) }}>{label}<ArrowRight /></button>)}</div></fieldset>}
+        {step === 1 && <fieldset className="pricing-question"><legend>Où en êtes-vous aujourd’hui&nbsp;?</legend><p>Cette information nous aide à estimer le niveau de départ.</p><div>{([['none', 'Je n’ai pas encore de site'], ['existing', 'J’ai déjà un site'], ['refonte', 'Mon site doit être refait'], ['active', 'J’ai déjà du SEO ou des campagnes']] as [Situation, string][]).map(([value, label]) => <button type="button" key={value} className={situation === value ? 'is-selected' : ''} onClick={() => { setSituation(value); setStep(2) }}>{label}<ArrowRight /></button>)}</div><button type="button" className="pricing-advisor-back" onClick={() => setStep(0)}><ArrowLeft />Retour</button></fieldset>}
+        {step === 2 && <fieldset className="pricing-question"><legend>Quel niveau d’accompagnement souhaitez-vous&nbsp;?</legend><p>Vous pourrez toujours faire évoluer la formule ensuite.</p><div>{([['simple', 'Quelque chose de simple'], ['regular', 'Un suivi régulier'], ['delegate', 'Déléguer une grande partie de mon acquisition']] as [Support, string][]).map(([value, label]) => <button type="button" key={value} className={support === value ? 'is-selected' : ''} onClick={() => { setSupport(value); setStep(3) }}>{label}<ArrowRight /></button>)}</div><button type="button" className="pricing-advisor-back" onClick={() => setStep(1)}><ArrowLeft />Retour</button></fieldset>}
+        {step === 3 && recommendation && <div className="pricing-recommendation"><span className="pricing-recommendation-icon"><Sparkles aria-hidden="true" /></span><p>Nous vous recommandons</p><h3>{recommendation.name}</h3><strong>{recommendation.price}</strong><p>{recommendation.explanation}</p><Link href={recommendation.href}>Découvrir cette solution<ArrowRight /></Link><button type="button" onClick={resetAdvisor}><RefreshCw />Recommencer</button></div>}
+      </div>
+    </ServiceReveal></section>
 
-    return (
-        <>
-            {/* Billing Toggle */}
-            <div className="flex justify-center mb-16">
-                <div className="inline-flex items-center gap-2 p-1 bg-gray-100 dark:bg-gray-900 rounded-xl">
-                    <button
-                        onClick={() => setBillingCycle('one-shot')}
-                        className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all ${billingCycle === 'one-shot'
-                                ? 'bg-white dark:bg-gray-800 text-primary shadow-md'
-                                : 'text-gray-600 dark:text-gray-400'
-                            }`}
-                    >
-                        One-Shot
-                    </button>
-                    <button
-                        onClick={() => setBillingCycle('mensuel')}
-                        className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all ${billingCycle === 'mensuel'
-                                ? 'bg-white dark:bg-gray-800 text-primary shadow-md'
-                                : 'text-gray-600 dark:text-gray-400'
-                            }`}
-                    >
-                        Mensuel
-                    </button>
-                    <button
-                        onClick={() => setBillingCycle('annuel')}
-                        className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all relative ${billingCycle === 'annuel'
-                                ? 'bg-white dark:bg-gray-800 text-primary shadow-md'
-                                : 'text-gray-600 dark:text-gray-400'
-                            }`}
-                    >
-                        Annuel
-                        <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-full">
-                            -10%
-                        </span>
-                    </button>
-                </div>
-            </div>
+    <section className="pricing-complete" aria-labelledby="pricing-complete-title"><ServiceReveal className="pricing-shell">
+      <header className="pricing-section-heading"><p className="pricing-section-label">ALLER PLUS LOIN</p><h2 id="pricing-complete-title">Des accompagnements qui évoluent avec <span>votre activité.</span></h2><p>Une montée en gamme lisible, du suivi mensuel à la stratégie digitale construite sur mesure.</p></header>
+      <div className="pricing-complete-grid">{completeOffers.map(plan => <article key={plan.name} className={`pricing-complete-card${plan.badge ? ' is-highlighted' : ''}`}>{plan.badge && <span className="pricing-plan-badge">{plan.badge}</span>}<div><h3>{plan.name}</h3><div className="pricing-complete-price"><strong>{plan.price}</strong><span>{plan.suffix}</span></div><p>{plan.description}</p></div><ul>{plan.features.map(feature => <li key={feature}><Check />{feature}</li>)}</ul><Link href={plan.href}>{plan.name === 'Entreprise' ? 'Discuter de mon projet' : `Choisir ${plan.name}`}<ArrowRight /></Link></article>)}</div>
+      <div className="pricing-comparison"><div><span><Settings2 /></span><div><h3>Comparer les offres en détail</h3><p>Ouvrez le tableau uniquement si vous souhaitez vérifier chaque niveau de service.</p></div></div><button type="button" aria-expanded={comparisonOpen} aria-controls="pricing-comparison-table" onClick={() => setComparisonOpen(open => !open)}>Comparer les offres<ChevronDown className={comparisonOpen ? 'is-open' : ''} /></button></div>
+      <div id="pricing-comparison-table" className={`pricing-comparison-table-wrap${comparisonOpen ? ' is-open' : ''}`} hidden={!comparisonOpen}><table><caption>Comparaison des formules Litus</caption><thead><tr><th>Comprend</th><th>Site Essentiel</th><th>SEO Essentiel</th><th>Google Ads</th><th>Visibilité</th><th>Growth</th><th>Premium</th><th>Entreprise</th></tr></thead><tbody>{comparisonRows.map(row => <tr key={row[0]}>{row.map((cell, index) => index === 0 ? <th scope="row" key={cell}>{cell}</th> : <td key={`${row[0]}-${cell}-${index}`}>{cell === '—' ? cell : <><Check aria-hidden="true" />{cell}</>}</td>)}</tr>)}</tbody></table></div>
+      <ul className="pricing-trust-band">{trustItems.map(item => { const Icon = item.icon; return <li key={item.title}><Icon aria-hidden="true" /><span><strong>{item.title}</strong><small>{item.detail}</small></span></li> })}</ul>
+    </ServiceReveal></section>
 
-            {/* Packs */}
-            <section className="py-20 bg-white dark:bg-dark">
-                <div className="container-fluid">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">Packs Complets</h2>
-                            <p className="text-xl text-gray-600 dark:text-gray-300">
-                                Solutions tout-en-un
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[pricingData.packStarter, pricingData.packGrowth, pricingData.packPremium].map((pack, idx) => {
-                                const displayPrice = getDisplayPrice(pack)
-                                if (!displayPrice) return null
-
-                                return (
-                                    <div
-                                        key={idx}
-                                        className={`relative bg-white dark:bg-gray-900 rounded-2xl p-8 border-2 transition-all ${pack.popular
-                                                ? 'border-primary shadow-2xl scale-105'
-                                                : 'border-gray-200 dark:border-white/10 hover:border-primary'
-                                            }`}
-                                    >
-                                        {pack.popular && (
-                                            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                                <div className="bg-gradient-to-r from-primary to-orange-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-1">
-                                                    <Zap className="w-4 h-4" />
-                                                    Populaire
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        <h3 className="text-2xl font-bold mb-2">{pack.name}</h3>
-                                        <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm">{pack.description}</p>
-
-                                        <div className="mb-6">
-                                            <div className="flex items-baseline gap-2">
-                                                <span className="text-5xl font-bold text-primary">{displayPrice.price}€</span>
-                                                <span className="text-gray-600 dark:text-gray-400">{displayPrice.suffix}</span>
-                                            </div>
-                                            {displayPrice.setup > 0 && (
-                                                <p className="text-sm text-gray-500 mt-1">+ {displayPrice.setup}€ setup</p>
-                                            )}
-                                        </div>
-
-                                        <ul className="space-y-3 mb-8">
-                                            {pack.features.map((feature, fidx) => (
-                                                <li key={fidx} className="flex items-start gap-2 text-sm">
-                                                    <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
-                                                    <span className="text-gray-700 dark:text-gray-200">{feature}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        <Button href="/contact" variant={pack.popular ? 'primary' : 'secondary'} className="w-full">
-                                            Choisir ce pack
-                                            <ArrowRight className="w-4 h-4 ml-2" />
-                                        </Button>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services */}
-            <section className="py-20 bg-gray-50 dark:bg-black">
-                <div className="container-fluid">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">Services à la carte</h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {[pricingData.siteVitrine, pricingData.siteEcommerce, pricingData.seoLocal, pricingData.googleAds].map((service, idx) => {
-                                const displayPrice = getDisplayPrice(service)
-                                if (!displayPrice)
-                                    return (
-                                        <div key={idx} className="bg-white dark:bg-gray-900 rounded-xl p-6 border opacity-50">
-                                            <h3 className="text-xl font-bold mb-2">{service.name}</h3>
-                                            <p className="text-sm text-gray-500">Non dispo en {billingCycle}</p>
-                                        </div>
-                                    )
-
-                                return (
-                                    <div key={idx} className="bg-white dark:bg-gray-900 rounded-xl p-6 border-2 border-gray-200 dark:border-white/10 hover:border-primary transition-all">
-                                        <h3 className="text-xl font-bold mb-2">{service.name}</h3>
-                                        <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{service.description}</p>
-
-                                        <div className="mb-4">
-                                            <div className="flex items-baseline gap-1">
-                                                <span className="text-3xl font-bold text-primary">{displayPrice.price}€</span>
-                                                <span className="text-gray-600 text-sm">{displayPrice.suffix}</span>
-                                            </div>
-                                            {displayPrice.setup > 0 && (
-                                                <p className="text-xs text-gray-500">+ {displayPrice.setup}€ setup</p>
-                                            )}
-                                        </div>
-
-                                        <ul className="space-y-2 mb-4">
-                                            {service.features.map((feature, fidx) => (
-                                                <li key={fidx} className="flex items-start gap-1.5 text-xs">
-                                                    <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
-                                                    <span className="text-gray-700 dark:text-gray-200">{feature}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        <Button href="/contact" variant="secondary" size="sm" className="w-full">
-                                            Commander
-                                        </Button>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
-    )
+    <section className="pricing-specific" aria-labelledby="pricing-specific-title"><ServiceReveal className="pricing-shell pricing-specific-grid">
+      <header className="pricing-section-heading pricing-section-heading-left"><p className="pricing-section-label">BESOINS PONCTUELS OU SPÉCIFIQUES</p><h2 id="pricing-specific-title">Un besoin précis mérite une réponse <span>bien cadrée.</span></h2><p>Vous pouvez aussi nous confier une seule mission. Nous définissons son périmètre, ses livrables et son prix avant de commencer.</p><Link href="/contact?objet=prestation" className="site-cta-secondary">Parler de mon besoin<ArrowRight /></Link></header>
+      <div className="pricing-specific-list">{specificServices.map(({ name, detail, icon: Icon, href }) => <Link href={href} key={name}><span><Icon /></span><div><strong>{name}</strong><small>{detail}</small></div><ArrowRight /></Link>)}</div>
+    </ServiceReveal></section>
+  </div>
 }

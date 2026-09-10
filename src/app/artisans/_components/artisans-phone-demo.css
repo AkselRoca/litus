@@ -1,0 +1,70 @@
+.art-phone-demo { --art-phone-accent: var(--litus-orange); position: relative; width: min(282px, 100%); margin-inline: auto; color: var(--art-ink, #172536); }
+.art-phone-frame { position: relative; width: 100%; aspect-ratio: .52; border: 6px solid #202a33; border-radius: 40px; background: #fff; box-shadow: 0 2px 0 2px #687078, 0 17px 31px #26374713; overflow: hidden; }
+.art-phone-frame::before, .art-phone-frame::after { content: ''; position: absolute; left: -5px; width: 2px; background: #899196; border-radius: 2px; }
+.art-phone-frame::before { top: 90px; height: 28px; }
+.art-phone-frame::after { top: 126px; height: 40px; }
+.art-phone-screen { position: relative; display: flex; flex-direction: column; height: 100%; border-radius: 32px; overflow: hidden; color: #33445a; background: #fff; }
+.art-phone-status { height: 22px; display: flex; align-items: center; justify-content: space-between; flex: none; padding: 4px 13px 0; color: #172536; }
+.art-phone-status > span { font-size: 8px; font-weight: 600; }
+.art-phone-status > i { position: absolute; top: -1px; left: 50%; width: 103px; height: 17px; border-radius: 0 0 12px 12px; transform: translateX(-50%); background: #202a33; }
+.art-phone-status > div { display: flex; align-items: center; gap: 3px; }
+.art-phone-status svg { width: 9px; height: 9px; }
+.art-phone-status svg:last-child { width: 13px; }
+.art-phone-google-bar { display: flex; align-items: center; gap: 9px; min-height: 33px; flex: none; padding: 4px 12px; }
+.art-phone-google-bar img { width: 25px; height: 25px; }
+.art-phone-google-bar > span { font-size: 10px; color: #8b95a1; }
+.art-phone-google-bar > svg { width: 16px; height: 16px; margin-left: auto; color: #8192a5; }
+.art-phone-search { display: flex; align-items: center; gap: 6px; min-height: 26px; flex: none; margin: 1px 10px 0; padding: 4px 9px; border: 1px solid #e3e8ed; border-radius: 999px; box-shadow: 0 1px 3px #284b6c06; }
+.art-phone-search > svg { width: 12px; height: 12px; flex: none; color: #7d91a7; }
+.art-phone-search > span { font-size: 10px; min-height: 15px; line-height: 1.5; }
+.art-phone-search > span > i { display: inline-block; vertical-align: -2px; width: 1px; height: 11px; margin-left: 1px; background: var(--art-phone-accent); opacity: 0; }
+.art-phone-search > span > i.is-visible { opacity: 1; }
+.art-phone-search-tabs { display: flex; gap: 19px; align-items: center; min-height: 23px; flex: none; padding: 5px 14px; font-size: 8px; color: #8b98a5; }
+.art-phone-search-tabs b { font-weight: 550; color: #5d7d9a; }
+.art-phone-profile { flex: 1; display: flex; flex-direction: column; min-height: 0; transition: opacity .4s ease, translate .4s ease; }
+.art-phone-profile > :not(.art-phone-photo) { flex: none; }
+.art-phone-photo { position: relative; height: 88px; flex: 1; min-height: 58px; max-height: 88px; margin: 0 10px; border-radius: 6px; overflow: hidden; background: color-mix(in srgb, var(--art-phone-accent) 9%, #f7f6f2); }
+.art-phone-photo > img { object-fit: cover; filter: saturate(.72) contrast(.94) brightness(1.05); }
+.art-phone-photo > span { position: absolute; left: 6px; bottom: 5px; padding: 3px 5px; border-radius: 3px; background: #fffefaeb; color: #6e7b87; font-size: 6px; letter-spacing: .01em; }
+.art-phone-tools-illustration { position: absolute; inset: 0; }
+.art-phone-tools-illustration > svg { position: absolute; inset: 0; width: 100%; height: 100%; stroke: color-mix(in srgb, var(--art-phone-accent) 18%, white); stroke-width: 1; }
+.art-phone-tools-illustration > span { position: absolute; inset: 0; display: flex; gap: 13px; align-items: center; justify-content: center; color: var(--art-phone-accent); }
+.art-phone-tools-illustration > span > svg { width: 32px; height: 32px; stroke-width: 1.1; }
+.art-phone-tools-illustration small { font-size: 11px; line-height: 1.4; color: #797668; }
+.art-phone-profile-heading { padding: 10px 13px 7px; }
+.art-phone-profile-heading p { font-size: 14px; font-weight: 600; line-height: 1.25; letter-spacing: -.03em; color: #273e53; margin: 0 0 4px; }
+.art-phone-profile-heading > span { display: block; color: #798a9b; font-size: 9px; line-height: 1.5; }
+.art-phone-profile-actions { display: flex; justify-content: space-around; align-items: center; gap: 8px; padding: 4px 13px; }
+.art-phone-profile-actions > span { display: flex; align-items: center; gap: 3px; flex-direction: column; color: var(--art-phone-accent); font-size: 7px; }
+.art-phone-profile-actions svg { width: 22px; height: 22px; padding: 5px; border: 1px solid color-mix(in srgb, var(--art-phone-accent) 30%, white); border-radius: 50%; stroke-width: 1.7; }
+.art-phone-contact { display: flex; align-items: center; justify-content: center; gap: 12px; width: calc(100% - 24px); min-height: 32px; margin: 0 12px; padding: 8px; border: 1px solid var(--art-phone-accent); border-radius: 5px; background: var(--art-phone-accent); color: #fff; font-size: 10px; font-weight: 550; line-height: 1.25; transition: box-shadow .4s, background .25s; }
+.art-phone-contact > svg { width: 12px; height: 12px; stroke-width: 1.7; }
+.art-phone-contact.is-highlighted { box-shadow: 0 0 0 4px color-mix(in srgb, var(--art-phone-accent) 15%, transparent); }
+.art-phone-contact:hover { background: color-mix(in srgb, var(--art-phone-accent) 90%, #172536); }
+.art-phone-contact:focus-visible { outline: 2px solid var(--art-phone-accent); outline-offset: 3px; }
+.art-phone-contact-explanation { display: flex; justify-content: center; align-items: center; gap: 4px; min-height: 30px; padding: 6px 13px; color: #97a1a8; font-size: 7px; line-height: 1.45; }
+.art-phone-contact-explanation svg { width: 10px; height: 10px; flex: none; color: var(--art-phone-accent); }
+.art-phone-profile-tabs { display: flex; justify-content: space-between; margin: 0 13px; min-height: 22px; border-bottom: 1px solid #e7ebed; color: #8997a5; font-size: 8px; }
+.art-phone-profile-tabs b { position: relative; color: var(--art-phone-accent); font-weight: 500; }
+.art-phone-profile-tabs b::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; border-radius: 2px; background: var(--art-phone-accent); }
+.art-phone-overview { padding: 11px 13px 7px; }
+.art-phone-overview > strong { display: block; color: #536579; font-size: 10px; font-weight: 550; line-height: 1.4; }
+.art-phone-overview > p { margin: 4px 0 6px; font-size: 8px; line-height: 1.5; color: #82909e; }
+.art-phone-overview > span { display: block; max-width: 210px; font-size: 8px; line-height: 1.65; color: #9ba5af; }
+.art-phone-bottom-nav { display: flex; justify-content: space-around; gap: 10px; flex: none; min-height: 33px; padding: 5px 14px 4px; border-top: 1px solid #e7ecef; color: #96a3af; background: #fff; }
+.art-phone-bottom-nav > span { display: flex; flex-direction: column; gap: 3px; align-items: center; font-size: 6px; }
+.art-phone-bottom-nav > span:nth-child(2) { color: #5f7b98; }
+.art-phone-bottom-nav svg { width: 12px; height: 12px; stroke-width: 1.7; }
+.art-phone-home-indicator { width: 90px; height: 3px; flex: none; margin: 1px auto 5px; border-radius: 999px; background: #27343e; }
+.art-phone-demo[data-animate='true'] [data-visible='false'] { opacity: 0; translate: 0 4px; pointer-events: none; }
+.art-phone-demo [data-visible='true'] { opacity: 1; translate: none; }
+.art-phone-demo-controls { display: flex; justify-content: space-between; align-items: center; gap: 9px; min-height: 37px; padding-top: 5px; color: var(--art-muted, #647181); font-size: 8px; }
+.art-phone-demo-controls button { display: flex; align-items: center; gap: 5px; min-height: 31px; padding: 5px 7px; border-radius: 5px; color: var(--art-muted, #647181); font-size: 9px; }
+.art-phone-demo-controls button > svg { width: 11px; height: 11px; }
+.art-phone-demo-controls button:hover { color: var(--art-phone-accent); background: color-mix(in srgb, var(--art-phone-accent) 6%, transparent); }
+.art-phone-demo-controls button:focus-visible { outline: 2px solid var(--art-phone-accent); outline-offset: 2px; }
+.art-phone-annotation { display: none; position: absolute; width: 130px; top: 44%; left: -146px; rotate: -8deg; }
+.art-phone-annotation p { margin: 0; color: var(--art-muted, #647181); font: 13px/1.45 'Segoe Print', 'Bradley Hand', cursive; }
+.art-phone-annotation svg { display: block; width: 115px; height: 65px; margin: 4px 0 0 12px; stroke: var(--art-phone-accent); stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+@media (min-width: 1280px) { .art-phone-annotation { display: block; } }
+@media (prefers-reduced-motion: reduce) { .art-phone-demo *, .art-phone-demo *::before, .art-phone-demo *::after { transition: none !important; animation: none !important; } }

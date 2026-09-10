@@ -162,7 +162,7 @@ export function LeadMagnetSlideIn({
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className={`w-full py-2.5 px-4 ${magnet.buttonBg} text-white font-semibold rounded-lg text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50`}
+                                                className="site-cta-primary w-full"
                                             >
                                                 {isSubmitting ? (
                                                     <Loader2 className="w-4 h-4 animate-spin" />

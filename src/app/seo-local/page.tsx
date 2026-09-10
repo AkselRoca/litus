@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/templates/ServicePageTemplate'
-import { Search, MapPin, TrendingUp, Target, Globe, BarChart3, ShieldCheck, Mail, Trophy, Rocket, Smartphone, MousePointerClick } from 'lucide-react'
-import Link from 'next/link'
+import { Search, MapPin, TrendingUp, Target, Globe, ShieldCheck, Mail, Trophy, Smartphone, MousePointerClick } from 'lucide-react'
+import { SeoLocalHero } from './SeoLocalHero'
 
 export const metadata: Metadata = {
     title: 'Agence SEO Local Lorient & Le Mans - Référencement Google',
@@ -19,23 +19,24 @@ const realizations = [
 export default function SeoLocalPage() {
     return (
         <ServicePageTemplate
+            hero={<SeoLocalHero />}
             title="SEO Local : Dominez Votre Ville"
             subtitle="Soyez le premier choix quand vos clients cherchent vos services sur Google à Lorient ou Le Mans."
             description="Avoir un site ne suffit plus. Il doit être visible. Notre expertise en référencement local vous propulse en haut des résultats Google et Google Maps."
             heroImage="/hero-seo.png"
 
             seoContent={
-                <div className="space-y-16">
+                <div id="referencement-local" className="space-y-16">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                                97% des consommateurs cherchent en ligne avant d'acheter localement
+                                97% des consommateurs cherchent en ligne avant d’acheter localement
                             </h2>
                             <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                                Si vous n'êtes pas dans le <strong>"Pack Local" (les 3 premiers résultats carte)</strong>, vous n'existez pas pour de nombreux clients.
+                                Si vous n’êtes pas dans le <strong>« Pack Local » (les 3 premiers résultats carte)</strong>, vous n’existez pas pour de nombreux clients.
                             </p>
                             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Chez Litus, nous ne vendons pas du "vent" ou des abonnements SEO obscurs. Nous mettons en place une stratégie mécanique et prouvée pour positionner votre entreprise devant vos concurrents sur <strong>Lorient</strong>, <strong>Vannes</strong> et <strong>Le Mans</strong>.
+                                Chez Litus, nous ne vendons pas du « vent » ou des abonnements SEO obscurs. Nous mettons en place une stratégie mécanique et prouvée pour positionner votre entreprise devant vos concurrents sur <strong>Lorient</strong>, <strong>Vannes</strong> et <strong>Le Mans</strong>.
                             </p>
                         </div>
                         <div className="relative h-64 md:h-full min-h-[300px] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-white/5 dark:to-white/10 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-100 dark:border-white/5">
@@ -82,6 +83,7 @@ export default function SeoLocalPage() {
                     )
                 },
                 {
+                    id: 'google-business-profile',
                     title: 'Google Maps (GMB)',
                     description: 'Optimisation fiche établissement : Avis, photos, horaires.',
                     icon: <MapPin className="w-6 h-6" />,
@@ -147,7 +149,7 @@ export default function SeoLocalPage() {
                 title: 'West Clôtures & Paysage',
                 category: 'SEO Local & Stratégie',
                 description: 'Une domination totale sur le secteur Morbihannais grâce à une stratégie contenu + netlinking agressive.',
-                image: '/realisations/west clotures  site internet crée par litus agence web.jpg',
+                image: '/realisations/west-workspace-wide.webp',
                 stats: [
                     { value: '30+', label: 'Devis / mois', icon: <Mail className="w-8 h-8" /> },
                     { value: '+650%', label: 'Croissance Trafic', icon: <TrendingUp className="w-8 h-8" /> },
@@ -178,7 +180,7 @@ export default function SeoLocalPage() {
 
             pricing={{
                 starter: {
-                    price: '129€',
+                    price: '99€',
                     priceDetail: '/mois',
                     engagement: 'Abonnement',
                     features: [
@@ -206,11 +208,7 @@ export default function SeoLocalPage() {
                 },
                 {
                     question: 'Quelle différence avec Google Ads ?',
-                    answer: (
-                        <span>
-                            <Link href="/google-ads" className="text-orange-600 underline hover:text-orange-700">Google Ads</Link> est immédiat (locatif). Le SEO est plus lent mais vous appartient (propriétaire). Les deux sont complémentaires.
-                        </span>
-                    ) as any
+                    answer: 'Google Ads est immédiat (locatif). Le SEO est plus lent mais vous appartient (propriétaire). Les deux sont complémentaires.'
                 },
                 {
                     question: 'Que comprend l\'optimisation "One Shot" ?',

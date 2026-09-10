@@ -1,121 +1,13 @@
-'use client'
+import { Clock3, Star, TrendingUp, UsersRound } from 'lucide-react'
+import { ReferenceAnnotation, ReferenceNumber, ReferenceReveal } from './home/ReferenceMotion'
 
-import { motion, useInView, useSpring, useMotionValue } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react'
-import { TrendingUp, Users, Star, Zap } from 'lucide-react'
-import { ScrollReveal } from '@/components/ui/Animations'
-
-// Animated Counter Component
-function Counter({
-    value,
-    decimals = 0
-}: {
-    value: number
-    decimals?: number
-}) {
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once: true })
-    const motionValue = useMotionValue(0)
-    const springValue = useSpring(motionValue, {
-        damping: 50,
-        stiffness: 100,
-    })
-    const [displayValue, setDisplayValue] = useState(0)
-
-    useEffect(() => {
-        if (isInView) {
-            motionValue.set(value)
-        }
-    }, [isInView, value, motionValue])
-
-    useEffect(() => {
-        const unsubscribe = springValue.on('change', (latest) => {
-            if (decimals > 0) {
-                setDisplayValue(parseFloat(latest.toFixed(decimals)))
-            } else {
-                setDisplayValue(Math.round(latest))
-            }
-        })
-        return unsubscribe
-    }, [springValue, decimals])
-
-    return <span ref={ref}>{displayValue}</span>
-}
+const stats = [
+  { value: 150, suffix: '+', title: 'Clients accompagnés', description: 'Des projets concrets et durables', icon: UsersRound },
+  { value: 250, suffix: ' %', title: 'ROI moyen', description: 'Une croissance mesurable', icon: TrendingUp },
+  { value: 5, suffix: '/5', title: 'Avis Google', description: 'Des clients satisfaits', icon: Star },
+  { value: 24, suffix: ' h', title: 'Délai de réponse', description: 'Une équipe réactive', icon: Clock3 },
+]
 
 export function StatsSection() {
-    const stats = [
-        {
-            icon: Users,
-            value: 150,
-            suffix: '+',
-            label: 'Clients Satisfaits',
-            decimals: 0,
-        },
-        {
-            icon: TrendingUp,
-            value: 250,
-            suffix: '%',
-            label: 'ROI Moyen',
-            decimals: 0,
-        },
-        {
-            icon: Star,
-            value: 4.9,
-            suffix: '/5',
-            label: 'Note Clients',
-            decimals: 1,
-        },
-        {
-            icon: Zap,
-            value: 24,
-            suffix: 'h',
-            label: 'Délai Réponse',
-            decimals: 0,
-        },
-    ]
-
-    return (
-        <section className="py-20 bg-gradient-to-br from-primary/5 via-orange-500/5 to-primary/5 dark:from-primary/10 dark:via-orange-500/10 dark:to-primary/10 overflow-hidden">
-            <div className="container-fluid">
-                <div className="max-w-6xl mx-auto">
-                    <ScrollReveal className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Nos résultats parlent d'eux-mêmes
-                        </h2>
-                        <p className="text-xl text-gray-600 dark:text-gray-300">
-                            Des chiffres concrets pour votre réussite
-                        </p>
-                    </ScrollReveal>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {stats.map((stat, index) => (
-                            <ScrollReveal
-                                key={index}
-                                delay={index * 0.1}
-                                className="text-center group"
-                            >
-                                <motion.div
-                                    className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-orange-600 flex items-center justify-center shadow-lg shadow-primary/20"
-                                    whileHover={{
-                                        scale: 1.1,
-                                        rotate: 5,
-                                    }}
-                                    transition={{ type: 'spring', stiffness: 300 }}
-                                >
-                                    <stat.icon className="w-8 h-8 text-white" />
-                                </motion.div>
-                                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                                    <Counter value={stat.value} decimals={stat.decimals} />
-                                    {stat.suffix}
-                                </div>
-                                <div className="text-gray-600 dark:text-gray-300 font-medium">
-                                    {stat.label}
-                                </div>
-                            </ScrollReveal>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+  return <section id="quelques-reperes" className="home-reference-section reference-results" aria-labelledby="reference-results-title"><ReferenceReveal className="home-reference-container reference-results-grid"><div><p className="reference-eyebrow"><span>05 —</span> Quelques repères</p><h2 id="reference-results-title" className="home-section-title">Une relation qui se mesure aussi dans la durée.</h2><p className="reference-intro">Des entreprises locales et nationales nous font confiance pour développer leur présence en ligne. Nous les accompagnons bien au-delà du lancement.</p></div><dl className="reference-stat-cards">{stats.map(({value,suffix,title,description,icon: Icon}) => <div key={title}><span className="reference-stat-icon" aria-hidden="true"><Icon size={22} /></span><dt>{title}</dt><dd><ReferenceNumber value={value} suffix={suffix} /></dd><p>{description}</p></div>)}</dl><ReferenceAnnotation className="reference-results-note">Plus qu’un site,<br />un partenaire sur<br />le long terme.</ReferenceAnnotation></ReferenceReveal></section>
 }

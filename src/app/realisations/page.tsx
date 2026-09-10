@@ -1,7 +1,5 @@
 import { getVisibleProjects } from '@/actions/portfolio'
-import { Badge } from '@/components/ui/Badge'
 import { PortfolioEditorial } from '@/components/portfolio/PortfolioEditorial'
-import { Sparkles } from 'lucide-react'
 
 export const metadata = {
     title: 'Nos Réalisations | Agence Web Litus',
@@ -31,10 +29,10 @@ export default async function RealisationsPage() {
             <PortfolioEditorial projects={projects} />
 
             {/* Footer Call to Action (Simple) */}
-            <section className="py-32 text-center">
-                <h2 className="text-3xl font-heading font-bold mb-6 text-gray-900 dark:text-white">Votre projet est le prochain ?</h2>
-                <a href="/contact" className="inline-block px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black font-bold rounded-full hover:scale-105 transition-transform">
-                    Démarrer la collaboration
+            <section className="portfolio-outro">
+                <h2>Et si nous parlions de votre projet ?</h2>
+                <a href="/contact" className="site-cta-primary">
+                    Parlons de votre projet <span aria-hidden="true">→</span>
                 </a>
             </section>
         </main>

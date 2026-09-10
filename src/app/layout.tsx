@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import localFont from 'next/font/local'
 import './globals.css'
+import './editorial.css'
 import { PublicLayoutWrapper } from '@/components/layout/PublicLayoutWrapper'
 import { LenisProvider } from '@/components/providers/LenisProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
@@ -9,19 +9,12 @@ import { AnalyticsProvider } from '@/components/providers/AnalyticsProvider'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-// Fonts (Inter + Cal Sans + Borel locaux à ajouter)
+// Inter est utilisée pour le corps de texte et tous les titres publics.
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
-
-// TODO: Ajouter Cal Sans et Borel depuis /public/fonts
-// const calSans = localFont({
-//   src: '../../public/fonts/CalSans-SemiBold.woff2',
-//   variable: '--font-heading',
-//   display: 'swap',
-// })
 
 export const metadata: Metadata = {
   title: {
@@ -79,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={inter.variable} suppressHydrationWarning>
+    <html lang="fr" className={`${inter.variable} light`} suppressHydrationWarning>
       <body className="min-h-screen-dynamic flex flex-col">
         <ThemeProvider>
           <LenisProvider>

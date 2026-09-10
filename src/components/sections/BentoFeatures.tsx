@@ -1,155 +1,377 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Zap, MapPin, TrendingUp, MessageSquare, ArrowUpRight } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { Card } from '@/components/ui/Card'
+import { useEffect, useState, useSyncExternalStore } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import {
+  ArrowUpRight,
+  Camera,
+  Eye,
+  MapPin,
+  Mic,
+  PhoneCall,
+  Search,
+  TrendingUp,
+  UsersRound,
+  X,
+} from 'lucide-react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+
+type Phase = 'typing' | 'loading' | 'results' | 'climbing' | 'winner' | 'deleting'
+
+type SearchResult = {
+  id: string
+  domain: string
+  title: string
+  description: string
+  client?: boolean
+}
+
+const searches: { query: string; results: SearchResult[] }[] = [
+  {
+    query: 'plombier lorient',
+    results: [
+      {
+        id: 'annuaire',
+        domain: 'pageslocales.fr',
+        title: 'Plombiers à Lorient : les professionnels proches de vous',
+        description: 'Adresses, horaires et avis des entreprises de plomberie à Lorient.',
+      },
+      {
+        id: 'armor',
+        domain: 'plomberie-armor.fr',
+        title: 'Dépannage plomberie à Lorient et dans le Morbihan',
+        description: 'Intervention rapide pour vos dépannages et installations.',
+      },
+      {
+        id: 'ocean',
+        domain: 'artisan-ocean.fr',
+        title: 'Artisan plombier à Lorient',
+        description: 'Travaux de plomberie, rénovation et dépannage.',
+      },
+      {
+        id: 'client',
+        domain: 'votreentreprise.fr',
+        title: 'Plombier à Lorient | Dépannage et installation',
+        description: 'Intervention à Lorient et ses alentours. Devis gratuit et équipe locale.',
+        client: true,
+      },
+    ],
+  },
+  {
+    query: 'agence immobilière le mans',
+    results: [
+      {
+        id: 'annuaire',
+        domain: 'immobilier-sarthe.fr',
+        title: 'Agences immobilières au Mans',
+        description: 'Les professionnels de l’immobilier près de chez vous.',
+      },
+      {
+        id: 'armor',
+        domain: 'habitat-manceau.fr',
+        title: 'Vente et location immobilière au Mans',
+        description: 'Découvrez les biens disponibles dans toute la Sarthe.',
+      },
+      {
+        id: 'ocean',
+        domain: 'clefs-du-mans.fr',
+        title: 'Votre agence immobilière de proximité',
+        description: 'Estimation, achat et vente de biens au Mans.',
+      },
+      {
+        id: 'client',
+        domain: 'votreentreprise.fr',
+        title: 'Agence immobilière au Mans | Estimation offerte',
+        description: 'Une équipe locale pour vendre, acheter ou faire estimer votre bien.',
+        client: true,
+      },
+    ],
+  },
+  {
+    query: 'paysagiste vannes',
+    results: [
+      {
+        id: 'annuaire',
+        domain: 'jardins-morbihan.fr',
+        title: 'Paysagistes autour de Vannes',
+        description: 'Comparez les entreprises d’aménagement extérieur.',
+      },
+      {
+        id: 'armor',
+        domain: 'nature-vannetaise.fr',
+        title: 'Entretien de jardins à Vannes',
+        description: 'Création et entretien de vos espaces verts.',
+      },
+      {
+        id: 'ocean',
+        domain: 'atelier-des-jardins.fr',
+        title: 'Aménagement paysager dans le Golfe du Morbihan',
+        description: 'Des extérieurs conçus pour durer toute l’année.',
+      },
+      {
+        id: 'client',
+        domain: 'votreentreprise.fr',
+        title: 'Paysagiste à Vannes | Création et entretien',
+        description: 'Conception de jardins, terrasses et aménagements autour de Vannes.',
+        client: true,
+      },
+    ],
+  },
+]
+
+const benefits = [
+  { label: 'Référencement local', icon: MapPin },
+  { label: 'Plus de visibilité', icon: Eye },
+  { label: 'Trafic qualifié', icon: UsersRound },
+  { label: 'Plus de demandes', icon: PhoneCall },
+  { label: 'Résultats durables', icon: TrendingUp },
+]
+
+const wait = (duration: number) =>
+  new Promise<void>(resolve => window.setTimeout(resolve, duration))
+
+function GoogleWordmark() {
+  return (
+    <span className="google-wordmark" aria-label="Google">
+      <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+    </span>
+  )
+}
+
+const subscribeHydration = () => () => {}
 
 export function BentoFeatures() {
-    return (
-        <section className="py-24 bg-gray-50 dark:bg-dark relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+  const motionPreference = useReducedMotion()
+  const hydrated = useSyncExternalStore(subscribeHydration, () => true, () => false)
+  const reduceMotion = hydrated && motionPreference
+  const [queryIndex, setQueryIndex] = useState(0)
+  const [typedQuery, setTypedQuery] = useState(reduceMotion ? searches[0].query : '')
+  const [phase, setPhase] = useState<Phase>(reduceMotion ? 'winner' : 'typing')
+  const [results, setResults] = useState<SearchResult[]>(
+    reduceMotion
+      ? [searches[0].results[3], ...searches[0].results.slice(0, 3)]
+      : []
+  )
+  const visualQueryIndex = reduceMotion ? 0 : queryIndex
+  const visualQuery = reduceMotion ? searches[0].query : typedQuery
+  const visualPhase: Phase = reduceMotion ? 'winner' : phase
+  const visualResults = reduceMotion
+    ? [searches[0].results[3], ...searches[0].results.slice(0, 3)]
+    : results
 
-            <div className="container-fluid relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                        Pourquoi choisir <span className="text-primary">Litus</span> ?
-                    </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-400">
-                        Une approche radicalement différente des agences classiques.
-                        Pas de blabla, juste des résultats.
-                    </p>
-                </div>
+  useEffect(() => {
+    if (reduceMotion) return
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    let cancelled = false
 
-                    {/* Feature 1: Speed - Large Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="md:col-span-2"
-                    >
-                        <Card variant="hover-3d" className="h-full bg-white dark:bg-gray-900/50 border-gray-200 dark:border-white/10 overflow-hidden relative group">
-                            <div className="p-8 relative z-10">
-                                <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mb-6 text-primary">
-                                    <Zap className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-2xl font-bold mb-3">Performance Extrême</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-md">
-                                    Nous optimisons chaque ligne de code pour un score Google PageSpeed de 100/100.
-                                    Vos clients n'attendent pas, votre site non plus.
-                                </p>
+    async function runDemonstration() {
+      let currentSearch = 0
 
-                                {/* Visual Representation of Speed */}
-                                <div className="flex items-center gap-4">
-                                    <div className="flex flex-col gap-1">
-                                        <div className="text-sm font-medium text-gray-500">Litus</div>
-                                        <div className="w-48 h-3 bg-gray-100 rounded-full overflow-hidden">
-                                            <motion.div
-                                                className="h-full bg-primary"
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: '100%' }}
-                                                transition={{ duration: 1, delay: 0.5 }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col gap-1 opacity-50">
-                                        <div className="text-sm font-medium text-gray-500">WordPress std.</div>
-                                        <div className="w-32 h-3 bg-gray-100 rounded-full overflow-hidden">
-                                            <div className="h-full bg-gray-400 w-[40%]" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+      while (!cancelled) {
+        const search = searches[currentSearch]
+        setQueryIndex(currentSearch)
+        setResults([])
+        setTypedQuery('')
+        setPhase('typing')
 
-                            <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <Zap className="w-64 h-64 -mb-12 -mr-12" />
-                            </div>
-                        </Card>
-                    </motion.div>
+        await wait(450)
+        for (let character = 1; character <= search.query.length; character += 1) {
+          if (cancelled) return
+          setTypedQuery(search.query.slice(0, character))
+          await wait(62)
+        }
 
-                    {/* Feature 2: Local - Tall Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="md:row-span-2"
-                    >
-                        <Card variant="hover-3d" className="h-full bg-dark text-white border-gray-800 overflow-hidden relative">
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/20" />
+        if (cancelled) return
+        setPhase('loading')
+        await wait(720)
 
-                            <div className="p-8 relative z-10 flex flex-col h-full">
-                                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
-                                    <MapPin className="w-6 h-6 text-white" />
-                                </div>
-                                <h3 className="text-2xl font-bold mb-3">100% Local</h3>
-                                <p className="text-gray-300 mb-8 flex-grow">
-                                    Basés à Lorient et Le Mans. Nous connaissons le tissu économique local et vos concurrents.
-                                </p>
+        if (cancelled) return
+        setResults(search.results)
+        setPhase('results')
+        await wait(900)
 
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
-                                        <div className="w-2 h-2 rounded-full bg-green-500" />
-                                        <span className="text-sm">Rendez-vous physique</span>
-                                    </div>
-                                    <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
-                                        <div className="w-2 h-2 rounded-full bg-green-500" />
-                                        <span className="text-sm">Shooting photo sur site</span>
-                                    </div>
-                                    <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
-                                        <div className="w-2 h-2 rounded-full bg-green-500" />
-                                        <span className="text-sm">Réseau partenaires</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </Card>
-                    </motion.div>
+        setPhase('climbing')
+        const client = search.results.find(result => result.client)!
+        const competitors = search.results.filter(result => !result.client)
 
-                    {/* Feature 3: ROI - Standard Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <Card variant="hover-3d" className="h-full bg-white dark:bg-gray-900/50 border-gray-200 dark:border-white/10">
-                            <div className="p-8">
-                                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mb-6 text-green-600">
-                                    <TrendingUp className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-xl font-bold mb-2">ROI Focus</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                                    On ne vend pas des "visites", on vend des appels entrants et des devis signés.
-                                </p>
-                            </div>
-                        </Card>
-                    </motion.div>
+        for (const position of [3, 2, 1]) {
+          if (cancelled) return
+          setResults([
+            ...competitors.slice(0, position - 1),
+            client,
+            ...competitors.slice(position - 1),
+          ])
+          await wait(820)
+        }
 
-                    {/* Feature 4: Support - Standard Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <Card variant="hover-3d" className="h-full bg-white dark:bg-gray-900/50 border-gray-200 dark:border-white/10">
-                            <div className="p-8">
-                                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
-                                    <MessageSquare className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-xl font-bold mb-2">Support Direct</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                                    Pas de système de ticket obscur. Un numéro direct, un WhatsApp, une réponse dans l'heure.
-                                </p>
-                            </div>
-                        </Card>
-                    </motion.div>
+        if (cancelled) return
+        setPhase('winner')
+        await wait(2600)
 
-                </div>
+        setPhase('deleting')
+        for (let character = search.query.length - 1; character >= 0; character -= 1) {
+          if (cancelled) return
+          setTypedQuery(search.query.slice(0, character))
+          await wait(34)
+        }
+
+        currentSearch = (currentSearch + 1) % searches.length
+        await wait(300)
+      }
+    }
+
+    void runDemonstration()
+    return () => {
+      cancelled = true
+    }
+  }, [reduceMotion])
+
+  return (
+    <section id="positionnement-google" className="editorial-section seo-positioning-section">
+      <div className="editorial-container seo-positioning-grid">
+        <div className="seo-positioning-copy">
+          <p className="editorial-eyebrow seo-positioning-eyebrow">
+            <span aria-hidden="true" />
+            02 — Une agence qui vous positionne
+          </p>
+          <h2 className="home-section-title">
+            Votre place sur Google
+            <br />
+            <span>ne doit rien au hasard.</span>
+          </h2>
+          <p className="seo-positioning-intro">
+            Nous concevons des sites rapides, bien structurés et travaillés
+            pour le référencement local afin de faire ressortir votre
+            entreprise sur les recherches qui comptent.
+          </p>
+
+          <ul className="seo-benefits" aria-label="Bénéfices du référencement local">
+            {benefits.map(({ label, icon: Icon }) => (
+              <li key={label}>
+                <Icon aria-hidden="true" />
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Link className="site-cta-primary seo-positioning-cta" href="/contact?objet=seo">
+            Échanger sur votre visibilité
+            <ArrowUpRight aria-hidden="true" />
+          </Link>
+        </div>
+
+        <div className="seo-demo-wrap">
+          <p className="sr-only">
+            Démonstration : un site client remonte progressivement de la quatrième à la première position dans Google.
+          </p>
+          <motion.div
+            className="seo-browser"
+            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            aria-hidden="true"
+          >
+            <div className="seo-search-header">
+              <GoogleWordmark />
+              <div className={`seo-search-field is-${visualPhase}`}>
+                <Search aria-hidden="true" />
+                <span className="seo-query">
+                  {visualQuery}
+                  {(visualPhase === 'typing' || visualPhase === 'deleting') && (
+                    <span className="seo-caret" />
+                  )}
+                </span>
+                {visualQuery && <X className="seo-search-action" aria-hidden="true" />}
+                <Mic className="seo-search-action seo-mic" aria-hidden="true" />
+                <Camera className="seo-search-action seo-camera" aria-hidden="true" />
+              </div>
             </div>
-        </section>
-    )
+
+            <div className="seo-tabs">
+              <span className="is-active">Tous</span>
+              <span>Maps</span>
+              <span>Images</span>
+              <span>Vidéos</span>
+              <span>Actualités</span>
+            </div>
+
+            <div className="seo-results-area">
+              {visualPhase === 'loading' && (
+                <motion.div
+                  className="seo-loading"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <span />
+                  Recherche des meilleurs résultats locaux…
+                </motion.div>
+              )}
+
+              <AnimatePresence initial={false}>
+                {visualResults.map((result, index) => {
+                  const winner = result.client && index === 0 && visualPhase === 'winner'
+                  return (
+                    <motion.article
+                      layout
+                      key={result.id}
+                      className={`seo-result ${result.client ? 'is-client' : ''} ${winner ? 'is-winner' : ''}`}
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{
+                        layout: { type: 'spring', stiffness: 170, damping: 23 },
+                        opacity: { duration: 0.3 },
+                      }}
+                    >
+                      <span className="seo-rank">{index + 1}</span>
+                      <div className="seo-result-content">
+                        <div className="seo-result-domain">
+                          {result.client ? (
+                            <Image src="/logo-sans-fond.png" alt="" width={20} height={20} />
+                          ) : (
+                            <span className="seo-favicon" />
+                          )}
+                          <span>{result.domain}</span>
+                          {winner && (
+                            <motion.strong
+                              initial={{ opacity: 0, scale: 0.94 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                            >
+                              1re position ↑
+                            </motion.strong>
+                          )}
+                        </div>
+                        <h3>{result.title}</h3>
+                        <p>{result.description}</p>
+                      </div>
+                    </motion.article>
+                  )
+                })}
+              </AnimatePresence>
+            </div>
+
+            <AnimatePresence>
+              {visualPhase === 'winner' && (
+                <motion.div
+                  className="seo-progress-note"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                >
+                  <TrendingUp aria-hidden="true" />
+                  <span><strong>+230 % de visites</strong> en 3 mois</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <span className="seo-cycle-indicator">
+              {String(visualQueryIndex + 1).padStart(2, '0')} / {String(searches.length).padStart(2, '0')}
+            </span>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
 }

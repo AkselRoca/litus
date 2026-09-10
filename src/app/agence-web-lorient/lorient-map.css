@@ -1,0 +1,42 @@
+.lorient-map { --lorient-map-ink: #172536; --lorient-map-muted: #75808b; --lorient-map-paper: #f8f7f3; --lorient-map-land: #e9e8e3; --lorient-map-line: #d7d9d5; --lorient-map-orange: var(--litus-orange, #e95e2a); width: 100%; max-width: 580px; min-width: 0; margin: 0; color: var(--lorient-map-ink); font-family: var(--font-inter), sans-serif; }
+.lorient-map-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 0 13px; color: var(--lorient-map-muted); font-size: 10px; line-height: 1.5; }
+.lorient-map-heading > span:first-child { font-weight: 650; text-transform: uppercase; letter-spacing: .11em; }
+.lorient-map-heading > span:last-child { display: inline-flex; align-items: center; gap: 6px; }
+.lorient-map-canvas { position: relative; isolation: isolate; width: 100%; aspect-ratio: 184 / 150; }
+.lorient-map-land { display: block; width: 100%; height: 100%; overflow: visible; }
+.lorient-map-boundary { fill: var(--lorient-map-land); stroke: var(--lorient-map-line); stroke-width: .7; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.lorient-map-department { fill: color-mix(in srgb, var(--lorient-map-muted) 30%, transparent); font-size: 20px; font-weight: 550; letter-spacing: -.06em; }
+.lorient-map-sea { fill: var(--lorient-map-muted); font-size: 4.4px; letter-spacing: .17em; opacity: .65; }
+.lorient-map-marker { position: absolute; z-index: 2; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; transform: translate(-50%, -50%); border: 0; border-radius: 50%; color: var(--lorient-map-orange); background: transparent; cursor: pointer; }
+.lorient-map-marker > span { width: 8px; height: 8px; border: 2px solid var(--lorient-map-paper); border-radius: 50%; background: color-mix(in srgb, var(--lorient-map-orange) 65%, var(--lorient-map-ink)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--lorient-map-orange) 45%, transparent); transition: box-shadow 180ms ease, background-color 180ms ease; }
+.lorient-map-marker-main { z-index: 3; }
+.lorient-map-marker-main > span { width: 12px; height: 12px; background: var(--lorient-map-orange); box-shadow: 0 0 0 5px color-mix(in srgb, var(--lorient-map-orange) 13%, transparent); }
+.lorient-map-marker[data-highlighted="true"] { z-index: 4; }
+.lorient-map-marker[data-highlighted="true"] > span { background: var(--lorient-map-orange); box-shadow: 0 0 0 5px color-mix(in srgb, var(--lorient-map-orange) 17%, transparent); }
+.lorient-map-tooltip { position: absolute; z-index: 5; transform: translate(-50%, calc(-100% - 15px)); display: block; padding: 7px 10px; border: 1px solid var(--lorient-map-line); border-radius: 6px; background: var(--lorient-map-paper); color: var(--lorient-map-ink); font-size: 11px; line-height: 1.3; font-weight: 550; white-space: nowrap; pointer-events: none; box-shadow: 0 3px 9px #17253608; }
+.lorient-map-tooltip::after { content: ''; position: absolute; left: calc(50% - 3px); bottom: -4px; width: 6px; height: 6px; border-right: 1px solid var(--lorient-map-line); border-bottom: 1px solid var(--lorient-map-line); background: var(--lorient-map-paper); rotate: 45deg; }
+.lorient-map-cities { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px 8px; border-bottom: 1px solid var(--lorient-map-line); }
+.lorient-map-cities > button { position: relative; min-width: 0; min-height: 44px; padding: 9px 2px; color: var(--lorient-map-muted); background: transparent; border: 0; font-family: inherit; font-size: 11px; line-height: 1.5; cursor: pointer; }
+.lorient-map-cities > button::after { content: ''; position: absolute; right: 16px; bottom: -1px; left: 16px; height: 2px; background: var(--lorient-map-orange); opacity: 0; transition: opacity 160ms ease; }
+.lorient-map-cities > button[aria-pressed="true"] { color: var(--lorient-map-ink); font-weight: 600; }
+.lorient-map-cities > button[aria-pressed="true"]::after { opacity: 1; }
+.lorient-map-cities > button:hover { color: var(--lorient-map-orange); }
+.lorient-map :is(button, summary, a):focus-visible { outline: 2px solid var(--lorient-map-orange); outline-offset: 3px; }
+.lorient-map figcaption { padding: 14px 2px 0; }
+.lorient-map figcaption > p { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; min-height: 19px; margin: 0; font-size: 11px; line-height: 1.5; color: var(--lorient-map-muted); }
+.lorient-map figcaption > p > svg { color: var(--lorient-map-orange); flex: none; }
+.lorient-map figcaption > p > strong { color: var(--lorient-map-ink); font-weight: 600; }
+.lorient-map-note { display: block; margin-top: 5px; color: var(--lorient-map-muted); font-size: 10px; line-height: 1.5; }
+.lorient-map-source { margin: 10px 2px 0; font-size: 9px; line-height: 1.5; color: var(--lorient-map-muted); }
+.lorient-map-source > summary { display: inline-list-item; width: fit-content; padding: 5px 0; cursor: pointer; }
+.lorient-map-source > p { margin: 5px 0 0; color: var(--lorient-map-muted); font-size: 9px; line-height: 1.65; }
+.lorient-map-source a { text-decoration: underline; text-underline-offset: 2px; }
+.dark .lorient-map { --lorient-map-ink: #eef1f2; --lorient-map-muted: #aab7c3; --lorient-map-paper: #202d38; --lorient-map-land: #33414c; --lorient-map-line: #46545e; }
+@media (max-width: 420px) {
+  .lorient-map-heading { padding-inline: 3px; font-size: 9px; }
+  .lorient-map-cities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lorient-map-cities > button { min-height: 42px; font-size: 11px; }
+  .lorient-map-cities > button::after { left: 27px; right: 27px; }
+  .lorient-map-tooltip { font-size: 10px; padding: 6px 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .lorient-map *, .lorient-map *::before, .lorient-map *::after { animation: none !important; transition: none !important; } }

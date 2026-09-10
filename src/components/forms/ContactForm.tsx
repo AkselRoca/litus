@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui'
 import { contactFormSchema, type ContactFormData } from '@/lib/validations/contact'
+import { submitContact } from '@/lib/contact/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Check, Loader2, MapPin, Mail, Phone, Instagram, Linkedin } from 'lucide-react'
 import * as React from 'react'
@@ -21,11 +22,7 @@ export function ContactForm() {
 
     const onSubmit = async (data: ContactFormData) => {
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            })
+            const response = await submitContact(data)
 
             if (!response.ok) {
                 throw new Error('Erreur lors de l\'envoi')
@@ -36,7 +33,7 @@ export function ContactForm() {
 
             // Reset success message après 5s
             setTimeout(() => setIsSuccess(false), 5000)
-        } catch (error) {
+        } catch {
             alert('Erreur lors de l\'envoi. Réessayez ou appelez-nous directement.')
         }
     }
@@ -97,7 +94,7 @@ export function ContactForm() {
                 {/* Téléphone */}
                 <div>
                     <label htmlFor="telephone" className={labelClasses}>
-                        Téléphone
+                        Téléphone <span className="text-primary">*</span>
                     </label>
                     <input
                         id="telephone"
@@ -162,9 +159,10 @@ export function ContactForm() {
                         >
                             <option value="">Sélectionnez une fourchette</option>
                             <option value="moins-1000">Moins de 1 000€</option>
-                            <option value="1000-3000">1 000€ - 3 000€</option>
-                            <option value="3000-5000">3 000€ - 5 000€</option>
-                            <option value="plus-5000">Plus de 5 000€</option>
+                            <option value="1000-3000">Entre 1 000€ et 3 000€</option>
+                            <option value="3000-10000">Entre 3 000€ et 10 000€</option>
+                            <option value="10000-30000">Entre 10 000€ et 30 000€</option>
+                            <option value="plus-30000">Plus de 30 000€</option>
                             <option value="ne-sais-pas">Je ne sais pas encore</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
@@ -199,7 +197,7 @@ export function ContactForm() {
                     className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-white/5 dark:border-white/10 cursor-pointer"
                 />
                 <label htmlFor="rgpd" className="text-xs text-gray-500 dark:text-gray-400 leading-snug cursor-pointer select-none">
-                    J'autorise Litus à utiliser ces données pour traiter ma demande. <br className="hidden sm:block" />
+                    J&apos;autorise Litus à utiliser ces données pour traiter ma demande. <br className="hidden sm:block" />
                     Vos données sont protégées et ne seront jamais partagées.
                 </label>
             </div>

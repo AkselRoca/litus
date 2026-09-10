@@ -135,7 +135,7 @@ export function generateLocalBusinessSchema(location: 'lorient' | 'leMans') {
         priceRange: '€€',
         aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: '4.9',
+            ratingValue: '5',
             reviewCount: '87',
         },
     }

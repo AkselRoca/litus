@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CookieBanner } from '@/components/ui/CookieBanner'
+import { GoogleReviews } from '@/components/sections/GoogleReviews'
 import { LeadMagnetSlideIn } from '@/components/lead-magnets'
 import { LeadCapturePopup } from '@/components/ui/LeadCapturePopup'
 
@@ -32,6 +33,7 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
     }
 
     const magnetId = getMagnetId()
+    const hasDedicatedContactJourney = ['/contact', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/google-business-profile', '/developpement-web-sur-mesure', '/integrations-api', '/automatisation', '/creation-application-web', '/creation-outils-ia', '/google-ads', '/artisans', '/agence-web-lorient', '/blog'].includes(pathname) || pathname?.startsWith('/blog/')
 
     return (
         <>
@@ -39,13 +41,14 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
             <main id="main" className="flex-1">
                 {children}
             </main>
+            <GoogleReviews />
             <Footer />
             <CookieBanner />
-            {magnetId ? (
+            {pathname !== '/' && !hasDedicatedContactJourney && (magnetId ? (
                 <LeadMagnetSlideIn magnetId={magnetId} scrollTriggerPercent={65} delayMs={45000} />
             ) : (
                 <LeadCapturePopup delayMs={45000} scrollTriggerPercent={65} />
-            )}
+            ))}
         </>
     )
 }

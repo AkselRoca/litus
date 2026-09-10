@@ -1,0 +1,37 @@
+/* Audience accents reuse the Tailwind palette of each page's existing sections.
+   Geometry and the orange contact CTA still belong to the shared ServiceHero. */
+.solutions-hero {
+  --solutions-accent: var(--solutions-accent-light);
+  font-family: var(--font-inter), sans-serif;
+}
+.solutions-hero[data-audience='pme'] {
+  --solutions-accent-light: var(--color-blue-600, #2563eb);
+  --solutions-accent-dark: var(--color-blue-400, #60a5fa);
+}
+.solutions-hero[data-audience='grands-comptes'] {
+  --solutions-accent-light: var(--color-indigo-600, #4f46e5);
+  --solutions-accent-dark: var(--color-indigo-400, #818cf8);
+}
+.solutions-hero[data-audience='collectivites'] {
+  --solutions-accent-light: var(--color-orange-600, #ea580c);
+  --solutions-accent-dark: var(--color-orange-400, #fb923c);
+}
+.dark .solutions-hero { --solutions-accent: var(--solutions-accent-dark); }
+.solutions-hero[data-audience] .service-hero-title em { color: var(--solutions-accent); }
+.solutions-hero .service-hero-eyebrow > span { background: var(--solutions-accent); }
+.solutions-hero .service-hero-visual { overflow: hidden; }
+.solutions-hero .service-hero-backdrop { opacity: .7; filter: blur(3px); }
+.solutions-hero .service-hero-backdrop::after { background: linear-gradient(90deg, var(--service-hero-paper), color-mix(in srgb, var(--service-hero-paper) 40%, transparent) 42%, transparent), linear-gradient(0deg, var(--service-hero-paper), transparent 30%); }
+.solutions-hero-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 0; margin: 0; width: 100%; max-width: 630px; list-style: none; }
+.solutions-hero-proof li { display: flex; gap: 8px; align-items: center; color: var(--service-hero-muted); font-size: 10px; line-height: 1.5; }
+.solutions-hero-proof svg { width: 19px; height: 19px; color: var(--solutions-accent); flex-shrink: 0; stroke-width: 1.6; }
+@media (max-width: 1150px) {
+  .solutions-hero-proof { gap: 10px; }
+  .solutions-hero-proof li { flex-direction: column; align-items: flex-start; font-size: 9px; }
+}
+@media (max-width: 850px) {
+  .solutions-hero-proof li { flex-direction: row; align-items: center; font-size: 10px; }
+}
+@media (max-width: 560px) {
+  .solutions-hero-proof li { flex-direction: column; align-items: flex-start; gap: 7px; font-size: 9px; }
+}

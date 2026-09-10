@@ -3,17 +3,17 @@ import { CollectivitesHero } from './_components/CollectivitesHero'
 import { CollectivitesStats } from './_components/CollectivitesStats'
 import { CollectivitesPainPoints } from './_components/CollectivitesPainPoints'
 import { CollectivitesSolutions } from './_components/CollectivitesSolutions'
-import { ArrowRight, FileText } from 'lucide-react'
+import { FileText } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-    title: 'Création de Sites Web & Portails pour Collectivités Locales | Litus',
-    description: "Refonte de sites pour mairies et collectivités. Accessibilité RGAA 100%, protection anti-ransomware, et extranets citoyens sur-mesure (sans dette technique).",
+    title: 'Sites internet & services en ligne pour collectivités | Litus',
+    description: 'Création et refonte de sites pour collectivités et acteurs publics. Une information claire, une meilleure visibilité sur Google et un accompagnement de vos équipes.',
 }
 
 export default function CollectivitesPage() {
     return (
-        <div className="bg-slate-50 dark:bg-[#050505] min-h-screen">
+        <div className="bg-slate-50 dark:bg-[#050505] min-h-screen overflow-x-clip">
             <CollectivitesHero />
             <CollectivitesStats />
             <CollectivitesPainPoints />
@@ -59,7 +59,7 @@ export default function CollectivitesPage() {
                         </h2>
                         
                         <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">
-                            La loi imposera bientôt des sanctions aux communes dont le site exclut les personnes en situation de handicap. Demandez un diagnostic gratuit de l'accessibilité et de la sécurité de votre portail actuel.
+                            La loi imposera bientôt des sanctions aux communes dont le site exclut les personnes en situation de handicap. Demandez un diagnostic gratuit de l&apos;accessibilité et de la sécurité de votre portail actuel.
                         </p>
                         
                         <div className="max-w-xl mx-auto bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-2xl p-2 pl-6 flex flex-col sm:flex-row items-center shadow-lg hover:shadow-xl transition-shadow">

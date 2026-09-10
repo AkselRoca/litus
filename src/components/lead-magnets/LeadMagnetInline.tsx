@@ -106,7 +106,7 @@ export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInline
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className={`w-full py-3 px-4 ${magnet.buttonBg} text-white font-semibold rounded-xl text-sm transition-colors flex items-center justify-center gap-2 shadow-lg disabled:opacity-50`}
+                                    className="site-cta-primary w-full"
                                 >
                                     {isSubmitting ? (
                                         <>

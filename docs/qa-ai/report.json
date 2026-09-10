@@ -1,0 +1,372 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "route": "/artisans",
+      "hero": {
+        "y": 0,
+        "height": 785.796875,
+        "width": 1440,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 190.859375,
+        "height": 245.6875,
+        "width": 592.078125,
+        "font": "56.88px",
+        "line": "61.4304px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/creation-outils-ia",
+      "hero": {
+        "y": 0,
+        "height": 785.796875,
+        "width": 1440,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 190.859375,
+        "height": 245.6875,
+        "width": 592.078125,
+        "font": "56.88px",
+        "line": "61.4304px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "route": "/artisans",
+      "hero": {
+        "y": 0,
+        "height": 738,
+        "width": 1280,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 183.8125,
+        "height": 218.375,
+        "width": 522.953125,
+        "font": "50.56px",
+        "line": "54.6048px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "route": "/creation-outils-ia",
+      "hero": {
+        "y": 0,
+        "height": 738,
+        "width": 1280,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 183.8125,
+        "height": 218.375,
+        "width": 522.953125,
+        "font": "50.56px",
+        "line": "54.6048px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "route": "/artisans",
+      "hero": {
+        "y": 0,
+        "height": 711.40625,
+        "width": 1024,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 171.5,
+        "height": 176.875,
+        "width": 429.265625,
+        "font": "40.96px",
+        "line": "44.2368px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "route": "/creation-outils-ia",
+      "hero": {
+        "y": 0,
+        "height": 711.40625,
+        "width": 1024,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 171.5,
+        "height": 176.875,
+        "width": 429.265625,
+        "font": "40.96px",
+        "line": "44.2368px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "/artisans",
+      "hero": {
+        "y": 0,
+        "height": 1249.328125,
+        "width": 768,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 166,
+        "height": 159.234375,
+        "width": 680,
+        "font": "49.152px",
+        "line": "53.0842px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "/creation-outils-ia",
+      "hero": {
+        "y": 0,
+        "height": 1196.25,
+        "width": 768,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 166,
+        "height": 106.15625,
+        "width": 680,
+        "font": "49.152px",
+        "line": "53.0842px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/artisans",
+      "hero": {
+        "y": 0,
+        "height": 1080.90625,
+        "width": 390,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 146,
+        "height": 157.8125,
+        "width": 350,
+        "font": "35.88px",
+        "line": "39.468px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/creation-outils-ia",
+      "hero": {
+        "y": 0,
+        "height": 1055.640625,
+        "width": 390,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 146,
+        "height": 157.8125,
+        "width": 350,
+        "font": "35.88px",
+        "line": "39.468px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "route": "/artisans",
+      "hero": {
+        "y": 0,
+        "height": 1091.421875,
+        "width": 320,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 146,
+        "height": 186.953125,
+        "width": 280,
+        "font": "34px",
+        "line": "37.4px"
+      },
+      "h1count": 1,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "route": "/creation-outils-ia",
+      "hero": {
+        "y": 0,
+        "height": 1054.03125,
+        "width": 320,
+        "font": "16px",
+        "line": "24px"
+      },
+      "h1": {
+        "y": 146,
+        "height": 149.5625,
+        "width": 280,
+        "font": "34px",
+        "line": "37.4px"
+      },
+      "h1count": 1,
+      "overflow": false
+    }
+  ],
+  "seo": {
+    "title": "Création d’outils IA sur mesure pour entreprise | Litus",
+    "description": "Litus crée vos outils IA sur mesure : assistants internes, agents métier, recherche documentaire et automatisations connectées à votre CRM et à vos données.",
+    "canonical": "https://litus.fr/creation-outils-ia",
+    "og": "https://litus.fr/creation-outils-ia/opengraph-image",
+    "json": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://litus.fr/creation-outils-ia#service",
+            "name": "Création d’outils IA sur mesure pour entreprise",
+            "description": "Litus crée vos outils IA sur mesure : assistants internes, agents métier, recherche documentaire et automatisations connectées à votre CRM et à vos données.",
+            "serviceType": "Développement et intégration d’outils d’intelligence artificielle sur mesure",
+            "url": "https://litus.fr/creation-outils-ia",
+            "provider": {
+              "@type": "Organization",
+              "name": "Litus",
+              "url": "https://litus.fr"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "France"
+            },
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://litus.fr/contact"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://litus.fr"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Création d’outils IA",
+                "item": "https://litus.fr/creation-outils-ia"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://litus.fr/creation-outils-ia#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Quel outil IA peut être utile à mon entreprise ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Le bon point de départ est une tâche fréquente, coûteuse en temps et assez précise pour être évaluée : rechercher une information, classer des demandes, extraire des champs ou préparer un contenu. Nous regardons les données disponibles, les outils utilisés et les contraintes de vos équipes pour choisir un premier cas concret. Certaines étapes se prêtent mieux à une automatisation classique qu’à l’IA."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quelle différence entre un assistant IA et un agent IA sur mesure ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Un assistant aide une personne à trouver une information ou à produire un contenu. Un agent peut aussi coordonner plusieurs étapes et appeler des outils dans un périmètre défini. Le choix dépend du processus à améliorer. Nous précisons ses accès, les actions permises et les étapes qui doivent rester soumises à une validation humaine."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Pouvez-vous connecter l’IA à notre CRM, ERP ou base de données ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Oui, lorsque vos logiciels permettent les accès nécessaires, par API, connecteur ou échange de fichiers. Nous vérifions les autorisations, la qualité des données et les possibilités de lecture ou d’écriture avant de proposer l’intégration. Le développement peut s’inscrire dans un outil existant ou dans une application web sur mesure, avec un suivi des échanges et des erreurs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Faut-il entraîner un modèle d’intelligence artificielle ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pas systématiquement. Un modèle existant peut suffire, associé à vos consignes, à une recherche dans vos documents et à des connexions métier. Cette recherche documentaire contextualisée est souvent appelée RAG. L’entraînement ou l’ajustement d’un modèle se discute seulement lorsqu’un besoin précis, les données disponibles et les résultats des essais le justifient."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Comment protégez-vous nos données confidentielles ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Le projet commence par l’identification des données utiles et de leur sensibilité. Nous définissons les droits d’accès, les informations transmises aux modèles, la conservation et les modalités d’hébergement avec vous. Les conditions des fournisseurs sont examinées avant leur choix. Ces décisions sont documentées selon le contexte du projet ; une connexion à un modèle ne donne pas accès à toutes les données de l’entreprise."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Comment vérifier la fiabilité des réponses de l’IA ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nous construisons un jeu de cas représentatifs et vérifions les réponses, les champs extraits et les actions proposées avant la mise en service. Les résultats peuvent inclure leurs sources, des contrôles de format et un signalement des informations manquantes. Les actions sensibles restent validées par une personne. Le suivi après lancement permet de repérer les erreurs et d’améliorer le dispositif."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quel budget et quel délai prévoir pour créer un outil IA ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ils dépendent du cas d’usage, du nombre de sources, des intégrations, de l’interface et du niveau de contrôle attendu. Nous proposons un périmètre et un devis après un premier cadrage. Les coûts de développement sont distingués de l’hébergement, de l’utilisation des modèles et de la maintenance. Un premier pilote permet de tester l’utilité avant d’étendre le projet."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Qui accompagne nos équipes après la mise en ligne ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nous préparons la prise en main avec les personnes qui utiliseront l’outil : explications, documentation et retours sur des cas réels. Les conditions de maintenance, de suivi et d’évolution sont précisées dans l’offre. L’objectif est de garder un outil compréhensible, utilisable et adapté à vos processus lorsque vos données ou vos logiciels évoluent."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": 8
+  },
+  "contact": {
+    "subject": "Création d’outils IA",
+    "service": "outils-ia"
+  },
+  "ogStatus": 200,
+  "errors": []
+}

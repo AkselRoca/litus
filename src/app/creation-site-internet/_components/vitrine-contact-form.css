@@ -1,0 +1,78 @@
+.vitrine-form {
+  --vitrine-form-ink: #1f2937;
+  --vitrine-form-muted: #667181;
+  --vitrine-form-paper: #fcfaf7;
+  --vitrine-form-field: #fffdfa;
+  --vitrine-form-line: #dcdedc;
+  width: 100%;
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid var(--vitrine-form-line);
+  border-radius: 22px;
+  background: var(--vitrine-form-paper);
+  color: var(--vitrine-form-ink);
+  box-shadow: 0 10px 30px #25314206;
+}
+.dark .vitrine-form {
+  --vitrine-form-ink: #f4f2ed;
+  --vitrine-form-muted: #b5bdc8;
+  --vitrine-form-paper: #18212c;
+  --vitrine-form-field: #141d27;
+  --vitrine-form-line: #364352;
+}
+.vitrine-form.vitrine-form-success h3 { margin: 0 0 8px; color: var(--vitrine-form-ink); font-size: clamp(22px, 2vw, 27px); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; }
+.vitrine-form.vitrine-form-success > p { margin: 0; color: var(--vitrine-form-muted); font-size: 14px; line-height: 1.6; }
+.vitrine-form .vitrine-form-fields { display: grid; min-width: 0; gap: 14px; margin: 0; padding: 0; border: 0; }
+.vitrine-form .vitrine-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.vitrine-form .vitrine-form-field { min-width: 0; }
+.vitrine-form .vitrine-form-field label { display: block; margin-bottom: 7px; color: var(--vitrine-form-ink); font-size: 13px; font-weight: 600; line-height: 1.4; }
+.vitrine-form .vitrine-form-field label > span { color: #c7431b; }
+.vitrine-form .vitrine-form-field label small { color: var(--vitrine-form-muted); font-size: 11px; font-weight: 400; }
+.vitrine-form .vitrine-form-field input,
+.vitrine-form .vitrine-form-field textarea { display: block; width: 100%; min-width: 0; min-height: 46px; padding: 12px 13px; border: 1px solid var(--vitrine-form-line); border-radius: 9px; background: var(--vitrine-form-field); color: var(--vitrine-form-ink); font: inherit; font-size: 14px; line-height: 1.5; box-shadow: none; transition: border-color .18s ease; }
+.vitrine-form .vitrine-form-field textarea { min-height: 100px; resize: vertical; }
+.vitrine-form .vitrine-form-field input::placeholder,
+.vitrine-form .vitrine-form-field textarea::placeholder { color: var(--vitrine-form-muted); opacity: .8; }
+.vitrine-form .vitrine-form-field input:focus,
+.vitrine-form .vitrine-form-field textarea:focus { outline: 2px solid #e95e2a30; outline-offset: 1px; border-color: #e95e2a; }
+.vitrine-form .vitrine-form-field [aria-invalid='true'] { border-color: #b43521; }
+.vitrine-form .vitrine-form-consent { display: flex; align-items: flex-start; gap: 10px; }
+.vitrine-form .vitrine-form-consent input { flex: none; width: 17px; height: 17px; margin: 2px 0 0; accent-color: #e95e2a; cursor: pointer; }
+.vitrine-form .vitrine-form-consent label { color: var(--vitrine-form-muted); font-size: 11px; line-height: 1.6; }
+.vitrine-form .vitrine-form-consent a { color: var(--vitrine-form-ink); text-decoration: underline; text-decoration-color: #9ca4af; text-underline-offset: 3px; }
+.vitrine-form .vitrine-form-error,
+.vitrine-form .vitrine-form-send-error { margin: 7px 0 0; color: #ad3120; font-size: 12px; line-height: 1.5; }
+.vitrine-form .vitrine-form-send-error { margin-top: 17px; }
+.dark .vitrine-form .vitrine-form-error,
+.dark .vitrine-form .vitrine-form-send-error { color: #ffb29d; }
+.vitrine-form .vitrine-form-submit { display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; min-height: 52px; margin-top: 22px; padding: 14px 20px; border: 1px solid transparent; border-radius: 999px; background: #e95e2a; color: #fff; font: inherit; font-size: 14px; font-weight: 600; line-height: 1.4; text-align: center; box-shadow: 0 5px 12px #e95e2a13; cursor: pointer; transition: background .18s ease; }
+.vitrine-form .vitrine-form-submit svg { flex: none; }
+.vitrine-form .vitrine-form-submit:hover:not(:disabled) { background: #da5423; }
+.vitrine-form .vitrine-form-submit:disabled { opacity: .7; cursor: wait; }
+.vitrine-form .vitrine-form-fields:disabled { opacity: .7; }
+.vitrine-form .vitrine-form-submit:focus-visible,
+.vitrine-form .vitrine-form-retry:focus-visible,
+.vitrine-form .vitrine-form-consent input:focus-visible,
+.vitrine-form .vitrine-form-consent a:focus-visible { outline: 2px solid #e95e2a; outline-offset: 4px; }
+.vitrine-form .vitrine-form-reassurance { margin: 12px 0 0; color: var(--vitrine-form-muted); font-size: 11px; line-height: 1.5; text-align: center; }
+.vitrine-form .vitrine-form-spinner { animation: vitrine-form-spin 1s linear infinite; }
+.vitrine-form.vitrine-form-success { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 370px; }
+.vitrine-form .vitrine-form-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; margin-bottom: 22px; border-radius: 50%; background: #e95e2a12; color: #c7431b; }
+.dark .vitrine-form .vitrine-form-success-icon { color: #f7916b; }
+.vitrine-form.vitrine-form-success h3:focus { outline: none; }
+.vitrine-form .vitrine-form-retry { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 0 0 4px; border: 0; border-bottom: 1px solid #e95e2a; border-radius: 0; background: none; color: var(--vitrine-form-ink); font: inherit; font-size: 13px; cursor: pointer; }
+.vitrine-form .vitrine-form-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@keyframes vitrine-form-spin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) {
+  .vitrine-form { padding: 24px 20px; border-radius: 18px; }
+  .vitrine-form .vitrine-form-row { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .vitrine-form .vitrine-form-field input,
+  .vitrine-form .vitrine-form-field textarea { font-size: 16px; }
+  .vitrine-form .vitrine-form-submit { gap: 10px; padding-inline: 16px; font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vitrine-form .vitrine-form-field input,
+  .vitrine-form .vitrine-form-field textarea,
+  .vitrine-form .vitrine-form-submit { transition: none; }
+  .vitrine-form .vitrine-form-spinner { animation: none; }
+}

@@ -1,0 +1,96 @@
+.technical-demo { position: relative; z-index: 2; width: 100%; max-width: 650px; margin-inline: auto; color: var(--bs-ink); }
+.technical-demo-window { display: flex; flex-direction: column; aspect-ratio: 1.22; padding: 22px; border: 1px solid var(--bs-line); border-radius: 20px; background: var(--bs-card); box-shadow: 0 22px 45px #15253515; }
+.technical-demo-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 19px; border-bottom: 1px solid var(--bs-line); }
+.technical-demo-top > span { display: flex; gap: 10px; align-items: center; font-size: 15px; font-weight: 600; line-height: 1.4; }
+.technical-demo-top svg { width: 29px; height: 29px; padding: 5px; background: #e95e2a; color: white; border-radius: 7px; flex: none; }
+.technical-demo-top > small { color: var(--bs-muted); font-size: 9px; white-space: nowrap; }
+.technical-demo button { cursor: pointer; }
+.technical-demo-steps { display: flex; gap: 10px; padding-block: 17px; }
+.technical-demo-steps button { display: flex; align-items: center; gap: 7px; font-size: 10px; color: var(--bs-muted); flex: 1; text-align: left; }
+.technical-demo-steps button > span { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--bs-line); border-radius: 50%; font-size: 10px; flex: none; }
+.technical-demo-steps button[aria-current] { color: var(--bs-ink); }
+.technical-demo-steps button[aria-current] > span { background: #e95e2a; border-color: #e95e2a; color: #fff; }
+.technical-demo-steps svg { width: 12px; height: 12px; color: #4d856b; }
+.dev-config-panel { min-height: 0; flex: 1; background: var(--bs-soft); border: 1px solid var(--bs-line); border-radius: 12px; padding: 19px; animation: technical-panel-in .25s ease; }
+.dev-config-heading { margin-bottom: 18px; }
+.dev-config-heading small, .api-demo-record small { display: block; font-size: 9px; letter-spacing: .06em; color: var(--bs-muted); }
+.dev-config-heading strong { display: block; font-size: 18px; font-weight: 600; margin-top: 7px; line-height: 1.3; }
+.dev-choice-list { display: grid; gap: 7px; }
+.dev-choice-list button { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid var(--bs-line); border-radius: 7px; background: var(--bs-card); font-size: 12px; text-align: left; transition: border-color .2s; }
+.dev-choice-list button[aria-pressed='true'] { border-color: #e95e2a99; }
+.dev-choice-list svg { width: 15px; height: 15px; color: var(--bs-orange); }
+.dev-choice-list i { display: grid; place-items: center; margin-left: auto; width: 16px; height: 16px; border: 1px solid var(--bs-line); border-radius: 50%; }
+.dev-config-options > p { font-size: 11px; margin: 0 0 13px; color: var(--bs-muted); }
+.dev-config-options label { display: flex; align-items: center; gap: 13px; padding: 11px 0; font-size: 13px; cursor: pointer; }
+.dev-config-options input { width: 17px; height: 17px; accent-color: #c7431b; }
+.dev-config-options small { display: block; color: var(--bs-muted); font-size: 10px; margin-top: 4px; }
+.dev-config-summary { display: flex; flex-direction: column; gap: 11px; align-items: center; padding-top: 3px; text-align: center; }
+.dev-config-summary > svg { width: 34px; height: 34px; color: #528270; }
+.dev-config-summary > strong { font-size: 19px; }
+.dev-config-summary > p { margin: 0; font-size: 11px; color: var(--bs-muted); }
+.dev-config-summary > span { display: flex; align-items: center; gap: 8px; color: var(--bs-muted); font-size: 10px; }
+.dev-config-summary > span svg { width: 15px; height: 15px; color: #528270; }
+.dev-config-bottom { padding-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.dev-config-bottom > span { display: flex; align-items: center; gap: 7px; font-size: 10px; color: var(--bs-muted); }
+.dev-config-bottom svg { width: 14px; height: 14px; flex: none; }
+.dev-config-bottom button { display: flex; align-items: center; gap: 12px; padding: 9px 14px; background: #e95e2a; color: #fff; border-radius: 30px; font-size: 11px; }
+.technical-demo-controls { display: flex; align-items: center; justify-content: space-between; min-height: 37px; font-size: 9px; color: var(--bs-muted); padding-inline: 8px; }
+.technical-demo-controls > div { display: flex; gap: 5px; }
+.technical-demo-controls button { display: grid; place-items: center; width: 30px; height: 30px; }
+.technical-demo-controls svg { width: 12px; height: 12px; }
+.api-demo-flow { display: grid; grid-template-columns: repeat(3,1fr); padding: 24px 0 20px; }
+.api-demo-flow button { position: relative; display: flex; flex-direction: column; align-items: center; gap: 9px; }
+.api-demo-flow button > span { display: grid; place-items: center; width: 49px; height: 49px; border: 1px solid var(--bs-line); background: var(--bs-soft); border-radius: 12px; transition: background .4s, border-color .4s; }
+.api-demo-flow button[aria-current] > span { background: color-mix(in srgb, #e95e2a 9%,var(--bs-card)); border-color: #e95e2a77; }
+.api-demo-flow button > span svg { width: 23px; height: 23px; color: var(--bs-orange); }
+.api-demo-flow strong { font-size: 11px; font-weight: 500; }
+.api-demo-arrow { position: absolute; width: 20px; height: 20px; right: -10px; top: 15px; color: var(--bs-muted); }
+.api-demo-record { flex: 1; min-height: 0; padding: 19px; border: 1px solid var(--bs-line); background: var(--bs-soft); border-radius: 12px; animation: technical-panel-in .25s ease; }
+.api-demo-record > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.api-demo-record > div:first-child > span { background: color-mix(in srgb,#528270 10%,var(--bs-card)); color: #477763; border-radius: 20px; padding: 5px 8px; font-size: 9px; }
+.dark .api-demo-record > div:first-child > span { color: #aed8bd; }
+.api-demo-record > div:first-child > .is-waiting { background: color-mix(in srgb,#e95e2a 12%,var(--bs-card)); color: var(--bs-accent); }
+.api-demo-record > strong { display: block; font-size: 18px; line-height: 1.4; margin-top: 9px; }
+.api-demo-mapping { display: grid; margin-top: 13px; }
+.api-demo-mapping span { display: grid; grid-template-columns: 1fr 18px 1fr; align-items: center; gap: 20px; font-size: 10px; padding: 8px 0; border-bottom: 1px solid var(--bs-line); }
+.api-demo-mapping svg { width: 13px; height: 13px; color: var(--bs-muted); }
+.api-demo-record p { font-size: 10px; color: var(--bs-muted); margin: 12px 0 0; line-height: 1.5; }
+.api-demo-recovery { display: flex; gap: 15px; align-items: center; justify-content: space-between; padding-top: 17px; font-size: 10px; color: var(--bs-muted); }
+.api-demo-recovery button { display: flex; align-items: center; gap: 6px; color: var(--bs-accent); text-align: right; }
+.api-demo-recovery svg { width: 14px; height: 14px; flex: none; }
+@media (min-width: 851px) and (max-width: 1200px) { .technical-demo-window { padding: 17px; aspect-ratio: auto; min-height: 410px; } .technical-demo-top > small { display: none; } .dev-config-heading { margin-bottom: 12px; } .dev-config-panel { padding: 14px; } .api-demo-flow { padding: 18px 0 14px; } .api-demo-record { padding: 14px; } }
+@media (max-width: 560px) {
+ .technical-demo-window { aspect-ratio: auto; height: 392px; padding: 14px; border-radius: 15px; }
+ .technical-demo-top { padding-bottom: 12px; }
+ .technical-demo-top > span { font-size: 12px; gap: 7px; }
+ .technical-demo-top > small { display: none; }
+ .technical-demo-top svg { width: 25px; height: 25px; }
+ .technical-demo-steps { gap: 5px; padding-block: 12px; }
+ .technical-demo-steps button { font-size: 8px; gap: 5px; }
+ .technical-demo-steps button > span { width: 20px; height: 20px; font-size: 8px; }
+ .dev-config-panel { padding: 13px; }
+ .dev-config-heading { margin-bottom: 12px; }
+ .dev-config-heading strong { font-size: 15px; }
+ .dev-config-heading small, .api-demo-record small { font-size: 8px; }
+ .dev-choice-list button { font-size: 11px; padding: 8px; }
+ .dev-config-bottom { padding-top: 12px; }
+ .dev-config-bottom > span { font-size: 9px; max-width: 135px; }
+ .dev-config-bottom button { padding: 8px 12px; font-size: 10px; }
+ .dev-config-summary { gap: 10px; }
+ .dev-config-summary > strong { font-size: 17px; }
+ .api-demo-flow { padding: 16px 0 13px; }
+ .api-demo-flow button > span { width: 38px; height: 38px; border-radius: 10px; }
+ .api-demo-flow button > span svg { width: 19px; height: 19px; }
+ .api-demo-flow strong { font-size: 9px; }
+ .api-demo-arrow { top: 10px; }
+ .api-demo-record { padding: 12px; }
+ .api-demo-record > strong { font-size: 14px; }
+ .api-demo-record > div:first-child > span { font-size: 8px; }
+ .api-demo-mapping { margin-top: 8px; }
+ .api-demo-mapping span { font-size: 9px; gap: 10px; padding-block: 6px; }
+ .api-demo-record p { font-size: 9px; margin-top: 8px; }
+ .api-demo-recovery { font-size: 9px; gap: 8px; padding-top: 11px; }
+ .api-demo-recovery > span { max-width: 120px; }
+}
+@keyframes technical-panel-in { from { opacity: .55; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .technical-demo * { transition: none !important; animation: none !important; } }

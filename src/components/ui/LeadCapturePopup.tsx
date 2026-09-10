@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { submitContact } from '@/lib/contact/client'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, BarChart3, ArrowRight, CheckCircle } from 'lucide-react'
 
@@ -64,17 +65,13 @@ export function LeadCapturePopup({
         setIsSubmitting(true)
 
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
+            const response = await submitContact({
                     nom: 'Prospect (popup)',
                     email,
                     service: 'autre',
                     budget: 'ne-sais-pas',
                     message: 'Demande d\'audit SEO gratuit via le popup du site.',
                     rgpd: true,
-                }),
             })
 
             if (!response.ok) {
@@ -160,7 +157,7 @@ export function LeadCapturePopup({
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 disabled:opacity-50 transition-all flex items-center justify-center gap-2 text-sm"
+                                                className="site-cta-primary w-full"
                                             >
                                                 {isSubmitting ? (
                                                     'Envoi en cours...'

@@ -5,25 +5,20 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import { Loader2 } from 'lucide-react'
 import * as React from 'react'
 
-import { motion } from 'framer-motion'
-
 /**
- * Button variants selon UX Spec
- * - primary: Orange glow (conversion)
- * - secondary: Outline orange
- * - ghost: Texte seul
+ * Boutons d'action partagés sur le site public.
  */
 const buttonVariants = cva(
-    'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+    'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
     {
         variants: {
             variant: {
                 primary:
-                    'bg-primary text-snow hover-glow shadow-md', // Removed active:scale because Motion handles it
+                    'bg-primary text-white',
                 secondary:
-                    'border-2 border-primary text-primary hover:bg-primary hover:text-snow',
+                    'border border-slate-400 bg-[#F7F6F2] text-[#1F2937] dark:border-slate-500 dark:bg-slate-800 dark:text-[#F7F6F2]',
                 outline:
-                    'border-2 border-primary bg-transparent text-primary hover:bg-primary/10',
+                    'border border-slate-400 bg-transparent text-[#1F2937] dark:border-slate-500 dark:text-[#F7F6F2]',
                 ghost: 'text-primary hover:underline underline-offset-4',
                 danger: 'bg-red-600 text-snow hover:bg-red-700',
             },
@@ -52,25 +47,30 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, isLoading, href, children, ...props }, ref) => {
-        const buttonClass = cn(buttonVariants({ variant, size, className }))
-        const isGhost = variant === 'ghost'
-
-        // Motion variants for consistent feel
-        const motionProps = isGhost ? {} : {
-            whileHover: { scale: 1.02 },
-            whileTap: { scale: 0.98 },
-            transition: { type: 'spring' as const, stiffness: 400, damping: 10 }
-        }
-
+        const resolvedVariant = variant ?? 'primary'
+        const resolvedSize = size ?? 'md'
+        const actionClass =
+            resolvedVariant === 'primary'
+                ? 'site-cta-primary'
+                : ['secondary', 'outline'].includes(resolvedVariant)
+                  ? 'site-cta-secondary'
+                  : undefined
+        const buttonClass = cn(
+            buttonVariants({ variant, size, className }),
+            actionClass,
+            'litus-button'
+        )
 
         if (href) {
+            const anchorProps = props as React.AnchorHTMLAttributes<HTMLAnchorElement>
             return (
-                <motion.a
+                <a
+                    {...anchorProps}
                     href={href}
                     className={buttonClass}
-                    ref={ref as any}
-                    {...motionProps}
-                    {...props as any}
+                    ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+                    data-variant={resolvedVariant}
+                    data-size={resolvedSize}
                 >
                     {isLoading ? (
                         <>
@@ -80,17 +80,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     ) : (
                         children
                     )}
-                </motion.a>
+                </a>
             )
         }
 
         return (
-            <motion.button
+            <button
+                {...props}
                 className={buttonClass}
-                ref={ref as any}
+                ref={ref}
                 disabled={isLoading || props.disabled}
-                {...motionProps}
-                {...props as any} // Cast necessary for motion props compatibility
+                data-variant={resolvedVariant}
+                data-size={resolvedSize}
             >
                 {isLoading ? (
                     <>
@@ -100,7 +101,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 ) : (
                     children
                 )}
-            </motion.button>
+            </button>
         )
     }
 )

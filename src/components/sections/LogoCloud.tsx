@@ -1,50 +1,114 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { Pause, Play } from 'lucide-react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 
-const logos = [
-    { name: 'Next.js', icon: '⚡' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'TypeScript', icon: '📘' },
-    { name: 'Tailwind', icon: '🎨' },
-    { name: 'Framer', icon: '✨' },
-    { name: 'Vercel', icon: '▲' },
-    { name: 'Stripe', icon: '💳' },
-    { name: 'Google', icon: '🔍' },
-]
+type Tool = { name: string; src: string; color?: string }
+
+const tools = [
+  { name: 'Next.js', src: '/brands/nextdotjs.svg', color: 'var(--ink)' },
+  { name: 'React', src: '/brands/react.svg', color: '#61DAFB' },
+  { name: 'TypeScript', src: '/brands/typescript.svg', color: '#3178C6' },
+  { name: 'Tailwind', src: '/brands/tailwindcss.svg', color: '#06B6D4' },
+  { name: 'Framer', src: '/brands/framer.svg', color: '#0055FF' },
+  { name: 'Vercel', src: '/brands/vercel.svg', color: 'var(--ink)' },
+  { name: 'Stripe', src: '/brands/stripe.svg', color: '#635BFF' },
+  { name: 'Shopify', src: '/brands/shopify.svg', color: '#7AB55C' },
+  { name: 'WordPress', src: '/brands/wordpress.svg', color: '#21759B' },
+  { name: 'Google Workspace', src: '/brands/google-workspace.png' },
+  { name: 'Gemini', src: '/brands/gemini.png' },
+  { name: 'Google Ads', src: '/brands/google-ads.svg' },
+  { name: 'Meta Ads', src: '/brands/meta-ads-official.svg' },
+  { name: 'Make', src: '/brands/make-official.svg' },
+  { name: 'Notion', src: '/brands/notion-official.svg' },
+  { name: 'Brevo', src: '/brands/brevo-official.svg' },
+  { name: 'HubSpot', src: '/brands/hubspot-official.svg' },
+  { name: 'Airtable', src: '/brands/airtable-official.png' },
+  { name: 'Microsoft 365', src: '/brands/microsoft-365.svg' },
+  { name: 'Microsoft Copilot', src: '/brands/microsoft-copilot.png' },
+  { name: 'n8n', src: '/brands/n8n-official.svg' },
+  { name: 'Zapier', src: '/brands/zapier-official.svg' },
+  { name: 'Webflow', src: '/brands/webflow-official.svg' },
+  { name: 'OpenAI', src: '/brands/openai-official.svg', color: 'var(--ink)' },
+  { name: 'Claude', src: '/brands/claude-official.png' },
+] satisfies Tool[]
+
+function ToolList({ duplicate = false }: { duplicate?: boolean }) {
+  return (
+    <ul aria-hidden={duplicate || undefined}>
+      {tools.map(tool => (
+        <li key={tool.name}>
+          <span className="technology-logo-slot" aria-hidden="true">
+            {tool.color ? (
+              <span
+                className="technology-logo"
+                style={
+                  {
+                    '--technology-logo': `url('${tool.src}')`,
+                    '--technology-color': tool.color,
+                  } as CSSProperties
+                }
+              />
+            ) : (
+              <Image
+                className="technology-brand-image"
+                src={tool.src}
+                width={26}
+                height={26}
+                alt=""
+                loading="eager"
+                unoptimized
+              />
+            )}
+          </span>
+          <span>{tool.name}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function LogoCloud() {
-    return (
-        <section className="py-10 bg-white dark:bg-dark border-y border-gray-100 dark:border-white/5 overflow-hidden">
-            <div className="container-fluid mb-6 text-center">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Technologies & Partenaires de confiance
-                </p>
-            </div>
+  const [paused, setPaused] = useState(false)
+  const trackRef = useRef<HTMLDivElement>(null)
 
-            <div className="relative flex overflow-x-hidden group">
-                {/* Gradient Masks */}
-                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-dark to-transparent z-10" />
-                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-dark to-transparent z-10" />
+  useEffect(() => {
+    const track = trackRef.current
+    const list = track?.querySelector('ul')
+    if (!track || !list) return
 
-                <motion.div
-                    className="flex gap-16 items-center whitespace-nowrap"
-                    animate={{ x: [0, -1000] }}
-                    transition={{
-                        repeat: Infinity,
-                        duration: 30,
-                        ease: "linear",
-                    }}
-                >
-                    {/* Double the array for seamless loop */}
-                    {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xl font-bold text-gray-400 dark:text-gray-600 grayscale hover:grayscale-0 transition-all duration-300 cursor-default hover:text-gray-900 dark:hover:text-white hover:scale-110">
-                            <span className="text-2xl">{logo.icon}</span>
-                            <span>{logo.name}</span>
-                        </div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
-    )
+    // Keep the same comfortable speed as the catalogue grows or fonts resize.
+    const measure = () => {
+      track.style.setProperty('--technology-duration', `${list.getBoundingClientRect().width / 36}s`)
+    }
+    const observer = new ResizeObserver(measure)
+    observer.observe(list)
+    measure()
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section className="technology-strip" aria-labelledby="technology-strip-title">
+      <div className="editorial-container">
+        <p id="technology-strip-title">Nos outils de travail</p>
+
+        <div className="technology-marquee" role="group" tabIndex={0} aria-label="Les outils utilisés par Litus">
+          <div className="technology-track" ref={trackRef} data-paused={paused}>
+            <ToolList />
+            <ToolList duplicate />
+          </div>
+        </div>
+        <button
+          className="technology-pause"
+          type="button"
+          aria-label={paused ? 'Reprendre le défilement des outils' : 'Mettre le défilement des outils en pause'}
+          aria-pressed={paused}
+          onClick={() => setPaused(value => !value)}
+        >
+          {paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}
+        </button>
+      </div>
+    </section>
+  )
 }

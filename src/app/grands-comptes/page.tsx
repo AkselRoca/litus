@@ -3,17 +3,17 @@ import { GrandsComptesHero } from './_components/GrandsComptesHero'
 import { GrandsComptesStats } from './_components/GrandsComptesStats'
 import { GrandsComptesPainPoints } from './_components/GrandsComptesPainPoints'
 import { GrandsComptesSolutions } from './_components/GrandsComptesSolutions'
-import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-    title: 'Développement Web Sur-Mesure & ERP pour Grands Comptes | Litus',
-    description: "Architectures web performantes, scalables et sécurisées pour ETI et Grands Groupes. Intégration sur-mesure de vos CRM et ERP (Salesforce, SAP, Hubspot) en un temps record.",
+    title: 'Agence web pour grands comptes & ETI : refonte et acquisition | Litus',
+    description: 'Refonte corporate, sites sur mesure, SEO et Google Ads pour grands comptes et ETI. Un projet cadré avec vos équipes, des outils connectés et un suivi dans la durée.',
 }
 
 export default function GrandsComptesPage() {
     return (
-        <div className="bg-slate-50 dark:bg-[#030712] min-h-screen">
+        <div className="bg-slate-50 dark:bg-[#030712] min-h-screen overflow-x-clip">
             <GrandsComptesHero />
             <GrandsComptesStats />
             <GrandsComptesPainPoints />
@@ -56,7 +56,7 @@ export default function GrandsComptesPage() {
                 <div className="container-fluid relative z-10 text-center">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
-                            L'agilité d'une startup, pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-amber-300">les exigences de votre groupe.</span>
+                            L&apos;agilité d&apos;une startup, pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-amber-300">les exigences de votre groupe.</span>
                         </h2>
 
                         <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">

@@ -1,184 +1,138 @@
 import Link from 'next/link'
-import { MapPin, Mail, Phone } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
+import {
+  ArrowRight,
+  BarChart3,
+  ChevronRight,
+  Facebook,
+  Linkedin,
+  Mail,
+  MapPin,
+  SearchCheck,
+  Phone,
+  UsersRound,
+} from 'lucide-react'
+import './footer.css'
+
+const footerColumns = [
+  {
+    number: '01.', title: 'Nos services',
+    links: [
+      ['Sites vitrine', '/creation-site-internet'], ['E-commerce', '/creation-site-ecommerce'],
+      ['SEO local', '/seo-local'], ['Google Ads', '/google-ads'],
+      ['Applications web', '/creation-application-web'], ['Automatisation', '/automatisation'],
+      ['Création d’outils IA', '/creation-outils-ia'],
+    ],
+  },
+  {
+    number: '02.', title: 'Vous êtes',
+    links: [
+      ['Artisan', '/artisans'], ['PME', '/pme'], ['Grand compte', '/grands-comptes'],
+      ['Collectivité', '/collectivites'], ['Projet associatif : nous contacter', '/contact?objet=Projet%20associatif'],
+    ],
+  },
+  {
+    number: '03.', title: 'L’agence',
+    links: [
+      ['À propos', '/a-propos'], ['Agence web Le Mans', '/agence-web-le-mans'],
+      ['Agence web Lorient', '/agence-web-lorient'],
+      ['Réalisations', '/realisations'], ['Tarifs', '/tarifs'], ['Contact', '/contact'],
+    ],
+  },
+  {
+    number: '04.', title: 'Ressources',
+    links: [
+      ['Checklist GMB', '/ressources/checklist-gmb'], ['Guide tarifs web', '/ressources/guide-prix'],
+      ['Audit de productivité', '/ressources/audit-productivite'], ['Guides & conseils', '/blog'],
+    ],
+  },
+] as const
+
+const socialLinks = [
+  { label: 'LinkedIn', icon: Linkedin, href: 'https://fr.linkedin.com/company/litus-agency' },
+  { label: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/litusagence' },
+] as const
+
+const reassurance = [
+  { icon: BarChart3, title: 'Des sites performants', detail: 'Pensés pour vos résultats' },
+  { icon: UsersRound, title: 'Un accompagnement humain', detail: 'Réactif et sur le long terme' },
+  { icon: MapPin, title: 'Une expertise locale', detail: 'Lorient, Le Mans et toute la France' },
+  { icon: SearchCheck, title: 'Expertise acquisition', detail: 'SEO local & Google Ads' },
+]
 
 export function Footer() {
-    return (
-        <footer className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
-            {/* Modern Pattern Background */}
-            <div className="absolute inset-0 opacity-5">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="footer-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#footer-grid)" />
-                </svg>
+  return (
+    <footer className="site-footer" id="footer">
+      <div className="site-footer-shell">
+        <div className="site-footer-main">
+          <section className="footer-identity" aria-label="Litus">
+            <Link href="/" className="footer-brand" aria-label="Litus — Accueil">
+              <span className="footer-logo-mark" aria-hidden="true" />
+              <strong>Litus<span>.</span></strong>
+            </Link>
+            <p className="footer-signature">Des sites performants pour les entreprises d’aujourd’hui et de demain.</p>
+            <p className="footer-description">Agence web locale à Lorient & Le Mans. Sites web, SEO local, Google Ads et accompagnement sur mesure pour développer votre visibilité.</p>
+
+            <address className="footer-contact-list">
+              <p><MapPin aria-hidden="true" /><span>Lorient (56) & Le Mans (72)</span></p>
+              <p><Phone aria-hidden="true" /><a href="tel:+33744985521">07 44 98 55 21</a></p>
+              <p><Mail aria-hidden="true" /><a href="mailto:litusagency@gmail.com">litusagency@gmail.com</a></p>
+            </address>
+
+            <div className="footer-socials" aria-label="Réseaux sociaux">
+              {socialLinks.map(item => {
+                const Icon = item.icon
+                return (
+                  <a key={item.label} href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}><Icon aria-hidden="true" /></a>
+                )
+              })}
             </div>
+          </section>
 
-            {/* Orange glow effects */}
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary rounded-full blur-[128px]" />
-                <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-[128px]" />
-            </div>
+          <nav className="footer-nav-grid" aria-label="Navigation du pied de page">
+            {footerColumns.map(column => (
+              <section className="footer-nav-column" key={column.number}>
+                <p className="footer-column-number">{column.number}</p>
+                <h2>{column.title}</h2>
+                <ul>
+                  {column.links.map(([label, href]) => (
+                    <li key={label}><Link href={href}><span>{label}</span><ChevronRight aria-hidden="true" /></Link></li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </nav>
 
-            {/* CTA Section */}
-            <div className="relative z-10 border-b border-white/10">
-                <div className="container-fluid py-16">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Prêt à booster votre visibilité locale ?
-                        </h2>
-                        <p className="text-xl text-gray-300 mb-8">
-                            Devis gratuit sous 24h. Sans engagement.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" href="/contact" className="shadow-xl shadow-primary/20">
-                                Demander un devis gratuit
-                            </Button>
-                            <Button size="lg" variant="secondary" href="tel:+33744985521" className="bg-white/10 hover:bg-white/20 border-white text-white">
-                                <Phone className="w-5 h-5 mr-2" />
-                                07 44 98 55 21
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <aside className="footer-cta" aria-labelledby="footer-cta-title">
+            <span className="footer-cta-mark" aria-hidden="true" />
+            <p className="footer-cta-label">UN PROJET ?</p>
+            <h2 id="footer-cta-title">Parlons de vos <span>objectifs.</span></h2>
+            <p>Un échange de 15 minutes pour comprendre vos besoins et vous conseiller.</p>
+            <Link href="/contact?objet=rendez-vous" className="footer-cta-button">Prendre rendez-vous <ArrowRight aria-hidden="true" /></Link>
+            <Link href="/contact" className="footer-cta-link">Nous contacter directement <ArrowRight aria-hidden="true" /></Link>
+          </aside>
+        </div>
 
-            {/* Main Footer Content */}
-            <div className="relative z-10">
-                <div className="container-fluid py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-                        {/* Litus - 2 cols */}
-                        <div className="lg:col-span-2">
-                            <div className="text-2xl font-bold text-primary mb-4">Litus</div>
-                            <p className="text-gray-400 text-sm mb-4">
-                                Agence web locale pour PME et artisans à Lorient & Le Mans.
-                                Sites web, SEO local et Google Ads pour booster votre visibilité.
-                            </p>
-                            <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                                <MapPin className="w-4 h-4 text-primary" />
-                                <span>Lorient (56) & Le Mans (72)</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                                <Phone className="w-4 h-4 text-primary" />
-                                <a href="tel:+33744985521" className="hover:text-white transition-colors">
-                                    07 44 98 55 21
-                                </a>
-                            </div>
-                            <div className="flex items-center gap-2 text-sm text-gray-400">
-                                <Mail className="w-4 h-4 text-primary" />
-                                <a href="mailto:litusagency@gmail.com" className="hover:text-white transition-colors">
-                                    litusagency@gmail.com
-                                </a>
-                            </div>
-                        </div>
+        <ul className="footer-reassurance" aria-label="Les engagements Litus">
+          {reassurance.map(item => {
+            const Icon = item.icon
+            return <li key={item.title}><span className="footer-reassurance-icon"><Icon aria-hidden="true" /></span><span><strong>{item.title}</strong><small>{item.detail}</small></span></li>
+          })}
+        </ul>
 
-                        {/* Services */}
-                        <div>
-                            <div className="font-bold mb-4 text-white">Services</div>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="/creation-site-internet" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Sites Vitrine
-                                </Link>
-                                <Link href="/creation-site-ecommerce" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    E-commerce
-                                </Link>
-                                <Link href="/seo-local" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    SEO Local
-                                </Link>
-                                <Link href="/google-ads" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Google Ads
-                                </Link>
-                                <Link href="/creation-application-web" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Applications
-                                </Link>
-                                <Link href="/automatisation" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Automatisation
-                                </Link>
-                            </nav>
-                        </div>
-
-                        {/* Vous êtes */}
-                        <div>
-                            <div className="font-bold mb-4 text-white">Vous êtes</div>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="/artisans" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Artisan
-                                </Link>
-                                <Link href="/pme" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    PME
-                                </Link>
-                                <Link href="/grands-comptes" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Grand Compte
-                                </Link>
-                                <Link href="/collectivites" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Collectivité
-                                </Link>
-                            </nav>
-                        </div>
-
-                        {/* Entreprise */}
-                        <div>
-                            <div className="font-bold mb-4 text-white">Entreprise</div>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="/a-propos" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    À Propos
-                                </Link>
-                                <Link href="/realisations" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Réalisations
-                                </Link>
-                                <Link href="/tarifs" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Tarifs
-                                </Link>
-                                <Link href="/blog" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Blog
-                                </Link>
-                                <Link href="/contact" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Contact
-                                </Link>
-                            </nav>
-                        </div>
-
-                        {/* Ressources */}
-                        <div>
-                            <div className="font-bold mb-4 text-white">Ressources</div>
-                            <nav className="flex flex-col gap-2">
-                                <Link href="/ressources/checklist-gmb" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Checklist GMB
-                                </Link>
-                                <Link href="/ressources/guide-prix" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Guide Tarifs Web
-                                </Link>
-                                <Link href="/ressources/audit-productivite" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                                    Checklist Productivité
-                                </Link>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="border-t border-white/10">
-                    <div className="container-fluid py-6">
-                        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-                            <div>© 2026 Litus. Tous droits réservés.</div>
-                            <div className="flex gap-6">
-                                <Link href="/mentions-legales" className="hover:text-white transition-colors">
-                                    Mentions Légales
-                                </Link>
-                                <Link href="/politique-confidentialite" className="hover:text-white transition-colors">
-                                    Confidentialité
-                                </Link>
-                                <Link href="/cookies" className="hover:text-white transition-colors">
-                                    Cookies
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    )
+        <div className="footer-bottom">
+          <div className="footer-copyright">
+            <p>© 2026 Litus. Tous droits réservés.</p>
+            <small>Conçu et développé en France, pour les entreprises locales.</small>
+          </div>
+          <nav className="footer-legal" aria-label="Informations légales">
+            <Link href="/mentions-legales">Mentions légales</Link>
+            <Link href="/politique-confidentialite">Confidentialité</Link>
+            <a href="/sitemap.xml">Plan du site</a>
+            <Link href="/politique-confidentialite">Politique de cookies</Link>
+          </nav>
+          <p className="footer-mission">Faire grandir les entreprises locales.<span aria-hidden="true" /></p>
+        </div>
+      </div>
+    </footer>
+  )
 }

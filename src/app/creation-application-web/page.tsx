@@ -1,181 +1,72 @@
 import type { Metadata } from 'next'
-import { ServicePageTemplate } from '@/components/templates/ServicePageTemplate'
-import { Database, Code2, Server, Lock, Smartphone, LayoutGrid, Mail, Trophy, Rocket, TrendingUp, Box } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight, Braces, Check, ChevronDown, ClipboardList, Code2, Database, FileCheck2, FolderKanban, Layers3, LockKeyhole, Network, PanelTop, PlugZap, RefreshCw, ShieldCheck, Smartphone, UsersRound } from 'lucide-react'
+import { ServiceHero } from '@/components/sections/services/ServiceHero'
+import { BusinessSectionHeading, ServiceReveal } from '@/components/sections/services/BusinessService'
+import { ApplicationHeroDemo } from './_components/ApplicationHeroDemo'
+import { ApplicationWorkspace } from './_components/ApplicationWorkspace'
+import { applicationContactHref, applicationFaq } from './application-content'
+import './application.css'
 
+const title = 'Création d’application web sur mesure pour entreprise | Litus'
+const description = 'CRM, espace client, extranet ou logiciel métier : Litus conçoit des applications web sur mesure pour vos équipes, connectées à vos données et à vos outils.'
+const url = 'https://litus.fr/creation-application-web'
 export const metadata: Metadata = {
-    title: 'Développement Application Web & Mobile | Sur-Mesure',
-    description: 'Créez votre SaaS, CRM ou application métier avec Litus. Développement React/Next.js robuste et évolutif.',
+  title: { absolute: title }, description, alternates: { canonical: '/creation-application-web' },
+  openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/creation-application-web/opengraph-image', width: 1200, height: 630, alt: 'Litus — Des applications web qui suivent votre métier' }] },
+  twitter: { card: 'summary_large_image', title, description, images: ['/creation-application-web/opengraph-image'] },
 }
+const uses = [
+  { icon: FolderKanban, title: 'CRM & suivi commercial', text: 'Réunir les contacts, les demandes et les prochaines actions. Retrouver l’historique d’un prospect sans multiplier les fichiers.', detail: 'Du premier contact au suivi client.' },
+  { icon: UsersRound, title: 'Espaces clients & extranets', text: 'Donner à vos clients ou partenaires un accès aux documents, aux demandes et à l’avancement qui les concernent.', detail: 'Un espace utile, avec les bons accès.' },
+  { icon: ClipboardList, title: 'Logiciels métier', text: 'Organiser les dossiers, les interventions, les validations ou les plannings selon les règles de votre activité.', detail: 'Votre façon de travailler, dans votre outil.' },
+  { icon: Layers3, title: 'Plateformes SaaS', text: 'Transformer une idée de service en un produit utilisable : parcours, comptes, fonctions essentielles et administration.', detail: 'Une première version, pensée pour évoluer.' },
+]
+const method = [
+  { title: 'Comprendre votre quotidien', text: 'Observer les parcours, les fichiers et les outils utilisés. Définir les utilisateurs, les priorités et le périmètre.', result: 'Un cadrage et une feuille de route.' },
+  { title: 'Dessiner et essayer', text: 'Construire une maquette des écrans essentiels. Tester le parcours avec les personnes qui utiliseront l’application.', result: 'Des écrans concrets à valider.' },
+  { title: 'Développer et vérifier', text: 'Concevoir les fonctions et les connexions, reprendre les données et tester les droits, les erreurs et les usages.', result: 'Une version testée avec votre équipe.' },
+  { title: 'Déployer et accompagner', text: 'Préparer la mise en service, la prise en main et la documentation. Organiser le support et les prochaines évolutions.', result: 'Un outil suivi dans la durée.' },
+]
+const jsonLd = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Création d’application web sur mesure', description, url, serviceType: 'Conception et développement d’applications web métier', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Applications web', item: url }] },
+  { '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: applicationFaq.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
+] }
 
 export default function ApplicationsPage() {
-    return (
-        <ServicePageTemplate
-            title="Applications Web Sur-Mesure"
-            subtitle="Digitalisez vos processus. Gagnez en productivité."
-            description="CRM, ERP, Espace Client, SaaS... Nous développons des outils métiers intelligents qui vous font gagner du temps et de l'argent."
-            heroImage="/hero-apps.png"
+  return <div className="business-service application-page">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+    <ServiceHero id="application-title" eyebrow="Applications web · Lorient & Le Mans" title={'Des applications web sur mesure.\nPensées pour votre métier.'} accent="Pensées pour votre métier." description="CRM, espace client, logiciel métier : nous créons des applications web adaptées à vos processus et connectées à vos outils. Des interfaces claires pour centraliser l’information et faire avancer vos projets." primaryAction={{ label: 'Parlons de votre application', href: applicationContactHref }} secondaryAction={{ label: 'Explorer les usages', href: '#applications-metier' }} visual={<ApplicationHeroDemo />} visualBackground="/blog/photos/bureau-minimal.webp" proof={<ul className="business-hero-proof"><li><PanelTop aria-hidden="true" /><span>Des écrans sur mesure</span></li><li><PlugZap aria-hidden="true" /><span>Vos outils connectés</span></li><li><UsersRound aria-hidden="true" /><span>Un suivi humain</span></li></ul>} />
+    <div className="business-content">
+      <section className="business-section application-opening" aria-labelledby="application-opening-title"><div className="business-container business-split"><div><p className="business-kicker">Votre organisation, simplement</p><h2 id="application-opening-title">Les bons outils font<br /><em>avancer les équipes.</em></h2></div><div className="business-copy"><p>Un dossier dans un tableur. Un document dans un email. Une validation dans une conversation. Quand l’information se disperse, le suivi demande toujours plus d’attention.</p><p>Une application métier réunit ces étapes dans un parcours clair. <strong>Chacun sait quoi faire, où retrouver l’information et avec qui la partager.</strong></p></div></div></section>
 
-            // RICH TECH CONTENT
-            seoContent={
-                <div className="space-y-16">
-                    {/* Intro Block */}
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                                Votre métier est unique, votre logiciel doit l'être aussi
-                            </h2>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                                Les logiciels du marché sont souvent trop complexes, trop chers ou pas assez flexibles.
-                                Vous finissez par tordre votre façon de travailler pour rentrer dans des "cases".
-                            </p>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Nous développons des solutions <strong>sur-mesure</strong> qui s'adaptent à VOS processus.
-                                Automatisez les tâches chronophages, centralisez vos données et pilotez votre activité avec une vision claire.
-                            </p>
-                        </div>
-                        {/* Visual: Dashboard */}
-                        <div className="relative h-64 md:h-full min-h-[300px] bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-white/5 dark:to-white/10 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-100 dark:border-white/5">
-                            <div className="bg-white dark:bg-[#0A0A0A] p-4 rounded-xl shadow-xl w-3/4 border border-gray-100 dark:border-white/5">
-                                <div className="flex gap-2 mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
-                                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="flex gap-4">
-                                        <div className="w-1/3 h-20 bg-blue-50 dark:bg-blue-900/20 rounded-lg" />
-                                        <div className="w-1/3 h-20 bg-purple-50 dark:bg-purple-900/20 rounded-lg" />
-                                        <div className="w-1/3 h-20 bg-pink-50 dark:bg-pink-900/20 rounded-lg" />
-                                    </div>
-                                    <div className="w-full h-32 bg-gray-50 dark:bg-white/5 rounded-lg" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
+      <section className="business-section" id="applications-metier" aria-labelledby="application-uses-title"><div className="business-container"><BusinessSectionHeading id="application-uses-title" eyebrow="À chaque activité, ses usages" description="Nous partons des actions que vos équipes, vos clients ou vos partenaires doivent accomplir. L’outil se construit autour de ces besoins.">Votre métier a ses règles.<br /><em>Un outil qui les suit.</em></BusinessSectionHeading><ServiceReveal className="business-grid application-use-grid">{uses.map(({ icon: Icon, title: useTitle, text, detail }, index) => <article className="business-card application-use-card" key={useTitle}><div><span className="business-icon"><Icon aria-hidden="true" /></span><span className="application-use-number">0{index + 1}</span></div><h3>{useTitle}</h3><p>{text}</p><span className="application-use-detail"><Check aria-hidden="true" />{detail}</span></article>)}</ServiceReveal></div></section>
 
-            features={[
-                {
-                    title: 'Architecture Robuste',
-                    description: 'Base de données SQL, API Rest/GraphQL. Construit pour durer et scaler.',
-                    icon: <Database className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex items-center gap-2 mt-2 justify-center font-mono text-xs text-indigo-500">
-                            <Database className="w-4 h-4" /> SQL
-                        </div>
-                    )
-                },
-                {
-                    title: 'Interface Intuitive',
-                    description: 'UX design soigné. Vos employés n\'auront pas besoin de formation.',
-                    icon: <LayoutGrid className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex justify-center mt-2 opacity-60">
-                            <div className="w-6 h-6 bg-gray-200 rounded grid grid-cols-2 gap-px overflow-hidden">
-                                <div className="bg-gray-400" />
-                                <div className="bg-gray-300" />
-                                <div className="bg-gray-300" />
-                                <div className="bg-gray-400" />
-                            </div>
-                        </div>
-                    )
-                },
-                {
-                    title: 'Sécurité Données',
-                    description: 'Authentification forte, chiffrement, sauvegardes automatiques.',
-                    icon: <Lock className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex justify-center mt-2 text-green-500">
-                            <Lock className="w-6 h-6" />
-                        </div>
-                    )
-                },
-                {
-                    title: 'API & Intégrations',
-                    description: 'Connexion avec vos outils (Sellsy, HubSpot, Zapier, Stripe...).',
-                    icon: <Server className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex justify-center mt-2 gap-1 items-center">
-                            <div className="w-2 h-2 rounded-full bg-blue-500" />
-                            <div className="h-px w-4 bg-gray-300" />
-                            <div className="w-2 h-2 rounded-full bg-green-500" />
-                        </div>
-                    )
-                },
-                {
-                    title: 'Méthode Agile',
-                    description: 'Développement par itérations. Vous voyez les progrès chaque semaine.',
-                    icon: <Code2 className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex justify-center mt-2 text-xs font-bold text-orange-500">
-                            SPRINT 1
-                        </div>
-                    )
-                },
-                {
-                    title: 'Évolutivité',
-                    description: 'Votre outil grandit avec votre entreprise. Pas de limite technique.',
-                    icon: <Box className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex justify-center mt-2">
-                            <TrendingUp className="w-6 h-6 text-purple-500" />
-                        </div>
-                    )
-                }
-            ]}
+      <section className="business-section business-section-soft" id="parcours-application" aria-labelledby="application-workspace-title"><div className="business-container"><BusinessSectionHeading id="application-workspace-title" eyebrow="Prenez la place de vos utilisateurs" description="Une même application peut proposer des espaces différents. Essayez ce dossier d’exemple : les actions de l’équipe se retrouvent dans la vue client et dans le suivi.">La même application.<br /><em>Le bon espace pour chacun.</em></BusinessSectionHeading><ApplicationWorkspace /></div></section>
 
-            featuredProject={{
-                title: 'West Clôtures - Le CRM',
-                category: 'Application Métier',
-                description: 'Développement d\'un outil sur-mesure pour gérer les devis complexes de clôtures. Résultat : temps de chiffrage divisé par 4.',
-                image: '/realisations/west clotures  site internet crée par litus agence web.jpg',
-                stats: [
-                    { value: '+27%', label: 'Productivité', icon: <Rocket className="w-8 h-8" /> },
-                    { value: '0', label: 'Erreur Devis', icon: <TrendingUp className="w-8 h-8" /> },
-                    { value: '100%', label: 'Mobile', icon: <Smartphone className="w-8 h-8" /> },
-                    { value: '450h', label: 'Gain / an', icon: <LayoutGrid className="w-8 h-8" /> }
-                ]
-            }}
+      <section className="business-section application-outcomes" aria-labelledby="application-outcomes-title"><div className="business-container"><BusinessSectionHeading id="application-outcomes-title" eyebrow="Ce qui change au quotidien">Moins de dispersion.<br /><em>Un travail plus lisible.</em></BusinessSectionHeading><ServiceReveal className="application-outcomes-grid">{[
+        { icon: Database, title: 'Une information centralisée', text: 'Des dossiers structurés, des documents retrouvables et moins de recopies entre vos outils.' },
+        { icon: FileCheck2, title: 'Des actions plus claires', text: 'Un responsable, une prochaine étape et des validations visibles dans le parcours.' },
+        { icon: Smartphone, title: 'Une interface adaptée', text: 'Des écrans conçus pour les usages prioritaires, au bureau comme sur le terrain.' },
+      ].map(({ icon: Icon, title: itemTitle, text }) => <article key={itemTitle}><span className="business-icon"><Icon aria-hidden="true" /></span><h3>{itemTitle}</h3><p>{text}</p></article>)}</ServiceReveal></div></section>
 
-            realizations={[]} // Removed as requested
+      <section className="business-section business-section-warm" id="developpement-sur-mesure" aria-labelledby="application-custom-title"><div className="business-container business-split"><figure className="business-photo application-meeting-photo"><Image src="/blog/photos/echange-tablette.webp" alt="Deux personnes échangent autour d’un carnet et d’une tablette" width={1400} height={938} sizes="(max-width: 850px) 100vw, 45vw" /><figcaption className="business-photo-note"><strong>Le point de départ : vos usages.</strong><span>Des parcours discutés, dessinés et testés ensemble.</span></figcaption></figure><div className="business-copy"><p className="business-kicker">Développement sur mesure</p><h2 id="application-custom-title">On commence par écouter.<br /><em>Puis on construit.</em></h2><p>Votre fonctionnement, vos contraintes et vos utilisateurs guident les choix. Nous transformons ce besoin en écrans concrets, puis en une application que votre équipe peut essayer.</p><ul className="business-check-list"><li><Check aria-hidden="true" />Des parcours et des rôles clairement définis.</li><li><Check aria-hidden="true" />Une première version centrée sur l’essentiel.</li><li><Check aria-hidden="true" />Des essais avant la mise en service.</li><li><Check aria-hidden="true" />Une base documentée pour les évolutions.</li></ul><Link href={applicationContactHref} className="business-text-link">Décrivons votre projet<ArrowRight size={17} aria-hidden="true" /></Link><p className="application-photo-credit">Photographie d’illustration — <a href="https://commons.wikimedia.org/wiki/File:Two_people_meeting_with_iphone_and_ipad_(Unsplash).jpg" target="_blank" rel="noopener noreferrer">Alejandro Escamilla</a> · CC0.</p></div></div></section>
 
-            pricing={{
-                custom: {
-                    title: 'Développement Sur Mesure',
-                    description:
-                        'SaaS, CRM, Intranet ou Application Mobile. Nous développons des outils puissants adaptés exactement à vos processus métier.',
-                },
-            }}
-            faqs={[
-                {
-                    question: 'Combien coûte une application sur-mesure ?',
-                    answer: 'C\'est très variable. Un outil métier simple démarre autour de 5 000€. Une plateforme SaaS complexe peut aller de 15 000€ à 50 000€+. Tout dépend des fonctionnalités.'
-                },
-                {
-                    question: 'Êtes-vous propriétaire du code ?',
-                    answer: 'Oui, une fois le projet livré et payé, vous êtes 100% propriétaire du code source. Pas de "vendor lock-in" chez Litus.',
-                },
-                {
-                    question: 'Quelles technologies utilisez-vous ?',
-                    answer: 'Stack moderne : React / Next.js pour le frontend, Node.js ou Python pour le backend, PostgreSQL pour les données. C\'est ce qu\'utilisent les startups de la Silicon Valley.'
-                },
-                {
-                    question: 'Combien de temps ça prend ?',
-                    answer: 'Comptez 4 à 8 semaines pour une première version (MVP) fonctionnelle. Pour un projet complet, cela peut prendre 3 à 6 mois.'
-                },
-                {
-                    question: 'Assurez-vous la maintenance ?',
-                    answer: 'Oui, nous proposons des contrats de maintenance (TMA) pour gérer les mises à jour, la sécurité et les petites évolutions.'
-                },
-            ]}
-        />
-    )
+      <section className="business-section application-integrations" id="integrations-application" aria-labelledby="application-integrations-title"><div className="business-container business-split"><div className="business-copy"><p className="business-kicker">Une application dans votre environnement</p><h2 id="application-integrations-title">Vos outils se parlent.<br /><em>Vos données circulent.</em></h2><p>L’application peut se connecter à votre CRM, à votre gestion commerciale, à vos documents ou à vos services en ligne. Nous vérifions les possibilités d’intégration et les droits d’accès avant de définir les échanges.</p><p>Imports, exports, API et automatisations sont pensés avec des contrôles : que se passe-t-il si une donnée manque, si un service ne répond pas ou si une action doit être validée ?</p><Link href="/automatisation#integrations-api" className="business-text-link">Découvrir les automatisations<ArrowRight size={17} aria-hidden="true" /></Link></div><div className="application-integration-visual"><div className="application-integration-top"><span><Database aria-hidden="true" />Vos données</span><span><Braces aria-hidden="true" />API & services</span></div><div className="application-integration-center"><span><PanelTop aria-hidden="true" /></span><strong>Votre application</strong><small>Des règles métier et des accès définis.</small></div><div className="application-integration-bottom"><span><UsersRound aria-hidden="true" />Équipe & clients</span><span><Network aria-hidden="true" />Vos logiciels</span></div><p><ShieldCheck aria-hidden="true" />Des connexions contrôlées et suivies.</p></div></div></section>
+
+      <section className="business-section business-section-dark" id="methode-application" aria-labelledby="application-method-title"><div className="business-container"><BusinessSectionHeading id="application-method-title" eyebrow="Un développement avec vous" description="Vous voyez les écrans, vous essayez les parcours et vous validez les étapes utiles. Le périmètre, les responsabilités et la suite du projet restent clairs.">Du premier échange<br /><em>à la prise en main.</em></BusinessSectionHeading><ServiceReveal className="application-method">{method.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p><strong>{item.result}</strong></article>)}</ServiceReveal></div></section>
+
+      <section className="business-section" id="maintenance-application" aria-labelledby="application-care-title"><div className="business-container business-split"><div className="business-copy"><p className="business-kicker">La suite fait partie du projet</p><h2 id="application-care-title">Un outil à utiliser.<br /><em>Et à faire vivre.</em></h2><p>Une application utile doit rester compréhensible, maintenable et adaptée à votre activité. Nous prévoyons sa mise en service et ses modalités de suivi dès la conception.</p><Link href={applicationContactHref} className="business-text-link">Parlons de vos contraintes<ArrowRight size={17} aria-hidden="true" /></Link></div><div className="application-care-list">{[
+        { icon: LockKeyhole, title: 'Les bons accès aux bonnes personnes', text: 'Rôles, authentification et informations accessibles sont définis selon vos usages et les données traitées.' },
+        { icon: RefreshCw, title: 'Un suivi prévu dans la durée', text: 'Maintenance, sauvegardes, mises à jour et support sont cadrés avec un périmètre et des responsabilités explicites.' },
+        { icon: Code2, title: 'Une base que l’on peut faire évoluer', text: 'Documentation, accès au code et aux données, puis priorités d’évolution sont précisés dans le cadre du projet.' },
+      ].map(({ icon: Icon, title: careTitle, text }) => <article key={careTitle}><span className="business-icon"><Icon aria-hidden="true" /></span><div><h3>{careTitle}</h3><p>{text}</p></div></article>)}</div></div></section>
+
+      <section className="business-section business-section-warm" id="faq" aria-labelledby="application-faq-title"><div className="business-container"><BusinessSectionHeading id="application-faq-title" eyebrow="Vos questions">Un projet d’application,<br /><em>avec les bons repères.</em></BusinessSectionHeading><div className="business-faq">{applicationFaq.map(item => <details key={item.question}><summary>{item.question}<ChevronDown size={17} aria-hidden="true" /></summary><p>{item.answer}</p></details>)}</div></div></section>
+
+      <section className="business-section" aria-labelledby="application-contact-title"><div className="business-container business-final"><div><p className="business-kicker">Votre prochain outil commence ici</p><h2 id="application-contact-title">Un processus à simplifier ?<br /><em>Parlons de votre application.</em></h2><p>Montrez-nous votre fonctionnement, vos outils et les points qui ralentissent vos équipes. Nous définirons ensemble une première étape utile.</p></div><div className="business-final-actions"><Link href={applicationContactHref} className="site-cta-primary">Parlons de votre application<ArrowRight size={18} aria-hidden="true" /></Link><span>Premier échange · Devis sur mesure</span><a href="tel:+33744985521">07 44 98 55 21</a></div></div><nav className="business-container application-related" aria-label="Expertises complémentaires"><Link href="/creation-outils-ia">Intégrer un outil IA<ArrowUpRight size={16} aria-hidden="true" /></Link><Link href="/automatisation">Automatiser vos processus<ArrowUpRight size={16} aria-hidden="true" /></Link><Link href="/creation-site-internet">Créer votre site internet<ArrowUpRight size={16} aria-hidden="true" /></Link></nav></section>
+    </div>
+  </div>
 }
-

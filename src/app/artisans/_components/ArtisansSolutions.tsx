@@ -1,107 +1,28 @@
-'use client'
+import Link from 'next/link'
+import { ArrowUpRight, Megaphone, MapPin, PanelsTopLeft, MessagesSquare } from 'lucide-react'
+import { ArtisansPhoneDemo } from './ArtisansPhoneDemo'
 
-import { motion } from 'framer-motion'
-import { Map, Zap, CheckCircle, Shield } from 'lucide-react'
-import Image from 'next/image'
+const solutions = [
+  { icon: Megaphone, title: 'Google Ads pour les artisans', text: 'Ciblez les recherches liées à votre métier et à votre zone. Nous organisons les campagnes autour des prestations et des demandes qui vous intéressent.', href: '/google-ads' },
+  { icon: MapPin, title: 'Référencement local & fiche Google', text: 'Présentez des informations complètes, vos services et vos réalisations. Le référencement local pour artisans aide vos futurs clients à trouver et comprendre votre entreprise.', href: '/seo-local' },
+  { icon: PanelsTopLeft, title: 'Un site pensé pour les prises de contact', text: 'Un site clair, adapté au mobile, avec vos prestations, des photos de vos chantiers et un accès simple au téléphone ou au formulaire.', href: '/creation-site-internet' },
+  { icon: MessagesSquare, title: 'Des demandes reçues directement', text: 'Les appels et les formulaires de vos outils arrivent chez vous. Vous échangez directement avec vos prospects, puis nous analysons ensemble les demandes mesurées.', href: '/contact' },
+]
 
 export function ArtisansSolutions() {
-    const solutions = [
-        {
-            title: "Campagnes Google Ads Rentables",
-            description: "On positionne votre entreprise tout en haut de Google quand un client cherche votre métier en urgence dans votre ville. Résultat immédiat : vous recevez des appels dès les premières 24h.",
-            icon: Zap,
-        },
-        {
-            title: "SEO Local & Fiche Maps",
-            description: "On configure et on optimise votre fiche Google Maps pour vous ancrer durablement en numéro 1 de votre zone géographique sans payer le clic.",
-            icon: Map,
-        },
-        {
-            title: "Création de Site / Landing Page",
-            description: "Un site web ou une page de vente conçue uniquement dans un but : convertir le clic en demande de devis. Pas de blabla, de l'efficacité pure.",
-            icon: CheckCircle,
-        },
-        {
-            title: "Des contacts 100% exclusifs",
-            description: "Contrairement aux plateformes qui envoient les prospects à tous les artisans du coin, la machine que nous concevons pour vous génère des contacts qui n'appellent que vous.",
-            icon: Shield,
-        }
-    ]
-
-    return (
-        <section className="py-24 bg-gray-50 dark:bg-[#050505]">
-            <div className="container-fluid">
-                <div className="flex flex-col lg:flex-row items-center gap-16 max-w-6xl mx-auto">
-                    {/* Image / Graphic Left */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="flex-1 relative w-full"
-                    >
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-emerald-500/20 to-teal-500/5 rounded-[2.5rem] blur-2xl z-0" />
-                        <div className="relative z-10 w-full aspect-[4/5] rounded-[2rem] bg-[#111] overflow-hidden border border-white/10 shadow-2xl">
-                            {/* Fake UI of a mobile phone showing an artisan site */}
-                            <div className="w-full h-full flex flex-col p-4">
-                                <div className="w-1/2 h-6 mx-auto bg-black rounded-b-3xl -mt-4 border border-white/5" />
-                                <div className="mt-8 flex-1 bg-white dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-100 dark:border-white/5 flex flex-col items-center p-6 text-center shadow-inner">
-                                    <div className="w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center mb-6">
-                                        <Shield className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
-                                    </div>
-                                    <h4 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 mb-2">Plomberie Express Lorient</h4>
-                                    <div className="flex gap-1 mb-8 text-yellow-400">
-                                        ★ ★ ★ ★ ★ <span className="text-gray-400 ml-2 text-sm">(48 avis)</span>
-                                    </div>
-                                    <div className="w-full h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold mb-4">
-                                        Demander un devis
-                                    </div>
-                                    <div className="w-full h-12 border-2 border-emerald-600 rounded-lg flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold">
-                                        Appeler : 02 97 XX XX XX
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Content Right */}
-                    <div className="flex-1">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="mb-12"
-                        >
-                            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                                Notre solution : L'écosystème <span className="text-emerald-500 shrink-0">Litus.</span>
-                            </h2>
-                            <p className="text-lg text-gray-600 dark:text-gray-400">
-                                Nous refusons de vous vendre "juste un site web". Nous mettons en place de véritables <strong>machines à obtenir des devis</strong> grâce à la puissance cumulée de Google Ads et du référencement local. Vous gérez vos chantiers, la machine s'occupe des appels.
-                            </p>
-                        </motion.div>
-
-                        <div className="space-y-8">
-                            {solutions.map((item, index) => (
-                                <motion.div 
-                                    key={index}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="flex gap-4"
-                                >
-                                    <div className="w-12 h-12 shrink-0 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 flex items-center justify-center">
-                                        <item.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 font-light">{item.description}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+  return <section className="art-section art-solutions" id="solutions-artisans" aria-labelledby="art-solutions-title">
+    <div className="art-container art-solutions-grid">
+      <div className="art-solutions-phone"><ArtisansPhoneDemo /></div>
+      <div className="art-solutions-copy">
+        <p className="art-kicker">Notre solution</p>
+        <h2 id="art-solutions-title">L’écosystème <em>Litus,</em><br />conçu pour <em>les artisans.</em></h2>
+        <p className="art-solutions-intro">Une agence web pour artisans, avec des outils qui travaillent ensemble. Le bon accompagnement dépend de votre activité, de votre budget et de vos priorités.</p>
+        <ul className="art-solutions-list">{solutions.map(item => <li key={item.title}>
+          <span className="art-icon"><item.icon size={24} strokeWidth={1.6} aria-hidden="true" /></span>
+          <div><h3><Link href={item.href}>{item.title}<ArrowUpRight size={15} aria-hidden="true" /></Link></h3><p>{item.text}</p></div>
+        </li>)}</ul>
+        <p className="art-local-links">À <Link href="/contact">Lorient et dans le Morbihan</Link>, au <Link href="/agence-web-le-mans">Mans et en Sarthe</Link> : un échange direct pour définir votre zone et vos objectifs.</p>
+      </div>
+    </div>
+  </section>
 }

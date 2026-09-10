@@ -24,8 +24,12 @@ body {
 
 /* Dark mode variables handled by ThemeProvider */
 :root {
-    --color-background: white;
-    --color-foreground: #09090b;
+    --litus-paper: #F7F6F2;
+    --litus-orange: #E95E2A;
+    --litus-heading-accent: #C7431B;
+    --litus-slate: #1F2937;
+    --color-background: var(--litus-paper);
+    --color-foreground: var(--litus-slate);
 }
 
 html.dark {
@@ -84,7 +88,7 @@ a {
 
 /* Focus visible */
 *:focus-visible {
-    outline: 2px solid #f97316;
+    outline: 2px solid var(--litus-orange);
     outline-offset: 2px;
 }
 
@@ -93,7 +97,7 @@ a {
     position: absolute;
     top: -100px;
     left: 0;
-    background: #f97316;
+    background: var(--litus-orange);
     color: white;
     padding: 0.75rem 1.5rem;
     z-index: 100;
@@ -113,12 +117,12 @@ a {
     }
 
     .hover-glow:hover {
-        box-shadow: 0 0 15px rgba(255, 73, 37, 0.5);
+        box-shadow: 0 0 15px rgba(233, 94, 42, 0.5);
         /* Orange glow */
     }
 
     .dark .hover-glow:hover {
-        box-shadow: 0 0 20px rgba(255, 73, 37, 0.4);
+        box-shadow: 0 0 20px rgba(233, 94, 42, 0.4);
     }
 
     .hover-scale {
@@ -160,4 +164,110 @@ a {
         scrollbar-width: none;
         /* Firefox */
     }
+}
+
+/* Une seule famille typographique pour tous les titres du site. */
+h1,
+h2,
+h3 {
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* CTA system shared by public pages and forms */
+.site-cta-primary,
+.site-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 52px;
+    padding: 12px 27px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.site-cta-primary {
+    border: 1px solid var(--litus-orange);
+    background: var(--litus-orange);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(233, 94, 42, 0.14);
+}
+
+.site-cta-primary:hover {
+    border-color: #d84f20;
+    background: #d84f20;
+    color: #fff;
+    box-shadow: 0 9px 20px rgba(233, 94, 42, 0.18);
+}
+
+.site-cta-secondary {
+    border: 1px solid #8e99a8;
+    background: rgba(247, 246, 242, 0.86);
+    color: var(--litus-slate);
+    box-shadow: 0 2px 4px rgba(31, 41, 55, 0.06);
+}
+
+.site-cta-secondary:hover {
+    border-color: #64748b;
+    background: #fff;
+    color: var(--litus-slate);
+}
+
+.dark .site-cta-secondary {
+    border-color: #758195;
+    background: rgba(31, 41, 55, 0.82);
+    color: #f7f6f2;
+}
+
+.dark .site-cta-secondary:hover {
+    border-color: #9aa5b5;
+    background: #2b3748;
+    color: #fff;
+}
+
+.site-cta-primary:disabled,
+.site-cta-secondary:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.site-cta-primary svg,
+.site-cta-secondary svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    stroke-width: 1.7;
+}
+
+.litus-button[data-size='sm'] {
+    height: 40px;
+    min-height: 40px;
+    padding-inline: 20px;
+    font-size: 13px;
+}
+
+.litus-button[data-size='md'] {
+    height: 48px;
+    min-height: 48px;
+    padding-inline: 24px;
+    font-size: 14px;
+}
+
+.litus-button[data-size='lg'],
+.litus-button[data-size='xl'] {
+    height: 52px;
+    min-height: 52px;
+    padding-inline: 27px;
+    font-size: 14px;
+}
+
+.site-cta-compact {
+    min-height: 38px;
+    padding: 9px 16px;
+    font-size: 12px;
 }

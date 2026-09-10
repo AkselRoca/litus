@@ -4,17 +4,17 @@ import { PmeStats } from './_components/PmeStats'
 import { PmePainPoints } from './_components/PmePainPoints'
 import { PmeSolutions } from './_components/PmeSolutions'
 import { LeadMagnetInline } from '@/components/lead-magnets'
-import { ArrowRight, Phone } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-    title: 'Création de site internet & Acquisition B2B pour PME | Litus',
-    description: "Digitalisez votre PME : site web corporate, génération de leads B2B et marque employeur pour faciliter vos recrutements. Donnez à votre entreprise l'image qu'elle mérite.",
+    title: 'Agence web pour PME : site sur mesure, SEO & Google Ads | Litus',
+    description: 'Faites grandir votre PME avec un site sur mesure, une stratégie SEO et Google Ads, et un suivi des demandes. Une équipe à vos côtés, de la refonte au pilotage.',
 }
 
 export default function PmePage() {
     return (
-        <div className="bg-gray-50 dark:bg-[#050505] min-h-screen">
+        <div className="bg-gray-50 dark:bg-[#050505] min-h-screen overflow-x-clip">
             <PmeHero />
             <PmeStats />
             <PmePainPoints />
@@ -32,7 +32,7 @@ export default function PmePage() {
                             Prévoyez le budget digital de votre PME.
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                            Découvrez le vrai tarif d'un site web performant, les aides de l'État disponibles pour la numérisation des PME et comment rentabiliser votre investissement en moins d'un an.
+                            Découvrez le vrai tarif d&apos;un site web performant, les aides de l&apos;État disponibles pour la numérisation des PME et comment rentabiliser votre investissement en moins d&apos;un an.
                         </p>
                     </div>
                     
@@ -54,7 +54,7 @@ export default function PmePage() {
                         </h2>
 
                         <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                            Arrêtez de perdre des appels d'offres ou des marchés parce que votre image de marque n'est pas à la hauteur de votre véritable expertise.
+                            Arrêtez de perdre des appels d&apos;offres ou des marchés parce que votre image de marque n&apos;est pas à la hauteur de votre véritable expertise.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -62,7 +62,7 @@ export default function PmePage() {
                                 <span className="mr-2">🤝</span> Discuter de mon projet
                             </Button>
 
-                            <Button size="lg" variant="secondary" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white hover:text-dark rounded-full bg-white/5 backdrop-blur-sm" href="/portfolio">
+                            <Button size="lg" variant="secondary" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white hover:text-dark rounded-full bg-white/5 backdrop-blur-sm" href="/realisations">
                                 <ArrowRight className="mr-2 w-5 h-5" />
                                 Découvrir nos réalisations PME
                             </Button>

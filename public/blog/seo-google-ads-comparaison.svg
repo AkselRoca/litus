@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">SEO et Google Ads : deux leviers pour votre visibilité</title>
+  <desc id="desc">Illustration éditoriale Litus comparant la présence organique et la diffusion publicitaire, sans chiffres de performance.</desc>
+  <rect width="1200" height="760" fill="#F6F3EE"/>
+  <path d="M648 0H1200V760H648V0Z" fill="#192939"/>
+  <path d="M70 84H112" stroke="#E95E2A" stroke-width="3"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="130" y="91" fill="#647181" font-size="18" font-weight="700" letter-spacing="3">LE CARNET LITUS</text>
+    <text x="70" y="174" fill="#172536" font-size="39" font-weight="700" letter-spacing="-1">Choisir vos premières</text>
+    <text x="70" y="219" fill="#172536" font-size="39" font-weight="700" letter-spacing="-1">actions.</text>
+    <text x="70" y="374" fill="#C7431B" font-size="116" font-weight="700" letter-spacing="-6">SEO</text>
+    <text x="70" y="425" fill="#172536" font-size="26">Construire sa présence</text>
+    <text x="70" y="460" fill="#647181" font-size="26">dans la recherche naturelle.</text>
+    <path d="M70 510H556" stroke="#DADDDC"/>
+    <text x="70" y="555" fill="#172536" font-size="21">Contenus utiles</text>
+    <text x="70" y="595" fill="#172536" font-size="21">Structure du site</text>
+    <text x="70" y="635" fill="#172536" font-size="21">Suivi dans la durée</text>
+    <text x="720" y="92" fill="#D0D7DC" font-size="18" font-weight="700" letter-spacing="3">STRATÉGIE DIGITALE</text>
+    <text x="720" y="345" fill="#FCFAF6" font-size="69" font-weight="700" letter-spacing="-3">Google Ads</text>
+    <text x="720" y="425" fill="#FCFAF6" font-size="26">Diffuser une offre</text>
+    <text x="720" y="460" fill="#BBC5CD" font-size="26">auprès d’une audience ciblée.</text>
+    <path d="M720 510H1130" stroke="#485664"/>
+    <text x="720" y="555" fill="#E8EBED" font-size="21">Offre et zone de diffusion</text>
+    <text x="720" y="595" fill="#E8EBED" font-size="21">Annonces et page d’arrivée</text>
+    <text x="720" y="635" fill="#E8EBED" font-size="21">Budget et demandes suivis</text>
+    <text x="70" y="710" fill="#647181" font-size="16" letter-spacing="1">DEUX LEVIERS, UN MÊME PROJET.</text>
+  </g>
+  <circle cx="648" cy="386" r="32" fill="#E95E2A"/>
+  <path d="M633 386H663M657 380L663 386L657 392M639 380L633 386L639 392" stroke="#FFFCF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1090 166L1101 177L1126 151" stroke="#E95E2A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 687H1130" stroke="#A0A7AC" stroke-opacity=".18"/>
+</svg>

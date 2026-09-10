@@ -1,0 +1,574 @@
+[
+  {
+    "id": "lorient-port-rohan",
+    "file": "File:Le quai de Rohan (Lorient) après la pluie - panoramio.jpg",
+    "alt": "Voiliers et quais du port de plaisance de Lorient après la pluie",
+    "caption": "Le quai de Rohan à Lorient, photographié après la pluie.",
+    "tags": [
+      "Lorient",
+      "Morbihan",
+      "local",
+      "port"
+    ]
+  },
+  {
+    "id": "lorient-cite-voile",
+    "file": "File:Musée de la cité de la Voile Eric Tabarly à Lorient DSC 0437.jpg",
+    "alt": "La Cité de la Voile Éric Tabarly à Lorient",
+    "caption": "La Cité de la Voile Éric Tabarly, dans le quartier de Lorient La Base.",
+    "tags": [
+      "Lorient",
+      "Morbihan",
+      "local",
+      "activite"
+    ]
+  },
+  {
+    "id": "lanester-blavet",
+    "file": "File:481 Lanester.jpg",
+    "alt": "La presqu’île de Saint-Guénaël et le Blavet à Lanester",
+    "caption": "À Lanester, la presqu’île de Saint-Guénaël à la confluence du Plessis et du Blavet.",
+    "tags": [
+      "Lanester",
+      "Lorient",
+      "Morbihan",
+      "local"
+    ]
+  },
+  {
+    "id": "ploemeur-lomener",
+    "file": "File:0 Lomener - Anse de Stole.JPG",
+    "alt": "L’anse de Stole à Lomener, sur la commune de Ploemeur",
+    "caption": "L’anse de Stole à Lomener, sur le littoral de Ploemeur.",
+    "tags": [
+      "Ploemeur",
+      "Lorient",
+      "Morbihan",
+      "local",
+      "littoral"
+    ]
+  },
+  {
+    "id": "hennebont-blavet",
+    "file": "File:W5032 Hennebont QuaiPtNeuf-PtJehanneLaFlamme2070XA1.jpg",
+    "alt": "Le quai du Pont-Neuf et le pont Jéhanne-la-Flamme à Hennebont",
+    "caption": "Le quai du Pont-Neuf et le pont Jéhanne-la-Flamme sur le Blavet, à Hennebont.",
+    "tags": [
+      "Hennebont",
+      "Lorient",
+      "Morbihan",
+      "local"
+    ]
+  },
+  {
+    "id": "larmor-mairie",
+    "file": "File:Larmor-Plage-Mairie.jpg",
+    "alt": "La mairie de Larmor-Plage dans le Morbihan",
+    "caption": "La mairie de Larmor-Plage, photographiée en 2009.",
+    "tags": [
+      "Larmor-Plage",
+      "Lorient",
+      "Morbihan",
+      "local"
+    ]
+  },
+  {
+    "id": "larmor-rue-fort",
+    "file": "File:0 Larmor-Plage - Rue du Fort.JPG",
+    "alt": "La rue du Fort dans le centre de Larmor-Plage",
+    "caption": "La rue du Fort à Larmor-Plage, en septembre 2019.",
+    "tags": [
+      "Larmor-Plage",
+      "Lorient",
+      "Morbihan",
+      "local",
+      "centre-ville"
+    ]
+  },
+  {
+    "id": "auray-saint-goustan",
+    "file": "File:Auray port de Saint-Goustan.jpg",
+    "alt": "Le port de Saint-Goustan et les maisons d’Auray",
+    "caption": "Le port de Saint-Goustan à Auray, dans le Morbihan.",
+    "tags": [
+      "Auray",
+      "Morbihan",
+      "local",
+      "commerce"
+    ]
+  },
+  {
+    "id": "vannes-remparts",
+    "file": "File:Remparts de Vannes - Vannes, France - August 19, 2018.jpg",
+    "alt": "Les remparts et jardins du centre de Vannes",
+    "caption": "Les remparts de Vannes, photographiés en août 2018.",
+    "tags": [
+      "Vannes",
+      "Morbihan",
+      "local",
+      "centre-ville"
+    ]
+  },
+  {
+    "id": "le-mans-republique",
+    "file": "File:Place de la République (Le Mans).JPG",
+    "alt": "La place de la République et son tramway au Mans",
+    "caption": "La place de la République au Mans, vue depuis la Visitation en 2009.",
+    "tags": [
+      "Le Mans",
+      "Sarthe",
+      "local",
+      "commerce",
+      "centre-ville"
+    ]
+  },
+  {
+    "id": "le-mans-cathedrale",
+    "file": "File:Le Mans (Sarthe) - Cathédrale Saint-Julien - Chevet vu depuis la place des Jacobins.jpg",
+    "alt": "La cathédrale Saint-Julien du Mans depuis la place des Jacobins",
+    "caption": "Le chevet de la cathédrale Saint-Julien du Mans, depuis la place des Jacobins.",
+    "tags": [
+      "Le Mans",
+      "Sarthe",
+      "local",
+      "patrimoine"
+    ]
+  },
+  {
+    "id": "le-mans-pont-yssoir",
+    "file": "File:Le Mans R01.jpg",
+    "alt": "Le pont Yssoir et la rue Voltaire au Mans",
+    "caption": "Le pont Yssoir et la rue Voltaire au Mans, photographiés en 2017.",
+    "tags": [
+      "Le Mans",
+      "Sarthe",
+      "local",
+      "centre-ville"
+    ]
+  },
+  {
+    "id": "allonnes-mairie",
+    "file": "File:Allonnes (Sarthe) - Mairie.JPG",
+    "alt": "La mairie d’Allonnes dans la Sarthe",
+    "caption": "La mairie d’Allonnes, dans l’agglomération mancelle, en 2013.",
+    "tags": [
+      "Allonnes",
+      "Le Mans",
+      "Sarthe",
+      "local"
+    ]
+  },
+  {
+    "id": "coulaines-centre",
+    "file": "File:Coulaines centre.jpg",
+    "alt": "Vue du centre-ville de Coulaines depuis le sud",
+    "caption": "Le centre de Coulaines, au nord du Mans, photographié en 2008.",
+    "tags": [
+      "Coulaines",
+      "Le Mans",
+      "Sarthe",
+      "local"
+    ]
+  },
+  {
+    "id": "arnage-eglise",
+    "file": "File:Arnage église.jpg",
+    "alt": "Le monument aux morts au premier plan devant l’église d’Arnage",
+    "caption": "Le monument aux morts et l’église d’Arnage, dans la Sarthe, photographiés en 2017.",
+    "tags": [
+      "Arnage",
+      "Le Mans",
+      "Sarthe",
+      "local"
+    ]
+  },
+  {
+    "id": "chapelle-saint-aubin-commerce",
+    "file": "File:Centre commercial de la Chapelle Saint Aubin le 06.10.07.JPG",
+    "alt": "Le centre commercial de La Chapelle-Saint-Aubin en 2007",
+    "caption": "Vue d’archive du centre commercial de La Chapelle-Saint-Aubin, en octobre 2007.",
+    "tags": [
+      "La Chapelle-Saint-Aubin",
+      "Le Mans",
+      "Sarthe",
+      "local",
+      "commerce"
+    ]
+  },
+  {
+    "id": "yvre-leveque-placette",
+    "file": "File:Placette-à-Yvré-l'évêque.jpg",
+    "alt": "Une placette et ses façades à Yvré-l’Évêque",
+    "caption": "Une placette du centre d’Yvré-l’Évêque, photographiée en juillet 2012.",
+    "tags": [
+      "Yvré-l’Évêque",
+      "Le Mans",
+      "Sarthe",
+      "local",
+      "centre-ville"
+    ]
+  },
+  {
+    "id": "bureau-minimal",
+    "file": "File:Clean minimalist office (Unsplash).jpg",
+    "alt": "Un bureau lumineux avec ordinateur et deux sièges",
+    "caption": "Photographie d’illustration : un espace de travail simple et lumineux.",
+    "tags": [
+      "bureau",
+      "PME",
+      "site-web",
+      "organisation"
+    ]
+  },
+  {
+    "id": "bureau-reunion-clair",
+    "file": "File:White office space (Unsplash).jpg",
+    "alt": "Une table de réunion blanche devant un tableau mural",
+    "caption": "Photographie d’illustration : une salle pour préparer et cadrer un projet.",
+    "tags": [
+      "bureau",
+      "reunion",
+      "strategie",
+      "cahier-des-charges"
+    ]
+  },
+  {
+    "id": "bureau-notes-analyse",
+    "file": "File:Working at office (Unsplash).jpg",
+    "alt": "Des notes et des outils de travail disposés sur un bureau",
+    "caption": "Photographie d’illustration : organiser ses notes et ses priorités de travail.",
+    "tags": [
+      "analyse",
+      "strategie",
+      "organisation",
+      "cahier-des-charges"
+    ]
+  },
+  {
+    "id": "ordinateur-saisie",
+    "file": "File:Typing on a mac (Unsplash).jpg",
+    "alt": "Des mains saisissent du texte sur un ordinateur portable",
+    "caption": "Photographie d’illustration : travailler le contenu d’un site sur ordinateur.",
+    "tags": [
+      "site-web",
+      "contenu",
+      "ordinateur",
+      "SEO"
+    ]
+  },
+  {
+    "id": "code-ecran",
+    "file": "File:Code on computer monitor (Unsplash).jpg",
+    "alt": "Du code informatique photographié sur un écran d’ordinateur",
+    "caption": "Photographie d’illustration : du code sur un écran, pour évoquer le développement web.",
+    "tags": [
+      "developpement",
+      "site-web",
+      "technique"
+    ]
+  },
+  {
+    "id": "ordinateur-developpement",
+    "file": "File:Laptop coding programs (Unsplash).jpg",
+    "alt": "Un ordinateur portable utilisé pour programmer",
+    "caption": "Photographie d’illustration : préparer et développer un site sur ordinateur portable.",
+    "tags": [
+      "developpement",
+      "site-web",
+      "ordinateur"
+    ]
+  },
+  {
+    "id": "developpeur-travail",
+    "file": "File:Programmer at work (Unsplash).jpg",
+    "alt": "Une personne travaille sur un ordinateur dans un espace de bureau",
+    "caption": "Photographie d’illustration : un professionnel au travail sur son ordinateur.",
+    "tags": [
+      "developpement",
+      "site-web",
+      "PME",
+      "bureau"
+    ]
+  },
+  {
+    "id": "planning-bureau",
+    "file": "File:White work table with notes, smartphone and laptop (Unsplash).jpg",
+    "alt": "Un carnet ouvert, un ordinateur et un téléphone sur une table blanche",
+    "caption": "Photographie d’illustration : un carnet et des outils de travail pour préparer un projet.",
+    "tags": [
+      "strategie",
+      "organisation",
+      "cahier-des-charges",
+      "budget"
+    ]
+  },
+  {
+    "id": "conception-bureau",
+    "file": "File:Ruler and laptop on a desk (Unsplash).jpg",
+    "alt": "Une règle et un ordinateur portable sur un bureau",
+    "caption": "Photographie d’illustration : les outils de préparation et de conception d’un projet.",
+    "tags": [
+      "site-web",
+      "conception",
+      "cahier-des-charges"
+    ]
+  },
+  {
+    "id": "carnet-projet",
+    "file": "File:Pen on a notebook (Unsplash).jpg",
+    "alt": "Un stylo posé sur un carnet fermé",
+    "caption": "Photographie d’illustration : un carnet et un stylo pour noter les priorités d’un projet.",
+    "tags": [
+      "cahier-des-charges",
+      "strategie",
+      "organisation"
+    ]
+  },
+  {
+    "id": "reunion-cafe",
+    "file": "File:Meeting at the Cafe (Unsplash).jpg",
+    "alt": "Des personnes autour d’une table de café, dont une tient un journal ouvert",
+    "caption": "Photographie d’illustration en noir et blanc : une table de café et la lecture d’un journal.",
+    "tags": [
+      "reunion",
+      "cafe",
+      "lecture",
+      "echange"
+    ]
+  },
+  {
+    "id": "echange-tablette",
+    "file": "File:Two people meeting with iphone and ipad (Unsplash).jpg",
+    "alt": "Deux personnes échangent avec un téléphone et une tablette",
+    "caption": "Photographie d’illustration : consulter ensemble des informations sur tablette et téléphone.",
+    "tags": [
+      "reunion",
+      "mobile",
+      "strategie",
+      "accompagnement"
+    ]
+  },
+  {
+    "id": "salle-echange",
+    "file": "File:Casual Meeting Room (Unsplash).jpg",
+    "alt": "Un espace de réunion convivial avec table et sièges",
+    "caption": "Photographie d’illustration : un lieu de travail pour les échanges et les décisions d’équipe.",
+    "tags": [
+      "reunion",
+      "PME",
+      "bureau"
+    ]
+  },
+  {
+    "id": "mobile-en-main",
+    "file": "File:Black smartphone in hand (Unsplash).jpg",
+    "alt": "Un téléphone noir tenu dans une main, vu de dos",
+    "caption": "Photographie d’illustration : un smartphone tenu en main.",
+    "tags": [
+      "mobile",
+      "responsive",
+      "site-web",
+      "parcours-client"
+    ]
+  },
+  {
+    "id": "mobile-ordinateur",
+    "file": "File:Man with smartphone and laptop (Unsplash).jpg",
+    "alt": "Une personne utilise un smartphone devant un ordinateur portable",
+    "caption": "Photographie d’illustration : passer du téléphone à l’ordinateur dans son travail quotidien.",
+    "tags": [
+      "mobile",
+      "responsive",
+      "PME",
+      "ordinateur"
+    ]
+  },
+  {
+    "id": "atelier-menuiserie",
+    "file": "File:Woodworking workshop (Unsplash).jpg",
+    "alt": "Un atelier de travail du bois avec établi et outils",
+    "caption": "Photographie d’illustration : un atelier de menuiserie et ses outils.",
+    "tags": [
+      "artisan",
+      "menuisier",
+      "atelier",
+      "metier"
+    ]
+  },
+  {
+    "id": "artisan-bois",
+    "file": "File:Woodworker in a workshop (Unsplash).jpg",
+    "alt": "Un artisan travaille le bois dans son atelier",
+    "caption": "Photographie d’illustration : le travail du bois dans un atelier.",
+    "tags": [
+      "artisan",
+      "menuisier",
+      "atelier",
+      "metier"
+    ]
+  },
+  {
+    "id": "atelier-etabli",
+    "file": "File:Toolkit and tools (Unsplash).jpg",
+    "alt": "Des outils à main disposés à plat : marteau, hachette, cutter et lampe",
+    "caption": "Photographie d’illustration : le contenu d’une boîte à outils, disposé à plat.",
+    "tags": [
+      "artisan",
+      "atelier",
+      "metier",
+      "preparation",
+      "outils"
+    ],
+    "fileName": "atelier-etabli-v2.webp"
+  },
+  {
+    "id": "atelier-perceuse",
+    "file": "File:The Workshop (Unsplash).jpg",
+    "alt": "Un artisan utilise une perceuse à colonne dans un atelier",
+    "caption": "Photographie d’illustration : un artisan à la perceuse à colonne.",
+    "tags": [
+      "artisan",
+      "atelier",
+      "metier",
+      "outil"
+    ]
+  },
+  {
+    "id": "chantier-vue-dessus",
+    "file": "File:View Above Construction Site (Unsplash).jpg",
+    "alt": "Un chantier de construction vu depuis les étages",
+    "caption": "Photographie d’illustration : l’organisation d’un chantier de construction.",
+    "tags": [
+      "chantier",
+      "batiment",
+      "artisan",
+      "organisation"
+    ]
+  },
+  {
+    "id": "chantier-travaux",
+    "file": "File:Construction work area (Unsplash).jpg",
+    "alt": "Des équipements industriels et des escaliers métalliques jaunes",
+    "caption": "Photographie d’illustration : un espace industriel et ses escaliers d’accès.",
+    "tags": [
+      "industrie",
+      "equipement",
+      "atelier",
+      "PME"
+    ]
+  },
+  {
+    "id": "commerce-disquaire",
+    "file": "File:Vintage record store (Unsplash).jpg",
+    "alt": "Les rayons d’un magasin de disques",
+    "caption": "Photographie d’illustration : un commerce indépendant et la présentation de son offre.",
+    "tags": [
+      "commerce",
+      "boutique",
+      "offre",
+      "local-commercial"
+    ]
+  },
+  {
+    "id": "commerce-vitrine",
+    "file": "File:Woman looking at shop window (Unsplash).jpg",
+    "alt": "Une passante regarde une vitrine de boutique",
+    "caption": "Photographie d’illustration : une vitrine attire le regard d’une passante.",
+    "tags": [
+      "commerce",
+      "boutique",
+      "vitrine",
+      "parcours-client"
+    ]
+  },
+  {
+    "id": "emballage-cadeau",
+    "file": "File:Unique Present Packaging (Unsplash).jpg",
+    "alt": "Papiers kraft, ficelle, tampons et outils d’emballage disposés sur une table",
+    "caption": "Photographie d’illustration : le matériel de préparation et de personnalisation des emballages.",
+    "tags": [
+      "ecommerce",
+      "emballage",
+      "produit",
+      "commerce"
+    ]
+  },
+  {
+    "id": "colis-cartons",
+    "downloadUrl": "https://images.pexels.com/photos/7857532/pexels-photo-7857532.jpeg?cs=srgb&dl=pexels-kampus-7857532.jpg&fm=jpg",
+    "sourceUrl": "https://www.pexels.com/photo/woman-sitting-at-the-table-and-packing-orders-7857532/",
+    "credit": "Kampus Production / Pexels",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "capturedAt": "Date de prise de vue non publiée sur la page source ; photographie attribuée à Kampus Production, Portugal.",
+    "originalWidth": 6016,
+    "originalHeight": 4016,
+    "alt": "Une personne étiquette un colis en carton devant un ordinateur portable et un registre de commandes",
+    "caption": "Photographie d’illustration : préparer et étiqueter une commande avant son expédition.",
+    "tags": [
+      "ecommerce",
+      "emballage",
+      "colis",
+      "logistique",
+      "commandes"
+    ],
+    "fileName": "colis-cartons-v2.webp"
+  },
+  {
+    "id": "analyse-documents",
+    "alt": "Une femme utilise un clavier devant un ordinateur de bureau, près de grandes fenêtres",
+    "caption": "Photographie d’illustration : travailler sur ordinateur dans un bureau lumineux.",
+    "tags": [
+      "ordinateur",
+      "bureau",
+      "digital",
+      "PME",
+      "travail"
+    ],
+    "downloadUrl": "https://images.pexels.com/photos/1181635/pexels-photo-1181635.jpeg?cs=srgb&dl=pexels-divinetechygirl-1181635.jpg&fm=jpg",
+    "sourceUrl": "https://www.pexels.com/photo/woman-sitting-in-front-of-computer-monitor-1181635/",
+    "credit": "Christina Morillo / Pexels",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "capturedAt": "Date non indiquée sur la page Pexels ; série photographique WOCinTech, crédit EXIF Mike Ngo Photography.",
+    "originalWidth": 5743,
+    "originalHeight": 3834,
+    "fileName": "analyse-documents-v2.webp"
+  },
+  {
+    "id": "mobile-cafe",
+    "file": "File:William Iven 2015-02-11 (Unsplash).jpg",
+    "alt": "Des mains tiennent un smartphone devant un ordinateur portable",
+    "caption": "Photographie d’illustration : l’utilisation d’un téléphone devant un ordinateur portable.",
+    "tags": [
+      "mobile",
+      "parcours-client",
+      "responsive"
+    ],
+    "fileName": "mobile-cafe-v2.webp"
+  },
+  {
+    "id": "bois-matiere",
+    "file": "File:Wood (Unsplash).jpg",
+    "alt": "Des blocs de bois aux textures naturelles",
+    "caption": "Photographie d’illustration : les matières et textures du travail du bois.",
+    "tags": [
+      "artisan",
+      "menuisier",
+      "bois",
+      "matiere"
+    ]
+  },
+  {
+    "id": "mobile-design",
+    "file": "File:Design smartphone definition (Unsplash).jpg",
+    "alt": "Un smartphone posé sur une table avec le mot design à l’écran",
+    "caption": "Photographie d’illustration : le design d’un parcours pensé pour le téléphone.",
+    "tags": [
+      "mobile",
+      "design",
+      "site-web",
+      "responsive"
+    ]
+  }
+]

@@ -4,24 +4,33 @@ import { z } from 'zod'
  * Schema Zod pour validation formulaire contact
  */
 export const contactFormSchema = z.object({
-    nom: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
-    email: z.string().email('Email invalide'),
+    nom: z.string().trim().min(2, 'Le nom doit contenir au moins 2 caractères').max(100, '100 caractères maximum').regex(/^[^\r\n\x00-\x1f\x7f]+$/, 'Nom invalide'),
+    email: z.string().trim().max(254, 'Email trop long').email('Email invalide'),
     telephone: z
         .string()
-        .regex(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/, 'Téléphone invalide')
-        .optional()
-        .or(z.literal('')),
-    entreprise: z.string().optional(),
+        .trim().min(1, 'Le téléphone est obligatoire').max(30, 'Téléphone trop long')
+        .regex(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/, 'Téléphone invalide'),
+    entreprise: z.string().trim().max(200, '200 caractères maximum').regex(/^[^\r\n\x00-\x1f\x7f]*$/, 'Entreprise invalide').optional(),
     service: z.enum([
         'sites-vitrine',
         'seo-local',
         'google-ads',
         'e-commerce',
         'audit',
+        'refonte',
+        'maintenance',
+        'outils-ia',
+        'applications-web',
+        'automatisation',
+        'landing-page',
+        'seo',
+        'google-business-profile',
+        'developpement-web',
+        'integrations-api',
         'autre',
-    ]),
-    budget: z.enum(['moins-1000', '1000-3000', '3000-5000', 'plus-5000', 'ne-sais-pas']),
-    message: z.string().min(10, 'Le message doit contenir au moins 10 caractères'),
+    ], { error: 'Choisissez le service qui vous intéresse' }),
+    budget: z.enum(['moins-1000', '1000-3000', '3000-10000', '10000-30000', 'plus-30000', 'ne-sais-pas'], { error: 'Choisissez une fourchette de budget' }),
+    message: z.string().trim().min(10, 'Le message doit contenir au moins 10 caractères').max(5000, '5 000 caractères maximum').regex(/^[^\x00-\x08\x0b\x0c\x0e-\x1f\x7f]*$/, 'Message invalide'),
     rgpd: z.boolean().refine((val) => val === true, {
         message: 'Vous devez accepter la politique de confidentialité',
     }),

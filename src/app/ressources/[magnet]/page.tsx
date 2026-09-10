@@ -1,3 +1,4 @@
+import { HeroBackdrop } from '@/components/ui/HeroBackdrop'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { LEAD_MAGNETS, LeadMagnetId, LeadMagnetInline } from '@/components/lead-magnets'
@@ -42,7 +43,8 @@ export default async function LeadMagnetPage({ params }: LeadMagnetPageProps) {
     return (
         <div className="min-h-screen-dynamic pt-32 lg:pt-40 pb-20 bg-gray-50 dark:bg-[#050505]">
             <div className="container-fluid">
-                <div className="max-w-4xl mx-auto text-center mb-8">
+                <div className="litus-page-hero relative overflow-hidden max-w-4xl mx-auto text-center mb-8 p-8">
+                    <HeroBackdrop />
                     <span className="inline-block px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
                         Ressource Gratuite
                     </span>

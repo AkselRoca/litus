@@ -1,22 +1,26 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { ServiceHero } from '@/components/sections/services/ServiceHero'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
-import { Check, Star, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react'
+import { Check, Star, ArrowRight, ShieldCheck, Rocket } from 'lucide-react'
 import { ScrollReveal } from '@/components/ui/Animations'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion'
 import { cn } from '@/lib/utils'
 
 interface ServicePageProps {
+    hero?: React.ReactNode
     title: string
+    titleAccent?: string
     subtitle: string
     description: string
     heroImage?: string
     heroImagePosition?: string
     seoContent?: React.ReactNode
     features: {
+        id?: string
         title: string
         description: string
         icon: React.ReactNode
@@ -60,7 +64,9 @@ interface ServicePageProps {
 }
 
 export function ServicePageTemplate({
+    hero,
     title,
+    titleAccent,
     subtitle,
     description,
     heroImage,
@@ -68,111 +74,25 @@ export function ServicePageTemplate({
     seoContent,
     features,
     featuredProject,
-    realizations,
     pricing,
     faqs,
 }: ServicePageProps) {
     return (
         <main className="min-h-screen bg-white dark:bg-[#050505] overflow-hidden selection:bg-orange-500/30">
 
-            {/* --- HERO SECTION --- */}
-            <section className="relative pt-44 pb-32 lg:pt-60 lg:pb-40 overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-gradient-to-b from-orange-50 via-white/80 to-transparent dark:from-orange-500/15 dark:via-orange-900/5 dark:to-transparent blur-[100px] opacity-100 dark:opacity-60" />
-                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.05] dark:opacity-[0.08] [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]" />
-                </div>
-
-                <div className="container-fluid relative z-10 px-4 max-w-7xl mx-auto">
-                    <div className={cn("grid gap-12 items-center", heroImage ? "lg:grid-cols-2" : "text-center max-w-5xl mx-auto")}>
-
-                        <div className={cn("flex flex-col", heroImage ? "text-left items-start" : "items-center")}>
-                            <ScrollReveal>
-                                <motion.div
-                                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-100/80 to-white/80 dark:from-orange-500/10 dark:to-orange-600/10 border border-orange-200/60 dark:border-orange-500/20 rounded-full mb-8 backdrop-blur-sm shadow-sm dark:shadow-none"
-                                    whileHover={{ scale: 1.05 }}
-                                >
-                                    <Sparkles className="w-4 h-4 text-orange-600 dark:text-orange-400" />
-                                    <span className="text-sm font-bold text-orange-800 dark:text-orange-400 uppercase tracking-wide">AGENCE EXPERTE</span>
-                                </motion.div>
-                            </ScrollReveal>
-
-                            <ScrollReveal delay={0.1}>
-                                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-[1.05]">
-                                    <span className="block">{title.split(':')[0]}</span>
-                                    <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent">
-                                        {title.includes(':') ? title.split(':')[1] : ''}
-                                    </span>
-                                </h1>
-                            </ScrollReveal>
-
-                            <ScrollReveal delay={0.2}>
-                                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed">
-                                    {subtitle}
-                                </p>
-                            </ScrollReveal>
-
-                            <ScrollReveal delay={0.3}>
-                                <div className="flex flex-col sm:flex-row items-center gap-4">
-                                    <Button
-                                        href="#contact"
-                                        size="lg"
-                                        className="w-full sm:w-auto h-14 px-8 text-base font-semibold shadow-[0_0_40px_-10px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_-10px_rgba(249,115,22,0.6)] transition-all bg-orange-600 hover:bg-orange-700 text-white border-none rounded-full"
-                                    >
-                                        Devis Gratuit
-                                        <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Button>
-                                    <Button
-                                        variant="secondary"
-                                        href="#tarifs"
-                                        size="lg"
-                                        className="w-full sm:w-auto h-14 px-8 text-base bg-white/50 dark:bg-white/5 backdrop-blur-md border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-200 rounded-full"
-                                    >
-                                        Voir les Tarifs
-                                    </Button>
-                                </div>
-                            </ScrollReveal>
-                        </div>
-
-                        {heroImage && (
-                            <ScrollReveal delay={0.4} className="relative hidden lg:block h-full min-h-[500px]">
-                                <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-white/10">
-                                    <img
-                                        src={heroImage}
-                                        alt="Agence Litus Team"
-                                        className={cn("w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000", heroImagePosition || "object-center")}
-                                    />
-                                    {/* Overlay Gradient to blend with dark mode if needed */}
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-transparent pointer-events-none" />
-                                </div>
-                                {/* Floating decorative elements */}
-                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/20 rounded-full blur-[50px]" />
-                                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/20 rounded-full blur-[50px]" />
-                            </ScrollReveal>
-                        )}
-
-                    </div>
-                </div>
-            </section>
-
-            {/* --- TRUST INDICATORS --- */}
-            <section className="py-12 border-y border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
-                <div className="container-fluid px-4 max-w-7xl mx-auto">
-                    <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-                        <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-                            <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                            <span className="font-bold text-gray-900 dark:text-white">5/5 Google</span>
-                        </div>
-                        <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-                            <ShieldCheck className="w-5 h-5 text-green-500" />
-                            <span className="font-bold text-gray-900 dark:text-white">Garantie Résultat</span>
-                        </div>
-                        <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-                            <RocketIcon className="w-5 h-5 text-blue-500" />
-                            <span className="font-bold text-gray-900 dark:text-white">Livraison Rapide</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {hero ?? <ServiceHero
+                id="service-title"
+                title={title}
+                accent={titleAccent}
+                description={subtitle}
+                secondaryAction={{ label: 'Voir les tarifs', href: '#tarifs' }}
+                visual={<div className="service-hero-photo"><Image src={heroImage || '/hero-studio-editorial.webp'} alt={`Illustration du service : ${title}`} fill priority sizes="(max-width: 850px) 100vw, 52vw" className={heroImagePosition} /></div>}
+                proof={<div className="service-hero-assurances">
+                    <span><Star aria-hidden="true" />5/5 Google</span>
+                    <span><ShieldCheck aria-hidden="true" />Garantie Résultat</span>
+                    <span><Rocket aria-hidden="true" />Livraison Rapide</span>
+                </div>}
+            />}
 
             {/* --- FEATURES GRID (PREMIUM BENTO STYLE) --- */}
             <section className="py-32 bg-white dark:bg-[#050505] relative">
@@ -185,7 +105,7 @@ export function ServicePageTemplate({
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {features.map((feature, idx) => (
                             <ScrollReveal key={idx} delay={idx * 0.1} className={feature.colSpan || ''}>
-                                <Card variant="hover-3d" className={cn("h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative group p-0 flex flex-col", feature.className)}>
+                                <Card id={feature.id} variant="hover-3d" className={cn("h-full bg-white dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 overflow-hidden relative group p-0 flex flex-col", feature.className)}>
                                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-transparent to-black/5 dark:to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                     <div className="relative z-10 p-8 flex flex-col h-full">
@@ -329,7 +249,7 @@ export function ServicePageTemplate({
                                             </li>
                                         ))}
                                     </ul>
-                                    <Button size="lg" className="w-full h-14 text-base bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800" href="/contact?plan=starter">
+                                    <Button size="lg" variant="secondary" className="w-full" href={`/contact?objet=${encodeURIComponent(`Offre Accessibilité — ${title}`)}`}>
                                         Choisir cette offre
                                     </Button>
                                 </Card>
@@ -351,7 +271,7 @@ export function ServicePageTemplate({
                                 </p>
 
                                 <div className="relative z-10">
-                                    <Button size="lg" className="w-full h-14 text-base bg-orange-600 hover:bg-orange-700 text-white border-none rounded-full" href="/contact?plan=custom">
+                                    <Button size="lg" className="w-full" href={`/contact?objet=${encodeURIComponent(`Projet sur mesure — ${title}`)}`}>
                                         Demander un devis
                                     </Button>
                                 </div>
@@ -387,9 +307,9 @@ export function ServicePageTemplate({
                     </h2>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Button
-                            href="#contact"
+                            href="/contact"
                             size="lg"
-                            className="rounded-full px-10 h-14 bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"
+                            className="px-10"
                         >
                             Démarrer mon projet
                         </Button>
@@ -398,27 +318,5 @@ export function ServicePageTemplate({
             </section>
 
         </main>
-    )
-}
-
-function RocketIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-        </svg>
     )
 }

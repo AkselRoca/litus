@@ -20,11 +20,13 @@ const config: Config = {
 
     extend: {
       colors: {
+        white: '#F7F6F2',
+        ink: '#1F2937',
         // Design System Litus (UX Spec)
-        primary: '#FF4925', // Orange Litus
-        snow: '#FDFFFC',    // Fond clair
-        dark: '#0A0A0A',    // Fond sombre
-        muted: '#555555',   // Deep Nuance
+        primary: '#E95E2A', // Orange Litus
+        snow: '#F7F6F2',    // Fond clair
+        dark: '#1F2937',    // Fond sombre
+        muted: '#5F6874',   // Deep Nuance
         success: '#23CE6B', // Validation/checkmarks
 
         // Semantic colors (CSS variables pour dark mode)
@@ -33,7 +35,7 @@ const config: Config = {
       },
 
       fontFamily: {
-        heading: ['Cal Sans', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
         accent: ['Borel', 'cursive'],
       },
