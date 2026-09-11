@@ -5,7 +5,12 @@
 const inFlight = new Map<string, Promise<Response>>()
 const memoryKeys = new Map<string, string>()
 export async function submitContact(payload: object): Promise<Response> {
-  const body = JSON.stringify({ website_check: '', ...payload })
+  const body = JSON.stringify({
+    website_check: '',
+    page_url: typeof window !== 'undefined' ? window.location.href : undefined,
+    referrer: typeof document !== 'undefined' ? document.referrer : undefined,
+    ...payload,
+  })
   const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(body))
   const fingerprint = Array.from(new Uint8Array(bytes), byte => byte.toString(16).padStart(2, '0')).join('')
   const existing = inFlight.get(fingerprint)

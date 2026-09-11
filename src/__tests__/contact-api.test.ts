@@ -66,7 +66,12 @@ describe('contact API', () => {
     let call = 0
     infra.setProvider(() => ++call === 1 ? new Promise(resolve => { accept = resolve }) : Promise.resolve(Response.json({ id: 'confirmation-accepted' })))
     let finished = false
-    const sending = POST(request()).then(value => { finished = true; return value })
+    const sending = POST(request({ ...data, page_url: 'https://litus.test/contact', referrer: 'https://google.test/search?q=litus' }, uuid(), {
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+      'x-vercel-ip-country': 'FR',
+      'x-vercel-ip-city': 'Lorient',
+      referer: 'https://litus.test/contact',
+    })).then(value => { finished = true; return value })
     await vi.waitFor(() => expect(infra.emails).toHaveLength(1))
     expect(finished).toBe(false)
     accept(Response.json({ id: 'resend-accepted' }))
@@ -74,6 +79,12 @@ describe('contact API', () => {
     expect(response.status).toBe(201)
     expect((await response.json()).success).toBe(true)
     expect(infra.emails[0].body).toMatchObject({ to: ['litusagency@gmail.com'], from: 'Litus <contact@notifications.litus.test>', reply_to: data.email, subject: 'Nouvelle demande de contact — Marie Dupont — SEO local' })
+    expect(infra.emails[0].body.text).toContain('Informations techniques')
+    expect(infra.emails[0].body.text).toContain('Adresse IP :\n198.51.100.1')
+    expect(infra.emails[0].body.text).toContain('Page d’origine :\nhttps://litus.test/contact')
+    expect(infra.emails[0].body.text).toContain('Pays / ville approximative :\nLorient, FR')
+    expect(infra.emails[0].body.text).toContain('Honeypot :\nChamp présent et vide')
+    expect(infra.emails[0].body.html).toContain('Informations techniques')
     expect(infra.emails).toHaveLength(2)
     expect(infra.emails[1].body).toMatchObject({ to: [data.email], from: 'Litus <contact@notifications.litus.test>', reply_to: 'litusagency@gmail.com', subject: 'Nous avons bien reçu votre demande — Litus' })
     expect(infra.emails[0].key).toMatch(/\/notification$/)

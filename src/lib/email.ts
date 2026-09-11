@@ -14,18 +14,46 @@ const budgetLabels: Record<ContactFormData['budget'], string> = {
   'moins-1000': 'Moins de 1 000 €', '1000-3000': 'Entre 1 000 € et 3 000 €', '3000-10000': 'Entre 3 000 € et 10 000 €',
   '10000-30000': 'Entre 10 000 € et 30 000 €', 'plus-30000': 'Plus de 30 000 €', 'ne-sais-pas': 'Je ne sais pas encore',
 }
+export interface ContactTechnicalInfo {
+  ipAddress: string
+  submittedAt: string
+  userAgent: string
+  browser: string
+  device: string
+  pageUrl: string
+  requestUrl: string
+  referrer: string
+  location: string
+  honeypot: string
+  protections: string
+}
 export function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!)
 }
-export function contactEmail(data: ContactFormData, from: string) {
+export function contactEmail(data: ContactFormData, from: string, technical?: ContactTechnicalInfo) {
   const fields = [ ['Nom', data.nom], ['Email', data.email], ['Téléphone', data.telephone || 'Non renseigné'],
     ['Entreprise / Site web', data.entreprise || 'Non renseigné'], ['Service souhaité', serviceLabels[data.service]],
     ['Budget estimé', budgetLabels[data.budget]], ['Description du projet', data.message] ]
+  const technicalFields = technical ? [
+    ['Adresse IP', technical.ipAddress],
+    ['Date et heure exactes', technical.submittedAt],
+    ['User-Agent', technical.userAgent],
+    ['Navigateur', technical.browser],
+    ['Appareil', technical.device],
+    ['Page d’origine', technical.pageUrl],
+    ['URL du formulaire', technical.requestUrl],
+    ['Pays / ville approximative', technical.location],
+    ['Referrer', technical.referrer],
+    ['Honeypot', technical.honeypot],
+    ['Protections anti-spam', technical.protections],
+  ] : []
+  const technicalText = technicalFields.length ? `\n\nInformations techniques\n\n${technicalFields.map(([label, value]) => `${label} :\n${value}`).join('\n\n')}` : ''
+  const technicalHtml = technicalFields.length ? `<tr><td style="padding:0 30px 30px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #eceeef"><tr><td style="padding-top:22px"><h2 style="margin:0 0 12px;color:#142237;font-size:17px;line-height:1.3">Informations techniques</h2><p style="margin:0 0 14px;color:#657185;font-size:12px;line-height:1.55">Données limitées à la vérification de sécurité et à la lutte contre le spam.</p>${technicalFields.map(([label, value]) => `<div style="padding:10px 0;border-bottom:1px solid #f0f1f3"><p style="font-size:10px;font-weight:bold;letter-spacing:.5px;text-transform:uppercase;color:#657185;margin:0 0 4px">${label}</p><p style="font-size:12px;line-height:1.55;margin:0;color:#39465a;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word">${escapeHtml(value)}</p></div>`).join('')}</td></tr></table></td></tr>` : ''
   return {
     from: `Litus <${from}>`, to: [CONTACT_RECIPIENT], reply_to: data.email,
     subject: `Nouvelle demande de contact — ${data.nom} — ${serviceLabels[data.service]}`,
-    text: `Nouvelle demande de contact — Litus\n\n${fields.map(([label, value]) => `${label} :\n${value}`).join('\n\n')}`,
-    html: `<!doctype html><html lang="fr"><head><meta name="viewport" content="width=device-width,initial-scale=1"><meta charset="utf-8"></head><body style="margin:0;background:#f7f6f2;color:#142237;font-family:Arial,sans-serif"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:28px 12px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;margin:auto;background:#fff;border:1px solid #e1e3e6;border-radius:18px"><tr><td style="padding:30px;border-bottom:3px solid #e95e2a"><p style="margin:0 0 12px;color:#c7431b;font-size:12px;font-weight:bold;letter-spacing:2px">LITUS · NOUVEAU PROJET</p><h1 style="font-size:26px;line-height:1.2;margin:0;color:#142237">Voici la nouvelle demande reçue.</h1><p style="margin:10px 0 0;color:#657185;font-size:14px;line-height:1.6">Toutes les informations utiles sont regroupées ci-dessous.</p></td></tr><tr><td style="padding:8px 30px 26px">${fields.map(([label, value]) => `<div style="padding:16px 0;border-bottom:1px solid #eceeef"><p style="font-size:11px;font-weight:bold;letter-spacing:.6px;text-transform:uppercase;color:#c7431b;margin:0 0 6px">${label}</p><p style="font-size:15px;line-height:1.6;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word">${escapeHtml(value)}</p></div>`).join('')}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;background:#fff5ef;border-radius:12px"><tr><td style="padding:16px;color:#536176;font-size:13px;line-height:1.55">Répondez directement à cet email : la réponse sera envoyée à <strong>${escapeHtml(data.email)}</strong>.</td></tr></table></td></tr></table></td></tr></table></body></html>`,
+    text: `Nouvelle demande de contact — Litus\n\n${fields.map(([label, value]) => `${label} :\n${value}`).join('\n\n')}${technicalText}`,
+    html: `<!doctype html><html lang="fr"><head><meta name="viewport" content="width=device-width,initial-scale=1"><meta charset="utf-8"></head><body style="margin:0;background:#f7f6f2;color:#142237;font-family:Arial,sans-serif"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:28px 12px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;margin:auto;background:#fff;border:1px solid #e1e3e6;border-radius:18px"><tr><td style="padding:30px;border-bottom:3px solid #e95e2a"><p style="margin:0 0 12px;color:#c7431b;font-size:12px;font-weight:bold;letter-spacing:2px">LITUS · NOUVEAU PROJET</p><h1 style="font-size:26px;line-height:1.2;margin:0;color:#142237">Voici la nouvelle demande reçue.</h1><p style="margin:10px 0 0;color:#657185;font-size:14px;line-height:1.6">Toutes les informations utiles sont regroupées ci-dessous.</p></td></tr><tr><td style="padding:8px 30px 26px">${fields.map(([label, value]) => `<div style="padding:16px 0;border-bottom:1px solid #eceeef"><p style="font-size:11px;font-weight:bold;letter-spacing:.6px;text-transform:uppercase;color:#c7431b;margin:0 0 6px">${label}</p><p style="font-size:15px;line-height:1.6;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word">${escapeHtml(value)}</p></div>`).join('')}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;background:#fff5ef;border-radius:12px"><tr><td style="padding:16px;color:#536176;font-size:13px;line-height:1.55">Répondez directement à cet email : la réponse sera envoyée à <strong>${escapeHtml(data.email)}</strong>.</td></tr></table></td></tr>${technicalHtml}</table></td></tr></table></body></html>`,
   }
 }
 
@@ -50,8 +78,8 @@ async function sendEmail(payload: ReturnType<typeof contactEmail> | ReturnType<t
   return result.id as string
 }
 
-export async function sendContactEmails(data: ContactFormData, config: ContactConfig, idempotencyKey: string) {
-  const notificationId = await sendEmail(contactEmail(data, config.RESEND_FROM_EMAIL), config, `${idempotencyKey}/notification`)
+export async function sendContactEmails(data: ContactFormData, config: ContactConfig, idempotencyKey: string, technical?: ContactTechnicalInfo) {
+  const notificationId = await sendEmail(contactEmail(data, config.RESEND_FROM_EMAIL, technical), config, `${idempotencyKey}/notification`)
   const confirmationId = await sendEmail(contactConfirmationEmail(data, config.RESEND_FROM_EMAIL), config, `${idempotencyKey}/confirmation`)
   return { notificationId, confirmationId }
 }
