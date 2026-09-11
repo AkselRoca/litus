@@ -6,7 +6,6 @@ import { Footer } from '@/components/layout/Footer'
 import { CookieBanner } from '@/components/ui/CookieBanner'
 import { GoogleReviews } from '@/components/sections/GoogleReviews'
 import { LeadMagnetSlideIn } from '@/components/lead-magnets'
-import { LeadCapturePopup } from '@/components/ui/LeadCapturePopup'
 
 interface PublicLayoutWrapperProps {
     children: React.ReactNode
@@ -44,11 +43,9 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
             <GoogleReviews />
             <Footer />
             <CookieBanner />
-            {pathname !== '/' && !hasDedicatedContactJourney && (magnetId ? (
+            {pathname !== '/' && !hasDedicatedContactJourney && magnetId && (
                 <LeadMagnetSlideIn magnetId={magnetId} scrollTriggerPercent={65} delayMs={45000} />
-            ) : (
-                <LeadCapturePopup delayMs={45000} scrollTriggerPercent={65} />
-            ))}
+            )}
         </>
     )
 }
