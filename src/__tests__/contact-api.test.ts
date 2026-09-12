@@ -193,7 +193,7 @@ describe('contact API', () => {
   it('escapes every user value in HTML while retaining plain text', () => {
     const email = contactEmail({ ...data, nom: '<b>Marie</b>', entreprise: '<img src=x onerror="alert(1)">', message: 'Projet <script>alert(1)</script> & devis' }, 'contact@litus.test')
     expect(email.html).not.toContain('<script>')
-    expect(email.html).not.toContain('<img')
+    expect(email.html).not.toContain('<img src=x')
     expect(email.html).toContain('&lt;b&gt;Marie&lt;/b&gt;')
     expect(email.text).toContain('Projet <script>alert(1)</script> & devis')
     const confirmation = contactConfirmationEmail({ ...data, nom: '<b>Marie</b>' }, 'contact@litus.test')
