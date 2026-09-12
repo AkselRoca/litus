@@ -13,7 +13,13 @@ const schema = contactFormSchema.extend({
   website_check: z.string().max(500).optional(),
   page_url: z.string().url().max(2048).optional().or(z.literal('')),
   referrer: z.string().url().max(2048).optional().or(z.literal('')),
-}).strict()
+}).strict().superRefine((data, context) => {
+  // The compact contact page has no service selector. Other service-specific
+  // forms keep their existing requirements rather than inheriting this change.
+  if (!data.service && !data.telephone) {
+    context.addIssue({ code: 'custom', path: ['telephone'], message: 'Le téléphone est obligatoire' })
+  }
+})
 const json = (body: object, status: number, headers: Record<string, string> = {}) => NextResponse.json(body, { status, headers: { 'Cache-Control': 'no-store', ...headers } })
 const unavailable = () => json({ success: false, error: 'L’envoi est temporairement indisponible. Vos informations sont conservées. Contactez-nous au 07 44 98 55 21 ou à litusagency@gmail.com.' }, 503)
 

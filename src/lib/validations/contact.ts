@@ -39,9 +39,8 @@ export const contactFormSchema = z.object({
 export type ContactFormData = z.infer<typeof contactFormSchema>
 
 // Keep the detailed forms' required fields unchanged. The contact page only
-// collects the three essential fields, plus explicit privacy acceptance.
+// collects name, email, phone and project, plus explicit privacy acceptance.
 export const compactContactFormSchema = contactFormSchema.omit({
-    telephone: true,
     entreprise: true,
     service: true,
     budget: true,
