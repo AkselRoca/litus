@@ -39,14 +39,17 @@ export default function PortfolioEditorial({ projects }: { projects: Project[] }
             const slug = story?.slug ?? portfolioSlug(project.title);
             const tags = story?.stack ?? values(project.tags);
             const cover = story?.cover;
-            const span = ({"demetis-immo":12,"aspire-energie":8,"west-clotures-paysage":4,"nos-travaux":4,"noventis-conseil":8,"femmes-des-territoires":8,"broadwhey":4,"murasaki-team":8,"elevage-maupas":4,"azra-photographie":4,"del-rio-pizzeria":8,"loumor-debarras":6,"geoproxio":6,"menuiserie-jerome-rio":8,"aire-des-iles":4} as Record<string, number>)[slug] ?? [8, 4, 4, 8, 6, 6][(story?.order ?? index) % 6];
+            const secondary = story?.gallery.find((asset) => asset.src !== cover?.src && asset.kind !== 'mobile');
+            const span = story?.performance ? 8 : [8, 4, 4, 8, 8, 4, 6, 6, 8, 4, 4, 8][index % 12];
+            const layered = !story?.performance && secondary && span >= 8 && layout === 'portfolio';
             return (
               <article key={project.id} className={`portfolio-project portfolio-span-${story?.performance ? 8 : span}${story?.archived ? ' is-archive' : ''}`} style={{ '--project-accent': story?.accent ?? '#ff581c', '--project-tone': story?.tone ?? '#efebe4', '--project-delay': `${Math.min(index % 4, 3) * 75}ms` } as CSSProperties}>
-                <Link href={`/realisations/${slug}`} className={`portfolio-art${story?.performance ? ' is-acquisition' : cover?.kind === 'brand' ? ' is-photographic' : ' is-interface'}`} aria-label={`Découvrir ${story?.performance ? 'le cas Google Ads' : 'le projet'} ${project.title}`}>
+                <Link href={`/realisations/${slug}`} className={`portfolio-art${story?.performance ? ' is-acquisition' : cover?.kind === 'brand' ? ' is-photographic' : ' is-interface'}${layered ? ' is-layered' : ''}`} aria-label={`Découvrir ${story?.performance ? 'le cas Google Ads' : 'le projet'} ${project.title}`}>
                   {story?.performance ? <AcquisitionResults title={story.title} results={story.performance} compact /> : <div className="portfolio-image-frame">
                     {cover?.kind !== 'brand' && <div className="portfolio-browser" aria-hidden="true"><i /><i /><i /><span>{project.title}</span></div>}
                     <Image src={cover?.src ?? project.imageUrl} alt={cover?.alt ?? `Aperçu du site ${project.title}`} width={cover?.width ?? 1440} height={cover?.height ?? 1000} sizes={layout === 'list' ? '(max-width: 760px) 90vw, 35vw' : span >= 8 ? '(max-width: 760px) 92vw, (max-width: 1100px) 60vw, 850px' : '(max-width: 760px) 92vw, 42vw'} priority={index === 0} className="portfolio-cover" />
                   </div>}
+                  {layered && secondary && <div className={`portfolio-inset${secondary.kind === 'brand' ? ' is-photo' : ''}`}><Image src={secondary.src} alt={secondary.alt} width={secondary.width} height={secondary.height} sizes="(max-width: 760px) 32vw, 270px" loading="lazy" /></div>}
                   <span className="portfolio-open" aria-hidden="true"><ArrowUpRight size={23} /></span>
                   {story?.scopeOnly && <span className="portfolio-scope-tag">{slug === 'broadwhey' ? 'Conseil e-commerce' : 'Accompagnement du blog'}</span>}
                 </Link>

@@ -4,6 +4,12 @@ Le numéro de build affiché dans le footer se trouve dans `src/components/layou
 
 ## Règle d'incrémentation
 
+## 1.12.b - Retour au design précédent du portfolio
+
+Restauration des proportions, cadrages, inclinaisons et superpositions de la version précédente de Réalisations. Les projets ajoutés, leur ordre et le cas acquisition SARL Péan J sont conservés.
+
+### Convention de numérotation
+
 - Changement mineur ou correctif isolé : incrémenter la lettre, par exemple `1.01.d` -> `1.01.e`.
 - Lot de modifications visible côté utilisateur, refonte de bloc, emails, responsive ou plusieurs fichiers : incrémenter le deuxième nombre et repartir à `a`, par exemple `1.01.d` -> `1.02.a`.
 - Refonte majeure ou changement très large du site : incrémenter le premier nombre, par exemple `1.02.a` -> `2.00.a`.
