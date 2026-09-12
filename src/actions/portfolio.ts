@@ -1,5 +1,6 @@
 'use server'
 
+import { curatePublicProjects } from '@/lib/portfolio-projects';
 import { prisma } from '@/lib/database_final'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
@@ -36,31 +37,18 @@ export async function getProjects() {
 // Projets visibles uniquement (pour le site public)
 export async function getVisibleProjects() {
     try {
-        const projects = await prisma.project.findMany({
-            where: { visible: true },
-            orderBy: [
-                { order: 'asc' },
-                { createdAt: 'desc' }
-            ],
-        })
-        return { success: true, data: projects }
-    } catch (error: any) {
-        console.error('Detailed DB Error:', error)
-        return { success: false, error: 'DB Error: ' + (error?.message || String(error)) }
+        const projects = await prisma.project.findMany({ orderBy: [{ order: 'asc' }, { createdAt: 'desc' }] });
+        return { success: true as const, data: curatePublicProjects(projects) };
+    } catch (error) {
+        console.error('Portfolio loading failed', error);
+        return { success: false as const, error: 'Les réalisations sont momentanément indisponibles.' };
     }
 }
 
 export async function getFeaturedProjects() {
-    try {
-        const projects = await prisma.project.findMany({
-            where: { featured: true },
-            orderBy: { createdAt: 'desc' },
-            take: 6,
-        })
-        return { success: true, data: projects }
-    } catch (error) {
-        return { success: false, error: 'Erreur lors du chargement des projets mis en avant' }
-    }
+    const result = await getVisibleProjects();
+    if (!result.success) return result;
+    return { success: true as const, data: result.data.filter((project) => project.featured).slice(0, 6) };
 }
 
 export async function getProjectById(id: string) {

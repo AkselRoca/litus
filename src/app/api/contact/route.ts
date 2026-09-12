@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { randomUUID } from 'node:crypto'
 import { z } from 'zod'
 import { sendContactEmails, type ContactTechnicalInfo } from '@/lib/email'
-import { contactFormSchema } from '@/lib/validations/contact'
+import { contactSubmissionSchema as contactFormSchema } from '@/lib/validations/contact'
 import { contactConfiguration } from '@/lib/contact/config'
 import { checkRate, claimSubmission, clientAddress, digest, finishSubmission, submissionKey } from '@/lib/contact/store'
 

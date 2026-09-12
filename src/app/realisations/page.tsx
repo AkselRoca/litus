@@ -1,40 +1,21 @@
-import { getVisibleProjects } from '@/actions/portfolio'
-import { PortfolioEditorial } from '@/components/portfolio/PortfolioEditorial'
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { getVisibleProjects } from '@/actions/portfolio';
+import PortfolioEditorial from '@/components/portfolio/PortfolioEditorial';
+import { portfolioSlug } from '@/lib/portfolio-slugs';
 
-export const metadata = {
-    title: 'Nos Réalisations | Agence Web Litus',
-    description: 'Découvrez nos derniers projets : Sites vitrines, E-commerce, Applications web et campagnes Google Ads.',
-}
-
+export const metadata: Metadata = {
+  title: 'Réalisations web & e-commerce | Portfolio Litus',
+  description: 'Découvrez les projets clients de Litus : sites web, boutiques Shopify, contenus, SEO et conseil e-commerce. De vraies interfaces et un accompagnement expliqué projet par projet.',
+  alternates: { canonical: 'https://www.litus.fr/realisations' },
+  openGraph: { title: 'Les réalisations Litus : des projets, des univers, du concret', description: 'Sites internet, e-commerce et accompagnement digital : explorez nos projets clients.', url: 'https://www.litus.fr/realisations', type: 'website', images: [{ url: '/realisations/clients/murasaki-team/accueil.webp', width: 1440, height: 1000, alt: 'Le site de Murasaki Team, projet du portfolio Litus' }] },
+};
+export const revalidate = 300;
 export default async function RealisationsPage() {
-    const { success, data: projects, error } = await getVisibleProjects()
-
-    if (!success || !projects) {
-        return (
-            <div className="min-h-screen flex flex-col items-center justify-center p-4">
-                <h1 className="text-xl font-bold mb-2">Erreur de chargement</h1>
-                <pre className="bg-red-50 p-4 rounded text-red-600 max-w-2xl overflow-auto border border-red-200">
-                    {error || "Erreur inconnue"}
-                </pre>
-            </div>
-        )
-    }
-
-    // Projects are already sorted by 'order' from getProjects
-    // No additional sorting needed here
-
-    return (
-        <main className="min-h-screen bg-snow dark:bg-dark selection:bg-primary/30 selection:text-primary-foreground transition-colors duration-700">
-            {/* Editorial Showcase (Includes Hero & Filters) */}
-            <PortfolioEditorial projects={projects} />
-
-            {/* Footer Call to Action (Simple) */}
-            <section className="portfolio-outro">
-                <h2>Et si nous parlions de votre projet ?</h2>
-                <a href="/contact" className="site-cta-primary">
-                    Parlons de votre projet <span aria-hidden="true">→</span>
-                </a>
-            </section>
-        </main>
-    )
+  const result = await getVisibleProjects();
+  if (!result.success || !result.data) return <section className="portfolio-case"><div className="portfolio-container"><h1>Nos réalisations</h1><p>La sélection est momentanément indisponible. Vous pouvez nous contacter pour découvrir nos projets.</p><Link href="/contact" className="portfolio-cta">Contacter Litus</Link></div></section>;
+  const projects = result.data;
+  const schema = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Réalisations Litus', url: 'https://www.litus.fr/realisations', mainEntity: { '@type': 'ItemList', itemListElement: projects.map((project, index) => ({ '@type': 'ListItem', position: index + 1, name: project.title, url: `https://www.litus.fr/realisations/${portfolioSlug(project.title)}` })) } };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /><PortfolioEditorial projects={projects} /><section className="portfolio-outro"><div className="portfolio-container"><div className="portfolio-outro-inner"><div><h2>Votre activité mérite<br />son propre chapitre.</h2><p>Un projet en tête ? Commençons par en parler, simplement.</p></div><Link href="/contact" className="portfolio-cta">Contacter Litus <ArrowUpRight size={18} aria-hidden="true" /></Link></div></div></section></>;
 }

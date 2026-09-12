@@ -37,3 +37,23 @@ export const contactFormSchema = z.object({
 })
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
+
+// Keep the detailed forms' required fields unchanged. The contact page only
+// collects the three essential fields, plus explicit privacy acceptance.
+export const compactContactFormSchema = contactFormSchema.omit({
+    telephone: true,
+    entreprise: true,
+    service: true,
+    budget: true,
+})
+export type CompactContactFormData = z.infer<typeof compactContactFormSchema>
+
+// The shared endpoint accepts both forms without fabricating missing answers.
+// Optional values still receive their original validation when supplied.
+export const contactSubmissionSchema = contactFormSchema.partial({
+    telephone: true,
+    entreprise: true,
+    service: true,
+    budget: true,
+})
+export type ContactSubmissionData = z.infer<typeof contactSubmissionSchema>

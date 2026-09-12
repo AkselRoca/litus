@@ -104,13 +104,13 @@ export function EcommerceContent() {
       <div className="business-container ec-case-grid">
         <div className="business-copy">
           <p className="business-kicker">Une boutique réalisée par Litus</p>
-          <h2 id="ec-case-title">Japan Hunter.<br /><em>Un univers, une boutique.</em></h2>
-          <p>Une boutique Shopify sur mesure, avec une expérience mobile travaillée et des fondations SEO. Un projet qui réunit identité de marque, développement Liquid et suivi du parcours d’achat.</p>
-          <ul className="ec-case-tags"><li>Shopify & Liquid</li><li>UX mobile</li><li>SEO & mesure</li></ul>
-          <Link href="/realisations/japan-hunter" className="site-cta-primary">Découvrir ce projet<ArrowUpRight size={17} aria-hidden="true" /></Link>
+          <h2 id="ec-case-title">Fondants Parfumés.<br /><em>Un univers, une boutique.</em></h2>
+          <p>Une boutique Shopify dédiée aux fondants et aux ambiances parfumées. Litus accompagne la création ou la refonte de ce commerce en ligne : un catalogue organisé par collections et un parcours pour découvrir les produits, choisir ses parfums et préparer sa commande.</p>
+          <ul className="ec-case-tags"><li>Shopify</li><li>Collections</li><li>Parcours d’achat</li></ul>
+          <Link href="/realisations/fondants-parfumes" className="site-cta-primary">Découvrir ce projet<ArrowUpRight size={17} aria-hidden="true" /></Link>
           <Link href="/realisations" className="business-text-link">Voir toutes nos réalisations<ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
-        <Link href="/realisations/japan-hunter" className="ec-case-image" aria-label="Voir la réalisation Japan Hunter"><div className="ec-browser-bar"><span /><span /><span /><small>Japan Hunter · Shopify</small><ArrowUpRight size={16} aria-hidden="true" /></div><Image src="/realisations/japan hunter boutique en ligne crée par litus agence web.jpg" alt="Aperçu de la boutique en ligne Japan Hunter créée par Litus" width={1920} height={1080} sizes="(max-width: 850px) 100vw, 52vw" /></Link>
+        <Link href="/realisations/fondants-parfumes" className="ec-case-image" aria-label="Voir la réalisation Fondants Parfumés"><div className="ec-browser-bar"><span /><span /><span /><small>Fondants Parfumés · Shopify</small><ArrowUpRight size={16} aria-hidden="true" /></div><Image src="/realisations/clients/fondants-parfumes/collection.webp" alt="Aperçu de la boutique en ligne Fondants Parfumés créée par Litus" width={1920} height={1080} sizes="(max-width: 850px) 100vw, 52vw" /></Link>
       </div>
     </section>
 

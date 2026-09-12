@@ -1,19 +1,11 @@
 'use client'
 
-import { contactFormSchema, type ContactFormData } from '@/lib/validations/contact'
+import { compactContactFormSchema as contactFormSchema, type CompactContactFormData as ContactFormData } from '@/lib/validations/contact'
 import { submitContact } from '@/lib/contact/client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowRight, Check, ChevronDown, Loader2 } from 'lucide-react'
+import { ArrowRight, Check, Loader2 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-
-const services = [
-  ['sites-vitrine', 'Création de site vitrine'], ['e-commerce', 'Site e-commerce'], ['refonte', 'Refonte de site existant'],
-  ['landing-page', 'Création de landing page'], ['seo', 'Référencement naturel SEO'], ['seo-local', 'SEO local'],
-  ['google-business-profile', 'Google Business Profile'], ['google-ads', 'Publicité Google Ads'], ['maintenance', 'Maintenance / Support'],
-  ['outils-ia', 'Création d’outils IA'], ['applications-web', 'Application web sur mesure'], ['automatisation', 'Automatisation'],
-  ['developpement-web', 'Développement web sur mesure'], ['integrations-api', 'Intégrations & API'], ['audit', 'Audit'], ['autre', 'Autre besoin'],
-] as const
 
 export function ContactRequestForm({ subject = '' }: { subject?: string }) {
   const [isSuccess, setIsSuccess] = useState(false)
@@ -62,11 +54,7 @@ export function ContactRequestForm({ subject = '' }: { subject?: string }) {
       <legend className="sr-only">Vos coordonnées et votre projet</legend>
       <div className="contact-field"><label htmlFor="nom">Nom complet <span>*</span></label><input id="nom" autoComplete="name" maxLength={100} {...register('nom')} {...a11y('nom')} aria-required="true" placeholder="Votre nom" />{error('nom')}</div>
       <div className="contact-field"><label htmlFor="email">Email <span>*</span></label><input id="email" type="email" autoComplete="email" maxLength={254} {...register('email')} {...a11y('email')} aria-required="true" placeholder="votre@email.com" />{error('email')}</div>
-      <div className="contact-field"><label htmlFor="telephone">Téléphone <span>*</span></label><input id="telephone" type="tel" autoComplete="tel" maxLength={30} {...register('telephone')} {...a11y('telephone')} aria-required="true" placeholder="06 12 34 56 78" />{error('telephone')}</div>
-      <div className="contact-field"><label htmlFor="entreprise">Entreprise / Site web</label><input id="entreprise" autoComplete="organization" maxLength={200} {...register('entreprise')} {...a11y('entreprise')} placeholder="Votre société ou https://…" />{error('entreprise')}</div>
-      <div className="contact-field"><label htmlFor="service">Service souhaité <span>*</span></label><div className="contact-select-wrap"><select id="service" {...register('service')} {...a11y('service')} aria-required="true" defaultValue=""><option value="" disabled>Sélectionnez un service</option>{services.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select><ChevronDown size={15} aria-hidden="true" /></div>{error('service')}</div>
-      <div className="contact-field"><label htmlFor="budget">Budget estimé <span>*</span></label><div className="contact-select-wrap"><select id="budget" {...register('budget')} {...a11y('budget')} aria-required="true" defaultValue=""><option value="" disabled>Sélectionnez une fourchette</option><option value="moins-1000">Moins de 1 000 €</option><option value="1000-3000">Entre 1 000 € et 3 000 €</option><option value="3000-10000">Entre 3 000 € et 10 000 €</option><option value="10000-30000">Entre 10 000 € et 30 000 €</option><option value="plus-30000">Plus de 30 000 €</option><option value="ne-sais-pas">Je ne sais pas encore</option></select><ChevronDown size={15} aria-hidden="true" /></div>{error('budget')}</div>
-      <div className="contact-field contact-message"><label htmlFor="message">Votre projet <span>*</span></label><textarea id="message" maxLength={messageLimit} {...register('message')} {...a11y('message')} aria-required="true" rows={5} placeholder="Votre activité, vos objectifs, vos besoins…" /><output htmlFor="message" className="contact-message-count" aria-live="off">{messageLength}/{messageLimit}</output>{error('message')}</div>
+      <div className="contact-field contact-message"><label htmlFor="message">Votre projet <span>*</span></label><textarea id="message" maxLength={messageLimit} {...register('message')} {...a11y('message')} aria-required="true" rows={5} placeholder="Décrivez votre projet, vos objectifs ou vos besoins…" /><output htmlFor="message" className="contact-message-count" aria-live="off">{messageLength}/{messageLimit}</output>{error('message')}</div>
     </fieldset>
     <div className="contact-consent"><input id="rgpd" type="checkbox" disabled={pending} {...register('rgpd')} {...a11y('rgpd')} aria-required="true" /><label htmlFor="rgpd">J’accepte que Litus utilise mes données pour traiter ma demande. <a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer">Politique de confidentialité<span className="sr-only"> (nouvel onglet)</span></a>.</label></div>{error('rgpd')}
     {sendError && <p className="contact-send-error" role="alert">{sendError}</p>}

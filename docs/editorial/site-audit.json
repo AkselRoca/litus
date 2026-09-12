@@ -39,7 +39,7 @@
         },
         {
           "level": 3,
-          "text": "Demétis Immobilier"
+          "text": "Demetis Immobilier"
         },
         {
           "level": 3,
@@ -73,7 +73,7 @@
         "/",
         "/contact?objet=Projet%20au%20Mans",
         "/realisations",
-        "/realisations/demetis-immobilier",
+        "/realisations/Demetis-immobilier",
         "/realisations/aspire-energie"
       ],
       "titles": [
@@ -865,12 +865,9 @@
     {
       "file": "src/app/realisations/[slug]/page.tsx",
       "headings": [],
-      "links": [
-        "/litus-og-social.png"
-      ],
+      "links": [],
       "titles": [
-        "Demétis Immobilier",
-        "Site vitrine sur mesure pour valoriser leurs biens et renforcer leur visibilité locale sur Google."
+        "Projet introuvable | Litus"
       ],
       "path": "/realisations/[slug]"
     },
@@ -879,19 +876,22 @@
       "headings": [
         {
           "level": 1,
-          "text": "Erreur de chargement"
+          "text": "Nos réalisations"
         },
         {
           "level": 2,
-          "text": "Et si nous parlions de votre projet ?"
+          "text": "Votre activité mériteson propre chapitre."
         }
       ],
       "links": [
+        "/realisations/clients/murasaki-team/accueil.webp",
         "/contact"
       ],
       "titles": [
-        "Nos Réalisations | Agence Web Litus",
-        "Découvrez nos derniers projets : Sites vitrines, E-commerce, Applications web et campagnes Google Ads."
+        "Réalisations web & e-commerce | Portfolio Litus",
+        "Découvrez les projets clients de Litus : sites web, boutiques Shopify, contenus, SEO et conseil e-commerce. De vraies interfaces et un accompagnement expliqué projet par projet.",
+        "Les réalisations Litus : des projets, des univers, du concret",
+        "Sites internet, e-commerce et accompagnement digital : explorez nos projets clients."
       ],
       "path": "/realisations"
     },
@@ -1561,7 +1561,7 @@
         },
         {
           "level": 3,
-          "text": "Demétis Immobilier"
+          "text": "Demetis Immobilier"
         },
         {
           "level": 3,
@@ -1595,7 +1595,7 @@
         "/",
         "/contact?objet=Projet%20au%20Mans",
         "/realisations",
-        "/realisations/demetis-immobilier",
+        "/realisations/Demetis-immobilier",
         "/realisations/aspire-energie"
       ],
       "titles": [
@@ -2440,16 +2440,12 @@
       "file": "src/app/contact/_components/ContactHero.tsx",
       "headings": [
         {
-          "level": 1,
-          "text": "Parlons de votrenouveau projet"
-        },
-        {
-          "level": 2,
-          "text": "Réserver un appel découverte"
-        },
-        {
           "level": 2,
           "text": "Envoyez-nous votre demande"
+        },
+        {
+          "level": 1,
+          "text": "Parlons de votrenouveau projet"
         }
       ],
       "links": [],
@@ -2825,7 +2821,7 @@
         },
         {
           "level": 2,
-          "text": "Japan Hunter.Un univers, une boutique."
+          "text": "Fondants Parfumés.Un univers, une boutique."
         },
         {
           "level": 3,
@@ -2838,7 +2834,7 @@
       ],
       "links": [
         "/automatisation",
-        "/realisations/japan-hunter",
+        "/realisations/fondants-parfumes",
         "/realisations",
         "/referencement-naturel",
         "/google-ads"
@@ -3944,12 +3940,9 @@
     {
       "file": "src/app/realisations/[slug]/page.tsx",
       "headings": [],
-      "links": [
-        "/litus-og-social.png"
-      ],
+      "links": [],
       "titles": [
-        "Demétis Immobilier",
-        "Site vitrine sur mesure pour valoriser leurs biens et renforcer leur visibilité locale sur Google."
+        "Projet introuvable | Litus"
       ]
     },
     {
@@ -3957,19 +3950,22 @@
       "headings": [
         {
           "level": 1,
-          "text": "Erreur de chargement"
+          "text": "Nos réalisations"
         },
         {
           "level": 2,
-          "text": "Et si nous parlions de votre projet ?"
+          "text": "Votre activité mériteson propre chapitre."
         }
       ],
       "links": [
+        "/realisations/clients/murasaki-team/accueil.webp",
         "/contact"
       ],
       "titles": [
-        "Nos Réalisations | Agence Web Litus",
-        "Découvrez nos derniers projets : Sites vitrines, E-commerce, Applications web et campagnes Google Ads."
+        "Réalisations web & e-commerce | Portfolio Litus",
+        "Découvrez les projets clients de Litus : sites web, boutiques Shopify, contenus, SEO et conseil e-commerce. De vraies interfaces et un accompagnement expliqué projet par projet.",
+        "Les réalisations Litus : des projets, des univers, du concret",
+        "Sites internet, e-commerce et accompagnement digital : explorez nos projets clients."
       ]
     },
     {
@@ -4596,11 +4592,53 @@
       "titles": []
     },
     {
+      "file": "src/components/portfolio/PortfolioCaseStudy.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{story.title}"
+        },
+        {
+          "level": 2,
+          "text": "Notre rôlesur ce projet."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Un aperçu, vraiment concret."
+        },
+        {
+          "level": 2,
+          "text": "Les expertises à explorer"
+        },
+        {
+          "level": 2,
+          "text": "Et votre prochain projet ?"
+        },
+        {
+          "level": 2,
+          "text": "D’autres univers à découvrir."
+        },
+        {
+          "level": 3,
+          "text": "{project.title}"
+        }
+      ],
+      "links": [
+        "/realisations",
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/components/portfolio/PortfolioEditorial.tsx",
       "headings": [
         {
           "level": 1,
-          "text": "Des projets penséspour convertir."
+          "text": "Des projets.Des univers.Du concret."
         },
         {
           "level": 2,
@@ -4608,14 +4646,7 @@
         }
       ],
       "links": [],
-      "titles": [
-        "West Clôtures & Paysage",
-        "Refonte du site pour une meilleure visibilité locale, une optimisation SEO complète et une stratégie d’acquisition de clients via Google Ads.",
-        "Demétis Immobilier",
-        "Site vitrine sur-mesure pour valoriser leurs biens et renforcer leur visibilité locale sur Google.",
-        "Aspire Énergie",
-        "Refonte du site et campagnes Google Ads pour développer leur acquisition de leads dans toute la région."
-      ]
+      "titles": []
     },
     {
       "file": "src/components/portfolio/PortfolioGrid.tsx",
@@ -6286,7 +6317,7 @@
         "/agence-web-lorient",
         "/blog/site-internet-artisan-lorient-devis",
         "/contact?objet=Fiche%20Google%20Lorient",
-        "/realisations/demetis-immo",
+        "/realisations/Demetis-immo",
         "/creation-site-internet",
         "/agence-web-le-mans",
         "/blog/site-internet-pme-le-mans",
@@ -6711,6 +6742,18 @@
         "Un site vitrine qui présente les prestations de plomberie, les zones d’intervention et les moyens de contact de l’entreprise.",
         "Un site vitrine et un travail de référencement local pour présenter les services de débarras à Vannes et dans le Morbihan."
       ]
+    },
+    {
+      "file": "src/lib/portfolio-catalog.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/portfolio-projects.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/lib/portfolio-slugs.ts",

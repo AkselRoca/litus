@@ -37,3 +37,8 @@ Lecture des dates de configuration compatible avec les colonnes INTEGER de Turso
 ## 1.07.a - Page contact fidele a la reference
 
 Composition avec photographie reelle sous licence Unsplash, avis client existant, reperes du site, annotations manuscrites, carte formulaire et responsive. Logique de contact et securite preservees. Source visuelle documentee dans `docs/contact-reference-design.md`.
+
+
+## 1.08.a - 12 septembre 2026
+
+Lot fonctionnel : refonte éditoriale du portfolio et enrichissement de 26 projets. 55 visuels WebP locaux, galeries, filtres, maillage expertise, séparation Aspire Marketing / Aspire Énergie, normalisation Demetis et remplacement du cas e-commerce par Fondants Parfumés. Les études de cas détaillées West et FG Chronodep sont conservées. Voir docs/portfolio/README.md pour les sources et limites de collecte.

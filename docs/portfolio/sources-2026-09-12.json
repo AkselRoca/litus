@@ -1,0 +1,951 @@
+[
+  {
+    "slug": "murasaki-team",
+    "title": "Murasaki Team",
+    "pages": [
+      {
+        "url": "https://murasaki.team/fr",
+        "title": "Murasaki Team · Agence créative 360° · Paris Tokyo",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://murasaki.team/fr/projets",
+        "title": "Nos projets · Murasaki Team",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/murasaki-team/accueil.webp",
+        "source": "https://murasaki.team/fr",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/murasaki-team/detail.webp",
+        "source": "https://murasaki.team/fr/projets",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/murasaki-team/mobile.webp",
+        "source": "https://murasaki.team/fr",
+        "kind": "mobile"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "west-clotures-paysage",
+    "title": "West Clôtures & Paysage",
+    "pages": [
+      {
+        "url": "https://www.westclotures.fr/",
+        "title": "Pose de Clôtures et Paysagiste dans le Morbihan | West Clôtures",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://www.westclotures.fr/services",
+        "title": "Tous nos Services | Aménagement Extérieur et Clôtures dans le Morbihan",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/west-clotures-paysage/paysage.webp",
+        "source": "https://www.westclotures.fr/images/hero-bg.webp",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/west-clotures-paysage/accueil.webp",
+        "source": "https://www.westclotures.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/west-clotures-paysage/section.webp",
+        "source": "https://www.westclotures.fr/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "nos-travaux",
+    "title": "Nos Travaux",
+    "pages": [
+      {
+        "url": "https://www.nos-travaux.fr/",
+        "title": "Entreprise de rénovation au Mans et en Sarthe | NOS TRAVAUX",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://www.nos-travaux.fr/realisations",
+        "title": "Réalisations de rénovation au Mans | NOS TRAVAUX",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/nos-travaux/accueil-final.webp",
+        "source": "https://www.nos-travaux.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/nos-travaux/detail.webp",
+        "source": "https://www.nos-travaux.fr/realisations",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/nos-travaux/section.webp",
+        "source": "https://www.nos-travaux.fr/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "villa-manelann",
+    "title": "Villa Manelann",
+    "pages": [
+      {
+        "url": "https://www.villamanelann.com/",
+        "title": "Villa Mane Lann – Gîte de charme et chambre d'hôtes Carnac",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      },
+      {
+        "url": "https://www.villamanelann.com/la-villa-mane-lann/actualites/",
+        "title": "Dernières actualités de la Villa | Villa Mane Lann",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/villa-manelann/villa.webp",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/villa-et-son-parc-1536x862.jpg",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/piscine.webp",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/vue-piscine-1536x864.jpg",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/vue-baie.webp",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/vue-baie-quiberon-1536x861.jpg",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/salon.webp",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/salon-1536x862.jpg",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/sejour.webp",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/sejour2-1536x862.jpg",
+        "kind": "brand"
+      }
+    ],
+    "scopeSource": "Explicit user brief"
+  },
+  {
+    "slug": "broadwhey",
+    "title": "Broadwhey",
+    "pages": [
+      {
+        "url": "https://broadwhey.com/",
+        "title": "Broadwhey : compléments alimentaires - Sport de force",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": true,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://broadwhey.com/products/preworkout-booster",
+        "title": "Pre workout (Booster Pre Entrainement) – Énergie & Focus – Broadwhey",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": true,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/broadwhey/accueil.webp",
+        "source": "https://broadwhey.com/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/broadwhey/detail.webp",
+        "source": "https://broadwhey.com/products/preworkout-booster",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/broadwhey/whey.webp",
+        "source": "https://broadwhey.com/cdn/shop/files/PACK-ISOLAT-MARBRE-CHOCO-900g.jpg?v=1764170798&width=1080",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/broadwhey/creatine.webp",
+        "source": "https://broadwhey.com/cdn/shop/files/Creatine-1.jpg?v=1764170770&width=1080",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/broadwhey/section.webp",
+        "source": "https://broadwhey.com/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Explicit user brief"
+  },
+  {
+    "slug": "gite-a-fleur-de-po",
+    "title": "Gîte à Fleur de Po",
+    "pages": [
+      {
+        "url": "https://gite-afleurdepo.fr/",
+        "title": "Gîtes à Carnac vue mer - À Fleur de Pô",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      },
+      {
+        "url": "https://gite-afleurdepo.fr/les-gites/",
+        "title": "Les Gîtes - Gîtes à Carnac : À Fleur de Pô",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/gite-a-fleur-de-po/accueil.webp",
+        "source": "https://gite-afleurdepo.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/gite-a-fleur-de-po/gite.webp",
+        "source": "https://gite-afleurdepo.fr/wp-content/uploads/2025/05/maison-du-nane-gite-carnac-800x534-1.jpg",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/gite-a-fleur-de-po/vue-mer.webp",
+        "source": "https://gite-afleurdepo.fr/wp-content/uploads/2025/05/vue-mer-1024x768.jpg",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/gite-a-fleur-de-po/detail.webp",
+        "source": "https://gite-afleurdepo.fr/les-gites/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "demetis-immo",
+    "title": "Demetis Immobilier",
+    "pages": [
+      {
+        "url": "https://www.demetisimmo.fr/",
+        "title": "Agence immobilière au Mans | Demetis Immo",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://www.demetisimmo.fr/acheter/",
+        "title": "Acheter un bien immobilier au Mans | Demetis Immo",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/demetis-immo/section.webp",
+        "source": "https://www.demetisimmo.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/demetis-immo/accueil.webp",
+        "source": "https://www.demetisimmo.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/demetis-immo/detail.webp",
+        "source": "https://www.demetisimmo.fr/acheter/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "elevage-maupas",
+    "title": "Élevage Maupas",
+    "pages": [
+      {
+        "url": "https://www.elevagemaupas.com/",
+        "title": "L'Agneau | Vente en direct de ferme — Élevage Maupas",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://www.elevagemaupas.com/notre-logique",
+        "title": "Notre Logique d'Élevage | Transparence et Bien-être Animal — Élevage Maupas | Élevage Maupas",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/elevage-maupas/section.webp",
+        "source": "https://www.elevagemaupas.com/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/boutique.webp",
+        "source": "https://www.elevagemaupas.com/precommande",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/ferme.webp",
+        "source": "https://www.elevagemaupas.com/_next/image?url=%2Fimages%2Felevage%2Fbanner_1.png&w=1920&q=75",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/detail.webp",
+        "source": "https://www.elevagemaupas.com/notre-logique",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "fondants-parfumes",
+    "title": "Fondants Parfumés",
+    "pages": [
+      {
+        "url": "https://fondantsparfumes.com/",
+        "title": "Fondants Parfumés : Fondants et Bougies parfumés",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": true,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://fondantsparfumes.com/blogs/infos/special-rentree-1-diffuseur-de-voiture-offert-des-49-dachat",
+        "title": "Spécial rentrée = 1 diffuseur de voiture offert dès 49€ d'achat – Fondants Parfumés",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": true,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/fondants-parfumes/collection-photo.webp",
+        "source": "https://fondantsparfumes.com/cdn/shop/files/index_4_1500x.jpg?v=1653410130",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/fondants-parfumes/collection.webp",
+        "source": "https://fondantsparfumes.com/collections/fondant",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/fondants-parfumes/ambiance.webp",
+        "source": "https://fondantsparfumes.com/cdn/shop/files/index24_c3f2f184-d183-4635-8148-6c7b29c32ebc_1600x.jpg?v=1777967127",
+        "kind": "brand"
+      }
+    ],
+    "scopeSource": "User confirmation and Litus footer credit"
+  },
+  {
+    "slug": "aspire-energie",
+    "title": "Aspire Énergie",
+    "pages": [
+      {
+        "url": "https://www.aspire-energie.com/",
+        "title": "Courtier en énergie pour entreprises | Aspire Énergie",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://www.aspire-energie.com/blog",
+        "title": "Blog énergie : contrats, factures et conseils | Aspire Énergie",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": true,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/aspire-energie/accueil.webp",
+        "source": "https://www.aspire-energie.com/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/aspire-energie/detail.webp",
+        "source": "https://www.aspire-energie.com/blog",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/aspire-energie/section.webp",
+        "source": "https://www.aspire-energie.com/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "femmes-des-territoires",
+    "title": "Femmes des Territoires",
+    "pages": [
+      {
+        "url": "https://www.femmesdesterritoires.fr/",
+        "title": "Réseau Féminin d'Entrepreneuriat en France",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      },
+      {
+        "url": "https://www.femmesdesterritoires.fr/faire-un-don/",
+        "title": "Faire un don",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/femmes-des-territoires/section.webp",
+        "source": "https://www.femmesdesterritoires.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/femmes-des-territoires/detail.webp",
+        "source": "https://www.femmesdesterritoires.fr/faire-un-don/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "azra-photographie",
+    "title": "Azra Photographie",
+    "pages": [
+      {
+        "url": "https://www.azraphotographie.fr/",
+        "title": "Photographe à Lorient – Azra Photographie en Bretagne",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      },
+      {
+        "url": "https://www.azraphotographie.fr/blog/",
+        "title": "HTTP 429",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/azra-photographie/archive.webp",
+        "source": "https://www.azraphotographie.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "del-rio-pizzeria",
+    "title": "Del Rio Pizzeria",
+    "pages": [
+      {
+        "url": "https://www.delriopizzeria.fr/",
+        "title": "DEL RIO | Pizzeria Inzinzac-Lochrist",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": false,
+    "sources": [
+      {
+        "src": "/realisations/clients/del-rio-pizzeria/accueil.webp",
+        "source": "https://www.delriopizzeria.fr/",
+        "kind": "screen"
+      },
+      {
+        "src": "/realisations/clients/del-rio-pizzeria/pizza.webp",
+        "source": "https://www.delriopizzeria.fr/images/pizza_menu.webp",
+        "kind": "brand"
+      },
+      {
+        "src": "/realisations/clients/del-rio-pizzeria/section.webp",
+        "source": "https://www.delriopizzeria.fr/",
+        "kind": "screen"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "loumor-debarras",
+    "title": "Loumor Débarras",
+    "pages": [
+      {
+        "url": "https://www.loumor.com/",
+        "title": "Débarras Vannes & Morbihan – LouMor Débarras",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": true
+        }
+      },
+      {
+        "url": "https://www.loumor.com/nos-realisations/",
+        "title": "HTTP 429",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/loumor-debarras/archive.webp",
+        "source": "https://www.loumor.com/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "geoproxio",
+    "title": "Geoproxio",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/geoproxio/archive.webp",
+        "source": "https://www.geoproxio.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "aspire-marketing",
+    "title": "Aspire Marketing",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/aspire-marketing/archive.webp",
+        "source": "https://www.aspire-marketing.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "menuiserie-jerome-rio",
+    "title": "Menuiserie Jérôme Rio",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/menuiserie-jerome-rio/archive.webp",
+        "source": "https://www.menuiserie-jeromerio.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "reflexologie-lorient",
+    "title": "Réflexologie Lorient",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/reflexologie-lorient/archive.webp",
+        "source": "https://www.reflexologielorient.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "aire-des-iles",
+    "title": "Aire des Îles",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/aire-des-iles/archive.webp",
+        "source": "https://www.airedesiles.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "br-z-couverture",
+    "title": "BR'Z Couverture",
+    "pages": [],
+    "errors": [
+      "page.goto: Timeout 20000ms exceeded."
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/br-z-couverture/archive.webp",
+        "source": "https://www.brzcouverture.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "carnac-immobilier",
+    "title": "Carnac Immobilier",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/carnac-immobilier/archive.webp",
+        "source": "https://www.carnacimmobilier.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "maiiana-lg",
+    "title": "Maïiana LG",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/maiiana-lg/archive.webp",
+        "source": "https://www.maiiana.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "gite-des-oiseaux",
+    "title": "Gîte des Oiseaux",
+    "pages": [],
+    "errors": [
+      "Unavailable: 429 HTTP 429"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/gite-des-oiseaux/archive.webp",
+        "source": "https://www.gitesdesoiseaux.com/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "plomberie-84",
+    "title": "Plomberie 84",
+    "pages": [],
+    "errors": [
+      "page.goto: Timeout 20000ms exceeded."
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/plomberie-84/archive.webp",
+        "source": "https://www.plomberie84.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "concept-coiffure",
+    "title": "Concept Coiffure",
+    "pages": [
+      {
+        "url": "https://www.conceptcoiffure.com/",
+        "title": "Concept Coiffure Lorient – Votre coiffeur à Lorient",
+        "markers": {
+          "wordpress": true,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      },
+      {
+        "url": "https://www.conceptcoiffure.com/services/",
+        "title": "HTTP 429",
+        "markers": {
+          "wordpress": false,
+          "woocommerce": false,
+          "shopify": false,
+          "nextjs": false,
+          "wix": false,
+          "webflow": false,
+          "elementor": false
+        }
+      }
+    ],
+    "errors": [],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/concept-coiffure/archive.webp",
+        "source": "https://www.conceptcoiffure.com/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  },
+  {
+    "slug": "le-bolay-paysagiste",
+    "title": "Le Bolay Paysagiste",
+    "pages": [],
+    "errors": [
+      "page.goto: net::ERR_NAME_NOT_RESOLVED at http://lebolaypaysagiste.fr/"
+    ],
+    "archive": true,
+    "sources": [
+      {
+        "src": "/realisations/clients/le-bolay-paysagiste/archive.webp",
+        "source": "http://lebolaypaysagiste.fr/",
+        "kind": "archive"
+      }
+    ],
+    "scopeSource": "Existing portfolio record / user client list / source site"
+  }
+]
