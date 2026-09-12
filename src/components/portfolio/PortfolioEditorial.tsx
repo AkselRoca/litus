@@ -3,14 +3,15 @@
 import { useMemo, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowDown, ArrowUpRight, Grid2X2, List } from 'lucide-react';
+import { ArrowUpRight, Grid2X2, List, Workflow } from 'lucide-react';
 import { Caveat } from 'next/font/google';
 import { portfolioSlug } from '@/lib/portfolio-slugs';
 import type { PortfolioStory } from '@/lib/portfolio-catalog';
 import './portfolio-reference.css';
+import './portfolio-original-hero.css';
 import { AcquisitionResults } from './AcquisitionResults';
 
-const handwriting = Caveat({ subsets: ['latin'], weight: ['500', '600'], display: 'swap' });
+const handwriting = Caveat({ subsets: ['latin'], weight: ['400', '500', '600'], display: 'swap' });
 type Project = { id: string; title: string; categories: string | null; tags: string | null; imageUrl: string; description: string | null; editorial?: PortfolioStory };
 function values(value: string | null): string[] {
   try { const parsed: unknown = JSON.parse(value || '[]'); return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === 'string') : []; } catch { return []; }
@@ -22,11 +23,14 @@ export default function PortfolioEditorial({ projects }: { projects: Project[] }
   const filters = useMemo(() => ['Tous', ...new Set(projects.flatMap((project) => project.editorial?.categories ?? values(project.categories)))], [projects]);
   const visible = useMemo(() => projects.filter((project) => filter === 'Tous' || (project.editorial?.categories ?? values(project.categories)).includes(filter)), [projects, filter]);
   return (
-    <section className="portfolio-editorial" aria-labelledby="portfolio-title">
+    <section className="portfolio-editorial has-original-hero" aria-labelledby="portfolio-title">
       <div className="portfolio-container">
-        <header className="portfolio-intro">
-          <div><p className="portfolio-eyebrow"><span /> LE TRAVAIL, EN CONCRET</p><h1 id="portfolio-title">Des projets.<br />Des univers.<br /><em>Du concret.</em></h1></div>
-          <div className="portfolio-intro-aside"><p>Une boutique qui donne envie. Un site qui explique juste. Des campagnes qui apportent de vraies demandes.</p><p>Explorez les projets accompagnés par Litus : leurs interfaces, leurs résultats et notre rôle, sans détour.</p><a href="#portfolio-projects" className="portfolio-explore">Découvrir les réalisations <ArrowDown size={18} aria-hidden="true" /></a><span className={`${handwriting.className} portfolio-handnote`}>À chaque projet, son histoire.</span></div>
+        <header className="portfolio-original-hero">
+          <p className="portfolio-original-eyebrow"><Workflow size={16} aria-hidden="true" /> Portfolio</p>
+          <h1 id="portfolio-title">Des projets pensés<br />pour <span>convertir.</span></h1>
+          <p className="portfolio-original-copy">Nous ne créons pas simplement des sites web : nous concevons des outils<br className="portfolio-original-break" /> de visibilité, d’acquisition et de conversion adaptés aux objectifs de chaque client.</p>
+          <aside aria-hidden="true" className={`portfolio-original-note is-left ${handwriting.className}`}>Des entreprises<br />réelles, des résultats<br />concrets.<svg viewBox="0 0 70 54"><path d="M12 3c2 23 12 34 42 37m-10-10 11 10-13 5" /></svg></aside>
+          <aside aria-hidden="true" className={`portfolio-original-note is-right ${handwriting.className}`}><span>╱ ╱</span>Plus de visibilité,<br />plus de clients</aside>
         </header>
         <div className="portfolio-toolbar">
           <div className="portfolio-filters" aria-label="Filtrer les réalisations">{filters.map((item) => <button type="button" key={item} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item}{item === 'Tous' && <span>{projects.length}</span>}</button>)}</div>

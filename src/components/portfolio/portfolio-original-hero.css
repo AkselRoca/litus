@@ -1,0 +1,20 @@
+.portfolio-editorial.has-original-hero{padding-top:112px}
+.portfolio-original-hero{position:relative;text-align:center;max-width:1320px;margin:0 auto 24px;color:var(--pf-ink)}
+.portfolio-original-eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #f1dace;border-radius:999px;padding:9px 16px;background:#fffdfa;font-size:12px;font-weight:600;text-transform:uppercase;animation:portfolio-hero-enter .45s both}
+.portfolio-original-eyebrow svg{color:#e95e2a}
+.portfolio-original-hero h1{font-size:clamp(40px,4.1vw,64px);font-weight:750;line-height:1.02;letter-spacing:-.055em;margin:13px 0 15px;animation:portfolio-hero-enter .5s .05s both}
+.portfolio-original-hero h1 span{color:var(--litus-heading-accent,#e95e2a)}
+.portfolio-original-copy{color:var(--pf-muted);font-size:16px;line-height:1.45;max-width:780px;margin:0 auto;animation:portfolio-hero-enter .5s .1s both}
+.portfolio-original-note{position:absolute;color:#697584;font-size:23px;font-weight:400;line-height:1.06;pointer-events:none}
+.portfolio-original-note svg{width:65px;fill:none;stroke:currentColor;stroke-width:1.2;display:block;margin:7px auto 0}
+.portfolio-original-note.is-left{left:2%;top:76px;transform:rotate(-9deg)}
+.portfolio-original-note.is-right{right:2%;top:70px;transform:rotate(-10deg)}
+.portfolio-original-note.is-right span{display:block;color:#e95e2a;margin-bottom:8px;font-family:inherit}
+.dark .portfolio-original-eyebrow{background:#202b37;border-color:#36424f}
+.dark .portfolio-original-note{color:var(--pf-muted)}
+@keyframes portfolio-hero-enter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1750px){.portfolio-original-hero{margin-bottom:28px}}
+@media(max-width:1200px){.portfolio-original-note{display:none}}
+@media(max-width:900px){.portfolio-original-hero h1{font-size:48px}}
+@media(max-width:600px){.portfolio-editorial.has-original-hero{padding-top:102px}.portfolio-original-hero{margin-bottom:22px}.portfolio-original-eyebrow{padding:7px 13px;font-size:10px}.portfolio-original-hero h1{font-size:clamp(35px,9vw,48px);margin:16px 0;line-height:1.05}.portfolio-original-copy{font-size:14px;line-height:1.55}.portfolio-original-break{display:none}}
+@media(prefers-reduced-motion:reduce){.portfolio-original-hero *{animation:none!important;transition:none!important}}

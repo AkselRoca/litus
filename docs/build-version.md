@@ -5,6 +5,8 @@ Le numéro de build affiché dans le footer se trouve dans `src/components/layou
 ## Règle d'incrémentation
 
 ## 1.12.b - Retour au design précédent du portfolio
+ 
+La version 1.12.c restaure également le hero centré « Des projets pensés pour convertir. », son badge Portfolio et ses annotations manuscrites, sans modifier les cartes ni les données des projets.
 
 Restauration des proportions, cadrages, inclinaisons et superpositions de la version précédente de Réalisations. Les projets ajoutés, leur ordre et le cas acquisition SARL Péan J sont conservés.
 

@@ -4937,7 +4937,7 @@
       "headings": [
         {
           "level": 1,
-          "text": "Des projets.Des univers.Du concret."
+          "text": "Des projets penséspour convertir."
         },
         {
           "level": 2,
@@ -4960,6 +4960,12 @@
     },
     {
       "file": "src/components/portfolio/acquisition-results.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/portfolio/portfolio-original-hero.css",
       "headings": [],
       "links": [],
       "titles": []
