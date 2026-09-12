@@ -48,7 +48,7 @@ for (const path of urls) {
     assert(img.hasAttribute('alt') && img.getAttribute('width') && img.getAttribute('height'), `${path}: image attributes`)
     if (img.src.startsWith('/')) localAssets.add(img.src)
   }
-  assert(document.body.textContent.includes('Build 1.04.a'), `${path}: build`)
+  assert(document.body.textContent.includes(`Build ${process.env.EXPECTED_BUILD || '1.04.b'}`), `${path}: build`)
   report.push({ path, h1: main.querySelector('h1').textContent, sections: main.querySelectorAll('.ex-section').length, schemas: schemas.length, serverHtml: true })
   dom.window.close()
 }

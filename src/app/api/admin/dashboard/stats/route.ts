@@ -1,8 +1,9 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextResponse } from 'next/server'
 
 // GET /api/admin/dashboard/stats - Stats pour le dashboard
-export async function GET(request: Request) {
+export const GET = withAdmin(async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url)
         const startDateStr = searchParams.get('startDate')
@@ -138,4 +139,4 @@ export async function GET(request: Request) {
         console.error('Dashboard stats error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

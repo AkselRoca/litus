@@ -1,9 +1,10 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 import { isEditor } from '@/lib/editorial/admin'
 
 // GET /api/admin/blog - Liste tous les articles
-export async function GET() {
+export const GET = withAdmin(async function GET() {
     if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const posts = await prisma.blogPost.findMany({
@@ -35,10 +36,10 @@ export async function GET() {
         console.error('Fetch blog error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // POST /api/admin/blog - Créer un article
-export async function POST(request: NextRequest) {
+export const POST = withAdmin(async function POST(request: NextRequest) {
     if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const body = await request.json()
@@ -70,4 +71,4 @@ export async function POST(request: NextRequest) {
         console.error('Create blog error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

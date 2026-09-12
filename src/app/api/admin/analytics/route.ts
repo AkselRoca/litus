@@ -1,6 +1,7 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { NextResponse } from 'next/server'
 
-export async function GET(request: Request) {
+export const GET = withAdmin(async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const period = searchParams.get('period') || '7d' // 24h, 7d, 30d
 
@@ -152,4 +153,4 @@ export async function GET(request: Request) {
             error: error instanceof Error ? error.message : 'Unknown error',
         }, { status: 500 })
     }
-}
+})

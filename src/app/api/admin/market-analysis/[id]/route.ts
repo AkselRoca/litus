@@ -1,3 +1,4 @@
+import { withAdmin } from '@/lib/admin/guard'
 /**
  * API Admin - Suppression d'une analyse de marché
  */
@@ -5,7 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/auth'
 
-export async function DELETE(
+export const DELETE = withAdmin(async function DELETE(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -30,4 +31,4 @@ export async function DELETE(
             { status: 500 }
         )
     }
-}
+})

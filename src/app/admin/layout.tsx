@@ -46,7 +46,7 @@ export default async function AdminLayout({
         { href: '/admin/settings', icon: Settings, label: 'Paramètres', roles: ['admin'] },
     ]
 
-    const userRole = (session.user as any).role || 'commercial'
+    const userRole = session.user.role
     const navItems = allNavItems.filter(item => item.roles.includes(userRole))
 
     return (
@@ -66,6 +66,7 @@ export default async function AdminLayout({
                         <Link
                             key={item.href}
                             href={item.href}
+                            prefetch={false}
                             className="flex items-center gap-3 px-3 py-2.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors text-sm"
                         >
                             <item.icon className="w-[18px] h-[18px]" />
@@ -77,16 +78,10 @@ export default async function AdminLayout({
                 {/* User section */}
                 <div className="px-3 py-4 border-t border-gray-200 dark:border-white/10">
                     <div className="flex items-center gap-3 px-3 py-2.5 mb-1">
-                        {session.user.image ? (
-                            <img src={session.user.image} alt={session.user.name || ''} className="w-9 h-9 rounded-full object-cover shrink-0" />
-                        ) : (
-                            <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm shrink-0">
-                                {session.user.name?.charAt(0) || 'A'}
-                            </div>
-                        )}
+                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm shrink-0">L</div>
                         <div className="min-w-0">
-                            <div className="text-gray-900 dark:text-white font-medium text-sm truncate">{session.user.name}</div>
-                            <div className="text-gray-400 dark:text-gray-500 text-xs truncate">{session.user.email}</div>
+                            <div className="text-gray-900 dark:text-white font-medium text-sm truncate">Litus</div>
+                            <div className="text-gray-400 dark:text-gray-500 text-xs truncate">Administration</div>
                         </div>
                     </div>
                     <SignOutButton />

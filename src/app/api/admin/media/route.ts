@@ -1,9 +1,10 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { uploadImage } from '@/lib/cloudinary'
 import { NextRequest, NextResponse } from 'next/server'
 
 // POST /api/admin/media/upload - Upload une image
-export async function POST(request: NextRequest) {
+export const POST = withAdmin(async function POST(request: NextRequest) {
     try {
         const formData = await request.formData()
         const file = formData.get('file') as File
@@ -54,10 +55,10 @@ export async function POST(request: NextRequest) {
         console.error('Upload error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // GET /api/admin/media/upload - Liste tous les médias
-export async function GET(request: NextRequest) {
+export const GET = withAdmin(async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url)
         const folder = searchParams.get('folder') || undefined
@@ -73,4 +74,4 @@ export async function GET(request: NextRequest) {
         console.error('List media error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

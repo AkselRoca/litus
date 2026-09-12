@@ -1,10 +1,11 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 import { deleteImage } from '@/lib/cloudinary'
 import { revalidatePath } from 'next/cache'
 
 // PATCH /api/admin/portfolio/[id] - Toggle visibility, etc.
-export async function PATCH(
+export const PATCH = withAdmin(async function PATCH(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -31,10 +32,10 @@ export async function PATCH(
         console.error('Update project error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // DELETE /api/admin/portfolio/[id] - Supprimer un projet + image Cloudinary
-export async function DELETE(
+export const DELETE = withAdmin(async function DELETE(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -70,4 +71,4 @@ export async function DELETE(
         console.error('Delete project error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

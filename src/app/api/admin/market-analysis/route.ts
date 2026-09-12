@@ -1,3 +1,4 @@
+import { withAdmin } from '@/lib/admin/guard'
 /**
  * API Admin - Liste des analyses de marché
  */
@@ -6,7 +7,7 @@ import { NextResponse } from 'next/server'
 import { auth } from '@/auth'
 import type { MarketAnalysis } from '@prisma/client'
 
-export async function GET() {
+export const GET = withAdmin(async function GET() {
     try {
         const session = await auth()
         if (!session) {
@@ -34,4 +35,4 @@ export async function GET() {
             { status: 500 }
         )
     }
-}
+})

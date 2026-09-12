@@ -1,8 +1,9 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextResponse } from 'next/server'
 
 // GET /api/admin/config — Get config (admin)
-export async function GET() {
+export const GET = withAdmin(async function GET() {
     try {
         let config = await prisma.config.findUnique({
             where: { id: 'main' },
@@ -26,10 +27,10 @@ export async function GET() {
             { status: 500 }
         )
     }
-}
+})
 
 // PUT /api/admin/config — Update config (admin)
-export async function PUT(request: Request) {
+export const PUT = withAdmin(async function PUT(request: Request) {
     try {
         const body = await request.json()
         const { dispo, nextAvailableDate } = body
@@ -55,4 +56,4 @@ export async function PUT(request: Request) {
             { status: 500 }
         )
     }
-}
+})

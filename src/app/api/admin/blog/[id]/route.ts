@@ -1,8 +1,9 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 import { isEditor } from '@/lib/editorial/admin'
 
-export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export const GET = withAdmin(async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const { id } = await params
@@ -24,9 +25,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
         console.error('Fetch single blog error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
-export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export const PATCH = withAdmin(async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const { id } = await params
@@ -66,9 +67,9 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
         console.error('Update blog error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
-export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export const DELETE = withAdmin(async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const { id } = await params
@@ -81,4 +82,4 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
         console.error('Delete blog error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

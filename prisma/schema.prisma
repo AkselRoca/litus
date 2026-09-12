@@ -11,7 +11,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Admin users (Aksel + Arthur)
+// Historical CRM identities. Only the Litus account can authenticate.
 model User {
   id                 String   @id @default(cuid())
   email              String   @unique
@@ -27,6 +27,24 @@ model User {
   
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
+}
+
+// Security state for the single Litus administrator, migrated explicitly.
+model AdminSecurity {
+  id               String  @id @default("litus")
+  userId           String  @unique
+  secret           String?
+  pendingSecret    String?
+  pendingExpiresAt BigInt?
+  lastUsedStep     Int     @default(-1)
+  version          Int     @default(0)
+  recoveryHashes   String  @default("[]")
+}
+
+model AdminAuthAttempt {
+  key         String @id
+  windowStart BigInt
+  attempts    Int
 }
 
 // Leads (CRM)

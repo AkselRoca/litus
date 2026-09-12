@@ -1,3 +1,4 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { uploadFromUrl, getOptimizedUrl, generateSrcset } from '@/lib/cloudinary'
 import { NextRequest, NextResponse } from 'next/server'
@@ -5,7 +6,7 @@ import fs from 'fs'
 import path from 'path'
 
 // POST /api/admin/media/migrate-portfolio - Migre toutes les images portfolio vers Cloudinary
-export async function POST(request: NextRequest) {
+export const POST = withAdmin(async function POST(request: NextRequest) {
     try {
         const baseUrl = process.env.SITE_URL || 'https://litus-five.vercel.app'
 
@@ -118,10 +119,10 @@ export async function POST(request: NextRequest) {
         console.error('Migration error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // GET - Prévisualiser ce qui sera migré
-export async function GET() {
+export const GET = withAdmin(async function GET() {
     try {
         const projects = await prisma.project.findMany({
             select: {
@@ -146,4 +147,4 @@ export async function GET() {
         console.error('Preview migration error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

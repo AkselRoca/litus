@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
 import { Lock, Mail, Loader2, AlertCircle } from 'lucide-react'
+import { ADMIN_EMAIL } from '@/lib/admin/identity'
 
 export default function AdminLoginPage() {
-    const router = useRouter()
-    const [email, setEmail] = useState('')
+    const email = ADMIN_EMAIL
     const [password, setPassword] = useState('')
+    const [code, setCode] = useState('')
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
@@ -21,14 +21,15 @@ export default function AdminLoginPage() {
             const result = await signIn('credentials', {
                 email,
                 password,
+                code,
                 redirect: false,
             })
 
             if (result?.error) {
-                setError('Email ou mot de passe incorrect')
+                setError('Mot de passe ou code incorrect, expiré ou déjà utilisé. Après plusieurs essais, patiente cinq minutes.')
             } else {
-                router.push('/admin')
-                router.refresh()
+                // Avoid reusing anonymous RSC/prefetch redirects after sign-in.
+                window.location.replace('/admin')
             }
         } catch {
             setError('Une erreur est survenue')
@@ -59,7 +60,7 @@ export default function AdminLoginPage() {
                     </div>
 
                     <h2 className="text-2xl font-bold text-white text-center mb-6">
-                        Connexion Admin
+                        Compte Litus
                     </h2>
 
                     {error && (
@@ -72,14 +73,15 @@ export default function AdminLoginPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label className="block text-sm font-medium text-gray-300 mb-2">
-                                Email
+                                Compte unique
                             </label>
                             <div className="relative">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                 <input
                                     type="email"
                                     value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    readOnly
+                                    autoComplete="username"
                                     className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                                     placeholder="admin@litus.fr"
                                     required
@@ -95,6 +97,7 @@ export default function AdminLoginPage() {
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                 <input
                                     type="password"
+                                    autoComplete="current-password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -102,6 +105,12 @@ export default function AdminLoginPage() {
                                     required
                                 />
                             </div>
+                        </div>
+
+                        <div>
+                            <label htmlFor="admin-code" className="block text-sm font-medium text-gray-300 mb-2">Google Authenticator</label>
+                            <input id="admin-code" type="text" autoComplete="one-time-code" autoCapitalize="off" spellCheck={false} maxLength={32} value={code} onChange={event => setCode(event.target.value)} placeholder="Code à 6 chiffres ou code de secours" className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary" />
+                            <p className="text-xs text-gray-400 mt-2">À renseigner si la double authentification est activée dans les paramètres.</p>
                         </div>
 
                         <button

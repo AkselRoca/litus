@@ -1517,29 +1517,14 @@
           "text": "\r\n                        \r\n                            \r\n                        \r\n                        Disponibilité\r\n                    "
         }
       ],
-      "links": [
-        "/admin/settings/team"
-      ],
+      "links": [],
       "titles": []
     },
     {
       "file": "src/app/admin/settings/team/page.tsx",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Équipe"
-        },
-        {
-          "level": 2,
-          "text": "{editing ? 'Modifier le membre' : 'Nouveau membre'}"
-        }
-      ],
+      "headings": [],
       "links": [],
-      "titles": [
-        "Accès complet à tout",
-        "Leads + Analytics",
-        "Médias + Portfolio + Blog + Analytics"
-      ]
+      "titles": []
     },
     {
       "file": "src/app/agence-web-le-mans/le-mans.css",
@@ -1830,6 +1815,12 @@
       "titles": []
     },
     {
+      "file": "src/app/api/admin/security/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/api/admin/team/[id]/route.ts",
       "headings": [],
       "links": [],
@@ -1946,16 +1937,7 @@
       "file": "src/app/api/seed/route.ts",
       "headings": [],
       "links": [],
-      "titles": [
-        "West Clôtures & Paysage",
-        "Transformation digitale complète : Site WordPress Elementor Pro, campagnes Google Ads performantes et CRM métier. Visibilité locale maximale et flux constant de devis qualifiés.",
-        "Femmes des Territoires",
-        "Refonte complète du site WordPress de l",
-        "Japan Hunter",
-        "Boutique Shopify sur-mesure pour l",
-        "Loumor Débarras",
-        "Site vitrine professionnel pour services de débarras. Stratégie SEO local sur Vannes et optimisation technique pour générer des demandes entrantes rapides."
-      ]
+      "titles": []
     },
     {
       "file": "src/app/api/setup-db/route.ts",
@@ -3678,7 +3660,7 @@
         },
         {
           "level": 2,
-          "text": "\r\n                        Connexion Admin\r\n                    "
+          "text": "\r\n                        Compte Litus\n                    "
         }
       ],
       "links": [],
@@ -4260,6 +4242,21 @@
     {
       "file": "src/auth.ts",
       "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/admin/AdminSecuritySettings.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": " Sécurité du compte Litus"
+        },
+        {
+          "level": 3,
+          "text": "Vos codes de secours"
+        }
+      ],
       "links": [],
       "titles": []
     },
@@ -5326,6 +5323,36 @@
         "Guide SEO Local 2024",
         "Google Ads vs SEO : que choisir ?"
       ]
+    },
+    {
+      "file": "src/lib/admin/guard.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/admin/identity.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/admin/retired-route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/admin/security.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/admin/totp.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/lib/animations.ts",
@@ -6663,7 +6690,13 @@
       "titles": []
     },
     {
-      "file": "src/middleware.ts",
+      "file": "src/proxy.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/types/next-auth.d.ts",
       "headings": [],
       "links": [],
       "titles": []
@@ -6697,7 +6730,9 @@
     "next": "16.1.1",
     "next-auth": "^5.0.0-beta.30",
     "next-sitemap": "^4.2.3",
+    "otpauth": "^9.5.2",
     "prisma": "^5.19.1",
+    "qrcode": "^1.5.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.0",

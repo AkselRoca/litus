@@ -1,9 +1,10 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { auth } from '@/auth'
 import { prisma } from '@/lib/database_final'
 import { NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 
-export async function POST(req: Request) {
+export const POST = withAdmin(async function POST(req: Request) {
     const session = await auth()
     if (!session?.user) {
         return new NextResponse("Unauthorized", { status: 401 })
@@ -31,4 +32,4 @@ export async function POST(req: Request) {
         console.error('[PROJECT_REORDER]', error)
         return new NextResponse("Internal Error", { status: 500 })
     }
-}
+})

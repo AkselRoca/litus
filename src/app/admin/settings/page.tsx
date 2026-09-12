@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Calendar, Check, Users, ChevronRight, Settings, Loader2 } from 'lucide-react'
-import Link from 'next/link'
+import { Calendar, Check, Settings, Loader2 } from 'lucide-react'
+import { AdminSecuritySettings } from '@/components/admin/AdminSecuritySettings'
 
 export default function AdminSettingsPage() {
     const [isAvailable, setIsAvailable] = useState(true)
@@ -69,23 +69,7 @@ export default function AdminSettingsPage() {
             </div>
 
             <div className="max-w-3xl space-y-6">
-                {/* Gestion de l'équipe */}
-                <Link href="/admin/settings/team" className="block bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 hover:border-gray-300 dark:hover:border-white/20 transition-all group shadow-sm hover:shadow-md dark:shadow-none">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-5">
-                            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <Users className="w-6 h-6 text-primary" />
-                            </div>
-                            <div>
-                                <div className="text-lg font-bold text-gray-900 dark:text-white mb-1">Gestion de l'équipe</div>
-                                <div className="text-gray-500 dark:text-gray-400 text-sm">Créer et gérer les comptes, rôles et permissions</div>
-                            </div>
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
-                        </div>
-                    </div>
-                </Link>
+                <AdminSecuritySettings />
 
                 {/* Availability Settings */}
                 <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-6 md:p-8 shadow-sm dark:shadow-none">
@@ -101,7 +85,7 @@ export default function AdminSettingsPage() {
                         <div className="flex items-center justify-between">
                             <div className="pr-4">
                                 <div className="text-gray-900 dark:text-white font-medium mb-1">Disponible pour nouveaux projets</div>
-                                <div className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Cette information sera affichée dynamiquement dans le header et sur la page d'accueil de votre site.</div>
+                                <div className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Cette information sera affichée dynamiquement dans le header et sur la page d’accueil de votre site.</div>
                             </div>
                             <button
                                 onClick={() => setIsAvailable(!isAvailable)}
@@ -124,7 +108,7 @@ export default function AdminSettingsPage() {
                                     className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-shadow"
                                 />
                                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                                    Sera affiché dans le header : "Prochaine dispo : [date choisie]"
+                                    Sera affiché dans le header : &quot;Prochaine dispo : [date choisie]&quot;
                                 </p>
                             </div>
                         </div>

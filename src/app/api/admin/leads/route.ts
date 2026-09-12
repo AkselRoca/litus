@@ -1,8 +1,9 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET /api/admin/leads - Liste des leads avec filtres
-export async function GET(request: NextRequest) {
+export const GET = withAdmin(async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url)
 
@@ -71,10 +72,10 @@ export async function GET(request: NextRequest) {
         console.error('List leads error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // POST /api/admin/leads - Créer un lead manuellement
-export async function POST(request: NextRequest) {
+export const POST = withAdmin(async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
@@ -96,5 +97,5 @@ export async function POST(request: NextRequest) {
         console.error('Create lead error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 

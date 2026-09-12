@@ -1,8 +1,9 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET /api/admin/leads/[id] - Détail d'un lead
-export async function GET(
+export const GET = withAdmin(async function GET(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -26,10 +27,10 @@ export async function GET(
         console.error('Get lead error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // PATCH /api/admin/leads/[id] - Modifier un lead
-export async function PATCH(
+export const PATCH = withAdmin(async function PATCH(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -77,10 +78,10 @@ export async function PATCH(
         console.error('Update lead error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // DELETE /api/admin/leads/[id] - Supprimer un lead
-export async function DELETE(
+export const DELETE = withAdmin(async function DELETE(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -95,4 +96,4 @@ export async function DELETE(
         console.error('Delete lead error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

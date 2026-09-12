@@ -1,8 +1,9 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET /api/admin/leads/export - Export CSV des leads
-export async function GET(request: NextRequest) {
+export const GET = withAdmin(async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url)
 
@@ -74,4 +75,4 @@ export async function GET(request: NextRequest) {
         console.error('Export leads error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})

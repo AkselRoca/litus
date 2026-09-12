@@ -1,9 +1,10 @@
+import { withAdmin } from '@/lib/admin/guard'
 import { prisma } from '@/lib/database_final'
 import { deleteImage, renameImage } from '@/lib/cloudinary'
 import { NextRequest, NextResponse } from 'next/server'
 
 // DELETE /api/admin/media/[id] - Supprimer un média
-export async function DELETE(
+export const DELETE = withAdmin(async function DELETE(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -32,10 +33,10 @@ export async function DELETE(
         console.error('Delete media error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // PATCH /api/admin/media/[id] - Modifier un média (alt, filename avec renommage Cloudinary)
-export async function PATCH(
+export const PATCH = withAdmin(async function PATCH(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -107,10 +108,10 @@ export async function PATCH(
         console.error('Update media error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
 
 // GET /api/admin/media/[id] - Récupérer un média
-export async function GET(
+export const GET = withAdmin(async function GET(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
@@ -128,4 +129,4 @@ export async function GET(
         console.error('Get media error:', error)
         return NextResponse.json({ success: false, error: String(error) }, { status: 500 })
     }
-}
+})
