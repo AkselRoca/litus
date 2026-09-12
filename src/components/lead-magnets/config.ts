@@ -1,4 +1,4 @@
-import { MapPin, DollarSign, Cog } from 'lucide-react'
+import { MapPin, ListChecks, Cog } from 'lucide-react'
 
 // Configuration des lead magnets
 export const LEAD_MAGNETS = {
@@ -15,18 +15,18 @@ export const LEAD_MAGNETS = {
         ringColor: 'focus:ring-emerald-500/50',
         downloadUrl: '/lead-magnets/checklist-gmb-litus.pdf',
     },
-    'guide-prix': {
-        title: 'Le vrai prix d\'un site internet en 2026',
-        subtitle: 'Guide comparatif gratuit — 3 pages',
-        description: 'Comparez les tarifs du marché et évitez les arnaques. Freelance, agence, Wix : on vous dit tout.',
-        icon: DollarSign,
+    'cahier-des-charges': {
+        title: 'Votre cahier des charges personnalisé',
+        subtitle: 'Parcours gratuit adapté à votre projet',
+        description: 'Préparez votre site vitrine, boutique e-commerce ou outil métier et recevez un document de cadrage complet par email.',
+        icon: ListChecks,
         color: 'blue',
         gradient: 'from-blue-500/20 via-blue-400/5 to-transparent',
         gradientDark: 'dark:from-blue-500/30 dark:to-transparent',
         buttonBg: 'bg-blue-600 hover:bg-blue-700',
         iconBg: 'bg-blue-50 dark:bg-gradient-to-br dark:from-blue-500 dark:to-indigo-600',
         ringColor: 'focus:ring-blue-500/50',
-        downloadUrl: '/lead-magnets/guide-prix-site-web-litus.pdf',
+        downloadUrl: '/ressources/cahier-des-charges',
     },
     'audit-productivite': {
         title: 'Calculez combien d\'heures vous perdez chaque semaine',

@@ -21,9 +21,9 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
     }
 
     // Choisir le lead magnet en fonction de la page (seulement sur certaines pages)
-    const getMagnetId = (): 'guide-prix' | 'audit-productivite' | null => {
+    const getMagnetId = (): 'cahier-des-charges' | 'audit-productivite' | null => {
         if (pathname?.includes('tarifs') || pathname?.includes('creation-site') || pathname?.includes('sites-vitrine') || pathname?.includes('e-commerce')) {
-            return 'guide-prix'
+            return 'cahier-des-charges'
         }
         if (pathname?.includes('application') || pathname?.includes('automatisation')) {
             return 'audit-productivite'

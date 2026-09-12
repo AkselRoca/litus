@@ -13,7 +13,6 @@ const leadMagnetSchema = z.object({
 // Mapping des IDs vers les URLs de téléchargement
 const DOWNLOAD_URLS: Record<string, string> = {
     'checklist-gmb': '/lead-magnets/checklist-gmb-litus.pdf',
-    'guide-prix': '/lead-magnets/guide-prix-site-web-litus.pdf',
     'audit-productivite': '/lead-magnets/audit-productivite-litus.pdf',
 }
 
@@ -21,6 +20,10 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
         const validatedData = leadMagnetSchema.parse(body)
+
+        if (validatedData.magnetId === 'guide-prix' || validatedData.magnetId === 'cahier-des-charges') {
+            return NextResponse.json({ error: 'Utilisez le générateur de cahier des charges.', url: '/ressources/cahier-des-charges' }, { status: 410 })
+        }
 
         // Sauvegarder en DB
         try {

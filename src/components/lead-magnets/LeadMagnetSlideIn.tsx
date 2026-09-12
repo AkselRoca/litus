@@ -1,4 +1,5 @@
 'use client'
+import { BriefMagnet } from './BriefMagnet'
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -104,6 +105,8 @@ export function LeadMagnetSlideIn({
             setIsSubmitting(false)
         }
     }
+
+    if (magnetId === 'cahier-des-charges') return <AnimatePresence>{isOpen && <motion.div initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }} className="fixed bottom-6 right-6 z-[9990] w-[360px] max-w-[calc(100vw-3rem)]"><div className="relative shadow-xl rounded-3xl"><button type="button" onClick={dismiss} aria-label="Fermer la suggestion" className="absolute right-3 top-3 z-10 p-2 rounded-full bg-white text-slate-500"><X size={16} /></button><BriefMagnet compact /></div></motion.div>}</AnimatePresence>
 
     return (
         <AnimatePresence>

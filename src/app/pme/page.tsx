@@ -20,24 +20,23 @@ export default function PmePage() {
             <PmePainPoints />
             <PmeSolutions />
 
-            {/* Section Lead Magnet (Guide Prix PME) */}
+            {/* Section Lead Magnet (Cahier des charges PME) */}
             <section className="py-24 relative overflow-hidden bg-white dark:bg-[#0a0a0a]">
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
                 <div className="container-fluid relative z-10">
                     <div className="max-w-4xl mx-auto text-center mb-12">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                            📊 Guide PME Exclusif
+                            Cahier des charges PME
                         </span>
                         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                            Prévoyez le budget digital de votre PME.
+                            Cadrez le prochain projet digital de votre PME.
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                            Découvrez le vrai tarif d&apos;un site web performant, les aides de l&apos;État disponibles pour la numérisation des PME et comment rentabiliser votre investissement en moins d&apos;un an.
-                        </p>
+                            Structurez vos objectifs, vos fonctionnalités et vos contraintes grâce à un parcours adapté à votre projet. Recevez votre cahier des charges complet par email, gratuitement et sans engagement.</p>
                     </div>
                     
                     <div className="max-w-2xl mx-auto">
-                        <LeadMagnetInline magnetId="guide-prix" />
+                        <LeadMagnetInline magnetId="cahier-des-charges" />
                     </div>
                 </div>
             </section>

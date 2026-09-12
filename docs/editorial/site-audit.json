@@ -803,7 +803,7 @@
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                            Prévoyez le budget digital de votre PME.\r\n                        "
+          "text": "\r\n                            Cadrez le prochain projet digital de votre PME.\r\n                        "
         },
         {
           "level": 2,
@@ -1034,6 +1034,25 @@
         "Ressource introuvable | Litus"
       ],
       "path": "/ressources/[magnet]"
+    },
+    {
+      "file": "src/app/ressources/cahier-des-charges/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Générateur de cahier des charges gratuit | Site web & e-commerce | Litus",
+        "Préparez votre cahier des charges de site vitrine, boutique e-commerce, application ou automatisation. Un parcours personnalisé et un document complet par email.",
+        "Votre cahier des charges, préparé avec Litus",
+        "Les bonnes questions pour cadrer votre projet digital. Gratuit et sans engagement."
+      ],
+      "path": "/ressources/cahier-des-charges"
+    },
+    {
+      "file": "src/app/ressources/guide-prix/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [],
+      "path": "/ressources/guide-prix"
     },
     {
       "file": "src/app/seo-local/page.tsx",
@@ -1901,7 +1920,9 @@
           "text": "📥 Nouveau lead magnet"
         }
       ],
-      "links": [],
+      "links": [
+        "/ressources/cahier-des-charges"
+      ],
       "titles": []
     },
     {
@@ -1936,6 +1957,12 @@
     },
     {
       "file": "src/app/api/newsletter/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/project-brief/route.ts",
       "headings": [],
       "links": [],
       "titles": []
@@ -3783,7 +3810,7 @@
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                            Prévoyez le budget digital de votre PME.\r\n                        "
+          "text": "\r\n                            Cadrez le prochain projet digital de votre PME.\r\n                        "
         },
         {
           "level": 2,
@@ -4179,6 +4206,29 @@
       ]
     },
     {
+      "file": "src/app/ressources/cahier-des-charges/brief.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/ressources/cahier-des-charges/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Générateur de cahier des charges gratuit | Site web & e-commerce | Litus",
+        "Préparez votre cahier des charges de site vitrine, boutique e-commerce, application ou automatisation. Un parcours personnalisé et un document complet par email.",
+        "Votre cahier des charges, préparé avec Litus",
+        "Les bonnes questions pour cadrer votre projet digital. Gratuit et sans engagement."
+      ]
+    },
+    {
+      "file": "src/app/ressources/guide-prix/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/seo-local/SeoLocalHero.tsx",
       "headings": [
         {
@@ -4304,6 +4354,40 @@
       ],
       "links": [
         "/admin/portfolio"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/brief/BriefWizard.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Votre projet.Les bonnes questions.Un vrai point de départ."
+        },
+        {
+          "level": 2,
+          "text": "Votre projet a maintenant un cadre."
+        },
+        {
+          "level": 3,
+          "text": "{result.title}"
+        },
+        {
+          "level": 2,
+          "text": "{isContact ? 'Où vous l’envoyer ?' : isReview ? 'Votre projet, en clair.' : current.title}"
+        },
+        {
+          "level": 3,
+          "text": "{step.title}"
+        },
+        {
+          "level": 3,
+          "text": "Destinataire"
+        }
+      ],
+      "links": [
+        "/contact",
+        "/politique-confidentialite"
       ],
       "titles": []
     },
@@ -4561,7 +4645,7 @@
         "/grands-comptes",
         "/collectivites",
         "/blog",
-        "/ressources/guide-prix",
+        "/ressources/cahier-des-charges",
         "/tarifs",
         "/agence-web-le-mans",
         "/agence-web-lorient",
@@ -4615,6 +4699,19 @@
       "titles": []
     },
     {
+      "file": "src/components/lead-magnets/BriefMagnet.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Un vrai cahier des charges.Pas une page blanche."
+        }
+      ],
+      "links": [
+        "/ressources/cahier-des-charges"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/components/lead-magnets/LeadMagnetInline.tsx",
       "headings": [
         {
@@ -4659,9 +4756,9 @@
         "Les 5 erreurs Google qui envoient vos clients chez la concurrence",
         "Checklist gratuite — 2 pages",
         "Corrigez les erreurs les plus courantes sur votre fiche Google Business et gagnez en visibilité locale.",
-        "Le vrai prix d\\",
-        "Guide comparatif gratuit — 3 pages",
-        "Comparez les tarifs du marché et évitez les arnaques. Freelance, agence, Wix : on vous dit tout.",
+        "Votre cahier des charges personnalisé",
+        "Parcours gratuit adapté à votre projet",
+        "Préparez votre site vitrine, boutique e-commerce ou outil métier et recevez un document de cadrage complet par email.",
         "Calculez combien d\\",
         "Diagnostic productivité gratuit"
       ]
@@ -6467,6 +6564,48 @@
       "headings": [],
       "links": [],
       "titles": []
+    },
+    {
+      "file": "src/lib/brief/email.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "${escape(section.title)}"
+        },
+        {
+          "level": 1,
+          "text": "${admin ? 'Un cahier des charges à étudier.' : 'Les bonnes bases pour la suite.'}"
+        },
+        {
+          "level": 2,
+          "text": "${escape(doc.title)}"
+        },
+        {
+          "level": 2,
+          "text": "Et maintenant ?"
+        },
+        {
+          "level": 2,
+          "text": "Informations techniques"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/brief/model.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Votre projet",
+        "Objectifs & publics",
+        "Structure & usages",
+        "Votre catalogue",
+        "Vente & logistique",
+        "Outils & connexions",
+        "Identité & contenus",
+        "Budget & lancement"
+      ]
     },
     {
       "file": "src/lib/cloudinary.ts",

@@ -1,6 +1,6 @@
 import { HeroBackdrop } from '@/components/ui/HeroBackdrop'
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { LEAD_MAGNETS, LeadMagnetId, LeadMagnetInline } from '@/components/lead-magnets'
 
 interface LeadMagnetPageProps {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: LeadMagnetPageProps): Promise
 
 // Générer les pages statiques pour tous nos lead magnets
 export async function generateStaticParams() {
-    return Object.keys(LEAD_MAGNETS).map((magnetId) => ({
+    return Object.keys(LEAD_MAGNETS).filter(id => id !== 'cahier-des-charges').map((magnetId) => ({
         magnet: magnetId,
     }))
 }

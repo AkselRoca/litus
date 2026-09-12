@@ -79,9 +79,9 @@ export default function PricingPage() {
 
       <section className="pricing-guide">
         <LeadMagnetSection
-          magnetId="guide-prix"
-          heading="Comparer avant de décider"
-          subheading="Notre guide vous aide à situer les prix du marché et à préparer votre projet."
+          magnetId="cahier-des-charges"
+          heading="Un projet bien cadré, un budget mieux préparé"
+          subheading="Préparez votre cahier des charges grâce à un parcours adapté à vos besoins. Recevez un document complet pour échanger avec Litus."
         />
       </section>
 

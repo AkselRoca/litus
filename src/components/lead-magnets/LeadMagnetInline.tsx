@@ -1,5 +1,6 @@
 'use client'
 
+import { BriefMagnet } from './BriefMagnet'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Download, Loader2, CheckCircle } from 'lucide-react'
@@ -21,6 +22,8 @@ export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInline
 
     const magnet = LEAD_MAGNETS[magnetId]
     const Icon = magnet.icon
+
+    if (magnetId === 'cahier-des-charges') return <BriefMagnet compact={compact} />
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()

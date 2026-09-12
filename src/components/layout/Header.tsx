@@ -22,7 +22,7 @@ const personas = [
 ]
 const resources = [
   { label: 'Blog', href: '/blog', icon: Newspaper },
-  { label: 'Guide des tarifs web', href: '/ressources/guide-prix', icon: FileText },
+  { label: 'Cahier des charges', href: '/ressources/cahier-des-charges', icon: FileText },
   { label: 'Tarifs', href: '/tarifs', icon: Tag },
 ]
 const agencies = [

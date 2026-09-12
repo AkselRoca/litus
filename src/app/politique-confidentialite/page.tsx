@@ -44,7 +44,7 @@ export default function PolitiqueConfidentialitePage() {
                                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Informations d'identité (Nom, Prénom)</li>
                                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Coordonnées (Email, Téléphone)</li>
                                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Informations professionnelles (Entreprise, Poste)</li>
-                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Données de projet (Budget, Objectifs SEO)</li>
+                                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Données de projet (budget, objectifs, réponses au générateur de cahier des charges)</li>
                                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Données de navigation (Cookies, Adresse IP)</li>
                                 </ul>
                             </section>
@@ -122,7 +122,7 @@ export default function PolitiqueConfidentialitePage() {
 
                         <div className="mt-16 pt-8 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
                             <p className="text-gray-400 text-sm m-0">
-                                Mise à jour : <strong>Mars 2026</strong>
+                                Mise à jour : <strong>Septembre 2026</strong>
                             </p>
                             <p className="text-gray-400 text-sm m-0">
                                 Litus Agency
