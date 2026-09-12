@@ -1,0 +1,282 @@
+{
+  "plombier": [
+    {
+      "src": "/artisan/galerie/plombier-raccords-tuyauterie.webp",
+      "width": 1440,
+      "height": 954,
+      "bytes": 57416,
+      "alt": "Mains gantées utilisant une clé sur des raccords de tuyauterie dans un local technique",
+      "caption": "Réseaux et raccords",
+      "author": "AR Abnoy",
+      "source": "https://www.pexels.com/photo/close-up-of-man-using-a-spanner-16509869/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/plombier-salle-de-bain-douche.webp",
+      "width": 721,
+      "height": 1080,
+      "bytes": 67912,
+      "alt": "Espace douche équipé de robinetterie, avec parois en marbre et carrelage vert",
+      "caption": "Équipements de salle de bain",
+      "author": "Max Vakhtbovych",
+      "source": "https://www.pexels.com/photo/marbled-wall-shower-room-6580405/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "electricien": [
+    {
+      "src": "/artisan/galerie/electricien-installation-cables-batiment.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 36116,
+      "alt": "Électricien avec un casque de protection intervenant sur le câblage mural d’un bâtiment",
+      "caption": "Installation dans le bâtiment",
+      "author": "Antoni Shkraba",
+      "source": "https://www.pexels.com/photo/a-man-wearing-safety-helmet-while-repairing-a-wall-4981793/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/electricien-armoire-electrique.webp",
+      "width": 813,
+      "height": 1080,
+      "bytes": 118678,
+      "alt": "Professionnel portant un casque bleu devant les câbles et composants d’une armoire électrique",
+      "caption": "Câblage et équipements",
+      "author": "Shameer Vayalakkad Hydrose",
+      "source": "https://www.pexels.com/photo/electrician-working-with-cables-21812143/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "chauffagiste-climatisation": [
+    {
+      "src": "/artisan/galerie/chauffagiste-climatisation-unite-exterieure-climatisation.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 69788,
+      "alt": "Unité extérieure de climatisation fixée sur le mur d’un bâtiment",
+      "caption": "Unité extérieure",
+      "author": "FOX",
+      "source": "https://www.pexels.com/photo/view-of-the-air-conditioning-unit-outside-the-building-27134985/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/chauffagiste-climatisation-climatisation-balcon.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 89596,
+      "alt": "Groupe extérieur de climatisation installé sur un balcon avec des plantes en pot",
+      "caption": "Équipement en habitat collectif",
+      "author": "Can Ceylan",
+      "source": "https://www.pexels.com/photo/air-conditioning-unit-on-urban-balcony-32772143/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "couvreur": [
+    {
+      "src": "/artisan/galerie/couvreur-pose-couverture-toiture.webp",
+      "width": 1440,
+      "height": 1080,
+      "bytes": 182048,
+      "alt": "Artisan travaillant à la pose de bardeaux sur la toiture d’une maison",
+      "caption": "Pose de couverture",
+      "author": "Keith",
+      "source": "https://www.pexels.com/photo/handyman-putting-roof-tiles-on-roof-9431615/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/couvreur-intervention-toit-tuiles.webp",
+      "width": 607,
+      "height": 1080,
+      "bytes": 79020,
+      "alt": "Couvreur portant des équipements de protection sur une toiture inclinée en tuiles",
+      "caption": "Intervention en toiture",
+      "author": "Bulat843",
+      "source": "https://www.pexels.com/photo/roofer-working-on-roof-installation-with-safety-gear-37623622/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "menuisier": [
+    {
+      "src": "/artisan/galerie/menuisier-artisan-atelier-bois.webp",
+      "width": 720,
+      "height": 1080,
+      "bytes": 72420,
+      "alt": "Artisan travaillant le bois dans un atelier entouré de planches et de machines",
+      "caption": "Travail du bois en atelier",
+      "author": "GOWTHAM AGM",
+      "source": "https://www.pexels.com/photo/a-carpenter-working-with-wood-in-a-workshop-18947369/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/menuisier-outillage-travail-bois.webp",
+      "width": 878,
+      "height": 1080,
+      "bytes": 131558,
+      "alt": "Outils à main et manches en bois rangés dans un atelier de travail du bois",
+      "caption": "Outils et savoir-faire",
+      "author": "FFD Restorations",
+      "source": "https://www.pexels.com/photo/close-up-of-tools-14951839/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "peintre": [
+    {
+      "src": "/artisan/galerie/peintre-peinture-mur-interieur.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 64314,
+      "alt": "Peintre appliquant de la peinture au rouleau sur un mur pendant une rénovation intérieure",
+      "caption": "Peinture intérieure",
+      "author": "Tima Miroshnichenko",
+      "source": "https://www.pexels.com/photo/man-painting-the-wall-6474471/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/peintre-application-peinture-rouleau.webp",
+      "width": 720,
+      "height": 1080,
+      "bytes": 31564,
+      "alt": "Vue de dos d’une personne peignant un mur intérieur avec un rouleau",
+      "caption": "Application au rouleau",
+      "author": "cottonbro studio",
+      "source": "https://www.pexels.com/photo/a-man-painting-a-wall-7149336/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "carreleur": [
+    {
+      "src": "/artisan/galerie/carreleur-decoupe-carrelage-chantier.webp",
+      "width": 1440,
+      "height": 1080,
+      "bytes": 114676,
+      "alt": "Deux artisans utilisant un outil de découpe sur un chantier de pose de revêtement de sol",
+      "caption": "Découpe et préparation",
+      "author": "Mehmet Turgut Kirkgoz",
+      "source": "https://www.pexels.com/photo/workmen-using-a-grinder-14124893/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/carreleur-finitions-salle-de-bain-carrelee.webp",
+      "width": 1440,
+      "height": 1080,
+      "bytes": 144904,
+      "alt": "Salle de bain contemporaine avec carrelage clair, baignoire et équipements sanitaires",
+      "caption": "Revêtements et finitions",
+      "author": "Alexander F Ungerer",
+      "source": "https://www.pexels.com/photo/a-bathroom-with-a-tub-sink-and-toilet-22330652/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "macon": [
+    {
+      "src": "/artisan/galerie/macon-maconnerie-mur-mortier.webp",
+      "width": 720,
+      "height": 1080,
+      "bytes": 77894,
+      "alt": "Maçon appliquant du mortier à la truelle sur un mur en cours de construction",
+      "caption": "Construction de murs",
+      "author": "Trần Hồng Công",
+      "source": "https://www.pexels.com/photo/man-building-wall-10383580/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/macon-chantier-mur-briques.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 244204,
+      "alt": "Ouvrier construisant un mur en briques à l’intérieur d’un chantier de bâtiment",
+      "caption": "Maçonnerie sur chantier",
+      "author": "Thanh Long Bùi",
+      "source": "https://www.pexels.com/photo/bricklayer-working-on-construction-site-in-vietnam-33603170/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "paysagiste": [
+    {
+      "src": "/artisan/galerie/paysagiste-taille-haies-entretien.webp",
+      "width": 720,
+      "height": 1080,
+      "bytes": 68708,
+      "alt": "Jardinier taillant une haie devant un bâtiment contemporain avec des cisailles",
+      "caption": "Entretien des espaces verts",
+      "author": "Nothing Ahead",
+      "source": "https://www.pexels.com/photo/gardener-trimming-hedges-in-modern-urban-setting-33688146/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/paysagiste-jardin-escalier-vegetalise.webp",
+      "width": 720,
+      "height": 1080,
+      "bytes": 161386,
+      "alt": "Escalier de pierre et entrée de jardin entourés de plantes et de végétation dense",
+      "caption": "Ambiance et aménagement",
+      "author": "Rachel Claire",
+      "source": "https://www.pexels.com/photo/green-trees-and-plants-along-the-pathway-of-a-garden-6774013/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ],
+  "renovation-interieure": [
+    {
+      "src": "/artisan/galerie/renovation-interieure-piece-travaux-renovation.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 118754,
+      "alt": "Pièce lumineuse en cours de rénovation avec des matériaux et des outils de chantier",
+      "caption": "Un intérieur en transformation",
+      "author": "Francesco Ungaro",
+      "source": "https://www.pexels.com/photo/interior-of-a-room-under-renovation-15798784/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    },
+    {
+      "src": "/artisan/galerie/renovation-interieure-observation-chantier-interieur.webp",
+      "width": 1440,
+      "height": 1080,
+      "bytes": 311158,
+      "alt": "Personne observant une pièce en travaux avec des parois ouvertes et une structure en bois visible",
+      "caption": "Lire les volumes existants",
+      "author": "Monica Silvestre",
+      "source": "https://www.pexels.com/photo/woman-standing-in-room-with-unfinished-walls-4249477/",
+      "license": "https://www.pexels.com/license/",
+      "usage": "Photographie d’illustration sous licence Pexels. Ne représente pas une réalisation de Litus ni une recommandation de Litus par les personnes ou marques visibles.",
+      "aiGenerated": false
+    }
+  ]
+}

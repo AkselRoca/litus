@@ -80,3 +80,8 @@ Nouveau hub /artisan, redirection 301 de /artisans, contenus metier, photos loca
 ## 1.13.b - Redirection directe du hub historique sur Vercel
 
 Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour eviter la normalisation 308 intermediaire de la plateforme.
+
+
+## 1.13.c - Photographies des metiers artisans
+
+20 photos supplementaires sous licence Pexels, deux par metier, integrees dans des galeries responsives. WebP locaux, proportions conservees, dimensions et ALT, chargement differe et credits documentes dans public/artisan/galerie/CREDITS.md. Aucune generation IA necessaire.

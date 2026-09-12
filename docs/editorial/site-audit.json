@@ -4474,6 +4474,17 @@
       "titles": []
     },
     {
+      "file": "src/components/artisan/ArtisanGallery.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Des gestes précis.Des projets concrets."
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/components/artisan/ArtisanShared.tsx",
       "headings": [
         {
