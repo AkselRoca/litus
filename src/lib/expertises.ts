@@ -44,6 +44,7 @@ export const expertiseGroups: { id: string; title: string; description: string; 
 ]
 
 export function isExpertisePath(pathname: string): boolean {
+  if (pathname === '/expertise' || pathname.startsWith('/expertise/')) return true
   return expertiseGroups.some(group => group.items.some(({ href }) => {
     const route = href.split('#')[0]
     return pathname === route || pathname.startsWith(`${route}/`)

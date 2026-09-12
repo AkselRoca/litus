@@ -12,8 +12,14 @@ Le numéro de build affiché dans le footer se trouve dans `src/components/layou
 
 1. Mettre à jour le build dans `src/components/layout/Footer.tsx`.
 2. Lancer `npm run build`.
-3. Committer le changement avec le reste du lot.
-4. Déployer sur Vercel.
+3. Si le build réussit, committer le changement avec le reste du lot puis pousser la branche Git courante automatiquement.
+4. Déployer sur Vercel selon la consigne de publication du projet.
+
+Cette procédure s'applique après chaque modification demandée. Si le build échoue, signaler le blocage et ne pas publier un lot en échec. Ne pas inclure les changements sans rapport avec le lot et ne jamais forcer le push.
+
+## 1.12.a - Expertises, portfolio et parcours de navigation
+
+Enrichissement des expertises et des réalisations, ajout du cas Google Ads SARL Péan J, nouvelle page 404, redirections historiques et désindexation des pages légales. Cette version identifie le lot local ; la publication est conditionnée à la réussite du build.
 
 ## Livraison 1.05.a
 

@@ -1,0 +1,45 @@
+.acquisition-results { position:relative; overflow:hidden; isolation:isolate; padding:clamp(25px,4vw,58px); border:1px solid #ffffff17; border-radius:15px; background:radial-gradient(ellipse at 95% 0%,#315b6860,transparent 50%),radial-gradient(ellipse at 0% 100%,#e95e2a18,transparent 55%),#132a38; color:#fff; }
+.acquisition-results::before { content:''; position:absolute; z-index:-1; right:-70px; top:-170px; width:400px; height:400px; border:1px solid #ffffff08; border-radius:50%; box-shadow:0 0 0 48px #ffffff03,0 0 0 96px #ffffff02; pointer-events:none; }
+.acquisition-results-top { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.acquisition-results-top>span { display:flex; align-items:center; gap:8px; font-size:11px; line-height:1.5; letter-spacing:.035em; }
+.acquisition-results-top>span:first-child { color:#ffad80; }
+.acquisition-results-local { color:#b7cbd0; }
+.acquisition-results .acquisition-results-name { margin:28px 0 5px; color:#fff; font-size:clamp(25px,3.2vw,46px); font-weight:600; line-height:1.12; letter-spacing:-.045em; }
+.acquisition-results .acquisition-results-intro { margin:0; color:#bbccd3; font-size:14px; line-height:1.6; }
+.acquisition-results-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:30px 0; }
+.acquisition-results-metrics>div { display:flex; flex-direction:column; min-width:0; padding:24px 20px; border:1px solid #d2e3eb21; border-radius:13px; background:linear-gradient(135deg,#ffffff09,#ffffff02); }
+.acquisition-results-metrics dt { color:#f1f3f3; font-size:13px; font-weight:550; line-height:1.4; }
+.acquisition-results-metrics dd { display:flex; flex-direction:column; gap:10px; margin:12px 0 0; }
+.acquisition-results-metrics dd>strong { color:#ff9059; font-size:clamp(40px,5.5vw,80px); line-height:1; font-weight:600; letter-spacing:-.065em; white-space:nowrap; }
+.acquisition-results-metrics>div:nth-child(2) dd>strong { color:#eef4f2; }
+.acquisition-results-metrics dd>span { color:#afc3cd; font-size:11px; line-height:1.5; }
+.acquisition-results-reinvest { display:flex; align-items:center; gap:13px; border-top:1px solid #d2e3eb26; padding-top:22px; }
+.acquisition-results-growth { display:grid; place-items:center; width:43px; height:43px; flex-shrink:0; color:#a6d6c2; border-radius:12px; background:#9bddc312; }
+.acquisition-results .acquisition-results-reinvest p { flex:1; margin:0; line-height:1.5; }
+.acquisition-results-reinvest strong { display:block; font-size:13px; font-weight:550; color:#f3f5f4; }
+.acquisition-results-reinvest p>span { display:block; color:#b9cbd1; font-size:12px; margin-top:3px; }
+.acquisition-results-reinvest>svg { flex-shrink:0; color:#ff9059; }
+.acquisition-results .acquisition-results-signature { margin:23px 0 0; color:#99b4c0; font-size:10px; letter-spacing:.025em; }
+.portfolio-art.is-acquisition { padding:0; background:#132a38; }
+.portfolio-art.is-acquisition .portfolio-open { background:#ffffff12; color:white; top:18px; right:18px; }
+.acquisition-results.is-compact .acquisition-results-top { padding-right:34px; }
+.acquisition-results.is-compact .acquisition-results-local { display:none; }
+.acquisition-results.is-compact { padding:clamp(22px,3vw,42px); }
+.acquisition-results.is-compact .acquisition-results-name { font-size:clamp(25px,2.8vw,39px); }
+.portfolio-performance-note { margin:14px 0 0; color:var(--pf-muted); font-size:10px; line-height:1.65; max-width:610px; }
+.portfolio-mosaic.is-list .acquisition-results { padding:22px; }
+.portfolio-mosaic.is-list .acquisition-results-metrics { gap:10px; }
+.portfolio-mosaic.is-list .acquisition-results-metrics>div { padding:18px 12px; }
+.portfolio-mosaic.is-list .acquisition-results-metrics dd>strong { font-size:clamp(30px,3.2vw,50px); }
+.portfolio-mosaic.is-list .acquisition-results-reinvest>svg { display:none; }
+@media(max-width:760px) {
+  .acquisition-results,.acquisition-results.is-compact { padding:25px 20px; }
+  .acquisition-results-metrics { gap:10px; margin:25px 0; }
+  .acquisition-results-metrics>div { padding:20px 12px; }
+  .acquisition-results-metrics dd>strong { font-size:clamp(32px,8.5vw,57px); }
+  .acquisition-results-metrics dt { font-size:12px; }
+  .acquisition-results-metrics dd>span { font-size:10px; }
+  .acquisition-results-reinvest>svg { display:none; }
+  .acquisition-results-reinvest strong { font-size:12px; }
+  .acquisition-results-reinvest p>span { font-size:11px; }
+}

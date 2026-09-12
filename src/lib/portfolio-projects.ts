@@ -27,7 +27,7 @@ export function curatePublicProjects(rows: Project[]): PublicPortfolioProject[] 
   }
   for (const row of rows) {
     const slug = portfolioSlug(row.title);
-    if (row.visible && slug !== 'japan-hunter' && !known.has(slug)) curated.push({ ...row, title: row.title.replace(/D[ée]m[ée]tis/gi, 'Demetis') });
+    if (row.visible && !['japan-hunter', 'aspire-marketing'].includes(slug) && !known.has(slug)) curated.push({ ...row, title: row.title.replace(/D[ée]m[ée]tis/gi, 'Demetis') });
   }
   return curated;
 }

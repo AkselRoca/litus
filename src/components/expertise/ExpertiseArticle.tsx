@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronRight, CornerDownRight } from 'lucide-react'
 import { BusinessSectionHeading, ServiceReveal } from '@/components/sections/services/BusinessService'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
-import { expertiseContact, expertisePath, expertiseTool } from '@/lib/expertise/catalog'
+import { expertiseContact, expertisePath, expertiseTool, expertiseStyle } from '@/lib/expertise/catalog'
 import { expertiseSchema } from '@/lib/expertise/seo'
 import type { ExpertisePage, ExpertiseSection } from '@/lib/expertise/types'
 import { ExpertiseVisual } from './ExpertiseVisual'
@@ -44,7 +44,7 @@ export function ExpertiseArticle({ page }: { page: ExpertisePage }) {
   const schema = expertiseSchema(page)
   const leadImage = expertiseScenes[page.slug][0]
   const structuredData = { ...schema, '@graph': schema['@graph'].map(node => node['@type'] === 'WebPage' ? { ...node, primaryImageOfPage: { '@type': 'ImageObject', contentUrl: `https://litus.fr${expertiseImage(leadImage.file)}`, caption: leadImage.alt, width: leadImage.width, height: leadImage.height } } : node) }
-  return <div className={`business-service expertise-page expertise-${page.slug}`}>
+  return <div className={`business-service expertise-page expertise-${page.slug}`} style={expertiseStyle(page.slug)}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <ExpertiseBreadcrumb name={tool.name} />
     <ServiceHero id="expertise-title" eyebrow={`${tool.name} · ${tool.category}`} title={page.headline} accent={page.accent} description={page.intro} primaryAction={{ label: page.action, href: contact }} secondaryAction={{ label: 'Voir les interventions', href: `#${page.sections[0].id}` }} visual={<ExpertiseVisual slug={page.slug} />} proof={<ul className="ex-proof">{page.deliverables.map(item => <li key={item}><Check size={15} aria-hidden="true" />{item}</li>)}</ul>} />

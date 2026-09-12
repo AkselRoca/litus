@@ -1,3 +1,4 @@
+import { AiPillars } from '@/components/expertise/ExpertiseDirectory'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -67,6 +68,7 @@ export default function AutomatisationPage() {
       proof={<ul className="business-hero-proof"><li><Clock3 aria-hidden="true" /><span>Moins de tâches répétitives</span></li><li><PlugZap aria-hidden="true" /><span>Vos logiciels connectés</span></li><li><ClipboardCheck aria-hidden="true" /><span>Vous gardez le contrôle</span></li></ul>}
     />
     <div className="business-content">
+      <AiPillars />
       <section className="business-section auto-needs" aria-labelledby="auto-needs-title"><div className="business-container">
         <BusinessSectionHeading eyebrow="Vos outils doivent vous aider" id="auto-needs-title" description="Nous relions les logiciels que vous utilisez pour faire circuler l’information. Chaque échange suit vos règles et s’inscrit dans un fonctionnement clair pour votre équipe.">Moins de copier-coller.<br /><em>Plus de continuité.</em></BusinessSectionHeading>
         <ServiceReveal className="auto-needs-grid">{needs.map(({ icon: Icon, title: itemTitle, text }) => <article key={itemTitle}><span className="business-icon"><Icon aria-hidden="true" /></span><div><h3>{itemTitle}</h3><p>{text}</p></div></article>)}</ServiceReveal>

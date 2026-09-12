@@ -1,3 +1,4 @@
+import { AiPillars } from '@/components/expertise/ExpertiseDirectory'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -91,6 +92,7 @@ export default function AiToolsPage() {
         { icon: ClipboardCheck, title: 'Des résultats testés et contrôlables', text: 'Cas de test représentatifs, sources consultables, suivi des erreurs et validation humaine pour les actions importantes.' },
       ].map(({icon: Icon, title: trustTitle, text}) => <article key={trustTitle}><span className="ai-icon"><Icon aria-hidden="true" /></span><div><h3>{trustTitle}</h3><p>{text}</p></div></article>)}</AiReveal></div></section>
 
+      <AiPillars />
       <section className="ai-section ai-faq-section" id="faq" aria-labelledby="ia-faq-title"><div className="ai-container"><div className="ai-heading"><p className="ai-kicker">Vos questions</p><h2 id="ia-faq-title">Créer un outil IA,<br /><em>avec les bonnes réponses.</em></h2></div><div className="ai-faq-grid">{aiFaq.map(item => <details key={item.question}><summary>{item.question}<ChevronDown size={17} aria-hidden="true" /></summary><p>{item.answer}</p></details>)}</div></div></section>
 
       <section className="ai-section ai-final-section" id="contact-ia" aria-labelledby="ia-contact-title"><div className="ai-container ai-final-card"><div><p className="ai-kicker">Votre prochain outil commence ici</p><h2 id="ia-contact-title">Une tâche vous prend trop de temps ?<br /><em>Parlons-en concrètement.</em></h2><p>Décrivez votre processus, vos données et le résultat attendu. Nous verrons ensemble où l’IA peut être utile et comment construire un premier périmètre réaliste.</p></div><div className="ai-final-actions"><Link href={aiContactHref} className="site-cta-primary">Parlons de votre outil IA<ArrowRight size={18} aria-hidden="true" /></Link><span>Premier échange · Devis sur mesure</span><a href="tel:+33744985521">07 44 98 55 21</a></div></div></section>

@@ -1,0 +1,42 @@
+{
+  "slug": "sarl-pean-j",
+  "title": "SARL Péan J",
+  "sourceUrl": "https://sarl-peanj.fr/",
+  "sector": "Menuiserie extérieure · Sarthe",
+  "categories": ["Google Ads", "Acquisition"],
+  "stack": ["Google Ads"],
+  "headline": "Des demandes commerciales régulières. Un coût d’acquisition maîtrisé.",
+  "summary": "Pour SARL Péan J, entreprise de menuiserie extérieure et de volets solaires en Sarthe, Litus pilote des campagnes Google Ads qui génèrent +30 leads par mois, à environ 15 € par conversion. Des demandes locales concrètes, qui encouragent le client à réinvestir progressivement.",
+  "scope": "Pilotage et optimisation des campagnes Google Ads pour développer une acquisition locale et régulière de nouvelles demandes clients. L’accompagnement porte sur la performance publicitaire : relier l’investissement à des contacts commerciaux, pas seulement à des clics ou des impressions.",
+  "focus": [
+    { "title": "Un enjeu local, des besoins concrets", "text": "SARL Péan J intervient dans la menuiserie extérieure, les volets roulants solaires, leur pose et leur dépannage. L’enjeu de l’acquisition : rencontrer les besoins des particuliers dans sa zone d’intervention en Sarthe et autour du Mans." },
+    { "title": "Des campagnes pilotées par Litus", "text": "Litus optimise et suit les campagnes Google Ads avec un objectif commercial : générer régulièrement de nouvelles demandes locales, à un coût par conversion maîtrisé. Le suivi porte sur les leads obtenus, au-delà de la seule visibilité des annonces." },
+    { "title": "La rentabilité encourage le réinvestissement", "text": "Les campagnes sont rentables pour le client et lui apportent régulièrement de nouvelles demandes. Il augmente donc progressivement son budget Google Ads pour accompagner les résultats et développer davantage son acquisition." }
+  ],
+  "links": [
+    { "label": "Pilotage Google Ads", "href": "/google-ads" },
+    { "label": "Acquisition pour les artisans", "href": "/artisans" }
+  ],
+  "cover": {
+    "src": "/realisations/clients/sarl-pean-j/resultats-google-ads-acquisition.webp",
+    "width": 1280,
+    "height": 800,
+    "alt": "Résultats Google Ads de SARL Péan J : +30 leads générés par mois et environ 15 euros de coût par conversion",
+    "caption": "Acquisition Google Ads pilotée par Litus : demandes commerciales locales et budget réinvesti progressivement.",
+    "kind": "brand"
+  },
+  "gallery": [],
+  "performance": {
+    "metrics": [
+      { "value": "+30", "label": "leads générés par mois", "detail": "De nouvelles demandes commerciales" },
+      { "value": "≈ 15 €", "label": "de coût par conversion", "detail": "Une acquisition à coût maîtrisé" }
+    ],
+    "reinvestment": "Parce que les campagnes sont rentables et lui apportent régulièrement de nouvelles demandes, le client augmente progressivement son budget Google Ads. Il choisit de réinvestir à mesure que les résultats progressent.",
+    "note": "Résultats de ce cas client communiqués par Litus. Un lead est une demande commerciale, pas une vente garantie. Ces résultats ne constituent pas une promesse pour d’autres campagnes."
+  },
+  "accent": "#ec6731",
+  "tone": "#eaf0f2",
+  "order": 16,
+  "scopeOnly": false,
+  "archived": false
+}

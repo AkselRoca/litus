@@ -1,3 +1,5 @@
+import { ConnectedVisual } from './ConnectedVisual'
+import { connectedDefinitions } from '@/lib/expertise/connected-definitions'
 import { TechnicalVisual } from './TechnicalVisual'
 import Image from 'next/image'
 import { Check, Code2, Database, FileText, GitBranch, Layers3, LockKeyhole, Mail, Server, ShoppingBag } from 'lucide-react'
@@ -9,7 +11,7 @@ export function ExpertiseVisual({ slug }: { slug: ExpertiseSlug }) {
   const tool = expertiseTool(slug)
   return <figure className={`ex-visual ex-visual-${slug}`}>
     <div className="ex-window-bar"><span className="ex-window-dots" aria-hidden="true"><i /><i /><i /></span><span>{tool.name} · atelier Litus</span><Image src={tool.logo} alt="" width={22} height={22} unoptimized /></div>
-    {(['python', 'csharp', 'dotnet', 'labview'] as string[]).includes(slug) ? <TechnicalVisual slug={slug} /> : (['nextjs', 'react', 'tailwind', 'stripe'] as string[]).includes(slug) ? <ExpertisePlayground kind={(slug === 'nextjs' ? 'react' : slug) as 'react' | 'tailwind' | 'stripe'} /> : slug === 'typescript' ? <div className="ex-type-example">
+    {connectedDefinitions.some(item => item.slug === slug) ? <ConnectedVisual slug={slug} /> : (['python', 'csharp', 'dotnet', 'labview'] as string[]).includes(slug) ? <TechnicalVisual slug={slug} /> : (['nextjs', 'react', 'tailwind', 'stripe'] as string[]).includes(slug) ? <ExpertisePlayground kind={(slug === 'nextjs' ? 'react' : slug) as 'react' | 'tailwind' | 'stripe'} /> : slug === 'typescript' ? <div className="ex-type-example">
       <div className="ex-demo-title"><div><small>Contrat de données</small><strong>Traiter l’absence. Avant l’erreur.</strong></div><Code2 aria-hidden="true" /></div>
       <div className="ex-type-input"><span>Réponse du CRM</span><code>{'{ email: null }'}</code></div>
       <div className="ex-type-code"><code><span>type</span>{' Contact = {\n  email: string | null\n}'}</code></div>

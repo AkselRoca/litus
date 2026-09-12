@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Mentions légales',
   description: 'Mentions légales du site litus.fr, édité par Aksel Roca et Arthur Geveaux.',
   alternates: { canonical: '/mentions-legales' },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
 }
 
 export default function MentionsLegalesPage() {

@@ -1,9 +1,18 @@
+const legacyUrls = require('./src/lib/seo/legacy-urls.json')
+const excludedLegacyPaths = new Set([
+    ...legacyUrls.redirects.map(({ source }) => source),
+    ...legacyUrls.gone,
+    ...legacyUrls.noindex,
+    '/apple-icon.png', '/icon.png', '/opengraph-image.png', '/twitter-image.png',
+])
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
     siteUrl: process.env.SITE_URL || 'https://litus.fr',
     generateRobotsTxt: true,
     generateIndexSitemap: true,
     exclude: [
+        ...excludedLegacyPaths,
         '/admin',
         '/admin/*',
         '/login-admin',
@@ -11,6 +20,7 @@ module.exports = {
         '/blog/*',
         '/blog-sitemap.xml',
         '/ressources/confirmation',
+        '/ressources/guide-prix',
         '/creation-outils-ia/opengraph-image',
         '/creation-application-web/opengraph-image',
         '/creation-landing-page/opengraph-image',
@@ -27,9 +37,10 @@ module.exports = {
         ],
     },
     additionalPaths: async (config) => Promise.all(
-        ['/blog', '/expertise', ...['nextjs', 'react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress', 'python', 'csharp', 'dotnet', 'labview'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
+        ['/blog', '/expertise', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
     ),
     transform: async (config, path) => {
+        if (excludedLegacyPaths.has(path.replace(/\/$/, ''))) return null
         let priority = 0.7
         let changefreq = 'weekly'
 

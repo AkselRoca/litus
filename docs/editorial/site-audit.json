@@ -865,7 +865,7 @@
         },
         {
           "level": 2,
-          "text": "\r\n                                    6\r\n                                    Gestion des Cookies\r\n                                "
+          "text": "\r\n                                    6\r\n                                    Gestion des Cookies\n                                "
         }
       ],
       "links": [],
@@ -897,7 +897,7 @@
         }
       ],
       "links": [
-        "/realisations/clients/murasaki-team/accueil.webp",
+        "/realisations/clients/demetis-immo/hero-agence-immobiliere.webp",
         "/contact"
       ],
       "titles": [
@@ -1962,6 +1962,12 @@
       "titles": []
     },
     {
+      "file": "src/app/api/not-found-search/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/api/project-brief/route.ts",
       "headings": [],
       "links": [],
@@ -2518,6 +2524,20 @@
         "Contact - Litus",
         "Parlons de votre projet web. Contactez Litus à Lorient et au Mans : sites web, e-commerce et visibilité locale. Réponse sous 24 h ouvrées."
       ]
+    },
+    {
+      "file": "src/app/contenu-retire/route.ts",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Cette prestation n’est plus proposée."
+        }
+      ],
+      "links": [
+        "/expertise",
+        "/contact"
+      ],
+      "titles": []
     },
     {
       "file": "src/app/creation-application-web/_components/ApplicationHeroDemo.tsx",
@@ -3282,6 +3302,23 @@
       "titles": []
     },
     {
+      "file": "src/app/google-ads/_components/GoogleAdsClientCase.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "SARL Péan J :des demandes, pas seulement des clics."
+        },
+        {
+          "level": 3,
+          "text": "Des campagnes rentables.Un budget qui grandit avec les résultats."
+        }
+      ],
+      "links": [
+        "/realisations/sarl-pean-j"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/app/google-ads/_components/GoogleAdsContent.tsx",
       "headings": [
         {
@@ -3419,6 +3456,12 @@
         "Rénovation au Mans — Parlons de votre projet",
         "Des travaux pensés pour votre maison. Présentez-nous votre besoin et échangeons sur votre projet."
       ]
+    },
+    {
+      "file": "src/app/google-ads/_components/google-ads-client-case.css",
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/app/google-ads/_components/google-ads-conversion.css",
@@ -3744,6 +3787,12 @@
       ]
     },
     {
+      "file": "src/app/not-found.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/page.tsx",
       "headings": [],
       "links": [],
@@ -3871,7 +3920,7 @@
         },
         {
           "level": 2,
-          "text": "\r\n                                    6\r\n                                    Gestion des Cookies\r\n                                "
+          "text": "\r\n                                    6\r\n                                    Gestion des Cookies\n                                "
         }
       ],
       "links": [],
@@ -4011,7 +4060,7 @@
         }
       ],
       "links": [
-        "/realisations/clients/murasaki-team/accueil.webp",
+        "/realisations/clients/demetis-immo/hero-agence-immobiliere.webp",
         "/contact"
       ],
       "titles": [
@@ -4392,6 +4441,17 @@
       "titles": []
     },
     {
+      "file": "src/components/expertise/ConnectedVisual.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{d.visual.title}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/components/expertise/ExpertiseArticle.tsx",
       "headings": [
         {
@@ -4437,6 +4497,35 @@
       "titles": []
     },
     {
+      "file": "src/components/expertise/ExpertiseDirectory.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Quatre outils.Des rôles bien distincts."
+        },
+        {
+          "level": 3,
+          "text": "{tool.name}"
+        },
+        {
+          "level": 2,
+          "text": "Chaque outil.Sa page, ses usages."
+        },
+        {
+          "level": 3,
+          "text": "{category.label}"
+        }
+      ],
+      "links": [
+        "/expertise/make",
+        "/expertise/gemini",
+        "/expertise/microsoft-copilot",
+        "/expertise/python",
+        "/expertise/dotnet"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/components/expertise/ExpertiseExplorer.tsx",
       "headings": [
         {
@@ -4453,25 +4542,9 @@
         }
       ],
       "links": [
-        "/creation-site-internet",
-        "/referencement-naturel",
-        "/developpement-web-sur-mesure",
-        "/creation-application-web",
-        "/automatisation",
-        "/integrations-api",
-        "/creation-site-ecommerce",
         "/contact"
       ],
-      "titles": [
-        "Présenter, convaincre et vendre.",
-        "Relier le site aux bonnes demandes.",
-        "Des interfaces qui répondent à vos usages.",
-        "Un outil pour votre fonctionnement métier.",
-        "Moins de ressaisie, des traitements suivis.",
-        "Préparer la livraison et l’exploitation.",
-        "Du catalogue au suivi de la commande.",
-        "Publier sans dépendre du développeur."
-      ]
+      "titles": []
     },
     {
       "file": "src/components/expertise/ExpertiseGallery.tsx",
@@ -4527,6 +4600,12 @@
         "Une interface. Des services fiables.",
         "Du signal au compte rendu."
       ]
+    },
+    {
+      "file": "src/components/expertise/expertise-connected.css",
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/components/expertise/expertise-explorer.css",
@@ -4770,6 +4849,48 @@
       "titles": []
     },
     {
+      "file": "src/components/not-found/SpaceNotFound.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Cette page n’existe pas(mais on a d’autres bonnes idées)"
+        }
+      ],
+      "links": [
+        "/creation-site-internet",
+        "/creation-site-ecommerce",
+        "/referencement-naturel",
+        "/google-ads",
+        "/developpement-web-sur-mesure",
+        "/realisations",
+        "/contact",
+        "/",
+        "/a-propos"
+      ],
+      "titles": [
+        "Création de site internet",
+        "Un site clair, rapide et pensé pour vos clients.",
+        "E-commerce",
+        "Une boutique simple à gérer, qui vend.",
+        "Référencement SEO",
+        "Des contenus visibles sur Google.",
+        "Google Ads",
+        "Des campagnes qui génèrent des résultats."
+      ]
+    },
+    {
+      "file": "src/components/not-found/space-not-found.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/portfolio/AcquisitionResults.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/components/portfolio/PortfolioCaseStudy.tsx",
       "headings": [
         {
@@ -4834,6 +4955,12 @@
           "text": "\r\n                        {project.title}\r\n                    "
         }
       ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/portfolio/acquisition-results.css",
+      "headings": [],
       "links": [],
       "titles": []
     },
@@ -6807,6 +6934,79 @@
       "titles": []
     },
     {
+      "file": "src/lib/expertise/categories.ts",
+      "headings": [],
+      "links": [
+        "/creation-site-internet",
+        "/referencement-naturel",
+        "/developpement-web-sur-mesure",
+        "/creation-application-web",
+        "/creation-outils-ia",
+        "/automatisation",
+        "/integrations-api",
+        "/creation-site-ecommerce"
+      ],
+      "titles": [
+        "Présenter, convaincre et vendre.",
+        "Relier les campagnes aux demandes utiles.",
+        "Des interfaces, API et traitements dédiés.",
+        "Logiciels métier, acquisition et mesure.",
+        "Assistants métier, agents et workflows supervisés.",
+        "Relier formulaires, CRM et outils quotidiens.",
+        "Préparer la livraison et l’exploitation.",
+        "Du catalogue au suivi de la commande."
+      ]
+    },
+    {
+      "file": "src/lib/expertise/coherence.test.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/connected-business.ts",
+      "headings": [],
+      "links": [
+        "/creation-outils-ia",
+        "/google-ads",
+        "/creation-landing-page",
+        "/automatisation",
+        "/integrations-api",
+        "/creation-application-web",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "Gemini : intégration IA et usages Google pour entreprise | Litus",
+        "Litus cadre vos usages Gemini : synthèses, extraction de données, documents et intégration IA avec vos outils Google ou votre application.",
+        "Préparer la lecture d’un dossier.",
+        "Google Ads : tracking, conversions & intégrations API | Litus",
+        "Reliez Google Ads aux conversions utiles : formulaires, ventes, CRM et reporting. Litus cadre le tracking et les échanges de données publicitaires.",
+        "Du signal publicitaire au dossier commercial.",
+        "Meta Ads : campagnes, formulaires & suivi des conversions | Litus",
+        "Litus relie vos campagnes Meta Ads aux parcours du site : créations, formulaires, CRM et mesure des conversions sur Facebook et Instagram."
+      ]
+    },
+    {
+      "file": "src/lib/expertise/connected-definitions.ts",
+      "headings": [],
+      "links": [
+        "/creation-outils-ia",
+        "/developpement-web-sur-mesure",
+        "/automatisation",
+        "/integrations-api"
+      ],
+      "titles": [
+        "Intégration ChatGPT & API OpenAI pour entreprise | Litus",
+        "Litus conçoit des assistants métier avec OpenAI : qualification de leads, analyse de documents, rapports et IA connectée à votre CRM ou application.",
+        "La demande devient une fiche exploitable.",
+        "OpenAI Codex : agents de développement & maintenance | Litus",
+        "Intégrer Codex à vos workflows de développement : reprise de code, refactoring, tests et maintenance, avec revue humaine et accès maîtrisés.",
+        "Une proposition. Une revue. Une livraison.",
+        "Intégration Claude & API Anthropic pour entreprise | Litus",
+        "Analyse de documents, extraction de données et assistants métier avec Claude : Litus intègre l’API Anthropic à vos outils et processus."
+      ]
+    },
+    {
       "file": "src/lib/expertise/content-commerce.ts",
       "headings": [],
       "links": [
@@ -6823,6 +7023,17 @@
         "Confirmation",
         "Accès client",
         "CRM & email"
+      ]
+    },
+    {
+      "file": "src/lib/expertise/content-connected.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Ce que nous pouvons réaliser avec vous.",
+        "Le besoin avant la connexion",
+        "Un parcours que votre équipe peut reprendre.",
+        "Partir d’un exemple réel de votre travail."
       ]
     },
     {
@@ -6920,6 +7131,12 @@
     },
     {
       "file": "src/lib/expertise/types.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/visuals-connected.ts",
       "headings": [],
       "links": [],
       "titles": []
@@ -7060,7 +7277,7 @@
       "titles": []
     }
   ],
-  "sitemap": "/** @type {import('next-sitemap').IConfig} */\r\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\r\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', ...['nextjs', 'react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress', 'python', 'csharp', 'dotnet', 'labview'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\r\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
+  "sitemap": "const legacyUrls = require('./src/lib/seo/legacy-urls.json')\nconst excludedLegacyPaths = new Set([\n    ...legacyUrls.redirects.map(({ source }) => source),\n    ...legacyUrls.gone,\n    ...legacyUrls.noindex,\n    '/apple-icon.png', '/icon.png', '/opengraph-image.png', '/twitter-image.png',\n])\n\n/** @type {import('next-sitemap').IConfig} */\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\n        ...excludedLegacyPaths,\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/ressources/guide-prix',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\n        if (excludedLegacyPaths.has(path.replace(/\\/$/, ''))) return null\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
   "cron": [
     {
       "path": "/api/cron/editorial",

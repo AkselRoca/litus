@@ -4,6 +4,7 @@ import { GoogleAdsReveal } from './GoogleAdsReveal'
 import { GoogleAdsMethod } from './GoogleAdsMethod'
 import { GoogleAdsLocal } from './GoogleAdsLocal'
 import { GoogleAdsConversion } from './GoogleAdsConversion'
+import { GoogleAdsClientCase } from './GoogleAdsClientCase'
 
 const benefits = [
   { title: 'Résultats rapides', icon: Zap, color: 'orange', text: 'Le référencement payant permet de lancer votre visibilité sans attendre le travail du SEO. Les premiers enseignements guident les ajustements.' },
@@ -23,6 +24,8 @@ export function GoogleAdsContent() {
     <section className="gad-section gad-benefits-section" aria-labelledby="gad-benefits-title"><div className="gad-container"><div className="gad-section-heading gad-heading-split"><div><p className="gad-kicker"><span />Pourquoi investir dans Google Ads ?</p><h2 id="gad-benefits-title">Soyez visible au bon moment,<br /><em>auprès des bonnes personnes.</em></h2></div><p>Vos futurs clients cherchent déjà une solution sur Google. Le référencement payant, aussi appelé SEA, permet de présenter vos services sur des recherches pertinentes. Notre rôle d’agence SEA : relier cette visibilité à des prises de contact utiles pour votre entreprise.</p></div><GoogleAdsReveal className="gad-benefits-grid">{benefits.map(({title, icon: Icon, color, text}) => <article className={`gad-benefit-card gad-tone-${color}`} key={title}><span className="gad-benefit-icon"><Icon size={25} strokeWidth={1.65} aria-hidden="true" /></span><h3>{title}</h3><p>{text}</p></article>)}</GoogleAdsReveal></div></section>
 
     <section id="google-ads-methode" className="gad-section gad-method-section" aria-labelledby="gad-method-title"><div className="gad-container"><div className="gad-section-heading gad-heading-row"><div><p className="gad-kicker"><span />Notre méthode</p><h2 id="gad-method-title">La gestion de vos<br /><em>campagnes Google Ads.</em></h2></div><Link href="#google-ads-contact" className="site-cta-secondary">Parlons de vos objectifs<ArrowRight size={17} aria-hidden="true" /></Link></div><GoogleAdsMethod /></div></section>
+
+    <GoogleAdsClientCase />
 
     <GoogleAdsLocal />
 

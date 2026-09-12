@@ -40,8 +40,8 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
             <main id="main" className="flex-1">
                 {children}
             </main>
-            <GoogleReviews />
-            <Footer />
+            <div data-public-page-extras><GoogleReviews /></div>
+            <div data-public-page-extras><Footer /></div>
             <CookieBanner />
             {pathname !== '/' && !hasDedicatedContactJourney && magnetId && (
                 <LeadMagnetSlideIn magnetId={magnetId} scrollTriggerPercent={65} delayMs={45000} />

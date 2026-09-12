@@ -1,0 +1,138 @@
+[
+  {
+    "slug": "gemini",
+    "name": "Gemini",
+    "logo": "/brands/gemini.png",
+    "color": "#4285f4",
+    "category": "IA & environnement Google",
+    "summary": "Nous étudions Gemini pour les équipes qui veulent exploiter leurs textes, documents ou données dans un parcours défini. Le projet distingue l’assistant accessible dans les produits Google d’une intégration API développée pour votre application."
+  },
+  {
+    "slug": "google-ads",
+    "name": "Google Ads",
+    "logo": "/brands/color/google-ads.png",
+    "color": "#4285f4",
+    "category": "Mesure & intégrations publicitaires",
+    "summary": "Cette expertise concerne la mesure et les connexions techniques autour de Google Ads. Nous relions les événements du site aux résultats que vous pouvez réellement suivre : demande reçue, vente ou étape commerciale définie dans votre CRM."
+  },
+  {
+    "slug": "meta-ads",
+    "name": "Meta Ads",
+    "logo": "/brands/meta-ads-official.svg",
+    "color": "#0866ff",
+    "category": "Acquisition sociale & conversions",
+    "summary": "Pour Facebook et Instagram, nous travaillons la continuité entre la publicité, la page de destination et le traitement de la demande. Le projet relie message, format créatif, collecte autorisée et suivi commercial, sans se limiter au nombre de clics."
+  },
+  {
+    "slug": "make",
+    "name": "Make",
+    "logo": "/brands/make-official.svg",
+    "color": "#6d00cc",
+    "category": "Automatisation visuelle",
+    "summary": "Make permet de composer des scénarios entre applications. Litus s’en sert pour organiser un processus précis : recevoir une demande, contrôler ses données, alimenter les bons outils et informer l’équipe, avec les exceptions prévues dès le départ."
+  },
+  {
+    "slug": "notion",
+    "name": "Notion",
+    "logo": "/brands/notion-official.svg",
+    "color": "#191919",
+    "category": "Documentation & organisation",
+    "summary": "Nous organisons Notion autour de vos usages : documentation d’équipe, dossiers clients, suivi éditorial ou passage de relais. Le travail porte autant sur les propriétés, modèles et permissions que sur la présentation de la page d’accueil."
+  },
+  {
+    "slug": "brevo",
+    "name": "Brevo",
+    "logo": "/brands/brevo-official.svg",
+    "color": "#0b996e",
+    "category": "Emailing & relation client",
+    "summary": "Une confirmation de demande et une newsletter n’ont pas le même rôle. Nous organisons Brevo pour distinguer les messages utiles au service, les communications commerciales et les données nécessaires à chaque envoi."
+  },
+  {
+    "slug": "hubspot",
+    "name": "HubSpot",
+    "logo": "/brands/hubspot-official.svg",
+    "color": "#ff7a59",
+    "category": "CRM & suivi commercial",
+    "summary": "Nous relions HubSpot aux points d’entrée de votre activité pour que les demandes soient identifiées, attribuées et suivies. Le projet commence par vos étapes commerciales et vos propriétés de référence, pas par l’ajout de champs au hasard."
+  },
+  {
+    "slug": "airtable",
+    "name": "Airtable",
+    "logo": "/brands/airtable-official.png",
+    "color": "#18bfff",
+    "category": "Bases métier & interfaces no-code",
+    "summary": "Airtable peut donner un cadre à un suivi devenu trop compliqué dans plusieurs tableurs. Nous construisons des tables, relations et interfaces autour d’un usage précis, en gardant les volumes, droits et possibilités d’évolution en vue."
+  },
+  {
+    "slug": "microsoft-365",
+    "name": "Microsoft 365",
+    "logo": "/brands/microsoft-365.svg",
+    "color": "#0078d4",
+    "category": "Collaboration & environnement Microsoft",
+    "summary": "Un message Outlook, un fichier SharePoint et une action dans un logiciel métier appartiennent souvent au même dossier. Nous préparons les liens entre ces étapes pour éviter les copies dispersées et rendre les responsabilités visibles."
+  },
+  {
+    "slug": "microsoft-copilot",
+    "name": "Microsoft Copilot",
+    "logo": "/brands/microsoft-copilot.png",
+    "color": "#0078d4",
+    "category": "Assistance IA & Microsoft 365",
+    "summary": "Nous aidons les équipes à choisir des usages Copilot qui répondent à un travail identifié : préparer une synthèse, retrouver le contexte d’un dossier ou structurer un document. L’accompagnement commence par les sources, les permissions et la façon de relire les résultats."
+  },
+  {
+    "slug": "zapier",
+    "name": "Zapier",
+    "logo": "/brands/zapier-official.svg",
+    "color": "#ff4f00",
+    "category": "Connexions & automatisations simples",
+    "summary": "Zapier peut être adapté lorsqu’un événement dans une application doit déclencher quelques actions dans d’autres outils. Nous privilégions un périmètre facile à expliquer, avec des champs contrôlés et un responsable capable de suivre le résultat."
+  },
+  {
+    "slug": "webflow",
+    "name": "Webflow",
+    "logo": "/brands/webflow-official.svg",
+    "color": "#146ef5",
+    "category": "Sites de marque & CMS",
+    "summary": "Nous utilisons Webflow pour construire des sites éditoriaux et commerciaux où le design et l’autonomie de publication comptent. Le travail ne s’arrête pas à une belle page : collections, responsive, formulaires et liens doivent suivre votre contenu réel."
+  },
+  {
+    "slug": "openai",
+    "name": "ChatGPT / OpenAI",
+    "logo": "/brands/openai-official.svg",
+    "color": "#202020",
+    "category": "Assistants métier & API IA",
+    "summary": "Lire une demande, retrouver une information dans vos documents ou préparer un compte rendu : nous intégrons OpenAI là où une étape de compréhension manque à votre processus. L’objectif est un résultat exploitable par votre équipe, pas un chatbot ajouté pour la vitrine."
+  },
+  {
+    "slug": "codex",
+    "name": "OpenAI Codex",
+    "logo": "/brands/openai-official.svg",
+    "color": "#202020",
+    "category": "Agents de développement",
+    "summary": "Une anomalie à reproduire, un module à clarifier ou une série de tests à préparer : Litus utilise Codex comme un agent de développement supervisé. Nous organisons le contexte, les permissions et la revue pour que le résultat puisse être compris, maintenu et livré par votre équipe."
+  },
+  {
+    "slug": "claude",
+    "name": "Claude / Anthropic",
+    "logo": "/brands/claude-official.png",
+    "color": "#c15f3c",
+    "category": "Analyse documentaire & assistants IA",
+    "summary": "Dossiers fournisseurs, comptes rendus, procédures ou pièces jointes : nous construisons des usages Claude qui extraient et structurent l’information utile. L’assistant prépare une lecture ; votre équipe conserve les références, les exceptions et le dernier mot sur les décisions importantes."
+  },
+  {
+    "slug": "n8n",
+    "name": "n8n",
+    "logo": "/brands/n8n-official.svg",
+    "color": "#ea4b71",
+    "category": "Workflows & agents IA",
+    "summary": "Un formulaire ne devrait pas devenir trois recopies et une relance oubliée. Avec n8n, nous relions les étapes de votre fonctionnement : réception, contrôle, enrichissement, enregistrement et notification. L’IA intervient seulement lorsqu’une lecture ou une interprétation apporte quelque chose."
+  },
+  {
+    "slug": "google-workspace",
+    "name": "Google Workspace",
+    "logo": "/brands/google-workspace.png",
+    "color": "#4285f4",
+    "category": "Collaboration & données métier",
+    "summary": "Votre équipe travaille déjà dans Google Workspace, mais les informations circulent encore à la main. Nous organisons les documents, les tableaux et les échanges pour qu’un dossier reste compréhensible de sa réception à son suivi, sans transformer un tableur en logiciel incontrôlable."
+  }
+]

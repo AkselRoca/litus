@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import type { PortfolioStory } from '@/lib/portfolio-catalog';
 import './portfolio-reference.css';
+import { AcquisitionResults } from './AcquisitionResults';
 
 export default function PortfolioCaseStudy({ story, related }: { story: PortfolioStory; related: PortfolioStory[] }) {
   const images = story.gallery.slice(1);
@@ -13,15 +14,16 @@ export default function PortfolioCaseStudy({ story, related }: { story: Portfoli
         <Link href="/realisations" className="portfolio-case-back"><ArrowLeft size={15} aria-hidden="true" /> Toutes les réalisations</Link>
         <header className="portfolio-case-heading">
           <div><p className="portfolio-eyebrow"><span /> {story.sector}</p><h1>{story.title}</h1><p className="portfolio-case-statement">{story.headline}</p></div>
-          <div><p className="portfolio-case-summary">{story.summary}</p><dl className="portfolio-case-facts"><div><dt>Accompagnement</dt><dd>{story.categories.join(' · ')}</dd></div>{story.stack.length > 0 && <div><dt>Technologies</dt><dd>{story.stack.join(' · ')}</dd></div>}</dl></div>
+          <div><p className="portfolio-case-summary">{story.summary}</p><dl className="portfolio-case-facts"><div><dt>Accompagnement</dt><dd>{story.categories.join(' · ')}</dd></div>{story.stack.length > 0 && <div><dt>{story.performance ? 'Canal' : 'Technologies'}</dt><dd>{story.stack.join(' · ')}</dd></div>}</dl></div>
         </header>
-        <figure className={`portfolio-case-hero${story.cover.kind === 'brand' ? ' is-brand' : ''}`}>
+        {story.performance ? <AcquisitionResults title={story.title} results={story.performance} /> : <figure className={`portfolio-case-hero${story.cover.kind === 'brand' ? ' is-brand' : ''}`}>
           <Image src={story.cover.src} alt={story.cover.alt} width={story.cover.width} height={story.cover.height} sizes="(max-width: 760px) 92vw, (max-width: 1500px) 90vw, 1400px" priority />
-        </figure>
+        </figure>}
         <p className="portfolio-case-caption">{story.cover.caption}{story.archived ? ' · Archive du projet, conservée lorsque le site actuel ne peut pas être consulté.' : ''}</p>
+        {story.performance && <p className="portfolio-performance-note">{story.performance.note}</p>}
         <section className="portfolio-case-scope" aria-labelledby="project-scope">
           <div><p className="portfolio-eyebrow"><span /> LE PÉRIMÈTRE</p><h2 id="project-scope">Notre rôle<br />sur ce projet.</h2></div>
-          <div className="portfolio-case-scope-copy"><p>{story.scope}</p>{story.sourceUrl && <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="portfolio-explore">Explorer le site client <ArrowUpRight size={17} aria-hidden="true" /><span className="sr-only"> (nouvel onglet)</span></a>}</div>
+          <div className="portfolio-case-scope-copy"><p>{story.scope}</p>{story.sourceUrl && <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="portfolio-explore">{story.performance ? 'Découvrir l’entreprise' : 'Explorer le site client'} <ArrowUpRight size={17} aria-hidden="true" /><span className="sr-only"> (nouvel onglet)</span></a>}</div>
         </section>
         {story.focus.length > 0 && <section className="portfolio-case-focus" aria-label="Les particularités du projet">{story.focus.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</section>}
         {images.length > 0 && <section aria-labelledby="project-gallery"><div className="portfolio-case-section-heading"><div><p className="portfolio-eyebrow"><span /> DANS LE DÉTAIL</p><h2 id="project-gallery">Un aperçu, vraiment concret.</h2></div><p>Interfaces et visuels issus du site {story.title}, sélectionnés pour découvrir son univers.</p></div><div className="portfolio-case-gallery">{images.map((asset) => <figure key={asset.src}><div className={`portfolio-case-gallery-frame is-${asset.kind}`}><Image src={asset.src} alt={asset.alt} width={asset.width} height={asset.height} sizes="(max-width: 760px) 90vw, 65vw" loading="lazy" /></div><figcaption className="portfolio-case-caption">{asset.caption}</figcaption></figure>)}</div></section>}

@@ -1,3 +1,4 @@
+import { connectedScenes } from './visuals-connected'
 import { technicalScenes } from './visuals-technical'
 import type { ExpertiseSlug } from './types'
 
@@ -9,7 +10,8 @@ export type ExpertiseScene = {
 const original = 'Maquette pédagogique originale Litus. Données fictives, pas une capture du logiciel ni une réalisation client.'
 const scene = (file: string, alt: string, title: string, text: string, points: [string, string, string], href: string, label: string): ExpertiseScene => ({ file, width: 1280, height: 800, alt, caption: original, title, text, points, link: { href, label } })
 
-export const expertiseScenes: Record<ExpertiseSlug, [ExpertiseScene, ExpertiseScene]> = {
+export const expertiseScenes = {
+  ...connectedScenes,
   ...technicalScenes,
   shopify: [
     scene('shopify-catalogue-produits', 'Maquette de gestion e-commerce avec liste de produits, stocks et collections, illustrant un projet Shopify', 'Une boutique Shopify commence par un catalogue bien organisé.', 'Notre accompagnement Shopify relie la création de boutique à son exploitation : variantes, collections, disponibilité et commandes. Avant de développer le thème, nous préparons des données que votre équipe pourra réellement maintenir.', ['Produits, variantes et collections', 'Stocks et informations utiles à l’achat', 'Reprise des données avant migration'], '/creation-site-ecommerce', 'Préparer votre boutique en ligne'),
@@ -47,6 +49,6 @@ export const expertiseScenes: Record<ExpertiseSlug, [ExpertiseScene, ExpertiseSc
     scene('tailwind-composants-design-system', 'Planche de composants d’interface avec boutons, champs, carte et tokens de couleur, illustrant un design system Tailwind CSS', 'Tailwind CSS : des composants cohérents, pas des classes au hasard.', 'Nous traduisons votre direction artistique en règles réutilisables : espacements, couleurs, typographie et états des composants. La cohérence vient de ces choix partagés, pas du nombre de classes. Un bouton garde le même rôle et la même lisibilité sur toutes les pages.', ['Tokens alignés sur votre identité', 'États focus, erreur et désactivation', 'Composants documentés et réutilisables'], '/creation-site-internet', 'Construire votre interface de marque'),
     scene('tailwind-responsive-ecrans', 'Maquette comparant une même page sur ordinateur, tablette et téléphone, avec une grille responsive adaptée à chaque largeur', 'Un responsive pensé pour le contenu réel.', 'Nous vérifions les retours à la ligne, les menus, les cartes et les formulaires sur plusieurs largeurs. Une intégration Tailwind responsive ne consiste pas à réduire tout proportionnellement : elle réorganise la hiérarchie pour conserver des actions accessibles et un contenu lisible.', ['Grille adaptée à chaque largeur', 'Textes longs et zoom du navigateur', 'Navigation tactile et clavier'], '/refonte-site-internet', 'Améliorer une interface existante'),
   ],
-}
+} as Record<ExpertiseSlug, [ExpertiseScene, ExpertiseScene]>
 
 export function expertiseImage(file: string) { return `/expertise/images/${file}.webp` }

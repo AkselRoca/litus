@@ -1,31 +1,31 @@
 [
   {
-    "slug": "murasaki-team",
-    "title": "Murasaki Team",
-    "sourceUrl": "https://murasaki.team/fr",
-    "sector": "Agence créative · Paris / Tokyo",
+    "slug": "demetis-immo",
+    "title": "Demetis Immo",
+    "sourceUrl": "https://www.demetisimmo.fr/",
+    "sector": "Immobilier · Le Mans",
     "categories": [
       "Site Vitrine",
-      "Identité Visuelle"
+      "Référencement Naturel (SEO)"
     ],
     "stack": [
       "Next.js"
     ],
-    "headline": "Un site à la hauteur d’une agence qui marque les esprits.",
-    "summary": "Un univers violet affirmé, des campagnes à découvrir et quatre langues pour relier les marques à leurs communautés. Le site présente les activations de Murasaki entre Paris et Tokyo.",
-    "scope": "Site d’agence et direction visuelle. La présentation concerne le site de Murasaki, pas la réalisation par Litus des campagnes de ses clients.",
+    "headline": "Mettre les biens et l’agence sur le même premier plan.",
+    "summary": "Des annonces avec photographies et informations pratiques, un parcours pour acheter et une présence locale clairement située au Mans et en Sarthe.",
+    "scope": "Site immobilier et visibilité locale, dans la continuité du projet déjà présenté sur le site Litus.",
     "focus": [
       {
-        "title": "Portfolio de campagnes",
-        "text": "Les études de cas distinguent influence, événementiel, gaming et production, au lieu de réduire l’agence à une seule activité."
+        "title": "Un accès direct aux annonces",
+        "text": "Les dernières maisons et terrains se découvrent dès l’accueil, avec leurs informations essentielles."
       },
       {
-        "title": "Une agence internationale",
-        "text": "La navigation propose le français, l’anglais, le japonais et le chinois."
+        "title": "Acheter avec des repères",
+        "text": "La page d’achat rassemble les biens disponibles et propose un contact avec l’agence."
       },
       {
-        "title": "Une identité reconnaissable",
-        "text": "Typographies expressives, violet et mise en scène des projets portent la personnalité de Murasaki."
+        "title": "Une marque cohérente",
+        "text": "Le nom Demetis, sans accent, est harmonisé dans le portfolio et les autres pages Litus."
       }
     ],
     "links": [
@@ -36,49 +36,158 @@
       {
         "label": "Création de site internet",
         "href": "/creation-site-internet"
+      },
+      {
+        "label": "SEO local",
+        "href": "/seo-local"
       }
     ],
     "cover": {
-      "src": "/realisations/clients/murasaki-team/accueil.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Page d’accueil de Murasaki Team, capture sur ordinateur",
-      "caption": "Page d’accueil",
+      "src": "/realisations/clients/demetis-immo/hero-agence-immobiliere.webp",
+      "width": 1920,
+      "height": 709,
+      "alt": "Accueil de Demetis Immo avec vue du Mans et présentation de l’agence immobilière",
+      "caption": "Le hero de Demetis Immo",
       "kind": "screen",
-      "source": "https://murasaki.team/fr"
+      "source": "https://www.demetisimmo.fr/"
     },
     "gallery": [
       {
-        "src": "/realisations/clients/murasaki-team/accueil.webp",
+        "src": "/realisations/clients/demetis-immo/hero-agence-immobiliere.webp",
+        "width": 1920,
+        "height": 709,
+        "alt": "Accueil de Demetis Immo avec vue du Mans et présentation de l’agence immobilière",
+        "caption": "Le hero de Demetis Immo",
+        "kind": "screen",
+        "source": "https://www.demetisimmo.fr/"
+      },
+      {
+        "src": "/realisations/clients/demetis-immo/section.webp",
         "width": 1440,
         "height": 1000,
-        "alt": "Page d’accueil de Murasaki Team, capture sur ordinateur",
+        "alt": "Une section du site de Demetis Immobilier, capture sur ordinateur",
+        "caption": "Une section du site",
+        "kind": "screen",
+        "source": "https://www.demetisimmo.fr/"
+      },
+      {
+        "src": "/realisations/clients/demetis-immo/accueil.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Page d’accueil de Demetis Immobilier, capture sur ordinateur",
         "caption": "Page d’accueil",
         "kind": "screen",
-        "source": "https://murasaki.team/fr"
+        "source": "https://www.demetisimmo.fr/"
       },
       {
-        "src": "/realisations/clients/murasaki-team/detail.webp",
+        "src": "/realisations/clients/demetis-immo/detail.webp",
         "width": 1440,
         "height": 1000,
-        "alt": "Nos projets · Murasaki Team de Murasaki Team, capture sur ordinateur",
-        "caption": "Nos projets · Murasaki Team",
+        "alt": "Acheter un bien immobilier au Mans de Demetis Immobilier, capture sur ordinateur",
+        "caption": "Acheter un bien immobilier au Mans",
         "kind": "screen",
-        "source": "https://murasaki.team/fr/projets"
-      },
-      {
-        "src": "/realisations/clients/murasaki-team/mobile.webp",
-        "width": 390,
-        "height": 844,
-        "alt": "Version mobile de Murasaki Team, capture sur téléphone",
-        "caption": "Version mobile",
-        "kind": "mobile",
-        "source": "https://murasaki.team/fr"
+        "source": "https://www.demetisimmo.fr/acheter/"
       }
     ],
-    "accent": "#7040aa",
-    "tone": "#eee8f8",
+    "accent": "#95782f",
+    "tone": "#f1ecdf",
     "order": 0,
+    "scopeOnly": false,
+    "archived": false
+  },
+  {
+    "slug": "aspire-energie",
+    "title": "Aspire Énergie",
+    "sourceUrl": "https://www.aspire-energie.com/",
+    "sector": "Courtage en énergie · Entreprises",
+    "categories": [
+      "Site Vitrine",
+      "Google Ads"
+    ],
+    "stack": [
+      "Next.js"
+    ],
+    "headline": "Rendre les contrats d’énergie plus faciles à comprendre.",
+    "summary": "Une offre B2B explicitée par un duo de mascottes, un parcours d’étude de factures et un blog qui décrypte les contrats d’électricité et de gaz.",
+    "scope": "Refonte du site et accompagnement Google Ads : une présentation de l’offre de courtage reliée à un parcours de demande d’étude gratuite.",
+    "focus": [
+      {
+        "title": "Une offre rendue lisible",
+        "text": "Analyse des factures, comparaison des fournisseurs et suivi sont présentés comme des étapes de l’accompagnement."
+      },
+      {
+        "title": "Des contenus pédagogiques",
+        "text": "Le blog traite factures, renouvellement, indexation et consommation avec des entrées distinctes."
+      },
+      {
+        "title": "Une porte d’entrée concrète",
+        "text": "La demande d’étude gratuite permet de passer de la lecture à une prise de contact contextualisée."
+      }
+    ],
+    "links": [
+      {
+        "label": "Next.js",
+        "href": "/expertise/nextjs"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      },
+      {
+        "label": "Google Ads",
+        "href": "/google-ads"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/aspire-energie/hero-courtier-energie.webp",
+      "width": 1920,
+      "height": 713,
+      "alt": "Accueil Aspire Énergie avec ses mascottes et sa demande d’étude des contrats d’électricité et de gaz",
+      "caption": "L’accueil et la proposition d’étude gratuite",
+      "kind": "screen",
+      "source": "https://www.aspire-energie.com/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/aspire-energie/hero-courtier-energie.webp",
+        "width": 1920,
+        "height": 713,
+        "alt": "Accueil Aspire Énergie avec ses mascottes et sa demande d’étude des contrats d’électricité et de gaz",
+        "caption": "L’accueil et la proposition d’étude gratuite",
+        "kind": "screen",
+        "source": "https://www.aspire-energie.com/"
+      },
+      {
+        "src": "/realisations/clients/aspire-energie/accueil.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Page d’accueil de Aspire Énergie, capture sur ordinateur",
+        "caption": "Page d’accueil",
+        "kind": "screen",
+        "source": "https://www.aspire-energie.com/"
+      },
+      {
+        "src": "/realisations/clients/aspire-energie/detail.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Blog énergie : contrats, factures et conseils de Aspire Énergie, capture sur ordinateur",
+        "caption": "Blog énergie : contrats, factures et conseils",
+        "kind": "screen",
+        "source": "https://www.aspire-energie.com/blog"
+      },
+      {
+        "src": "/realisations/clients/aspire-energie/section.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Une section du site de Aspire Énergie, capture sur ordinateur",
+        "caption": "Une section du site",
+        "kind": "screen",
+        "source": "https://www.aspire-energie.com/"
+      }
+    ],
+    "accent": "#2f5576",
+    "tone": "#e5edf3",
+    "order": 1,
     "scopeOnly": false,
     "archived": false
   },
@@ -132,15 +241,24 @@
       }
     ],
     "cover": {
-      "src": "/realisations/clients/west-clotures-paysage/paysage.webp",
-      "width": 1440,
-      "height": 805,
-      "alt": "Univers visuel du site West Clôtures : terrasse éclairée et jardin paysager",
-      "caption": "Univers visuel du site West Clôtures : terrasse éclairée et jardin paysager",
-      "kind": "brand",
-      "source": "https://www.westclotures.fr/images/hero-bg.webp"
+      "src": "/realisations/clients/west-clotures-paysage/hero-paysagiste-morbihan.webp",
+      "width": 1920,
+      "height": 709,
+      "alt": "Accueil West Clôtures avec jardin paysager, présentation des prestations et formulaire de devis",
+      "caption": "Le savoir-faire paysager et la demande de devis",
+      "kind": "screen",
+      "source": "https://www.westclotures.fr/"
     },
     "gallery": [
+      {
+        "src": "/realisations/clients/west-clotures-paysage/hero-paysagiste-morbihan.webp",
+        "width": 1920,
+        "height": 709,
+        "alt": "Accueil West Clôtures avec jardin paysager, présentation des prestations et formulaire de devis",
+        "caption": "Le savoir-faire paysager et la demande de devis",
+        "kind": "screen",
+        "source": "https://www.westclotures.fr/"
+      },
       {
         "src": "/realisations/clients/west-clotures-paysage/paysage.webp",
         "width": 1440,
@@ -171,7 +289,7 @@
     ],
     "accent": "#376451",
     "tone": "#e5ece7",
-    "order": 1,
+    "order": 2,
     "scopeOnly": false,
     "archived": false
   },
@@ -219,15 +337,24 @@
       }
     ],
     "cover": {
-      "src": "/realisations/clients/nos-travaux/accueil-final.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Page d’accueil du site Nos Travaux, capture sur ordinateur",
-      "caption": "Page d’accueil",
+      "src": "/realisations/clients/nos-travaux/hero-renovation-le-mans.webp",
+      "width": 1920,
+      "height": 709,
+      "alt": "Accueil Nos Travaux présentant la rénovation intérieure au Mans et une cuisine rénovée",
+      "caption": "Une réalisation de rénovation dès l’accueil",
       "kind": "screen",
       "source": "https://www.nos-travaux.fr/"
     },
     "gallery": [
+      {
+        "src": "/realisations/clients/nos-travaux/hero-renovation-le-mans.webp",
+        "width": 1920,
+        "height": 709,
+        "alt": "Accueil Nos Travaux présentant la rénovation intérieure au Mans et une cuisine rénovée",
+        "caption": "Une réalisation de rénovation dès l’accueil",
+        "kind": "screen",
+        "source": "https://www.nos-travaux.fr/"
+      },
       {
         "src": "/realisations/clients/nos-travaux/accueil-final.webp",
         "width": 1440,
@@ -258,36 +385,125 @@
     ],
     "accent": "#a17a18",
     "tone": "#f1ead7",
-    "order": 2,
+    "order": 3,
     "scopeOnly": false,
     "archived": false
   },
   {
-    "slug": "villa-manelann",
-    "title": "Villa Manelann",
-    "sourceUrl": "https://www.villamanelann.com/",
-    "sector": "Hospitalité · Carnac",
+    "slug": "noventis-conseil",
+    "title": "Noventis Conseil",
+    "sourceUrl": "https://www.noventisconseil.com/",
+    "sector": "Courtage en énergie",
     "categories": [
-      "Contenu éditorial"
+      "Site Vitrine",
+      "Outil Métier / Application Web"
+    ],
+    "stack": [],
+    "headline": "Un site de courtage qui transforme l’analyse de facture en porte d’entrée commerciale.",
+    "summary": "Pour Noventis Conseil, le site relie une offre de courtage en électricité et en gaz à un parcours d’analyse de facture. Le prospect comprend ce qu’il peut obtenir, précise sa situation et prépare un échange utile avec un conseiller.",
+    "scope": "Création du site Noventis Conseil et de son parcours de demande d’analyse de facture. Une présentation B2B claire, des pages par secteur et un formulaire progressif relient la découverte de l’offre à une demande qualifiée.",
+    "focus": [
+      {
+        "title": "Un lead magnet directement lié au besoin",
+        "text": "L’analyse de facture apporte une contrepartie concrète à la prise de contact : comprendre les coûts de son contrat et les pistes d’optimisation. Cette entrée est plus précise qu’un simple « contactez-nous » et prépare naturellement l’échange avec le courtier."
+      },
+      {
+        "title": "Une qualification en sept étapes",
+        "text": "Profil, énergie, situation, budget, activité, facture et coordonnées : les questions sont réparties dans un parcours lisible. Les choix professionnel ou particulier, électricité ou gaz et motif de la demande donnent du contexte au conseiller."
+      },
+      {
+        "title": "Une proposition commerciale mise en scène",
+        "text": "Le hero associe le positionnement auprès des professionnels, un visuel de conseil et un bouton d’analyse immédiatement identifiable. Les pages sectorielles permettent ensuite de se reconnaître dans des besoins propres à son activité."
+      },
+      {
+        "title": "Un premier échange mieux préparé",
+        "text": "Le parcours recueille progressivement les éléments nécessaires à l’étude, plutôt que de demander au prospect de tout expliquer dans un champ libre. L’analyse reste un accompagnement humain : le site annonce un retour sous 48 heures, et non une promesse d’économies instantanées."
+      }
+    ],
+    "links": [
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      },
+      {
+        "label": "Développement sur mesure",
+        "href": "/developpement-web-sur-mesure"
+      },
+      {
+        "label": "Landing pages & conversion",
+        "href": "/creation-landing-page"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/noventis-conseil/hero-courtier-energie.webp",
+      "width": 1550,
+      "height": 780,
+      "alt": "Hero Noventis Conseil : courtage en énergie pour professionnels, conseiller et invitation à analyser une facture",
+      "caption": "Une promesse claire et un accès direct à l’analyse de facture",
+      "kind": "screen",
+      "source": "https://www.noventisconseil.com/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/noventis-conseil/hero-courtier-energie.webp",
+        "width": 1550,
+        "height": 780,
+        "alt": "Hero Noventis Conseil : courtage en énergie pour professionnels, conseiller et invitation à analyser une facture",
+        "caption": "Une promesse claire et un accès direct à l’analyse de facture",
+        "kind": "screen",
+        "source": "https://www.noventisconseil.com/"
+      },
+      {
+        "src": "/realisations/clients/noventis-conseil/analyse-facture-profil.webp",
+        "width": 1380,
+        "height": 830,
+        "alt": "Formulaire Noventis : choix du profil professionnel ou particulier et progression en sept étapes",
+        "caption": "Première étape : adapter le parcours au profil du demandeur",
+        "kind": "screen",
+        "source": "https://www.noventisconseil.com/analyser-ma-facture"
+      },
+      {
+        "src": "/realisations/clients/noventis-conseil/analyse-facture-energie.webp",
+        "width": 1380,
+        "height": 830,
+        "alt": "Formulaire Noventis : sélection de l’électricité, du gaz ou des deux énergies à analyser",
+        "caption": "Deuxième étape : préciser le besoin avant de demander les coordonnées",
+        "kind": "screen",
+        "source": "https://www.noventisconseil.com/analyser-ma-facture"
+      }
+    ],
+    "accent": "#b47a10",
+    "tone": "#f3ecdc",
+    "order": 4,
+    "scopeOnly": false,
+    "archived": false
+  },
+  {
+    "slug": "femmes-des-territoires",
+    "title": "Femmes des Territoires",
+    "sourceUrl": "https://www.femmesdesterritoires.fr/",
+    "sector": "Association · Entrepreneuriat féminin",
+    "categories": [
+      "Site Vitrine"
     ],
     "stack": [
       "WordPress"
     ],
-    "headline": "Prolonger l’envie de séjourner, au fil des articles.",
-    "summary": "Villas, chambres et gîtes à Carnac : un univers de bord de mer que le blog accompagne avec des idées de sorties, de découvertes et de séjours en Bretagne sud.",
-    "scope": "Accompagnement du blog de Villa Manelann, pour mettre en valeur les hébergements et les séjours à Carnac.",
+    "headline": "Faire vivre un réseau, pas seulement le présenter.",
+    "summary": "Événements, antennes locales, entraide et portraits : une refonte WordPress pour rendre les portes d’entrée de l’association plus accessibles.",
+    "scope": "Refonte du site WordPress, réorganisation de la navigation et travail technique documentés dans le dossier existant.",
     "focus": [
       {
-        "title": "Le séjour commence en lecture",
-        "text": "Les articles abordent Carnac, Quiberon et les activités du territoire pour aider à préparer les vacances."
+        "title": "Plusieurs façons de rejoindre le réseau",
+        "text": "Adhésion, bénévolat, partenariat et découverte du fonctionnement sont identifiés dans la navigation."
       },
       {
-        "title": "Une continuité avec les hébergements",
-        "text": "Le contenu éditorial s’inscrit dans un site qui présente villas, chambres, spa et espaces de détente."
+        "title": "Des événements mis en avant",
+        "text": "Les rencontres et ateliers donnent à voir la vie concrète de l’association."
       },
       {
-        "title": "Un blog au service des séjours",
-        "text": "L’accompagnement porte sur le blog ; les visuels des villas illustrent le contexte de la marque."
+        "title": "Une organisation locale et nationale",
+        "text": "Les antennes et la plateforme d’entraide relient les initiatives de proximité au réseau."
       }
     ],
     "links": [
@@ -296,70 +512,52 @@
         "href": "/expertise/wordpress"
       },
       {
-        "label": "Contenus & référencement",
-        "href": "/referencement-naturel"
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
       }
     ],
     "cover": {
-      "src": "/realisations/clients/villa-manelann/villa.webp",
-      "width": 1440,
-      "height": 808,
-      "alt": "La villa La Grande Plage et son jardin à Carnac",
-      "caption": "La villa La Grande Plage et son jardin à Carnac",
-      "kind": "brand",
-      "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/villa-et-son-parc-1536x862.jpg"
+      "src": "/realisations/clients/femmes-des-territoires/reseau-entrepreneuses.webp",
+      "width": 1920,
+      "height": 709,
+      "alt": "Page Femmes des Territoires présentant une rencontre d’entrepreneuses et les réseaux local et digital",
+      "caption": "Le réseau et ses rencontres d’entrepreneuses",
+      "kind": "screen",
+      "source": "https://www.femmesdesterritoires.fr/le-reseau-femmes-des-territoires/"
     },
     "gallery": [
       {
-        "src": "/realisations/clients/villa-manelann/villa.webp",
-        "width": 1440,
-        "height": 808,
-        "alt": "La villa La Grande Plage et son jardin à Carnac",
-        "caption": "La villa La Grande Plage et son jardin à Carnac",
-        "kind": "brand",
-        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/villa-et-son-parc-1536x862.jpg"
+        "src": "/realisations/clients/femmes-des-territoires/reseau-entrepreneuses.webp",
+        "width": 1920,
+        "height": 709,
+        "alt": "Page Femmes des Territoires présentant une rencontre d’entrepreneuses et les réseaux local et digital",
+        "caption": "Le réseau et ses rencontres d’entrepreneuses",
+        "kind": "screen",
+        "source": "https://www.femmesdesterritoires.fr/le-reseau-femmes-des-territoires/"
       },
       {
-        "src": "/realisations/clients/villa-manelann/piscine.webp",
+        "src": "/realisations/clients/femmes-des-territoires/section.webp",
         "width": 1440,
-        "height": 810,
-        "alt": "Piscine et terrasse de la villa La Grande Plage à Carnac",
-        "caption": "Piscine et terrasse de la villa La Grande Plage à Carnac",
-        "kind": "brand",
-        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/vue-piscine-1536x864.jpg"
+        "height": 1000,
+        "alt": "Une section du site de Femmes des Territoires, capture sur ordinateur",
+        "caption": "Une section du site",
+        "kind": "screen",
+        "source": "https://www.femmesdesterritoires.fr/"
       },
       {
-        "src": "/realisations/clients/villa-manelann/vue-baie.webp",
+        "src": "/realisations/clients/femmes-des-territoires/detail.webp",
         "width": 1440,
-        "height": 807,
-        "alt": "Vue sur les espaces extérieurs et la baie de Quiberon depuis la villa",
-        "caption": "Vue sur les espaces extérieurs et la baie de Quiberon depuis la villa",
-        "kind": "brand",
-        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/vue-baie-quiberon-1536x861.jpg"
-      },
-      {
-        "src": "/realisations/clients/villa-manelann/salon.webp",
-        "width": 1440,
-        "height": 808,
-        "alt": "Salon avec canapés bleus et poutres apparentes dans la villa La Grande Plage",
-        "caption": "Salon avec canapés bleus et poutres apparentes dans la villa La Grande Plage",
-        "kind": "brand",
-        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/salon-1536x862.jpg"
-      },
-      {
-        "src": "/realisations/clients/villa-manelann/sejour.webp",
-        "width": 1440,
-        "height": 808,
-        "alt": "Pièce de vie lumineuse et cuisine ouverte de la villa La Grande Plage",
-        "caption": "Pièce de vie lumineuse et cuisine ouverte de la villa La Grande Plage",
-        "kind": "brand",
-        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/sejour2-1536x862.jpg"
+        "height": 1000,
+        "alt": "Faire un don de Femmes des Territoires, capture sur ordinateur",
+        "caption": "Faire un don",
+        "kind": "screen",
+        "source": "https://www.femmesdesterritoires.fr/faire-un-don/"
       }
     ],
-    "accent": "#728775",
-    "tone": "#eaf0e9",
-    "order": 3,
-    "scopeOnly": true,
+    "accent": "#7b6a37",
+    "tone": "#f6efce",
+    "order": 5,
+    "scopeOnly": false,
     "archived": false
   },
   {
@@ -459,7 +657,704 @@
     ],
     "accent": "#37735d",
     "tone": "#e9efe9",
-    "order": 4,
+    "order": 6,
+    "scopeOnly": true,
+    "archived": false
+  },
+  {
+    "slug": "murasaki-team",
+    "title": "Murasaki Team",
+    "sourceUrl": "https://murasaki.team/fr",
+    "sector": "Agence créative · Paris / Tokyo",
+    "categories": [
+      "Site Vitrine",
+      "Identité Visuelle"
+    ],
+    "stack": [
+      "Next.js"
+    ],
+    "headline": "Un site à la hauteur d’une agence qui marque les esprits.",
+    "summary": "Un univers violet affirmé, des campagnes à découvrir et quatre langues pour relier les marques à leurs communautés. Le site présente les activations de Murasaki entre Paris et Tokyo.",
+    "scope": "Site d’agence et direction visuelle. La présentation concerne le site de Murasaki, pas la réalisation par Litus des campagnes de ses clients.",
+    "focus": [
+      {
+        "title": "Portfolio de campagnes",
+        "text": "Les études de cas distinguent influence, événementiel, gaming et production, au lieu de réduire l’agence à une seule activité."
+      },
+      {
+        "title": "Une agence internationale",
+        "text": "La navigation propose le français, l’anglais, le japonais et le chinois."
+      },
+      {
+        "title": "Une identité reconnaissable",
+        "text": "Typographies expressives, violet et mise en scène des projets portent la personnalité de Murasaki."
+      }
+    ],
+    "links": [
+      {
+        "label": "Next.js",
+        "href": "/expertise/nextjs"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/murasaki-team/accueil.webp",
+      "width": 1440,
+      "height": 1000,
+      "alt": "Page d’accueil de Murasaki Team, capture sur ordinateur",
+      "caption": "Page d’accueil",
+      "kind": "screen",
+      "source": "https://murasaki.team/fr"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/murasaki-team/accueil.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Page d’accueil de Murasaki Team, capture sur ordinateur",
+        "caption": "Page d’accueil",
+        "kind": "screen",
+        "source": "https://murasaki.team/fr"
+      },
+      {
+        "src": "/realisations/clients/murasaki-team/detail.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Nos projets · Murasaki Team de Murasaki Team, capture sur ordinateur",
+        "caption": "Nos projets · Murasaki Team",
+        "kind": "screen",
+        "source": "https://murasaki.team/fr/projets"
+      },
+      {
+        "src": "/realisations/clients/murasaki-team/mobile.webp",
+        "width": 390,
+        "height": 844,
+        "alt": "Version mobile de Murasaki Team, capture sur téléphone",
+        "caption": "Version mobile",
+        "kind": "mobile",
+        "source": "https://murasaki.team/fr"
+      }
+    ],
+    "accent": "#7040aa",
+    "tone": "#eee8f8",
+    "order": 7,
+    "scopeOnly": false,
+    "archived": false
+  },
+  {
+    "slug": "elevage-maupas",
+    "title": "Élevage Maupas",
+    "sourceUrl": "https://www.elevagemaupas.com/",
+    "sector": "Vente directe à la ferme · E-commerce",
+    "categories": [
+      "Site E-commerce",
+      "Outil Métier / Application Web"
+    ],
+    "stack": [
+      "Next.js"
+    ],
+    "headline": "Une précommande pensée pour le rythme de la ferme.",
+    "summary": "Pièces d’agneau au kilo, total estimatif et choix des quantités : un parcours de commande spécifique à la vente directe, relié à la présentation de l’élevage.",
+    "scope": "Site e-commerce avec parcours de précommande sur mesure. Le site crédite Litus pour sa conception. La stack visible est Next.js, et non WooCommerce.",
+    "focus": [
+      {
+        "title": "Des quantités adaptées aux produits",
+        "text": "Les pièces sont proposées au kilo avec des minimums et des disponibilités propres à chaque référence."
+      },
+      {
+        "title": "Un prix expliqué",
+        "text": "Le total est annoncé comme estimatif, le prix final dépendant du poids réel préparé."
+      },
+      {
+        "title": "Une commande en plusieurs étapes",
+        "text": "Sélection des pièces, coordonnées et validation structurent la précommande, avec des informations de retrait et de livraison."
+      }
+    ],
+    "links": [
+      {
+        "label": "Next.js",
+        "href": "/expertise/nextjs"
+      },
+      {
+        "label": "E-commerce",
+        "href": "/creation-site-ecommerce"
+      },
+      {
+        "label": "Développement sur mesure",
+        "href": "/developpement-web-sur-mesure"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/elevage-maupas/hero-elevage-boutique.webp",
+      "width": 1920,
+      "height": 709,
+      "alt": "Accueil Élevage Maupas avec la ferme, les pâturages et l’accès à la précommande de viande",
+      "caption": "L’univers de la ferme et l’entrée vers la boutique",
+      "kind": "screen",
+      "source": "https://www.elevagemaupas.com/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/elevage-maupas/hero-elevage-boutique.webp",
+        "width": 1920,
+        "height": 709,
+        "alt": "Accueil Élevage Maupas avec la ferme, les pâturages et l’accès à la précommande de viande",
+        "caption": "L’univers de la ferme et l’entrée vers la boutique",
+        "kind": "screen",
+        "source": "https://www.elevagemaupas.com/"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/section.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Une section du site de Élevage Maupas, capture sur ordinateur",
+        "caption": "Une section du site",
+        "kind": "screen",
+        "source": "https://www.elevagemaupas.com/"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/boutique.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Parcours de précommande du site Élevage Maupas, capture sur ordinateur",
+        "caption": "Parcours de précommande",
+        "kind": "screen",
+        "source": "https://www.elevagemaupas.com/precommande"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/ferme.webp",
+        "width": 1440,
+        "height": 677,
+        "alt": "Univers visuel du site Élevage Maupas : ferme, pâturages et troupeau",
+        "caption": "Univers visuel du site Élevage Maupas : ferme, pâturages et troupeau",
+        "kind": "brand",
+        "source": "https://www.elevagemaupas.com/_next/image?url=%2Fimages%2Felevage%2Fbanner_1.png&w=1920&q=75"
+      },
+      {
+        "src": "/realisations/clients/elevage-maupas/detail.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Notre Logique d'Élevage de Élevage Maupas, capture sur ordinateur",
+        "caption": "Notre Logique d'Élevage",
+        "kind": "screen",
+        "source": "https://www.elevagemaupas.com/notre-logique"
+      }
+    ],
+    "accent": "#758237",
+    "tone": "#eef0df",
+    "order": 8,
+    "scopeOnly": false,
+    "archived": false
+  },
+  {
+    "slug": "azra-photographie",
+    "title": "Azra Photographie",
+    "sourceUrl": "https://www.azraphotographie.fr/",
+    "sector": "Photographie · Lorient",
+    "categories": [
+      "Site Vitrine",
+      "Identité Visuelle"
+    ],
+    "stack": [
+      "WordPress"
+    ],
+    "headline": "Laisser les images raconter les savoir-faire.",
+    "summary": "Un portfolio organisé autour des portraits, de l’événementiel, de l’immobilier et des prises de vue spécialisées à Lorient et dans le Morbihan.",
+    "scope": "Portfolio WordPress et direction visuelle, avec un travail sur la présentation des galeries et la visibilité locale documenté dans le projet.",
+    "focus": [
+      {
+        "title": "Des prestations identifiables",
+        "text": "Portrait, nautisme, packshot, culinaire et drone disposent d’entrées spécifiques sur le site."
+      },
+      {
+        "title": "Des images avant les discours",
+        "text": "La présentation privilégie le travail photographique et la diversité des usages."
+      },
+      {
+        "title": "Une prise de contact contextualisée",
+        "text": "Les visiteurs peuvent relier leur besoin à une prestation plutôt qu’à une galerie indifférenciée."
+      }
+    ],
+    "links": [
+      {
+        "label": "WordPress",
+        "href": "/expertise/wordpress"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/azra-photographie/archive.webp",
+      "width": 1440,
+      "height": 810,
+      "alt": "Capture d’archive du site Azra Photographie",
+      "caption": "Vue du projet · archive du portfolio",
+      "kind": "archive",
+      "source": "https://www.azraphotographie.fr/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/azra-photographie/archive.webp",
+        "width": 1440,
+        "height": 810,
+        "alt": "Capture d’archive du site Azra Photographie",
+        "caption": "Vue du projet · archive du portfolio",
+        "kind": "archive",
+        "source": "https://www.azraphotographie.fr/"
+      }
+    ],
+    "accent": "#79614c",
+    "tone": "#eee8e0",
+    "order": 9,
+    "scopeOnly": false,
+    "archived": true
+  },
+  {
+    "slug": "del-rio-pizzeria",
+    "title": "Del Rio Pizzeria",
+    "sourceUrl": "https://www.delriopizzeria.fr/",
+    "sector": "Restauration · Inzinzac-Lochrist",
+    "categories": [
+      "Site Vitrine",
+      "Identité Visuelle"
+    ],
+    "stack": [
+      "Astro"
+    ],
+    "headline": "Un univers gourmand, jusque dans la carte.",
+    "summary": "Pizzas artisanales, recettes du moment et portrait du restaurateur : une présence digitale qui reprend les codes chaleureux de Del Rio.",
+    "scope": "Identité visuelle, supports de restauration et site web.",
+    "focus": [
+      {
+        "title": "Une carte facile à parcourir",
+        "text": "Pizzas, burgers, paninis et salades possèdent des entrées distinctes."
+      },
+      {
+        "title": "Les recettes du moment",
+        "text": "Le site fait une place aux propositions ponctuelles, au-delà de la carte permanente."
+      },
+      {
+        "title": "Des informations immédiatement utiles",
+        "text": "Horaires, adresse et téléphone accompagnent la découverte des plats."
+      }
+    ],
+    "links": [
+      {
+        "label": "Développement sur mesure",
+        "href": "/developpement-web-sur-mesure"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/del-rio-pizzeria/accueil.webp",
+      "width": 1440,
+      "height": 1000,
+      "alt": "Page d’accueil de Del Rio Pizzeria, capture sur ordinateur",
+      "caption": "Page d’accueil",
+      "kind": "screen",
+      "source": "https://www.delriopizzeria.fr/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/del-rio-pizzeria/accueil.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Page d’accueil de Del Rio Pizzeria, capture sur ordinateur",
+        "caption": "Page d’accueil",
+        "kind": "screen",
+        "source": "https://www.delriopizzeria.fr/"
+      },
+      {
+        "src": "/realisations/clients/del-rio-pizzeria/pizza.webp",
+        "width": 1440,
+        "height": 617,
+        "alt": "Visuel de la carte Del Rio présentant une pizza artisanale",
+        "caption": "Visuel de la carte Del Rio présentant une pizza artisanale",
+        "kind": "brand",
+        "source": "https://www.delriopizzeria.fr/images/pizza_menu.webp"
+      },
+      {
+        "src": "/realisations/clients/del-rio-pizzeria/section.webp",
+        "width": 1440,
+        "height": 1000,
+        "alt": "Une section du site de Del Rio Pizzeria, capture sur ordinateur",
+        "caption": "Une section du site",
+        "kind": "screen",
+        "source": "https://www.delriopizzeria.fr/"
+      }
+    ],
+    "accent": "#a08b4c",
+    "tone": "#efeade",
+    "order": 10,
+    "scopeOnly": false,
+    "archived": false
+  },
+  {
+    "slug": "loumor-debarras",
+    "title": "Loumor Débarras",
+    "sourceUrl": "https://www.loumor.com/",
+    "sector": "Débarras · Vannes",
+    "categories": [
+      "Site Vitrine",
+      "Référencement Naturel (SEO)"
+    ],
+    "stack": [
+      "WordPress"
+    ],
+    "headline": "Rassurer avant une intervention souvent délicate.",
+    "summary": "Maison, locaux professionnels, succession ou logement insalubre : des parcours distincts pour expliquer les prestations de débarras autour de Vannes.",
+    "scope": "Site vitrine et référencement local, documentés dans le dossier existant. Le site public identifie également Litus comme concepteur.",
+    "focus": [
+      {
+        "title": "Des situations bien différenciées",
+        "text": "Le contenu distingue logement, local professionnel et interventions liées à une succession."
+      },
+      {
+        "title": "Un ancrage dans le Morbihan",
+        "text": "La zone d’intervention et les pages locales précisent où l’entreprise se déplace."
+      },
+      {
+        "title": "Un contact facile à trouver",
+        "text": "Téléphone, coordonnées et demande de devis restent associés à la présentation du service."
+      }
+    ],
+    "links": [
+      {
+        "label": "WordPress",
+        "href": "/expertise/wordpress"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      },
+      {
+        "label": "SEO local",
+        "href": "/seo-local"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/loumor-debarras/archive.webp",
+      "width": 1440,
+      "height": 810,
+      "alt": "Capture d’archive du site Loumor Débarras",
+      "caption": "Vue du projet · archive du portfolio",
+      "kind": "archive",
+      "source": "https://www.loumor.com/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/loumor-debarras/archive.webp",
+        "width": 1440,
+        "height": 810,
+        "alt": "Capture d’archive du site Loumor Débarras",
+        "caption": "Vue du projet · archive du portfolio",
+        "kind": "archive",
+        "source": "https://www.loumor.com/"
+      }
+    ],
+    "accent": "#59807b",
+    "tone": "#e5eeeb",
+    "order": 11,
+    "scopeOnly": false,
+    "archived": true
+  },
+  {
+    "slug": "geoproxio",
+    "title": "Geoproxio",
+    "sourceUrl": "https://www.geoproxio.fr/",
+    "sector": "Bureau d’études · Géotechnique",
+    "categories": [
+      "Site Vitrine"
+    ],
+    "stack": [
+      "WordPress"
+    ],
+    "headline": "Rendre lisible une expertise de terrain.",
+    "summary": "Missions G1 à G5, zones d’intervention et articles techniques : le site aide à identifier l’étude de sol adaptée à un projet de construction.",
+    "scope": "Site WordPress et structuration de l’offre géotechnique. Le dossier existant décrit aussi un travail technique et de suivi des conversions.",
+    "focus": [
+      {
+        "title": "Des missions distinctes",
+        "text": "Les études G1, G2, G3, G4 et G5 sont présentées séparément."
+      },
+      {
+        "title": "Des zones d’intervention explicites",
+        "text": "Le Grand Ouest, le Centre, la Normandie et l’Île-de-France sont identifiés."
+      },
+      {
+        "title": "Une entrée pédagogique",
+        "text": "Les explications et le blog donnent des repères avant la demande d’un devis technique."
+      }
+    ],
+    "links": [
+      {
+        "label": "WordPress",
+        "href": "/expertise/wordpress"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/geoproxio/archive.webp",
+      "width": 1440,
+      "height": 810,
+      "alt": "Capture d’archive du site Geoproxio",
+      "caption": "Vue du projet · archive du portfolio",
+      "kind": "archive",
+      "source": "https://www.geoproxio.fr/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/geoproxio/archive.webp",
+        "width": 1440,
+        "height": 810,
+        "alt": "Capture d’archive du site Geoproxio",
+        "caption": "Vue du projet · archive du portfolio",
+        "kind": "archive",
+        "source": "https://www.geoproxio.fr/"
+      }
+    ],
+    "accent": "#546b8b",
+    "tone": "#e6ebf1",
+    "order": 12,
+    "scopeOnly": false,
+    "archived": true
+  },
+  {
+    "slug": "menuiserie-jerome-rio",
+    "title": "Menuiserie Jérôme Rio",
+    "sourceUrl": "https://www.menuiserie-jeromerio.fr/",
+    "sector": "Menuiserie · Languidic",
+    "categories": [
+      "Site Vitrine"
+    ],
+    "stack": [
+      "WordPress"
+    ],
+    "headline": "Présenter chaque solution, du seuil à la terrasse.",
+    "summary": "Portes, fenêtres, volets, portails et aménagements intérieurs : les visiteurs identifient les prestations de pose et de dépannage de Jérôme Rio.",
+    "scope": "Site vitrine d’artisan, galerie de réalisations et présence locale documentés dans le portfolio.",
+    "focus": [
+      {
+        "title": "Une offre intérieure et extérieure",
+        "text": "Les deux familles de prestations structurent la navigation."
+      },
+      {
+        "title": "Le métier rendu concret",
+        "text": "Bois, aluminium et PVC accompagnent la présentation des travaux proposés."
+      },
+      {
+        "title": "Une porte d’entrée vers le devis",
+        "text": "La localisation à Languidic et les moyens de contact donnent des repères pratiques."
+      }
+    ],
+    "links": [
+      {
+        "label": "WordPress",
+        "href": "/expertise/wordpress"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/menuiserie-jerome-rio/archive.webp",
+      "width": 1440,
+      "height": 810,
+      "alt": "Capture d’archive du site Menuiserie Jérôme Rio",
+      "caption": "Vue du projet · archive du portfolio",
+      "kind": "archive",
+      "source": "https://www.menuiserie-jeromerio.fr/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/menuiserie-jerome-rio/archive.webp",
+        "width": 1440,
+        "height": 810,
+        "alt": "Capture d’archive du site Menuiserie Jérôme Rio",
+        "caption": "Vue du projet · archive du portfolio",
+        "kind": "archive",
+        "source": "https://www.menuiserie-jeromerio.fr/"
+      }
+    ],
+    "accent": "#827257",
+    "tone": "#eee9df",
+    "order": 13,
+    "scopeOnly": false,
+    "archived": true
+  },
+  {
+    "slug": "aire-des-iles",
+    "title": "Aire des Îles",
+    "sourceUrl": "https://www.airedesiles.fr/",
+    "sector": "Tourisme · Camping-car à Baden",
+    "categories": [
+      "Site Vitrine"
+    ],
+    "stack": [
+      "WordPress"
+    ],
+    "headline": "Préparer une escale dans le Golfe du Morbihan.",
+    "summary": "Une présence touristique consacrée à une aire d’accueil pour camping-cars à Baden, avec les informations nécessaires à la préparation de l’étape.",
+    "scope": "Refonte UX/UI, contenus et travail technique sur un site WordPress touristique, selon le dossier déjà publié.",
+    "focus": [
+      {
+        "title": "Un usage de passage",
+        "text": "Les informations pratiques doivent pouvoir être retrouvées rapidement pendant un voyage."
+      },
+      {
+        "title": "Un contexte touristique",
+        "text": "L’environnement du Golfe du Morbihan fait partie de la découverte du lieu."
+      },
+      {
+        "title": "Une présence restructurée",
+        "text": "La refonte documentée porte sur la lecture du site et l’organisation des contenus."
+      }
+    ],
+    "links": [
+      {
+        "label": "WordPress",
+        "href": "/expertise/wordpress"
+      },
+      {
+        "label": "Création de site internet",
+        "href": "/creation-site-internet"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/aire-des-iles/archive.webp",
+      "width": 1440,
+      "height": 810,
+      "alt": "Capture d’archive du site Aire des Îles",
+      "caption": "Vue du projet · archive du portfolio",
+      "kind": "archive",
+      "source": "https://www.airedesiles.fr/"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/aire-des-iles/archive.webp",
+        "width": 1440,
+        "height": 810,
+        "alt": "Capture d’archive du site Aire des Îles",
+        "caption": "Vue du projet · archive du portfolio",
+        "kind": "archive",
+        "source": "https://www.airedesiles.fr/"
+      }
+    ],
+    "accent": "#4c8490",
+    "tone": "#e6eff1",
+    "order": 14,
+    "scopeOnly": false,
+    "archived": true
+  },
+  {
+    "slug": "villa-manelann",
+    "title": "Villa Manelann",
+    "sourceUrl": "https://www.villamanelann.com/",
+    "sector": "Hospitalité · Carnac",
+    "categories": [
+      "Contenu éditorial"
+    ],
+    "stack": [
+      "WordPress"
+    ],
+    "headline": "Prolonger l’envie de séjourner, au fil des articles.",
+    "summary": "Villas, chambres et gîtes à Carnac : un univers de bord de mer que le blog accompagne avec des idées de sorties, de découvertes et de séjours en Bretagne sud.",
+    "scope": "Accompagnement du blog de Villa Manelann, pour mettre en valeur les hébergements et les séjours à Carnac.",
+    "focus": [
+      {
+        "title": "Le séjour commence en lecture",
+        "text": "Les articles abordent Carnac, Quiberon et les activités du territoire pour aider à préparer les vacances."
+      },
+      {
+        "title": "Une continuité avec les hébergements",
+        "text": "Le contenu éditorial s’inscrit dans un site qui présente villas, chambres, spa et espaces de détente."
+      },
+      {
+        "title": "Un blog au service des séjours",
+        "text": "L’accompagnement porte sur le blog ; les visuels des villas illustrent le contexte de la marque."
+      }
+    ],
+    "links": [
+      {
+        "label": "WordPress",
+        "href": "/expertise/wordpress"
+      },
+      {
+        "label": "Contenus & référencement",
+        "href": "/referencement-naturel"
+      }
+    ],
+    "cover": {
+      "src": "/realisations/clients/villa-manelann/villa.webp",
+      "width": 1440,
+      "height": 808,
+      "alt": "La villa La Grande Plage et son jardin à Carnac",
+      "caption": "La villa La Grande Plage et son jardin à Carnac",
+      "kind": "brand",
+      "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/villa-et-son-parc-1536x862.jpg"
+    },
+    "gallery": [
+      {
+        "src": "/realisations/clients/villa-manelann/villa.webp",
+        "width": 1440,
+        "height": 808,
+        "alt": "La villa La Grande Plage et son jardin à Carnac",
+        "caption": "La villa La Grande Plage et son jardin à Carnac",
+        "kind": "brand",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/villa-et-son-parc-1536x862.jpg"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/piscine.webp",
+        "width": 1440,
+        "height": 810,
+        "alt": "Piscine et terrasse de la villa La Grande Plage à Carnac",
+        "caption": "Piscine et terrasse de la villa La Grande Plage à Carnac",
+        "kind": "brand",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/vue-piscine-1536x864.jpg"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/vue-baie.webp",
+        "width": 1440,
+        "height": 807,
+        "alt": "Vue sur les espaces extérieurs et la baie de Quiberon depuis la villa",
+        "caption": "Vue sur les espaces extérieurs et la baie de Quiberon depuis la villa",
+        "kind": "brand",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/vue-baie-quiberon-1536x861.jpg"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/salon.webp",
+        "width": 1440,
+        "height": 808,
+        "alt": "Salon avec canapés bleus et poutres apparentes dans la villa La Grande Plage",
+        "caption": "Salon avec canapés bleus et poutres apparentes dans la villa La Grande Plage",
+        "kind": "brand",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/salon-1536x862.jpg"
+      },
+      {
+        "src": "/realisations/clients/villa-manelann/sejour.webp",
+        "width": 1440,
+        "height": 808,
+        "alt": "Pièce de vie lumineuse et cuisine ouverte de la villa La Grande Plage",
+        "caption": "Pièce de vie lumineuse et cuisine ouverte de la villa La Grande Plage",
+        "kind": "brand",
+        "source": "https://www.villamanelann.com/wp-content/uploads/2023/10/sejour2-1536x862.jpg"
+      }
+    ],
+    "accent": "#728775",
+    "tone": "#eaf0e9",
+    "order": 15,
     "scopeOnly": true,
     "archived": false
   },
@@ -550,190 +1445,7 @@
     ],
     "accent": "#354b74",
     "tone": "#e9edf4",
-    "order": 5,
-    "scopeOnly": false,
-    "archived": false
-  },
-  {
-    "slug": "demetis-immo",
-    "title": "Demetis Immobilier",
-    "sourceUrl": "https://www.demetisimmo.fr/",
-    "sector": "Immobilier · Le Mans",
-    "categories": [
-      "Site Vitrine",
-      "Référencement Naturel (SEO)"
-    ],
-    "stack": [
-      "Next.js"
-    ],
-    "headline": "Mettre les biens et l’agence sur le même premier plan.",
-    "summary": "Des annonces avec photographies et informations pratiques, un parcours pour acheter et une présence locale clairement située au Mans et en Sarthe.",
-    "scope": "Site immobilier et visibilité locale, dans la continuité du projet déjà présenté sur le site Litus.",
-    "focus": [
-      {
-        "title": "Un accès direct aux annonces",
-        "text": "Les dernières maisons et terrains se découvrent dès l’accueil, avec leurs informations essentielles."
-      },
-      {
-        "title": "Acheter avec des repères",
-        "text": "La page d’achat rassemble les biens disponibles et propose un contact avec l’agence."
-      },
-      {
-        "title": "Une marque cohérente",
-        "text": "Le nom Demetis, sans accent, est harmonisé dans le portfolio et les autres pages Litus."
-      }
-    ],
-    "links": [
-      {
-        "label": "Next.js",
-        "href": "/expertise/nextjs"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      },
-      {
-        "label": "SEO local",
-        "href": "/seo-local"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/demetis-immo/section.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Une section du site de Demetis Immobilier, capture sur ordinateur",
-      "caption": "Une section du site",
-      "kind": "screen",
-      "source": "https://www.demetisimmo.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/demetis-immo/section.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Une section du site de Demetis Immobilier, capture sur ordinateur",
-        "caption": "Une section du site",
-        "kind": "screen",
-        "source": "https://www.demetisimmo.fr/"
-      },
-      {
-        "src": "/realisations/clients/demetis-immo/accueil.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Page d’accueil de Demetis Immobilier, capture sur ordinateur",
-        "caption": "Page d’accueil",
-        "kind": "screen",
-        "source": "https://www.demetisimmo.fr/"
-      },
-      {
-        "src": "/realisations/clients/demetis-immo/detail.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Acheter un bien immobilier au Mans de Demetis Immobilier, capture sur ordinateur",
-        "caption": "Acheter un bien immobilier au Mans",
-        "kind": "screen",
-        "source": "https://www.demetisimmo.fr/acheter/"
-      }
-    ],
-    "accent": "#95782f",
-    "tone": "#f1ecdf",
-    "order": 6,
-    "scopeOnly": false,
-    "archived": false
-  },
-  {
-    "slug": "elevage-maupas",
-    "title": "Élevage Maupas",
-    "sourceUrl": "https://www.elevagemaupas.com/",
-    "sector": "Vente directe à la ferme · E-commerce",
-    "categories": [
-      "Site E-commerce",
-      "Outil Métier / Application Web"
-    ],
-    "stack": [
-      "Next.js"
-    ],
-    "headline": "Une précommande pensée pour le rythme de la ferme.",
-    "summary": "Pièces d’agneau au kilo, total estimatif et choix des quantités : un parcours de commande spécifique à la vente directe, relié à la présentation de l’élevage.",
-    "scope": "Site e-commerce avec parcours de précommande sur mesure. Le site crédite Litus pour sa conception. La stack visible est Next.js, et non WooCommerce.",
-    "focus": [
-      {
-        "title": "Des quantités adaptées aux produits",
-        "text": "Les pièces sont proposées au kilo avec des minimums et des disponibilités propres à chaque référence."
-      },
-      {
-        "title": "Un prix expliqué",
-        "text": "Le total est annoncé comme estimatif, le prix final dépendant du poids réel préparé."
-      },
-      {
-        "title": "Une commande en plusieurs étapes",
-        "text": "Sélection des pièces, coordonnées et validation structurent la précommande, avec des informations de retrait et de livraison."
-      }
-    ],
-    "links": [
-      {
-        "label": "Next.js",
-        "href": "/expertise/nextjs"
-      },
-      {
-        "label": "E-commerce",
-        "href": "/creation-site-ecommerce"
-      },
-      {
-        "label": "Développement sur mesure",
-        "href": "/developpement-web-sur-mesure"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/elevage-maupas/section.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Une section du site de Élevage Maupas, capture sur ordinateur",
-      "caption": "Une section du site",
-      "kind": "screen",
-      "source": "https://www.elevagemaupas.com/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/elevage-maupas/section.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Une section du site de Élevage Maupas, capture sur ordinateur",
-        "caption": "Une section du site",
-        "kind": "screen",
-        "source": "https://www.elevagemaupas.com/"
-      },
-      {
-        "src": "/realisations/clients/elevage-maupas/boutique.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Parcours de précommande du site Élevage Maupas, capture sur ordinateur",
-        "caption": "Parcours de précommande",
-        "kind": "screen",
-        "source": "https://www.elevagemaupas.com/precommande"
-      },
-      {
-        "src": "/realisations/clients/elevage-maupas/ferme.webp",
-        "width": 1440,
-        "height": 677,
-        "alt": "Univers visuel du site Élevage Maupas : ferme, pâturages et troupeau",
-        "caption": "Univers visuel du site Élevage Maupas : ferme, pâturages et troupeau",
-        "kind": "brand",
-        "source": "https://www.elevagemaupas.com/_next/image?url=%2Fimages%2Felevage%2Fbanner_1.png&w=1920&q=75"
-      },
-      {
-        "src": "/realisations/clients/elevage-maupas/detail.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Notre Logique d'Élevage de Élevage Maupas, capture sur ordinateur",
-        "caption": "Notre Logique d'Élevage",
-        "kind": "screen",
-        "source": "https://www.elevagemaupas.com/notre-logique"
-      }
-    ],
-    "accent": "#758237",
-    "tone": "#eef0df",
-    "order": 7,
+    "order": 16,
     "scopeOnly": false,
     "archived": false
   },
@@ -815,578 +1527,9 @@
     ],
     "accent": "#ac6e7a",
     "tone": "#f6e9e8",
-    "order": 8,
+    "order": 17,
     "scopeOnly": false,
     "archived": false
-  },
-  {
-    "slug": "aspire-energie",
-    "title": "Aspire Énergie",
-    "sourceUrl": "https://www.aspire-energie.com/",
-    "sector": "Courtage en énergie · Entreprises",
-    "categories": [
-      "Site Vitrine",
-      "Google Ads"
-    ],
-    "stack": [
-      "Next.js"
-    ],
-    "headline": "Rendre les contrats d’énergie plus faciles à comprendre.",
-    "summary": "Une offre B2B explicitée par un duo de mascottes, un parcours d’étude de factures et un blog qui décrypte les contrats d’électricité et de gaz.",
-    "scope": "Refonte du site et accompagnement Google Ads, conformément au projet déjà présenté dans le portfolio. Aspire Énergie est distingué d’Aspire Marketing.",
-    "focus": [
-      {
-        "title": "Une offre rendue lisible",
-        "text": "Analyse des factures, comparaison des fournisseurs et suivi sont présentés comme des étapes de l’accompagnement."
-      },
-      {
-        "title": "Des contenus pédagogiques",
-        "text": "Le blog traite factures, renouvellement, indexation et consommation avec des entrées distinctes."
-      },
-      {
-        "title": "Une porte d’entrée concrète",
-        "text": "La demande d’étude gratuite permet de passer de la lecture à une prise de contact contextualisée."
-      }
-    ],
-    "links": [
-      {
-        "label": "Next.js",
-        "href": "/expertise/nextjs"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      },
-      {
-        "label": "Google Ads",
-        "href": "/google-ads"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/aspire-energie/accueil.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Page d’accueil de Aspire Énergie, capture sur ordinateur",
-      "caption": "Page d’accueil",
-      "kind": "screen",
-      "source": "https://www.aspire-energie.com/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/aspire-energie/accueil.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Page d’accueil de Aspire Énergie, capture sur ordinateur",
-        "caption": "Page d’accueil",
-        "kind": "screen",
-        "source": "https://www.aspire-energie.com/"
-      },
-      {
-        "src": "/realisations/clients/aspire-energie/detail.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Blog énergie : contrats, factures et conseils de Aspire Énergie, capture sur ordinateur",
-        "caption": "Blog énergie : contrats, factures et conseils",
-        "kind": "screen",
-        "source": "https://www.aspire-energie.com/blog"
-      },
-      {
-        "src": "/realisations/clients/aspire-energie/section.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Une section du site de Aspire Énergie, capture sur ordinateur",
-        "caption": "Une section du site",
-        "kind": "screen",
-        "source": "https://www.aspire-energie.com/"
-      }
-    ],
-    "accent": "#2f5576",
-    "tone": "#e5edf3",
-    "order": 9,
-    "scopeOnly": false,
-    "archived": false
-  },
-  {
-    "slug": "femmes-des-territoires",
-    "title": "Femmes des Territoires",
-    "sourceUrl": "https://www.femmesdesterritoires.fr/",
-    "sector": "Association · Entrepreneuriat féminin",
-    "categories": [
-      "Site Vitrine"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Faire vivre un réseau, pas seulement le présenter.",
-    "summary": "Événements, antennes locales, entraide et portraits : une refonte WordPress pour rendre les portes d’entrée de l’association plus accessibles.",
-    "scope": "Refonte du site WordPress, réorganisation de la navigation et travail technique documentés dans le dossier existant.",
-    "focus": [
-      {
-        "title": "Plusieurs façons de rejoindre le réseau",
-        "text": "Adhésion, bénévolat, partenariat et découverte du fonctionnement sont identifiés dans la navigation."
-      },
-      {
-        "title": "Des événements mis en avant",
-        "text": "Les rencontres et ateliers donnent à voir la vie concrète de l’association."
-      },
-      {
-        "title": "Une organisation locale et nationale",
-        "text": "Les antennes et la plateforme d’entraide relient les initiatives de proximité au réseau."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/femmes-des-territoires/section.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Une section du site de Femmes des Territoires, capture sur ordinateur",
-      "caption": "Une section du site",
-      "kind": "screen",
-      "source": "https://www.femmesdesterritoires.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/femmes-des-territoires/section.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Une section du site de Femmes des Territoires, capture sur ordinateur",
-        "caption": "Une section du site",
-        "kind": "screen",
-        "source": "https://www.femmesdesterritoires.fr/"
-      },
-      {
-        "src": "/realisations/clients/femmes-des-territoires/detail.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Faire un don de Femmes des Territoires, capture sur ordinateur",
-        "caption": "Faire un don",
-        "kind": "screen",
-        "source": "https://www.femmesdesterritoires.fr/faire-un-don/"
-      }
-    ],
-    "accent": "#7b6a37",
-    "tone": "#f6efce",
-    "order": 10,
-    "scopeOnly": false,
-    "archived": false
-  },
-  {
-    "slug": "azra-photographie",
-    "title": "Azra Photographie",
-    "sourceUrl": "https://www.azraphotographie.fr/",
-    "sector": "Photographie · Lorient",
-    "categories": [
-      "Site Vitrine",
-      "Identité Visuelle"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Laisser les images raconter les savoir-faire.",
-    "summary": "Un portfolio organisé autour des portraits, de l’événementiel, de l’immobilier et des prises de vue spécialisées à Lorient et dans le Morbihan.",
-    "scope": "Portfolio WordPress et direction visuelle, avec un travail sur la présentation des galeries et la visibilité locale documenté dans le projet.",
-    "focus": [
-      {
-        "title": "Des prestations identifiables",
-        "text": "Portrait, nautisme, packshot, culinaire et drone disposent d’entrées spécifiques sur le site."
-      },
-      {
-        "title": "Des images avant les discours",
-        "text": "La présentation privilégie le travail photographique et la diversité des usages."
-      },
-      {
-        "title": "Une prise de contact contextualisée",
-        "text": "Les visiteurs peuvent relier leur besoin à une prestation plutôt qu’à une galerie indifférenciée."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/azra-photographie/archive.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "Capture d’archive du site Azra Photographie",
-      "caption": "Vue du projet · archive du portfolio",
-      "kind": "archive",
-      "source": "https://www.azraphotographie.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/azra-photographie/archive.webp",
-        "width": 1440,
-        "height": 810,
-        "alt": "Capture d’archive du site Azra Photographie",
-        "caption": "Vue du projet · archive du portfolio",
-        "kind": "archive",
-        "source": "https://www.azraphotographie.fr/"
-      }
-    ],
-    "accent": "#79614c",
-    "tone": "#eee8e0",
-    "order": 11,
-    "scopeOnly": false,
-    "archived": true
-  },
-  {
-    "slug": "del-rio-pizzeria",
-    "title": "Del Rio Pizzeria",
-    "sourceUrl": "https://www.delriopizzeria.fr/",
-    "sector": "Restauration · Inzinzac-Lochrist",
-    "categories": [
-      "Site Vitrine",
-      "Identité Visuelle"
-    ],
-    "stack": [
-      "Astro"
-    ],
-    "headline": "Un univers gourmand, jusque dans la carte.",
-    "summary": "Pizzas artisanales, recettes du moment et portrait du restaurateur : une présence digitale qui reprend les codes chaleureux de Del Rio.",
-    "scope": "Identité visuelle, supports de restauration et site web.",
-    "focus": [
-      {
-        "title": "Une carte facile à parcourir",
-        "text": "Pizzas, burgers, paninis et salades possèdent des entrées distinctes."
-      },
-      {
-        "title": "Les recettes du moment",
-        "text": "Le site fait une place aux propositions ponctuelles, au-delà de la carte permanente."
-      },
-      {
-        "title": "Des informations immédiatement utiles",
-        "text": "Horaires, adresse et téléphone accompagnent la découverte des plats."
-      }
-    ],
-    "links": [
-      {
-        "label": "Développement sur mesure",
-        "href": "/developpement-web-sur-mesure"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/del-rio-pizzeria/accueil.webp",
-      "width": 1440,
-      "height": 1000,
-      "alt": "Page d’accueil de Del Rio Pizzeria, capture sur ordinateur",
-      "caption": "Page d’accueil",
-      "kind": "screen",
-      "source": "https://www.delriopizzeria.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/del-rio-pizzeria/accueil.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Page d’accueil de Del Rio Pizzeria, capture sur ordinateur",
-        "caption": "Page d’accueil",
-        "kind": "screen",
-        "source": "https://www.delriopizzeria.fr/"
-      },
-      {
-        "src": "/realisations/clients/del-rio-pizzeria/pizza.webp",
-        "width": 1440,
-        "height": 617,
-        "alt": "Visuel de la carte Del Rio présentant une pizza artisanale",
-        "caption": "Visuel de la carte Del Rio présentant une pizza artisanale",
-        "kind": "brand",
-        "source": "https://www.delriopizzeria.fr/images/pizza_menu.webp"
-      },
-      {
-        "src": "/realisations/clients/del-rio-pizzeria/section.webp",
-        "width": 1440,
-        "height": 1000,
-        "alt": "Une section du site de Del Rio Pizzeria, capture sur ordinateur",
-        "caption": "Une section du site",
-        "kind": "screen",
-        "source": "https://www.delriopizzeria.fr/"
-      }
-    ],
-    "accent": "#a08b4c",
-    "tone": "#efeade",
-    "order": 12,
-    "scopeOnly": false,
-    "archived": false
-  },
-  {
-    "slug": "loumor-debarras",
-    "title": "Loumor Débarras",
-    "sourceUrl": "https://www.loumor.com/",
-    "sector": "Débarras · Vannes",
-    "categories": [
-      "Site Vitrine",
-      "Référencement Naturel (SEO)"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Rassurer avant une intervention souvent délicate.",
-    "summary": "Maison, locaux professionnels, succession ou logement insalubre : des parcours distincts pour expliquer les prestations de débarras autour de Vannes.",
-    "scope": "Site vitrine et référencement local, documentés dans le dossier existant. Le site public identifie également Litus comme concepteur.",
-    "focus": [
-      {
-        "title": "Des situations bien différenciées",
-        "text": "Le contenu distingue logement, local professionnel et interventions liées à une succession."
-      },
-      {
-        "title": "Un ancrage dans le Morbihan",
-        "text": "La zone d’intervention et les pages locales précisent où l’entreprise se déplace."
-      },
-      {
-        "title": "Un contact facile à trouver",
-        "text": "Téléphone, coordonnées et demande de devis restent associés à la présentation du service."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      },
-      {
-        "label": "SEO local",
-        "href": "/seo-local"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/loumor-debarras/archive.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "Capture d’archive du site Loumor Débarras",
-      "caption": "Vue du projet · archive du portfolio",
-      "kind": "archive",
-      "source": "https://www.loumor.com/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/loumor-debarras/archive.webp",
-        "width": 1440,
-        "height": 810,
-        "alt": "Capture d’archive du site Loumor Débarras",
-        "caption": "Vue du projet · archive du portfolio",
-        "kind": "archive",
-        "source": "https://www.loumor.com/"
-      }
-    ],
-    "accent": "#59807b",
-    "tone": "#e5eeeb",
-    "order": 13,
-    "scopeOnly": false,
-    "archived": true
-  },
-  {
-    "slug": "geoproxio",
-    "title": "Geoproxio",
-    "sourceUrl": "https://www.geoproxio.fr/",
-    "sector": "Bureau d’études · Géotechnique",
-    "categories": [
-      "Site Vitrine"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Rendre lisible une expertise de terrain.",
-    "summary": "Missions G1 à G5, zones d’intervention et articles techniques : le site aide à identifier l’étude de sol adaptée à un projet de construction.",
-    "scope": "Site WordPress et structuration de l’offre géotechnique. Le dossier existant décrit aussi un travail technique et de suivi des conversions.",
-    "focus": [
-      {
-        "title": "Des missions distinctes",
-        "text": "Les études G1, G2, G3, G4 et G5 sont présentées séparément."
-      },
-      {
-        "title": "Des zones d’intervention explicites",
-        "text": "Le Grand Ouest, le Centre, la Normandie et l’Île-de-France sont identifiés."
-      },
-      {
-        "title": "Une entrée pédagogique",
-        "text": "Les explications et le blog donnent des repères avant la demande d’un devis technique."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/geoproxio/archive.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "Capture d’archive du site Geoproxio",
-      "caption": "Vue du projet · archive du portfolio",
-      "kind": "archive",
-      "source": "https://www.geoproxio.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/geoproxio/archive.webp",
-        "width": 1440,
-        "height": 810,
-        "alt": "Capture d’archive du site Geoproxio",
-        "caption": "Vue du projet · archive du portfolio",
-        "kind": "archive",
-        "source": "https://www.geoproxio.fr/"
-      }
-    ],
-    "accent": "#546b8b",
-    "tone": "#e6ebf1",
-    "order": 14,
-    "scopeOnly": false,
-    "archived": true
-  },
-  {
-    "slug": "aspire-marketing",
-    "title": "Aspire Marketing",
-    "sourceUrl": "https://www.aspire-marketing.fr/",
-    "sector": "Vente directe · Énergie & télécom",
-    "categories": [
-      "Site Vitrine"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Un site d’entreprise aussi tourné vers ses futures équipes.",
-    "summary": "Aspire Marketing présente son activité commerciale et son accompagnement des équipes, avec une place importante donnée au recrutement.",
-    "scope": "Site vitrine corporate, présentation de l’offre et recrutement, selon le dossier du projet existant.",
-    "focus": [
-      {
-        "title": "Une activité expliquée",
-        "text": "Le site présente les équipes de vente directe intervenant pour des acteurs de l’énergie et des télécoms."
-      },
-      {
-        "title": "Un parcours candidat",
-        "text": "Le recrutement constitue une entrée importante, à côté de la présentation de l’entreprise."
-      },
-      {
-        "title": "Une identité distincte",
-        "text": "Cette réalisation possède sa propre fiche et ne se confond plus avec Aspire Énergie."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/aspire-marketing/archive.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "Capture d’archive du site Aspire Marketing",
-      "caption": "Vue du projet · archive du portfolio",
-      "kind": "archive",
-      "source": "https://www.aspire-marketing.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/aspire-marketing/archive.webp",
-        "width": 1440,
-        "height": 810,
-        "alt": "Capture d’archive du site Aspire Marketing",
-        "caption": "Vue du projet · archive du portfolio",
-        "kind": "archive",
-        "source": "https://www.aspire-marketing.fr/"
-      }
-    ],
-    "accent": "#535f87",
-    "tone": "#eceef5",
-    "order": 15,
-    "scopeOnly": false,
-    "archived": true
-  },
-  {
-    "slug": "menuiserie-jerome-rio",
-    "title": "Menuiserie Jérôme Rio",
-    "sourceUrl": "https://www.menuiserie-jeromerio.fr/",
-    "sector": "Menuiserie · Languidic",
-    "categories": [
-      "Site Vitrine"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Présenter chaque solution, du seuil à la terrasse.",
-    "summary": "Portes, fenêtres, volets, portails et aménagements intérieurs : les visiteurs identifient les prestations de pose et de dépannage de Jérôme Rio.",
-    "scope": "Site vitrine d’artisan, galerie de réalisations et présence locale documentés dans le portfolio.",
-    "focus": [
-      {
-        "title": "Une offre intérieure et extérieure",
-        "text": "Les deux familles de prestations structurent la navigation."
-      },
-      {
-        "title": "Le métier rendu concret",
-        "text": "Bois, aluminium et PVC accompagnent la présentation des travaux proposés."
-      },
-      {
-        "title": "Une porte d’entrée vers le devis",
-        "text": "La localisation à Languidic et les moyens de contact donnent des repères pratiques."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/menuiserie-jerome-rio/archive.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "Capture d’archive du site Menuiserie Jérôme Rio",
-      "caption": "Vue du projet · archive du portfolio",
-      "kind": "archive",
-      "source": "https://www.menuiserie-jeromerio.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/menuiserie-jerome-rio/archive.webp",
-        "width": 1440,
-        "height": 810,
-        "alt": "Capture d’archive du site Menuiserie Jérôme Rio",
-        "caption": "Vue du projet · archive du portfolio",
-        "kind": "archive",
-        "source": "https://www.menuiserie-jeromerio.fr/"
-      }
-    ],
-    "accent": "#827257",
-    "tone": "#eee9df",
-    "order": 16,
-    "scopeOnly": false,
-    "archived": true
   },
   {
     "slug": "reflexologie-lorient",
@@ -1453,70 +1596,6 @@
     ],
     "accent": "#8b7786",
     "tone": "#f1ebef",
-    "order": 17,
-    "scopeOnly": false,
-    "archived": true
-  },
-  {
-    "slug": "aire-des-iles",
-    "title": "Aire des Îles",
-    "sourceUrl": "https://www.airedesiles.fr/",
-    "sector": "Tourisme · Camping-car à Baden",
-    "categories": [
-      "Site Vitrine"
-    ],
-    "stack": [
-      "WordPress"
-    ],
-    "headline": "Préparer une escale dans le Golfe du Morbihan.",
-    "summary": "Une présence touristique consacrée à une aire d’accueil pour camping-cars à Baden, avec les informations nécessaires à la préparation de l’étape.",
-    "scope": "Refonte UX/UI, contenus et travail technique sur un site WordPress touristique, selon le dossier déjà publié.",
-    "focus": [
-      {
-        "title": "Un usage de passage",
-        "text": "Les informations pratiques doivent pouvoir être retrouvées rapidement pendant un voyage."
-      },
-      {
-        "title": "Un contexte touristique",
-        "text": "L’environnement du Golfe du Morbihan fait partie de la découverte du lieu."
-      },
-      {
-        "title": "Une présence restructurée",
-        "text": "La refonte documentée porte sur la lecture du site et l’organisation des contenus."
-      }
-    ],
-    "links": [
-      {
-        "label": "WordPress",
-        "href": "/expertise/wordpress"
-      },
-      {
-        "label": "Création de site internet",
-        "href": "/creation-site-internet"
-      }
-    ],
-    "cover": {
-      "src": "/realisations/clients/aire-des-iles/archive.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "Capture d’archive du site Aire des Îles",
-      "caption": "Vue du projet · archive du portfolio",
-      "kind": "archive",
-      "source": "https://www.airedesiles.fr/"
-    },
-    "gallery": [
-      {
-        "src": "/realisations/clients/aire-des-iles/archive.webp",
-        "width": 1440,
-        "height": 810,
-        "alt": "Capture d’archive du site Aire des Îles",
-        "caption": "Vue du projet · archive du portfolio",
-        "kind": "archive",
-        "source": "https://www.airedesiles.fr/"
-      }
-    ],
-    "accent": "#4c8490",
-    "tone": "#e6eff1",
     "order": 18,
     "scopeOnly": false,
     "archived": true

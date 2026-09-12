@@ -3,7 +3,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
     title: 'Politique de Confidentialité | Litus',
     description: 'Découvrez comment Litus protège et gère vos données personnelles conformément au RGPD.',
-    robots: { index: true, follow: true },
+    alternates: { canonical: '/politique-confidentialite' },
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
 }
 
 export default function PolitiqueConfidentialitePage() {
@@ -109,7 +110,7 @@ export default function PolitiqueConfidentialitePage() {
                             <section>
                                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                                     <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm">6</span>
-                                    Gestion des Cookies
+                                    <span id="cookies" className="scroll-mt-32">Gestion des Cookies</span>
                                 </h2>
                                 <p>
                                     Un cookie est un petit fichier texte déposé sur votre terminal lors de la visite d'un site. Nous utilisons des cookies pour assurer le bon fonctionnement du site (cookies essentiels) et mesurer anonymement notre audience (ex: Google Analytics).

@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const url = `https://www.litus.fr/realisations/${data.story?.slug ?? data.legacy!.slug}`;
   const imageUrl = image?.src ?? data.legacy!.hero.desktop;
   return {
-    title: `${title} : projet & accompagnement | Litus`, description,
+    title: data.story?.performance ? { absolute: `${title} : résultats Google Ads & acquisition | Litus` } : `${title} : projet & accompagnement | Litus`, description,
     alternates: { canonical: url },
     openGraph: { title: `${title} | Réalisation Litus`, description, type: 'article', url, images: [{ url: imageUrl, ...(image ? { width: image.width, height: image.height, alt: image.alt } : { alt: title }) }] },
     twitter: { card: 'summary_large_image', title: `${title} | Litus`, description, images: [imageUrl] },

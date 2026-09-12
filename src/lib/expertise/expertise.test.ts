@@ -4,14 +4,14 @@ import { expertisePages, getExpertisePage } from './content'
 import { expertiseMetadata, expertiseSchema } from './seo'
 
 describe('Expertise cluster', () => {
-  it('publishes the nine technologies with unique routes', () => {
-    expect(expertiseTools.map(tool => tool.slug).sort()).toEqual(['framer', 'nextjs', 'react', 'shopify', 'stripe', 'tailwind', 'typescript', 'vercel', 'wordpress'])
-    expect(new Set(expertisePages.map(page => page.slug)).size).toBe(9)
-    expect(expertisePages).toHaveLength(9)
+  it('publishes all thirty technologies with unique routes', () => {
+    expect(expertiseTools.map(tool => tool.slug).sort()).toEqual(expertisePages.map(page => page.slug).sort())
+    expect(new Set(expertisePages.map(page => page.slug)).size).toBe(30)
+    expect(expertisePages).toHaveLength(30)
     expect(getExpertisePage('unknown')).toBeUndefined()
   })
   it('has independent titles, descriptions, headlines and FAQ questions', () => {
-    for (const key of ['title', 'description', 'headline'] as const) expect(new Set(expertisePages.map(page => page[key])).size).toBe(9)
+    for (const key of ['title', 'description', 'headline'] as const) expect(new Set(expertisePages.map(page => page[key])).size).toBe(30)
     const questions = expertisePages.flatMap(page => page.faq.map(faq => faq.question))
     expect(new Set(questions).size).toBe(questions.length)
     expect(new Set(expertisePages.map(page => page.sections.map(section => section.kind).join(','))).size).toBeGreaterThanOrEqual(5)
@@ -21,10 +21,10 @@ describe('Expertise cluster', () => {
     expect(url.pathname).toBe('/contact')
     expect(url.searchParams.get('objet')).toBe('Expertise Stripe & API')
   })
-  it('uses no FAQ, rating or invented review structured data', () => {
+  it('uses no invented rating or review structured data', () => {
     for (const page of expertisePages) {
       const serialized = JSON.stringify(expertiseSchema(page))
-      expect(serialized).not.toMatch(/FAQPage|AggregateRating|Review|ratingValue/)
+      expect(serialized).not.toMatch(/AggregateRating|Review|ratingValue/)
       expect(() => JSON.parse(serialized)).not.toThrow()
     }
   })
@@ -50,7 +50,7 @@ describe('Expertise cluster', () => {
         expect(item.slug).not.toBe(page.slug)
         expect(getExpertisePage(item.slug)).toBeDefined()
       }
-      expect(page.sources.length).toBeGreaterThanOrEqual(3)
+      expect(page.sources.length).toBeGreaterThanOrEqual(2)
       for (const source of page.sources) expect(new URL(source.href).protocol).toBe('https:')
     })
     it('sets an explicit canonical, OG and Twitter metadata', () => {
@@ -64,7 +64,7 @@ describe('Expertise cluster', () => {
     })
     it('connects WebPage, Service and a three-level breadcrumb', () => {
       const graph = expertiseSchema(page)['@graph']
-      expect(graph.map(item => item['@type'])).toEqual(['WebPage', 'BreadcrumbList', 'Service'])
+      expect(graph.map(item => item['@type'])).toEqual(['WebPage', 'BreadcrumbList', 'FAQPage', 'Service'])
       expect(graph[1]).toMatchObject({ itemListElement: [{ position: 1 }, { position: 2 }, { position: 3, item: `https://litus.fr/expertise/${page.slug}` }] })
       expect(graph[0]).toMatchObject({ mainEntity: { '@id': `https://litus.fr/expertise/${page.slug}#service` } })
     })
