@@ -32,3 +32,8 @@ Correction des selecteurs de theme du mega menu et des galeries : utilisation de
 ## 1.06.b - Correctif connexion / 2FA
 
 Lecture des dates de configuration compatible avec les colonnes INTEGER de Turso/LibSQL, sans migration ni changement des identifiants. Distinction entre indisponibilite serveur et identifiants refuses. Ajout du test de regression `node node_modules/tsx/dist/cli.mjs scripts/admin-libsql-qa.ts`.
+
+
+## 1.07.a - Page contact fidele a la reference
+
+Composition avec photographie reelle sous licence Unsplash, avis client existant, reperes du site, annotations manuscrites, carte formulaire et responsive. Logique de contact et securite preservees. Source visuelle documentee dans `docs/contact-reference-design.md`.

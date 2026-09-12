@@ -22,7 +22,9 @@ export function ContactRequestForm({ subject = '' }: { subject?: string }) {
   const busy = useRef(false)
   const trap = useRef<HTMLInputElement>(null)
   const successHeading = useRef<HTMLHeadingElement>(null)
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset, setError } = useForm<ContactFormData>({ resolver: zodResolver(contactFormSchema) })
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset, setError, watch } = useForm<ContactFormData>({ resolver: zodResolver(contactFormSchema) })
+  const messageLength = watch('message', '')?.length || 0
+  const messageLimit = subject ? 4790 : 5000
   const pending = isSubmitting || isSending
   useEffect(() => { if (isSuccess) successHeading.current?.focus() }, [isSuccess])
 
@@ -64,7 +66,7 @@ export function ContactRequestForm({ subject = '' }: { subject?: string }) {
       <div className="contact-field"><label htmlFor="entreprise">Entreprise / Site web</label><input id="entreprise" autoComplete="organization" maxLength={200} {...register('entreprise')} {...a11y('entreprise')} placeholder="Votre société ou https://…" />{error('entreprise')}</div>
       <div className="contact-field"><label htmlFor="service">Service souhaité <span>*</span></label><div className="contact-select-wrap"><select id="service" {...register('service')} {...a11y('service')} aria-required="true" defaultValue=""><option value="" disabled>Sélectionnez un service</option>{services.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select><ChevronDown size={15} aria-hidden="true" /></div>{error('service')}</div>
       <div className="contact-field"><label htmlFor="budget">Budget estimé <span>*</span></label><div className="contact-select-wrap"><select id="budget" {...register('budget')} {...a11y('budget')} aria-required="true" defaultValue=""><option value="" disabled>Sélectionnez une fourchette</option><option value="moins-1000">Moins de 1 000 €</option><option value="1000-3000">Entre 1 000 € et 3 000 €</option><option value="3000-10000">Entre 3 000 € et 10 000 €</option><option value="10000-30000">Entre 10 000 € et 30 000 €</option><option value="plus-30000">Plus de 30 000 €</option><option value="ne-sais-pas">Je ne sais pas encore</option></select><ChevronDown size={15} aria-hidden="true" /></div>{error('budget')}</div>
-      <div className="contact-field contact-message"><label htmlFor="message">Votre projet <span>*</span></label><textarea id="message" maxLength={subject ? 4790 : 5000} {...register('message')} {...a11y('message')} aria-required="true" rows={5} placeholder="Votre activité, vos objectifs, vos besoins…" />{error('message')}</div>
+      <div className="contact-field contact-message"><label htmlFor="message">Votre projet <span>*</span></label><textarea id="message" maxLength={messageLimit} {...register('message')} {...a11y('message')} aria-required="true" rows={5} placeholder="Votre activité, vos objectifs, vos besoins…" /><output htmlFor="message" className="contact-message-count" aria-live="off">{messageLength}/{messageLimit}</output>{error('message')}</div>
     </fieldset>
     <div className="contact-consent"><input id="rgpd" type="checkbox" disabled={pending} {...register('rgpd')} {...a11y('rgpd')} aria-required="true" /><label htmlFor="rgpd">J’accepte que Litus utilise mes données pour traiter ma demande. <a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer">Politique de confidentialité<span className="sr-only"> (nouvel onglet)</span></a>.</label></div>{error('rgpd')}
     {sendError && <p className="contact-send-error" role="alert">{sendError}</p>}
