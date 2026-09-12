@@ -1,9 +1,14 @@
 'use client'
 import { useState, type FormEvent } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { Caveat } from 'next/font/google'
 import type { MarketAnalysis } from '@/lib/gemini'
 import { ArrowRight, BarChart3, BriefcaseBusiness, Check, LockKeyhole, MapPin } from 'lucide-react'
 import { ReferenceAnnotation, ReferenceReveal } from './home/ReferenceMotion'
+import './estimator-reference.css'
+
+const auditHandwriting = Caveat({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-audit-handwriting' })
 
 export function EstimatorSection() {
   const [metier, setMetier] = useState('')
@@ -61,7 +66,7 @@ export function EstimatorSection() {
     }
   }
   return (
-    <section id="estimateur" className="home-reference-section reference-audit" aria-labelledby="reference-audit-title">
+    <section id="estimateur" className={`home-reference-section reference-audit ${auditHandwriting.variable}`} aria-labelledby="reference-audit-title">
       <ReferenceReveal className="home-reference-container reference-audit-grid">
         <ReferenceAnnotation className="reference-audit-note-left">Des opportunités<br />près de chez vous ?</ReferenceAnnotation>
         <div className="reference-audit-copy">
@@ -85,6 +90,17 @@ export function EstimatorSection() {
           <ul className="reference-reassurance">{['Gratuit et sans engagement', 'Résultats en quelques secondes', 'Conseils personnalisés'].map(text => <li key={text}><Check size={15} aria-hidden="true" />{text}</li>)}</ul>
           </div>
         </div>
+        <figure className="reference-audit-photo">
+          <Image
+            src="/images/entrepreneuse-fleuriste-audit-local-v1.webp"
+            alt="Illustration générée par IA : une fleuriste en tablier travaille sur son ordinateur dans sa boutique, entourée de plantes et de fleurs."
+            width={960}
+            height={1280}
+            sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1199px) 38vw, (max-width: 1699px) 25vw, 380px"
+            loading="lazy"
+          />
+          <figcaption><MapPin size={22} aria-hidden="true" /><span>Soutenir les<br />entrepreneurs locaux</span></figcaption>
+        </figure>
         <div className="reference-audit-card">
           {!analysis ? (
             <form onSubmit={calculate} aria-busy={busy}>
@@ -127,7 +143,7 @@ export function EstimatorSection() {
               >
                 {busy ? 'Estimation en cours…' : 'Obtenir une estimation'}<ArrowRight size={17} aria-hidden="true" />
               </button>
-              <p className="reference-privacy"><LockKeyhole size={12} aria-hidden="true" />Vos données servent uniquement à traiter votre demande. <Link href="/politique-confidentialite">Confidentialité</Link></p>
+              <p className="reference-privacy"><LockKeyhole size={13} aria-hidden="true" /><span>Vos données servent uniquement à traiter votre demande. <Link href="/politique-confidentialite">Confidentialité</Link></span></p>
             </form>
           ) : (
             <div aria-live="polite">

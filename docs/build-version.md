@@ -14,3 +14,16 @@ Le numéro de build affiché dans le footer se trouve dans `src/components/layou
 2. Lancer `npm run build`.
 3. Committer le changement avec le reste du lot.
 4. Déployer sur Vercel.
+
+## Livraison 1.05.a
+
+Mega menu compact, neuf technologies, galeries et SEO image. Lot visible : incrementation du deuxieme nombre, retour a la lettre a. Voir `docs/expertise-visual-refresh.md`.
+
+## Livraison locale 1.06.a
+
+Reproduction du bloc estimation : grille trois colonnes, photo IA et annotations. Build footer incremente pour ce nouveau lot visible. Publication non effectuee a ce stade ; voir docs/estimator-reference-image.md.
+
+
+## Publication 1.06.a
+
+Correction des selecteurs de theme du mega menu et des galeries : utilisation de la classe .dark du site. Publication commune des expertises et du bloc estimation avec photo IA.

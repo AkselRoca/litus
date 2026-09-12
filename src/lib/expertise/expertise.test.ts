@@ -4,14 +4,14 @@ import { expertisePages, getExpertisePage } from './content'
 import { expertiseMetadata, expertiseSchema } from './seo'
 
 describe('Expertise cluster', () => {
-  it('publishes exactly the eight requested tools with unique routes', () => {
-    expect(expertiseTools.map(tool => tool.slug).sort()).toEqual(['framer', 'react', 'shopify', 'stripe', 'tailwind', 'typescript', 'vercel', 'wordpress'])
-    expect(new Set(expertisePages.map(page => page.slug)).size).toBe(8)
-    expect(expertisePages).toHaveLength(8)
+  it('publishes the nine technologies with unique routes', () => {
+    expect(expertiseTools.map(tool => tool.slug).sort()).toEqual(['framer', 'nextjs', 'react', 'shopify', 'stripe', 'tailwind', 'typescript', 'vercel', 'wordpress'])
+    expect(new Set(expertisePages.map(page => page.slug)).size).toBe(9)
+    expect(expertisePages).toHaveLength(9)
     expect(getExpertisePage('unknown')).toBeUndefined()
   })
   it('has independent titles, descriptions, headlines and FAQ questions', () => {
-    for (const key of ['title', 'description', 'headline'] as const) expect(new Set(expertisePages.map(page => page[key])).size).toBe(8)
+    for (const key of ['title', 'description', 'headline'] as const) expect(new Set(expertisePages.map(page => page[key])).size).toBe(9)
     const questions = expertisePages.flatMap(page => page.faq.map(faq => faq.question))
     expect(new Set(questions).size).toBe(questions.length)
     expect(new Set(expertisePages.map(page => page.sections.map(section => section.kind).join(','))).size).toBeGreaterThanOrEqual(5)

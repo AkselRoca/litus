@@ -5,3 +5,5 @@ import './expertise.css'
 export default function ExpertiseLayout({ children }: { children: ReactNode }) {
   return children
 }
+
+import '@/components/expertise/expertise-rich.css'

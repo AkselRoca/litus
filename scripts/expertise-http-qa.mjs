@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { JSDOM } from 'jsdom'
 
 const base = process.argv[2] || 'http://127.0.0.1:3100'
-const slugs = ['react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress']
+const slugs = ['nextjs', 'react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress']
 const urls = ['/expertise', ...slugs.map(slug => `/expertise/${slug}`)]
 const seenTitles = new Set()
 const seenDescriptions = new Set()
@@ -48,7 +48,7 @@ for (const path of urls) {
     assert(img.hasAttribute('alt') && img.getAttribute('width') && img.getAttribute('height'), `${path}: image attributes`)
     if (img.src.startsWith('/')) localAssets.add(img.src)
   }
-  assert(document.body.textContent.includes(`Build ${process.env.EXPECTED_BUILD || '1.04.b'}`), `${path}: build`)
+  assert(document.body.textContent.includes(`Build ${process.env.EXPECTED_BUILD || '1.06.a'}`), `${path}: build`)
   report.push({ path, h1: main.querySelector('h1').textContent, sections: main.querySelectorAll('.ex-section').length, schemas: schemas.length, serverHtml: true })
   dom.window.close()
 }
@@ -71,4 +71,4 @@ const sitemap = await fetch(new URL('/sitemap-0.xml', base)).then(response => re
 for (const path of urls) assert(sitemap.includes(`https://litus.fr${path}</loc>`), `Missing sitemap URL ${path}`)
 const unknown = await fetch(new URL('/expertise/inconnue', base))
 assert.equal(unknown.status, 404, 'Unknown expertise must return 404')
-console.log(JSON.stringify({ base, pages: report, internalDestinationsChecked: internal.size, assetsChecked: localAssets.size, sitemap: true, logoLinks: 8, unknownRoute: 404 }, null, 2))
+console.log(JSON.stringify({ base, pages: report, internalDestinationsChecked: internal.size, assetsChecked: localAssets.size, sitemap: true, logoLinks: 9, unknownRoute: 404 }, null, 2))

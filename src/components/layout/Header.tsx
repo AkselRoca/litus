@@ -11,6 +11,8 @@ import {
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { expertiseGroups, isExpertisePath, type ExpertiseLink } from '@/lib/expertises'
 import './header.css'
+import './expertise-menu.css'
+import { ExpertiseMenu } from './ExpertiseMenu'
 
 const personas = [
   { label: 'Artisans', href: '/artisans', icon: Wrench },
@@ -107,7 +109,7 @@ export function Header() {
         }
       }
       if (event.key === 'Tab' && mobileOpen) {
-        const links = [...(mobilePanelRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex="0"]') ?? [])].filter(node => node.getClientRects().length > 0)
+        const links = [...(mobilePanelRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), summary, [tabindex="0"]') ?? [])].filter(node => node.getClientRects().length > 0)
         const first = links[0], last = links[links.length - 1]
         if (event.shiftKey && (document.activeElement === first || !mobilePanelRef.current?.contains(document.activeElement))) { event.preventDefault(); last?.focus() }
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
@@ -137,7 +139,7 @@ export function Header() {
     return () => desktop.removeEventListener('change', handle)
   }, [close])
 
-  const expertiseActive = isExpertisePath(pathname)
+  const expertiseActive = isExpertisePath(pathname) || pathname === '/expertise' || pathname.startsWith('/expertise/')
   const solutionsActive = personas.some(item => pathname.startsWith(item.href))
   const resourcesActive = resources.some(item => pathname.startsWith(item.href))
   const agenciesActive = pathname === '/a-propos' || pathname.startsWith('/agence-web-')
@@ -158,14 +160,8 @@ export function Header() {
           <button type="button" className={expertiseActive ? 'is-active' : ''} aria-expanded={dropdown === 'expertises'} aria-controls="nav-expertises" onClick={() => toggleDropdown('expertises')} onKeyDown={event => dropdownKey(event, 'expertises')}>
             Expertises <ChevronDown aria-hidden="true" />
           </button>
-          <div className="header-mega-menu" id="nav-expertises" data-open={dropdown === 'expertises' || undefined} aria-hidden={dropdown !== 'expertises'} inert={dropdown !== 'expertises'}>
-            {expertiseGroups.map((group, index) => <section className="mega-menu-column" key={group.id} aria-labelledby={`expertises-${group.id}`}>
-              <span className="mega-menu-index" aria-hidden="true">0{index + 1}</span>
-              <h2 id={`expertises-${group.id}`}>{group.title}</h2>
-              <p>{group.description}</p>
-              <ul className="mega-service-list">{group.items.map(item => <li key={item.href}><MegaLink item={item} close={close} pathname={pathname} /></li>)}</ul>
-            </section>)}
-            <div className="mega-menu-footer"><p><strong>Quel est votre prochain projet ?</strong><span>Un premier échange pour choisir les bonnes solutions.</span></p><Link href="/contact" onClick={close}>Parlons de votre projet <ArrowRight aria-hidden="true" /></Link></div>
+          <div className="header-mega-menu header-expertise-panel" id="nav-expertises" data-open={dropdown === 'expertises' || undefined} aria-hidden={dropdown !== 'expertises'} inert={dropdown !== 'expertises'}>
+            <ExpertiseMenu key={dropdown === 'expertises' ? 'open' : 'closed'} close={close} pathname={pathname} />
           </div>
         </div>
 
@@ -204,7 +200,7 @@ export function Header() {
         <div className="mobile-menu-scroll">
           <div className="mobile-menu-theme"><span className="mobile-menu-theme-icon"><Sun aria-hidden="true" /></span><span>Thème d’affichage</span><ThemeToggle /></div>
           <section className="mobile-menu-section mobile-menu-expertises" aria-labelledby="mobile-expertises"><h2 id="mobile-expertises">Expertises</h2>
-            {expertiseGroups.map(group => <section className="mobile-expertise-group" key={group.id} aria-labelledby={`mobile-expertises-${group.id}`}><h3 id={`mobile-expertises-${group.id}`}>{group.title}</h3><ul className="mobile-menu-list">{group.items.map(item => <li key={item.href}><MegaLink item={item} pathname={pathname} close={close} mobile /></li>)}</ul></section>)}
+            <ExpertiseMenu key={mobileOpen ? 'mobile-open' : 'mobile-closed'} close={close} pathname={pathname} mobile />
           </section>
           {[{ id: 'mobile-solutions', title: 'Solutions', items: personas },{ id: 'mobile-agencies', title: 'Agences', items: agencies }].map(group => <section className="mobile-menu-section" key={group.id} aria-labelledby={group.id}><h2 id={group.id}>{group.title}</h2><ul className="mobile-menu-list">{group.items.map(item => {const Icon=item.icon;return <li key={`${item.href}-${item.label}`}><Link href={item.href} onClick={close}><span className="mobile-menu-link-icon"><Icon aria-hidden="true" /></span><span>{item.label}</span><ChevronRight className="mobile-menu-chevron" aria-hidden="true" /></Link></li>})}</ul></section>)}
           <nav className="mobile-menu-secondary" aria-label="Liens secondaires"><ul className="mobile-menu-list">{mobileSecondary.map(item=>{const Icon=item.icon;return <li key={item.href}><Link href={item.href} onClick={close}><span className="mobile-menu-link-icon"><Icon aria-hidden="true" /></span><span>{item.label}</span><ChevronRight className="mobile-menu-chevron" aria-hidden="true" /></Link></li>})}</ul></nav>

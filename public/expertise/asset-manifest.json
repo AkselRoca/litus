@@ -1,0 +1,174 @@
+{
+  "created": "2026-09-12",
+  "note": "Original mockups are illustrative, not screenshots or client work. Trademarks belong to their owners.",
+  "assets": [
+    {
+      "file": "shopify-catalogue-produits",
+      "kind": "original-litus",
+      "source": "/expertise/sources/shopify-catalogue-produits.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 22720,
+      "sha256": "0b19b47bae416d17cf5de446c82c9811a51bc198be06cd318287f13c8b74d0c4"
+    },
+    {
+      "file": "shopify-boutique-collection",
+      "kind": "original-litus",
+      "source": "/expertise/sources/shopify-boutique-collection.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 20900,
+      "sha256": "ad9eb8f23a9e0ac2b063375f8cadef24a855ec110671e2887fc99b248ec7c97a"
+    },
+    {
+      "file": "framer-composition-site-marketing",
+      "kind": "original-litus",
+      "source": "/expertise/sources/framer-composition-site-marketing.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 21900,
+      "sha256": "9fbae17c066b9bbed815746ee1878c42a60e292daa229f5aba5ed3620b86e976"
+    },
+    {
+      "file": "framer-cms-publication",
+      "kind": "original-litus",
+      "source": "/expertise/sources/framer-cms-publication.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 23870,
+      "sha256": "4291076270fe79afbee2503e3b913677354deb94eeaaf2fccb737b7abf610bbc"
+    },
+    {
+      "file": "wordpress-maintenance-diagnostic",
+      "kind": "original-litus",
+      "source": "/expertise/sources/wordpress-maintenance-diagnostic.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 25062,
+      "sha256": "4629ed4d97c06dc864fd7957f59d71bb604df081ef4c91dd9d4d7339f4650c4f"
+    },
+    {
+      "file": "stripe-webhooks-abonnements",
+      "kind": "original-litus",
+      "source": "/expertise/sources/stripe-webhooks-abonnements.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 20884,
+      "sha256": "6b1f69e1070a09b4bae3c8b2b4734c8dd1c82a7fce9593ada072ce031cb1b2f8"
+    },
+    {
+      "file": "vercel-previews-deploiement",
+      "kind": "original-litus",
+      "source": "/expertise/sources/vercel-previews-deploiement.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 23824,
+      "sha256": "ace4179c28b2843b0a13bfe8e7d619b7811f8abfb54edcceac714569daeebe30"
+    },
+    {
+      "file": "vercel-build-logs-diagnostic",
+      "kind": "original-litus",
+      "source": "/expertise/sources/vercel-build-logs-diagnostic.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 24056,
+      "sha256": "4eb3418f8c1e8be57ec97f24f36e322bfae2cbcf743e80a088b9c2001af7e03e"
+    },
+    {
+      "file": "react-interface-configurateur",
+      "kind": "original-litus",
+      "source": "/expertise/sources/react-interface-configurateur.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 26174,
+      "sha256": "ead58e6ba97834384c707f5aa5574495ede9caf82d8152df09fafcf37f2cc942"
+    },
+    {
+      "file": "react-composants-parcours",
+      "kind": "original-litus",
+      "source": "/expertise/sources/react-composants-parcours.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 21512,
+      "sha256": "f6ffee5cae2dab97cb4f7eecf7c2040f0186524aa10ec929609dbf62c25305e5"
+    },
+    {
+      "file": "nextjs-rendu-serveur-cms",
+      "kind": "original-litus",
+      "source": "/expertise/sources/nextjs-rendu-serveur-cms.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 18890,
+      "sha256": "c47bd66ba959de302f5e2061bd9bbd3dafb0b0f55366610e1092f70e0184a781"
+    },
+    {
+      "file": "nextjs-site-editorial-preview",
+      "kind": "original-litus",
+      "source": "/expertise/sources/nextjs-site-editorial-preview.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 24584,
+      "sha256": "46dcdd379211848097a4a128ae246f9b98b13082e9ff4512ed5ac2ab4680bc87"
+    },
+    {
+      "file": "typescript-contrat-donnees-api",
+      "kind": "original-litus",
+      "source": "/expertise/sources/typescript-contrat-donnees-api.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 21892,
+      "sha256": "6b3072e679746b584e7ea398fd09009426d13fddeb31d17df8dbb171c3e0cdfb"
+    },
+    {
+      "file": "typescript-migration-javascript",
+      "kind": "original-litus",
+      "source": "/expertise/sources/typescript-migration-javascript.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 23492,
+      "sha256": "22dc81b1480d74d8f5c92f980df0ae7b72a9facf90a6de481ba5c26b7546c7b5"
+    },
+    {
+      "file": "tailwind-composants-design-system",
+      "kind": "original-litus",
+      "source": "/expertise/sources/tailwind-composants-design-system.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 24754,
+      "sha256": "25d28aa6e4022284adfb05aeee38eb42de075ae5e597e040533aeead389bd1c0"
+    },
+    {
+      "file": "tailwind-responsive-ecrans",
+      "kind": "original-litus",
+      "source": "/expertise/sources/tailwind-responsive-ecrans.svg",
+      "width": 1280,
+      "height": 800,
+      "bytes": 11120,
+      "sha256": "0b409387292633551c806692d41e81a8ce74bd2322df2a9e22035569095e1590"
+    },
+    {
+      "file": "stripe-checkout-abonnement-officiel",
+      "kind": "official-sample",
+      "source": "https://github.com/stripe-samples/checkout-single-subscription",
+      "license": "/expertise/licenses/stripe-LICENSE.txt",
+      "original": "/expertise/sources/stripe-checkout.gif",
+      "width": 1062,
+      "height": 662,
+      "transformation": "GIF frame 21, WebP compression",
+      "bytes": 15792,
+      "sha256": "4dcbc34c21c66cd8cf5d031dc3592d73d0b6c401e9d37e7873a99bbf7b5408ec"
+    },
+    {
+      "file": "wordpress-editeur-gutenberg-officiel",
+      "kind": "official-sample",
+      "source": "https://github.com/WordPress/gutenberg",
+      "license": "/expertise/licenses/wordpress-LICENSE.txt",
+      "original": "/expertise/sources/wordpress-editor.png",
+      "width": 1200,
+      "height": 831,
+      "transformation": "Proportional resize, WebP compression",
+      "bytes": 10102,
+      "sha256": "098f582d7ec7f649de713c1df4358771015592b41d823a5d7449c6515cedd499"
+    }
+  ]
+}

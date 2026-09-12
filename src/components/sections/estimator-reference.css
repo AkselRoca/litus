@@ -1,0 +1,184 @@
+/* Capture reference: 574 / 378 / 558 px columns, 34 px gaps at 1580 px. */
+#estimateur.reference-audit {
+  --audit-ink: #25313e;
+  --audit-muted: #778390;
+  --audit-paper: #fcfbf8;
+  padding: clamp(72px, 6.15vw, 128px) 0 clamp(72px, 5.4vw, 112px);
+  background: radial-gradient(ellipse at 51% 52%, #f5f0e94d, transparent 65%), #fcfbf9;
+  color: var(--audit-ink);
+}
+#estimateur .reference-audit-grid {
+  width: calc(100% - 120px);
+  max-width: 1580px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.52fr) minmax(0, 1fr) minmax(0, 1.47fr);
+  gap: clamp(26px, 1.64vw, 34px);
+  align-items: center;
+  margin-inline: auto;
+}
+#estimateur .reference-audit-copy { min-width: 0; }
+#estimateur .reference-eyebrow {
+  margin: 0 0 40px;
+  color: var(--audit-muted);
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 550;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+#estimateur .reference-eyebrow span { color: #ff591f; }
+#estimateur h2.home-section-title {
+  max-width: none;
+  margin: 0 0 24px;
+  font-size: clamp(36px, 2.78vw, 58px);
+  font-weight: 560;
+  line-height: 1.12;
+  letter-spacing: -.055em;
+  color: var(--audit-ink);
+  text-wrap: initial;
+}
+#estimateur .reference-audit-copy .reference-intro {
+  max-width: 565px;
+  margin: 0;
+  font-size: clamp(16px, .97vw, 20px);
+  line-height: 1.5;
+  color: var(--audit-muted);
+}
+#estimateur .reference-audit-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px;
+  margin-top: 34px;
+}
+#estimateur .site-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  width: fit-content;
+  min-height: 55px;
+  padding: 15px 32px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(110deg, #ff6026, #ff531b);
+  box-shadow: 0 8px 20px -16px #db3e15;
+  color: #fff;
+  font-size: clamp(14px, .78vw, 16px);
+  font-weight: 650;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: normal;
+  transition: background .2s, box-shadow .2s;
+}
+#estimateur .site-cta-primary > svg { width: 20px; height: 20px; flex: none; }
+#estimateur .site-cta-primary:hover:not(:disabled) { background: #ee4812; box-shadow: 0 9px 24px -15px #c73710; }
+#estimateur .site-cta-primary:focus-visible { outline: 2px solid #25313e; outline-offset: 4px; }
+#estimateur .reference-reassurance { display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; margin: 0; }
+#estimateur .reference-reassurance li { display: flex; align-items: center; gap: 15px; color: var(--audit-muted); font-size: clamp(13px, .78vw, 16px); line-height: 1.5; }
+#estimateur .reference-reassurance svg { width: 28px; height: 28px; padding: 6px; border-radius: 50%; color: #ff6026; background: #fff0e8; flex: none; }
+#estimateur .reference-audit-photo { position: relative; min-width: 0; margin: 0; align-self: center; aspect-ratio: 3 / 4; border-radius: 15px; box-shadow: 0 20px 45px -36px #51443560; }
+#estimateur .reference-audit-photo > img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: inherit; }
+#estimateur .reference-audit-photo figcaption {
+  position: absolute;
+  right: 22px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 16px;
+  border: 1px solid #eee9e2;
+  border-radius: 17px;
+  background: #fcfaf5f2;
+  color: #58616b;
+  box-shadow: 0 6px 18px #26313e0a;
+  transform: rotate(-6deg);
+  font-family: var(--font-audit-handwriting), cursive;
+  font-size: clamp(16px, .95vw, 20px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+#estimateur .reference-audit-photo figcaption > svg { color: #f17e55; flex: none; }
+#estimateur .reference-audit-card { padding: 28px; border: 1px solid #e7e5e1; border-radius: 17px; background: #fcfbf9d9; box-shadow: 0 10px 35px -27px #343e4a24; min-width: 0; }
+#estimateur .reference-audit-card-heading { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 28px; }
+#estimateur .reference-audit-card h3 { margin: 0 0 8px; font-size: clamp(22px, 1.26vw, 26px); font-weight: 580; line-height: 1.2; letter-spacing: -.045em; color: var(--audit-ink); }
+#estimateur .reference-audit-card .form-description { margin: 0; font-size: clamp(13px, .78vw, 16px); line-height: 1.5; color: var(--audit-muted); }
+#estimateur .reference-analysis-mark { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border: 1px solid #eae7e3; border-radius: 12px; background: #f5f4f1; color: var(--audit-muted); font-size: clamp(10px, .58vw, 12px); line-height: 1.4; flex-shrink: 0; }
+#estimateur .reference-analysis-mark > svg { color: #ff642a; flex: none; }
+#estimateur .reference-audit-card label { margin-bottom: 6px; color: var(--audit-ink); font-size: clamp(14px, .78vw, 16px); font-weight: 600; line-height: 1.4; }
+#estimateur .reference-input-wrap { margin-bottom: 18px; }
+#estimateur .reference-audit-card input { height: 48px; font-size: 16px; padding: 11px 14px; border: 1px solid #d6dce3; border-radius: 11px; background: #fff; color: var(--audit-ink); box-shadow: 0 1px 3px #1e2a3a03; }
+#estimateur .reference-audit-card input::placeholder { color: #8b97a6; }
+#estimateur .reference-input-wrap input { padding-left: 46px; }
+#estimateur .reference-input-wrap > svg { left: 16px; top: 14px; width: 19px; height: 19px; color: #75818f; }
+#estimateur .reference-audit-card input:focus { border-color: #f6855d; box-shadow: 0 0 0 3px #ff642a12; outline: none; }
+#estimateur .reference-audit-card .site-cta-primary { min-height: 54px; margin-top: 2px; }
+#estimateur .reference-audit-card .reference-privacy { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 8px; margin: 23px 0 0; color: var(--audit-muted); font-size: clamp(11px, .68vw, 14px); line-height: 1.5; }
+#estimateur .reference-privacy > svg { flex: none; margin-top: 3px; }
+#estimateur .reference-privacy a { color: inherit; margin-left: 5px; text-decoration: underline; text-underline-offset: 3px; }
+#estimateur .reference-annotation { display: block; font-family: var(--font-audit-handwriting), cursive; font-style: normal; font-size: 24px; line-height: 1.12; font-weight: 400; color: #828b93; }
+#estimateur .reference-audit-note-left { left: -208px; top: 39%; }
+#estimateur .reference-audit-note-right { right: -194px; top: 31%; }
+#estimateur .reference-annotation svg { width: 70px; height: 64px; margin-top: 12px; margin-left: 38px; }
+#estimateur .reference-audit-note-right svg { margin-left: -5px; transform: scaleX(-1); }
+.dark #estimateur.reference-audit { --audit-ink: #f4f3ef; --audit-muted: #b7c1ca; --audit-paper: #202c38; background: radial-gradient(ellipse at 51% 52%, #39455240, transparent 65%), #202c38; }
+.dark #estimateur .reference-audit-card { background: #263340; border-color: #43505c; }
+.dark #estimateur .reference-analysis-mark { background: #2c3946; border-color: #44515e; }
+.dark #estimateur .reference-audit-card input { background: #1d2935; border-color: #53616f; }
+.dark #estimateur .reference-reassurance svg { background: #593727; color: #ff9b71; }
+.dark #estimateur .reference-annotation { color: #b3bdc7; }
+.dark #estimateur .site-cta-primary:focus-visible { outline-color: #fff; }
+@media (max-width: 1979px) {
+  #estimateur .reference-audit-note-left, #estimateur .reference-audit-note-right { display: none; }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+  #estimateur .reference-audit-grid { width: calc(100% - 80px); gap: 25px; }
+  #estimateur .reference-audit-card { padding: 23px; }
+  #estimateur .reference-analysis-mark { max-width: 139px; padding: 8px; gap: 7px; font-size: 10px; }
+  #estimateur .reference-analysis-mark > svg { width: 17px; height: 17px; }
+  #estimateur .reference-audit-card-heading { gap: 9px; }
+  #estimateur .reference-audit-card h3 { font-size: 21px; }
+  #estimateur .reference-audit-card .form-description { font-size: 12px; }
+  #estimateur .reference-audit-card input { font-size: 14px; }
+  #estimateur .reference-eyebrow { margin-bottom: 29px; font-size: 12px; }
+  #estimateur .reference-audit-actions { margin-top: 26px; gap: 19px; }
+  #estimateur .reference-audit-actions .site-cta-primary { padding-inline: 24px; gap: 14px; }
+}
+@media (max-width: 1199px) {
+  #estimateur .reference-audit-grid { width: calc(100% - 64px); grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; max-width: 960px; }
+  #estimateur .reference-audit-copy { grid-column: 1; grid-row: 1; }
+  #estimateur .reference-audit-photo { grid-column: 2; grid-row: 1; }
+  #estimateur .reference-audit-card { grid-column: 1 / -1; grid-row: 2; width: 100%; }
+  #estimateur h2.home-section-title { font-size: clamp(34px, 4.1vw, 46px); }
+  #estimateur .reference-eyebrow { margin-bottom: 27px; font-size: 12px; }
+  #estimateur .reference-audit-copy .reference-intro { font-size: 16px; }
+  #estimateur .reference-audit-actions { margin-top: 25px; }
+  #estimateur .reference-audit-card h3 { font-size: 26px; }
+  #estimateur .reference-audit-card .form-description { font-size: 15px; }
+  #estimateur .reference-analysis-mark { font-size: 12px; }
+  #estimateur .reference-audit-photo figcaption { right: 14px; bottom: 23px; font-size: 18px; padding: 11px 13px; }
+}
+@media (max-width: 639px) {
+  #estimateur.reference-audit { padding: 64px 0; }
+  #estimateur .reference-audit-grid { width: calc(100% - 40px); grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  #estimateur .reference-audit-copy, #estimateur .reference-audit-photo, #estimateur .reference-audit-card { grid-column: 1; grid-row: auto; }
+  #estimateur .reference-eyebrow { margin-bottom: 26px; font-size: 11px; }
+  #estimateur h2.home-section-title { margin-bottom: 23px; font-size: clamp(33px, 8.1vw, 44px); line-height: 1.12; }
+  #estimateur .reference-audit-copy .reference-intro { font-size: 16px; line-height: 1.65; }
+  #estimateur .reference-audit-actions { gap: 21px; align-items: stretch; }
+  #estimateur .reference-audit-actions .site-cta-primary { width: 100%; padding-inline: 18px; gap: 13px; font-size: 14px; }
+  #estimateur .reference-reassurance li { font-size: 14px; }
+  #estimateur .reference-audit-photo { width: 100%; max-width: 420px; justify-self: center; }
+  #estimateur .reference-audit-photo figcaption { right: 22px; bottom: 26px; font-size: 21px; padding: 13px 16px; }
+  #estimateur .reference-audit-card { padding: 23px 20px; }
+  #estimateur .reference-audit-card-heading { flex-wrap: wrap; gap: 16px; margin-bottom: 25px; }
+  #estimateur .reference-audit-card h3 { font-size: 25px; }
+  #estimateur .reference-audit-card .form-description { font-size: 14px; }
+  #estimateur .reference-analysis-mark { padding: 9px 11px; font-size: 11px; }
+  #estimateur .reference-audit-card input { height: 49px; font-size: 16px; }
+  #estimateur .reference-audit-card .site-cta-primary { width: 100%; font-size: 14px; padding-inline: 16px; }
+  #estimateur .reference-audit-card .reference-privacy { font-size: 11px; line-height: 1.65; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #estimateur .site-cta-primary, #estimateur .reference-audit-card input { transition: none; }
+}

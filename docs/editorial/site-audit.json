@@ -4330,6 +4330,17 @@
       "titles": []
     },
     {
+      "file": "src/components/expertise/ExpertiseGallery.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{scene.title}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/components/expertise/ExpertisePlayground.tsx",
       "headings": [
         {
@@ -4361,6 +4372,12 @@
         "Production",
         "Observabilité"
       ]
+    },
+    {
+      "file": "src/components/expertise/expertise-rich.css",
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/components/expertise/expertise-service-links.css",
@@ -4400,6 +4417,25 @@
       "titles": []
     },
     {
+      "file": "src/components/layout/ExpertiseMenu.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{group.title}"
+        },
+        {
+          "level": 2,
+          "text": "Nos outils de travail"
+        }
+      ],
+      "links": [
+        "/expertise",
+        "/contact",
+        "/realisations"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/components/layout/Footer.tsx",
       "headings": [
         {
@@ -4435,15 +4471,7 @@
       "headings": [
         {
           "level": 2,
-          "text": "{group.title}"
-        },
-        {
-          "level": 2,
           "text": "Expertises"
-        },
-        {
-          "level": 3,
-          "text": "{group.title}"
         },
         {
           "level": 2,
@@ -4481,6 +4509,12 @@
     },
     {
       "file": "src/components/layout/PublicLayoutWrapper.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/expertise-menu.css",
       "headings": [],
       "links": [],
       "titles": []
@@ -4834,6 +4868,12 @@
         "Autres Agences",
         "Litus"
       ]
+    },
+    {
+      "file": "src/components/sections/estimator-reference.css",
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/components/sections/google-reviews.css",
@@ -6553,6 +6593,23 @@
       ]
     },
     {
+      "file": "src/lib/expertise/content-nextjs.ts",
+      "headings": [],
+      "links": [
+        "/developpement-web-sur-mesure"
+      ],
+      "titles": [
+        "Agence Next.js : développement, migration & SEO | Litus",
+        "Litus développe et reprend vos sites Next.js : rendu serveur, CMS, SEO technique, migration React, performance et déploiement avec un périmètre clair.",
+        "Du site éditorial à l’application métier.",
+        "Un site connecté au CMS",
+        "Une application avec accès client",
+        "Un catalogue sur mesure",
+        "La reprise d’un site existant",
+        "Un rendu adapté à chaque page."
+      ]
+    },
+    {
       "file": "src/lib/expertise/content-platforms.ts",
       "headings": [],
       "links": [
@@ -6592,6 +6649,18 @@
     },
     {
       "file": "src/lib/expertise/types.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/visuals.test.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/visuals.ts",
       "headings": [],
       "links": [],
       "titles": []
@@ -6702,7 +6771,7 @@
       "titles": []
     }
   ],
-  "sitemap": "/** @type {import('next-sitemap').IConfig} */\r\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\r\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', ...['react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\r\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
+  "sitemap": "/** @type {import('next-sitemap').IConfig} */\r\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\r\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', ...['nextjs', 'react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\r\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
   "cron": [
     {
       "path": "/api/cron/editorial",
