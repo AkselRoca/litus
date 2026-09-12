@@ -10,8 +10,7 @@
   scroll-margin-top: 80px;
 }
 .services-reference-container {
-  width: 82.7%;
-  max-width: 1440px;
+  width: min(1460px, calc(100% - 80px));
   margin-inline: auto;
   position: relative;
   z-index: 2;
@@ -38,7 +37,7 @@
   flex-shrink: 0;
 }
 .services-reference-intro {
-  padding-left: 40px;
+  padding-left: 0;
 }
 .litus-editorial .services-reference-intro h2 {
   color: var(--services-ink);
@@ -422,9 +421,6 @@
   }
   .services-handnote {
     display: none;
-  }
-  .services-reference-intro {
-    padding-left: 0;
   }
   .services-reference-intro > p {
     width: 68%;

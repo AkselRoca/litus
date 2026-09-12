@@ -137,8 +137,9 @@
   .territory-actions .site-cta-primary, .territory-actions .site-cta-secondary { height: 54px; padding-inline: 28px; min-width: 0; font-size: 14px; gap: 18px; }
   .territory-actions svg { width: 19px; height: 19px; }
   .territory-hero-curves { display: none; }
-  .territory-coast-photo { top: 310px; bottom: auto; width: 90%; height: 500px; opacity: .24; }
-  .territory-scene { position: relative; left: auto; top: auto; width: 100%; height: auto; margin-top: 38px; padding: 34px 6% 58px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px 5%; background: #132c40; border-radius: 12% 0 10% 0 / 6% 0 6% 0; }
+  .territory-coast-photo,
+  .territory-scene,
+  .territory-photo-credits { display: none; }
   .territory-map { position: relative; left: auto; top: auto; width: 82%; height: auto; aspect-ratio: 600 / 440; grid-column: 1 / -1; justify-self: center; max-width: 570px; }
   .territory-google-card { position: relative; left: auto; top: auto; width: 100%; padding: 25px 23px 20px; border-radius: 20px; transform: rotate(2deg); box-shadow: 0 12px 25px #091a2d20; }
   .territory-google-heading { gap: 12px; font-size: 19px; margin-bottom: 20px; }
@@ -155,13 +156,12 @@
   .territory-photo-playback { width: 44px; height: 44px; }
   .territory-city-card strong { font-size: 23px; }
   .territory-city-card figcaption span { margin-top: 5px; font-size: 15px; }
-  .territory-trust { position: relative; top: auto; left: auto; width: auto; margin: 35px 6% 45px; }
+  .territory-trust { position: relative; top: auto; left: auto; width: auto; margin: 52px 6% 45px; }
   .litus-editorial .territory-trust-label { font-size: 10px; gap: 22px; }
   .territory-trust-row { gap: 28px; margin-top: 25px; }
   .territory-client img { height: 42px; }
   .territory-client-demetis img { height: 55px; }
   .litus-editorial .territory-trust-row > p { font-size: 12px; }
-  .territory-photo-credits { bottom: 8px; font-size: 8px; }
 }
 @media (max-width: 760px) {
   .territory-hero { padding-top: 115px; }
@@ -199,7 +199,7 @@
   .territory-actions { flex-direction: column; align-items: stretch; }
   .territory-actions .site-cta-primary, .territory-actions .site-cta-secondary { flex: auto; }
 }
-/* Mobile keeps the message, actions and client references without the tall visual scene. */
+/* Responsive keeps the message, actions and client references without the tall visual scene. */
 @media (max-width: 767px) {
   .territory-scene,
   .territory-coast-photo,

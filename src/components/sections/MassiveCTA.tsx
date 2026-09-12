@@ -3,7 +3,11 @@ export function MassiveCTA() {
   return (
     <section className="editorial-section contact-section">
       <div className="editorial-container contact-grid">
-        <div>
+        <div className="contact-brand-panel" aria-hidden="true">
+          <span className="contact-logo-mark" />
+          <p>Un échange clair, une suite concrète.</p>
+        </div>
+        <div className="contact-copy">
           <p className="editorial-eyebrow">Et votre projet ?</p>
           <h2 className="home-section-title">
             Prenons le temps
@@ -15,7 +19,7 @@ export function MassiveCTA() {
             commençons par un échange.
           </p>
         </div>
-        <div>
+        <div className="contact-actions">
           <Link href="/contact" className="editorial-button">
             Contacter Litus ↗
           </Link>
