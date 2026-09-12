@@ -8,7 +8,7 @@ export interface SecurityState {
   userId: string
   secret: string | null
   pendingSecret: string | null
-  pendingExpiresAt: number | bigint | null
+  pendingExpiresAt: string | number | bigint | null
   lastUsedStep: number
   version: number
   recoveryHashes: string
@@ -19,8 +19,12 @@ export class SecurityError extends Error {
   constructor(message: string, public status = 400) { super(message) }
 }
 export async function getSecurity() {
+  // LibSQL maps declared INTEGER columns to Int32. Millisecond timestamps
+  // exceed that range; read this nullable value as text and compare as Number.
   const rows = await prisma.$queryRaw<SecurityState[]>`
-    SELECT s.*, u.email, u.role FROM AdminSecurity s
+    SELECT s.id, s.userId, s.secret, s.pendingSecret,
+      CAST(s.pendingExpiresAt AS TEXT) AS pendingExpiresAt,
+      s.lastUsedStep, s.version, s.recoveryHashes, u.email, u.role FROM AdminSecurity s
     JOIN User u ON u.id = s.userId WHERE s.id = 'litus' LIMIT 1`
   const state = rows[0]
   return state?.email === ADMIN_EMAIL && state.role === 'admin' ? state : null

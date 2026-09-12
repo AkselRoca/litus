@@ -1,7 +1,11 @@
-import NextAuth from 'next-auth'
+import NextAuth, { CredentialsSignin } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import { ADMIN_EMAIL, ADMIN_NAME } from '@/lib/admin/identity'
 import { checkPassword, consumeFactor, getSecurity, takeAttempt } from '@/lib/admin/security'
+
+class AdminAuthenticationUnavailable extends CredentialsSignin {
+  code = 'service_unavailable'
+}
 
 const maxAge = 7 * 24 * 60 * 60
 
@@ -32,10 +36,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           id: state.userId, email: ADMIN_EMAIL, name: ADMIN_NAME, image: null,
           role: 'admin', securityVersion: Number(state.version), twoFactorVerified: !!state.secret,
         }
-      } catch {
-        console.error('Admin authentication unavailable')
-        return null
-      }
+      } catch (error) {
+          // Never log credentials, secrets or SQL parameters.
+          console.error('Admin authentication unavailable', {
+            name: error instanceof Error ? error.name : 'UnknownError',
+          })
+          throw new AdminAuthenticationUnavailable()
+        }
     },
   })],
   callbacks: {

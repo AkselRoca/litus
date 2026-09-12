@@ -77,3 +77,10 @@ References: [Auth.js deployment](https://authjs.dev/getting-started/deployment),
 [Auth.js runtime compatibility](https://authjs.dev/guides/edge-compatibility),
 [OTPAuth](https://github.com/hectorm/otpauth),
 [OWASP MFA guidance](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html).
+
+
+## Correctif 1.06.b : expiration pendant la configuration 2FA
+
+La colonne de production `pendingExpiresAt` est declaree INTEGER. Le connecteur Prisma LibSQL 5 la lit comme un Int32, alors que la date en millisecondes depasse cette plage. Des qu'un QR code est genere, `SELECT s.*` echoue, ce qui invalide la session puis bloque les connexions. `getSecurity` projette maintenant les colonnes explicitement et lit cette date via `CAST(... AS TEXT)` ; les comparaisons conservent `Number(...)`. Aucune migration, reinitialisation de mot de passe ou desactivation de 2FA. Les erreurs techniques de connexion utilisent le code public `service_unavailable`, sans details sensibles.
+
+Le test `scripts/admin-libsql-qa.ts` utilise une base locale jetable avec le connecteur LibSQL et les declarations INTEGER de production. Il reproduit l'ancienne erreur et couvre la lecture apres generation du QR code, la confirmation, les codes a usage unique, les codes de secours, la revocation, l'expiration et la limitation des essais. Le parcours HTTP complet reste couvert par `scripts/admin-security-qa.mjs`.

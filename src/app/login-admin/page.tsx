@@ -26,7 +26,9 @@ export default function AdminLoginPage() {
             })
 
             if (result?.error) {
-                setError('Mot de passe ou code incorrect, expiré ou déjà utilisé. Après plusieurs essais, patiente cinq minutes.')
+                setError(result.code === 'service_unavailable'
+          ? 'Le service de connexion est temporairement indisponible. Impossible de vérifier les identifiants pour le moment. Réessaie dans quelques instants.'
+          : 'Mot de passe ou code incorrect, expiré ou déjà utilisé. Après plusieurs essais, patiente cinq minutes.')
             } else {
                 // Avoid reusing anonymous RSC/prefetch redirects after sign-in.
                 window.location.replace('/admin')

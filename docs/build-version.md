@@ -27,3 +27,8 @@ Reproduction du bloc estimation : grille trois colonnes, photo IA et annotations
 ## Publication 1.06.a
 
 Correction des selecteurs de theme du mega menu et des galeries : utilisation de la classe .dark du site. Publication commune des expertises et du bloc estimation avec photo IA.
+
+
+## 1.06.b - Correctif connexion / 2FA
+
+Lecture des dates de configuration compatible avec les colonnes INTEGER de Turso/LibSQL, sans migration ni changement des identifiants. Distinction entre indisponibilite serveur et identifiants refuses. Ajout du test de regression `node node_modules/tsx/dist/cli.mjs scripts/admin-libsql-qa.ts`.
