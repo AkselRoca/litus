@@ -4,6 +4,10 @@
     "devCommand": "npm run dev",
     "installCommand": "npm install",
     "framework": "nextjs",
+    "redirects": [
+        { "source": "/artisans/", "destination": "/artisan", "statusCode": 301 },
+        { "source": "/artisans", "destination": "/artisan", "statusCode": 301 }
+    ],
     "regions": [
         "cdg1"
     ],

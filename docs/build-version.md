@@ -75,3 +75,8 @@ Retrait des mentions de précaution sur la création complète des projets et si
 ## 1.13.a - Hub artisans et dix pages metier
 
 Nouveau hub /artisan, redirection 301 de /artisans, contenus metier, photos locales optimisees, tarifs publics, cas clients documentes et maillage SEO.
+
+
+## 1.13.b - Redirection directe du hub historique sur Vercel
+
+Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour eviter la normalisation 308 intermediaire de la plateforme.
