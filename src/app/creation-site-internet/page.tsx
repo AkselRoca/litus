@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SitesVitrineHero } from './_components/SitesVitrineHero'
 import { VitrineContent } from './_components/VitrineContent'
+import { ExpertiseServiceLinks } from '@/components/expertise/ExpertiseServiceLinks'
 
 export const metadata: Metadata = {
   title: 'Création de Sites Internet à Lorient, Vannes & Le Mans',
@@ -13,6 +14,7 @@ export default function SitesVitrinePage() {
     <div className="min-h-screen bg-white dark:bg-[#050505] overflow-hidden selection:bg-orange-500/30">
       <SitesVitrineHero />
       <VitrineContent />
+      <ExpertiseServiceLinks tools={['wordpress', 'framer']} title="Le bon environnement pour faire vivre votre site." description="WordPress ou Framer : nous comparons votre autonomie éditoriale, les formulaires et les intégrations avant de retenir une plateforme." />
     </div>
   )
 }

@@ -1,0 +1,9 @@
+.technology-tool-link { display: inline-flex; align-items: center; gap: 10px; padding-block: 5px; border-bottom: 1px solid transparent; transition: color .18s,border-color .18s; }
+.technology-tool-link:hover { color: var(--litus-heading-accent); border-bottom-color: var(--litus-orange); }
+.technology-hub-link { display: block; }
+.technology-hub-link > span { display: block; font-size: 10px; color: var(--litus-heading-accent); margin-top: 6px; text-decoration: underline; text-underline-offset: 3px; }
+.technology-marquee:focus-within { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+.technology-marquee:focus-within .technology-track { animation: none; transform: none; }
+.technology-marquee:focus-within .technology-track ul[aria-hidden='true'] { display: none; }
+@media(prefers-reduced-motion:reduce) { .technology-tool-link { transition: none; } }
+@media(scripting:none) { .technology-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; } .technology-track { animation: none; } .technology-track ul[aria-hidden='true'] { display: none; } .technology-pause { display: none; } }

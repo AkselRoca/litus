@@ -27,7 +27,7 @@ module.exports = {
         ],
     },
     additionalPaths: async (config) => Promise.all(
-        ['/blog', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
+        ['/blog', '/expertise', ...['react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
     ),
     transform: async (config, path) => {
         let priority = 0.7
@@ -42,6 +42,9 @@ module.exports = {
         } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {
             priority = 0.9
             changefreq = 'weekly'
+        } else if (path === '/expertise' || path.startsWith('/expertise/')) {
+            priority = 0.85
+            changefreq = 'monthly'
         } else if (path.startsWith('/tarifs')) {
             priority = 0.9
             changefreq = 'weekly'

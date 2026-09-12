@@ -1,0 +1,54 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronRight, CornerDownRight } from 'lucide-react'
+import { BusinessSectionHeading, ServiceReveal } from '@/components/sections/services/BusinessService'
+import { ServiceHero } from '@/components/sections/services/ServiceHero'
+import { expertiseContact, expertisePath, expertiseTool } from '@/lib/expertise/catalog'
+import { expertiseSchema } from '@/lib/expertise/seo'
+import type { ExpertisePage, ExpertiseSection } from '@/lib/expertise/types'
+import { ExpertiseVisual } from './ExpertiseVisual'
+
+/** Deliberately small, safe inline markup. No raw HTML or arbitrary Markdown. */
+export function ExpertiseCopy({ text }: { text: string }) {
+  return <>{text.split(/(\[[^\]]+\]\([^)]+\)|`[^`]+`|\*\*[^*]+\*\*)/g).map((part, index) => {
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (link && /^\/(?!\/)/.test(link[2])) return <Link key={index} href={link[2]}>{link[1]}</Link>
+    if (part.startsWith('`') && part.endsWith('`')) return <code key={index}>{part.slice(1, -1)}</code>
+    if (part.startsWith('**') && part.endsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>
+    return part
+  })}</>
+}
+
+export function ExpertiseBreadcrumb({ name }: { name?: string }) {
+  return <nav className="business-container ex-breadcrumb" aria-label="Fil d’Ariane"><ol><li><Link href="/">Accueil</Link></li><li><ChevronRight size={13} aria-hidden="true" />{name ? <Link href="/expertise">Expertises technologiques</Link> : <span aria-current="page">Expertises technologiques</span>}</li>{name && <li><ChevronRight size={13} aria-hidden="true" /><span aria-current="page">{name}</span></li>}</ol></nav>
+}
+
+function SectionContent({ section }: { section: ExpertiseSection }) {
+  const heading = <BusinessSectionHeading id={`${section.id}-title`} eyebrow={section.eyebrow} description={section.intro && <ExpertiseCopy text={section.intro} />}>{section.title}</BusinessSectionHeading>
+  switch (section.kind) {
+    case 'cards': return <>{heading}<ServiceReveal className="business-grid ex-cards" data-columns={section.items.length === 4 ? '2' : undefined}>{section.items.map((item, index) => <article className="business-card" key={item.title}><span className="ex-card-number">{String(index + 1).padStart(2, '0')} /</span><h3>{item.title}</h3><p><ExpertiseCopy text={item.text} /></p>{item.detail && <p className="ex-card-detail"><ExpertiseCopy text={item.detail} /></p>}</article>)}</ServiceReveal></>
+    case 'issues': return <>{heading}<ServiceReveal className="ex-diagnostics">{section.items.map((item, index) => <article className="ex-diagnostic" key={item.symptom}><div><span className="ex-card-number">{String(index + 1).padStart(2, '0')}</span><h3>{item.symptom}</h3></div><p><span className="ex-field-label">Ce que nous vérifions</span><ExpertiseCopy text={item.diagnosis} /></p><p><span className="ex-field-label">L’intervention possible</span><ExpertiseCopy text={item.action} /></p></article>)}</ServiceReveal></>
+    case 'workflow': return <>{heading}<figure className="ex-workflow"><ol>{section.steps.map((step, index) => <li key={step.title}><span className="ex-workflow-number">{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.text}</p>{index < section.steps.length - 1 && <ArrowRight className="ex-workflow-arrow" aria-hidden="true" />}</li>)}</ol><figcaption><CornerDownRight size={20} aria-hidden="true" /><span><ExpertiseCopy text={section.note} /></span></figcaption></figure></>
+    case 'prose': return <div className="ex-prose-grid"><div>{heading}{section.note && <aside className="ex-note"><span className="ex-note-mark" aria-hidden="true" /><h3>{section.note.title}</h3><p>{section.note.text}</p></aside>}</div><div className="ex-prose">{section.paragraphs.map(text => <p key={text}><ExpertiseCopy text={text} /></p>)}</div></div>
+    case 'code': return <>{heading}<div className="business-split ex-code-grid"><figure className="ex-code-window"><div><span className="ex-window-dots" aria-hidden="true"><i /><i /><i /></span><span>{section.filename}</span></div><pre tabIndex={0} aria-label={section.filename}><code>{section.code}</code></pre><figcaption>Exemple pédagogique simplifié, à adapter à votre projet.</figcaption></figure><div className="ex-prose">{section.paragraphs.map(text => <p key={text}><ExpertiseCopy text={text} /></p>)}<p className="ex-inline-note"><ExpertiseCopy text={section.note} /></p></div></div></>
+    case 'choice': return <>{heading}<div className="ex-choice-grid"><article><span className="ex-field-label">Pertinent si</span><h3>Un besoin qui correspond à l’outil.</h3><ul>{section.yes.map(text => <li key={text}><Check aria-hidden="true" /><span><ExpertiseCopy text={text} /></span></li>)}</ul></article><article><span className="ex-field-label">À arbitrer avant de choisir</span><h3>Des limites à regarder en face.</h3><ul>{section.no.map(text => <li key={text}><CornerDownRight aria-hidden="true" /><span><ExpertiseCopy text={text} /></span></li>)}</ul></article></div></>
+  }
+}
+
+export function ExpertiseArticle({ page }: { page: ExpertisePage }) {
+  const tool = expertiseTool(page.slug)
+  const contact = expertiseContact(tool.name)
+  return <div className={`business-service expertise-page expertise-${page.slug}`}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(expertiseSchema(page)).replace(/</g, '\\u003c') }} />
+    <ExpertiseBreadcrumb name={tool.name} />
+    <ServiceHero id="expertise-title" eyebrow={`${tool.name} · ${tool.category}`} title={page.headline} accent={page.accent} description={page.intro} primaryAction={{ label: page.action, href: contact }} secondaryAction={{ label: 'Voir les interventions', href: `#${page.sections[0].id}` }} visual={<ExpertiseVisual slug={page.slug} />} proof={<ul className="ex-proof">{page.deliverables.map(item => <li key={item}><Check size={15} aria-hidden="true" />{item}</li>)}</ul>} />
+    <div className="business-content ex-content">
+      <nav className="business-container ex-on-this-page" aria-label={`Dans l’expertise ${tool.name}`}><span>Dans cette page</span><ul>{page.sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.nav}</a></li>)}<li><a href="#questions">Vos questions</a></li></ul></nav>
+      {page.sections.map((section, index) => <section id={section.id} key={section.id} aria-labelledby={`${section.id}-title`} className={`business-section ex-section ex-section-${section.kind}${section.kind === 'workflow' ? ' business-section-soft' : index % 3 === 1 && section.kind !== 'issues' ? ' business-section-warm' : ''}`}><div className="business-container"><SectionContent section={section} /></div></section>)}
+      <section id="questions" className="business-section business-section-soft" aria-labelledby="expertise-faq-title"><div className="business-container"><BusinessSectionHeading id="expertise-faq-title" eyebrow={`Questions sur ${tool.name}`}>Des réponses avant de décider.</BusinessSectionHeading><div className="business-faq ex-faq">{page.faq.map(item => <details key={item.question}><summary>{item.question}<ChevronDown size={18} aria-hidden="true" /></summary><p>{item.answer}</p></details>)}</div></div></section>
+      <section className="business-section" aria-labelledby="expertise-connections-title"><div className="business-container"><BusinessSectionHeading id="expertise-connections-title" eyebrow="Les connexions utiles" description="Nous relions les outils à vos parcours. Chaque choix technique doit servir une opération concrète.">Une expertise ne travaille pas seule.</BusinessSectionHeading><ServiceReveal className="ex-connections">{page.connections.map(connection => { const related = expertiseTool(connection.slug); return <Link className="ex-connection" key={related.slug} href={expertisePath(related.slug)}><Image src={related.logo} alt="" width={30} height={30} unoptimized loading="lazy" /><div><h3>{related.name}</h3><p>{connection.reason}</p></div><ArrowUpRight size={18} aria-hidden="true" /></Link> })}</ServiceReveal><div className="ex-context-links"><div><span className="ex-field-label">À lire pour préparer le projet</span><Link href={page.reading.href}>{page.reading.label}<ArrowRight size={17} aria-hidden="true" /></Link><p>{page.reading.reason}</p></div><div><span className="ex-field-label">Acquisition & infrastructure digitale</span><p>Un projet à <Link href="/agence-web-lorient">Lorient</Link>, au <Link href="/agence-web-le-mans">Mans</Link> ou ailleurs en France ? Nous partons de vos usages et de vos outils actuels, avec un périmètre et des responsabilités définis.</p><Link href="/expertise">Explorer les autres expertises<ArrowRight size={17} aria-hidden="true" /></Link></div></div></div></section>
+      <section className="business-section ex-sources-section" aria-label="Références techniques"><div className="business-container"><details className="ex-sources"><summary>Références techniques consultées<ChevronDown size={16} aria-hidden="true" /></summary><p>Documentation consultée le 12 septembre 2026. Les versions, forfaits et compatibilités sont revérifiés au cadrage de chaque intervention. Les marques citées appartiennent à leurs titulaires ; leur présence ne revendique aucun partenariat.</p><ul>{page.sources.map(source => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<ArrowUpRight size={14} aria-hidden="true" /></a></li>)}</ul></details></div></section>
+      <section className="business-section ex-final-section" aria-labelledby="expertise-contact-title"><div className="business-container business-final"><div><p className="business-kicker">Votre prochaine étape</p><h2 id="expertise-contact-title">{page.cta.title}</h2><p>{page.cta.text}</p></div><div className="business-final-actions"><Link href={contact} className="site-cta-primary">{page.cta.label}<ArrowRight size={18} aria-hidden="true" /></Link><span>Un périmètre clair avant toute intervention.</span><a href="tel:+33744985521">07 44 98 55 21</a></div></div></section>
+    </div>
+  </div>
+}

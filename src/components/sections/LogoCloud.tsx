@@ -1,8 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Pause, Play } from 'lucide-react'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { expertisePath, expertiseTools } from '@/lib/expertise/catalog'
+import './logo-cloud-links.css'
 
 type Tool = { name: string; src: string; color?: string }
 
@@ -37,8 +40,9 @@ const tools = [
 function ToolList({ duplicate = false }: { duplicate?: boolean }) {
   return (
     <ul aria-hidden={duplicate || undefined}>
-      {tools.map(tool => (
-        <li key={tool.name}>
+      {tools.map(tool => {
+        const linkedTool = expertiseTools.find(item => item.name === tool.name || (tool.name === 'Tailwind' && item.slug === 'tailwind'))
+        const identity = <>
           <span className="technology-logo-slot" aria-hidden="true">
             {tool.color ? (
               <span
@@ -63,8 +67,9 @@ function ToolList({ duplicate = false }: { duplicate?: boolean }) {
             )}
           </span>
           <span>{tool.name}</span>
-        </li>
-      ))}
+        </>
+        return <li key={tool.name}>{linkedTool ? <Link href={expertisePath(linkedTool.slug)} tabIndex={duplicate ? -1 : undefined} className="technology-tool-link" aria-label={`Découvrir notre expertise ${linkedTool.name}`}>{identity}</Link> : identity}</li>
+      })}
     </ul>
   )
 }
@@ -91,7 +96,7 @@ export function LogoCloud() {
   return (
     <section className="technology-strip" aria-labelledby="technology-strip-title">
       <div className="editorial-container">
-        <p id="technology-strip-title">Nos outils de travail</p>
+        <p id="technology-strip-title"><Link href="/expertise" className="technology-hub-link">Nos outils de travail<span>Explorer les expertises</span></Link></p>
 
         <div className="technology-marquee" role="group" tabIndex={0} aria-label="Les outils utilisés par Litus">
           <div className="technology-track" ref={trackRef} data-paused={paused}>

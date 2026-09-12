@@ -557,6 +557,45 @@
       "path": "/developpement-web-sur-mesure"
     },
     {
+      "file": "src/app/expertise/[slug]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [],
+      "path": "/expertise/[slug]"
+    },
+    {
+      "file": "src/app/expertise/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Les bons outils.Pour les vrais sujets."
+        },
+        {
+          "level": 3,
+          "text": "{tool.name}"
+        },
+        {
+          "level": 2,
+          "text": "Votre outil est connu.Ou le problème est encore flou."
+        }
+      ],
+      "links": [
+        "/referencement-naturel",
+        "/google-ads",
+        "/integrations-api",
+        "/automatisation",
+        "/creation-application-web",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/creation-site-ecommerce",
+        "/agence-web-lorient",
+        "/agence-web-le-mans",
+        "/contact?objet=Acquisition%20et%20infrastructure%20digitale"
+      ],
+      "titles": [],
+      "path": "/expertise"
+    },
+    {
       "file": "src/app/google-ads/page.tsx",
       "headings": [],
       "links": [
@@ -3157,6 +3196,55 @@
       "titles": []
     },
     {
+      "file": "src/app/expertise/[slug]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/expertise/expertise.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/expertise/layout.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/expertise/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Les bons outils.Pour les vrais sujets."
+        },
+        {
+          "level": 3,
+          "text": "{tool.name}"
+        },
+        {
+          "level": 2,
+          "text": "Votre outil est connu.Ou le problème est encore flou."
+        }
+      ],
+      "links": [
+        "/referencement-naturel",
+        "/google-ads",
+        "/integrations-api",
+        "/automatisation",
+        "/creation-application-web",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/creation-site-ecommerce",
+        "/agence-web-lorient",
+        "/agence-web-le-mans",
+        "/contact?objet=Acquisition%20et%20infrastructure%20digitale"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/app/globals.css",
       "headings": [],
       "links": [],
@@ -4201,6 +4289,89 @@
       "titles": []
     },
     {
+      "file": "src/components/expertise/ExpertiseArticle.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 3,
+          "text": "{item.symptom}"
+        },
+        {
+          "level": 3,
+          "text": "{step.title}"
+        },
+        {
+          "level": 3,
+          "text": "{section.note.title}"
+        },
+        {
+          "level": 3,
+          "text": "Un besoin qui correspond à l’outil."
+        },
+        {
+          "level": 3,
+          "text": "Des limites à regarder en face."
+        },
+        {
+          "level": 3,
+          "text": "{related.name}"
+        },
+        {
+          "level": 2,
+          "text": "{page.cta.title}"
+        }
+      ],
+      "links": [
+        "/",
+        "/expertise",
+        "/agence-web-lorient",
+        "/agence-web-le-mans"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/expertise/ExpertisePlayground.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Un projet bien cadré."
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/expertise/ExpertiseServiceLinks.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{title}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/expertise/ExpertiseVisual.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Build",
+        "Preview",
+        "Production",
+        "Observabilité"
+      ]
+    },
+    {
+      "file": "src/components/expertise/expertise-service-links.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/components/forms/ContactForm.tsx",
       "headings": [
         {
@@ -4527,7 +4698,9 @@
     {
       "file": "src/components/sections/LogoCloud.tsx",
       "headings": [],
-      "links": [],
+      "links": [
+        "/expertise"
+      ],
       "titles": []
     },
     {
@@ -4761,6 +4934,12 @@
     },
     {
       "file": "src/components/sections/index.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/logo-cloud-links.css",
       "headings": [],
       "links": [],
       "titles": []
@@ -6304,6 +6483,93 @@
       "titles": []
     },
     {
+      "file": "src/lib/expertise/catalog.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/content-commerce.ts",
+      "headings": [],
+      "links": [
+        "/blog/site-ecommerce-morbihan",
+        "/blog/ecommerce-la-chapelle-saint-aubin",
+        "/blog/refonte-site-internet-le-mans"
+      ],
+      "titles": [
+        "Intégration Stripe : paiements, abonnements & webhooks | Litus",
+        "Checkout, Billing, abonnements, portail client et webhooks : Litus intègre Stripe à votre site et automatise les échanges avec votre CRM.",
+        "Le client paie. Votre organisation suit.",
+        "Inscription",
+        "Paiement",
+        "Confirmation",
+        "Accès client",
+        "CRM & email"
+      ]
+    },
+    {
+      "file": "src/lib/expertise/content-interfaces.ts",
+      "headings": [],
+      "links": [
+        "/blog/convertir-visiteurs-yvre-leveque",
+        "/blog/site-internet-pme-le-mans"
+      ],
+      "titles": [
+        "Développement React : interfaces, reprise & performance | Litus",
+        "Litus développe et reprend vos interfaces React : composants, formulaires, API, accessibilité, performance et SEO avec un framework adapté.",
+        "Des écrans que vos équipes utilisent vraiment.",
+        "Un configurateur de devis",
+        "Un espace client",
+        "Une interface de gestion",
+        "Une bibliothèque de composants",
+        "Un écran lent ne se corrige pas au hasard."
+      ]
+    },
+    {
+      "file": "src/lib/expertise/content-platforms.ts",
+      "headings": [],
+      "links": [
+        "/blog/landing-page-arnage",
+        "/blog/refonte-site-hennebont"
+      ],
+      "titles": [
+        "Création de site Framer, CMS, SEO & intégrations | Litus",
+        "Litus crée et optimise votre site Framer : design, CMS, responsive, formulaires, SEO et tracking. Un choix de plateforme adapté à votre projet.",
+        "Rapide à éditer, à condition de bien préparer le cadre.",
+        "Framer et Motion : deux sujets distincts",
+        "Ce que nous pouvons mettre en place dans Framer.",
+        "Design et intégration",
+        "CMS et publication",
+        "SEO et domaine"
+      ]
+    },
+    {
+      "file": "src/lib/expertise/content.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/expertise.test.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/seo.ts",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertise/types.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/lib/expertises.ts",
       "headings": [],
       "links": [
@@ -6403,7 +6669,7 @@
       "titles": []
     }
   ],
-  "sitemap": "/** @type {import('next-sitemap').IConfig} */\r\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\r\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\r\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/tarifs')) {\r\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
+  "sitemap": "/** @type {import('next-sitemap').IConfig} */\r\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\r\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', ...['react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\r\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
   "cron": [
     {
       "path": "/api/cron/editorial",

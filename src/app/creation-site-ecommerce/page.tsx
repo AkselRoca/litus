@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { EcommerceHero } from './_components/EcommerceHero'
 import { EcommerceContent } from './_components/EcommerceContent'
 import { ecommerceFaq } from './ecommerce-content'
+import { ExpertiseServiceLinks } from '@/components/expertise/ExpertiseServiceLinks'
 
 const title = 'Création de site e-commerce Shopify & WooCommerce | Litus'
 const description = 'Litus conçoit votre boutique Shopify ou WooCommerce : design, catalogue, parcours d’achat, paiements et connexions. Une expertise e-commerce à Lorient et au Mans.'
@@ -25,5 +26,6 @@ export default function EcommercePage() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
     <EcommerceHero />
     <EcommerceContent />
+    <ExpertiseServiceLinks tools={['shopify', 'wordpress', 'stripe']} title="Catalogue, paiement et exploitation : chaque outil a son rôle." description="Explorez la reprise d’une boutique Shopify, l’entretien de WooCommerce et les parcours Stripe adaptés aux sites ou applications hors Shopify Payments." />
   </div>
 }

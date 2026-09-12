@@ -5,6 +5,7 @@ import { ServiceHero } from '@/components/sections/services/ServiceHero'
 import { BusinessSectionHeading, ServiceReveal } from '@/components/sections/services/BusinessService'
 import { DevelopmentDemo } from '@/components/sections/services/TechnicalDemo'
 import { ServicePageSeo, serviceMetadata } from '@/components/sections/services/ServicePageSeo'
+import { ExpertiseServiceLinks } from '@/components/expertise/ExpertiseServiceLinks'
 import '@/components/sections/services/technical-services.css'
 
 const path = '/developpement-web-sur-mesure'
@@ -40,5 +41,6 @@ export default function DevelopmentPage() {
       <section id="faq" className="business-section business-section-soft" aria-labelledby="developpement-faq"><div className="business-container"><BusinessSectionHeading id="developpement-faq" eyebrow="Vos questions">Le sur-mesure,<br /><em>avec un cadre clair.</em></BusinessSectionHeading><div className="business-faq">{questions.map(({ question, answer }) => <details key={question}><summary>{question}<ChevronDown /></summary><p>{answer}</p></details>)}</div></div></section>
       <section className="business-section"><div className="business-container"><div className="business-final"><div><p className="business-kicker">La prochaine fonction commence ici</p><h2>Quel parcours aimeriez-vous<br /><em>rendre plus simple ?</em></h2><p>Montrez-nous votre site, votre besoin et ce qui vous freine. Nous vous aiderons à définir une première étape utile.</p></div><div className="business-final-actions"><Link href={contact} className="site-cta-primary">Décrire mon besoin<ArrowRight size={18} /></Link><span>Premier échange · Sans engagement</span><a href="tel:+33744985521">07 44 98 55 21</a></div></div><nav className="tech-related" aria-label="Prestations complémentaires"><Link href="/creation-application-web">Application web</Link><Link href="/integrations-api">Intégrations & API</Link><Link href="/creation-outils-ia">Outils IA sur mesure</Link><Link href="/realisations">Nos réalisations</Link></nav></div></section>
     </div>
+    <ExpertiseServiceLinks tools={['react', 'typescript', 'tailwind', 'vercel']} title="De l’interface à la production, des choix expliqués." description="Composants React, contrats TypeScript, intégration Tailwind et déploiement Vercel : découvrez les interventions concrètes derrière notre développement sur mesure." />
   </div>
 }
