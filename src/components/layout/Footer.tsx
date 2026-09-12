@@ -26,7 +26,7 @@ const footerColumns = [
   {
     number: '02.', title: 'Vous êtes',
     links: [
-      ['Artisan', '/artisans'], ['PME', '/pme'], ['Grand compte', '/grands-comptes'],
+      ['Artisan', '/artisan'], ['PME', '/pme'], ['Grand compte', '/grands-comptes'],
       ['Collectivité', '/collectivites'], ['Projet associatif : nous contacter', '/contact?objet=Projet%20associatif'],
     ],
   },
@@ -124,7 +124,7 @@ export function Footer() {
           <div className="footer-copyright">
             <p>© 2026 Litus. Tous droits réservés.</p>
             <small>Conçu et développé en France, pour les entreprises locales.</small>
-          <small className="footer-build">Build 1.12.d</small>
+          <small className="footer-build">Build 1.13.a</small>
           </div>
           <nav className="footer-legal" aria-label="Informations légales">
             <Link href="/mentions-legales">Mentions légales</Link>

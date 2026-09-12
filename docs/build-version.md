@@ -70,3 +70,8 @@ Nouveau lot fonctionnel : explorateur par besoins et recherche, quatre expertise
 ## 1.09.b - Textes des réalisations
 
 Retrait des mentions de précaution sur la création complète des projets et simplification des formulations internes au portfolio. Les interventions restent décrites fidèlement : blog pour Villa Manelann, conseil e-commerce pour Broadwhey.
+
+
+## 1.13.a - Hub artisans et dix pages metier
+
+Nouveau hub /artisan, redirection 301 de /artisans, contenus metier, photos locales optimisees, tarifs publics, cas clients documentes et maillage SEO.

@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   async redirects() {
     return [
+      { source: '/artisans', destination: '/artisan', statusCode: 301 as const },
+      { source: '/artisans/', destination: '/artisan', statusCode: 301 as const },
       ...legacyUrls.redirects.flatMap(({ source, destination }) => [
         { source, destination, statusCode: 301 as const },
         { source: `${source}/`, destination, statusCode: 301 as const },

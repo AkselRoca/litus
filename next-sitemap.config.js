@@ -8,10 +8,11 @@ const excludedLegacyPaths = new Set([
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: process.env.SITE_URL || 'https://litus.fr',
+    siteUrl: process.env.SITE_URL || 'https://www.litus.fr',
     generateRobotsTxt: true,
     generateIndexSitemap: true,
     exclude: [
+    '/artisans',
         ...excludedLegacyPaths,
         '/admin',
         '/admin/*',

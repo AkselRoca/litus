@@ -1,0 +1,118 @@
+[
+  {
+    "slug": "plombier",
+    "src": "/artisan/plombier-metier.webp",
+    "alt": "Plombier en tenue bleue serrant un raccord de tuyauterie avec une clé",
+    "width": 1280,
+    "height": 960,
+    "bytes": 73732,
+    "author": "Bulat843",
+    "source": "https://www.pexels.com/photo/plumber-repairing-pipe-with-wrench-indoors-32588548/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "electricien",
+    "src": "/artisan/electricien-metier.webp",
+    "alt": "Électricien contrôlant les connexions d’un tableau électrique avec un multimètre",
+    "width": 1280,
+    "height": 960,
+    "bytes": 133140,
+    "author": "Bulat843",
+    "source": "https://www.pexels.com/photo/electrician-diagnosing-electrical-panel-with-multimeter-34054464/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "chauffagiste-climatisation",
+    "src": "/artisan/chauffagiste-climatisation-metier.webp",
+    "alt": "Technicien intervenant sur un appareil de climatisation ouvert",
+    "width": 1280,
+    "height": 960,
+    "bytes": 107396,
+    "author": "José Andrés Pacheco Cortes",
+    "source": "https://www.pexels.com/photo/man-repairing-an-aircon-5463580/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "couvreur",
+    "src": "/artisan/couvreur-metier.webp",
+    "alt": "Couvreur travaillant sur la couverture d’une maison en construction",
+    "width": 1280,
+    "height": 960,
+    "bytes": 110894,
+    "author": "Clément Proust",
+    "source": "https://www.pexels.com/photo/roofer-working-on-new-house-roof-installation-31771166/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "peintre",
+    "src": "/artisan/peintre-metier.webp",
+    "alt": "Application de peinture blanche au rouleau sur un mur intérieur",
+    "width": 1280,
+    "height": 960,
+    "bytes": 40998,
+    "author": "Blue Bird",
+    "source": "https://www.pexels.com/photo/person-painting-the-wall-with-a-roller-7218578/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "carreleur",
+    "src": "/artisan/carreleur-metier.webp",
+    "alt": "Artisan posant du carrelage pendant une rénovation intérieure",
+    "width": 1280,
+    "height": 960,
+    "bytes": 111272,
+    "author": "Sergei Starostin",
+    "source": "https://www.pexels.com/photo/construction-worker-laying-tile-in-renovation-project-29181494/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "macon",
+    "src": "/artisan/macon-metier.webp",
+    "alt": "Maçons travaillant à la construction d’un mur en briques",
+    "width": 1280,
+    "height": 960,
+    "bytes": 203802,
+    "author": "Photo Pexels",
+    "source": "https://www.pexels.com/photo/bricklayers-at-work-on-construction-site-30081237/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "renovation-interieure",
+    "src": "/artisan/renovation-interieure-metier.webp",
+    "alt": "Cuisine lumineuse en cours de rénovation avec matériaux et outils de chantier",
+    "width": 1280,
+    "height": 960,
+    "bytes": 49698,
+    "author": "Brett Jordan",
+    "source": "https://www.pexels.com/photo/modern-kitchen-renovation-in-progress-30924413/",
+    "license": "https://www.pexels.com/license/",
+    "usage": "Photographie d’illustration ; ne représente pas une entreprise cliente de Litus."
+  },
+  {
+    "slug": "menuisier",
+    "src": "/artisan/menuisier-metier.webp",
+    "alt": "Établi et outillage dans un atelier de menuiserie",
+    "width": 1280,
+    "height": 960,
+    "bytes": 328474,
+    "source": "s w / wengenroad · CC0 · /artisans/CREDITS.txt",
+    "usage": "Photographie d’illustration CC0."
+  },
+  {
+    "slug": "paysagiste",
+    "src": "/artisan/paysagiste-metier.webp",
+    "alt": "Terrasse éclairée et jardin paysager issus de l’univers du site West Clôtures",
+    "width": 1280,
+    "height": 960,
+    "bytes": 138558,
+    "source": "Visuel du site client West Clôtures · https://www.westclotures.fr/images/hero-bg.webp",
+    "usage": "Univers visuel du projet client, sans attribution du chantier à Litus."
+  }
+]

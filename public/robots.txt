@@ -6,8 +6,8 @@ Disallow: /login-admin
 Disallow: /api
 
 # Host
-Host: https://litus.fr
+Host: https://www.litus.fr
 
 # Sitemaps
-Sitemap: https://litus.fr/sitemap.xml
+Sitemap: https://www.litus.fr/sitemap.xml
 Sitemap: https://litus.fr/blog-sitemap.xml

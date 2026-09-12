@@ -15,7 +15,7 @@ import './expertise-menu.css'
 import { ExpertiseMenu } from './ExpertiseMenu'
 
 const personas = [
-  { label: 'Artisans', href: '/artisans', icon: Wrench },
+  { label: 'Artisans', href: '/artisan', icon: Wrench },
   { label: 'PME', href: '/pme', icon: Building2 },
   { label: 'Grands Comptes', href: '/grands-comptes', icon: UsersRound },
   { label: 'Collectivités', href: '/collectivites', icon: Landmark },

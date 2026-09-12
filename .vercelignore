@@ -16,3 +16,4 @@ src/generated/prisma
 prisma/*.db
 prisma/*.db-journal
 *.log
+artifacts

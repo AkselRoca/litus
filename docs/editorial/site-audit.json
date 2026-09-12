@@ -170,25 +170,59 @@
       "path": "/agence-web-lorient"
     },
     {
-      "file": "src/app/artisans/page.tsx",
+      "file": "src/app/artisan/[metier]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [],
+      "path": "/artisan/[metier]"
+    },
+    {
+      "file": "src/app/artisan/page.tsx",
       "headings": [
         {
+          "level": 1,
+          "text": "Création de sites internetpour artisans."
+        },
+        {
           "level": 2,
-          "text": "Une méthode simple et efficace."
+          "text": "Pas plus de pages.Les bonnes réponses."
+        },
+        {
+          "level": 2,
+          "text": "Trois leviers.Un seul objectif : des demandes utiles."
+        },
+        {
+          "level": 3,
+          "text": "Un site clair et rassurant"
+        },
+        {
+          "level": 3,
+          "text": "Une visibilité locale cohérente"
+        },
+        {
+          "level": 3,
+          "text": "Une acquisition pilotée"
+        },
+        {
+          "level": 2,
+          "text": "Une méthode simple et concrète."
         }
       ],
       "links": [
-        "/artisans",
-        "/litus-og-social.png",
-        "/contact"
+        "/",
+        "/contact",
+        "/creation-site-internet",
+        "/referencement-naturel",
+        "/google-ads"
       ],
-      "titles": [
-        "Création de site internet pour artisan, Google Ads et référencement local à Lorient et au Mans. Des outils adaptés à votre métier pour recevoir vos demandes de contact.",
-        "Des solutions web pensées pour les artisans | Litus Agency",
-        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe.",
-        "Des solutions web pensées pour les artisans | Litus Agency",
-        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe."
-      ],
+      "titles": [],
+      "path": "/artisan"
+    },
+    {
+      "file": "src/app/artisans/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [],
       "path": "/artisans"
     },
     {
@@ -2004,6 +2038,65 @@
       "titles": []
     },
     {
+      "file": "src/app/artisan/[metier]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisan/artisan.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisan/layout.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisan/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Création de sites internetpour artisans."
+        },
+        {
+          "level": 2,
+          "text": "Pas plus de pages.Les bonnes réponses."
+        },
+        {
+          "level": 2,
+          "text": "Trois leviers.Un seul objectif : des demandes utiles."
+        },
+        {
+          "level": 3,
+          "text": "Un site clair et rassurant"
+        },
+        {
+          "level": 3,
+          "text": "Une visibilité locale cohérente"
+        },
+        {
+          "level": 3,
+          "text": "Une acquisition pilotée"
+        },
+        {
+          "level": 2,
+          "text": "Une méthode simple et concrète."
+        }
+      ],
+      "links": [
+        "/",
+        "/contact",
+        "/creation-site-internet",
+        "/referencement-naturel",
+        "/google-ads"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/app/artisans/_components/ArtisansConversion.tsx",
       "headings": [
         {
@@ -2151,19 +2244,8 @@
           "text": "Des solutions pensées pour les artisans."
         }
       ],
-      "links": [
-        "/contact"
-      ],
-      "titles": [
-        "Dépannage, fuite ou installation : présentez vos interventions et facilitez l’appel depuis un téléphone.",
-        "Mise aux normes, tableaux et installations : expliquez vos prestations et recevez des demandes adaptées à vos compétences.",
-        "Installation, entretien et remplacement : adaptez vos pages et vos campagnes aux besoins de chaque saison.",
-        "Réfection de toiture, isolation ou réparation : montrez vos chantiers et précisez votre périmètre d’intervention.",
-        "Fenêtres, portes et agencements : valorisez vos réalisations pour aider vos clients à se projeter dans leur futur aménagement.",
-        "Peinture intérieure, façade et finitions : présentez votre travail avec des photos et un parcours simple pour demander un devis.",
-        "Salles de bain, terrasses et sols : mettez en avant vos matériaux, vos finitions et les projets que vous souhaitez recevoir.",
-        "Construction, extension et rénovation : rassurez sur votre savoir-faire et recueillez les premières informations du chantier."
-      ]
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/app/artisans/_components/artisans-conversion.css",
@@ -2197,24 +2279,9 @@
     },
     {
       "file": "src/app/artisans/page.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Une méthode simple et efficace."
-        }
-      ],
-      "links": [
-        "/artisans",
-        "/litus-og-social.png",
-        "/contact"
-      ],
-      "titles": [
-        "Création de site internet pour artisan, Google Ads et référencement local à Lorient et au Mans. Des outils adaptés à votre métier pour recevoir vos demandes de contact.",
-        "Des solutions web pensées pour les artisans | Litus Agency",
-        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe.",
-        "Des solutions web pensées pour les artisans | Litus Agency",
-        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe."
-      ]
+      "headings": [],
+      "links": [],
+      "titles": []
     },
     {
       "file": "src/app/automatisation/_components/AutomationHeroDemo.tsx",
@@ -4407,6 +4474,112 @@
       "titles": []
     },
     {
+      "file": "src/components/artisan/ArtisanShared.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Combien coûte votre présence en ligne ?"
+        },
+        {
+          "level": 3,
+          "text": "{offer.name}"
+        },
+        {
+          "level": 2,
+          "text": "Des projets déjà accompagnés."
+        },
+        {
+          "level": 3,
+          "text": "{story.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos questions,nos réponses."
+        },
+        {
+          "level": 2,
+          "text": "{title}"
+        }
+      ],
+      "links": [
+        "/tarifs",
+        "/realisations",
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/artisan/TradeLanding.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{trade.title}"
+        },
+        {
+          "level": 2,
+          "text": "{trade.problem.title}"
+        },
+        {
+          "level": 3,
+          "text": "{priority.title}"
+        },
+        {
+          "level": 2,
+          "text": "Un site qui répondaux vraies questions."
+        },
+        {
+          "level": 3,
+          "text": "{page.name}"
+        },
+        {
+          "level": 2,
+          "text": "{trade.local.title}"
+        },
+        {
+          "level": 3,
+          "text": "Le référencement naturel"
+        },
+        {
+          "level": 3,
+          "text": "Les campagnes Google Ads"
+        },
+        {
+          "level": 2,
+          "text": "{trade.qualification.title}"
+        },
+        {
+          "level": 3,
+          "text": "Préparer une demande utile"
+        },
+        {
+          "level": 2,
+          "text": "De la rechercheà la demande de devis."
+        },
+        {
+          "level": 2,
+          "text": "Votre métier d’abord.La technique ensuite."
+        },
+        {
+          "level": 3,
+          "text": "Ce qui nous aidera à avancer"
+        },
+        {
+          "level": 2,
+          "text": "Vous exercez plusieurs métiers ?"
+        }
+      ],
+      "links": [
+        "/",
+        "/artisan",
+        "/contact",
+        "/creation-site-internet",
+        "/expertise/wordpress",
+        "/referencement-naturel",
+        "/google-ads"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/components/brief/BriefWizard.tsx",
       "headings": [
         {
@@ -4719,7 +4892,7 @@
         }
       ],
       "links": [
-        "/artisans",
+        "/artisan",
         "/pme",
         "/grands-comptes",
         "/collectivites",
@@ -5738,6 +5911,27 @@
     },
     {
       "file": "src/lib/animations.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/artisan/catalog.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Création de site internet pour plombier",
+        "Un site de plomberie conçu pour les appels locaux, le dépannage et les devis sanitaires. Prix Litus, SEO et Google Ads adaptés à votre zone.",
+        "Une fuite et une salle de bain ne se choisissent pas de la même manière.",
+        "Un appel accessible immédiatement",
+        "Des prestations sans ambiguïté",
+        "Des projets mieux préparés",
+        "Être présent sur « plombier + ville », mais pour les bonnes interventions.",
+        "Un devis plomberie qui commence par la bonne question."
+      ]
+    },
+    {
+      "file": "src/lib/artisan/seo.ts",
       "headings": [],
       "links": [],
       "titles": []
@@ -7283,7 +7477,7 @@
       "titles": []
     }
   ],
-  "sitemap": "const legacyUrls = require('./src/lib/seo/legacy-urls.json')\nconst excludedLegacyPaths = new Set([\n    ...legacyUrls.redirects.map(({ source }) => source),\n    ...legacyUrls.gone,\n    ...legacyUrls.noindex,\n    '/apple-icon.png', '/icon.png', '/opengraph-image.png', '/twitter-image.png',\n])\n\n/** @type {import('next-sitemap').IConfig} */\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\n        ...excludedLegacyPaths,\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/ressources/guide-prix',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\n        if (excludedLegacyPaths.has(path.replace(/\\/$/, ''))) return null\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
+  "sitemap": "const legacyUrls = require('./src/lib/seo/legacy-urls.json')\nconst excludedLegacyPaths = new Set([\n    ...legacyUrls.redirects.map(({ source }) => source),\n    ...legacyUrls.gone,\n    ...legacyUrls.noindex,\n    '/apple-icon.png', '/icon.png', '/opengraph-image.png', '/twitter-image.png',\n])\n\n/** @type {import('next-sitemap').IConfig} */\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://www.litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\n    '/artisans',\n        ...excludedLegacyPaths,\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/ressources/guide-prix',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\n        if (excludedLegacyPaths.has(path.replace(/\\/$/, ''))) return null\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
   "cron": [
     {
       "path": "/api/cron/editorial",

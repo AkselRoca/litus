@@ -32,7 +32,7 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
     }
 
     const magnetId = getMagnetId()
-    const hasDedicatedContactJourney = ['/contact', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/google-business-profile', '/developpement-web-sur-mesure', '/integrations-api', '/automatisation', '/creation-application-web', '/creation-outils-ia', '/google-ads', '/artisans', '/agence-web-lorient', '/blog'].includes(pathname) || pathname?.startsWith('/blog/')
+    const hasDedicatedContactJourney = ['/contact', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/google-business-profile', '/developpement-web-sur-mesure', '/integrations-api', '/automatisation', '/creation-application-web', '/creation-outils-ia', '/google-ads', '/artisan', '/agence-web-lorient', '/blog'].includes(pathname) || pathname?.startsWith('/blog/') || pathname?.startsWith('/artisan/')
 
     return (
         <>
