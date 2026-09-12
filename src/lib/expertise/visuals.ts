@@ -1,3 +1,4 @@
+import { technicalScenes } from './visuals-technical'
 import type { ExpertiseSlug } from './types'
 
 export type ExpertiseScene = {
@@ -9,6 +10,7 @@ const original = 'Maquette pédagogique originale Litus. Données fictives, pas 
 const scene = (file: string, alt: string, title: string, text: string, points: [string, string, string], href: string, label: string): ExpertiseScene => ({ file, width: 1280, height: 800, alt, caption: original, title, text, points, link: { href, label } })
 
 export const expertiseScenes: Record<ExpertiseSlug, [ExpertiseScene, ExpertiseScene]> = {
+  ...technicalScenes,
   shopify: [
     scene('shopify-catalogue-produits', 'Maquette de gestion e-commerce avec liste de produits, stocks et collections, illustrant un projet Shopify', 'Une boutique Shopify commence par un catalogue bien organisé.', 'Notre accompagnement Shopify relie la création de boutique à son exploitation : variantes, collections, disponibilité et commandes. Avant de développer le thème, nous préparons des données que votre équipe pourra réellement maintenir.', ['Produits, variantes et collections', 'Stocks et informations utiles à l’achat', 'Reprise des données avant migration'], '/creation-site-ecommerce', 'Préparer votre boutique en ligne'),
     scene('shopify-boutique-collection', 'Exemple fictif de boutique de décoration avec une collection de vases, fiches produits et bouton de commande, pour illustrer un site Shopify', 'Création, optimisation ou migration vers Shopify : partir du parcours d’achat.', 'Une fiche claire, des choix compréhensibles et un passage en caisse sans surprise comptent davantage qu’une accumulation d’applications. Pour dépanner ou optimiser une boutique Shopify existante, nous observons le problème avant de modifier le thème, les apps ou le tracking.', ['Hiérarchie de la fiche produit', 'Livraison et paiement à tester', 'SEO, redirections et suivi des événements'], '/expertise/stripe', 'Comprendre les parcours de paiement'),

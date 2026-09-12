@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { expertisePath, expertiseTool } from './catalog'
+import { expertisePath, expertiseTool, expertiseTools } from './catalog'
 import type { ExpertisePage } from './types'
 
 export function expertiseMetadata(title: string, description: string, path: string): Metadata {
@@ -21,6 +21,8 @@ export function expertiseSchema(page?: ExpertisePage) {
       { '@type': 'ListItem', position: 2, name: 'Expertises technologiques', item: 'https://litus.fr/expertise' },
       ...(page ? [{ '@type': 'ListItem', position: 3, name, item: url }] : []),
     ] },
+    ...(!page ? [{ '@type': 'ItemList', '@id': `${url}#technologies`, itemListElement: expertiseTools.map((tool, index) => ({ '@type': 'ListItem', position: index + 1, name: tool.name, url: `https://litus.fr${expertisePath(tool.slug)}` })) }] : []),
+    ...(page ? [{ '@type': 'FAQPage', '@id': `${url}#questions`, mainEntity: page.faq.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) }] : []),
     ...(page ? [{ '@type': 'Service', '@id': `${url}#service`, name, description: page.description, url, serviceType: page.headline.replace(/\n/g, ' '), provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' }, mainEntityOfPage: { '@id': `${url}#page` } }] : []),
   ] }
 }

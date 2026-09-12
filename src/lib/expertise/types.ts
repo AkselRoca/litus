@@ -1,4 +1,4 @@
-export type ExpertiseSlug = 'nextjs' | 'react' | 'typescript' | 'tailwind' | 'framer' | 'vercel' | 'stripe' | 'shopify' | 'wordpress'
+export type ExpertiseSlug = 'nextjs' | 'react' | 'typescript' | 'tailwind' | 'framer' | 'vercel' | 'stripe' | 'shopify' | 'wordpress' | 'python' | 'csharp' | 'dotnet' | 'labview'
 
 export type ExpertiseTool = {
   slug: ExpertiseSlug

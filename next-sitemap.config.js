@@ -27,7 +27,7 @@ module.exports = {
         ],
     },
     additionalPaths: async (config) => Promise.all(
-        ['/blog', '/expertise', ...['nextjs', 'react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
+        ['/blog', '/expertise', ...['nextjs', 'react', 'typescript', 'tailwind', 'framer', 'vercel', 'stripe', 'shopify', 'wordpress', 'python', 'csharp', 'dotnet', 'labview'].map(slug => `/expertise/${slug}`), '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
     ),
     transform: async (config, path) => {
         let priority = 0.7

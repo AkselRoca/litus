@@ -42,3 +42,8 @@ Composition avec photographie reelle sous licence Unsplash, avis client existant
 ## 1.08.a - 12 septembre 2026
 
 Lot fonctionnel : refonte éditoriale du portfolio et enrichissement de 26 projets. 55 visuels WebP locaux, galeries, filtres, maillage expertise, séparation Aspire Marketing / Aspire Énergie, normalisation Demetis et remplacement du cas e-commerce par Fondants Parfumés. Les études de cas détaillées West et FG Chronodep sont conservées. Voir docs/portfolio/README.md pour les sources et limites de collecte.
+
+
+## 1.09.a - Expertises techniques et navigation
+
+Nouveau lot fonctionnel : explorateur par besoins et recherche, quatre expertises Python/C#/.NET/LabVIEW, cas d’usage et visuels originaux, méga-menu centré sur les offres, trois cartes outils et bandeau secondaire contrôlable. Sources et droits : docs/expertise-technical-1.09.a.md. L’autorisation NI d’utilisation du logo LabVIEW a été confirmée par le client.
