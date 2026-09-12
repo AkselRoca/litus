@@ -1,8 +1,10 @@
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
+import { isEditor } from '@/lib/editorial/admin'
 
 // GET /api/admin/blog - Liste tous les articles
 export async function GET() {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const posts = await prisma.blogPost.findMany({
             orderBy: { createdAt: 'desc' },
@@ -37,6 +39,7 @@ export async function GET() {
 
 // POST /api/admin/blog - Créer un article
 export async function POST(request: NextRequest) {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const body = await request.json()
         const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, tableOfContents, publishedAt, category } = body

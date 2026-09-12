@@ -1,0 +1,6442 @@
+{
+  "routes": [
+    {
+      "file": "src/app/a-propos/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "À Propos de Litus | Agence Web Lorient & Le Mans",
+        "Arthur et Aksel : deux expertises complémentaires pour des sites web sur mesure, votre référencement naturel et votre e-commerce. Découvrez l’agence Litus."
+      ],
+      "path": "/a-propos"
+    },
+    {
+      "file": "src/app/agence-web-le-mans/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Votre agence webau Mans et en Sarthe."
+        },
+        {
+          "level": 2,
+          "text": "Une agence web proche de vous."
+        },
+        {
+          "level": 2,
+          "text": "Des solutions concrètespour votre croissance."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Au Mans, et danstoute la Sarthe."
+        },
+        {
+          "level": 2,
+          "text": "Des entreprises localesqui avancent avec nous."
+        },
+        {
+          "level": 3,
+          "text": "Demétis Immobilier"
+        },
+        {
+          "level": 3,
+          "text": "Aspire Énergie"
+        },
+        {
+          "level": 2,
+          "text": "Un accompagnement clairet efficace."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Prêt à développer votre activité en Sarthe ?"
+        },
+        {
+          "level": 2,
+          "text": "Vos questions, nos réponses."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-ecommerce",
+        "/contact?objet=strategie",
+        "/",
+        "/contact?objet=Projet%20au%20Mans",
+        "/realisations",
+        "/realisations/demetis-immobilier",
+        "/realisations/aspire-energie"
+      ],
+      "titles": [
+        "Agence web Le Mans | Création de site, SEO & Google Ads",
+        "Litus accompagne les entreprises du Mans et de la Sarthe : création et refonte de sites internet, SEO local, Google Ads et e-commerce. Échangez avec Arthur au Mans.",
+        "Litus, agence web au Mans et en Sarthe",
+        "Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.",
+        "Litus, agence web au Mans et en Sarthe",
+        "Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.",
+        "Création de site internet",
+        "Refonte de site"
+      ],
+      "path": "/agence-web-le-mans"
+    },
+    {
+      "file": "src/app/agence-web-lorient/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Votre agence webà Lorient et dansle Morbihan."
+        },
+        {
+          "level": 2,
+          "text": "Une agence proche de vous.Et quelqu’un sur place."
+        },
+        {
+          "level": 3,
+          "text": "Votre interlocuteur dans le pays de Lorient"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Des solutions web pourdévelopper votre activité."
+        },
+        {
+          "level": 3,
+          "text": "{serviceTitle}"
+        },
+        {
+          "level": 2,
+          "text": "À Lorient, dans son agglomérationet dans le Morbihan."
+        },
+        {
+          "level": 2,
+          "text": "Des entreprises d’iciqui nous font confiance."
+        },
+        {
+          "level": 3,
+          "text": "{project.name}"
+        },
+        {
+          "level": 2,
+          "text": "On se rencontre.On construit. On fait évoluer."
+        },
+        {
+          "level": 3,
+          "text": "{stepTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Votre prochain projet webcommence par une rencontre."
+        },
+        {
+          "level": 2,
+          "text": "Votre projet web à Lorient :les réponses à vos questions."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-ecommerce",
+        "/contact?objet=Strat%C3%A9gie%20digitale%20%C3%A0%20Lorient",
+        "/tarifs",
+        "/",
+        "/territories/credits.html",
+        "/realisations"
+      ],
+      "titles": [
+        "Création de site internet",
+        "Refonte de site",
+        "Référencement naturel",
+        "Google Ads",
+        "E-commerce",
+        "Stratégie digitale",
+        "On se rencontre",
+        "On définit les priorités"
+      ],
+      "path": "/agence-web-lorient"
+    },
+    {
+      "file": "src/app/artisans/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Une méthode simple et efficace."
+        }
+      ],
+      "links": [
+        "/artisans",
+        "/litus-og-social.png",
+        "/contact"
+      ],
+      "titles": [
+        "Création de site internet pour artisan, Google Ads et référencement local à Lorient et au Mans. Des outils adaptés à votre métier pour recevoir vos demandes de contact.",
+        "Des solutions web pensées pour les artisans | Litus Agency",
+        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe.",
+        "Des solutions web pensées pour les artisans | Litus Agency",
+        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe."
+      ],
+      "path": "/artisans"
+    },
+    {
+      "file": "src/app/automatisation/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos logiciels restent.Ils travaillent ensemble."
+        },
+        {
+          "level": 3,
+          "text": "{row.label}"
+        },
+        {
+          "level": 2,
+          "text": "L’humain gardele dernier mot."
+        },
+        {
+          "level": 2,
+          "text": "Un scénario doit restercompréhensible et suivi."
+        },
+        {
+          "level": 3,
+          "text": "{heading}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Une tâche revient sans cesse ?Faisons le point ensemble."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/creation-outils-ia",
+        "/creation-application-web",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "Moins de ressaisies",
+        "Un suivi plus lisible",
+        "Du temps pour vos clients",
+        "Du contact au dossier commercial",
+        "Du besoin au devis préparé",
+        "De l’échéance à la prochaine action",
+        "Observer votre quotidien",
+        "Définir les règles"
+      ],
+      "path": "/automatisation"
+    },
+    {
+      "file": "src/app/blog/[slug]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Article introuvable | Litus"
+      ],
+      "path": "/blog/[slug]"
+    },
+    {
+      "file": "src/app/blog/page.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": [],
+      "path": "/blog"
+    },
+    {
+      "file": "src/app/collectivites/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Modernisez le lien avec vos concitoyens.\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            Votre site respecte-t-il les normes RGAA ?\r\n                        "
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Sites internet & services en ligne pour collectivités | Litus",
+        "Création et refonte de sites pour collectivités et acteurs publics. Une information claire, une meilleure visibilité sur Google et un accompagnement de vos équipes."
+      ],
+      "path": "/collectivites"
+    },
+    {
+      "file": "src/app/contact/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Contact - Litus",
+        "Parlons de votre projet web. Contactez Litus à Lorient et au Mans : sites web, e-commerce et visibilité locale. Réponse sous 24 h ouvrées."
+      ],
+      "path": "/contact"
+    },
+    {
+      "file": "src/app/creation-application-web/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Les bons outils fontavancer les équipes."
+        },
+        {
+          "level": 3,
+          "text": "{useTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "On commence par écouter.Puis on construit."
+        },
+        {
+          "level": 2,
+          "text": "Vos outils se parlent.Vos données circulent."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Un outil à utiliser.Et à faire vivre."
+        },
+        {
+          "level": 3,
+          "text": "{careTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Un processus à simplifier ?Parlons de votre application."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/automatisation#integrations-api",
+        "/creation-outils-ia",
+        "/automatisation",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "CRM & suivi commercial",
+        "Espaces clients & extranets",
+        "Logiciels métier",
+        "Plateformes SaaS",
+        "Comprendre votre quotidien",
+        "Dessiner et essayer",
+        "Développer et vérifier",
+        "Déployer et accompagner"
+      ],
+      "path": "/creation-application-web"
+    },
+    {
+      "file": "src/app/creation-landing-page/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Le clic est un début.La page fait la suite."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Comprendre. Être rassuré.Pouvoir agir."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Les clics se comptent.Les demandes se suivent."
+        },
+        {
+          "level": 2,
+          "text": "Du cadrage au lancement,des choix concrets."
+        },
+        {
+          "level": 2,
+          "text": "Votre prochain clicmérite une bonne page."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/google-ads",
+        "/creation-site-internet",
+        "/referencement-naturel"
+      ],
+      "titles": [
+        "Une campagne Google Ads",
+        "Une nouvelle offre",
+        "Une campagne ciblée",
+        "Message & contenus",
+        "Design sur mesure",
+        "Confort & performance",
+        "Contact & connexions"
+      ],
+      "path": "/creation-landing-page"
+    },
+    {
+      "file": "src/app/creation-outils-ia/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Un outil utile commencepar un vrai besoin."
+        },
+        {
+          "level": 2,
+          "text": "De l’intelligence artificielle,dans votre réalité métier."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos processus donnentle sens du parcours."
+        },
+        {
+          "level": 2,
+          "text": "Moins de tâches répétitives.Plus de place pour l’essentiel."
+        },
+        {
+          "level": 3,
+          "text": "{benefitTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Vos logiciels restent.Les possibilités s’étendent."
+        },
+        {
+          "level": 2,
+          "text": "L’interface fait aussipartie de la solution."
+        },
+        {
+          "level": 2,
+          "text": "Un premier usage bien défini.Puis un outil qui évolue."
+        },
+        {
+          "level": 3,
+          "text": "{step.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos données comptent.Vos décisions aussi."
+        },
+        {
+          "level": 3,
+          "text": "{trustTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Créer un outil IA,avec les bonnes réponses."
+        },
+        {
+          "level": 2,
+          "text": "Une tâche vous prend trop de temps ?Parlons-en concrètement."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/integrations-api",
+        "/creation-application-web",
+        "/automatisation",
+        "/creation-site-internet",
+        "/a-propos"
+      ],
+      "titles": [
+        "Du temps pour votre métier",
+        "Des informations exploitables",
+        "Une prise en main naturelle",
+        "Une utilité qui se mesure",
+        "Cadrer le bon usage",
+        "Tester sur des cas réels",
+        "Développer et connecter",
+        "Accompagner et améliorer"
+      ],
+      "path": "/creation-outils-ia"
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/page.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": [],
+      "path": "/creation-site-ecommerce"
+    },
+    {
+      "file": "src/app/creation-site-internet/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Création de Sites Internet à Lorient, Vannes & Le Mans",
+        "Agence web locale. Création de sites vitrine performants et design pour artisans, PME et professions libérales. Devis gratuit sous 24h."
+      ],
+      "path": "/creation-site-internet"
+    },
+    {
+      "file": "src/app/developpement-web-sur-mesure/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Faire évoluer.Sans repartir par réflexe."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Un ensemble cohérent.Pas une fonction isolée."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Du code, des accès.Et de la continuité."
+        },
+        {
+          "level": 2,
+          "text": "Quel parcours aimeriez-vousrendre plus simple ?"
+        }
+      ],
+      "links": [
+        "/refonte-site-internet",
+        "/integrations-api",
+        "/creation-application-web",
+        "/creation-outils-ia",
+        "/realisations"
+      ],
+      "titles": [
+        "Développement web sur mesure : modules & fonctionnalités | Litus",
+        "Configurateurs & devis guidés",
+        "Réservation & parcours client",
+        "Modules & administration",
+        "Conserver ce qui tient",
+        "Développer ce qui manque",
+        "Remplacer ce qui bloque",
+        "Cadrer le besoin"
+      ],
+      "path": "/developpement-web-sur-mesure"
+    },
+    {
+      "file": "src/app/google-ads/page.tsx",
+      "headings": [],
+      "links": [
+        "/google-ads",
+        "/litus-og-social.png"
+      ],
+      "titles": [
+        "Confiez vos campagnes Google Ads à Litus Agency, à Lorient et au Mans. Ciblage local, suivi des contacts et optimisation. Parlons de vos objectifs.",
+        "Agence Google Ads à Lorient et au Mans | Litus Agency",
+        "Ciblage local, suivi des contacts et optimisation : parlons des objectifs de vos campagnes Google Ads.",
+        "Agence Google Ads à Lorient et au Mans | Litus Agency",
+        "Ciblage local, suivi des contacts et optimisation : parlons des objectifs de vos campagnes Google Ads."
+      ],
+      "path": "/google-ads"
+    },
+    {
+      "file": "src/app/google-business-profile/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{question}"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Votre activité évolue.La fiche doit suivre."
+        },
+        {
+          "level": 3,
+          "text": "{label}"
+        },
+        {
+          "level": 2,
+          "text": "Des photos authentiques.Des réponses humaines."
+        },
+        {
+          "level": 2,
+          "text": "Une fiche et un site,au service du même accueil."
+        },
+        {
+          "level": 3,
+          "text": "La fiche Google"
+        },
+        {
+          "level": 3,
+          "text": "Votre site internet"
+        },
+        {
+          "level": 3,
+          "text": "L’échange avec vous"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Votre fiche reflète-t-ellevraiment votre entreprise ?"
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/seo-local",
+        "/creation-site-internet",
+        "/referencement-naturel",
+        "/google-ads"
+      ],
+      "titles": [
+        "Les bonnes informations",
+        "Une présentation fidèle",
+        "Une relation entretenue",
+        "Faire le point",
+        "Renseigner avec justesse",
+        "Organiser le suivi",
+        "Relire les observations"
+      ],
+      "path": "/google-business-profile"
+    },
+    {
+      "file": "src/app/grands-comptes/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Identifiez les failles techniques de votre infrastructure.\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            L&apos;agilité d&apos;une startup, pour les exigences de votre groupe.\n                        "
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Agence web pour grands comptes & ETI : refonte et acquisition | Litus",
+        "Refonte corporate, sites sur mesure, SEO et Google Ads pour grands comptes et ETI. Un projet cadré avec vos équipes, des outils connectés et un suivi dans la durée."
+      ],
+      "path": "/grands-comptes"
+    },
+    {
+      "file": "src/app/integrations-api/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Les mêmes mots.Les mêmes règles."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Votre équipe saitoù en sont les données."
+        },
+        {
+          "level": 2,
+          "text": "Quels logiciels devraientmieux travailler ensemble ?"
+        }
+      ],
+      "links": [
+        "/automatisation",
+        "/developpement-web-sur-mesure",
+        "/creation-application-web",
+        "/creation-site-ecommerce",
+        "/creation-outils-ia"
+      ],
+      "titles": [
+        "Intégrations API & connecteurs sur mesure pour entreprise | Litus",
+        "Boutique → gestion",
+        "CRM → facturation",
+        "Données → équipes",
+        "CRM & relation client",
+        "ERP & gestion",
+        "Sites & boutiques",
+        "Paiement & facturation"
+      ],
+      "path": "/integrations-api"
+    },
+    {
+      "file": "src/app/mentions-legales/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Mentions légales"
+        },
+        {
+          "level": 3,
+          "text": "Nature de la collaboration"
+        },
+        {
+          "level": 2,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        }
+      ],
+      "links": [
+        "/politique-confidentialite"
+      ],
+      "titles": [
+        "Mentions légales",
+        "Mentions légales du site litus.fr, édité par Aksel Roca et Arthur Geveaux."
+      ],
+      "path": "/mentions-legales"
+    },
+    {
+      "file": "src/app/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [],
+      "path": "/"
+    },
+    {
+      "file": "src/app/pme/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Prévoyez le budget digital de votre PME.\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            Passez un cap. Devenez le candidat naturel de vos prospects B2B.\r\n                        "
+        }
+      ],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": [
+        "Agence web pour PME : site sur mesure, SEO & Google Ads | Litus",
+        "Faites grandir votre PME avec un site sur mesure, une stratégie SEO et Google Ads, et un suivi des demandes. Une équipe à vos côtés, de la refonte au pilotage."
+      ],
+      "path": "/pme"
+    },
+    {
+      "file": "src/app/politique-confidentialite/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Politique de Confidentialité"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    1\r\n                                    Introduction et Responsable du traitement\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    2\r\n                                    Données collectées\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    3\r\n                                    Utilisation de vos données\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    4\r\n                                    Durée de conservation\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    5\r\n                                    Vos droits (RGPD)\r\n                                "
+        },
+        {
+          "level": 3,
+          "text": "Droit d'accès"
+        },
+        {
+          "level": 3,
+          "text": "Droit de rectification"
+        },
+        {
+          "level": 3,
+          "text": "Droit à l'effacement"
+        },
+        {
+          "level": 3,
+          "text": "Droit d'opposition"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    6\r\n                                    Gestion des Cookies\r\n                                "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Politique de Confidentialité | Litus",
+        "Découvrez comment Litus protège et gère vos données personnelles conformément au RGPD."
+      ],
+      "path": "/politique-confidentialite"
+    },
+    {
+      "file": "src/app/realisations/[slug]/page.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": [
+        "Demétis Immobilier",
+        "Site vitrine sur mesure pour valoriser leurs biens et renforcer leur visibilité locale sur Google."
+      ],
+      "path": "/realisations/[slug]"
+    },
+    {
+      "file": "src/app/realisations/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Erreur de chargement"
+        },
+        {
+          "level": 2,
+          "text": "Et si nous parlions de votre projet ?"
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Nos Réalisations | Agence Web Litus",
+        "Découvrez nos derniers projets : Sites vitrines, E-commerce, Applications web et campagnes Google Ads."
+      ],
+      "path": "/realisations"
+    },
+    {
+      "file": "src/app/referencement-naturel/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Vos clients cherchent déjà.Que trouvent-ils ?"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{item.question}"
+        },
+        {
+          "level": 2,
+          "text": "Savoir ce qui change.Comprendre pourquoi."
+        },
+        {
+          "level": 2,
+          "text": "Des observations utiles.Des décisions expliquées."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Faisons le point sur votre site.Et sur ce qu’il peut apporter."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/refonte-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "Audit & priorités SEO",
+        "Technique & structure",
+        "Contenus & intentions",
+        "Comprendre votre activité",
+        "Choisir les bons chantiers",
+        "Faire évoluer les pages",
+        "Observer et ajuster",
+        "Votre site reste difficile à trouver"
+      ],
+      "path": "/referencement-naturel"
+    },
+    {
+      "file": "src/app/refonte-site-internet/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Votre site a déjàune histoire utile."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Une refonte se préparepage par page."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Un nouveau site.Des repères à préserver."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Une mise en ligne,et une suite prévue."
+        },
+        {
+          "level": 2,
+          "text": "Votre site peut mieuxreprésenter votre activité."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/referencement-naturel",
+        "/creation-site-internet",
+        "/creation-site-ecommerce"
+      ],
+      "titles": [
+        "L’offre & les parcours",
+        "Les contenus & la visibilité",
+        "La base technique",
+        "Une structure claire",
+        "Des contenus utiles",
+        "Un vrai parcours mobile",
+        "Une prise en main prévue",
+        "Auditer & cadrer"
+      ],
+      "path": "/refonte-site-internet"
+    },
+    {
+      "file": "src/app/ressources/[magnet]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "\r\n                        {magnet.title}\r\n                    "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Ressource introuvable | Litus"
+      ],
+      "path": "/ressources/[magnet]"
+    },
+    {
+      "file": "src/app/seo-local/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                97% des consommateurs cherchent en ligne avant d’acheter localement\n                            "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Agence SEO Local Lorient & Le Mans - Référencement Google",
+        "Devenez N°1 sur Google dans votre ville. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
+        "Aire des Îles",
+        "Aspire Marketing",
+        "Azra Photographie",
+        "BRZ Couverture",
+        "Carnac Immobilier",
+        "Audit & Mots-Clés"
+      ],
+      "path": "/seo-local"
+    },
+    {
+      "file": "src/app/tarifs/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Des prix clairs,sans surprise"
+        },
+        {
+          "level": 2,
+          "text": "Parlons de ce dont vous avez vraiment besoin."
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Tarifs - Agence Web Transparente | Litus",
+        "Site internet dès 99 €/mois, SEO dès 99 €/mois et gestion Google Ads à 129 €/mois. Choisissez votre besoin puis faites évoluer votre accompagnement Litus.",
+        "Des offres complètes",
+        "Un tarif clair",
+        "Un accompagnement réel"
+      ],
+      "path": "/tarifs"
+    }
+  ],
+  "files": [
+    {
+      "file": "src/__tests__/components/Button.test.tsx",
+      "headings": [],
+      "links": [
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/__tests__/components/ContactRequestForm.test.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/__tests__/components/EstimatorSection.test.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/__tests__/components/Input.test.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/__tests__/contact-api.test.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/__tests__/server-only.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/__tests__/setup.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/actions/portfolio.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/a-propos/_components/AboutContent.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Deux experts.Une vision claire du web."
+        },
+        {
+          "level": 2,
+          "text": "Expertise & savoir-faire"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Une équipe complémentaire"
+        },
+        {
+          "level": 3,
+          "text": "{person.name}"
+        },
+        {
+          "level": 2,
+          "text": "On construit des sites beaux, utiles et trouvables."
+        }
+      ],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": [
+        "Spécialisé dans le référencement naturel et la création de sites internet sur mesure, Arthur aide les entreprises à gagner en visibilité, à mieux se positionner sur Google et à construire des sites utiles, pensés pour durer.",
+        "Spécialisé dans l’écosystème Google, la création de sites internet et le e-commerce, Aksel accompagne les entreprises dans leur développement en ligne, de la stratégie à la mise en œuvre.",
+        "Proximité",
+        "Transparence",
+        "Performance",
+        "Visibilité"
+      ]
+    },
+    {
+      "file": "src/app/a-propos/about.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/a-propos/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "À Propos de Litus | Agence Web Lorient & Le Mans",
+        "Arthur et Aksel : deux expertises complémentaires pour des sites web sur mesure, votre référencement naturel et votre e-commerce. Découvrez l’agence Litus."
+      ]
+    },
+    {
+      "file": "src/app/admin/analytics/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Analytics"
+        },
+        {
+          "level": 3,
+          "text": "Visiteurs - {timeRange === '24h' ? '24h' : timeRange === '7d' ? '7 derniers jours' : '30 derniers jours'}"
+        },
+        {
+          "level": 3,
+          "text": "Sources de trafic"
+        },
+        {
+          "level": 3,
+          "text": "Core Web Vitals"
+        },
+        {
+          "level": 3,
+          "text": "Appareils"
+        },
+        {
+          "level": 3,
+          "text": "Pages les plus visitées"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/blog/[id]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Modifier l'article"
+        },
+        {
+          "level": 2,
+          "text": "Introduction"
+        },
+        {
+          "level": 2,
+          "text": "Publication"
+        },
+        {
+          "level": 2,
+          "text": "Image à la une"
+        },
+        {
+          "level": 2,
+          "text": "Catégorie"
+        },
+        {
+          "level": 2,
+          "text": "Auteur"
+        },
+        {
+          "level": 2,
+          "text": "Optimisation SEO"
+        }
+      ],
+      "links": [
+        "/admin/blog"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/blog/new/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Nouvel article"
+        },
+        {
+          "level": 2,
+          "text": "Introduction"
+        },
+        {
+          "level": 2,
+          "text": "Publication"
+        },
+        {
+          "level": 2,
+          "text": "Image à la une"
+        },
+        {
+          "level": 2,
+          "text": "Catégorie"
+        },
+        {
+          "level": 2,
+          "text": "Auteur"
+        },
+        {
+          "level": 2,
+          "text": "Optimisation SEO"
+        }
+      ],
+      "links": [
+        "/admin/blog"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/blog/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Gestion du Blog"
+        }
+      ],
+      "links": [
+        "/admin/blog/new"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/editorial/[id]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{draft.draft.title}"
+        },
+        {
+          "level": 2,
+          "text": "Recherche et contrôle qualité"
+        },
+        {
+          "level": 3,
+          "text": "Requêtes Google"
+        },
+        {
+          "level": 3,
+          "text": "Sources réellement consultées"
+        },
+        {
+          "level": 3,
+          "text": "Images et licences"
+        },
+        {
+          "level": 3,
+          "text": "Revue finale"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Brouillon privé | Litus"
+      ]
+    },
+    {
+      "file": "src/app/admin/editorial/actions.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/editorial/editorial-admin.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/editorial/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Le calendrier éditorial."
+        },
+        {
+          "level": 2,
+          "text": "{item.workingTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Journal des derniers passages"
+        }
+      ],
+      "links": [
+        "/admin/editorial",
+        "/admin/editorial?mode=test"
+      ],
+      "titles": [
+        "Calendrier éditorial | Litus"
+      ]
+    },
+    {
+      "file": "src/app/admin/layout.tsx",
+      "headings": [],
+      "links": [
+        "/admin",
+        "/admin/portfolio",
+        "/admin/media",
+        "/admin/leads",
+        "/admin/market-analysis",
+        "/admin/blog",
+        "/admin/editorial",
+        "/admin/analytics",
+        "/admin/settings",
+        "/"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/leads/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "CRM - Gestion des Leads"
+        },
+        {
+          "level": 2,
+          "text": "{editing ? 'Modifier le lead' : 'Détails du lead'}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/market-analysis/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Analyses de Marché"
+        },
+        {
+          "level": 2,
+          "text": "{selectedAnalysis.metier} à {selectedAnalysis.ville}"
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                    \r\n                                    Données Google (DataForSEO)\r\n                                "
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                    🤖 Analyse de l'IA experte Litus\r\n                                "
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                    🎯 Propositions commerciales\r\n                                "
+        }
+      ],
+      "links": [
+        "/admin/leads"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/media/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Médias"
+        },
+        {
+          "level": 2,
+          "text": "Détails de l'image"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Dashboard"
+        },
+        {
+          "level": 3,
+          "text": "Tuiles à afficher"
+        },
+        {
+          "level": 2,
+          "text": "Leads récents"
+        },
+        {
+          "level": 2,
+          "text": "Médias récents"
+        }
+      ],
+      "links": [
+        "/admin/leads",
+        "/admin/media"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/portfolio/SortableProjectList.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/portfolio/[id]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Modifier le projet"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/portfolio/new/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Nouveau Projet"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/portfolio/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Portfolio"
+        }
+      ],
+      "links": [
+        "/admin/portfolio/new"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/settings/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Paramètres"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                        \r\n                            \r\n                        \r\n                        Disponibilité\r\n                    "
+        }
+      ],
+      "links": [
+        "/admin/settings/team"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/settings/team/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Équipe"
+        },
+        {
+          "level": 2,
+          "text": "{editing ? 'Modifier le membre' : 'Nouveau membre'}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Accès complet à tout",
+        "Leads + Analytics",
+        "Médias + Portfolio + Blog + Analytics"
+      ]
+    },
+    {
+      "file": "src/app/agence-web-le-mans/le-mans.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/agence-web-le-mans/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Votre agence webau Mans et en Sarthe."
+        },
+        {
+          "level": 2,
+          "text": "Une agence web proche de vous."
+        },
+        {
+          "level": 2,
+          "text": "Des solutions concrètespour votre croissance."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Au Mans, et danstoute la Sarthe."
+        },
+        {
+          "level": 2,
+          "text": "Des entreprises localesqui avancent avec nous."
+        },
+        {
+          "level": 3,
+          "text": "Demétis Immobilier"
+        },
+        {
+          "level": 3,
+          "text": "Aspire Énergie"
+        },
+        {
+          "level": 2,
+          "text": "Un accompagnement clairet efficace."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Prêt à développer votre activité en Sarthe ?"
+        },
+        {
+          "level": 2,
+          "text": "Vos questions, nos réponses."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-ecommerce",
+        "/contact?objet=strategie",
+        "/",
+        "/contact?objet=Projet%20au%20Mans",
+        "/realisations",
+        "/realisations/demetis-immobilier",
+        "/realisations/aspire-energie"
+      ],
+      "titles": [
+        "Agence web Le Mans | Création de site, SEO & Google Ads",
+        "Litus accompagne les entreprises du Mans et de la Sarthe : création et refonte de sites internet, SEO local, Google Ads et e-commerce. Échangez avec Arthur au Mans.",
+        "Litus, agence web au Mans et en Sarthe",
+        "Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.",
+        "Litus, agence web au Mans et en Sarthe",
+        "Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.",
+        "Création de site internet",
+        "Refonte de site"
+      ]
+    },
+    {
+      "file": "src/app/agence-web-lorient/LorientMap.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/agence-web-lorient/LorientReveal.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/agence-web-lorient/lorient-map.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/agence-web-lorient/lorient.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/agence-web-lorient/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Votre agence webà Lorient et dansle Morbihan."
+        },
+        {
+          "level": 2,
+          "text": "Une agence proche de vous.Et quelqu’un sur place."
+        },
+        {
+          "level": 3,
+          "text": "Votre interlocuteur dans le pays de Lorient"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Des solutions web pourdévelopper votre activité."
+        },
+        {
+          "level": 3,
+          "text": "{serviceTitle}"
+        },
+        {
+          "level": 2,
+          "text": "À Lorient, dans son agglomérationet dans le Morbihan."
+        },
+        {
+          "level": 2,
+          "text": "Des entreprises d’iciqui nous font confiance."
+        },
+        {
+          "level": 3,
+          "text": "{project.name}"
+        },
+        {
+          "level": 2,
+          "text": "On se rencontre.On construit. On fait évoluer."
+        },
+        {
+          "level": 3,
+          "text": "{stepTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Votre prochain projet webcommence par une rencontre."
+        },
+        {
+          "level": 2,
+          "text": "Votre projet web à Lorient :les réponses à vos questions."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-ecommerce",
+        "/contact?objet=Strat%C3%A9gie%20digitale%20%C3%A0%20Lorient",
+        "/tarifs",
+        "/",
+        "/territories/credits.html",
+        "/realisations"
+      ],
+      "titles": [
+        "Création de site internet",
+        "Refonte de site",
+        "Référencement naturel",
+        "Google Ads",
+        "E-commerce",
+        "Stratégie digitale",
+        "On se rencontre",
+        "On définit les priorités"
+      ]
+    },
+    {
+      "file": "src/app/api/admin/analytics/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/blog/[id]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/blog/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/config/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/dashboard/stats/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/editorial/route.ts",
+      "headings": [
+        {
+          "level": 1,
+          "text": "${escape(item.draft!.title)}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/leads/[id]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/leads/export/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/leads/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/market-analysis/[id]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/market-analysis/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/media/[id]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/media/migrate-portfolio/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/media/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/portfolio/[id]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/portfolio/reorder/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/team/[id]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/admin/team/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/auth/[...nextauth]/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/config/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/contact/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/cron/editorial/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/debug-config/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/debug-db/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/estimator/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/export-data/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/lead-magnet/route.ts",
+      "headings": [
+        {
+          "level": 1,
+          "text": "📥 Nouveau lead magnet"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/market-analysis/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/migrate-analytics/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/migrate-lead-crm/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/migrate-schema/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/newsletter/route.test.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/newsletter/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/rescue/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/seed/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "West Clôtures & Paysage",
+        "Transformation digitale complète : Site WordPress Elementor Pro, campagnes Google Ads performantes et CRM métier. Visibilité locale maximale et flux constant de devis qualifiés.",
+        "Femmes des Territoires",
+        "Refonte complète du site WordPress de l",
+        "Japan Hunter",
+        "Boutique Shopify sur-mesure pour l",
+        "Loumor Débarras",
+        "Site vitrine professionnel pour services de débarras. Stratégie SEO local sur Vannes et optimisation technique pour générer des demandes entrantes rapides."
+      ]
+    },
+    {
+      "file": "src/app/api/setup-db/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/test-analysis/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/api/track/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansConversion.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Pas encore prêt pour un site&nbsp;? Commencez par corriger votre Google."
+        },
+        {
+          "level": 3,
+          "text": "Votre guide est disponible."
+        },
+        {
+          "level": 3,
+          "text": "{guide.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos questions sur notre accompagnement."
+        },
+        {
+          "level": 3,
+          "text": " setOpenQuestion(isOpen ? null : index)}>{item.question}"
+        },
+        {
+          "level": 2,
+          "text": "Prêt à donner plus de visibilité à votre entreprise&nbsp;?"
+        }
+      ],
+      "links": [
+        "/creation-site-internet",
+        "/google-ads",
+        "/seo-local",
+        "/politique-confidentialite",
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansHero.tsx",
+      "headings": [],
+      "links": [
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansHeroDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansMethod.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Analyse du métier et de la zone",
+        "Vos prestations, vos clients et votre secteur : nous partons de votre réalité pour définir les priorités.",
+        "Mise en place de la visibilité",
+        "Site internet, fiche Google et référencement local : nous préparons les outils adaptés à votre activité.",
+        "Lancement des campagnes",
+        "Nous ciblons les recherches utiles et les bonnes zones, avec un budget publicitaire défini ensemble.",
+        "Suivi et optimisations",
+        "Nous suivons les demandes reçues et ajustons les actions. Vous savez ce qui avance et ce qui vient ensuite."
+      ]
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansPainPoints.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "On connaît votre réalité."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Pas le temps de gérer le digital",
+        "Trop dépendant du bouche-à-oreille",
+        "Vos concurrents sont déjà en ligne",
+        "Des périodes creuses difficiles"
+      ]
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansPhoneDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansReveal.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansSolutions.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "L’écosystème Litus,conçu pour les artisans."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        }
+      ],
+      "links": [
+        "/google-ads",
+        "/seo-local",
+        "/creation-site-internet",
+        "/contact",
+        "/agence-web-le-mans"
+      ],
+      "titles": [
+        "Google Ads pour les artisans",
+        "Référencement local & fiche Google",
+        "Un site pensé pour les prises de contact",
+        "Des demandes reçues directement"
+      ]
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansStats.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Ciblage local",
+        "Contacts directs",
+        "Suivi des demandes",
+        "Accompagnement humain"
+      ]
+    },
+    {
+      "file": "src/app/artisans/_components/ArtisansTrades.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Des solutions pensées pour les artisans."
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Dépannage, fuite ou installation : présentez vos interventions et facilitez l’appel depuis un téléphone.",
+        "Mise aux normes, tableaux et installations : expliquez vos prestations et recevez des demandes adaptées à vos compétences.",
+        "Installation, entretien et remplacement : adaptez vos pages et vos campagnes aux besoins de chaque saison.",
+        "Réfection de toiture, isolation ou réparation : montrez vos chantiers et précisez votre périmètre d’intervention.",
+        "Fenêtres, portes et agencements : valorisez vos réalisations pour aider vos clients à se projeter dans leur futur aménagement.",
+        "Peinture intérieure, façade et finitions : présentez votre travail avec des photos et un parcours simple pour demander un devis.",
+        "Salles de bain, terrasses et sols : mettez en avant vos matériaux, vos finitions et les projets que vous souhaitez recevoir.",
+        "Construction, extension et rénovation : rassurez sur votre savoir-faire et recueillez les premières informations du chantier."
+      ]
+    },
+    {
+      "file": "src/app/artisans/_components/artisans-conversion.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/artisans-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/artisans-method.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/_components/artisans-phone-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/artisans.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/artisans/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Une méthode simple et efficace."
+        }
+      ],
+      "links": [
+        "/artisans",
+        "/litus-og-social.png",
+        "/contact"
+      ],
+      "titles": [
+        "Création de site internet pour artisan, Google Ads et référencement local à Lorient et au Mans. Des outils adaptés à votre métier pour recevoir vos demandes de contact.",
+        "Des solutions web pensées pour les artisans | Litus Agency",
+        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe.",
+        "Des solutions web pensées pour les artisans | Litus Agency",
+        "Site internet, Google Ads, référencement local et suivi des demandes : un accompagnement concret dans le Morbihan et la Sarthe."
+      ]
+    },
+    {
+      "file": "src/app/automatisation/_components/AutomationHeroDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{model.source}"
+        },
+        {
+          "level": 3,
+          "text": "{phase === 1 ? 'Entreprise exemple' : 'Un devis prêt à vérifier.'}"
+        },
+        {
+          "level": 3,
+          "text": "{phase === 0 ? 'Une nouvelle demande.' : phase === 1 ? 'Les informations sont réunies.' : phase === 2 ? 'Un devis prêt à vérifier.' : 'Votre équipe prend le relais.'}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Demande reçue",
+        "CRM à jour",
+        "Devis préparé",
+        "Équipe informée"
+      ]
+    },
+    {
+      "file": "src/app/automatisation/_components/automation-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/automatisation/automatisation.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/automatisation/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos logiciels restent.Ils travaillent ensemble."
+        },
+        {
+          "level": 3,
+          "text": "{row.label}"
+        },
+        {
+          "level": 2,
+          "text": "L’humain gardele dernier mot."
+        },
+        {
+          "level": 2,
+          "text": "Un scénario doit restercompréhensible et suivi."
+        },
+        {
+          "level": 3,
+          "text": "{heading}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Une tâche revient sans cesse ?Faisons le point ensemble."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/creation-outils-ia",
+        "/creation-application-web",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "Moins de ressaisies",
+        "Un suivi plus lisible",
+        "Du temps pour vos clients",
+        "Du contact au dossier commercial",
+        "Du besoin au devis préparé",
+        "De l’échéance à la prochaine action",
+        "Observer votre quotidien",
+        "Définir les règles"
+      ]
+    },
+    {
+      "file": "src/app/blog-sitemap.xml/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/[slug]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Article introuvable | Litus"
+      ]
+    },
+    {
+      "file": "src/app/blog/_components/BlogArticles.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{article.title}"
+        },
+        {
+          "level": 2,
+          "text": "Aucun article ne correspond à ces filtres"
+        }
+      ],
+      "links": [
+        "/blog"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/_components/BlogHero.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{article.title}"
+        },
+        {
+          "level": 2,
+          "text": "Nos conseils pour vos projets web"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/_components/BlogNewsletter.test.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/_components/BlogNewsletter.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prenez une longueur d’avance"
+        }
+      ],
+      "links": [
+        "/politique-confidentialite"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/_components/blog-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/_components/blog-newsletter.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/blog.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/editorial-list.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/blog/page.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/collectivites/_components/CollectivitesHero.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/collectivites/_components/CollectivitesPainPoints.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "\r\n                                {item.title}\r\n                            "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Un site bloqué dans les années 2010",
+        "Votre commune a évolué, mais votre site est resté figé. Impossible à lire sur mobile, menus illisibles : les citoyens, anciens comme plus jeunes, ne s",
+        "Défaut d",
+        "Les couleurs manquent de contraste et les polices sont illisibles. En plus d",
+        "Cible idéale des Cyberattaques",
+        "Hôpitaux, Mairies, Départements : les services publics sont les cibles n°1 des rançongiciels. Votre vieux site est une porte d",
+        "Un cauchemar pour vos secrétaires",
+        "Publier le compte-rendu du dernier conseil municipal est un parcours du combattant. Vos agents perdent des heures sur un logiciel obsolète au lieu de servir la commune."
+      ]
+    },
+    {
+      "file": "src/app/collectivites/_components/CollectivitesSolutions.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                Notre solution : L'Inclusion Numérique.\r\n                            "
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Accessibilité RGAA intégrée",
+        "Nous designons des interfaces aux contrastes stricts, adaptées aux lecteurs d",
+        "Formation de vos agents",
+        "On ne vous remet pas juste les clés. Nous formons vos équipes à l",
+        "Sécurité & Hébergement Français",
+        "Vos données et celles de vos citoyens ne quittent pas la France. Nos infrastructures sont souveraines (SecNumCloud) et immunisées contre les ransomwares.",
+        "Portails & Logiciels Sur-Mesure",
+        "Portail cantine, réservation d"
+      ]
+    },
+    {
+      "file": "src/app/collectivites/_components/CollectivitesStats.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/collectivites/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Modernisez le lien avec vos concitoyens.\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            Votre site respecte-t-il les normes RGAA ?\r\n                        "
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Sites internet & services en ligne pour collectivités | Litus",
+        "Création et refonte de sites pour collectivités et acteurs publics. Une information claire, une meilleure visibilité sur Google et un accompagnement de vos équipes."
+      ]
+    },
+    {
+      "file": "src/app/contact/_components/ContactHero.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Parlons de votrenouveau projet"
+        },
+        {
+          "level": 2,
+          "text": "Envoyez-nous votre demande"
+        },
+        {
+          "level": 2,
+          "text": "Réserver un appel découverte"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/contact/_components/ContactRequestForm.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Votre demande a bien été envoyée."
+        }
+      ],
+      "links": [
+        "/politique-confidentialite"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/contact/contact.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/contact/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Contact - Litus",
+        "Parlons de votre projet web. Contactez Litus à Lorient et au Mans : sites web, e-commerce et visibilité locale. Réponse sous 24 h ouvrées."
+      ]
+    },
+    {
+      "file": "src/app/creation-application-web/_components/ApplicationHeroDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-application-web/_components/ApplicationWorkspace.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{model.heading}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Les informations, le responsable et les pièces attendues restent réunis dans un même espace.",
+        "Votre client consulte uniquement son projet et retrouve les documents que vous avez partagés.",
+        "Le responsable retrouve l’avancement et les points à traiter, avec une trace des actions effectuées."
+      ]
+    },
+    {
+      "file": "src/app/creation-application-web/_components/application-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-application-web/application-content.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-application-web/application.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-application-web/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Les bons outils fontavancer les équipes."
+        },
+        {
+          "level": 3,
+          "text": "{useTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "On commence par écouter.Puis on construit."
+        },
+        {
+          "level": 2,
+          "text": "Vos outils se parlent.Vos données circulent."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Un outil à utiliser.Et à faire vivre."
+        },
+        {
+          "level": 3,
+          "text": "{careTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Un processus à simplifier ?Parlons de votre application."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/automatisation#integrations-api",
+        "/creation-outils-ia",
+        "/automatisation",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "CRM & suivi commercial",
+        "Espaces clients & extranets",
+        "Logiciels métier",
+        "Plateformes SaaS",
+        "Comprendre votre quotidien",
+        "Dessiner et essayer",
+        "Développer et vérifier",
+        "Déployer et accompagner"
+      ]
+    },
+    {
+      "file": "src/app/creation-landing-page/_components/LandingHeroDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{model.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Votre projet mérite un devis clair.",
+        "Faisons le point sur votre projet."
+      ]
+    },
+    {
+      "file": "src/app/creation-landing-page/_components/landing-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-landing-page/landing-content.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-landing-page/landing.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-landing-page/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Le clic est un début.La page fait la suite."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Comprendre. Être rassuré.Pouvoir agir."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Les clics se comptent.Les demandes se suivent."
+        },
+        {
+          "level": 2,
+          "text": "Du cadrage au lancement,des choix concrets."
+        },
+        {
+          "level": 2,
+          "text": "Votre prochain clicmérite une bonne page."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/google-ads",
+        "/creation-site-internet",
+        "/referencement-naturel"
+      ],
+      "titles": [
+        "Une campagne Google Ads",
+        "Une nouvelle offre",
+        "Une campagne ciblée",
+        "Message & contenus",
+        "Design sur mesure",
+        "Confort & performance",
+        "Contact & connexions"
+      ]
+    },
+    {
+      "file": "src/app/creation-outils-ia/_components/AiHeroDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-outils-ia/_components/AiInteractions.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{workflow.context}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-outils-ia/_components/ai-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-outils-ia/ai-content.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Assistants IA internes",
+        "Agents IA métier",
+        "Recherche dans vos documents",
+        "Génération et traitement de contenu",
+        "Qualification de prospects",
+        "Analyse d’e-mails et de documents",
+        "Extraction de données",
+        "Automatisation de tâches avec IA"
+      ]
+    },
+    {
+      "file": "src/app/creation-outils-ia/ai.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-outils-ia/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Un outil utile commencepar un vrai besoin."
+        },
+        {
+          "level": 2,
+          "text": "De l’intelligence artificielle,dans votre réalité métier."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos processus donnentle sens du parcours."
+        },
+        {
+          "level": 2,
+          "text": "Moins de tâches répétitives.Plus de place pour l’essentiel."
+        },
+        {
+          "level": 3,
+          "text": "{benefitTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Vos logiciels restent.Les possibilités s’étendent."
+        },
+        {
+          "level": 2,
+          "text": "L’interface fait aussipartie de la solution."
+        },
+        {
+          "level": 2,
+          "text": "Un premier usage bien défini.Puis un outil qui évolue."
+        },
+        {
+          "level": 3,
+          "text": "{step.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos données comptent.Vos décisions aussi."
+        },
+        {
+          "level": 3,
+          "text": "{trustTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Créer un outil IA,avec les bonnes réponses."
+        },
+        {
+          "level": 2,
+          "text": "Une tâche vous prend trop de temps ?Parlons-en concrètement."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/integrations-api",
+        "/creation-application-web",
+        "/automatisation",
+        "/creation-site-internet",
+        "/a-propos"
+      ],
+      "titles": [
+        "Du temps pour votre métier",
+        "Des informations exploitables",
+        "Une prise en main naturelle",
+        "Une utilité qui se mesure",
+        "Cadrer le bon usage",
+        "Tester sur des cas réels",
+        "Développer et connecter",
+        "Accompagner et améliorer"
+      ]
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/_components/EcommerceBuilderDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Une présence chaleureuse, du matin au soir.",
+        "Des courbes douces, façonnées pour durer."
+      ]
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/_components/EcommerceContent.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Vos produits ont une histoire.Donnons-leur la bonne boutique."
+        },
+        {
+          "level": 2,
+          "text": "Donner envie.Rassurer.Faciliter l’achat."
+        },
+        {
+          "level": 3,
+          "text": "Un produit qui se comprend"
+        },
+        {
+          "level": 3,
+          "text": "Un panier qui rassure"
+        },
+        {
+          "level": 3,
+          "text": "Une commande qui aboutit"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Déjà sur WordPress ?Il y a WooCommerce."
+        },
+        {
+          "level": 2,
+          "text": "Japan Hunter.Un univers, une boutique."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Votre prochain chapitrecommence par votre boutique."
+        }
+      ],
+      "links": [
+        "/automatisation",
+        "/realisations/japan-hunter",
+        "/realisations",
+        "/referencement-naturel",
+        "/google-ads"
+      ],
+      "titles": [
+        "Un catalogue bien organisé",
+        "Un paiement sans détour",
+        "Une livraison bien préparée",
+        "Des produits prêts pour Google",
+        "Des outils qui se parlent",
+        "Une équipe autonome",
+        "Cadrer votre commerce",
+        "Dessiner le parcours"
+      ]
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/_components/EcommerceHero.tsx",
+      "headings": [],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": [
+        "Pensées pour vendre",
+        "Des paiements sécurisés",
+        "Fluides sur tous les écrans"
+      ]
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/_components/EcommerceModules.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Coupe Sora"
+        },
+        {
+          "level": 3,
+          "text": "Votre panier"
+        },
+        {
+          "level": 3,
+          "text": "Merci pour votre commande."
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Commande reçue",
+        "Stock mis à jour",
+        "Préparation lancée",
+        "Client informé"
+      ]
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/_components/ecommerce-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/_components/ecommerce-modules.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/ecommerce-content.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/ecommerce.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-ecommerce/page.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/SiteBuilderDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/SitesVitrineHero.tsx",
+      "headings": [],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": [
+        "Sites ultra-rapides",
+        "Optimisés pour Google",
+        "Un accompagnement humain"
+      ]
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/VitrineContactForm.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Votre demande est bien arrivée."
+        },
+        {
+          "level": 3,
+          "text": "Parlez-nous de votre projet."
+        }
+      ],
+      "links": [
+        "/politique-confidentialite"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/VitrineContent.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Un site qui doit vous rapporter des clients, pas simplement être joli."
+        },
+        {
+          "level": 2,
+          "text": "Votre site vous fait-il perdre des clients ?"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Des sites qui produisent de vrais résultats."
+        },
+        {
+          "level": 3,
+          "text": "West Clôtures & Paysage"
+        },
+        {
+          "level": 2,
+          "text": "Votre site devient votre meilleur commercial."
+        },
+        {
+          "level": 2,
+          "text": "Vous nous confiez votre objectif. On gère le reste."
+        },
+        {
+          "level": 3,
+          "text": "Audit & stratégie"
+        },
+        {
+          "level": 3,
+          "text": "Design sur mesure"
+        },
+        {
+          "level": 3,
+          "text": "Création & référencement"
+        },
+        {
+          "level": 3,
+          "text": "Mise en ligne & suivi"
+        },
+        {
+          "level": 2,
+          "text": "Une équipe à vos côtés."
+        },
+        {
+          "level": 3,
+          "text": "Arthur"
+        },
+        {
+          "level": 3,
+          "text": "Aksel"
+        },
+        {
+          "level": 2,
+          "text": "Deux façons de lancer votre nouveau site."
+        },
+        {
+          "level": 3,
+          "text": "À partir de 99 € / mois"
+        },
+        {
+          "level": 3,
+          "text": "Votre projet sur mesure."
+        },
+        {
+          "level": 2,
+          "text": "Questions fréquentes."
+        },
+        {
+          "level": 2,
+          "text": "Parlons devotre futur site."
+        }
+      ],
+      "links": [
+        "/seo-local",
+        "/creation-site-ecommerce",
+        "/contact",
+        "/realisations/west-clotures-paysage",
+        "/a-propos",
+        "/tarifs"
+      ],
+      "titles": [
+        "Vous n’êtes pas visible sur Google",
+        "Votre design ne vous ressemble plus",
+        "Vos visiteurs ne vous contactent pas",
+        "Vous dépendez du bouche-à-oreille",
+        "Visible 24 h/24",
+        "Pensé pour Google",
+        "Optimisé pour convertir",
+        "Des résultats suivis"
+      ]
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/VitrineGrowthDemos.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Soyez trouvé sur Google"
+        },
+        {
+          "level": 3,
+          "text": "Transformez les visites en prospects"
+        },
+        {
+          "level": 3,
+          "text": "On s’occupe de tout"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/VitrineJourney.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Vos futurs clients vous trouvent.",
+        "Votre site leur donne confiance.",
+        "Ils passent à l’action.",
+        "Vous développez votre activité."
+      ]
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/sites-vitrine-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/vitrine-contact-form.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/vitrine-content.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/_components/vitrine-growth-demos.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/creation-site-internet/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Création de Sites Internet à Lorient, Vannes & Le Mans",
+        "Agence web locale. Création de sites vitrine performants et design pour artisans, PME et professions libérales. Devis gratuit sous 24h."
+      ]
+    },
+    {
+      "file": "src/app/developpement-web-sur-mesure/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Faire évoluer.Sans repartir par réflexe."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Un ensemble cohérent.Pas une fonction isolée."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Du code, des accès.Et de la continuité."
+        },
+        {
+          "level": 2,
+          "text": "Quel parcours aimeriez-vousrendre plus simple ?"
+        }
+      ],
+      "links": [
+        "/refonte-site-internet",
+        "/integrations-api",
+        "/creation-application-web",
+        "/creation-outils-ia",
+        "/realisations"
+      ],
+      "titles": [
+        "Développement web sur mesure : modules & fonctionnalités | Litus",
+        "Configurateurs & devis guidés",
+        "Réservation & parcours client",
+        "Modules & administration",
+        "Conserver ce qui tient",
+        "Développer ce qui manque",
+        "Remplacer ce qui bloque",
+        "Cadrer le besoin"
+      ]
+    },
+    {
+      "file": "src/app/editorial.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/globals.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsContent.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Des campagnes pilotées,pas simplement lancées."
+        },
+        {
+          "level": 2,
+          "text": "Soyez visible au bon moment,auprès des bonnes personnes."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "La gestion de voscampagnes Google Ads."
+        }
+      ],
+      "links": [
+        "/creation-landing-page",
+        "/seo-local",
+        "/realisations/west-clotures-paysage"
+      ],
+      "titles": [
+        "Résultats rapides",
+        "Des prospects qualifiés",
+        "Un budget maîtrisé",
+        "Une stratégie sur mesure",
+        "Ciblage local",
+        "Suivi des contacts",
+        "Optimisation"
+      ]
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsConversion.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Des campagnes adaptées à vos objectifs."
+        },
+        {
+          "level": 3,
+          "text": "{offer.title}"
+        },
+        {
+          "level": 2,
+          "text": "Vos questions sur Google Ads."
+        },
+        {
+          "level": 3,
+          "text": " setOpenQuestion(isOpen ? null : index)}>{item.question}"
+        },
+        {
+          "level": 2,
+          "text": "Parlons de votre projet Google Ads."
+        },
+        {
+          "level": 3,
+          "text": "Votre demande est bien arrivée."
+        },
+        {
+          "level": 3,
+          "text": "Votre projet, en quelques mots."
+        }
+      ],
+      "links": [
+        "/seo-local",
+        "/creation-site-internet",
+        "/politique-confidentialite"
+      ],
+      "titles": [
+        "Lancer vos campagnes",
+        "Pour les entreprises qui démarrent et souhaitent construire des campagnes adaptées à leur activité.",
+        "Optimiser votre compte",
+        "Pour les entreprises qui diffusent déjà des annonces et souhaitent améliorer leur gestion."
+      ]
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsHero.tsx",
+      "headings": [],
+      "links": [
+        "/realisations"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsLocal.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Votre agence Google Ads à Lorient et au Mans."
+        },
+        {
+          "level": 3,
+          "text": "Le bon message.Au bon endroit."
+        }
+      ],
+      "links": [
+        "/agence-web-le-mans",
+        "/artisans",
+        "/pme"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsMethod.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Audit & stratégie",
+        "Création des campagnes",
+        "Lancement et optimisation",
+        "Suivi & reporting"
+      ]
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsReveal.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/_components/GoogleAdsSearchDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Plombier à Lorient — Intervention et rénovation",
+        "Installation, dépannage et rénovation. Une équipe locale à votre écoute pour vos travaux.",
+        "Rénovation au Mans — Parlons de votre projet",
+        "Des travaux pensés pour votre maison. Présentez-nous votre besoin et échangeons sur votre projet."
+      ]
+    },
+    {
+      "file": "src/app/google-ads/_components/google-ads-conversion.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/_components/google-ads-method.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/_components/google-ads-search-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/google-ads.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-ads/page.tsx",
+      "headings": [],
+      "links": [
+        "/google-ads",
+        "/litus-og-social.png"
+      ],
+      "titles": [
+        "Confiez vos campagnes Google Ads à Litus Agency, à Lorient et au Mans. Ciblage local, suivi des contacts et optimisation. Parlons de vos objectifs.",
+        "Agence Google Ads à Lorient et au Mans | Litus Agency",
+        "Ciblage local, suivi des contacts et optimisation : parlons des objectifs de vos campagnes Google Ads.",
+        "Agence Google Ads à Lorient et au Mans | Litus Agency",
+        "Ciblage local, suivi des contacts et optimisation : parlons des objectifs de vos campagnes Google Ads."
+      ]
+    },
+    {
+      "file": "src/app/google-business-profile/_components/BusinessProfileDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Votre établissement"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Informations",
+        "Photos",
+        "Avis"
+      ]
+    },
+    {
+      "file": "src/app/google-business-profile/_components/business-profile-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-business-profile/google-business-profile.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/google-business-profile/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{question}"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Votre activité évolue.La fiche doit suivre."
+        },
+        {
+          "level": 3,
+          "text": "{label}"
+        },
+        {
+          "level": 2,
+          "text": "Des photos authentiques.Des réponses humaines."
+        },
+        {
+          "level": 2,
+          "text": "Une fiche et un site,au service du même accueil."
+        },
+        {
+          "level": 3,
+          "text": "La fiche Google"
+        },
+        {
+          "level": 3,
+          "text": "Votre site internet"
+        },
+        {
+          "level": 3,
+          "text": "L’échange avec vous"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Votre fiche reflète-t-ellevraiment votre entreprise ?"
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/seo-local",
+        "/creation-site-internet",
+        "/referencement-naturel",
+        "/google-ads"
+      ],
+      "titles": [
+        "Les bonnes informations",
+        "Une présentation fidèle",
+        "Une relation entretenue",
+        "Faire le point",
+        "Renseigner avec justesse",
+        "Organiser le suivi",
+        "Relire les observations"
+      ]
+    },
+    {
+      "file": "src/app/grands-comptes/_components/GrandsComptesHero.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/grands-comptes/_components/GrandsComptesPainPoints.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "\r\n                                {item.title}\r\n                            "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Des délais de livraison ESN absurdes",
+        "Votre agence web ou votre ESN actuelle prend 18 mois pour livrer un portail que des startups déploieraient en 8 semaines. L",
+        "Rejeté par la DSI",
+        "Les solutions standards (WordPress, PHP) ne passent plus les audits de sécurité de votre DSI. Vous avez besoin d",
+        "Silos de données Legacy",
+        "Impossible de synchroniser en temps réel votre ancien ERP (SAP) avec votre portail client web. Les données sont bloquées et corrompues.",
+        "Incapable d",
+        "Lors d"
+      ]
+    },
+    {
+      "file": "src/app/grands-comptes/_components/GrandsComptesSolutions.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                Notre solution : Stack Moderne.\r\n                            "
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Architecture Headless Inviolable",
+        "On sépare le back-end et le front-end. Vos interfaces (React/Next.js) sont véloces et vos bases de données inaccessibles aux attaques. 0 faille, 100% approuvé par la DSI.",
+        "Intégration API & ERP",
+        "Salesforce, SAP, Hubspot, Odoo... Nous développons les middlewares et connecteurs API sur-mesure pour synchroniser vos données Legacy en temps réel vers votre portail web.",
+        "Scalabilité (Cloud & Edge)",
+        "Votre trafic est mondial ? Vos serveurs se dupliquent à la demande de l",
+        "Méthodologie Fast-Track",
+        "Nous court-circuitons les processus administratifs lourds des ESN : déploiement continu, itérations hebdomadaires. Vous testez la V1 en 3 mois, pas 2 ans."
+      ]
+    },
+    {
+      "file": "src/app/grands-comptes/_components/GrandsComptesStats.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/grands-comptes/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Identifiez les failles techniques de votre infrastructure.\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            L&apos;agilité d&apos;une startup, pour les exigences de votre groupe.\n                        "
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Agence web pour grands comptes & ETI : refonte et acquisition | Litus",
+        "Refonte corporate, sites sur mesure, SEO et Google Ads pour grands comptes et ETI. Un projet cadré avec vos équipes, des outils connectés et un suivi dans la durée."
+      ]
+    },
+    {
+      "file": "src/app/home-reference.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/integrations-api/page.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 2,
+          "text": "Les mêmes mots.Les mêmes règles."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Votre équipe saitoù en sont les données."
+        },
+        {
+          "level": 2,
+          "text": "Quels logiciels devraientmieux travailler ensemble ?"
+        }
+      ],
+      "links": [
+        "/automatisation",
+        "/developpement-web-sur-mesure",
+        "/creation-application-web",
+        "/creation-site-ecommerce",
+        "/creation-outils-ia"
+      ],
+      "titles": [
+        "Intégrations API & connecteurs sur mesure pour entreprise | Litus",
+        "Boutique → gestion",
+        "CRM → facturation",
+        "Données → équipes",
+        "CRM & relation client",
+        "ERP & gestion",
+        "Sites & boutiques",
+        "Paiement & facturation"
+      ]
+    },
+    {
+      "file": "src/app/layout.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png",
+        "/favicon.ico",
+        "/icon.png",
+        "/apple-icon.png"
+      ],
+      "titles": [
+        "Agence web locale spécialisée en création de sites, SEO et applications sur-mesure. Proximité, transparence et résultats pour artisans, PME et collectivités.",
+        "Litus - Agence Web Lorient & Le Mans",
+        "Agence web locale spécialisée en création de sites, SEO et applications sur-mesure.",
+        "Litus - Agence Web Lorient & Le Mans",
+        "Agence web locale spécialisée en création de sites, SEO et applications sur-mesure."
+      ]
+    },
+    {
+      "file": "src/app/login-admin/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Litus"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                        Connexion Admin\r\n                    "
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/mentions-legales/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Mentions légales"
+        },
+        {
+          "level": 3,
+          "text": "Nature de la collaboration"
+        },
+        {
+          "level": 2,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        }
+      ],
+      "links": [
+        "/politique-confidentialite"
+      ],
+      "titles": [
+        "Mentions légales",
+        "Mentions légales du site litus.fr, édité par Aksel Roca et Arthur Geveaux."
+      ]
+    },
+    {
+      "file": "src/app/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/pme/_components/PmeHero.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/pme/_components/PmePainPoints.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "\r\n                                {item.title}\r\n                            "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Votre site et vos outils font \\",
+        "Vous réalisez des millions de CA, mais votre site est daté et vos équipes perdent des heures sous Excel car aucun de vos logiciels n",
+        "Difficulté à recruter",
+        "Les meilleurs talents regardent votre site web avant même de postuler. S",
+        "Des marchés B2B perdus",
+        "Lorsqu",
+        "Processus d",
+        "Vos prospects remplissent un vieux formulaire de contact. Les données sont perdues dans une boîte mail au lieu d"
+      ]
+    },
+    {
+      "file": "src/app/pme/_components/PmeSolutions.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                Notre solution : L'écosystème Litus.\r\n                            "
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Site Corporate & Portails",
+        "Un développement sur-mesure combinant un design ultra-premium pour votre image de marque à des outils internes ou portails clients B2B pour fluidifier l",
+        "Acquisition & Lead Gen",
+        "On déploie des landing pages dédiées à chacun de vos services couplées à des campagnes d",
+        "Automatisation (CRM & ERP)",
+        "Fini les doubles saisies. Dès qu",
+        "Marque Employeur Forte",
+        "Une section recrutement moderne qui valorise votre culture d"
+      ]
+    },
+    {
+      "file": "src/app/pme/_components/PmeStats.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/pme/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Prévoyez le budget digital de votre PME.\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            Passez un cap. Devenez le candidat naturel de vos prospects B2B.\r\n                        "
+        }
+      ],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": [
+        "Agence web pour PME : site sur mesure, SEO & Google Ads | Litus",
+        "Faites grandir votre PME avec un site sur mesure, une stratégie SEO et Google Ads, et un suivi des demandes. Une équipe à vos côtés, de la refonte au pilotage."
+      ]
+    },
+    {
+      "file": "src/app/politique-confidentialite/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Politique de Confidentialité"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    1\r\n                                    Introduction et Responsable du traitement\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    2\r\n                                    Données collectées\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    3\r\n                                    Utilisation de vos données\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    4\r\n                                    Durée de conservation\r\n                                "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    5\r\n                                    Vos droits (RGPD)\r\n                                "
+        },
+        {
+          "level": 3,
+          "text": "Droit d'accès"
+        },
+        {
+          "level": 3,
+          "text": "Droit de rectification"
+        },
+        {
+          "level": 3,
+          "text": "Droit à l'effacement"
+        },
+        {
+          "level": 3,
+          "text": "Droit d'opposition"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                    6\r\n                                    Gestion des Cookies\r\n                                "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Politique de Confidentialité | Litus",
+        "Découvrez comment Litus protège et gère vos données personnelles conformément au RGPD."
+      ]
+    },
+    {
+      "file": "src/app/realisations/[slug]/CaseStudyTemplate.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{data.client}"
+        },
+        {
+          "level": 2,
+          "text": "D’où partaitle projet ?"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Ce que nous devionsaccomplir."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Une stratégie construiteautour du projet."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Du conceptau produit final."
+        },
+        {
+          "level": 2,
+          "text": "Plus qu’un nouveau site."
+        },
+        {
+          "level": 2,
+          "text": "Ce qui a changé."
+        },
+        {
+          "level": 3,
+          "text": "Avant"
+        },
+        {
+          "level": 3,
+          "text": "Après"
+        },
+        {
+          "level": 2,
+          "text": "{data.results.headline}"
+        },
+        {
+          "level": 2,
+          "text": "Et si le prochainétait le vôtre ?"
+        },
+        {
+          "level": 2,
+          "text": "D’autres réalisations qui pourraient vous intéresser"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        }
+      ],
+      "links": [
+        "/realisations",
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/realisations/[slug]/case-study-data.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Présence Google limitée",
+        "Site peu orienté conversion",
+        "Dépendance au bouche-à-oreille",
+        "Gagner en visibilité locale",
+        "Transformer les visites en prospects",
+        "Construire une acquisition durable",
+        "Site internet",
+        "Un site moderne, rapide et pensé pour convertir."
+      ]
+    },
+    {
+      "file": "src/app/realisations/[slug]/case-study.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/realisations/[slug]/fg-chronodep-case-study.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Plusieurs types d’intervention",
+        "Une activité de proximité",
+        "Un contact direct",
+        "Présenter les prestations",
+        "Faciliter la prise de contact",
+        "Préciser les zones desservies",
+        "Présentation des services",
+        "Des pages pour découvrir les différentes interventions."
+      ]
+    },
+    {
+      "file": "src/app/realisations/[slug]/page.tsx",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": [
+        "Demétis Immobilier",
+        "Site vitrine sur mesure pour valoriser leurs biens et renforcer leur visibilité locale sur Google."
+      ]
+    },
+    {
+      "file": "src/app/realisations/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Erreur de chargement"
+        },
+        {
+          "level": 2,
+          "text": "Et si nous parlions de votre projet ?"
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Nos Réalisations | Agence Web Litus",
+        "Découvrez nos derniers projets : Sites vitrines, E-commerce, Applications web et campagnes Google Ads."
+      ]
+    },
+    {
+      "file": "src/app/referencement-naturel/_components/SeoStrategyDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{panels[phase].title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Des pages accessibles.",
+        "Une réponse à la bonne question.",
+        "Un parcours qui a du sens."
+      ]
+    },
+    {
+      "file": "src/app/referencement-naturel/_components/seo-strategy-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/referencement-naturel/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Vos clients cherchent déjà.Que trouvent-ils ?"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{item.question}"
+        },
+        {
+          "level": 2,
+          "text": "Savoir ce qui change.Comprendre pourquoi."
+        },
+        {
+          "level": 2,
+          "text": "Des observations utiles.Des décisions expliquées."
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Faisons le point sur votre site.Et sur ce qu’il peut apporter."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/refonte-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-internet"
+      ],
+      "titles": [
+        "Audit & priorités SEO",
+        "Technique & structure",
+        "Contenus & intentions",
+        "Comprendre votre activité",
+        "Choisir les bons chantiers",
+        "Faire évoluer les pages",
+        "Observer et ajuster",
+        "Votre site reste difficile à trouver"
+      ]
+    },
+    {
+      "file": "src/app/referencement-naturel/referencement-naturel.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/refonte-site-internet/_components/RefonteHeroDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{view === 0 ? 'Une entreprise, de nombreux services.' : 'Le bon service. Une prochaine étape claire.'}"
+        },
+        {
+          "level": 3,
+          "text": "Les bonnes pages,aux bonnes adresses."
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/refonte-site-internet/_components/refonte-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/refonte-site-internet/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Votre site a déjàune histoire utile."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Une refonte se préparepage par page."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Un nouveau site.Des repères à préserver."
+        },
+        {
+          "level": 3,
+          "text": "{itemTitle}"
+        },
+        {
+          "level": 3,
+          "text": "{item.title}"
+        },
+        {
+          "level": 2,
+          "text": "Une mise en ligne,et une suite prévue."
+        },
+        {
+          "level": 2,
+          "text": "Votre site peut mieuxreprésenter votre activité."
+        }
+      ],
+      "links": [
+        "/litus-og-social.png",
+        "/referencement-naturel",
+        "/creation-site-internet",
+        "/creation-site-ecommerce"
+      ],
+      "titles": [
+        "L’offre & les parcours",
+        "Les contenus & la visibilité",
+        "La base technique",
+        "Une structure claire",
+        "Des contenus utiles",
+        "Un vrai parcours mobile",
+        "Une prise en main prévue",
+        "Auditer & cadrer"
+      ]
+    },
+    {
+      "file": "src/app/refonte-site-internet/refonte-content.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/refonte-site-internet/refonte.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/ressources/[magnet]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "\r\n                        {magnet.title}\r\n                    "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Ressource introuvable | Litus"
+      ]
+    },
+    {
+      "file": "src/app/seo-local/SeoLocalHero.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{result.title}"
+        }
+      ],
+      "links": [
+        "/contact?objet=seo"
+      ],
+      "titles": [
+        "Plombiers à Lorient : les professionnels proches de vous",
+        "Trouvez un plombier à Lorient. Avis, horaires et coordonnées.",
+        "Dépannage plomberie à Lorient",
+        "Intervention rapide 7j/7 sur Lorient et ses alentours.",
+        "Artisan plombier dans le Morbihan",
+        "Installation, rénovation et dépannage près de chez vous.",
+        "Plomberie Lorient – Installation et rénovation",
+        "Prestations de plomberie sur Lorient et le Morbihan."
+      ]
+    },
+    {
+      "file": "src/app/seo-local/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                97% des consommateurs cherchent en ligne avant d’acheter localement\n                            "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Agence SEO Local Lorient & Le Mans - Référencement Google",
+        "Devenez N°1 sur Google dans votre ville. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
+        "Aire des Îles",
+        "Aspire Marketing",
+        "Azra Photographie",
+        "BRZ Couverture",
+        "Carnac Immobilier",
+        "Audit & Mots-Clés"
+      ]
+    },
+    {
+      "file": "src/app/seo-local/seo-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/tarifs/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Des prix clairs,sans surprise"
+        },
+        {
+          "level": 2,
+          "text": "Parlons de ce dont vous avez vraiment besoin."
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": [
+        "Tarifs - Agence Web Transparente | Litus",
+        "Site internet dès 99 €/mois, SEO dès 99 €/mois et gestion Google Ads à 129 €/mois. Choisissez votre besoin puis faites évoluer votre accompagnement Litus.",
+        "Des offres complètes",
+        "Un tarif clair",
+        "Un accompagnement réel"
+      ]
+    },
+    {
+      "file": "src/app/tarifs/pricing.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/template.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/auth.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/admin/ProjectForm.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Informations générales"
+        },
+        {
+          "level": 3,
+          "text": "Média & Liens"
+        },
+        {
+          "level": 3,
+          "text": "Résultats & Statistiques"
+        },
+        {
+          "level": 3,
+          "text": "Technologies & Tags"
+        }
+      ],
+      "links": [
+        "/admin/portfolio"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/forms/ContactForm.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Message envoyé avec succès !"
+        },
+        {
+          "level": 3,
+          "text": "Canaux Directs"
+        },
+        {
+          "level": 3,
+          "text": "Réseaux Sociaux"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/forms/LeadMagnetForm.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/AnnouncementBar.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/Footer.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{column.title}"
+        },
+        {
+          "level": 2,
+          "text": "Parlons de vos objectifs."
+        }
+      ],
+      "links": [
+        "/",
+        "/contact?objet=rendez-vous",
+        "/contact",
+        "/mentions-legales",
+        "/politique-confidentialite",
+        "/sitemap.xml"
+      ],
+      "titles": [
+        "Nos services",
+        "Vous êtes",
+        "L’agence",
+        "Ressources",
+        "Des sites performants",
+        "Un accompagnement humain",
+        "Une expertise locale",
+        "Expertise acquisition"
+      ]
+    },
+    {
+      "file": "src/components/layout/Header.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{group.title}"
+        },
+        {
+          "level": 2,
+          "text": "Expertises"
+        },
+        {
+          "level": 3,
+          "text": "{group.title}"
+        },
+        {
+          "level": 2,
+          "text": "{group.title}"
+        }
+      ],
+      "links": [
+        "/artisans",
+        "/pme",
+        "/grands-comptes",
+        "/collectivites",
+        "/blog",
+        "/ressources/guide-prix",
+        "/tarifs",
+        "/agence-web-le-mans",
+        "/agence-web-lorient",
+        "/a-propos",
+        "/realisations",
+        "/contact",
+        "/"
+      ],
+      "titles": [
+        "Notre présence en Sarthe et vos rendez-vous sur place.",
+        "Notre présence dans le pays de Lorient.",
+        "Deux expertises réunies autour de vos objectifs.",
+        "Solutions",
+        "Agences"
+      ]
+    },
+    {
+      "file": "src/components/layout/PageTransition.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/PublicLayoutWrapper.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/footer.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/header.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/layout/index.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/lead-magnets/LeadMagnetInline.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{magnet.title}"
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                Téléchargement en cours !\r\n                            "
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/lead-magnets/LeadMagnetSection.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                    {heading}\r\n                                "
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/lead-magnets/LeadMagnetSlideIn.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{magnet.title}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/lead-magnets/config.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Les 5 erreurs Google qui envoient vos clients chez la concurrence",
+        "Checklist gratuite — 2 pages",
+        "Corrigez les erreurs les plus courantes sur votre fiche Google Business et gagnez en visibilité locale.",
+        "Le vrai prix d\\",
+        "Guide comparatif gratuit — 3 pages",
+        "Comparez les tarifs du marché et évitez les arnaques. Freelance, agence, Wix : on vous dit tout.",
+        "Calculez combien d\\",
+        "Diagnostic productivité gratuit"
+      ]
+    },
+    {
+      "file": "src/components/lead-magnets/index.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/portfolio/PortfolioEditorial.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Des projets penséspour convertir."
+        },
+        {
+          "level": 2,
+          "text": "{project.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "West Clôtures & Paysage",
+        "Refonte du site pour une meilleure visibilité locale, une optimisation SEO complète et une stratégie d’acquisition de clients via Google Ads.",
+        "Demétis Immobilier",
+        "Site vitrine sur-mesure pour valoriser leurs biens et renforcer leur visibilité locale sur Google.",
+        "Aspire Énergie",
+        "Refonte du site et campagnes Google Ads pour développer leur acquisition de leads dans toute la région."
+      ]
+    },
+    {
+      "file": "src/components/portfolio/PortfolioGrid.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "\r\n                        {project.title}\r\n                    "
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/portfolio/portfolio-reference.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/providers/AnalyticsProvider.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/providers/LenisProvider.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/providers/ThemeProvider.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/BentoFeatures.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\n            Votre place sur Google\n            \n            ne doit rien au hasard.\n          "
+        },
+        {
+          "level": 3,
+          "text": "{result.title}"
+        }
+      ],
+      "links": [
+        "/contact?objet=seo"
+      ],
+      "titles": [
+        "Plombiers à Lorient : les professionnels proches de vous",
+        "Adresses, horaires et avis des entreprises de plomberie à Lorient.",
+        "Dépannage plomberie à Lorient et dans le Morbihan",
+        "Intervention rapide pour vos dépannages et installations.",
+        "Artisan plombier à Lorient",
+        "Travaux de plomberie, rénovation et dépannage.",
+        "Plombier à Lorient | Dépannage et installation",
+        "Intervention à Lorient et ses alentours. Devis gratuit et équipe locale."
+      ]
+    },
+    {
+      "file": "src/components/sections/EstimatorSection.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\n            Quelle place pour{' '}\n            \n            votre activité en ligne ?\n          "
+        },
+        {
+          "level": 3,
+          "text": "Votre marché local"
+        },
+        {
+          "level": 3,
+          "text": "Votre première estimation"
+        }
+      ],
+      "links": [
+        "/contact?objet=audit",
+        "/politique-confidentialite",
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/GoogleReviews.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Avis clients"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/HeroSection.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Votre agence web{' '}pour développer{' '}votre activité."
+        }
+      ],
+      "links": [
+        "/contact",
+        "/territories/credits.html"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/LogoCloud.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/MassiveCTA.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\n            Prenons le temps\n            \n            d’en parler.\n          "
+        }
+      ],
+      "links": [
+        "/contact",
+        "/contact?objet=audit"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/PricingContent.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Choisissez uniquement ce dont vous avez besoin."
+        },
+        {
+          "level": 3,
+          "text": "{offer.name}"
+        },
+        {
+          "level": 2,
+          "text": "Quelle offre correspond à votre situation&nbsp;?"
+        },
+        {
+          "level": 3,
+          "text": "{recommendation.name}"
+        },
+        {
+          "level": 2,
+          "text": "Des accompagnements qui évoluent avec votre activité."
+        },
+        {
+          "level": 3,
+          "text": "{plan.name}"
+        },
+        {
+          "level": 3,
+          "text": "Comparer les offres en détail"
+        },
+        {
+          "level": 2,
+          "text": "Un besoin précis mérite une réponse bien cadrée."
+        }
+      ],
+      "links": [
+        "/contact?objet=site-essentiel",
+        "/contact?objet=seo-essentiel",
+        "/contact?objet=gestion-google-ads",
+        "/contact?objet=visibilite",
+        "/contact?objet=growth",
+        "/contact?objet=premium",
+        "/contact?objet=entreprise",
+        "/creation-site-internet",
+        "/creation-site-ecommerce",
+        "/seo-local",
+        "/google-ads",
+        "/creation-application-web",
+        "/automatisation",
+        "/creation-outils-ia",
+        "/contact?objet=maintenance",
+        "/contact?objet=audit",
+        "/contact?objet=prestation"
+      ],
+      "titles": [
+        "Un site vitrine professionnel, entretenu et prêt à transformer vos visiteurs en demandes.",
+        "Un suivi régulier pour améliorer progressivement la visibilité de votre site sur Google.",
+        "La gestion de vos campagnes Google Ads sans vous imposer un accompagnement complet.",
+        "Le bon compromis pour une entreprise qui veut un site suivi et une visibilité qui progresse.",
+        "Pour les entreprises qui veulent accélérer leur acquisition.",
+        "Pour déléguer davantage votre acquisition et piloter une stratégie plus ambitieuse.",
+        "Une réponse construite autour d’un projet spécifique ou d’une organisation complexe.",
+        "Un périmètre clair"
+      ]
+    },
+    {
+      "file": "src/components/sections/ProcessTimeline.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Un projet clair, du premier échange au suivi."
+        }
+      ],
+      "links": [
+        "/a-propos"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/StatsSection.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Une relation qui se mesure aussi dans la durée."
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Clients accompagnés",
+        "Des projets concrets et durables",
+        "ROI moyen",
+        "Une croissance mesurable",
+        "Avis Google",
+        "Des clients satisfaits",
+        "Délai de réponse",
+        "Une équipe réactive"
+      ]
+    },
+    {
+      "file": "src/components/sections/UnfairAdvantageSection.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                            Pourquoi une agence locale ?\r\n                        "
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                {comparison.autresAgences.title}\r\n                            "
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                {comparison.litus.title}\r\n                            "
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Autres Agences",
+        "Litus"
+      ]
+    },
+    {
+      "file": "src/components/sections/google-reviews.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/HeroWorkspace.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/ProcessDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{title}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/ReferenceMotion.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/ServicesSection.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\n              Le web, au service\n              \n              de votre activité.\n            "
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        }
+      ],
+      "links": [
+        "/creation-site-internet",
+        "/seo-local",
+        "/google-ads",
+        "/creation-site-ecommerce",
+        "/creation-application-web",
+        "/contact"
+      ],
+      "titles": [
+        "Sites vitrine",
+        "Un site rapide et soigné pour présenter votre entreprise et faciliter les prises de contact.",
+        "Référencement local",
+        "Une présence travaillée sur Google et Google Maps, pour être trouvé dans votre zone d’activité.",
+        "Google Ads",
+        "Des campagnes ciblées, un budget suivi et des résultats mesurés avec vous.",
+        "E-commerce",
+        "Une boutique en ligne avec un parcours d’achat fluide et des paiements sécurisés."
+      ]
+    },
+    {
+      "file": "src/components/sections/home/TerritoryMap.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/TerritoryScene.tsx",
+      "headings": [],
+      "links": [
+        "/agence-web-lorient",
+        "/agence-web-le-mans",
+        "/referencement-naturel"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/hero-workspace.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/services-reference.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/territory-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/index.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/BusinessService.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{children}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/ServiceHero.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "\n            {headingAccent && accentStart >= 0 ? <>{heading.slice(0, accentStart)}{headingAccent}{heading.slice(accentStart + headingAccent.length)} : heading}\n          "
+        },
+        {
+          "level": 2,
+          "text": "{benefit.title}"
+        }
+      ],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/ServicePageSeo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/ServiceReveal.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/TechnicalDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/business-service.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/service-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/technical-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/services/technical-services.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/solutions/SolutionsHero.tsx",
+      "headings": [],
+      "links": [
+        "/contact",
+        "/realisations"
+      ],
+      "titles": [
+        "Votre entreprise a besoin de visibilité.\\nFaites-la grandir en ligne.",
+        "Site sur mesure ou refonte, SEO et Google Ads : nous construisons une présence web qui valorise votre expertise et attire des prospects qualifiés. Une stratégie adaptée à votre PME, un suivi clair et une équipe à vos côtés.",
+        "Votre groupe a de grandes ambitions.\\nDonnons-leur vie en ligne.",
+        "Refonte corporate, sites sur mesure, SEO et Google Ads : nous relions votre présence web à vos objectifs d’acquisition. Un projet cadré avec vos équipes, des outils connectés et un accompagnement adapté à votre organisation.",
+        "Votre territoire mérite un site utile.\\nPlus proche de ses habitants.",
+        "Site institutionnel, refonte et services en ligne : nous rendons votre information plus claire et plus facile à trouver sur Google. Une présence web au service de vos usagers, du travail de vos agents et des projets de votre territoire."
+      ]
+    },
+    {
+      "file": "src/components/sections/solutions/SolutionsHeroDemo.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Une demande reçue",
+        "Un besoin précisé",
+        "Une réponse préparée",
+        "Une demande centralisée",
+        "La bonne équipe mobilisée",
+        "Un suivi partagé",
+        "La demande est déposée",
+        "Le service est informé"
+      ]
+    },
+    {
+      "file": "src/components/sections/solutions/solutions-hero-demo.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/solutions/solutions-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/templates/BlogArticleTemplate.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{data.title}"
+        },
+        {
+          "level": 2,
+          "text": "Dans cet article"
+        },
+        {
+          "level": 2,
+          "text": "Et pourvotre entreprise ?"
+        },
+        {
+          "level": 2,
+          "text": "Nos expertises"
+        },
+        {
+          "level": 2,
+          "text": "Pour poursuivre votre lecture."
+        },
+        {
+          "level": 3,
+          "text": "{article.title}"
+        }
+      ],
+      "links": [
+        "/",
+        "/blog",
+        "/seo-local",
+        "/creation-site-internet",
+        "/google-ads"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/templates/CaseStudyTemplate.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "\r\n                            {data.clientName}\r\n                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                {data.challenge.title}\r\n                            "
+        },
+        {
+          "level": 3,
+          "text": "Points de friction identifiés :"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                {data.solution.title}\r\n                            "
+        },
+        {
+          "level": 3,
+          "text": "{step.title}"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                {data.results.title}\r\n                            "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                            Prêt à obtenir les mêmes résultats ?\r\n                        "
+        }
+      ],
+      "links": [
+        "/etudes-de-cas",
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/templates/ServicePageTemplate.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Expertise & Savoir-faire"
+        },
+        {
+          "level": 3,
+          "text": "{feature.title}"
+        },
+        {
+          "level": 2,
+          "text": "Étude de Cas"
+        },
+        {
+          "level": 3,
+          "text": "\r\n                                        {featuredProject.title}\r\n                                    "
+        },
+        {
+          "level": 2,
+          "text": " {pricing.starter ? \"Tarifs Transparents\" : \"Tarification Sur Mesure\"}"
+        },
+        {
+          "level": 3,
+          "text": "Offre Accessibilité"
+        },
+        {
+          "level": 3,
+          "text": "Projet Spécifique"
+        },
+        {
+          "level": 2,
+          "text": "Questions Fréquentes"
+        },
+        {
+          "level": 2,
+          "text": "\r\n                        Prêt à décoller ?\r\n                    "
+        }
+      ],
+      "links": [
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/templates/blog-article.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Accordion.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/AnimatedCounter.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Animations.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/AvailabilityBadge.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Badge.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Button.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Card.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Container.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/CookieBanner.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Des cookies, en toute transparence."
+        },
+        {
+          "level": 2,
+          "text": "Vos préférences"
+        }
+      ],
+      "links": [
+        "/politique-confidentialite"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/HeroBackdrop.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/Input.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/LeadCapturePopup.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "\r\n                                            Audit SEO Gratuit\r\n                                        "
+        },
+        {
+          "level": 2,
+          "text": "\r\n                                            Merci !\r\n                                        "
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/ThemeToggle.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/cookie-banner.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/index.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/hooks/index.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/hooks/useDarkMode.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/hooks/useLenis.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/hooks/useReducedMotion.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/admin-data.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Guide SEO Local 2024",
+        "Google Ads vs SEO : que choisir ?"
+      ]
+    },
+    {
+      "file": "src/lib/animations.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/availability.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/blog/article-photos.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/blog/articles-2026-a.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Définissez le résultat attendu avant le nombre de pages"
+        },
+        {
+          "level": 3,
+          "text": "Distinguez les pages des modèles de mise en page"
+        },
+        {
+          "level": 2,
+          "text": "Faites l’inventaire de ce que vous fournissez"
+        },
+        {
+          "level": 3,
+          "text": "Prévoyez le temps de votre équipe"
+        },
+        {
+          "level": 2,
+          "text": "Séparez le socle indispensable des évolutions"
+        },
+        {
+          "level": 2,
+          "text": "Identifiez les coûts après la mise en ligne"
+        },
+        {
+          "level": 2,
+          "text": "Comparez des engagements équivalents"
+        },
+        {
+          "level": 2,
+          "text": "Préparez un brief court pour obtenir une estimation"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Regardez les questions que l’agence vous pose"
+        },
+        {
+          "level": 3,
+          "text": "Faites décrire un parcours concret"
+        },
+        {
+          "level": 2,
+          "text": "Examinez les références au-delà de leur miniature"
+        },
+        {
+          "level": 3,
+          "text": "Demandez une explication des choix"
+        },
+        {
+          "level": 2,
+          "text": "Clarifiez le déroulement et les validations"
+        },
+        {
+          "level": 2,
+          "text": "Vérifiez comment la qualité sera contrôlée"
+        },
+        {
+          "level": 2,
+          "text": "Lisez les conditions de fonctionnement du site"
+        },
+        {
+          "level": 2,
+          "text": "Construisez une comparaison écrite"
+        },
+        {
+          "level": 2,
+          "text": "Choisissez un partenaire avec lequel les décisions sont claires"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Décrivez les chantiers que vous souhaitez réaliser"
+        },
+        {
+          "level": 3,
+          "text": "Un exemple de présentation précise"
+        },
+        {
+          "level": 2,
+          "text": "Expliquez les contraintes qui changent la préparation"
+        },
+        {
+          "level": 2,
+          "text": "Utilisez les réalisations pour montrer les situations traitées"
+        },
+        {
+          "level": 3,
+          "text": "Montrez aussi le déroulement"
+        },
+        {
+          "level": 2,
+          "text": "Proposez une demande de devis en deux niveaux de détail"
+        },
+        {
+          "level": 2,
+          "text": "Annoncez clairement la suite du contact"
+        },
+        {
+          "level": 2,
+          "text": "Ajustez le contenu à partir des échanges reçus"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Établissez une source fiable pour les horaires"
+        },
+        {
+          "level": 3,
+          "text": "Distinguez l’ouverture du magasin et les services"
+        },
+        {
+          "level": 2,
+          "text": "Présentez l’assortiment avec un vocabulaire client"
+        },
+        {
+          "level": 3,
+          "text": "Un exemple de contenu exploitable"
+        },
+        {
+          "level": 2,
+          "text": "Choisissez des photos qui répondent à une question"
+        },
+        {
+          "level": 2,
+          "text": "Faites dialoguer la fiche Google et le site"
+        },
+        {
+          "level": 2,
+          "text": "Organisez une routine légère de vérification"
+        },
+        {
+          "level": 2,
+          "text": "Reliez la visibilité aux visites et aux échanges"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Constituez un catalogue que vous pouvez maintenir"
+        },
+        {
+          "level": 3,
+          "text": "Précisez les variantes et les limites"
+        },
+        {
+          "level": 2,
+          "text": "Organisez la navigation autour des choix du client"
+        },
+        {
+          "level": 2,
+          "text": "Choisissez comment le stock et les commandes sont suivis"
+        },
+        {
+          "level": 2,
+          "text": "Calculez la livraison à partir des colis réels"
+        },
+        {
+          "level": 3,
+          "text": "Distinguez préparation et acheminement"
+        },
+        {
+          "level": 2,
+          "text": "Préparez les retours avant le premier envoi"
+        },
+        {
+          "level": 2,
+          "text": "Testez une commande complète"
+        },
+        {
+          "level": 2,
+          "text": "Choisissez la plateforme à partir de ces réponses"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Établissez un inventaire avant de modifier les adresses"
+        },
+        {
+          "level": 3,
+          "text": "Complétez l’inventaire avec les données disponibles"
+        },
+        {
+          "level": 2,
+          "text": "Décidez du rôle des nouvelles pages"
+        },
+        {
+          "level": 2,
+          "text": "Préparez une correspondance entre anciennes et nouvelles URL"
+        },
+        {
+          "level": 3,
+          "text": "Pensez aussi aux liens que vous contrôlez"
+        },
+        {
+          "level": 2,
+          "text": "Organisez la préparation technique sans interrompre l’existant"
+        },
+        {
+          "level": 2,
+          "text": "Vérifiez les parcours, pas seulement les écrans"
+        },
+        {
+          "level": 2,
+          "text": "Préparez une liste de lancement commune"
+        },
+        {
+          "level": 2,
+          "text": "Suivez la transition après publication"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Commencez par votre propre calendrier"
+        },
+        {
+          "level": 3,
+          "text": "Séparez les faits des hypothèses"
+        },
+        {
+          "level": 2,
+          "text": "Choisissez l’offre que vous pouvez soutenir"
+        },
+        {
+          "level": 2,
+          "text": "Adaptez le ciblage à la préparation du client"
+        },
+        {
+          "level": 2,
+          "text": "Préparez les annonces et la page ensemble"
+        },
+        {
+          "level": 3,
+          "text": "Prévoyez les réponses hors ouverture"
+        },
+        {
+          "level": 2,
+          "text": "Planifiez le démarrage et l’arrêt"
+        },
+        {
+          "level": 2,
+          "text": "Définissez un budget et des critères de décision"
+        },
+        {
+          "level": 2,
+          "text": "Préparez le bilan avant la fin de la période"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        },
+        {
+          "level": 2,
+          "text": "Distinguez les besoins du visiteur et de l’habitué"
+        },
+        {
+          "level": 3,
+          "text": "Faites un test sans vos repères habituels"
+        },
+        {
+          "level": 2,
+          "text": "Expliquez l’accès avec précision"
+        },
+        {
+          "level": 2,
+          "text": "Présentez clairement les conditions d’accueil"
+        },
+        {
+          "level": 3,
+          "text": "Employez des intitulés qui décrivent l’action"
+        },
+        {
+          "level": 2,
+          "text": "Gardez une base de contenu valable hors saison"
+        },
+        {
+          "level": 2,
+          "text": "Alignez les horaires sur la réalité de l’établissement"
+        },
+        {
+          "level": 2,
+          "text": "Publiez des contenus qui prolongent l’accueil"
+        },
+        {
+          "level": 2,
+          "text": "Entretenez la présence locale avec une routine simple"
+        },
+        {
+          "level": 2,
+          "text": "Sources utiles"
+        }
+      ],
+      "links": [
+        "/seo-local",
+        "/creation-site-internet",
+        "/tarifs",
+        "/contact",
+        "/realisations",
+        "/artisans",
+        "/agence-web-lorient",
+        "/creation-site-ecommerce",
+        "/google-ads"
+      ],
+      "titles": [
+        "Quel budget prévoir pour un site internet à Lorient ?",
+        "Comment choisir votre agence web à Vannes ?",
+        "Artisan à Lanester : un site pour recevoir les bons projets",
+        "Commerce à Ploemeur : rendre vos informations utiles sur Google",
+        "Créer une boutique en ligne dans le Morbihan : préparer l’essentiel",
+        "Refonte à Hennebont : préparer la migration de votre site",
+        "Google Ads à Auray : préparer vos périodes d’activité",
+        "À Larmor-Plage, aider les visiteurs à vous trouver toute l’année"
+      ]
+    },
+    {
+      "file": "src/lib/blog/articles-2026-b.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Décrire le problème avant de demander une solution"
+        },
+        {
+          "level": 2,
+          "text": "Identifier les visiteurs et leurs prochaines étapes"
+        },
+        {
+          "level": 3,
+          "text": "Préparer quelques parcours représentatifs"
+        },
+        {
+          "level": 2,
+          "text": "Fixer un périmètre qui peut être chiffré"
+        },
+        {
+          "level": 3,
+          "text": "Séparer le lancement des évolutions possibles"
+        },
+        {
+          "level": 2,
+          "text": "Organiser les contenus et les validations"
+        },
+        {
+          "level": 2,
+          "text": "Définir une réception fondée sur des tâches vérifiables"
+        },
+        {
+          "level": 2,
+          "text": "Comparer les coûts sur la durée du projet"
+        },
+        {
+          "level": 2,
+          "text": "Définir ce qu’est un appel qualifié pour votre activité"
+        },
+        {
+          "level": 2,
+          "text": "Ne pas confondre les modes de mesure"
+        },
+        {
+          "level": 3,
+          "text": "Nommer chaque action sans ambiguïté"
+        },
+        {
+          "level": 2,
+          "text": "Vérifier le parcours téléphonique avant d’interpréter les résultats"
+        },
+        {
+          "level": 2,
+          "text": "Tenir un suivi commercial léger, mais exploitable"
+        },
+        {
+          "level": 3,
+          "text": "Rapprocher les données sans les forcer"
+        },
+        {
+          "level": 2,
+          "text": "Faire remonter les bonnes informations dans Google Ads"
+        },
+        {
+          "level": 2,
+          "text": "Décider à partir de la qualité des demandes"
+        },
+        {
+          "level": 2,
+          "text": "Attribuer une fonction différente à chaque support"
+        },
+        {
+          "level": 2,
+          "text": "Créer une référence commune pour les informations importantes"
+        },
+        {
+          "level": 3,
+          "text": "Distinguer une adresse d’une zone de déplacement"
+        },
+        {
+          "level": 2,
+          "text": "Choisir des pages de destination qui prolongent la recherche"
+        },
+        {
+          "level": 2,
+          "text": "Relier les informations communes sans dupliquer les textes"
+        },
+        {
+          "level": 3,
+          "text": "Rendre le contenu utile à une personne de Coulaines"
+        },
+        {
+          "level": 2,
+          "text": "Prévoir les mises à jour au moment où l’activité change"
+        },
+        {
+          "level": 2,
+          "text": "Observer la continuité du parcours, puis corriger"
+        },
+        {
+          "level": 2,
+          "text": "Partir d’une offre et d’un interlocuteur précis"
+        },
+        {
+          "level": 2,
+          "text": "Assurer la continuité entre l’annonce et la page"
+        },
+        {
+          "level": 3,
+          "text": "Dire ce qui se passe après la demande"
+        },
+        {
+          "level": 2,
+          "text": "Construire un ordre de lecture utile à la décision"
+        },
+        {
+          "level": 2,
+          "text": "Choisir des preuves liées à l’offre présentée"
+        },
+        {
+          "level": 2,
+          "text": "Demander assez d’informations, sans transformer la page en dossier"
+        },
+        {
+          "level": 3,
+          "text": "Expliquer les champs qui peuvent faire hésiter"
+        },
+        {
+          "level": 2,
+          "text": "Relier la mesure au traitement des demandes"
+        },
+        {
+          "level": 2,
+          "text": "Choisir entre réservation et commande payée en ligne"
+        },
+        {
+          "level": 2,
+          "text": "Commencer par un catalogue que vous pouvez maintenir"
+        },
+        {
+          "level": 3,
+          "text": "Préparer des fiches qui évitent les mauvaises surprises"
+        },
+        {
+          "level": 2,
+          "text": "Faire correspondre le stock affiché au stock disponible"
+        },
+        {
+          "level": 2,
+          "text": "Définir une préparation compatible avec la vie du magasin"
+        },
+        {
+          "level": 3,
+          "text": "Distinguer commande reçue et commande prête"
+        },
+        {
+          "level": 2,
+          "text": "Tester les situations qui sortent du parcours idéal"
+        },
+        {
+          "level": 2,
+          "text": "Faire évoluer le service à partir des demandes réelles"
+        },
+        {
+          "level": 2,
+          "text": "Observer une tâche réelle plutôt qu’un écran isolé"
+        },
+        {
+          "level": 2,
+          "text": "Rendre les actions principales faciles à repérer et à toucher"
+        },
+        {
+          "level": 3,
+          "text": "Contrôler ce qui se superpose à la page"
+        },
+        {
+          "level": 2,
+          "text": "Transmettre le contexte jusqu’au formulaire"
+        },
+        {
+          "level": 2,
+          "text": "Aider à remplir le formulaire avec le bon clavier"
+        },
+        {
+          "level": 3,
+          "text": "Conserver des libellés visibles pendant la saisie"
+        },
+        {
+          "level": 2,
+          "text": "Traiter correctement les erreurs et les interruptions"
+        },
+        {
+          "level": 2,
+          "text": "Mesurer les étapes sans confondre intention et demande"
+        },
+        {
+          "level": 2,
+          "text": "Clarifier ce que vous demandez au prestataire"
+        },
+        {
+          "level": 2,
+          "text": "Demander qui réalise, qui décide et qui coordonne"
+        },
+        {
+          "level": 3,
+          "text": "Comprendre le rôle des partenaires"
+        },
+        {
+          "level": 2,
+          "text": "Examiner la continuité pendant et après le projet"
+        },
+        {
+          "level": 3,
+          "text": "Faire préciser la maintenance"
+        },
+        {
+          "level": 2,
+          "text": "Comparer le coût complet, pas seulement la création"
+        },
+        {
+          "level": 2,
+          "text": "Garder la maîtrise des comptes et des informations"
+        },
+        {
+          "level": 2,
+          "text": "Évaluer une méthode à travers des exemples concrets"
+        }
+      ],
+      "links": [
+        "/pme",
+        "/creation-site-internet",
+        "/contact",
+        "/agence-web-le-mans",
+        "/google-ads",
+        "/artisans",
+        "/blog/seo-local-le-mans-pages-services",
+        "/seo-local",
+        "/realisations",
+        "/creation-site-ecommerce"
+      ],
+      "titles": [
+        "Site internet de PME au Mans : rédiger un cahier des charges qui aide à décider",
+        "Google Ads à Allonnes : mesurer les appels qui deviennent de vraies demandes",
+        "SEO local à Coulaines : faire travailler votre fiche Google et votre site ensemble",
+        "Landing page B2B à Arnage : préparer une page qui facilite la demande commerciale",
+        "E-commerce à La Chapelle-Saint-Aubin : organiser le retrait en magasin avant de vendre en ligne",
+        "À Yvré-l’Évêque, simplifier la prise de contact sur mobile sans perdre le contexte",
+        "Agence ou freelance en Sarthe : comparer les responsabilités avant de choisir"
+      ]
+    },
+    {
+      "file": "src/lib/blog/articles.ts",
+      "headings": [],
+      "links": [
+        "/territories/credits.html"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/lib/blog/blog-catalog.test.ts",
+      "headings": [],
+      "links": [
+        "/contact"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/lib/blog/local-articles.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Commencez par regarder votre fiche comme un client"
+        },
+        {
+          "level": 2,
+          "text": "Vérifiez le nom, la catégorie et vos accès"
+        },
+        {
+          "level": 2,
+          "text": "Distinguez l’adresse d’accueil de la zone d’intervention"
+        },
+        {
+          "level": 2,
+          "text": "Montrez ce qu’un prospect a besoin de voir"
+        },
+        {
+          "level": 2,
+          "text": "Traitez les avis comme des échanges avec vos clients"
+        },
+        {
+          "level": 2,
+          "text": "Mesurez ce qui compte, sans chercher une position unique"
+        },
+        {
+          "level": 2,
+          "text": "Votre plan de vérification en trois étapes"
+        },
+        {
+          "level": 3,
+          "text": "Aujourd’hui : corrigez ce qui empêche de vous joindre"
+        },
+        {
+          "level": 3,
+          "text": "Cette semaine : rassemblez des preuves de votre activité"
+        },
+        {
+          "level": 3,
+          "text": "Au prochain suivi : rapprochez visibilité et demandes"
+        },
+        {
+          "level": 2,
+          "text": "Sources et lectures utiles"
+        },
+        {
+          "level": 2,
+          "text": "Votre offre a changé, mais les pages racontent autre chose"
+        },
+        {
+          "level": 2,
+          "text": "Le parcours mobile demande trop d’efforts"
+        },
+        {
+          "level": 2,
+          "text": "Les demandes arrivent mal, ou ne sont pas exploitables"
+        },
+        {
+          "level": 2,
+          "text": "Votre équipe ne peut plus faire les mises à jour courantes"
+        },
+        {
+          "level": 2,
+          "text": "Préservez les pages qui apportent déjà des visites"
+        },
+        {
+          "level": 2,
+          "text": "Transformez le diagnostic en cahier des charges court"
+        },
+        {
+          "level": 2,
+          "text": "Préparez une décision, pas seulement une liste d’envies"
+        },
+        {
+          "level": 3,
+          "text": "Rassemblez les informations utiles avant le rendez-vous"
+        },
+        {
+          "level": 3,
+          "text": "Distinguez correction, évolution et refonte"
+        },
+        {
+          "level": 3,
+          "text": "Définissez la recette avant de lancer le chantier"
+        },
+        {
+          "level": 2,
+          "text": "Sources et lectures utiles"
+        },
+        {
+          "level": 2,
+          "text": "Dessinez votre périmètre réel avant d’ouvrir la campagne"
+        },
+        {
+          "level": 2,
+          "text": "Comprenez ce que signifie l’option de localisation"
+        },
+        {
+          "level": 2,
+          "text": "Reliez le lieu à une intention de recherche précise"
+        },
+        {
+          "level": 2,
+          "text": "Annoncez un service que la page permet réellement de demander"
+        },
+        {
+          "level": 2,
+          "text": "Évaluez les demandes, pas seulement les clics"
+        },
+        {
+          "level": 2,
+          "text": "Élargissez à partir de ce que vous pouvez traiter"
+        },
+        {
+          "level": 2,
+          "text": "Construisez une feuille de route lisible avec votre équipe"
+        },
+        {
+          "level": 3,
+          "text": "Une ligne par prestation, une zone réellement desservie"
+        },
+        {
+          "level": 3,
+          "text": "Un contact qualifié, une définition partagée"
+        },
+        {
+          "level": 3,
+          "text": "Un point de suivi consacré aux décisions"
+        },
+        {
+          "level": 2,
+          "text": "Sources et lectures utiles"
+        },
+        {
+          "level": 2,
+          "text": "Attribuez un rôle clair à la page d’accueil"
+        },
+        {
+          "level": 2,
+          "text": "Créez une page de service lorsqu’il existe un vrai sujet"
+        },
+        {
+          "level": 2,
+          "text": "Présentez le secteur d’intervention sans inventer d’implantations"
+        },
+        {
+          "level": 2,
+          "text": "Évitez les pages locales interchangeables"
+        },
+        {
+          "level": 2,
+          "text": "Donnez une place aux réalisations et aux questions fréquentes"
+        },
+        {
+          "level": 2,
+          "text": "Reliez les pages selon le parcours du visiteur"
+        },
+        {
+          "level": 2,
+          "text": "Testez votre arborescence avec trois demandes réelles"
+        },
+        {
+          "level": 3,
+          "text": "Le prospect qui connaît sa prestation"
+        },
+        {
+          "level": 3,
+          "text": "Le prospect qui vérifie votre secteur"
+        },
+        {
+          "level": 3,
+          "text": "Le prospect qui hésite entre deux solutions"
+        },
+        {
+          "level": 2,
+          "text": "Sources et lectures utiles"
+        },
+        {
+          "level": 2,
+          "text": "Nommez les prestations avec les mots de vos clients"
+        },
+        {
+          "level": 2,
+          "text": "Indiquez le secteur dans lequel vous pouvez vous déplacer"
+        },
+        {
+          "level": 2,
+          "text": "Montrez des réalisations que vous pouvez expliquer"
+        },
+        {
+          "level": 2,
+          "text": "Demandez les informations utiles au premier échange"
+        },
+        {
+          "level": 2,
+          "text": "Prévoyez l’alternative au formulaire"
+        },
+        {
+          "level": 2,
+          "text": "Vérifiez ce qui se passe après l’envoi"
+        },
+        {
+          "level": 2,
+          "text": "Préparez le contenu à partir d’un chantier que vous connaissez"
+        },
+        {
+          "level": 3,
+          "text": "Expliquez le besoin et ce que vous avez réalisé"
+        },
+        {
+          "level": 3,
+          "text": "Demandez seulement les informations utiles au premier échange"
+        },
+        {
+          "level": 3,
+          "text": "Organisez la réception pendant les interventions"
+        },
+        {
+          "level": 2,
+          "text": "Sources et lectures utiles"
+        },
+        {
+          "level": 2,
+          "text": "Définissez une demande utile pour votre entreprise"
+        },
+        {
+          "level": 2,
+          "text": "Vérifiez les bases avant d’envoyer davantage de visiteurs"
+        },
+        {
+          "level": 2,
+          "text": "Le SEO travaille la présence organique dans la durée"
+        },
+        {
+          "level": 2,
+          "text": "Google Ads permet de diffuser une offre dans un cadre piloté"
+        },
+        {
+          "level": 2,
+          "text": "Choisissez un point de départ selon votre situation"
+        },
+        {
+          "level": 2,
+          "text": "Faites dialoguer les observations sans confondre les résultats"
+        },
+        {
+          "level": 2,
+          "text": "Formulez votre décision en une page"
+        },
+        {
+          "level": 3,
+          "text": "Décrivez l’offre à développer"
+        },
+        {
+          "level": 3,
+          "text": "Listez les ressources réellement disponibles"
+        },
+        {
+          "level": 3,
+          "text": "Fixez une prochaine décision et ses critères"
+        },
+        {
+          "level": 2,
+          "text": "Sources et lectures utiles"
+        }
+      ],
+      "links": [
+        "/territories/credits.html",
+        "/seo-local",
+        "/agence-web-lorient",
+        "/blog/site-internet-artisan-lorient-devis",
+        "/contact?objet=Fiche%20Google%20Lorient",
+        "/realisations/demetis-immo",
+        "/creation-site-internet",
+        "/agence-web-le-mans",
+        "/blog/site-internet-pme-le-mans",
+        "/contact?objet=Refonte%20site%20Le%20Mans",
+        "/realisations/fg-chronodep",
+        "/google-ads",
+        "/blog/google-ads-allonnes-appels",
+        "/contact?objet=Campagne%20Google%20Ads%20Lorient",
+        "/blog/seo-local-coulaines",
+        "/contact?objet=Structure%20SEO%20Le%20Mans",
+        "/artisans/CREDITS.txt",
+        "/artisans",
+        "/blog/site-artisan-lanester",
+        "/contact?objet=Site%20artisan%20Lorient",
+        "/blog/seo-google-ads-comparaison.svg",
+        "/contact?objet=Strategie%20SEO%20Ads%20Le%20Mans"
+      ],
+      "titles": [
+        "SEO local à Lorient : rendez votre fiche Google vraiment utile",
+        "Refonte de site au Mans : que faut-il vraiment améliorer ?",
+        "Google Ads à Lorient : ciblez les demandes dans votre secteur",
+        "SEO au Mans : quelles pages créer pour vos services ?",
+        "Artisan à Lorient : un site qui facilite les demandes de devis",
+        "SEO ou Google Ads au Mans : par quoi commencer ?"
+      ]
+    },
+    {
+      "file": "src/lib/blog/photo-catalog.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/blog/prepare-article.test.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Les étapes à vérifier"
+        },
+        {
+          "level": 3,
+          "text": "Votre équipe"
+        },
+        {
+          "level": 2,
+          "text": "Les étapes à vérifier"
+        },
+        {
+          "level": 2,
+          "text": "SEO &amp; Google Ads"
+        },
+        {
+          "level": 2,
+          "text": "Partie ${index}"
+        },
+        {
+          "level": 2,
+          "text": "Un titre lisible"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/blog/prepare-article.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/cloudinary.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/contact/client.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/contact/config.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/contact/store.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/database_final.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/dataforseo.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/db.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/admin.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/backlinks.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/calendar.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/core.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/editorial.test.ts",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Deuxième titre"
+        }
+      ],
+      "links": [
+        "/blog/refonte",
+        "/blog/formulaires"
+      ],
+      "titles": [
+        "Documentation",
+        "Recherche réelle",
+        "Documentation",
+        "Page non indexée : un diagnostic avant de réécrire",
+        "Diagnostiquer une page non indexée | Litus",
+        "Identifiez les causes possibles d’une page non indexée et les vérifications utiles avant de modifier son contenu ou ses liens internes."
+      ]
+    },
+    {
+      "file": "src/lib/editorial/images.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/network.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/providers.test.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Official source",
+        "Web source"
+      ]
+    },
+    {
+      "file": "src/lib/editorial/providers.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/published.ts",
+      "headings": [],
+      "links": [
+        "/blog/${escape(String(row.targetSlug))}"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/quality.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/store.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/types.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/workflow.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/email.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Informations techniques"
+        },
+        {
+          "level": 1,
+          "text": "Nouvelle demande de contact."
+        },
+        {
+          "level": 2,
+          "text": "Demande prospect"
+        },
+        {
+          "level": 2,
+          "text": "Prompt ChatGPT prêt à copier"
+        },
+        {
+          "level": 1,
+          "text": "Votre demande est entre de bonnes mains."
+        },
+        {
+          "level": 2,
+          "text": "Votre demande"
+        },
+        {
+          "level": 2,
+          "text": "Et maintenant ?"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/estimation.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/estimator-data.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/expertises.ts",
+      "headings": [],
+      "links": [
+        "/creation-site-internet",
+        "/creation-site-ecommerce",
+        "/creation-landing-page",
+        "/refonte-site-internet",
+        "/referencement-naturel",
+        "/google-ads",
+        "/seo-local",
+        "/google-business-profile",
+        "/creation-application-web",
+        "/developpement-web-sur-mesure",
+        "/integrations-api",
+        "/automatisation",
+        "/creation-outils-ia"
+      ],
+      "titles": [
+        "Web & e-commerce",
+        "Présenter votre offre, faciliter le contact.",
+        "Un site clair, rapide et pensé pour vos clients.",
+        "Une boutique simple à acheter, simple à piloter.",
+        "Des pages ciblées pour transformer vos visites.",
+        "Faire évoluer votre image et vos performances.",
+        "Acquisition & visibilité",
+        "Être trouvé par les bons clients."
+      ]
+    },
+    {
+      "file": "src/lib/gemini.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/lorient-projects.ts",
+      "headings": [],
+      "links": [
+        "/realisations/fg-chronodep",
+        "/realisations/loumor-debarras"
+      ],
+      "titles": [
+        "Un site vitrine qui présente les prestations de plomberie, les zones d’intervention et les moyens de contact de l’entreprise.",
+        "Un site vitrine et un travail de référencement local pour présenter les services de débarras à Vannes et dans le Morbihan."
+      ]
+    },
+    {
+      "file": "src/lib/portfolio-slugs.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/prisma.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/schema.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Agence web locale spécialisée en création de sites, SEO local et Google Ads pour PME et artisans à Lorient et Le Mans."
+      ]
+    },
+    {
+      "file": "src/lib/seo.ts",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Agence web à Lorient & Le Mans. Sites web performants, SEO local et Google Ads pour les PME et artisans qui veulent dominer leur zone de chalandise."
+      ]
+    },
+    {
+      "file": "src/lib/utils.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/validations/contact.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/validations/newsletter.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/middleware.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    }
+  ],
+  "sitemap": "/** @type {import('next-sitemap').IConfig} */\r\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\r\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\r\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/tarifs')) {\r\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
+  "cron": [
+    {
+      "path": "/api/cron/editorial",
+      "schedule": "*/5 * * * *"
+    }
+  ],
+  "technologies": {
+    "@auth/prisma-adapter": "^2.11.1",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@hookform/resolvers": "^5.2.2",
+    "@libsql/client": "^0.8.1",
+    "@prisma/adapter-libsql": "^5.19.1",
+    "@prisma/client": "^5.19.1",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.9",
+    "bcryptjs": "^3.0.3",
+    "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.9.0",
+    "framer-motion": "^12.25.0",
+    "lenis": "^1.3.17",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.1",
+    "next-auth": "^5.0.0-beta.30",
+    "next-sitemap": "^4.2.3",
+    "prisma": "^5.19.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-hook-form": "^7.71.0",
+    "resend": "^6.7.0",
+    "web-vitals": "^3.5.0",
+    "zod": "^4.3.5"
+  }
+}

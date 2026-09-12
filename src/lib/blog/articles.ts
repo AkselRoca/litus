@@ -4,8 +4,9 @@ import { calculateReadTime, localArticles } from './local-articles'
 import { articles2026A } from './articles-2026-a'
 import { articles2026B } from './articles-2026-b'
 import { withArticlePhotos } from './article-photos'
+import { addBacklinkOverlays, publishedEditorial } from '@/lib/editorial/published'
 
-export type BlogCategory = 'SEO' | 'Stratégie' | 'Site Web' | 'Google Ads'
+export type BlogCategory = 'SEO' | 'Stratégie' | 'Site Web' | 'Google Ads' | 'E-commerce' | 'Développement' | 'Automatisation' | 'IA'
 export type BlogCity = 'Lorient' | 'Le Mans' | 'Lanester' | 'Ploemeur' | 'Hennebont' | 'Larmor-Plage' | 'Auray' | 'Vannes' | 'Morbihan' | 'Allonnes' | 'Coulaines' | 'Arnage' | 'La Chapelle-Saint-Aubin' | 'Yvré-l’Évêque' | 'Sarthe' | null
 
 export type BlogImage = {
@@ -41,6 +42,9 @@ export type BlogArticle = {
   imageLicense?: string
   images?: BlogImage[]
   authorName: string
+  cluster?: string
+  targetServicePage?: string
+  cta?: { label: string; text: string; href: string }
 }
 
 const editorialArticles: BlogArticle[] = [
@@ -106,7 +110,9 @@ export const getBlogArticles = cache(async (): Promise<BlogArticle[]> => {
   const prioritized = editorialArticles.filter(article => !unpublishedSlugs.has(article.slug))
     .map(article => bySlug.get(article.slug) ?? article)
   const localSlugs = new Set(prioritized.map(article => article.slug))
-  return [...prioritized, ...existing.filter(article => !localSlugs.has(article.slug))]
+  const automated = await publishedEditorial()
+  const combined = new Map([...prioritized, ...existing.filter(article => !localSlugs.has(article.slug)), ...automated].map(article => [article.slug, article]))
+  return addBacklinkOverlays([...combined.values()].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)))
 })
 
 export async function getBlogArticle(slug: string): Promise<BlogArticle | null> {

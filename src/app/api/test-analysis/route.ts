@@ -5,8 +5,10 @@
 
 import { NextResponse } from 'next/server'
 import { generateMarketAnalysis } from '@/lib/gemini'
+import { isEditor } from '@/lib/editorial/admin'
 
 export async function GET() {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     const logs: string[] = []
 
     try {

@@ -1,7 +1,9 @@
 import { prisma } from '@/lib/database_final'
 import { NextRequest, NextResponse } from 'next/server'
+import { isEditor } from '@/lib/editorial/admin'
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const { id } = await params
         const post = await prisma.blogPost.findUnique({
@@ -25,19 +27,15 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 }
 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const { id } = await params
         const body = await request.json()
         const { title, slug, excerpt, content, metaTitle, metaDescription, published, authorId, coverImage, tableOfContents, publishedAt, category } = body
 
-        // Handle publishedAt logic: if published and no publishedAt yet, set to now. 
-        // If the user sends a specific date, we use it.
-        let actualPublishedAt = publishedAt ? new Date(publishedAt) : undefined;
-        if (published && !actualPublishedAt) {
-            actualPublishedAt = new Date();
-        } else if (!published) {
-            actualPublishedAt = null as any; // Reset published date if unpublished
-        }
+        const current = await prisma.blogPost.findUnique({ where: { id } })
+        if (!current) return NextResponse.json({ error: 'Article introuvable' }, { status: 404 })
+        const actualPublishedAt = publishedAt ? new Date(publishedAt) : published === true ? current.publishedAt || new Date() : published === false ? null : undefined
 
         const dataToUpdate: any = {
             title,
@@ -51,6 +49,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
             coverImage: coverImage !== undefined ? coverImage : undefined,
             tableOfContents: tableOfContents !== undefined ? tableOfContents : undefined,
             category: category !== undefined ? category : undefined,
+            updatedAt: [title !== undefined && title !== current.title, excerpt !== undefined && excerpt !== current.excerpt, content !== undefined && content !== current.content, coverImage !== undefined && coverImage !== current.coverImage].some(Boolean) ? new Date() : current.updatedAt,
         }
 
         if (actualPublishedAt !== undefined) {
@@ -70,6 +69,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     try {
         const { id } = await params
         await prisma.blogPost.delete({

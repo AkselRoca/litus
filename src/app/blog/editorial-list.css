@@ -1,0 +1,4 @@
+.editorial-pagination { display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin:42px 0 12px;font-size:13px; }
+.editorial-pagination a { color:var(--litus-heading-accent);border-bottom:1px solid currentColor;padding:8px 0; }
+.blog-categories { flex-wrap:wrap; }
+@media(max-width:639px) { .editorial-pagination { gap:16px; }.blog-categories { row-gap:10px; } }

@@ -41,6 +41,7 @@ export default async function AdminLayout({
         { href: '/admin/leads', icon: Users, label: 'Leads', roles: ['admin', 'commercial'] },
         { href: '/admin/market-analysis', icon: TrendingUp, label: 'Analyses Marché', roles: ['admin', 'commercial'] },
         { href: '/admin/blog', icon: FileText, label: 'Blog', roles: ['admin', 'dev'] },
+        { href: '/admin/editorial', icon: FileText, label: 'Calendrier éditorial', roles: ['admin', 'dev'] },
         { href: '/admin/analytics', icon: BarChart, label: 'Analytics', roles: ['admin', 'commercial', 'dev'] },
         { href: '/admin/settings', icon: Settings, label: 'Paramètres', roles: ['admin'] },
     ]
@@ -49,9 +50,9 @@ export default async function AdminLayout({
     const navItems = allNavItems.filter(item => item.roles.includes(userRole))
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-[#0A0A0A] flex">
+        <div className="min-h-screen bg-gray-50 dark:bg-[#0A0A0A] flex flex-col md:flex-row">
             {/* Sidebar */}
-            <aside className="w-60 bg-white dark:bg-[#111] border-r border-gray-200 dark:border-white/10 flex flex-col sticky top-0 h-screen">
+            <aside className="w-full md:w-60 md:shrink-0 bg-white dark:bg-[#111] border-r border-gray-200 dark:border-white/10 flex flex-col md:sticky top-0 md:h-screen">
                 {/* Logo */}
                 <div className="px-5 py-5 border-b border-gray-200 dark:border-white/10">
                     <Link href="/admin" className="text-xl font-bold text-primary">
@@ -100,7 +101,7 @@ export default async function AdminLayout({
             </aside>
 
             {/* Main content */}
-            <main className="flex-1 p-8 overflow-auto">
+            <main className="flex-1 min-w-0 p-4 md:p-8 overflow-auto">
                 {children}
             </main>
         </div>

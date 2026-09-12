@@ -2,12 +2,14 @@
 module.exports = {
     siteUrl: process.env.SITE_URL || 'https://litus.fr',
     generateRobotsTxt: true,
-    generateIndexSitemap: false,
+    generateIndexSitemap: true,
     exclude: [
         '/admin',
         '/admin/*',
         '/login-admin',
         '/api/*',
+        '/blog/*',
+        '/blog-sitemap.xml',
         '/ressources/confirmation',
         '/creation-outils-ia/opengraph-image',
         '/creation-application-web/opengraph-image',
@@ -15,7 +17,7 @@ module.exports = {
         '/refonte-site-internet/opengraph-image',
     ],
     robotsTxtOptions: {
-        additionalSitemaps: [],
+        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],
         policies: [
             {
                 userAgent: '*',

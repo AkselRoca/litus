@@ -24,6 +24,7 @@ async function articleData(slug: string): Promise<BlogArticleData | null> {
     updatedAt: post.updatedAt ? formatDate(post.updatedAt) : undefined, updatedAtIso: post.updatedAt || post.publishedAt,
     readTime: `${post.readTimeMinutes} min`, category: post.category, city: post.city,
     coverImage: post.coverImage, coverImageAlt: post.coverImageAlt, coverImageCredit: post.coverImageCredit,
+    cta: post.cta,
   }
 }
 

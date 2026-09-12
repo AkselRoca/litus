@@ -4,9 +4,10 @@ import { BlogHero } from './_components/BlogHero'
 import { BlogArticles } from './_components/BlogArticles'
 import { BlogNewsletter } from './_components/BlogNewsletter'
 import './blog.css'
+import './editorial-list.css'
 
-const title = 'Blog Litus : SEO, sites web & Google Ads à Lorient et au Mans'
-const description = 'Des conseils concrets pour les entreprises de Lorient et du Mans : référencement local, création et refonte de sites, Google Ads et stratégie digitale.'
+const title = 'Blog Litus : SEO, sites web, acquisition & automatisation'
+const description = 'Des réponses concrètes pour vos projets : SEO, Google Ads, sites web, e-commerce, applications métier, automatisation et IA. Les conseils de Litus.'
 
 export const metadata: Metadata = {
   title: { absolute: title }, description, keywords: null,
@@ -17,13 +18,13 @@ export const metadata: Metadata = {
 
 export const revalidate = 60
 
-export default async function BlogPage({ searchParams }: { searchParams: Promise<{ category?: string | string[]; city?: string | string[] }> }) {
+export default async function BlogPage({ searchParams }: { searchParams: Promise<{ category?: string | string[]; city?: string | string[]; page?: string }> }) {
   const filters = await searchParams
   const category = Array.isArray(filters.category) ? filters.category[0] : filters.category
   const city = Array.isArray(filters.city) ? filters.city[0] : filters.city
   const articles = await getBlogArticles()
   const cards = articles.map(({ slug, title: articleTitle, excerpt, category: articleCategory, city: articleCity, publishedAt, readTimeMinutes, coverImage, coverImageAlt, authorName }) => ({ slug, title: articleTitle, excerpt, category: articleCategory, city: articleCity, publishedAt, readTimeMinutes, coverImage, coverImageAlt, authorName }))
-  const featured = cards.find(article => article.slug === 'referencement-local-lorient-fiche-google') ?? cards[0]
+  const featured = cards[0]
   const schema = {
     '@context': 'https://schema.org', '@type': 'Blog',
     name: 'Litus Inside', description, url: 'https://litus.fr/blog', inLanguage: 'fr-FR',
@@ -33,7 +34,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
   return <div className="blog-page">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
     <BlogHero article={featured} />
-    <BlogArticles articles={cards} category={category} city={city} />
+    <BlogArticles articles={cards} category={category} city={city} page={Number(filters.page) || 1} />
     <BlogNewsletter />
   </div>
 }

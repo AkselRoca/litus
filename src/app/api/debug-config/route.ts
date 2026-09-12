@@ -3,8 +3,10 @@
  */
 
 import { NextResponse } from 'next/server'
+import { isEditor } from '@/lib/editorial/admin'
 
 export async function GET() {
+    if (!await isEditor()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     const checks: Record<string, string> = {}
 
     // 1. Vérifier DataForSEO

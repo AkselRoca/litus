@@ -1,0 +1,102 @@
+{
+  "services": [
+    {
+      "title": "Création de site internet",
+      "description": "Un site clair, rapide et pensé pour vos clients.",
+      "path": "/creation-site-internet"
+    },
+    {
+      "title": "E-commerce",
+      "description": "Une boutique simple à acheter, simple à piloter.",
+      "path": "/creation-site-ecommerce"
+    },
+    {
+      "title": "Landing pages",
+      "description": "Des pages ciblées pour transformer vos visites.",
+      "path": "/creation-landing-page"
+    },
+    {
+      "title": "Refonte de site",
+      "description": "Faire évoluer votre image et vos performances.",
+      "path": "/refonte-site-internet"
+    },
+    {
+      "title": "Référencement naturel SEO",
+      "description": "Des contenus et un site visibles sur Google.",
+      "path": "/referencement-naturel"
+    },
+    {
+      "title": "Google Ads",
+      "description": "Des campagnes ciblées sur vos objectifs.",
+      "path": "/google-ads"
+    },
+    {
+      "title": "SEO local",
+      "description": "Renforcer votre présence dans votre secteur.",
+      "path": "/seo-local"
+    },
+    {
+      "title": "Google Business Profile",
+      "description": "Une fiche utile, complète et bien entretenue.",
+      "path": "/google-business-profile"
+    },
+    {
+      "title": "Application web sur mesure",
+      "description": "CRM, espace client et logiciel métier.",
+      "path": "/creation-application-web"
+    },
+    {
+      "title": "Développement web sur mesure",
+      "description": "Des fonctionnalités propres à votre activité.",
+      "path": "/developpement-web-sur-mesure"
+    },
+    {
+      "title": "Intégrations & API",
+      "description": "Relier vos logiciels et faire circuler vos données.",
+      "path": "/integrations-api"
+    },
+    {
+      "title": "Automatisation",
+      "description": "Simplifier les tâches qui se répètent.",
+      "path": "/automatisation"
+    },
+    {
+      "title": "Création d’outils IA",
+      "description": "Des assistants utiles à vos équipes au quotidien.",
+      "path": "/creation-outils-ia"
+    }
+  ],
+  "routes": [
+    "/a-propos",
+    "/agence-web-le-mans",
+    "/agence-web-lorient",
+    "/artisans",
+    "/automatisation",
+    "/blog",
+    "/collectivites",
+    "/contact",
+    "/creation-application-web",
+    "/creation-landing-page",
+    "/creation-outils-ia",
+    "/creation-site-ecommerce",
+    "/creation-site-internet",
+    "/developpement-web-sur-mesure",
+    "/google-ads",
+    "/google-business-profile",
+    "/grands-comptes",
+    "/integrations-api",
+    "/mentions-legales",
+    "/",
+    "/pme",
+    "/politique-confidentialite",
+    "/realisations",
+    "/referencement-naturel",
+    "/refonte-site-internet",
+    "/seo-local",
+    "/tarifs"
+  ],
+  "localAreas": [
+    "Lorient",
+    "Le Mans"
+  ]
+}

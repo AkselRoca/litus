@@ -25,6 +25,7 @@ export interface BlogArticleData {
   coverImageCredit?: { label: string; href: string }
   tableOfContents?: ArticleHeading[]
   relatedArticles?: { slug: string; title: string; coverImage?: string | null; excerpt?: string }[]
+  cta?: { label: string; text: string; href: string }
 }
 
 export function generateBlogArticleMetadata(data: BlogArticleData): Metadata {
@@ -56,7 +57,7 @@ export function BlogArticleTemplate({ data }: { data: BlogArticleData }) {
           <div className="blog-reading-back"><Link href="/blog"><ArrowLeft size={16} aria-hidden="true" />Tous les conseils Litus</Link></div>
         </div>
         <aside className="blog-reading-sidebar" aria-label="Pour aller plus loin"><div className="blog-reading-sidebar-inner">
-          <div className="blog-reading-contact"><span className="blog-reading-kicker">Votre projet, concrètement</span><h2>Et pour<br /><em>votre entreprise ?</em></h2><p>Parlons de votre activité, de votre site et des actions qui pourraient vous être utiles.</p><Link href={`/contact?objet=${encodeURIComponent(`Suite à l’article : ${data.title}`)}`} className="site-cta-primary">Échanger avec nous <ArrowRight size={16} aria-hidden="true" /></Link></div>
+          <div className="blog-reading-contact"><span className="blog-reading-kicker">Votre projet, concrètement</span><h2>Et pour<br /><em>votre entreprise ?</em></h2><p>{data.cta?.text || 'Parlons de votre activité, de votre site et des actions qui pourraient vous être utiles.'}</p><Link href={data.cta?.href || `/contact?objet=${encodeURIComponent(`Suite à l’article : ${data.title}`)}`} className="site-cta-primary">{data.cta?.label || 'Échanger avec nous'} <ArrowRight size={16} aria-hidden="true" /></Link></div>
           {data.city && <Link href={localHref} className="blog-reading-local"><MapPin size={18} aria-hidden="true" /><span><strong>Une équipe proche de vous</strong><small>Découvrir Litus {isSarthe ? 'au Mans' : 'à Lorient'}</small></span><ArrowRight size={15} aria-hidden="true" /></Link>}
           <div className="blog-reading-expertises"><h2>Nos expertises</h2><Link href="/seo-local">Référencement local <ArrowRight size={14} aria-hidden="true" /></Link><Link href="/creation-site-internet">Création de site internet <ArrowRight size={14} aria-hidden="true" /></Link><Link href="/google-ads">Google Ads <ArrowRight size={14} aria-hidden="true" /></Link></div>
         </div></aside>
