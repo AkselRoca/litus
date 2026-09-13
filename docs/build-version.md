@@ -97,3 +97,4 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Avis, listes et statistiques corriges pour les lecteurs d'ecran et les agents ; demonstration avec pause/reprise.
 - Carte publique de navigation dans /llms.txt. Aucun outil agentique ne soumet de formulaire a la place du visiteur.
 - Les scores Lighthouse sont mesures apres build ; aucun score constant sur tous les appareils n'est garanti.
+- Mesure finale en production : performance 96 mobile / 100 desktop ; accessibilite, bonnes pratiques et SEO 100 ; navigation agentique 3/3 ; LCP mobile 2,8 s. Voir docs/performance-1.14.b.md.

@@ -34,3 +34,25 @@ Les scores de laboratoire fluctuent selon la machine et le reseau. Un score expe
 - [Regles CNIL relatives aux traceurs](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies)
 
 Les rapports complets et captures de ce poste sont conserves dans `artifacts/performance-1.14.b/` et ne sont pas ajoutes au depot avec les autres artefacts locaux preexistants.
+
+## Mesures finales en production, 13 septembre 2026
+
+Deployment Vercel `dpl_FUMb8szf87Uqmwdfp31U1ztQD6E4`, etat READY, alias `https://www.litus.fr`, code Git `666332f`, footer `Build 1.14.b` confirme par requete HTTP.
+
+| Controle | Mobile | Desktop |
+| --- | --- | --- |
+| Performance | **96** | **100** |
+| Accessibilite | **100** | **100** |
+| Bonnes pratiques | **100** | **100** |
+| SEO | **100** | **100** |
+| Navigation agentique | **3/3** | **3/3** |
+| FCP | 1,3 s | 0,5 s |
+| LCP | 2,8 s | 0,7 s |
+| TBT | 10 ms | 0 ms |
+| CLS | 0 | 0 |
+
+Mesure Lighthouse 13.4.1 lancee contre l'URL publique, sans consentement preenregistre, sans masquer le bandeau cookies, sans modifier la page pour l'audit et sans exclure de categorie. Il ne s'agit pas d'un nouveau rapport genere par les serveurs PageSpeed Insights. Le 100 performance mobile n'est pas atteint sur cette execution ; le travail restant concerne principalement le chemin de chargement initial (CSS/JavaScript/polices). Conserver les visuels et les vrais parcours reste prioritaire sur un score artificiel.
+
+L'index agentique ajoute un troisieme controle applicable aux deux controles deja presents avant les changements. Les rapports JSON et captures de production sont `artifacts/performance-1.14.b/production-mobile.json` et `production-desktop.json`.
+
+La generation du sitemap a ete relancee avec succes apres un verrouillage ponctuel de fichiers Windows. Le postbuild Vercel s'est termine sans cette erreur.
