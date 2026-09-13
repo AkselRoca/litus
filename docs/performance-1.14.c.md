@@ -29,3 +29,9 @@ Le code Next.js contient des fonctions servant pendant les interactions et la na
 - [Chargement asynchrone de Motion](https://motion.dev/docs/react-lazy-motion)
 
 Rapports detailles et captures locaux : `artifacts/performance-1.14.c/`. Les mesures de production sont ajoutees apres publication, sans promettre un score fixe pour toutes les executions PageSpeed.
+
+## Mesures de production et correction 1.14.d
+
+Le build 1.14.c a ete mesure trois fois sur mobile : 91, 78 et 84 en performance, avec 270, 300 et 110 ms de TBT. Desktop : 100. Les autres categories restent a 100, mais ce recul mobile ne justifie pas de conserver inlineCss pour simplement effacer une alerte. L'option est retiree en 1.14.d. Le JavaScript differe, les compteurs natifs, la transition native et le logo optimise sont conserves.
+
+Sur la premiere mesure mobile de 1.14.c, le JavaScript inutilise etait de 28 780 octets contre environ 69 Kio dans le rapport fourni. L'absence d'alerte CSS bloquante ne signifiait pas un meilleur resultat global. Les styles retrouvent donc leur chargement et leur cache habituels dans le correctif.

@@ -107,3 +107,8 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Polyfills et runtime Next.js conserves pour ne pas casser les navigateurs compatibles.
 - Transition globale de navigation remplacee par Web Animations, sans moteur tiers et sans animation du premier affichage ; preference de reduction des mouvements respectee.
 - Compteurs animes en requestAnimationFrame, avec annulation et valeur finale exacte.
+
+## 1.14.d - Correction de la strategie CSS apres mesure en production
+- Retrait de inlineCss : la diminution des requetes CSS n'a pas compense la regression observee sur mobile lors de trois mesures du build 1.14.c.
+- Conservation des optimisations JS/images et des animations natives.
+- Priorite aux temps reels et aux parcours fonctionnels, pas a la disparition artificielle des avertissements de couverture.
