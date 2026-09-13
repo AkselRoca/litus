@@ -91,6 +91,7 @@ export function EstimatorSection() {
           </div>
         </div>
         <figure className="reference-audit-photo">
+          <span className="home-leaf-haze" aria-hidden="true" />
           <Image
             src="/images/entrepreneuse-fleuriste-audit-local-v1.webp"
             alt="Illustration générée par IA : une fleuriste en tablier travaille sur son ordinateur dans sa boutique, entourée de plantes et de fleurs."

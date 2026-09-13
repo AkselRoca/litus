@@ -139,3 +139,8 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 
 ## 1.16.b
 Correctif de publication SEO : preserve-routing-config.cjs conserve skipTrailingSlashRedirect dans la configuration Next transmise a Vercel. Les redirections et la canonicalisation restent definies dans next.config.ts.
+
+## 1.17.a - Atmosphere organique de la home
+- Hero et contenu commercial conserves. Deux ombres vegetales diffuses, grain papier discret et lavis organique du CTA.
+- Deux photographies CC0 deja creditees dans docs/blog-photo-sources.md, reutilisees sans les presenter comme des portraits de Litus.
+- Deux annotations supplementaires ; mouvements CSS lies au scroll et desactives en mouvement reduit. Compteurs existants conserves, aucune dependance JS ajoutee.

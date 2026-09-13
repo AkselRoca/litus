@@ -4136,6 +4136,12 @@
       ]
     },
     {
+      "file": "src/app/home-organic.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/home-reference.css",
       "headings": [],
       "links": [],
@@ -5812,6 +5818,12 @@
     },
     {
       "file": "src/components/sections/home/HeroWorkspace.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/HomeHumanMoment.tsx",
       "headings": [],
       "links": [],
       "titles": []

@@ -8,12 +8,13 @@ import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { StatsSection } from '@/components/sections/StatsSection'
 import { MassiveCTA } from '@/components/sections/MassiveCTA'
 import './home-reference.css'
+import './home-organic.css'
 
 export const metadata = pageMetadata('/', {})
 
 export default function HomePage() {
     return (
-        <div className="litus-editorial">
+        <div className="litus-editorial litus-organic">
             <HeroSection />
             <LogoCloud />
             <ServicesSection />

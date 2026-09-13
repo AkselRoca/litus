@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ReferenceAnnotation } from './home/ReferenceMotion'
 export function MassiveCTA() {
   return (
     <section className="editorial-section contact-section">
@@ -6,6 +7,7 @@ export function MassiveCTA() {
         <div className="contact-brand-panel" aria-hidden="true">
           <span className="contact-logo-mark" />
           <p>Un échange clair, une suite concrète.</p>
+          <ReferenceAnnotation className="home-cta-note">Les bonnes idées<br />commencent ici.</ReferenceAnnotation>
         </div>
         <div className="contact-copy">
           <p className="editorial-eyebrow">Et votre projet ?</p>

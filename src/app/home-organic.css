@@ -1,0 +1,198 @@
+/* Home-only atmosphere. No new hero assets, scroll listeners or layout shifts. */
+.litus-organic .services-reference::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: -145px;
+  right: -105px;
+  width: min(48vw, 670px);
+  height: 720px;
+  background: url('/images/home/leaf-shadow.svg') center / contain no-repeat;
+  opacity: .065;
+  filter: blur(9px);
+  transform: rotate(-14deg);
+  transform-origin: top right;
+  mask-image: linear-gradient(#000 30%, transparent 92%);
+}
+.litus-organic .services-reference::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: url('/images/home/paper-grain.svg') repeat;
+  opacity: .025;
+}
+.litus-organic #estimateur { overflow: clip; }
+.litus-organic #estimateur .reference-audit-photo { isolation: isolate; }
+.litus-organic .home-leaf-haze {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: -65px -34px -20px -75px;
+  background: url('/images/home/leaf-shadow.svg') 0 0 / 100% 100% no-repeat;
+  opacity: .12;
+  filter: blur(12px);
+  transform: rotate(-23deg);
+  mask-image: linear-gradient(#000 40%, transparent 95%);
+}
+
+/* Two small real-life moments within the existing statistics composition. */
+.litus-organic .home-human-moment {
+  position: relative;
+  width: min(100%, 420px);
+  height: 265px;
+  margin-top: 32px;
+}
+.litus-organic .home-human-photo {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 19px;
+  border: 4px solid #fffdfa;
+  box-shadow: 0 15px 34px -24px #25352f65;
+}
+.litus-organic .home-human-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.litus-organic .home-human-photo--conversation {
+  top: 4px;
+  left: 4px;
+  width: 76%;
+  aspect-ratio: 1.6;
+  transform: rotate(-2deg);
+}
+.litus-organic .home-human-photo--keyboard {
+  right: 2px;
+  top: 111px;
+  width: 41%;
+  aspect-ratio: 1.4;
+  transform: rotate(4deg);
+  border-radius: 15px;
+}
+.litus-organic .home-human-note {
+  position: absolute;
+  bottom: 1px;
+  left: 10px;
+  font-size: 23px;
+  line-height: 1.05;
+  color: #68776e;
+  transform: rotate(-5deg);
+}
+.litus-organic .home-human-note svg {
+  position: absolute;
+  left: 120px;
+  top: -8px;
+  width: 62px;
+  height: 42px;
+  transform: rotate(-58deg);
+}
+
+/* An irregular wash, rather than another rectangular background panel. */
+.litus-organic .contact-section { position: relative; isolation: isolate; overflow: clip; }
+.litus-organic .contact-section::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: min(910px, 78%);
+  height: 360px;
+  left: 13%;
+  top: 50%;
+  margin-top: -180px;
+  border-radius: 59% 41% 68% 32% / 48% 63% 37% 52%;
+  background: linear-gradient(130deg, #edd8c638, #f1bb982c 52%, #e7d6c715);
+  transform: rotate(-7deg);
+}
+.litus-organic .contact-grid {
+  position: relative;
+  isolation: isolate;
+  background: #f5f0e875;
+}
+.litus-organic .contact-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: url('/images/home/paper-grain.svg') repeat;
+  opacity: .025;
+  pointer-events: none;
+}
+.litus-organic .contact-brand-panel { position: relative; display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 14px; }
+.litus-organic .home-cta-note {
+  position: relative;
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 4px;
+  color: #827264;
+  font-size: 22px;
+  line-height: 1.05;
+  transform: rotate(-5deg);
+}
+.litus-organic .home-cta-note svg { position: absolute; width: 44px; height: 42px; top: 6px; right: 0; left: auto; transform: rotate(-45deg); }
+
+/* A fine, abstract tidal line. No blue waves, bubbles or nautical imagery. */
+.litus-organic .reference-method { position: relative; }
+.litus-organic .reference-method::after {
+  content: '';
+  position: absolute;
+  left: 12%;
+  bottom: 4px;
+  width: 42%;
+  height: 25px;
+  border-bottom: 1px solid #233d501c;
+  border-radius: 0 0 66% 42%;
+  transform: rotate(-1deg);
+  pointer-events: none;
+}
+.dark .litus-organic .services-reference::before,
+.dark .litus-organic .home-leaf-haze { opacity: .05; }
+.dark .litus-organic .contact-grid { background: #222d3680; }
+.dark .litus-organic .contact-section::before { opacity: .3; }
+.dark .litus-organic .home-human-photo { border-color: #303a43; }
+.dark .litus-organic .home-human-note,
+.dark .litus-organic .home-cta-note { color: #c1b9aa; }
+.dark .litus-organic .reference-method::after { border-color: #c8d8e223; }
+
+@media (max-width: 850px) {
+  .litus-organic .services-reference::before { width: 60vw; right: -90px; opacity: .045; }
+  .litus-organic .home-human-moment { height: 250px; }
+  .litus-organic .contact-section::before { width: 94%; left: 3%; height: 75%; margin-top: 0; top: 10%; }
+  .litus-organic .home-cta-note { display: none; }
+}
+@media (max-width: 600px) {
+  .litus-organic .services-reference::before { width: 75vw; height: 430px; top: -75px; right: -100px; opacity: .035; }
+  .litus-organic .home-leaf-haze { inset: -28px -12px -8px -20px; opacity: .09; }
+  .litus-organic .home-human-moment { width: min(100%, 360px); height: 250px; margin-top: 25px; }
+  .litus-organic .home-human-photo--keyboard { top: 105px; }
+  .litus-organic .home-human-note { bottom: 8px; font-size: 21px; }
+}
+
+/* Progressive enhancement: movement is tied to scrolling, never an idle loop. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .litus-organic .services-reference::before,
+    .litus-organic .home-leaf-haze {
+      animation: home-leaf-light linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    .litus-organic .reference-stat-cards > div,
+    .litus-organic .reference-method-steps > .method-card {
+      animation: home-gentle-lift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 60%;
+    }
+    .litus-organic .home-human-note svg path,
+    .litus-organic .home-cta-note svg path {
+      stroke-dasharray: 180;
+      animation: home-pencil-line linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
+}
+@keyframes home-leaf-light { from { translate: 4px -5px; } to { translate: -4px 5px; } }
+@keyframes home-gentle-lift { from { translate: 0 4px; } to { translate: 0 -4px; } }
+@keyframes home-pencil-line { from { stroke-dashoffset: 180; } to { stroke-dashoffset: 0; } }
