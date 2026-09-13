@@ -186,7 +186,7 @@ export function Header() {
       <div className="header-tools">
         <a href="tel:+33744985521" className="header-phone" aria-label="Appeler Litus au 07 44 98 55 21"><Phone aria-hidden="true" />07 44 98 55 21</a>
         <div className="header-theme"><ThemeToggle /></div>
-        <Link className="header-project-cta" href="/contact">Démarrer un projet <ArrowUpRight aria-hidden="true" /></Link>
+        <Link className="header-project-cta" href="/contact">Démarrer un projet <ArrowRight aria-hidden="true" /></Link>
         <button ref={menuToggleRef} type="button" className="header-menu-toggle" aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? <X /> : <Menu />}</button>
       </div>
     </div>

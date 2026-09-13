@@ -82,3 +82,41 @@
   .mobile-expertise-link .mega-service-icon svg { width:18px;height:18px; }
 }
 @media (prefers-reduced-motion:reduce) { .mega-menu-footer > a svg { transition:none; } }
+
+/* Shared header proportions: no viewport-scaled overrides on the homepage. */
+@media (min-width:1180px) {
+  .site-header { padding:12px clamp(28px,5.5vw,100px); }
+  .site-header-inner { max-width:1640px;height:82px;padding:0 22px 0 28px;gap:24px;border-radius:20px;border-color:#e4e5e5;background:#fffffff7;box-shadow:0 10px 30px #1722350a,0 2px 7px #17223504; }
+  .header-brand { gap:12px; }
+  .header-brand > strong { font-size:27px;line-height:1; }
+  .header-logo { width:42px;height:48px; }
+  .header-brand-note { margin-left:4px;padding-left:14px;font-size:10.5px;line-height:1.35; }
+  .header-desktop-nav { gap:6px; }
+  .header-desktop-nav > a,.header-nav-entry > button { padding-inline:10px;gap:7px;font-size:13px;font-weight:560;line-height:1.2; }
+  .header-nav-entry > button > svg { width:12px;height:12px;flex:none;stroke-width:1.8; }
+  .header-tools { align-items:center;gap:16px; }
+  .header-phone { gap:10px;padding:0 0 0 3px;border-right:0;font-size:13px;line-height:1.2;min-height:44px; }
+  .header-phone svg { width:18px;height:18px;flex:none; }
+  .header-theme { height:34px;align-items:center;padding-left:16px;border-left:1px solid #dfe3e7; }
+  .header-theme > button { width:50px;height:28px;flex:none; }
+  .header-theme > button > div { left:0;transform:translateX(2px); }
+  .header-theme > button[aria-checked=true] > div { transform:translateX(24px); }
+  .header-project-cta { min-height:54px;padding-inline:25px;gap:16px;font-size:13px;border-radius:999px;box-shadow:0 5px 14px #c64b201a,inset 0 1px #ffffff26; }
+  .header-project-cta svg { width:17px;height:17px;flex:none;stroke-width:1.8; }
+  .site-header[data-compact] .site-header-inner { height:70px; }
+  .header-mega-menu { top:104px;max-height:calc(100dvh - 120px); }
+  .site-header[data-compact] .header-mega-menu { top:86px;max-height:calc(100dvh - 102px); }
+  .dark .site-header-inner { background:#202a36fa;border-color:#3d4856;box-shadow:0 10px 30px #00000020; }
+  .dark .header-theme { border-color:#495562; }
+}
+@media (min-width:1180px) and (max-width:1430px) {
+  .site-header { padding-inline:3vw; }
+  .site-header-inner { height:78px;padding-inline:20px;gap:18px; }
+  .header-desktop-nav { gap:2px; }
+  .header-desktop-nav > a,.header-nav-entry > button { padding-inline:8px;font-size:12px; }
+  .header-tools { gap:12px; }
+  .header-phone { font-size:12px;gap:8px; }
+  .header-theme { padding-left:12px; }
+  .header-project-cta { min-height:52px;padding-inline:20px;font-size:12px;gap:12px; }
+  .header-mega-menu { top:100px;max-height:calc(100dvh - 116px); }
+}

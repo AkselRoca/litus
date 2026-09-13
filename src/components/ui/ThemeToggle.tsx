@@ -18,7 +18,9 @@ export function ThemeToggle() {
                 "relative w-14 h-7 rounded-full transition-colors duration-300",
                 resolvedTheme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'
             )}
-            aria-label="Toggle theme"
+            role="switch"
+            aria-checked={resolvedTheme === 'dark'}
+            aria-label="Thème sombre"
         >
             <div
                 className={cn(

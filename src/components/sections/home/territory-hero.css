@@ -118,25 +118,13 @@
 .dark .territory-client img { filter: grayscale(1) invert(1) brightness(1.3); mix-blend-mode: normal; }
 .dark .litus-editorial .territory-trust-row > p, .dark .litus-editorial .territory-trust-label, .dark .territory-photo-credits { color: #c1cad3; }
 
-@media (min-width: 1180px) {
-  .site-header[data-home] { padding: .4vw 7.45vw; }
-  .site-header[data-home] .site-header-inner { height: clamp(60px,4.1vw,78px); max-width: none; padding-inline: 1.35vw 1.15vw; gap: 1.4vw; background: #fffefdF7; }
-  .site-header[data-home] .header-brand-note { display: block; }
-  .site-header[data-home] .header-brand > strong { font-size: clamp(22px,1.5vw,29px); }
-  .site-header[data-home] .header-logo { width: clamp(31px,2.05vw,42px); height: clamp(36px,2.5vw,48px); }
-  .site-header[data-home] .header-project-cta { min-height: clamp(43px,2.65vw,52px); padding-inline: 1.55vw; }
-  .site-header[data-home][data-compact] { padding-top: 8px; }
-  .dark .site-header[data-home] .site-header-inner { background: #202a36fa; }
-}
+
 @media (min-width: 1800px) {
   .territory-copy { left: calc(50% - 800px); width: 800px; }
   .territory-scene { left: 50%; }
   .territory-trust { left: calc(50% - 800px); width: 800px; }
 }
-@media (min-width: 1180px) and (max-width: 1430px) {
-  .site-header[data-home] { padding-inline: 3vw; }
-  .site-header[data-home] .header-brand-note { display: none; }
-}
+
 /* A stacked tablet/mobile composition prioritises readable type over tiny cards. */
 @media (max-width: 1179px) {
   .territory-hero { height: auto; display: flex; flex-direction: column; padding-top: 132px; }

@@ -156,3 +156,7 @@ Structure conservee. Progressions vertes discretes dans la carte Google (exemple
 ## 1.18.c - Hero responsive grands ecrans
 
 Dimensions internes de la scene liees a sa propre largeur, et non a la fenetre. Carte Google compacte avec colonnes distinctes, badge calibre, composition centree sur les ecrans larges. Version mobile simplifiee conservee. Le chantier estimateur 1.19.a reste hors publication.
+
+## 1.18.d - Finitions du header
+
+Header plus aere et largeur maximale cadree, logo et baseline agrandis, navigation plus lisible, alignement commun et separateur avant le toggle compact. CTA rehausse avec fleche horizontale. Menus repositionnes selon les hauteurs normale et compacte. Styles partages home/pages internes ; mobile conserve. Estimateur inacheve exclu de cette publication.
