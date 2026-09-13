@@ -113,3 +113,10 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Conservation des optimisations JS/images et des animations natives.
 - Priorite aux temps reels et aux parcours fonctionnels, pas a la disparition artificielle des avertissements de couverture.
 - Validation finale production : performance mobile 99/97/97 (mediane 97), desktop 100 ; autres categories 100 ; JS inutilise environ 27 Kio contre 69 Kio initialement. Les alertes CSS partagees et de compatibilite ne sont pas supprimees artificiellement.
+
+## 1.14.e - Composition photo de la page contact
+- Grille desktop explicite : texte, photo verticale plus etroite et formulaire, avec des espaces independants.
+- Meme photographie, carte au ratio 2:3 avec rayon 36 px, sans masque ovale ni fondu blanc, ombre legere.
+- Avis aligne en bas a gauche, decale de 35 % de sa hauteur vers l'exterieur, sans contact avec le formulaire.
+- Formulaire conserve en premier dans le DOM et dans la grille tablette/mobile, puis contenu et photo.
+- Aucun texte ni champ du formulaire modifie ; seuls les styles de composition et les tailles responsives de l'image evoluent.

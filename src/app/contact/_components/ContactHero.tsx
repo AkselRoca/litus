@@ -40,7 +40,7 @@ export function ContactHero({ subject = '', available = true }: { subject?: stri
           </div>
           <div className="contact-reference-visual">
             <figure className="contact-team-photo">
-              <Image src="/images/contact/collaboration-equipe-ordinateur-cherrydeck.webp" alt="Trois collègues réunis autour d’un ordinateur portable dans un bureau, photographie d’illustration." width={960} height={1440} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1199px) 45vw, 480px" />
+              <Image src="/images/contact/collaboration-equipe-ordinateur-cherrydeck.webp" alt="Trois collègues réunis autour d’un ordinateur portable dans un bureau, photographie d’illustration." width={960} height={1440} sizes="(max-width: 439px) calc(100vw - 72px), (max-width: 760px) 340px, (max-width: 1199px) 380px, (max-width: 1499px) 27vw, 360px" />
               <figcaption className="sr-only">Photo d’illustration par Cherrydeck sur <a href={photoUrl} target="_blank" rel="noopener noreferrer">Unsplash (nouvel onglet)</a>.</figcaption>
             </figure>
             <figure className="contact-client-review">
