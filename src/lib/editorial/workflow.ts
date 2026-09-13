@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { ORIGIN, INTERVAL, escape, fingerprint, isMetaIntroduction, nextSlot, normalize, renderDraft, resolveLinks, services, similarity } from './core'
 import { initialTopics, makeItems, replenish } from './calendar'
+import { rebalanceCalendar } from './rebalance'
+import { STRATEGY_VERSION, strategyInstruction } from './strategy'
 import { acquireImages } from './images'
 import { proposeBacklinks } from './backlinks'
 import { model, officialQuery, research } from './providers'
@@ -14,21 +16,21 @@ export async function step(item: Item, archive: ArchiveEntry[]): Promise<Item> {
   const next = { ...item }
   // Competitors inform SERP gaps, never factual claims or unattributed statistics.
   const sources = item.research?.sources.filter(source => source.official)
-  const base = { topic: item.topic, keyword: item.primaryKeyword, angle: item.angle, brief: item.brief, sources, services }
+  const base = { editorialStrategy: strategyInstruction, topic: item.topic, keyword: item.primaryKeyword, angle: item.angle, brief: item.brief, sources, services }
   if (item.stage === 'RESEARCH') {
     next.research = await research([item.primaryKeyword, `${item.primaryKeyword} ${item.secondaryKeywords[0] || 'problème solution'}`, officialQuery(item.targetServicePage, item.primaryKeyword), ...(/wordpress/i.test(item.primaryKeyword) ? ['Next.js headless CMS content management documentation site:nextjs.org'] : [])])
     next.stage = 'BRIEF'
   } else if (item.stage === 'BRIEF') {
-    next.brief = await model('Analyse la SERP réellement fournie, l’intention, les lacunes des concurrents et les questions complémentaires. Définis un angle original, un plan et des critères de couverture sans longueur fixe. Compare à TOUT le catalogue : si la même intention est déjà suffisamment traitée, duplicate=true. Une différence de ville ou de formulation ne suffit pas à justifier un article.', { ...base, research: item.research, archive: archive.map(({ slug, title, excerpt }) => ({ slug, title, excerpt })) }, briefSchema)
+    next.brief = await model('Analyse la SERP réellement fournie, l’intention, les lacunes des concurrents et les questions complémentaires. Définis un angle original, un plan et des critères de couverture sans longueur fixe. Compare à TOUT le catalogue et aux pages commerciales fournies : si la même intention est déjà suffisamment traitée, duplicate=true. Une différence de ville ou de formulation ne suffit pas à justifier un article.', { ...base, research: item.research, archive: archive.map(({ slug, title, excerpt }) => ({ slug, title, excerpt })) }, briefSchema)
     if (next.brief.cannibalization.duplicate) throw new Error(`Cannibalization: update existing article ${next.brief.cannibalization.existingSlug}`)
-    next.stage = 'DRAFT'
+    next.stage = item.manualEdits && item.draft ? 'FACTCHECK' : 'DRAFT'
   } else if (item.stage === 'DRAFT') {
     const relevant = [...archive].sort((a, b) => similarity(b.title, item.topic) - similarity(a.title, item.topic)).slice(0, 8)
     next.draft = await model('Rédige l’article complet selon le brief. Introduction directe répondant au problème. Chaque paragraphe apporte un fait sourcé, une nuance, une méthode, une conséquence ou un exemple explicitement hypothétique. Varie la syntaxe et la structure ; pas de fausse anecdote Litus, statistiques ou tarifs inventés, promesse de classement ni conclusion vide. Pas de FAQ sauf besoin vérifié. Ni bourrage de mots-clés, ni longueur arbitraire. Prévois naturellement des passages permettant de relier la page commerciale et 2 à 5 articles pertinents. blocks: h2/h3/paragraph/list/table/quote, text toujours renseigné, items et rows vides hors listes/tableaux. Aucun HTML ni syntaxe Markdown. Trois imageQueries en ANGLAIS pour Wikimedia Commons, visuellement distinctes : objets, interface libre, processus, photographie ou schéma technique correspondant réellement au sujet. Ne demande pas une capture d’un produit privé introuvable sous licence libre. Indique ce que chaque image permet de comprendre.', { ...base, relatedArticles: relevant, previousTitles: archive.slice(0, 8).map(a => a.title) }, draftSchema)
     next.stage = 'FACTCHECK'
   } else if (item.stage === 'FACTCHECK') {
     next.review = await model('Effectue une vérification indépendante de TOUTES les affirmations factuelles du brouillon, particulièrement chiffres, dates, fonctions produit et règles Google. Utilise uniquement les textes effectivement lus. Pour claims, liste les affirmations majeures avec extrait EXACT de leur source (25 caractères minimum), URL identique à la source fournie. Signale toute affirmation non étayée dans unsupportedClaims. Contrôle aussi les répétitions d’idées, passages génériques, exemples, profondeur et couverture du brief. À cette étape sans images, imagesRelevant=true ; elles seront vérifiées séparément. passed=false si correction nécessaire. Aucune indulgence pour du contenu creux.', { ...base, draft: item.draft }, reviewSchema)
-    next.stage = 'EDIT'
+    next.stage = item.manualEdits ? 'LINKS' : 'EDIT'
   } else if (item.stage === 'EDIT') {
     const generic = new Set(item.review?.genericPassages.map(normalize) ?? [])
     const cleaned = item.draft ? { ...item.draft, excerpt: isMetaIntroduction(item.draft.excerpt) ? '' : item.draft.excerpt, blocks: item.draft.blocks.filter(b => !generic.has(normalize(b.text)) && !isMetaIntroduction(b.text)) } : item.draft
@@ -40,10 +42,10 @@ export async function step(item: Item, archive: ArchiveEntry[]): Promise<Item> {
     next.links = resolveLinks(item.draft!, result.links.sort((a, b) => Number(b.href === item.targetServicePage) - Number(a.href === item.targetServicePage)))
     next.stage = 'METADATA'
   } else if (item.stage === 'METADATA') {
-    next.seo = await model('Crée cinq champs COURTS. title: environ 40 caractères, ABSOLUMENT moins de 65 caractères, donc raccourcis le titre éditorial. description: UNE phrase de 90 à 120 caractères, jamais plus de 165. slug: mots courts en minuscules ASCII. ctaLabel: 3 à 6 mots. ctaText: une phrase de 100 à 160 caractères. Pas de promesse ni de mots-clés empilés. CTA adapté au service. Ne renvoie pas un article : uniquement ces six champs du schéma.', { topic: item.topic, keyword: item.primaryKeyword, title: item.draft?.title, excerpt: item.draft?.excerpt, headings: item.draft?.blocks.filter(b => b.type === 'h2').map(b => b.text), targetServicePage: item.targetServicePage, cluster: item.cluster, existingSlugs: archive.map(a => a.slug), previousError: item.error }, seoSchema)
+    next.seo = item.manualSeo && item.seo ? item.seo : await model('Crée cinq champs COURTS. title: environ 40 caractères, ABSOLUMENT moins de 65 caractères, donc raccourcis le titre éditorial. description: UNE phrase de 90 à 120 caractères, jamais plus de 165. slug: mots courts en minuscules ASCII. ctaLabel: 3 à 6 mots. ctaText: une phrase de 100 à 160 caractères. Pas de promesse ni de mots-clés empilés. CTA adapté au service. Ne renvoie pas un article : uniquement ces six champs du schéma.', { topic: item.topic, keyword: item.primaryKeyword, title: item.draft?.title, excerpt: item.draft?.excerpt, headings: item.draft?.blocks.filter(b => b.type === 'h2').map(b => b.text), targetServicePage: item.targetServicePage, cluster: item.cluster, existingSlugs: archive.map(a => a.slug), previousError: item.error }, seoSchema)
     if (item.refreshSlug) next.seo.slug = item.refreshSlug
     // The final lead-in uses the dedicated, concise SEO summary; the draft may be more expansive.
-    next.draft = { ...item.draft!, excerpt: next.seo.description }
+    next.draft = { ...item.draft!, excerpt: item.manualEdits ? item.draft!.excerpt : next.seo.description }
     next.slug = item.refreshOf ? `${next.seo.slug}-revision-${item.id.slice(0, 8)}` : next.seo.slug
     next.content = `${renderDraft(item.draft!, item.links)}\n<aside class="editorial-context-cta"><p>${escape(next.seo.ctaText)}</p><a class="site-cta-primary" href="${escape(item.targetServicePage)}">${escape(next.seo.ctaLabel)}</a></aside>`
     next.stage = 'IMAGES'
@@ -55,7 +57,7 @@ export async function step(item: Item, archive: ArchiveEntry[]): Promise<Item> {
     next.gate = validateQuality(next, new Set(archive.map(a => a.slug)))
     next.qualityScore = next.gate.score
     if (!next.gate.passed) {
-      if (item.corrections >= 2) { next.status = 'FAILED'; next.error = next.gate.errors.join('; '); next.nextAttemptAt = null; return next }
+      if (item.manualEdits || item.corrections >= 2) { next.status = 'FAILED'; next.error = next.gate.errors.join('; '); next.nextAttemptAt = null; return next }
       next.corrections++
       next.stage = next.gate.errors.some(e => /anchor|link|Link/.test(e)) ? 'LINKS' : 'EDIT'
     } else {
@@ -72,7 +74,7 @@ export async function step(item: Item, archive: ArchiveEntry[]): Promise<Item> {
   return next
 }
 export function publicationEligible(item: Item, state: State, now: Date) {
-  return !item.refreshOf && item.status === 'SCHEDULED' && item.stage === 'READY' && Date.parse(item.scheduledAt) <= now.getTime()
+  return !item.held && !item.refreshOf && item.status === 'SCHEDULED' && item.stage === 'READY' && Date.parse(item.scheduledAt) <= now.getTime()
     && !!item.gate?.passed && item.gate.fingerprint === fingerprint(item)
     && (!state.lastPublishedAt || now.getTime() - Date.parse(state.lastPublishedAt) >= INTERVAL)
     && (!state.lastPublishedSlot || item.scheduledAt > state.lastPublishedSlot)
@@ -93,12 +95,14 @@ export async function runTick(namespace: 'production' | 'test', archive: Archive
     const items = await listItems(namespace)
     if (!items.length) {
       const planned = makeItems(initialTopics(), state, state.anchor)
+      await saveState({ ...state, strategyVersion: STRATEGY_VERSION }, owner)
       for (const item of planned) await saveItem(item, owner)
-      await event(namespace, null, 'CALENDAR_INITIALIZED', { count: planned.length, anchor: state.anchor, intervalHours: 96 })
+      await event(namespace, null, 'CALENDAR_INITIALIZED', { count: planned.length, anchor: state.anchor, intervalHours: 72 })
       return { status: 'initialized', count: planned.length }
     }
+    if (namespace === 'production' && await rebalanceCalendar(state, items, archive, owner)) return { status: 'rebalanced' }
     const now = new Date()
-    const revision = namespace === 'production' ? items.find(i => i.refreshOf && i.status === 'SCHEDULED' && i.stage === 'READY') : undefined
+    const revision = namespace === 'production' ? items.find(i => !i.held && i.refreshOf && i.status === 'SCHEDULED' && i.stage === 'READY') : undefined
     if (revision) {
       const gate = validateQuality(revision, new Set(archive.filter(a => a.slug !== revision.refreshSlug).map(a => a.slug)), now)
       if (!gate.passed || revision.gate?.fingerprint !== fingerprint(revision)) {
@@ -133,13 +137,13 @@ export async function runTick(namespace: 'production' | 'test', archive: Archive
         return { status: 'published', slug: due.slug, id: due.id }
       }
     }
-    // Failed slots are not caught up in a publication burst. Preserve the 96-hour grid.
-    for (const item of items.filter(i => !i.refreshOf && i.status !== 'PUBLISHED' && state!.lastPublishedSlot && i.scheduledAt <= state!.lastPublishedSlot)) {
+    // Failed slots are not caught up in a publication burst. Preserve the 72-hour cadence.
+    for (const item of items.filter(i => !i.held && !i.refreshOf && i.status !== 'PUBLISHED' && state!.lastPublishedSlot && i.scheduledAt <= state!.lastPublishedSlot)) {
       item.status = 'FAILED'; item.error = 'Créneau dépassé : reprise manuelle possible sur une prochaine date.'; item.nextAttemptAt = null
       await saveItem(item, owner)
     }
-    const work = items.find(item => item.status !== 'PUBLISHED' && item.stage !== 'READY'
-      && (namespace === 'test' ? item.id === items[0].id : Date.parse(item.scheduledAt) <= now.getTime() + 6 * 86400000)
+    const work = items.find(item => !item.held && item.status !== 'PUBLISHED' && item.stage !== 'READY'
+      && (namespace === 'test' ? item.id === items[0].id : item.prepareRequested || Date.parse(item.scheduledAt) <= now.getTime() + 6 * 86400000)
       && (item.status !== 'FAILED' || !!item.nextAttemptAt && Date.parse(item.nextAttemptAt) <= now.getTime()))
     if (work) {
       try {
@@ -164,7 +168,7 @@ export async function runTick(namespace: 'production' | 'test', archive: Archive
       await saveItem({ ...backlinkItem, backlinkDone: true }, owner)
       return { status: 'backlinks-processed' }
     }
-    if (namespace === 'production' && (count - state.plannedAfterCount >= 5 || items.filter(i => i.status === 'IDEA').length < 10) && (!state.nextPlanningAt || Date.parse(state.nextPlanningAt) <= Date.now())) {
+    if (namespace === 'production' && (count - state.plannedAfterCount >= 5 || items.filter(i => !i.held && i.status === 'IDEA').length < 10) && (!state.nextPlanningAt || Date.parse(state.nextPlanningAt) <= Date.now())) {
       try {
         const planned = await replenish(state, items, archive)
         for (const item of planned.items) await saveItem(item, owner)

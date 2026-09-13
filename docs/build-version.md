@@ -144,3 +144,7 @@ Correctif de publication SEO : preserve-routing-config.cjs conserve skipTrailing
 - Hero et contenu commercial conserves. Deux ombres vegetales diffuses, grain papier discret et lavis organique du CTA.
 - Deux photographies CC0 deja creditees dans docs/blog-photo-sources.md, reutilisees sans les presenter comme des portraits de Litus.
 - Deux annotations supplementaires ; mouvements CSS lies au scroll et desactives en mouvement reduit. Compteurs existants conserves, aucune dependance JS ajoutee.
+
+## 1.18.a - Calendrier editorial et preparation des articles
+
+Vue mensuelle et liste filtrable, apercus prives et edition avec historique, dates Europe/Paris et cadence de 72 heures. Strategie diversifiee outils/IA, artisans, associations, PME et acquisition. Conservation des articles rediges et publies.

@@ -64,6 +64,226 @@
       "title": "Création d’outils IA",
       "description": "Des assistants utiles à vos équipes au quotidien.",
       "path": "/creation-outils-ia"
+    },
+    {
+      "title": "Python",
+      "description": "Usages métier, intégration et accompagnement Python.",
+      "path": "/expertise/python"
+    },
+    {
+      "title": "C#",
+      "description": "Usages métier, intégration et accompagnement C#.",
+      "path": "/expertise/csharp"
+    },
+    {
+      "title": ".NET",
+      "description": "Usages métier, intégration et accompagnement .NET.",
+      "path": "/expertise/dotnet"
+    },
+    {
+      "title": "LabVIEW",
+      "description": "Usages métier, intégration et accompagnement LabVIEW.",
+      "path": "/expertise/labview"
+    },
+    {
+      "title": "Next.js",
+      "description": "Usages métier, intégration et accompagnement Next.js.",
+      "path": "/expertise/nextjs"
+    },
+    {
+      "title": "React",
+      "description": "Usages métier, intégration et accompagnement React.",
+      "path": "/expertise/react"
+    },
+    {
+      "title": "TypeScript",
+      "description": "Usages métier, intégration et accompagnement TypeScript.",
+      "path": "/expertise/typescript"
+    },
+    {
+      "title": "Tailwind CSS",
+      "description": "Usages métier, intégration et accompagnement Tailwind CSS.",
+      "path": "/expertise/tailwind"
+    },
+    {
+      "title": "Framer",
+      "description": "Usages métier, intégration et accompagnement Framer.",
+      "path": "/expertise/framer"
+    },
+    {
+      "title": "Vercel",
+      "description": "Usages métier, intégration et accompagnement Vercel.",
+      "path": "/expertise/vercel"
+    },
+    {
+      "title": "Stripe",
+      "description": "Usages métier, intégration et accompagnement Stripe.",
+      "path": "/expertise/stripe"
+    },
+    {
+      "title": "Shopify",
+      "description": "Usages métier, intégration et accompagnement Shopify.",
+      "path": "/expertise/shopify"
+    },
+    {
+      "title": "WordPress",
+      "description": "Usages métier, intégration et accompagnement WordPress.",
+      "path": "/expertise/wordpress"
+    },
+    {
+      "title": "Gemini",
+      "description": "Usages métier, intégration et accompagnement Gemini.",
+      "path": "/expertise/gemini"
+    },
+    {
+      "title": "Google Ads",
+      "description": "Usages métier, intégration et accompagnement Google Ads.",
+      "path": "/expertise/google-ads"
+    },
+    {
+      "title": "Meta Ads",
+      "description": "Usages métier, intégration et accompagnement Meta Ads.",
+      "path": "/expertise/meta-ads"
+    },
+    {
+      "title": "Make",
+      "description": "Usages métier, intégration et accompagnement Make.",
+      "path": "/expertise/make"
+    },
+    {
+      "title": "Notion",
+      "description": "Usages métier, intégration et accompagnement Notion.",
+      "path": "/expertise/notion"
+    },
+    {
+      "title": "Brevo",
+      "description": "Usages métier, intégration et accompagnement Brevo.",
+      "path": "/expertise/brevo"
+    },
+    {
+      "title": "HubSpot",
+      "description": "Usages métier, intégration et accompagnement HubSpot.",
+      "path": "/expertise/hubspot"
+    },
+    {
+      "title": "Airtable",
+      "description": "Usages métier, intégration et accompagnement Airtable.",
+      "path": "/expertise/airtable"
+    },
+    {
+      "title": "Microsoft 365",
+      "description": "Usages métier, intégration et accompagnement Microsoft 365.",
+      "path": "/expertise/microsoft-365"
+    },
+    {
+      "title": "Microsoft Copilot",
+      "description": "Usages métier, intégration et accompagnement Microsoft Copilot.",
+      "path": "/expertise/microsoft-copilot"
+    },
+    {
+      "title": "Zapier",
+      "description": "Usages métier, intégration et accompagnement Zapier.",
+      "path": "/expertise/zapier"
+    },
+    {
+      "title": "Webflow",
+      "description": "Usages métier, intégration et accompagnement Webflow.",
+      "path": "/expertise/webflow"
+    },
+    {
+      "title": "ChatGPT / OpenAI",
+      "description": "Usages métier, intégration et accompagnement ChatGPT / OpenAI.",
+      "path": "/expertise/openai"
+    },
+    {
+      "title": "OpenAI Codex",
+      "description": "Usages métier, intégration et accompagnement OpenAI Codex.",
+      "path": "/expertise/codex"
+    },
+    {
+      "title": "Claude / Anthropic",
+      "description": "Usages métier, intégration et accompagnement Claude / Anthropic.",
+      "path": "/expertise/claude"
+    },
+    {
+      "title": "n8n",
+      "description": "Usages métier, intégration et accompagnement n8n.",
+      "path": "/expertise/n8n"
+    },
+    {
+      "title": "Google Workspace",
+      "description": "Usages métier, intégration et accompagnement Google Workspace.",
+      "path": "/expertise/google-workspace"
+    },
+    {
+      "title": "Artisan Plombier",
+      "description": "Visibilité locale et demandes de devis pour plombier.",
+      "path": "/artisan/plombier"
+    },
+    {
+      "title": "Artisan Électricien",
+      "description": "Visibilité locale et demandes de devis pour électricien.",
+      "path": "/artisan/electricien"
+    },
+    {
+      "title": "Artisan Chauffagiste / Climatisation",
+      "description": "Visibilité locale et demandes de devis pour chauffagiste / climatisation.",
+      "path": "/artisan/chauffagiste-climatisation"
+    },
+    {
+      "title": "Artisan Couvreur",
+      "description": "Visibilité locale et demandes de devis pour couvreur.",
+      "path": "/artisan/couvreur"
+    },
+    {
+      "title": "Artisan Menuisier",
+      "description": "Visibilité locale et demandes de devis pour menuisier.",
+      "path": "/artisan/menuisier"
+    },
+    {
+      "title": "Artisan Peintre",
+      "description": "Visibilité locale et demandes de devis pour peintre.",
+      "path": "/artisan/peintre"
+    },
+    {
+      "title": "Artisan Carreleur",
+      "description": "Visibilité locale et demandes de devis pour carreleur.",
+      "path": "/artisan/carreleur"
+    },
+    {
+      "title": "Artisan Maçon",
+      "description": "Visibilité locale et demandes de devis pour maçon.",
+      "path": "/artisan/macon"
+    },
+    {
+      "title": "Artisan Paysagiste",
+      "description": "Visibilité locale et demandes de devis pour paysagiste.",
+      "path": "/artisan/paysagiste"
+    },
+    {
+      "title": "Artisan Rénovation intérieure",
+      "description": "Visibilité locale et demandes de devis pour rénovation intérieure.",
+      "path": "/artisan/renovation-interieure"
+    },
+    {
+      "path": "/artisan",
+      "title": "Artisans",
+      "description": "Solutions numériques pour artisans."
+    },
+    {
+      "path": "/association",
+      "title": "Associations",
+      "description": "Solutions numériques pour associations."
+    },
+    {
+      "path": "/pme",
+      "title": "PME",
+      "description": "Solutions numériques pour pme."
+    },
+    {
+      "path": "/collectivites",
+      "title": "Collectivités",
+      "description": "Solutions numériques pour collectivités."
     }
   ],
   "routes": [
@@ -98,7 +318,47 @@
     "/ressources/cahier-des-charges",
     "/ressources/guide-prix",
     "/seo-local",
-    "/tarifs"
+    "/tarifs",
+    "/expertise/python",
+    "/expertise/csharp",
+    "/expertise/dotnet",
+    "/expertise/labview",
+    "/expertise/nextjs",
+    "/expertise/react",
+    "/expertise/typescript",
+    "/expertise/tailwind",
+    "/expertise/framer",
+    "/expertise/vercel",
+    "/expertise/stripe",
+    "/expertise/shopify",
+    "/expertise/wordpress",
+    "/expertise/gemini",
+    "/expertise/google-ads",
+    "/expertise/meta-ads",
+    "/expertise/make",
+    "/expertise/notion",
+    "/expertise/brevo",
+    "/expertise/hubspot",
+    "/expertise/airtable",
+    "/expertise/microsoft-365",
+    "/expertise/microsoft-copilot",
+    "/expertise/zapier",
+    "/expertise/webflow",
+    "/expertise/openai",
+    "/expertise/codex",
+    "/expertise/claude",
+    "/expertise/n8n",
+    "/expertise/google-workspace",
+    "/artisan/plombier",
+    "/artisan/electricien",
+    "/artisan/chauffagiste-climatisation",
+    "/artisan/couvreur",
+    "/artisan/menuisier",
+    "/artisan/peintre",
+    "/artisan/carreleur",
+    "/artisan/macon",
+    "/artisan/paysagiste",
+    "/artisan/renovation-interieure"
   ],
   "localAreas": [
     "Lorient",

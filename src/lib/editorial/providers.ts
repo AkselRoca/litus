@@ -3,7 +3,7 @@ import { hash } from './core'
 import { fetchPublic, plainText } from './network'
 import type { Research, SearchResult, Source } from './types'
 
-const officialHosts = ['developers.google.com', 'support.google.com', 'web.dev', 'developer.mozilla.org', 'www.w3.org', 'nextjs.org', 'wordpress.org', 'developer.wordpress.org', 'shopify.dev', 'docs.stripe.com', 'docs.n8n.io', 'www.cnil.fr', 'ai.google.dev', 'www.postgresql.org', 'platform.openai.com']
+const officialHosts = ['developers.google.com', 'support.google.com', 'web.dev', 'developer.mozilla.org', 'www.w3.org', 'nextjs.org', 'wordpress.org', 'developer.wordpress.org', 'shopify.dev', 'docs.stripe.com', 'docs.n8n.io', 'www.cnil.fr', 'ai.google.dev', 'www.postgresql.org', 'platform.openai.com', 'developers.openai.com', 'openai.com', 'help.openai.com', 'docs.anthropic.com', 'platform.claude.com', 'code.claude.com', 'support.claude.com', 'www.anthropic.com', 'help.zapier.com', 'docs.zapier.com', 'vercel.com', 'react.dev', 'help.shopify.com', 'woocommerce.com', 'webflow.com', 'help.webflow.com', 'www.framer.com', 'dev.helloasso.com', 'www.helloasso.com', 'docs.n8n.io']
 export function official(url: string) { return officialHosts.includes(new URL(url).hostname) }
 function transportSchema(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(transportSchema)
@@ -81,6 +81,9 @@ export async function research(queries: string[]): Promise<Research> {
   return { queries, searchedAt: new Date().toISOString(), results, questions: searches.flatMap(s => s.questions), sources, provider: results.some(r => r.rank > 0) ? 'dataforseo-google-serp' : 'gemini-google-grounding (positions non mesurées)' }
 }
 export function officialQuery(service: string, keyword: string) {
+  const toolHosts: [RegExp, string][] = [[/n8n/i, 'docs.n8n.io'], [/zapier/i, 'help.zapier.com'], [/codex/i, 'developers.openai.com'], [/chatgpt|openai/i, 'help.openai.com'], [/claude|anthropic/i, 'platform.claude.com'], [/shopify/i, 'help.shopify.com'], [/woocommerce/i, 'woocommerce.com'], [/nextjs|next\.js/i, 'nextjs.org'], [/vercel/i, 'vercel.com'], [/react/i, 'react.dev'], [/webflow/i, 'help.webflow.com'], [/framer/i, 'www.framer.com'], [/helloasso|association/i, 'dev.helloasso.com']]
+  const hostForTool = toolHosts.find(([pattern]) => pattern.test(service + ' ' + keyword))?.[1]
+  if (hostForTool) return keyword + ' site:' + hostForTool
   if (/wordpress/i.test(keyword)) return 'WordPress éditeur de blocs gestion contenu documentation site:wordpress.org'
   const host = /google-ads/.test(service) ? 'support.google.com/google-ads' : /seo|referencement|google-business/.test(service) ? 'developers.google.com/search OR site:support.google.com/business' : /integrations|automatisation/.test(service) ? 'docs.n8n.io OR site:developer.mozilla.org' : /outils-ia/.test(service) ? 'ai.google.dev OR site:cnil.fr' : 'developer.mozilla.org OR site:web.dev OR site:developers.google.com/search'
   return `${keyword} site:${host}`

@@ -43,6 +43,7 @@ export type Item = Topic & { id: string; namespace: string; status: Status; stag
   nextAttemptAt: string | null; error: string | null; research?: Research; brief?: Brief; draft?: Draft; review?: Review;
   links?: InternalLink[]; seo?: Seo; images?: EditorialImage[]; gate?: Gate; qualityScore?: number;
   content?: string; backlinkDone?: boolean; refreshOf?: string; refreshSlug?: string; refreshBaseHash?: string;
+  held?: boolean; manualEdits?: boolean; manualSeo?: boolean; prepareRequested?: boolean;
 }
 export type State = { namespace: string; anchor: string; enabled: boolean; lastPublishedAt: string | null; lastPublishedSlot: string | null;
-  plannedAfterCount: number; lastPlanResearch?: Research; planningError?: string; nextPlanningAt?: string; pausedReason?: string }
+  plannedAfterCount: number; lastPlanResearch?: Research; planningError?: string; nextPlanningAt?: string; pausedReason?: string; strategyVersion?: number }

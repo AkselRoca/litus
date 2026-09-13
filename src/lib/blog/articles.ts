@@ -73,7 +73,7 @@ export const getBlogArticles = cache(async (): Promise<BlogArticle[]> => {
   let unpublishedSlugs = new Set<string>()
   try {
     const [posts, unpublishedLocalPosts] = await Promise.all([prisma.blogPost.findMany({
-      where: { published: true },
+      where: { published: true, OR: [{ publishedAt: null }, { publishedAt: { lte: new Date() } }] },
       orderBy: [{ publishedAt: 'desc' }, { createdAt: 'desc' }],
       select: {
         slug: true, title: true, excerpt: true, content: true, category: true,
@@ -81,7 +81,7 @@ export const getBlogArticles = cache(async (): Promise<BlogArticle[]> => {
         author: { select: { name: true } },
       },
     }), prisma.blogPost.findMany({
-      where: { published: false, slug: { in: editorialArticles.map(article => article.slug) } },
+      where: { slug: { in: editorialArticles.map(article => article.slug) }, OR: [{ published: false }, { publishedAt: { gt: new Date() } }] },
       select: { slug: true },
     })])
     unpublishedSlugs = new Set(unpublishedLocalPosts.map(post => post.slug))
@@ -107,7 +107,7 @@ export const getBlogArticles = cache(async (): Promise<BlogArticle[]> => {
     return []
   }
   const bySlug = new Map(existing.map(article => [article.slug, article]))
-  const prioritized = editorialArticles.filter(article => !unpublishedSlugs.has(article.slug))
+  const prioritized = editorialArticles.filter(article => !unpublishedSlugs.has(article.slug) && Date.parse(article.publishedAt) <= Date.now())
     .map(article => bySlug.get(article.slug) ?? article)
   const localSlugs = new Set(prioritized.map(article => article.slug))
   const automated = await publishedEditorial()

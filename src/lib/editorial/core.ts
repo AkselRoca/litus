@@ -3,7 +3,7 @@ import inventory from './site-inventory.json'
 import type { Draft, InternalLink, Item } from './types'
 
 export const ORIGIN = 'https://www.litus.fr'
-export const INTERVAL = 4 * 24 * 60 * 60 * 1000
+export const INTERVAL = 3 * 24 * 60 * 60 * 1000
 export const services = inventory.services
 export const publicRoutes = new Set(inventory.routes)
 export const hash = (value: unknown) => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex')

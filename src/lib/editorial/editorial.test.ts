@@ -44,17 +44,17 @@ function fixture(): Item {
 }
 
 describe('Editorial safety and quality', () => {
-  it('creates 39 service-backed ideas with cluster rotation and exact intervals', () => {
+  it('creates varied service/tool/trade-backed ideas at exact intervals', () => {
     const topics = initialTopics()
-    expect(topics).toHaveLength(39)
-    expect(new Set(topics.map(t => t.targetServicePage)).size).toBe(13)
+    expect(topics.length).toBeGreaterThanOrEqual(48)
+    expect(new Set(topics.map(t => t.targetServicePage)).size).toBeGreaterThan(20)
     expect(topics.every((t, i) => i === 0 || t.cluster !== topics[i - 1].cluster)).toBe(true)
     const items = makeItems(topics, freshState('test'), '2026-12-29T07:00:00.000Z')
     expect(items.every((t, i) => i === 0 || Date.parse(t.scheduledAt) - Date.parse(items[i - 1].scheduledAt) === INTERVAL)).toBe(true)
   })
-  it('keeps 96 hours across month, year and daylight-saving boundaries', () => {
-    expect(nextSlot('2026-12-29T07:00:00.000Z', new Date('2026-12-29T07:00:00.000Z'))).toBe('2027-01-02T07:00:00.000Z')
-    expect(nextSlot('2026-10-23T07:00:00.000Z', new Date('2026-10-25T07:00:00.000Z'))).toBe('2026-10-27T07:00:00.000Z')
+  it('keeps 72 hours across month, year and daylight-saving boundaries', () => {
+    expect(nextSlot('2026-12-29T07:00:00.000Z', new Date('2026-12-29T07:00:00.000Z'))).toBe('2027-01-01T07:00:00.000Z')
+    expect(nextSlot('2026-10-23T07:00:00.000Z', new Date('2026-10-25T07:00:00.000Z'))).toBe('2026-10-26T07:00:00.000Z')
   })
   it('fails closed on missing/incorrect cron authentication', () => {
     vi.stubEnv('CRON_SECRET', '')

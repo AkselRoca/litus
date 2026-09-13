@@ -23,7 +23,7 @@ export const GET = withAdmin(async function GET() {
         // Adapter le format pour le frontend admin
         const formattedPosts = posts.map(post => ({
             ...post,
-            category: 'Blog', // Par défaut, on peut rajouter la gestion des catégories plus tard
+            category: post.category || 'Blog',
             createdAt: post.createdAt.toLocaleDateString('fr-FR', {
                 day: 'numeric',
                 month: 'long',

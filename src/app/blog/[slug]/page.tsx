@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { BlogArticleTemplate, generateBlogArticleMetadata, type BlogArticleData } from '@/components/templates/BlogArticleTemplate'
 import { getBlogArticle, getBlogArticles } from '@/lib/blog/articles'
 import { prepareArticle } from '@/lib/blog/prepare-article'
+import { visibleFaqSchema } from '@/lib/blog/faq-schema'
 
 export const revalidate = 60
 
@@ -59,7 +60,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     { '@type': 'ListItem', position: 2, name: 'Litus Inside', item: 'https://www.litus.fr/blog' },
     { '@type': 'ListItem', position: 3, name: data.title, item: `https://www.litus.fr/blog/${data.slug}` },
   ] }
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, breadcrumb]).replace(/</g, '\\u003c') }} /><BlogArticleTemplate data={data} /></>
+  const faq = visibleFaqSchema(articles.find(article => article.slug === slug)?.content || '')
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, breadcrumb, ...(faq ? [faq] : [])]).replace(/</g, '\\u003c') }} /><BlogArticleTemplate data={data} /></>
 }
 
 export async function generateMetadata(props: Parameters<typeof resolvePageMetadata>[0]) {

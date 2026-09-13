@@ -3,6 +3,7 @@ import cloudinary from '@/lib/cloudinary'
 import { fetchPublic, plainText } from './network'
 import { model } from './providers'
 import { hash, ORIGIN, similarity } from './core'
+import { workflowDiagram } from './diagram'
 import { blogPhotos } from '@/lib/blog/photo-catalog'
 import type { EditorialImage, Item } from './types'
 
@@ -31,6 +32,10 @@ export async function acquireImages(item: Item): Promise<EditorialImage[]> {
   const used = new Set<string>(output.map(i => i.sourceUrl))
   for (const [index, request] of item.draft.imageQueries.entries()) {
     if (index < output.length) continue
+    if (index === 1 && /n8n|zapier|openai|claude|codex|automatisation|integrations/.test(item.targetServicePage)) {
+      output.push(await workflowDiagram(item))
+      break
+    }
     let purpose = request.purpose
     let found = await findImages(request.query)
     if (!found.some(c => !used.has(c.sourceUrl)) || /position/.test(item.error ?? '')) {
@@ -43,7 +48,7 @@ export async function acquireImages(item: Item): Promise<EditorialImage[]> {
     }
     // Previously acquired, licensed photographs remain a legitimate fallback.
     // They are downloaded from our public assets and visually re-evaluated for this article.
-    const library: Candidate[] = [...blogPhotos].filter(photo => !photo.tags.includes('local'))
+    const library: Candidate[] = (/n8n|zapier|openai|claude|codex/.test(item.targetServicePage) ? [] : [...blogPhotos]).filter(photo => !photo.tags.includes('local'))
       .sort((a, b) => similarity(`${b.alt} ${b.tags.join(' ')}`, `${item.topic} ${purpose}`) - similarity(`${a.alt} ${a.tags.join(' ')}`, `${item.topic} ${purpose}`))
       .slice(0, 4).map(photo => ({ url: `${ORIGIN}${photo.src}`, thumb: `${ORIGIN}${photo.src}`, title: photo.alt, description: photo.caption, credit: photo.credit, license: photo.license, licenseUrl: photo.licenseUrl, sourceUrl: photo.sourceUrl, width: photo.width, height: photo.height }))
     const candidates = [...found.filter(c => !/logo|icon|badge|flag/i.test(c.title)).slice(0, 3), ...library].filter(c => !used.has(c.sourceUrl)).slice(0, 6)

@@ -62,6 +62,21 @@ export async function event(namespace: string, itemId: string | null, name: stri
 export async function recentEvents(namespace: string) {
   return (await editorialDb().execute({ sql: 'SELECT * FROM EditorialEvent WHERE namespace=? ORDER BY at DESC LIMIT 100', args: [namespace] })).rows
 }
+/** Snapshot and changes are committed together while the cron/admin lease is held. */
+export async function commitCalendar(state: State, items: Item[], owner: string, name: string) {
+  const tx = await editorialDb().transaction('write')
+  try {
+    const lease = await tx.execute({ sql: 'UPDATE EditorialState SET data=? WHERE namespace=? AND leaseOwner=? AND leaseUntil>?', args: [JSON.stringify(state), state.namespace, owner, Date.now()] })
+    if (!lease.rowsAffected) throw new Error('Editorial lease lost')
+    for (const item of items) {
+      if (item.namespace !== state.namespace) throw new Error('Invalid namespace')
+      await tx.execute({ sql: 'INSERT INTO EditorialRevisionSnapshot(id,itemId,createdAt,data) SELECT ?,id,?,data FROM EditorialItem WHERE id=? AND namespace=?', args: [randomUUID(), new Date().toISOString(), item.id, state.namespace] })
+      await tx.execute({ sql: 'INSERT INTO EditorialItem(id,namespace,status,scheduledAt,slug,data) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET status=excluded.status,scheduledAt=excluded.scheduledAt,slug=excluded.slug,data=excluded.data', args: [item.id, item.namespace, item.status, item.scheduledAt, item.slug, JSON.stringify(item)] })
+    }
+    await tx.execute({ sql: 'INSERT INTO EditorialEvent VALUES(?,?,?,?,?,?)', args: [randomUUID(), state.namespace, items.length === 1 ? items[0].id : null, new Date().toISOString(), name, JSON.stringify({ count: items.length, strategyVersion: state.strategyVersion })] })
+    await tx.commit()
+  } catch (error) { await tx.rollback(); throw error } finally { tx.close() }
+}
 export async function commitPublication(item: Item, state: State, owner: string) {
   const tx = await editorialDb().transaction('write')
   try {

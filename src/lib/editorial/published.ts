@@ -2,12 +2,13 @@ import type { BlogArticle } from '@/lib/blog/articles'
 import { hash, escape } from './core'
 import { editorialDb } from './store'
 import type { Item } from './types'
+import { pillar } from './strategy'
 
 export function toBlogArticle(item: Item): BlogArticle {
   const hero = item.images![0]
   const categories: Record<string, BlogArticle['category']> = { '/google-ads': 'Google Ads', '/referencement-naturel': 'SEO', '/seo-local': 'SEO', '/google-business-profile': 'SEO', '/automatisation': 'Automatisation', '/creation-outils-ia': 'IA', '/integrations-api': 'Développement', '/creation-application-web': 'Développement', '/developpement-web-sur-mesure': 'Développement', '/creation-site-ecommerce': 'E-commerce' }
   return { slug: item.slug!, title: item.draft!.title, excerpt: item.draft!.excerpt, metaTitle: item.seo!.title, metaDescription: item.seo!.description,
-    category: categories[item.targetServicePage] ?? 'Site Web', city: null, content: item.content!, publishedAt: item.publishedAt || item.scheduledAt,
+    category: categories[item.targetServicePage] ?? (/openai|codex|claude|gemini|copilot/.test(item.targetServicePage) ? 'IA' : /n8n|zapier|make/.test(item.targetServicePage) ? 'Automatisation' : /shopify|stripe/.test(item.targetServicePage) ? 'E-commerce' : /react|nextjs|vercel|typescript|python|dotnet|csharp|labview/.test(item.targetServicePage) ? 'Développement' : ['Associations', 'PME'].includes(pillar(item.targetServicePage)) ? 'Stratégie' : 'Site Web'), city: null, content: item.content!, publishedAt: item.publishedAt || item.scheduledAt,
     updatedAt: item.modifiedAt, readTimeMinutes: Math.max(1, Math.ceil(item.draft!.blocks.map(b => [b.text, ...b.items, ...b.rows.flat()].join(' ')).join(' ').split(/\s+/).length / 220)),
     coverImage: hero.src, coverImageAlt: hero.alt, coverImageCredit: { label: `${hero.credit} · ${hero.license}`, href: hero.sourceUrl },
     images: item.images!.slice(1), authorName: 'L’équipe Litus', cluster: item.cluster, targetServicePage: item.targetServicePage,

@@ -63,6 +63,7 @@ export default function AdminBlogPage() {
                 </Link>
             </div>
 
+            <Link href="/admin/editorial" className="inline-flex items-center gap-2 text-primary font-medium"><Calendar className="w-4 h-4" /> Calendrier, articles planifiés et prévisualisations privées</Link>
             {/* Search & Filters */}
             <div className="bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-white/10 p-5">
                 <div className="relative">
@@ -112,7 +113,7 @@ export default function AdminBlogPage() {
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4">
-                                                {article.published ? (
+                                                {article.published && (!article.publishedAt || Date.parse(article.publishedAt) <= Date.now()) ? (
                                                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-medium rounded-md">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                                                         Publié
@@ -120,7 +121,7 @@ export default function AdminBlogPage() {
                                                 ) : (
                                                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs font-medium rounded-md">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-gray-400" />
-                                                        Brouillon
+                                                        {article.published ? 'Planifié' : 'Brouillon'}
                                                     </span>
                                                 )}
                                             </td>
@@ -140,7 +141,7 @@ export default function AdminBlogPage() {
                                                         <Edit className="w-4 h-4" />
                                                     </Link>
                                                     <Link
-                                                        href={`/blog/${article.slug}`}
+                                                        href={`/admin/blog/${article.id}/preview`}
                                                         target="_blank"
                                                         className="p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors"
                                                         title="Voir"

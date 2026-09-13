@@ -1474,6 +1474,25 @@
       "titles": []
     },
     {
+      "file": "src/app/admin/blog/[id]/preview/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "${escape(post.title)}"
+        },
+        {
+          "level": 1,
+          "text": "Prévisualisation privée"
+        }
+      ],
+      "links": [
+        "/admin/editorial"
+      ],
+      "titles": [
+        "Aperçu privé du blog | Litus"
+      ]
+    },
+    {
       "file": "src/app/admin/blog/new/page.tsx",
       "headings": [
         {
@@ -1519,41 +1538,141 @@
         }
       ],
       "links": [
-        "/admin/blog/new"
+        "/admin/blog/new",
+        "/admin/editorial"
       ],
       "titles": []
     },
     {
-      "file": "src/app/admin/editorial/[id]/page.tsx",
+      "file": "src/app/admin/editorial/CalendarView.test.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Résumé quotidien des emails avec n8n"
+      ]
+    },
+    {
+      "file": "src/app/admin/editorial/CalendarView.tsx",
       "headings": [
         {
-          "level": 1,
-          "text": "{draft.draft.title}"
+          "level": 3,
+          "text": "{item.title}"
         },
         {
           "level": 2,
-          "text": "Recherche et contrôle qualité"
+          "text": "{new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(year, m - 1, 1)))}"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/editorial/DashboardPage.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Calendrier éditorial"
+        },
+        {
+          "level": 1,
+          "text": "Le calendrier éditorial."
+        }
+      ],
+      "links": [
+        "/admin/editorial",
+        "/admin/editorial?mode=test",
+        "/admin/blog"
+      ],
+      "titles": [
+        "Calendrier éditorial | Litus"
+      ]
+    },
+    {
+      "file": "src/app/admin/editorial/EditorForm.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/admin/editorial/PreviewPage.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{item.draft?.title || item.workingTitle}"
+        },
+        {
+          "level": 2,
+          "text": "Sommaire"
+        },
+        {
+          "level": 2,
+          "text": "Brief du prochain article"
         },
         {
           "level": 3,
-          "text": "Requêtes Google"
+          "text": "Le problème à résoudre"
         },
         {
           "level": 3,
-          "text": "Sources réellement consultées"
+          "text": "Intention de recherche"
         },
         {
           "level": 3,
-          "text": "Images et licences"
+          "text": "Page à soutenir"
         },
         {
           "level": 3,
-          "text": "Revue finale"
+          "text": "Mots-clés secondaires"
+        },
+        {
+          "level": 3,
+          "text": "Plan préparé"
+        },
+        {
+          "level": 2,
+          "text": "Aperçu SEO"
+        },
+        {
+          "level": 3,
+          "text": "{item.seo.title}"
+        },
+        {
+          "level": 2,
+          "text": "Recherche Google"
+        },
+        {
+          "level": 3,
+          "text": "Sources consultées"
+        },
+        {
+          "level": 3,
+          "text": "Trois images et droits d’utilisation"
         }
       ],
       "links": [],
       "titles": [
-        "Brouillon privé | Litus"
+        "Prévisualisation privée | Litus"
+      ]
+    },
+    {
+      "file": "src/app/admin/editorial/[id]/edit/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Modifier l’article."
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Modifier un article | Litus"
+      ]
+    },
+    {
+      "file": "src/app/admin/editorial/[id]/page.tsx",
+      "headings": [],
+      "links": [],
+      "titles": [
+        "Prévisualisation privée | Litus"
       ]
     },
     {
@@ -1570,24 +1689,8 @@
     },
     {
       "file": "src/app/admin/editorial/page.tsx",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Le calendrier éditorial."
-        },
-        {
-          "level": 2,
-          "text": "{item.workingTitle}"
-        },
-        {
-          "level": 2,
-          "text": "Journal des derniers passages"
-        }
-      ],
-      "links": [
-        "/admin/editorial",
-        "/admin/editorial?mode=test"
-      ],
+      "headings": [],
+      "links": [],
       "titles": [
         "Calendrier éditorial | Litus"
       ]
@@ -6989,6 +7092,12 @@
       "titles": []
     },
     {
+      "file": "src/lib/blog/faq-schema.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/lib/blog/local-articles.ts",
       "headings": [
         {
@@ -7470,6 +7579,25 @@
       "titles": []
     },
     {
+      "file": "src/lib/editorial/calendar-admin.test.ts",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Conclusion"
+        },
+        {
+          "level": 2,
+          "text": "Questions fréquentes"
+        },
+        {
+          "level": 3,
+          "text": "Comment démarrer ?"
+        }
+      ],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/lib/editorial/calendar.ts",
       "headings": [],
       "links": [],
@@ -7477,6 +7605,24 @@
     },
     {
       "file": "src/lib/editorial/core.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/dates.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/diagram.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/edit.ts",
       "headings": [],
       "links": [],
       "titles": []
@@ -7544,7 +7690,19 @@
       "titles": []
     },
     {
+      "file": "src/lib/editorial/rebalance.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/lib/editorial/store.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/editorial/strategy.ts",
       "headings": [],
       "links": [],
       "titles": []
