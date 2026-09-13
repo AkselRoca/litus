@@ -97,7 +97,7 @@ export function contactConfirmationEmail(data: ContactFormData, from: string) {
   }
 }
 
-async function sendEmail(payload: ReturnType<typeof contactEmail> | ReturnType<typeof contactConfirmationEmail>, config: ContactConfig, idempotencyKey: string) {
+export async function sendEmail(payload: ReturnType<typeof contactEmail> | ReturnType<typeof contactConfirmationEmail>, config: ContactConfig, idempotencyKey: string) {
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST', headers: { Authorization: `Bearer ${config.RESEND_API_KEY}`, 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
     body: JSON.stringify(payload), signal: AbortSignal.timeout(12000), cache: 'no-store',

@@ -160,3 +160,7 @@ Dimensions internes de la scene liees a sa propre largeur, et non a la fenetre. 
 ## 1.18.d - Finitions du header
 
 Header plus aere et largeur maximale cadree, logo et baseline agrandis, navigation plus lisible, alignement commun et separateur avant le toggle compact. CTA rehausse avec fleche horizontale. Menus repositionnes selon les hauteurs normale et compacte. Styles partages home/pages internes ; mobile conserve. Estimateur inacheve exclu de cette publication.
+
+## 1.19.a - Estimation de marche avec email obligatoire
+
+Parcours activite/ville puis email obligatoire avant calcul et affichage. Estimation envoyee au prospect et notification a litusagency@gmail.com, emails Litus, projection mise en avant. Honeypot, origine, limites partagees et idempotence ; aucune inscription marketing. Parcours complet avec envoi transactionnel des deux emails, reprise sans doublon et conservation dans le CRM.

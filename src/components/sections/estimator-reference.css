@@ -182,3 +182,12 @@
 @media (prefers-reduced-motion: reduce) {
   #estimateur .site-cta-primary, #estimateur .reference-audit-card input { transition: none; }
 }
+
+/* Mandatory email step and the delivered estimate. */
+#estimateur .audit-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+#estimateur .audit-email-step input { width: 100%; }
+#estimateur .audit-email-step .form-note { margin: 12px 0 20px; font-size: 13px; line-height: 1.6; }
+#estimateur .audit-main-estimate { margin: 22px 0; padding: 23px 20px; border: 1px solid #edcdbb; border-radius: 16px; background: #ff642a09; }
+#estimateur .audit-main-estimate > span, #estimateur .audit-main-estimate small { display: block; color: var(--audit-muted); font-size: 13px; line-height: 1.5; }
+#estimateur .audit-main-estimate strong { display: block; margin: 8px 0; color: var(--audit-ink); font-size: clamp(32px, 3vw, 48px); line-height: 1.15; letter-spacing: -.04em; overflow-wrap: anywhere; }
+#estimateur .reference-audit-card .section-link { display: block; margin-top: 18px; }

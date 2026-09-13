@@ -1,5 +1,5 @@
 'use client'
-import { useState, type FormEvent } from 'react'
+import { useRef, useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Caveat } from 'next/font/google'
@@ -15,54 +15,39 @@ export function EstimatorSection() {
   const [ville, setVille] = useState('')
   const [email, setEmail] = useState('')
   const [analysis, setAnalysis] = useState<MarketAnalysis | null>(null)
-  const [analysisId, setAnalysisId] = useState<string | null>(null)
+  const [step, setStep] = useState<'details' | 'email'>('details')
+  const [websiteCheck, setWebsiteCheck] = useState('')
+  const submission = useRef<{ payload: string; id: string } | null>(null)
   const [busy, setBusy] = useState(false)
-  const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
   const [error, setError] = useState('')
+  function continueToEmail(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (metier.trim().length < 2 || ville.trim().length < 2) return
+    setError('')
+    setStep('email')
+  }
   async function calculate(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (busy) return
     setBusy(true)
     setError('')
     try {
+      const payload = JSON.stringify({ metier: metier.trim(), ville: ville.trim(), email: email.trim().toLowerCase(), website_check: websiteCheck, page_path: window.location.pathname })
+      if (submission.current?.payload !== payload) submission.current = { payload, id: crypto.randomUUID() }
       const response = await fetch('/api/market-analysis', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ metier: metier.trim(), ville: ville.trim() }),
+        headers: { 'Content-Type': 'application/json', 'Idempotency-Key': submission.current.id },
+        body: payload,
       })
       const data = await response.json()
-      if (!response.ok || !data.success || !data.analysis)
-        throw new Error('unavailable')
+      if (!response.ok || !data.success || !data.analysis) {
+        throw new Error(data.error || 'L’estimation est indisponible pour le moment. Réessayez dans quelques instants.')
+      }
       setAnalysis(data.analysis)
-      setAnalysisId(data.analysisId)
-      setSent(false)
-    } catch {
-      setError(
-        'L’estimation est indisponible pour le moment. Vous pouvez nous contacter pour en parler.'
-      )
+    } catch (failure) {
+      setError(failure instanceof Error ? failure.message : 'L’estimation est indisponible pour le moment. Réessayez.')
     } finally {
       setBusy(false)
-    }
-  }
-  async function requestAudit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    setSending(true)
-    setError('')
-    try {
-      const response = await fetch('/api/market-analysis', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ metier, ville, email, analysisId }),
-      })
-      const data = await response.json()
-      if (!response.ok || !data.success) throw new Error('unavailable')
-      setSent(true)
-    } catch {
-      setError(
-        'Votre demande n’a pas pu être enregistrée. Réessayez ou contactez-nous.'
-      )
-    } finally {
-      setSending(false)
     }
   }
   return (
@@ -104,13 +89,18 @@ export function EstimatorSection() {
         </figure>
         <div className="reference-audit-card">
           {!analysis ? (
-            <form onSubmit={calculate} aria-busy={busy}>
+            <form onSubmit={step === 'details' ? continueToEmail : calculate} aria-busy={busy}>
+              <div className="audit-honeypot" aria-hidden="true">
+                <label htmlFor="audit-website-check">Laissez ce champ vide</label>
+                <input id="audit-website-check" name="website_check" tabIndex={-1} autoComplete="off" value={websiteCheck} onChange={e => setWebsiteCheck(e.target.value)} />
+              </div>
               <div className="reference-audit-card-heading"><div>
               <h3>Votre marché local</h3>
               <p className="form-description">
-                Deux informations pour commencer.
+                {step === 'details' ? 'Deux informations pour commencer.' : 'Dernière étape : où envoyer votre estimation ?'}
               </p>
               </div><span className="reference-analysis-mark"><BarChart3 size={20} aria-hidden="true" /><span>Une première lecture<br />de votre marché local</span></span></div>
+              <div hidden={step !== 'details'}>
               <label htmlFor="audit-metier">Votre activité</label>
               <div className="reference-input-wrap"><BriefcaseBusiness size={18} aria-hidden="true" />
               <input
@@ -137,13 +127,21 @@ export function EstimatorSection() {
                 disabled={busy}
               />
               </div>
+              </div>
+              {step === 'email' && <div className="audit-email-step">
+                <p className="form-note">{metier} · {ville}</p>
+                <label htmlFor="audit-email">Votre email <span aria-hidden="true">*</span></label>
+                <input id="audit-email" name="email" type="email" autoComplete="email" autoFocus required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} disabled={busy} aria-describedby="audit-email-purpose" />
+                <p id="audit-email-purpose" className="form-note">Email obligatoire : recevez votre estimation par mail et consultez-la ici. Litus pourra vous répondre au sujet de cette demande. Aucune inscription à une newsletter.</p>
+              </div>}
               <button
                 className="site-cta-primary"
                 disabled={busy}
                 type="submit"
               >
-                {busy ? 'Estimation en cours…' : 'Obtenir une estimation'}<ArrowRight size={17} aria-hidden="true" />
+                {busy ? 'Calcul et envoi en cours…' : step === 'details' ? 'Obtenir une estimation' : 'Recevoir mon estimation'}<ArrowRight size={17} aria-hidden="true" />
               </button>
+              {step === 'email' && <button type="button" className="editorial-link section-link" disabled={busy} onClick={() => { setStep('details'); setError('') }}>Modifier mon activité ou ma ville</button>}
               <p className="reference-privacy"><LockKeyhole size={13} aria-hidden="true" /><span>Vos données servent uniquement à traiter votre demande. <Link href="/politique-confidentialite">Confidentialité</Link></span></p>
             </form>
           ) : (
@@ -152,6 +150,8 @@ export function EstimatorSection() {
                 {metier} · {ville}
               </p>
               <h3>Votre première estimation</h3>
+              <p role="status" className="form-note">Votre estimation a été envoyée à {email}. Pensez à vérifier vos courriers indésirables.</p>
+              <div className="audit-main-estimate"><span>Potentiel annuel estimé</span><strong>{analysis.potentielAnnuel.toLocaleString('fr-FR')} €</strong><small>Projection indicative, à confirmer avec un audit.</small></div>
               <dl className="audit-results">
                 <div>
                   <dt>Recherches mensuelles estimées</dt>
@@ -167,57 +167,23 @@ export function EstimatorSection() {
                   <dt>Tendance estimée</dt>
                   <dd>{analysis.tendance}</dd>
                 </div>
-                <div>
-                  <dt>Potentiel annuel estimé</dt>
-                  <dd>{analysis.potentielAnnuel.toLocaleString('fr-FR')} €</dd>
-                </div>
+
               </dl>
               <p>{analysis.analyse}</p>
               <p className="form-note">
                 Ces estimations automatiques ne constituent ni des mesures de
                 trafic ni une garantie de chiffre d’affaires.
               </p>
-              {sent ? (
-                <p role="status">
-                  Votre demande est enregistrée. Nous reviendrons vers vous.
-                </p>
-              ) : (
-                <form onSubmit={requestAudit} aria-busy={sending}>
-                  <label htmlFor="audit-email">
-                    Votre e-mail, pour approfondir avec notre équipe
-                  </label>
-                  <input
-                    id="audit-email"
-                    type="email"
-                    autoComplete="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                    disabled={sending}
-                  />
-                  <button
-                    className="site-cta-primary"
-                    disabled={sending}
-                    type="submit"
-                  >
-                    {sending ? 'Enregistrement…' : 'Demander un audit'}
-                  </button>
-                  <p className="form-note">
-                    Votre adresse sert à répondre à cette demande.{' '}
-                    <Link href="/politique-confidentialite">
-                      Confidentialité
-                    </Link>
-                  </p>
-                </form>
-              )}
+              <Link href="/contact?objet=audit" className="site-cta-primary">Approfondir avec Litus <ArrowRight size={17} aria-hidden="true" /></Link>
               <button
                 type="button"
                 className="editorial-link section-link"
                 onClick={() => {
                   setAnalysis(null)
-                  setAnalysisId(null)
+                  setStep('details')
+                  submission.current = null
                   setError('')
-                  setSent(false)
+                  setWebsiteCheck('')
                   setEmail('')
                 }}
               >

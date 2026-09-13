@@ -1,135 +1,120 @@
-/**
- * API Market Analysis - Analyse de marché propulsée par l'IA (Gemini)
- * 
- * Utilise Gemini pour estimer de manière fiable le marché local (Volume, CPC)
- * pour n'importe quelle requête libre et créer un discours de vente percutant pour l'agence.
- * 
- * FLUX:
- * 1. Première requête (sans email) → Crée l'analyse, la stocke en BDD et renvoie l'ID
- * 2. Deuxième requête (avec email + analysisId) → Met à jour l'analyse + crée un VRAI Lead
- */
-
 import { NextRequest, NextResponse } from 'next/server'
+import { randomUUID } from 'node:crypto'
 import { z } from 'zod'
-import { generateMarketAnalysis, MarketAnalysis } from '@/lib/gemini'
+import { generateMarketAnalysis, type MarketAnalysis } from '@/lib/gemini'
+import { contactConfiguration } from '@/lib/contact/config'
+import { checkRate, claimSubmission, clientAddress, digest, finishSubmission, submissionKey } from '@/lib/contact/store'
+import { sendMarketAnalysisEmails } from '@/lib/market-analysis-email'
 
-const analysisSchema = z.object({
-    metier: z.string().min(2, 'Le métier ou l\'activité est requis'),
-    ville: z.string().min(2, 'La ville est requise'),
-    email: z.string().email('Email invalide').optional().or(z.literal('')),
-    analysisId: z.string().optional(),
+export const runtime = 'nodejs'
+export const maxDuration = 60
+const schema = z.object({
+  metier: z.string().trim().min(2).max(100).regex(/^[^\x00-\x1f\x7f]+$/),
+  ville: z.string().trim().min(2).max(100).regex(/^[^\x00-\x1f\x7f]+$/),
+  email: z.string().trim().toLowerCase().email().max(254),
+  website_check: z.literal(''),
+  page_path: z.string().max(300).regex(/^\/(?!\/)[^?#\s]*$/).default('/'),
+}).strict()
+const estimateSchema = z.object({
+  recherchesMensuelles: z.number().finite().nonnegative().max(2_000_000_000),
+  potentielMensuel: z.number().finite().nonnegative().max(2_000_000_000),
+  potentielAnnuel: z.number().finite().nonnegative().max(2_000_000_000),
+  panierMoyen: z.number().finite().nonnegative().max(2_000_000_000),
+  tauxCapture: z.number().finite().min(0).max(1), cpc: z.number().finite().nonnegative(),
+  concurrence: z.enum(['Faible', 'Moyenne', 'Forte']), tendance: z.enum(['Hausse', 'Stable', 'Baisse']),
+  analyse: z.string().min(1).max(5000).refine(value => !value.includes('[MODE DÉGRADÉ]')),
+  keyword: z.string().min(1).max(300),
 })
+const json = (body: object, status = 200, headers: Record<string, string> = {}) => NextResponse.json(body, { status, headers: { 'Cache-Control': 'no-store', ...headers } })
+const unavailable = () => json({ success: false, error: 'L’estimation ou son envoi est indisponible pour le moment. Vos champs sont conservés : réessayez dans une minute, ou contactez Litus.' }, 503)
 
-export interface MarketAnalysisResponse {
-    success: boolean
-    analysis?: MarketAnalysis & { isEstimation?: boolean }
-    analysisId?: string
-    error?: string
+async function readBody(request: Request) {
+  if (Number(request.headers.get('content-length')) > 8192 || !request.body) throw new Error('body')
+  const reader = request.body.getReader()
+  const chunks: Uint8Array[] = []
+  let size = 0
+  const timer = setTimeout(() => { void reader.cancel().catch(() => {}) }, 5000)
+  try {
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      size += value.byteLength
+      if (size > 8192) { await reader.cancel(); throw new Error('body') }
+      chunks.push(value)
+    }
+    return JSON.parse(Buffer.concat(chunks).toString('utf8')) as unknown
+  } finally { clearTimeout(timer); reader.releaseLock() }
 }
 
-export async function POST(request: NextRequest): Promise<NextResponse<MarketAnalysisResponse>> {
-    try {
-        const body = await request.json()
-        const data = analysisSchema.parse(body)
+async function generate(metier: string, ville: string): Promise<MarketAnalysis> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  try {
+    const analysis = await Promise.race([
+      generateMarketAnalysis(metier, ville),
+      new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error('timeout')), 25000) }),
+    ])
+    return estimateSchema.parse(analysis)
+  } finally { clearTimeout(timer) }
+}
 
-        const { metier, ville, email, analysisId } = data
-
-        const { prisma } = await import('@/lib/database_final')
-
-        // ÉTAPE 2 : Capture d'Email (Le prospect veut un VRAI audit)
-        if (analysisId && email) {
-            console.log(`[Market Analysis] Updating analysis ${analysisId} with email ${email}`)
-
-            // Création du Lead
-            const lead = await prisma.lead.create({
-                data: {
-                    type: 'market-analysis',
-                    email: email,
-                    phone: null,
-                    data: JSON.stringify({ metier, ville, analysisId, wantsRealAudit: true }),
-                    source: 'Estimateur de Potentiel',
-                    status: 'new',
-                    treated: false,
-                },
-            })
-
-            // Lier l'analyse au Lead
-            await prisma.marketAnalysis.update({
-                where: { id: analysisId },
-                data: { email, leadId: lead.id },
-            })
-
-            return NextResponse.json({ success: true, analysisId })
-        }
-
-        // ÉTAPE 1 : Première estimation de marché 100% IA
-        console.log(`[Market Analysis] Generating estimation for: ${metier} | ${ville}`)
-
-        // Requête unique à Gemini (Génère Data + Pitch)
-        const analysis = await generateMarketAnalysis(metier, ville)
-
-        console.log('[Market Analysis] Generated KPIs:', {
-            volume: analysis.recherchesMensuelles,
-            potentiel: analysis.potentielMensuel,
-            taux: analysis.tauxCapture,
-        })
-
-        // On assigne un Index fictif interne pour la base de données selon le string
-        const competitionIndexStr = analysis.concurrence === 'Forte' ? 85 : analysis.concurrence === 'Moyenne' ? 50 : 20
-
-        // Sauvegarder l'analyse en Base de données
-        const savedAnalysis = await prisma.marketAnalysis.create({
-            data: {
-                metier,
-                ville,
-                keyword: analysis.keyword,
-
-                // Données IA
-                searchVolume: analysis.recherchesMensuelles,
-                cpc: analysis.cpc,
-                competition: analysis.concurrence === 'Forte' ? 'HIGH' : analysis.concurrence === 'Moyenne' ? 'MEDIUM' : 'LOW',
-                competitionIndex: competitionIndexStr,
-                dataSource: 'gemini_estimation',
-
-                // Calculs
-                panierMoyen: analysis.panierMoyen,
-                tauxConversion: 0,
-                tauxCapture: analysis.tauxCapture,
-                potentielMensuel: analysis.potentielMensuel,
-                potentielAnnuel: analysis.potentielAnnuel,
-
-                // Analyse texte
-                tendance: analysis.tendance,
-                analyse: analysis.analyse,
-                conseils: '[]',
-
-                leadId: null,
-                email: null,
-            },
-        })
-
-        return NextResponse.json({
-            success: true,
-            analysis: {
-                ...analysis,
-                isEstimation: true,
-            },
-            analysisId: savedAnalysis.id,
-        })
-    } catch (error) {
-        console.error('[Market Analysis API] Error:', error)
-
-        if (error instanceof z.ZodError) {
-            return NextResponse.json(
-                { success: false, error: 'Veuillez saisir une activité et une ville valides.' },
-                { status: 400 }
-            )
-        }
-
-        const message = error instanceof Error ? error.message : 'Erreur interne imprévue.'
-        return NextResponse.json(
-            { success: false, error: message },
-            { status: 500 }
-        )
-    }
+export async function POST(request: NextRequest) {
+  if (request.headers.get('content-type')?.split(';')[0].trim() !== 'application/json') return json({ success: false, error: 'Format invalide.' }, 415)
+  if (request.headers.get('sec-fetch-site') === 'cross-site') return json({ success: false, error: 'Origine invalide.' }, 403)
+  let raw: unknown
+  try { raw = await readBody(request) } catch { return json({ success: false, error: 'Demande invalide ou trop volumineuse.' }, 400) }
+  if (raw && typeof raw === 'object' && 'website_check' in raw && raw.website_check !== '') return json({ message: 'Demande prise en compte.' }, 202)
+  const parsed = schema.safeParse(raw)
+  if (!parsed.success) return json({ success: false, error: 'Une activité, une ville et une adresse email valide sont obligatoires.' }, 400)
+  const id = z.string().uuid().safeParse(request.headers.get('idempotency-key'))
+  if (!id.success) return json({ success: false, error: 'Actualisez la page puis réessayez.' }, 400)
+  const settings = contactConfiguration()
+  if (!settings.config) return unavailable()
+  const config = { ...settings.config, CONTACT_REDIS_PREFIX: `${settings.config.CONTACT_REDIS_PREFIX}:market` }
+  if (!config.origins.includes(request.headers.get('origin') || '')) return json({ success: false, error: 'Origine invalide.' }, 403)
+  const { website_check: _honeypot, ...data } = parsed.data
+  const fingerprint = digest(config, JSON.stringify(data))
+  const key = submissionKey(config, id.data)
+  const owner = randomUUID()
+  let claimed = false
+  try {
+    const address = clientAddress(request.headers)
+    const retry = await checkRate(config, address)
+    if (retry > 0) return json({ success: false, error: 'Trop de demandes rapprochées. Patientez quelques minutes.' }, 429, { 'Retry-After': String(retry) })
+    // A second shared bucket also limits mail sent to one recipient across IPs.
+    const recipientRetry = await checkRate({ ...config, CONTACT_REDIS_PREFIX: `${config.CONTACT_REDIS_PREFIX}:email` }, data.email)
+    if (recipientRetry > 0) return json({ success: false, error: 'Une demande récente concerne déjà cette adresse. Patientez quelques minutes.' }, 429, { 'Retry-After': String(recipientRetry) })
+    const claim = await claimSubmission(config, key, fingerprint, owner)
+    if (claim !== 'claimed' && claim !== 'sent') return json({ success: false, error: claim === 'pending' ? 'Votre estimation est déjà en cours. Réessayez dans une minute.' : 'Cette demande a expiré ou a été modifiée. Recommencez une estimation.' }, 409)
+    claimed = claim === 'claimed'
+    const { prisma } = await import('@/lib/database_final')
+    const leadId = `market_${id.data}`
+    const existing = await prisma.lead.findUnique({ where: { id: leadId } })
+    const snapshot = existing ? JSON.parse(existing.data) : null
+    if (snapshot && snapshot.fingerprint !== fingerprint) throw new Error('binding')
+    if (claim === 'sent' && !snapshot) return unavailable()
+    const analysis = snapshot ? estimateSchema.parse(snapshot.analysis) : await generate(data.metier, data.ville)
+    if (claim === 'sent') return json({ success: true, analysis: { ...analysis, isEstimation: true } })
+    const requestedAt = snapshot?.requestedAt || new Date().toISOString()
+    // Persist the exact analysis before email; retries reuse the same snapshot.
+    await prisma.lead.upsert({ where: { id: leadId }, update: {}, create: {
+      id: leadId, type: 'market-analysis', email: data.email, phone: null,
+      data: JSON.stringify({ ...data, fingerprint, analysis, requestedAt }), source: 'Estimateur de marché local', status: 'new', treated: false,
+    } })
+    await prisma.marketAnalysis.upsert({ where: { id: leadId }, update: {}, create: {
+      id: leadId, metier: data.metier, ville: data.ville, email: data.email, leadId,
+      keyword: analysis.keyword, searchVolume: Math.round(analysis.recherchesMensuelles), cpc: analysis.cpc,
+      competition: analysis.concurrence === 'Forte' ? 'HIGH' : analysis.concurrence === 'Moyenne' ? 'MEDIUM' : 'LOW',
+      competitionIndex: analysis.concurrence === 'Forte' ? 85 : analysis.concurrence === 'Moyenne' ? 50 : 20,
+      dataSource: 'gemini_estimation', panierMoyen: Math.round(analysis.panierMoyen), tauxConversion: 0,
+      tauxCapture: analysis.tauxCapture, potentielMensuel: Math.round(analysis.potentielMensuel), potentielAnnuel: Math.round(analysis.potentielAnnuel),
+      tendance: analysis.tendance, analyse: analysis.analyse, conseils: '[]',
+    } })
+    await sendMarketAnalysisEmails(data, analysis, config, id.data, requestedAt)
+    await finishSubmission(config, key, owner, true)
+    return json({ success: true, analysis: { ...analysis, isEstimation: true } }, 201)
+  } catch {
+    if (claimed) { try { await finishSubmission(config, key, owner, false) } catch { /* lease expires */ } }
+    console.error('[market-analysis] Estimation ou envoi non confirmé ; reprise possible avec la même clé')
+    return unavailable()
+  }
 }
