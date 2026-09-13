@@ -89,3 +89,11 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 ## 1.13.c - Photographies des metiers artisans
 
 20 photos supplementaires sous licence Pexels, deux par metier, integrees dans des galeries responsives. WebP locaux, proportions conservees, dimensions et ALT, chargement differe et credits documentes dans public/artisan/galerie/CREDITS.md. Aucune generation IA necessaire.
+
+## 1.14.b - Performances et navigation accessible
+- Affichage serveur immediat des preferences cookies, sans attente artificielle ; choix modifiables et stockage protege.
+- Mesure d'audience et Vercel Analytics/Speed Insights charges uniquement apres accord, avec controle du consentement avant chaque envoi.
+- Logos web optimises, image Demetis corrigee, contrastes des CTA renforces.
+- Avis, listes et statistiques corriges pour les lecteurs d'ecran et les agents ; demonstration avec pause/reprise.
+- Carte publique de navigation dans /llms.txt. Aucun outil agentique ne soumet de formulaire a la place du visiteur.
+- Les scores Lighthouse sont mesures apres build ; aucun score constant sur tous les appareils n'est garanti.

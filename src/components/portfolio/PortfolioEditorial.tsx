@@ -11,7 +11,7 @@ import './portfolio-reference.css';
 import './portfolio-original-hero.css';
 import { AcquisitionResults } from './AcquisitionResults';
 
-const handwriting = Caveat({ subsets: ['latin'], weight: ['400', '500', '600'], display: 'swap' });
+const handwriting = Caveat({ preload: false, subsets: ['latin'], weight: ['400', '500', '600'], display: 'swap' });
 type Project = { id: string; title: string; categories: string | null; tags: string | null; imageUrl: string; description: string | null; editorial?: PortfolioStory };
 function values(value: string | null): string[] {
   try { const parsed: unknown = JSON.parse(value || '[]'); return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === 'string') : []; } catch { return []; }

@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 import { ArrowUpRight, Search, Star, Users, Zap } from 'lucide-react'
 import { Caveat } from 'next/font/google'
 
-const handwriting = Caveat({ subsets: ['latin'], weight: '400', display: 'swap' })
+const handwriting = Caveat({ preload: false, subsets: ['latin'], weight: '400', display: 'swap' })
 
 export function HeroWorkspace() {
   const scene = useRef<HTMLDivElement>(null)

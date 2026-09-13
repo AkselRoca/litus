@@ -329,7 +329,7 @@ export function BentoFeatures() {
                       <div className="seo-result-content">
                         <div className="seo-result-domain">
                           {result.client ? (
-                            <Image src="/logo-sans-fond.png" alt="" width={20} height={20} />
+                            <Image src="/brand/litus-mark.webp" alt="" width={20} height={20} />
                           ) : (
                             <span className="seo-favicon" />
                           )}

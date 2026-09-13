@@ -3,7 +3,7 @@ import { Caveat } from 'next/font/google'
 import { ArrowRight, CalendarDays, Leaf, MapPin, Phone, ShieldCheck, Star, UsersRound } from 'lucide-react'
 import { ContactRequestForm } from './ContactRequestForm'
 
-const handwriting = Caveat({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-contact-hand' })
+const handwriting = Caveat({ preload: false, subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-contact-hand' })
 const bookingUrl = 'https://calendar.app.google/wgC3a6rCBy5ADUzn6'
 const reviewsUrl = 'https://share.google/lLdX3i6x3tdKbaBCb'
 const photoUrl = 'https://unsplash.com/photos/people-collaborating-on-office-laptop-Qx7A7SChpnI'

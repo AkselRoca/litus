@@ -1104,10 +1104,10 @@
   width: 74px;
   height: 74px;
   flex: 0 0 auto;
-  background: url('/logo-sans-fond.png') center / contain no-repeat;
+  background: url('/brand/litus-mark.webp') center / contain no-repeat;
 }
 .dark .contact-logo-mark {
-  background-image: url('/logo-white.png');
+  background-image: url('/brand/litus-mark-light.webp');
 }
 .litus-editorial .contact-brand-panel p {
   max-width: 170px;

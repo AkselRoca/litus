@@ -56,7 +56,7 @@ export function TerritoryScene() {
     onFocusCapture={() => setFocusWithin(true)}
     onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocusWithin(false) }}>
     <TerritoryMap city={city} onSelect={setCity} onHoverChange={setHoveringMap} />
-    <Link href="/referencement-naturel" className="territory-google-card" data-motion-layer="google-card" aria-label="En top sur Google — découvrir notre expertise en référencement naturel">
+    <Link href="/referencement-naturel" className="territory-google-card" data-motion-layer="google-card">
       <div className="territory-google-heading"><GoogleMark /><span>En top sur <strong>Google</strong></span></div>
       <ol>{['votre activité + Lorient', 'votre activité + Le Mans', 'services + votre ville'].map((text, index) => <li key={text}><b>{index + 1}</b><span>{text}</span><ChevronRight aria-hidden="true" /></li>)}</ol>
     </Link>

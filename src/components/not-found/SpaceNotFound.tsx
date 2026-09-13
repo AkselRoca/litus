@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import { ArrowRight, Code2, LayoutGrid, Monitor, Pause, Play, Search, ShoppingBag, Timer } from 'lucide-react'
 import inventory from '@/lib/editorial/site-inventory.json'
 
-const handwriting = Caveat({ subsets: ['latin'], weight: ['500'], display: 'swap', variable: '--font-space-handwriting' })
+const handwriting = Caveat({ preload: false, subsets: ['latin'], weight: ['500'], display: 'swap', variable: '--font-space-handwriting' })
 
 type SearchEntry = { title: string; href: string; description?: string; kind: string }
 

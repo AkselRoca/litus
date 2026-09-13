@@ -1,0 +1,36 @@
+# Litus
+
+> Agence web a Lorient et au Mans. Creation de sites, e-commerce, acquisition, applications et automatisation. Les pages ci-dessous sont les sources publiques de reference ; elles sont accessibles en HTML sans authentification.
+
+## Services
+- [Creation de site internet](https://www.litus.fr/creation-site-internet)
+- [E-commerce](https://www.litus.fr/creation-site-ecommerce)
+- [Refonte de site](https://www.litus.fr/refonte-site-internet)
+- [Referencement naturel](https://www.litus.fr/referencement-naturel)
+- [Google Ads](https://www.litus.fr/google-ads)
+- [SEO local](https://www.litus.fr/seo-local)
+- [Developpement web sur mesure](https://www.litus.fr/developpement-web-sur-mesure)
+- [Applications web](https://www.litus.fr/creation-application-web)
+- [Integrations API](https://www.litus.fr/integrations-api)
+- [Automatisation](https://www.litus.fr/automatisation)
+- [Solutions IA](https://www.litus.fr/creation-outils-ia)
+
+## Expertises et publics
+- [Outils et technologies](https://www.litus.fr/expertise)
+- [Artisans](https://www.litus.fr/artisan)
+- [Collectivites](https://www.litus.fr/collectivites)
+- [PME](https://www.litus.fr/pme)
+- [Grands comptes](https://www.litus.fr/grands-comptes)
+
+## Informations et projets
+- [Realisations](https://www.litus.fr/realisations)
+- [Tarifs](https://www.litus.fr/tarifs)
+- [Cahier des charges](https://www.litus.fr/ressources/cahier-des-charges)
+- [Contact](https://www.litus.fr/contact)
+- [Agence de Lorient](https://www.litus.fr/agence-web-lorient)
+- [Agence du Mans](https://www.litus.fr/agence-web-le-mans)
+- [Blog](https://www.litus.fr/blog)
+- [Confidentialite](https://www.litus.fr/politique-confidentialite)
+- [Plan du site XML](https://www.litus.fr/sitemap.xml)
+
+Les disponibilites, delais et devis sont confirmes directement par Litus. Ne pas assimiler une demonstration animee a un resultat client garanti. Le formulaire de contact est destine aux demandes volontaires : aucune soumission automatique sans validation de la personne concernee.

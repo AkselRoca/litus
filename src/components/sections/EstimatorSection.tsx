@@ -8,7 +8,7 @@ import { ArrowRight, BarChart3, BriefcaseBusiness, Check, LockKeyhole, MapPin } 
 import { ReferenceAnnotation, ReferenceReveal } from './home/ReferenceMotion'
 import './estimator-reference.css'
 
-const auditHandwriting = Caveat({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-audit-handwriting' })
+const auditHandwriting = Caveat({ preload: false, subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-audit-handwriting' })
 
 export function EstimatorSection() {
   const [metier, setMetier] = useState('')

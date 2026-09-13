@@ -35,6 +35,7 @@ function MiniTrend({ active }: { active: boolean }) {
 }
 
 export function ProcessDemo() {
+  const [paused, setPaused] = useState(false)
   const root = useRef<HTMLOListElement>(null)
   const [elapsed, setElapsed] = useState(0)
   const [playing, setPlaying] = useState(false)
@@ -62,13 +63,13 @@ export function ProcessDemo() {
   }, [])
 
   useEffect(() => {
-    if (!playing || reduced) return
+    if (!playing || reduced || paused) return
     const startedAt = performance.now() - elapsed
     const timer = window.setInterval(() => setElapsed((performance.now() - startedAt) % LOOP_DURATION), 80)
     return () => window.clearInterval(timer)
     // Restart from the paused elapsed value whenever the section returns onscreen.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playing, reduced])
+  }, [playing, reduced, paused])
 
   const phase = reduced ? 3 : activePhase(elapsed)
   const auditQuery = 'agence web Lorient'
@@ -85,7 +86,7 @@ export function ProcessDemo() {
     { label: 'Création du site', sub: 'Une base solide et performante', start: 20, end: 60 },
   ], [])
 
-  return <ol ref={root} className="reference-method-steps" data-phase={phase + 1}>
+  return <><div className="method-demo-controls"><button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? "Reprendre la démonstration" : "Mettre la démonstration en pause"}</button></div><ol ref={root} className="reference-method-steps" data-phase={phase + 1}>
     <li className="method-card method-audit" data-active={phase === 0} data-complete={phase > 0}>
       <MethodHeader number="01" icon={Search} title="Audit & analyse">
         Nous analysons votre présence actuelle, vos besoins et votre concurrence pour identifier les meilleures opportunités.
@@ -137,7 +138,7 @@ export function ProcessDemo() {
         Nous assurons la mise en ligne puis le suivi pour faire évoluer votre site et maximiser ses résultats.
       </MethodHeader>
       <div className="method-ui method-launch-ui">
-        <button type="button" tabIndex={-1} className={launchStep > 0 ? 'is-launched' : ''}><Rocket size={17} />{launchStep > 0 ? 'Site en ligne' : 'Lancer le site'}<MousePointer2 className="method-demo-pointer" size={27} /></button>
+        <div aria-hidden="true" className={`method-launch-button ${launchStep > 0 ? 'is-launched' : ''}`}><Rocket size={17} />{launchStep > 0 ? 'Site en ligne' : 'Lancer le site'}<MousePointer2 className="method-demo-pointer" size={27} /></div>
         <div className="method-launch-progress">
           {['Préparation', 'Mise en ligne', 'En ligne'].map((label, index) => <span key={label} className={launchStep > index ? 'is-done' : ''}><i>{launchStep > index ? <Check size={12} /> : index + 1}</i><small>{label}</small></span>)}
         </div>
@@ -146,8 +147,7 @@ export function ProcessDemo() {
         </div>
       </div>
     </li>
-    <span className="sr-only" aria-live="polite">Étape {phase + 1} sur 4</span>
-  </ol>
+  </ol></>
 }
 
 function MethodHeader({ number, icon: Icon, title, children }: { number: string; icon: typeof Search; title: string; children: React.ReactNode }) {

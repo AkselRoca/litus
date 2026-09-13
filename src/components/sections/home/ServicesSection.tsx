@@ -11,7 +11,7 @@ import {
 import { Caveat } from 'next/font/google'
 import './services-reference.css'
 
-const handwriting = Caveat({
+const handwriting = Caveat({ preload: false,
   subsets: ['latin'],
   weight: '400',
   display: 'swap',

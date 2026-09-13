@@ -1,11 +1,11 @@
-import Link from 'next/link'
+import Link from '@/components/ui/IntentLink'
 import Image from 'next/image'
 import { ArrowRight, ChartNoAxesColumnIncreasing } from 'lucide-react'
-import { TerritoryScene } from './home/TerritoryScene'
+import { TerritoryScene } from './home/ResponsiveTerritoryScene'
 import './home/territory-hero.css'
 
 const clients = [
-  { name: 'Demetis Immobilier', image: 'Demetis', url: 'https://www.Demetisimmo.fr/' },
+  { name: 'Demetis Immobilier', image: 'demetis', url: 'https://www.Demetisimmo.fr/' },
   { name: 'Nos Travaux', image: 'nos-travaux', url: 'https://www.nos-travaux.fr/' },
   { name: 'Aspire Énergie', image: 'aspire', url: 'https://www.aspire-energie.com/' },
   { name: 'Prodis Environnement', image: 'prodis', url: 'https://www.prodis-environnement.com/' },
@@ -26,7 +26,7 @@ function HeroCurves() {
 
 export function HeroSection() {
   return <section className="territory-hero" aria-labelledby="territory-hero-title">
-    <div className="territory-coast-photo" aria-hidden="true"><Image src="/territories/lorient-port.webp" alt="" fill sizes="(max-width: 1179px) 90vw, 62vw" /></div>
+    <div className="territory-coast-photo" aria-hidden="true"><picture><source media="(min-width: 1180px)" srcSet="/territories/lorient-coast-background.webp" /><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" width={960} height={638} loading="eager" fetchPriority="high" className="territory-coast-background" /></picture></div>
     <HeroCurves />
     <div className="territory-copy">
       <p className="territory-eyebrow"><span aria-hidden="true" />Sites web · SEO · Google Ads</p>

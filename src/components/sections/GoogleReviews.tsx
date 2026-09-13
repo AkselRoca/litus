@@ -36,14 +36,14 @@ export function GoogleReviews() {
           <Image src="/brands/google-color.svg" alt="Google" width={30} height={30} />
           <h2 id="google-reviews-title">Avis clients</h2>
         </div>
-        <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="google-reviews-rating" aria-label="Voir les 21 avis Litus sur Google">
-          <span className="google-review-stars" aria-label="5 étoiles sur 5">{Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}</span>
+        <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="google-reviews-rating">
+          <span className="google-review-stars" role="img" aria-label="5 étoiles sur 5">{Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}</span>
           <strong>5/5</strong><span className="google-reviews-divider" aria-hidden="true" />
           <Image src="/brands/google-color.svg" alt="" width={21} height={21} /><span>+21 avis Google</span>
         </a>
       </div>
 
-      <div className="google-reviews-viewport" tabIndex={0} aria-label="Avis Google. Le défilement se met en pause lorsque cette zone reçoit le focus.">
+      <div className="google-reviews-viewport" role="region" tabIndex={0} aria-label="Avis Google. Le défilement se met en pause lorsque cette zone reçoit le focus.">
         <div className="google-reviews-track">
           <ReviewGroup />
           <ReviewGroup duplicate />
@@ -67,7 +67,7 @@ function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
         <div className="google-review-person"><strong>{review.name}</strong><span>{review.ago}</span></div>
         <Image src="/brands/google-color.svg" alt="Avis publié sur Google" width={20} height={20} />
       </div>
-      <div className="google-review-card-stars" aria-label="5 étoiles sur 5">{Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}</div>
+      <div className="google-review-card-stars" role="img" aria-label="5 étoiles sur 5">{Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}</div>
       {review.text ? <p>{review.text}</p> : <p className="google-review-no-comment">Note attribuée sans commentaire.</p>}
       {review.visited && <footer>{review.visited}</footer>}
     </article>

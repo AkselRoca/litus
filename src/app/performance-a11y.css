@@ -1,0 +1,59 @@
+/* Real-user first paint, readable controls, and semantic markup adaptations. */
+html[data-cookie-consent='stored'] .cookie-banner:not([data-open='true']) { display: none; }
+html body .territory-copy { animation: none; }
+
+html body :is(.site-cta-primary, .header-project-cta, .services-reference-cta, .footer-cta-button, .cookie-button-primary, .mobile-menu-top-phone, .mobile-menu-footer > a),
+html body .contact-actions .editorial-button {
+  background-color: #c64b20;
+  background-image: none;
+  color: #fff;
+}
+html body :is(.footer-column-number, .footer-cta-label) { color: #b13e18; }
+html body .services-reference-number { color: #5c6670; }
+html body .is-active .services-reference-number { color: #a94728; }
+html.dark body :is(.footer-column-number, .footer-cta-label, .services-reference-number) { color: #ffad80; }
+
+html body .reference-stat-cards .reference-stat-value .reference-stat-icon { margin-bottom: 11px; }
+html body .reference-stat-cards .reference-stat-description {
+  order: 3; margin-top: auto; white-space: normal; font: inherit;
+}
+html body .reference-stat-cards .reference-stat-description p { color: #b13e18; }
+html.dark body .reference-stat-cards .reference-stat-description p { color: #ffad80; }
+
+.method-demo-controls { display: flex; justify-content: flex-end; margin: 0 0 12px; }
+.method-demo-controls button, .cookie-preferences-trigger {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 44px; border: 1px solid #d4d9de; border-radius: 22px;
+  padding: 8px 14px; background: #fffdf9; color: #263c4b; font: inherit; font-size: 12px;
+  cursor: pointer;
+}
+.cookie-preferences-trigger { position: fixed; bottom: 12px; left: 12px; z-index: 45; box-shadow: 0 2px 12px #102b3a0d; }
+.cookie-preferences-trigger[hidden] { display: none; }
+html body .cookie-button { min-height: 44px; }
+html body .cookie-banner-brand img { object-fit: contain; }
+.cookie-preference-line { display: flex; gap: 20px; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
+.cookie-preference-line strong { display: block; color: #263c4b; font-size: 13px; }
+.cookie-preference-line p { color: #586877; font-size: 12px; line-height: 1.5; margin: 4px 0 0; }
+.cookie-preference-line button { flex-shrink: 0; min-width: 72px; min-height: 44px; border: 1px solid #b7c0c7; border-radius: 22px; font: inherit; font-size: 12px; padding: 8px; color: #263c4b; background: #fff; cursor: pointer; }
+.cookie-preference-line button[aria-checked='true'] { background: #c64b20; border-color: #c64b20; color: #fff; }
+.cookie-preference-line button:disabled { background: #eef1f3; color: #425462; border-color: #d4d9de; cursor: default; }
+html.dark .cookie-preference-line strong, html.dark .cookie-preference-line p { color: #d9e0e5; }
+html body :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 3px solid #b13e18; outline-offset: 4px; }
+html.dark body :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline-color: #ffad80; }
+@media (max-width: 1179px) { html body .header-phone { background: #c64b20; color: #fff; } }
+@media (prefers-reduced-motion: reduce) { html body .method-demo-controls { display: none; } }
+
+/* These two legacy declarations use !important; keep their correction scoped. */
+html body .territory-actions a.site-cta-primary { background: #c64b20 !important; color: #fff !important; }
+html body .services-reference-featured .services-reference-number { color: #a94728 !important; }
+html body .services-reference-signature { color: #685e57; }
+html.dark body .services-reference-signature { color: #c0c8cc; }
+.cookie-banner-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+@media (max-width: 639px) {
+  .cookie-banner-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  html body .cookie-banner-actions .cookie-button { width: 100%; padding: 9px 10px; font-size: 11px; line-height: 1.4; }
+  .cookie-banner-actions .cookie-button-customize { grid-column: 1 / -1; }
+}
+html body .services-reference-signature { color: #685e57 !important; }
+html.dark body .services-reference-signature { color: #c0c8cc !important; }
+.territory-coast-photo picture, .territory-coast-background { display: block; width: 100%; height: 100%; object-fit: cover; }

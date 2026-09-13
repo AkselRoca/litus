@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import './editorial.css'
+import './performance-a11y.css'
+import { CONSENT_BOOTSTRAP } from '@/lib/cookie-consent'
 import { PublicLayoutWrapper } from '@/components/layout/PublicLayoutWrapper'
 import { LenisProvider } from '@/components/providers/LenisProvider'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { AnalyticsProvider } from '@/components/providers/AnalyticsProvider'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 // Inter est utilisée pour le corps de texte et tous les titres publics.
 const inter = Inter({
@@ -90,6 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${inter.variable} light`} suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP }} /></head>
       <body className="min-h-screen-dynamic flex flex-col">
         <ThemeProvider>
           <LenisProvider>
@@ -100,8 +101,6 @@ export default function RootLayout({
             </AnalyticsProvider>
           </LenisProvider>
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   )

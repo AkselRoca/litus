@@ -33,7 +33,7 @@ export function TerritoryMap({ city, onSelect, onHoverChange }: {
         { name: 'lorient', label: 'Lorient', lines: ['Mer & opportunités'], point: lorient },
         { name: 'le-mans', label: 'Le Mans', lines: ['Dynamisme', '& croissance'], point: leMans },
       ].map(({name, label, lines, point}) => <g key={name} className="territory-city-selector" transform={`translate(${point[0]} ${point[1]}) rotate(-22)`}
-        role="button" tabIndex={0} aria-label={`Afficher ${label}`} aria-pressed={city === name} aria-controls="territory-city-photo"
+        role="button" tabIndex={0} aria-pressed={city === name} aria-controls="territory-city-photo"
         onPointerEnter={event => { if (event.pointerType !== 'touch') { onHoverChange(true); onSelect(name as TerritoryCity) } }}
         onPointerLeave={() => onHoverChange(false)}
         onFocus={() => onSelect(name as TerritoryCity)}

@@ -39,10 +39,10 @@
   width: 54px;
   height: 54px;
   flex: 0 0 auto;
-  background: url('/logo-sans-fond.png') center / contain no-repeat;
+  background: url('/brand/litus-mark.webp') center / contain no-repeat;
 }
 .dark .footer-logo-mark {
-  background-image: url('/logo-white.png');
+  background-image: url('/brand/litus-mark-light.webp');
 }
 .footer-brand strong {
   font-size: 38px;
@@ -191,12 +191,12 @@
   right: -20px;
   width: 150px;
   height: 150px;
-  background: url('/logo-sans-fond.png') center / contain no-repeat;
+  background: url('/brand/litus-mark.webp') center / contain no-repeat;
   opacity: 0.055;
   pointer-events: none;
 }
 .dark .footer-cta-mark {
-  background-image: url('/logo-white.png');
+  background-image: url('/brand/litus-mark-light.webp');
   opacity: 0.045;
 }
 .footer-cta-label {

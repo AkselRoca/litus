@@ -5,7 +5,8 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CookieBanner } from '@/components/ui/CookieBanner'
 import { GoogleReviews } from '@/components/sections/GoogleReviews'
-import { LeadMagnetSlideIn } from '@/components/lead-magnets'
+import dynamic from 'next/dynamic'
+const LeadMagnetSlideIn = dynamic(() => import('@/components/lead-magnets').then(module => module.LeadMagnetSlideIn), { ssr: false })
 
 interface PublicLayoutWrapperProps {
     children: React.ReactNode

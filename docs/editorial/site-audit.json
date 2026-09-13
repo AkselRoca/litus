@@ -4052,6 +4052,12 @@
       "titles": []
     },
     {
+      "file": "src/app/performance-a11y.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/pme/_components/PmeHero.tsx",
       "headings": [],
       "links": [],
@@ -5353,6 +5359,12 @@
       "titles": []
     },
     {
+      "file": "src/components/providers/ConsentedAnalytics.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/components/providers/LenisProvider.tsx",
       "headings": [],
       "links": [],
@@ -5612,6 +5624,12 @@
     },
     {
       "file": "src/components/sections/home/ReferenceMotion.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/ResponsiveTerritoryScene.tsx",
       "headings": [],
       "links": [],
       "titles": []
@@ -5987,10 +6005,6 @@
         {
           "level": 2,
           "text": "Des cookies, en toute transparence."
-        },
-        {
-          "level": 2,
-          "text": "Vos préférences"
         }
       ],
       "links": [
@@ -6006,6 +6020,12 @@
     },
     {
       "file": "src/components/ui/Input.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/ui/IntentLink.tsx",
       "headings": [],
       "links": [],
       "titles": []
@@ -7186,6 +7206,12 @@
     },
     {
       "file": "src/lib/contact/store.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/cookie-consent.ts",
       "headings": [],
       "links": [],
       "titles": []
