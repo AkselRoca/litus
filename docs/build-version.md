@@ -152,3 +152,7 @@ Vue mensuelle et liste filtrable, apercus prives et edition avec historique, dat
 ## 1.18.b - Retouches legeres de la hero
 
 Structure conservee. Progressions vertes discretes dans la carte Google (exemple illustre), badge +30 demandes par mois / Google Ads / Client artisan sans nommer le client. Lueurs des pins et du trajet renforcees, logos clients plus contrastes, transition creme vers les outils harmonisee. Scene desktop uniquement, composition mobile conservee.
+
+## 1.18.c - Hero responsive grands ecrans
+
+Dimensions internes de la scene liees a sa propre largeur, et non a la fenetre. Carte Google compacte avec colonnes distinctes, badge calibre, composition centree sur les ecrans larges. Version mobile simplifiee conservee. Le chantier estimateur 1.19.a reste hors publication.

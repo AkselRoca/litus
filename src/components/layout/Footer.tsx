@@ -124,7 +124,7 @@ export function Footer() {
           <div className="footer-copyright">
             <p>© 2026 Litus. Tous droits réservés.</p>
             <small>Conçu et développé en France, pour les entreprises locales.</small>
-          <small className="footer-build">Build 1.18.b</small>
+          <small className="footer-build">Build 1.18.c</small>
           </div>
           <nav className="footer-legal" aria-label="Informations légales">
             <Link href="/mentions-legales">Mentions légales</Link>
