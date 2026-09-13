@@ -1257,19 +1257,56 @@
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                                Vos clients recherchent des services près de chez eux\n                            "
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{pillar.title}"
+        },
+        {
+          "level": 3,
+          "text": "Un artisan visible là où il intervient vraiment."
+        },
+        {
+          "level": 3,
+          "text": "Répondre à une intention, pas à un nom de ville."
+        },
+        {
+          "level": 3,
+          "text": "La fiche que l’on veut trouver."
+        },
+        {
+          "level": 3,
+          "text": "{project.title}"
+        },
+        {
+          "level": 2,
+          "text": "Faisons le point sur votre visibilité locale."
         }
       ],
-      "links": [],
+      "links": [
+        "/blog/photos/le-mans-cathedrale.webp",
+        "/creation-site-internet",
+        "/expertise",
+        "/realisations",
+        "/contact?objet=Audit%20SEO%20local",
+        "/",
+        "/territories/credits.html",
+        "/agence-web-lorient",
+        "/agence-web-le-mans",
+        "/ressources/checklist-gmb",
+        "/google-ads",
+        "/tarifs"
+      ],
       "titles": [
-        "Agence SEO Local Lorient & Le Mans - Référencement Google",
-        "Améliorez votre visibilité locale sur Google. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
-        "Aire des Îles",
-        "Aspire Marketing",
-        "Azra Photographie",
-        "BRZ Couverture",
-        "Carnac Immobilier",
-        "Audit & Mots-Clés"
+        "SEO local : visibilité Google à Lorient & au Mans | Litus",
+        "Une fiche établissement juste.",
+        "Des pages qui répondent au besoin.",
+        "Un parcours simple sur mobile.",
+        "Des preuves, pas des raccourcis.",
+        "West Clôtures & Paysage",
+        "Demetis Immo",
+        "Loumor Débarras"
       ],
       "path": "/seo-local"
     },
@@ -4865,41 +4902,77 @@
       "file": "src/app/seo-local/SeoLocalHero.tsx",
       "headings": [],
       "links": [
-        "/contact?objet=seo"
+        "/contact?objet=Audit%20SEO%20local",
+        "/realisations/west-clotures-paysage",
+        "/territories/credits.html"
       ],
-      "titles": [
-        "Plombiers à Lorient : les professionnels proches de vous",
-        "Trouvez un plombier à Lorient. Avis, horaires et coordonnées.",
-        "Dépannage plomberie à Lorient",
-        "Intervention rapide 7j/7 sur Lorient et ses alentours.",
-        "Artisan plombier dans le Morbihan",
-        "Installation, rénovation et dépannage près de chez vous.",
-        "Plomberie Lorient – Installation et rénovation",
-        "Prestations de plomberie sur Lorient et le Morbihan."
-      ]
+      "titles": []
     },
     {
       "file": "src/app/seo-local/page.tsx",
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                                Vos clients recherchent des services près de chez eux\n                            "
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{pillar.title}"
+        },
+        {
+          "level": 3,
+          "text": "Un artisan visible là où il intervient vraiment."
+        },
+        {
+          "level": 3,
+          "text": "Répondre à une intention, pas à un nom de ville."
+        },
+        {
+          "level": 3,
+          "text": "La fiche que l’on veut trouver."
+        },
+        {
+          "level": 3,
+          "text": "{project.title}"
+        },
+        {
+          "level": 2,
+          "text": "Faisons le point sur votre visibilité locale."
         }
       ],
-      "links": [],
+      "links": [
+        "/blog/photos/le-mans-cathedrale.webp",
+        "/creation-site-internet",
+        "/expertise",
+        "/realisations",
+        "/contact?objet=Audit%20SEO%20local",
+        "/",
+        "/territories/credits.html",
+        "/agence-web-lorient",
+        "/agence-web-le-mans",
+        "/ressources/checklist-gmb",
+        "/google-ads",
+        "/tarifs"
+      ],
       "titles": [
-        "Agence SEO Local Lorient & Le Mans - Référencement Google",
-        "Améliorez votre visibilité locale sur Google. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
-        "Aire des Îles",
-        "Aspire Marketing",
-        "Azra Photographie",
-        "BRZ Couverture",
-        "Carnac Immobilier",
-        "Audit & Mots-Clés"
+        "SEO local : visibilité Google à Lorient & au Mans | Litus",
+        "Une fiche établissement juste.",
+        "Des pages qui répondent au besoin.",
+        "Un parcours simple sur mobile.",
+        "Des preuves, pas des raccourcis.",
+        "West Clôtures & Paysage",
+        "Demetis Immo",
+        "Loumor Débarras"
       ]
     },
     {
       "file": "src/app/seo-local/seo-hero.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/seo-local/seo-local.css",
       "headings": [],
       "links": [],
       "titles": []

@@ -1,222 +1,59 @@
-import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
-import { ServicePageTemplate } from '@/components/templates/ServicePageTemplate'
-import { Search, MapPin, TrendingUp, Target, Globe, ShieldCheck, Mail, Trophy, Smartphone, MousePointerClick } from 'lucide-react'
+import type { ReactNode } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, MapPin, Search, FileText, Smartphone, MessageCircle, ChartNoAxesCombined, Check, Plus } from 'lucide-react'
+import { pageMetadata } from '@/lib/seo/metadata'
+import { portfolioCatalog } from '@/lib/portfolio-catalog'
+import { ReferenceReveal } from '@/components/sections/home/ReferenceMotion'
 import { SeoLocalHero } from './SeoLocalHero'
-
-export const metadata: Metadata = pageMetadata("/seo-local", {
-    title: 'Agence SEO Local Lorient & Le Mans - Référencement Google',
-    description: 'Améliorez votre visibilité locale sur Google. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.',
-})
-
-const realizations = [
-    { image: '/realisations/aire des iles site internet crée par litus agence web.jpeg', link: '#', title: 'Aire des Îles' },
-    { image: '/realisations/aspire marketing site internet crée par litus agence web.jpeg', link: '#', title: 'Aspire Marketing' },
-    { image: '/realisations/azra photographie site internet crée par litus agence web.jpeg', link: '#', title: 'Azra Photographie' },
-    { image: '/realisations/brz couverture site internet crée par litus agence web.png', link: '#', title: 'BRZ Couverture' },
-    { image: '/realisations/carnac immobilier site internet crée par litus agence web.png', link: '#', title: 'Carnac Immobilier' },
+import './seo-local.css'
+const url = 'https://www.litus.fr/seo-local'
+const description = 'Améliorez votre visibilité sur Google et Maps : fiche établissement, pages locales et suivi des demandes. Un accompagnement SEO local à Lorient et au Mans.'
+export const metadata: Metadata = pageMetadata('/seo-local', { title: 'SEO local : visibilité Google à Lorient & au Mans | Litus', description, openGraph: { images: [{ url: '/blog/photos/le-mans-cathedrale.webp', width: 1400, height: 928, alt: 'La cathédrale Saint-Julien au Mans, territoire accompagné par Litus' }] }, twitter: { images: ['/blog/photos/le-mans-cathedrale.webp'] } })
+const faq = [
+  ['Qu’est-ce que le référencement local ?', 'Le SEO local aide une entreprise à être trouvée pour ses prestations dans une zone géographique pertinente. Il associe le site internet, la fiche Google Business Profile, les informations de l’établissement, les avis et les références locales. L’objectif n’est pas seulement une position : c’est aussi un appel, une visite ou une demande de devis adaptée.'],
+  ['Google Maps et le référencement du site, est-ce la même chose ?', 'Non. Les résultats de la carte reposent notamment sur la pertinence de la fiche, la distance avec la personne qui cherche et la notoriété de l’établissement. Les pages du site travaillent les recherches organiques et expliquent les services. Une fiche complète et des pages utiles se complètent, mais une bonne position dans l’un ne garantit pas la même dans l’autre.'],
+  ['Peut-on travailler plusieurs villes autour de Lorient ou du Mans ?', 'Oui, si ces communes correspondent à votre activité réelle. Nous partons de vos chantiers, de vos déplacements et de la demande. Une page pour Lanester, Ploemeur, Allonnes ou Coulaines doit apporter des informations propres à la zone : prestations, projets et modalités de contact. Changer uniquement le nom de la ville dans un texte identique n’est pas une stratégie.'],
+  ['Je travaille chez mes clients : faut-il afficher mon adresse personnelle ?', 'Si vous ne recevez pas de clients à votre adresse, Google demande de la masquer dans la fiche publique et d’indiquer les zones desservies. Nous vérifions le type d’établissement et les règles applicables à votre activité. Il ne faut pas créer de fausses implantations ou une fiche par commune pour simuler une présence.'],
+  ['Combien de temps faut-il pour voir une progression ?', 'Certaines corrections peuvent être prises en compte rapidement ; les effets d’un travail de fond s’observent généralement sur plusieurs mois. L’état du site, la concurrence, la saison et l’historique de la fiche changent le calendrier. Nous établissons un point de départ et suivons la progression, sans promettre une date ni une première position.'],
+  ['Quel budget prévoir pour un accompagnement SEO local ?', 'L’offre de suivi présentée sur cette page commence à 99 € par mois, selon le périmètre retenu. Un audit complet, une refonte, des pages supplémentaires ou un accompagnement multi-établissements font l’objet d’un devis distinct. Les livrables, la fréquence du suivi et les conditions d’engagement sont précisés avant le démarrage.'],
+  ['Peut-on combiner SEO local et Google Ads ?', 'Oui. Le SEO travaille la présence organique et les contenus dans la durée ; Google Ads permet de diffuser des annonces avec un budget média distinct. Nous séparons leurs résultats pour savoir quelles demandes viennent de chaque canal. Le cas SARL Péan J présenté sur notre page Google Ads relève de l’acquisition payante, pas d’une performance SEO.'],
+  ['Comment mesurez-vous les résultats ?', 'Nous croisons les recherches et clics du site dans Search Console, les interactions de la fiche établissement et les demandes reçues. Le suivi peut inclure les formulaires et les clics sur le téléphone, avec une configuration adaptée des outils. Un clic sur le numéro n’est pas forcément un appel abouti : la qualification des demandes avec votre équipe reste importante.'],
 ]
-
+const schema = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'WebPage', '@id': url, url, name: 'SEO local à Lorient et au Mans', description, inLanguage: 'fr-FR' },
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Accompagnement en référencement local', serviceType: 'SEO local et Google Business Profile', url, provider: { '@id': 'https://www.litus.fr/#organization' }, areaServed: [{ '@type': 'City', name: 'Lorient' }, { '@type': 'City', name: 'Le Mans' }] },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'SEO local', item: url }] },
+  { '@type': 'FAQPage', mainEntity: faq.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })) },
+] }
+const pillars = [
+  { icon: MapPin, title: 'Une fiche établissement juste.', text: 'Catégorie, services, coordonnées, horaires et zone desservie : nous vérifions ce qui décrit réellement votre entreprise. Des photos récentes rendent votre activité plus tangible.', href: '#google-business-profile', label: 'Travailler Google Maps' },
+  { icon: FileText, title: 'Des pages qui répondent au besoin.', text: 'Prestations, réalisations, déroulement d’une intervention et réponses aux questions : chaque page locale doit aider à choisir, pas simplement répéter une ville.', href: '/creation-site-internet', label: 'Un site pensé pour vos clients' },
+  { icon: Smartphone, title: 'Un parcours simple sur mobile.', text: 'Une page rapide, un téléphone accessible et une demande de devis courte. Nous corrigeons aussi l’indexation, les liens internes et les informations structurées utiles.', href: '/expertise', label: 'Découvrir nos expertises' },
+  { icon: MessageCircle, title: 'Des preuves, pas des raccourcis.', text: 'Photos de projets, avis authentiques et réponses soignées renforcent la confiance. Les partenariats locaux pertinents ont plus de sens qu’une collection de liens artificiels.', href: '/realisations', label: 'Voir les projets Litus' },
+]
+const projects = [
+  { slug: 'west-clotures-paysage', label: 'Artisan · Morbihan', title: 'West Clôtures & Paysage', text: 'Une refonte qui relie clôtures, portails, terrasses et aménagements paysagers aux communes réellement desservies. Les réalisations donnent à voir le travail ; les pages de prestations et le formulaire accompagnent la demande de devis.', tags: ['Refonte', 'SEO local', 'Parcours devis'], lesson: 'Le point clé : associer une prestation précise, une zone réelle et des preuves de savoir-faire.' },
+  { slug: 'demetis-immo', label: 'Immobilier · Le Mans', title: 'Demetis Immo', text: 'Un site immobilier qui réunit annonces, photographies et informations pratiques, avec un ancrage clair au Mans et en Sarthe. La lecture des biens et les prises de contact restent au centre du parcours, plutôt qu’une simple accumulation de mots-clés.', tags: ['Site immobilier', 'Visibilité locale', 'Next.js'], lesson: 'Le point clé : une présence locale crédible et un accès direct aux biens proposés.' },
+  { slug: 'loumor-debarras', label: 'Services · Vannes et Morbihan', title: 'Loumor Débarras', text: 'Maison, local professionnel ou succession : le site distingue les situations de débarras, précise les zones d’intervention et rend le contact facile à trouver. Une structure utile pour relier chaque besoin à la bonne prestation.', tags: ['WordPress', 'SEO local', 'Site vitrine'], lesson: 'Le point clé : rassurer avec des réponses adaptées à chaque situation.' },
+].map(project => ({ ...project, cover: portfolioCatalog.find(item => item.slug === project.slug)!.cover }))
+function Cta({ children }: { children: ReactNode }) { return <Link className="site-cta-primary" href="/contact?objet=Audit%20SEO%20local">{children}<ArrowRight size={18} aria-hidden="true" /></Link> }
+function Heading({ label, title, children }: { label: string; title: string; children?: ReactNode }) { return <div className="local-heading"><p className="local-eyebrow">{label}</p><h2>{title}</h2>{children && <p>{children}</p>}</div> }
 export default function SeoLocalPage() {
-    return (
-        <ServicePageTemplate
-            hero={<SeoLocalHero />}
-            title="SEO Local : Dominez Votre Ville"
-            subtitle="Soyez le premier choix quand vos clients cherchent vos services sur Google à Lorient ou Le Mans."
-            description="Avoir un site ne suffit plus. Il doit être visible. Notre expertise en référencement local travaille votre visibilité sur Google et Google Maps."
-            heroImage="/hero-seo.png"
-
-            seoContent={
-                <div id="referencement-local" className="space-y-16">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                                Vos clients recherchent des services près de chez eux
-                            </h2>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                                Si vous n’êtes pas dans le <strong>« Pack Local » (les 3 premiers résultats carte)</strong>, vous n’existez pas pour de nombreux clients.
-                            </p>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Chez Litus, nous ne vendons pas du « vent » ou des abonnements SEO obscurs. Nous mettons en place une stratégie mesurable pour améliorer votre présence locale sur <strong>Lorient</strong>, <strong>Vannes</strong> et <strong>Le Mans</strong>.
-                            </p>
-                        </div>
-                        <div className="relative h-64 md:h-full min-h-[300px] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-white/5 dark:to-white/10 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-100 dark:border-white/5">
-                            <div className="bg-white dark:bg-[#0A0A0A] p-6 rounded-xl shadow-xl w-3/4 transform rotate-1 hover:rotate-0 transition-transform duration-500 border border-gray-100 dark:border-white/5">
-                                <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100 dark:border-white/5">
-                                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                                        <Search className="w-4 h-4" />
-                                    </div>
-                                    <div className="h-2 w-32 bg-gray-100 dark:bg-white/10 rounded-full" />
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-500/20">
-                                        <div className="font-bold text-blue-600">1</div>
-                                        <div className="flex-1">
-                                            <div className="h-2 w-24 bg-blue-200 dark:bg-blue-500/40 rounded-full mb-1" />
-                                            <div className="h-1.5 w-16 bg-blue-100 dark:bg-blue-500/20 rounded-full" />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-3 p-3 opacity-50">
-                                        <div className="font-bold text-gray-400">2</div>
-                                        <div className="flex-1">
-                                            <div className="h-2 w-24 bg-gray-200 dark:bg-white/10 rounded-full mb-1" />
-                                            <div className="h-1.5 w-16 bg-gray-100 dark:bg-white/5 rounded-full" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-
-            features={[
-                {
-                    title: 'Audit & Mots-Clés',
-                    description: 'Sur quoi vos clients vous cherchent-ils vraiment ? Analyse de marché.',
-                    icon: <Target className="w-6 h-6" />,
-                    colSpan: "md:col-span-2",
-                    visual: (
-                        <div className="flex flex-wrap gap-2 mt-2">
-                            <div className="px-3 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 rounded-full text-xs font-bold border border-orange-200 dark:border-orange-500/20">Artisan Lorient</div>
-                            <div className="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full text-xs font-bold border border-blue-200 dark:border-blue-500/20">Plombier Vannes</div>
-                        </div>
-                    )
-                },
-                {
-                    id: 'google-business-profile',
-                    title: 'Google Maps (GMB)',
-                    description: 'Optimisation fiche établissement : Avis, photos, horaires.',
-                    icon: <MapPin className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="mt-2 p-2 bg-gray-50 dark:bg-white/5 rounded border border-gray-100 dark:border-white/5 flex items-center gap-2">
-                            <div className="flex gap-0.5">
-                                {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-2 h-2 bg-yellow-400 rounded-full" />)}
-                            </div>
-                            <span className="text-xs font-bold text-gray-600 dark:text-gray-300">5.0</span>
-                        </div>
-                    )
-                },
-                {
-                    title: 'Contenu Ciblé',
-                    description: 'Création de pages locales pour capturer le trafic de chaque ville cible.',
-                    icon: <Globe className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="space-y-2 mt-2 opacity-60">
-                            <div className="h-1 w-full bg-gray-200 dark:bg-white/10 rounded" />
-                            <div className="h-1 w-3/4 bg-gray-200 dark:bg-white/10 rounded" />
-                        </div>
-                    )
-                },
-                {
-                    title: 'Popularité (Netlinking)',
-                    description: 'Nous faisons parler de vous. Liens depuis des sites locaux et thématiques.',
-                    icon: <ShieldCheck className="w-6 h-6" />,
-                    colSpan: "md:col-span-2",
-                    visual: (
-                        <div className="flex justify-center -space-x-2 mt-2">
-                            {[1, 2, 3].map(i => <div key={i} className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 border-2 border-white dark:border-gray-800" />)}
-                        </div>
-                    )
-                },
-                {
-                    title: 'Optimisation Technique',
-                    description: 'Vitesse, mobile, balisage Schema.org pour plaire à Google.',
-                    icon: <Smartphone className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="flex items-center gap-2 mt-2 justify-between px-2 text-xs font-mono text-blue-500">
-                            &lt;Schema /&gt;
-                        </div>
-                    )
-                },
-                {
-                    title: 'Suivi & Reporting',
-                    description: 'Rapports mensuels de position. Transparence totale.',
-                    icon: <TrendingUp className="w-6 h-6" />,
-                    colSpan: "md:col-span-1",
-                    visual: (
-                        <div className="mt-2 flex items-end gap-1 h-8 justify-center">
-                            <div className="w-2 h-4 bg-orange-200 rounded-t" />
-                            <div className="w-2 h-8 bg-orange-500 rounded-t" />
-                        </div>
-                    )
-                }
-            ]}
-
-            featuredProject={{
-                title: 'West Clôtures & Paysage',
-                category: 'SEO Local & Stratégie',
-                description: 'Une domination totale sur le secteur Morbihannais grâce à une stratégie contenu + netlinking agressive.',
-                image: '/realisations/west-workspace-wide.webp',
-                stats: [
-                    { value: '30+', label: 'Devis / mois', icon: <Mail className="w-8 h-8" /> },
-                    { value: '+650%', label: 'Croissance Trafic', icon: <TrendingUp className="w-8 h-8" /> },
-                    { value: 'N°1', label: '"Clôture Morbihan"', icon: <Trophy className="w-8 h-8" /> },
-                    { value: '3.5%', label: 'Taux Conv.', icon: <MousePointerClick className="w-8 h-8" /> } // Changed from Prod to Conversion
-                ]
-            }}
-
-            // Realizations moved after Pricing implicitly by being at the end of the page usually,
-            // BUT in the template, realizations are rendered BEFORE pricing usually.
-            // If user wants them at the VERY end, I might need to swap them or remove from here and add manually in content if template allows?
-            // "le bloc réalisations mets le à fin de la page".
-            // ServicePageTemplate structure: Hero > Features > FeaturedProject > Realizations > Pricing > FAQ.
-            // So Realizations is currently BEFORE Pricing.
-            // To move it AFTER Pricing, I need to modify the TEMPLATE or swap props?
-            // I cannot change props order to change render order.
-            // I will MODIFY THE TEMPLATE in a separate step if strictly required, or I will put realizations as null here and maybe add a custom section if possible?
-            // Actually, the user says "à la fin de la page".
-            // Let's rely on modifying the Template later if needed, but for now I will pass it normally.
-            // Wait, "le bloc réalisations mets le à fin de la page il est pas très pertinent sur cette page".
-            // Maybe just HIDE IT? "mets le à la fin".
-            // Responsive to user: I will place the realizations prop but I will verify layout order.
-            // Current template order: Realizations -> Pricing.
-            // User wants: Pricing -> Realizations (or Realizations really low).
-            // I will update the template later to allow custom ordering or just swap them globally if it makes sense?
-            // For now, I leave it as is but updated the content.
-            realizations={realizations}
-
-            pricing={{
-                starter: {
-                    price: '99€',
-                    priceDetail: '/mois',
-                    engagement: 'Abonnement',
-                    features: [
-                        'Rédaction 1-2 articles / mois',
-                        'Optimisation GMB continue',
-                        'Suivi de Positionnement',
-                        'Rapport Trimestriel',
-                        'Support Email',
-                    ],
-                },
-                custom: {
-                    title: 'Sur Mesure & One-Shot',
-                    description:
-                        'Besoin d\'un coup de boost unique (Optimisation On-site complète) ou d\'une stratégie d\'abonnement agressive ? Nous avons la solution.',
-                }
-            }}
-            faqs={[
-                {
-                    question: 'Combien de temps pour voir des résultats ?',
-                    answer: 'Le SEO est un marathon. Comptez 3 à 6 mois pour des résultats significatifs et durables. C\'est un investissement en capital pour votre entreprise.'
-                },
-                {
-                    question: 'Garantissez-vous la 1ère position ?',
-                    answer: 'Aucune agence sérieuse ne le peut (nous ne sommes pas Google). Mais nous garantissons les moyens mis en œuvre et nous avons un historique de réussite prouvé.',
-                },
-                {
-                    question: 'Quelle différence avec Google Ads ?',
-                    answer: 'Google Ads est immédiat (locatif). Le SEO est plus lent mais vous appartient (propriétaire). Les deux sont complémentaires.'
-                },
-                {
-                    question: 'Que comprend l\'optimisation "One Shot" ?',
-                    answer: 'Nous reprenons tout votre site : structure technique, vitesse, balisage, textes existants. C\'est un grand nettoyage de printemps pour partir sur des bases saines.'
-                },
-            ]}
-        />
-    )
+  return <div className="local-seo-page">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /><SeoLocalHero />
+    <nav className="local-jump local-container" aria-label="Sur cette page"><Link href="/">Accueil</Link><span aria-hidden="true">/</span><span>SEO local</span><div><a href="#territoires">Lorient & Le Mans</a><a href="#realisations-locales">Projets clients</a><a href="#tarifs">Accompagnement</a><a href="#faq">Questions fréquentes</a></div></nav>
+    <section id="referencement-local" className="local-section local-container"><ReferenceReveal><Heading label="01 · Être trouvé, puis choisi" title="Le bon service. Au bon endroit.">Votre futur client ne cherche pas « du référencement ». Il cherche une entreprise capable de répondre à son besoin, près de chez lui. Nous travaillons cette rencontre.</Heading><div className="local-pillars">{pillars.map(({ icon: Icon, ...pillar }) => <article key={pillar.title}><Icon size={25} aria-hidden="true" /><h3>{pillar.title}</h3><p>{pillar.text}</p><Link href={pillar.href}>{pillar.label}<ArrowRight size={15} aria-hidden="true" /></Link></article>)}</div></ReferenceReveal></section>
+    <section id="territoires" className="local-section local-territories"><div className="local-container"><Heading label="02 · Deux territoires, des besoins différents" title="Du pays de Lorient au bassin manceau.">Même méthode, jamais le même copier-coller. La zone d’intervention, le métier et les habitudes de recherche donnent le point de départ.</Heading>
+      <ReferenceReveal className="local-city-row"><figure className="local-city-photo"><Image src="/territories/lorient-port.webp" alt="Voiliers amarrés au quai de Rohan dans le port de plaisance de Lorient" width={1200} height={896} sizes="(max-width: 760px) 90vw, 45vw" loading="lazy" /><figcaption>Lorient · Quai de Rohan <Link href="/territories/credits.html">Photo : Taratata · CC BY 3.0</Link></figcaption></figure><div><p className="local-eyebrow">Lorient · Lanester · Ploemeur · Caudan</p><h3>Un artisan visible là où il intervient vraiment.</h3><p>Pour un plombier du pays de Lorient, les recherches « dépannage plomberie Lorient » et « installation salle de bain Ploemeur » ne décrivent pas le même besoin. La page d’arrivée doit présenter le bon service, les modalités d’intervention et un moyen de joindre l’entreprise.</p><div className="local-example"><span>Exemple de stratégie, pas un résultat client</span><p><Search size={17} aria-hidden="true" />Besoin local → page de prestation → photos de chantiers → appel ou devis.</p></div><ul className="local-checks"><li><Check aria-hidden="true" />Définir les communes réellement desservies.</li><li><Check aria-hidden="true" />Présenter les prestations et les projets correspondants.</li><li><Check aria-hidden="true" />Faciliter l’appel depuis un téléphone.</li></ul><Link className="local-text-link" href="/agence-web-lorient">Notre accompagnement à Lorient <ArrowRight size={16} aria-hidden="true" /></Link></div></ReferenceReveal>
+      <ReferenceReveal className="local-city-row local-city-reverse"><figure className="local-city-photo"><Image src="/blog/photos/le-mans-cathedrale.webp" alt="Chevet de la cathédrale Saint-Julien au Mans vu de la place des Jacobins" width={1400} height={928} sizes="(max-width: 760px) 90vw, 45vw" loading="lazy" /><figcaption>Le Mans · Place des Jacobins <Link href="/territories/credits.html">Photo : Patrick Monchicourt · CC BY-SA 2.0</Link></figcaption></figure><div><p className="local-eyebrow">Le Mans · Coulaines · Allonnes · Changé</p><h3>Répondre à une intention, pas à un nom de ville.</h3><p>Dans l’immobilier, « agence immobilière Le Mans » et « faire estimer sa maison au Mans » appellent deux réponses différentes : découvrir une agence et ses biens, ou comprendre une prestation d’estimation. Nous organisons les contenus et les contacts en conséquence.</p><div className="local-example"><span>Exemple de stratégie, à adapter à l’agence</span><p><Search size={17} aria-hidden="true" />Recherche immobilière → biens ou service d’estimation → informations locales → rendez-vous.</p></div><p>Demetis Immo illustre cet ancrage territorial avec une présentation de l’agence et un accès direct aux annonces. Son projet est détaillé plus bas.</p><Link className="local-text-link" href="/agence-web-le-mans">Notre accompagnement au Mans <ArrowRight size={16} aria-hidden="true" /></Link></div></ReferenceReveal>
+    </div></section>
+    <section id="google-business-profile" className="local-section local-container"><ReferenceReveal className="local-maps-grid"><div><Heading label="03 · Google Business Profile" title="Votre fiche Maps est aussi une première impression.">Une entreprise bien présentée permet de comprendre rapidement son activité : où elle intervient, quand la joindre et ce qu’elle réalise.</Heading><p>Nous vérifions les catégories, les services, les horaires et la cohérence des coordonnées avec le site. Nous organisons les photos et les avis authentiques, sans faux commentaires ni fausses adresses.</p><p>Le classement local dépend notamment de la pertinence, de la distance et de la notoriété. On peut améliorer les informations et la présence en ligne ; on ne peut pas acheter une première place organique ou supprimer l’effet de la distance.</p><a className="local-text-link" href="https://support.google.com/business/answer/7091?hl=fr">Les recommandations officielles de Google <ArrowRight size={16} aria-hidden="true" /></a></div><div className="local-map-checklist"><MapPin size={30} aria-hidden="true" /><h3>La fiche que l’on veut trouver.</h3><ul>{['Une activité et des catégories exactes', 'Des horaires fiables et actualisés', 'Des photos de l’entreprise et de ses projets', 'Une zone desservie cohérente', 'Des avis authentiques et des réponses utiles', 'Un lien vers la bonne page du site'].map(text => <li key={text}><Check size={18} aria-hidden="true" />{text}</li>)}</ul><Link href="/ressources/checklist-gmb">Consulter la checklist Google Business Profile <ArrowRight size={16} aria-hidden="true" /></Link></div></ReferenceReveal></section>
+    <section id="realisations-locales" className="local-section local-project-section"><div className="local-container"><Heading label="04 · Des entreprises, des projets réels" title="Le référencement prend forme sur le terrain.">Trois réalisations Litus où le site, les prestations et la présence locale travaillent ensemble.</Heading><div className="local-projects">{projects.map((project, index) => <ReferenceReveal key={project.slug} className={`local-project ${index === 1 ? 'local-project-reverse' : ''}`}><Link className="local-browser" href={`/realisations/${project.slug}`} aria-label={`Découvrir le projet ${project.title}`}><span className="local-browser-top" aria-hidden="true"><i /><i /><i /><span>{project.title}</span></span><Image src={project.cover.src} alt={project.cover.alt} width={project.cover.width} height={project.cover.height} sizes="(max-width: 760px) 90vw, 52vw" loading="lazy" />{project.cover.kind === 'archive' && <span className="local-archive">Visuel d’archive du projet</span>}</Link><div className="local-project-copy"><p className="local-eyebrow">{project.label}</p><h3>{project.title}</h3><div className="local-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><p>{project.text}</p><p className="local-project-lesson">{project.lesson}</p><Link className="local-text-link" href={`/realisations/${project.slug}`}>Découvrir cette réalisation <ArrowRight size={16} aria-hidden="true" /></Link></div></ReferenceReveal>)}</div><Link className="local-text-link" href="/realisations">Toutes nos réalisations <ArrowRight size={16} aria-hidden="true" /></Link></div></section>
+    <section className="local-section local-container"><ReferenceReveal className="local-followup"><div><ChartNoAxesCombined size={31} aria-hidden="true" /><Heading label="05 · Ce qui compte vraiment" title="Des demandes utiles, pas seulement des positions.">Nous construisons un point de départ et suivons l’évolution des recherches, des pages consultées et des demandes reçues. Les chiffres prennent leur sens avec votre retour terrain.</Heading><Link className="local-text-link" href="/google-ads">Besoin d’accélérer aussi avec Google Ads ? <ArrowRight size={16} aria-hidden="true" /></Link></div><ol><li><strong>Comprendre votre marché</strong><p>Votre activité, votre zone, les recherches pertinentes et les pages déjà visibles.</p></li><li><strong>Prioriser les actions</strong><p>Fiche, contenus, technique et parcours de contact : un plan adapté à vos moyens.</p></li><li><strong>Mesurer et ajuster</strong><p>Clics organiques, interactions Maps et demandes qualifiées, sans confondre clic et client.</p></li></ol></ReferenceReveal></section>
+    <section id="tarifs" className="local-section local-pricing-section"><div className="local-container local-pricing"><Heading label="06 · Un accompagnement à votre mesure" title="Un cadre clair pour avancer.">Le bon périmètre dépend du site, de la fiche et du territoire. Nous distinguons les corrections initiales, le suivi récurrent et les besoins de refonte.</Heading><div className="local-price-card"><p className="local-eyebrow">Suivi SEO local</p><p className="local-price">À partir de <strong>99 €</strong> / mois</p><ul className="local-checks">{['Rédaction de 1 à 2 articles par mois', 'Optimisation continue de la fiche établissement', 'Suivi de positionnement et rapport trimestriel', 'Support email'].map(text => <li key={text}><Check aria-hidden="true" />{text}</li>)}</ul><p className="local-small">Périmètre et conditions d’engagement précisés au devis. Audit complet, refonte et besoins multi-établissements chiffrés séparément.</p><Cta>Définir mon accompagnement</Cta><Link className="local-text-link" href="/tarifs">Tous les tarifs Litus <ArrowRight size={15} aria-hidden="true" /></Link></div></div></section>
+    <section id="faq" className="local-section local-container local-faq"><Heading label="07 · Vos questions" title="Le SEO local, sans zone floue." /><div>{faq.map(([question, answer]) => <details key={question}><summary>{question}<Plus size={19} aria-hidden="true" /></summary><p>{answer}</p></details>)}</div></section>
+    <section className="local-container local-final-cta"><div><p className="local-eyebrow">Votre prochaine demande commence peut-être ici.</p><h2>Faisons le point sur votre visibilité locale.</h2><p>Votre activité, votre ville, vos priorités. Nous identifions ensemble les prochaines actions utiles.</p></div><Cta>Parlons de votre marché</Cta></section>
+  </div>
 }
-

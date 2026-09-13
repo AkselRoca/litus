@@ -164,3 +164,7 @@ Header plus aere et largeur maximale cadree, logo et baseline agrandis, navigati
 ## 1.19.a - Estimation de marche avec email obligatoire
 
 Parcours activite/ville puis email obligatoire avant calcul et affichage. Estimation envoyee au prospect et notification a litusagency@gmail.com, emails Litus, projection mise en avant. Honeypot, origine, limites partagees et idempotence ; aucune inscription marketing. Parcours complet avec envoi transactionnel des deux emails, reprise sans doublon et conservation dans le CRM.
+
+## 1.20.a - SEO local editorial et photographique
+
+Hero photo, Lorient et Le Mans, trois projets documentes, methode, Maps, tarifs et FAQ. Images WebP locales avec dimensions et credits, captures non recadrees, ancres conservees, metadata et donnees structurees. Retrait des performances non justifiees et de la demonstration animee a chiffres fictifs. Sources : docs/seo-local-1.20.a.md.
