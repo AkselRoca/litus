@@ -148,3 +148,7 @@ Correctif de publication SEO : preserve-routing-config.cjs conserve skipTrailing
 ## 1.18.a - Calendrier editorial et preparation des articles
 
 Vue mensuelle et liste filtrable, apercus prives et edition avec historique, dates Europe/Paris et cadence de 72 heures. Strategie diversifiee outils/IA, artisans, associations, PME et acquisition. Conservation des articles rediges et publies.
+
+## 1.18.b - Retouches legeres de la hero
+
+Structure conservee. Progressions vertes discretes dans la carte Google (exemple illustre), badge +30 demandes par mois / Google Ads / Client artisan sans nommer le client. Lueurs des pins et du trajet renforcees, logos clients plus contrastes, transition creme vers les outils harmonisee. Scene desktop uniquement, composition mobile conservee.

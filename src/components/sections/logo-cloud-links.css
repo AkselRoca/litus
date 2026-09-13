@@ -1,6 +1,10 @@
 .technology-tool-link { display: inline-flex; align-items: center; gap: 10px; padding-block: 5px; border-bottom: 1px solid transparent; transition: color .18s,border-color .18s; }
 .technology-tool-link:hover { color: var(--litus-heading-accent); border-bottom-color: var(--litus-orange); }
 .technology-hub-link { display: block; }
+.litus-editorial .territory-hero + .technology-strip { position: relative; margin-top: -1px; padding-block: 23px; border-top: 1px solid #dfd8ce70; background: linear-gradient(180deg, #fbf9f6 0%, #f8f5ef 100%); }
+.litus-editorial .territory-hero + .technology-strip .editorial-container { column-gap: 32px; }
+.dark .litus-editorial .territory-hero + .technology-strip { background: linear-gradient(180deg, #202b39, #222d39); border-top-color: #44515f70; }
+@media(max-width:640px) { .litus-editorial .territory-hero + .technology-strip { padding-block: 18px; } .litus-editorial .territory-hero + .technology-strip .editorial-container { gap: 12px; } }
 .technology-hub-link > span { display: block; font-size: 10px; color: var(--litus-heading-accent); margin-top: 6px; text-decoration: underline; text-underline-offset: 3px; }
 .technology-marquee:focus-within { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
 .technology-marquee:focus-within .technology-track { animation: none; transform: none; }

@@ -24,7 +24,7 @@ export function TerritoryMap({ city, onSelect, onHoverChange }: {
       </g>
       <g key={city} className="territory-route-selection" aria-hidden="true" data-destination={city}>
         <path className="territory-route-base" d={route} stroke="#f48447" strokeWidth="1.4" opacity=".26" />
-        <path className="territory-route territory-route--glow" pathLength={1} d={route} stroke="#ff782f" strokeWidth="7" opacity=".45" filter="url(#territory-route-glow)" />
+        <path className="territory-route territory-route--glow" pathLength={1} d={route} stroke="#ff782f" strokeWidth="8" opacity=".64" filter="url(#territory-route-glow)" />
         <path className="territory-route territory-connection" data-motion-layer="route" pathLength={1} d={route} stroke="#ffac65" strokeWidth="2.2" strokeLinecap="round" />
         <path className="territory-route-traveller territory-route-traveller--glow" pathLength={1} d={route} stroke="#ffb46d" strokeWidth="10" strokeLinecap="round" filter="url(#territory-route-glow)" />
         <path className="territory-route-traveller" pathLength={1} d={route} stroke="#fff1d9" strokeWidth="2.8" strokeLinecap="round" />
@@ -42,7 +42,7 @@ export function TerritoryMap({ city, onSelect, onHoverChange }: {
         <rect className="territory-city-hit" x="-40" y="-47" width="196" height={name === 'lorient' ? 126 : 148} rx="12" fill="transparent" />
         <rect className="territory-city-focus" x="-40" y="-47" width="196" height={name === 'lorient' ? 126 : 148} rx="12" stroke="#ffd0a9" strokeWidth="2" />
         <g className={`territory-pin territory-pin--${name}`} data-motion-layer={`pin-${name}`}>
-          <circle className="territory-pin-halo" r="15" fill="#f36b2f" filter="url(#territory-pin-glow)" />
+          <circle className="territory-pin-halo" cy="-13" r="20" fill="#ff793a" filter="url(#territory-pin-glow)" />
           <circle className="territory-pin-ring" r="9" stroke="#ff9a5f" strokeOpacity=".55" />
           <circle r="4" fill="#fff8e8" />
           <path d="M0-6C-3-11-11-20-11-27a11 11 0 0 1 22 0C11-20 3-11 0-6Z" fill="#ed632f" stroke="#fff9e9" strokeWidth="2.6" />

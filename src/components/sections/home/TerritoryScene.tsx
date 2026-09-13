@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronRight, Landmark, Pause, Play, Waves } from 'lucide-react'
+import { ChartNoAxesColumnIncreasing, Landmark, Pause, Play, TrendingUp, Waves } from 'lucide-react'
 import { TerritoryMap, type TerritoryCity } from './TerritoryMap'
 
 const cities = [
@@ -58,7 +58,12 @@ export function TerritoryScene() {
     <TerritoryMap city={city} onSelect={setCity} onHoverChange={setHoveringMap} />
     <Link href="/referencement-naturel" className="territory-google-card" data-motion-layer="google-card">
       <div className="territory-google-heading"><GoogleMark /><span>En top sur <strong>Google</strong></span></div>
-      <ol>{['votre activité + Lorient', 'votre activité + Le Mans', 'services + votre ville'].map((text, index) => <li key={text}><b>{index + 1}</b><span>{text}</span><ChevronRight aria-hidden="true" /></li>)}</ol>
+      <ol>{['votre activité + Lorient', 'votre activité + Le Mans', 'services + votre ville'].map((text, index) => <li key={text}><b>{index + 1}</b><span>{text}</span><span className="territory-rank-gain" aria-label={`Exemple de progression : ${[3, 5, 4][index]} places`}><TrendingUp aria-hidden="true" />+{[3, 5, 4][index]}</span></li>)}</ol>
+      <span className="territory-ranking-note">Exemple de progression</span>
+    </Link>
+    <Link href="/google-ads" className="territory-performance">
+      <ChartNoAxesColumnIncreasing aria-hidden="true" />
+      <p><strong>+30</strong><span>demandes par mois</span><small>Google Ads · Client artisan</small></p>
     </Link>
     <figure ref={photoRef} id="territory-city-photo" className="territory-city-card" data-motion-layer="city-photo" aria-label="Nos implantations" aria-roledescription="carrousel"
       onPointerEnter={event => {
