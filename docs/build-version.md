@@ -98,3 +98,12 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Carte publique de navigation dans /llms.txt. Aucun outil agentique ne soumet de formulaire a la place du visiteur.
 - Les scores Lighthouse sont mesures apres build ; aucun score constant sur tous les appareils n'est garanti.
 - Mesure finale en production : performance 96 mobile / 100 desktop ; accessibilite, bonnes pratiques et SEO 100 ; navigation agentique 3/3 ; LCP mobile 2,8 s. Voir docs/performance-1.14.b.md.
+
+## 1.14.c - Chargement initial et ressources inutilisees
+- Demonstration Google extraite en composant asynchrone : son moteur d'animation charge seulement a l'approche de la section, puis animation suspendue hors zone visible.
+- Textes SEO et apercu statique conserves dans le HTML serveur.
+- CSS integre au HTML initial via l'option Next.js inlineCss ; les regles utiles aux autres pages ne sont pas supprimees aveuglement. Verifier les navigations client et les themes.
+- Logo Nos Travaux dimensionne et compresse pour le bandeau.
+- Polyfills et runtime Next.js conserves pour ne pas casser les navigateurs compatibles.
+- Transition globale de navigation remplacee par Web Animations, sans moteur tiers et sans animation du premier affichage ; preference de reduction des mouvements respectee.
+- Compteurs animes en requestAnimationFrame, avec annulation et valeur finale exacte.

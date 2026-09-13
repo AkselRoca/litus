@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import legacyUrls from "./src/lib/seo/legacy-urls.json";
 
 const nextConfig: NextConfig = {
+  // Avoid stylesheet round trips before first paint; validate client navigation too.
+  experimental: { inlineCss: true },
   // Resolve old WordPress URLs, including their slash versions, in one 301.
   // The final rule preserves the existing slash canonicalization elsewhere.
   skipTrailingSlashRedirect: true,

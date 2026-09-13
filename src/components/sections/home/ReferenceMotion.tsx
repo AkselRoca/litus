@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from 'react'
-import { animate } from 'framer-motion'
+import { animateNumber as animate } from '@/lib/animate-number'
 
 export function ReferenceReveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)

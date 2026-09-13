@@ -5382,25 +5382,12 @@
         {
           "level": 2,
           "text": "\n            Votre place sur Google\n            \n            ne doit rien au hasard.\n          "
-        },
-        {
-          "level": 3,
-          "text": "{result.title}"
         }
       ],
       "links": [
         "/contact?objet=seo"
       ],
-      "titles": [
-        "Plombiers à Lorient : les professionnels proches de vous",
-        "Adresses, horaires et avis des entreprises de plomberie à Lorient.",
-        "Dépannage plomberie à Lorient et dans le Morbihan",
-        "Intervention rapide pour vos dépannages et installations.",
-        "Artisan plombier à Lorient",
-        "Travaux de plomberie, rénovation et dépannage.",
-        "Plombier à Lorient | Dépannage et installation",
-        "Intervention à Lorient et ses alentours. Devis gratuit et équipe locale."
-      ]
+      "titles": []
     },
     {
       "file": "src/components/sections/EstimatorSection.tsx",
@@ -5601,6 +5588,32 @@
     },
     {
       "file": "src/components/sections/google-reviews.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/components/sections/home/BentoSearchDemo.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "{result.title}"
+        }
+      ],
+      "links": [],
+      "titles": [
+        "Plombiers à Lorient : les professionnels proches de vous",
+        "Adresses, horaires et avis des entreprises de plomberie à Lorient.",
+        "Dépannage plomberie à Lorient et dans le Morbihan",
+        "Intervention rapide pour vos dépannages et installations.",
+        "Artisan plombier à Lorient",
+        "Travaux de plomberie, rénovation et dépannage.",
+        "Plombier à Lorient | Dépannage et installation",
+        "Intervention à Lorient et ses alentours. Devis gratuit et équipe locale."
+      ]
+    },
+    {
+      "file": "src/components/sections/home/DeferredSearchDemo.tsx",
       "headings": [],
       "links": [],
       "titles": []
@@ -6122,6 +6135,12 @@
     },
     {
       "file": "src/lib/admin/totp.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/animate-number.ts",
       "headings": [],
       "links": [],
       "titles": []
