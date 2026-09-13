@@ -1,54 +1,21 @@
-const fs = require('node:fs');
-const dir = process.argv[2] || 'artifacts/seo-global-after-live';
-const live = JSON.parse(fs.readFileSync(`${dir}/report.json`, 'utf8'));
-const before = JSON.parse(fs.readFileSync('artifacts/seo-global-before/report.json', 'utf8'));
-const rendering = JSON.parse(fs.readFileSync('artifacts/seo-global-after-local/rendered.json', 'utf8'));
-const assets = JSON.parse(fs.readFileSync('artifacts/seo-global-after-local/assets.json', 'utf8'));
-const performance = fs.existsSync(`${dir}/lighthouse-summary.json`) ? JSON.parse(fs.readFileSync(`${dir}/lighthouse-summary.json`, 'utf8')) : [];
-const redirectsLog = fs.readFileSync(`${dir}/redirects-1.16.b.log`, 'utf8');
-const redirectsStart = [...redirectsLog.matchAll(/\{\s+"checked":/g)].at(-1)?.index;
-const liveRedirects = redirectsStart === undefined ? null : JSON.parse(redirectsLog.slice(redirectsStart));
-const indexable = live.pages.filter(p => p.status === 200 && !p.robots.includes('noindex'));
-const commonLinks = new Map();
-for (const p of indexable) for (const href of new Set(p.links.map(l => l.href))) commonLinks.set(href, (commonLinks.get(href) || 0) + 1);
-const data = {
-  build: '1.16.b', date: new Date().toISOString(), base: live.base,
-  summary: { crawled: live.pages.length, indexable: indexable.length, sitemap: live.sitemap.length, renderedChecks: rendering.results.length, assetChecks: assets.length },
-  performance, liveRedirects,
-  pages: indexable.map(p => ({
-    path: p.path, title: p.title, description: p.description, canonical: p.canonical, inSitemap: p.inSitemap,
-    headings: p.headings.map(h => ({ level: h.level, text: h.text, scope: h.scope })), wordCount: p.wordCount,
-    images: p.images.length, contextualLinks: [...new Map(p.links.filter(l => l.href?.startsWith('/') && (commonLinks.get(l.href) || 0) < indexable.length * .8).map(l => [l.href, { href: l.href, name: l.name }])).values()],
-    openGraph: p.og, twitterCard: p.twitter,
-    schemaTypes: p.schemas.flatMap(s => s['@graph'] || [s]).map(s => s['@type']),
-    rendering: rendering.results.filter(x => x.path === p.path).map(x => ({ width: x.width, status: x.status, overflow: x.overflow, errors: x.errors, brokenImages: x.brokenImages })),
-  })),
-};
-fs.writeFileSync('docs/seo-global-1.16.b.json', JSON.stringify(data, null, 2));
-const broken = live.pages.filter(p => p.status >= 400 && p.path !== '/seo-audit-inexistante-2026');
-const issues = live.issues.filter(p => indexable.some(i => i.path === p.path));
-const metrics = [
-  ['Pages indexables', before.pages.filter(p => p.status === 200 && !p.robots.includes('noindex')).length, indexable.length],
-  ['URLs dans les sitemaps', before.sitemap.length, live.sitemap.length],
-  ['Titres avec plusieurs occurrences de Litus', before.issues.filter(p => p.brand > 1).length, issues.filter(p => p.brand > 1).length],
-  ['Canonicals incohérentes', before.issues.filter(p => p.canonicalWrong).length, issues.filter(p => p.canonicalWrong).length],
-  ['Pages indexables dont le premier titre HTML n’est pas le H1', before.pages.filter(p => p.status === 200 && !p.robots.includes('noindex') && p.headings[0]?.level !== 1).length, issues.filter(p => p.first?.level !== 1).length],
-  ['Liens internes conduisant à une 404 dans le crawl', before.pages.filter(p => p.status === 404 && p.path !== '/seo-audit-inexistante-2026').length, broken.length],
-];
-const perfTable = performance.length ? performance.map(p => `| ${p.path} | ${p.scores.performance} | ${p.scores.accessibility} | ${p.scores.seo} | ${Math.round(p.lcp)} | ${p.cls.toFixed(4)} | ${Math.round(p.tbt)} |`).join('\n') : '| Mesures en attente | | | | | | |';
-const doc = `# Audit SEO global Litus : build 1.16.b
+# Audit SEO global Litus : build 1.16.b
 
-Audit du 13 septembre 2026. Crawl initial de la production, corrections dans les sources communes, build de production local, contrôles navigateur puis nouveau crawl de ${live.base} après publication.
+Audit du 13 septembre 2026. Crawl initial de la production, corrections dans les sources communes, build de production local, contrôles navigateur puis nouveau crawl de https://www.litus.fr après publication.
 
 ## Résultats mesurés
 
 | Contrôle | Avant | Après |
 | --- | ---: | ---: |
-${metrics.map(([label, a, b]) => `| ${label} | ${a} | ${b} |`).join('\n')}
+| Pages indexables | 126 | 124 |
+| URLs dans les sitemaps | 98 | 124 |
+| Titres avec plusieurs occurrences de Litus | 38 | 0 |
+| Canonicals incohérentes | 78 | 0 |
+| Pages indexables dont le premier titre HTML n’est pas le H1 | 125 | 0 |
+| Liens internes conduisant à une 404 dans le crawl | 3 | 0 |
 
-- ${indexable.length} pages indexables contrôlées : title, description, canonical, Hn, images, liens, métadonnées sociales et JSON-LD. Inventaire par URL dans [seo-global-1.16.b.json](seo-global-1.16.b.json).
-- ${rendering.results.length} chargements navigateur sur le build de production : chaque page en 390 px et 1440 px. Aucun débordement horizontal, aucune erreur JavaScript ni image visible cassée lors du dernier passage.
-- ${assets.length} ressources graphiques internes contrôlées : aucun fichier manquant. Les images différées hors écran sont également couvertes par ce contrôle de leurs sources.
+- 124 pages indexables contrôlées : title, description, canonical, Hn, images, liens, métadonnées sociales et JSON-LD. Inventaire par URL dans [seo-global-1.16.b.json](seo-global-1.16.b.json).
+- 248 chargements navigateur sur le build de production : chaque page en 390 px et 1440 px. Aucun débordement horizontal, aucune erreur JavaScript ni image visible cassée lors du dernier passage.
+- 294 ressources graphiques internes contrôlées : aucun fichier manquant. Les images différées hors écran sont également couvertes par ce contrôle de leurs sources.
 - 75 contrôles locaux de redirections, destinations et indexation réussis. Les pages légales et les crédits techniques restent accessibles aux robots pour qu’ils lisent le noindex.
 - Les ancres internes pointant vers des pages parcourues existent dans le DOM. Le menu mobile s’ouvre ; le menu Solutions fonctionne au clavier et se ferme avec Échap ; le lien d’évitement est le premier lien au clavier.
 - Le formulaire contact reste avant le contenu sur mobile et le téléphone reste obligatoire sur mobile et desktop. Aucun message de test n’a été envoyé à un prospect.
@@ -91,13 +58,18 @@ Mesures Lighthouse mobiles sur la production, échantillon représentatif. Score
 
 | Page | Performance | Accessibilité | SEO Lighthouse | LCP ms | CLS | TBT ms |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-${perfTable}
+| / | 89 | 100 | 100 | 3730 | 0.0000 | 12 |
+| /contact | 99 | 100 | 100 | 2056 | 0.0000 | 16 |
+| /expertise | 98 | 97 | 100 | 2318 | 0.0000 | 7 |
+| /realisations | 95 | 100 | 100 | 2889 | 0.0000 | 26 |
+| /association | 98 | 96 | 100 | 2439 | 0.0000 | 10 |
+| /seo-local | 98 | 96 | 100 | 2440 | 0.0000 | 19 |
 
 Un score SEO Lighthouse ne couvre pas toute la qualité SEO. Les résultats détaillés, notamment les contrastes résiduels ou les ressources bloquantes, sont conservés dans artifacts/seo-global-after-live. Les médias sources de plus de 500 Ko ne correspondent pas nécessairement au poids transféré : Next Image sert des tailles et formats adaptés. Ils restent des pistes d’optimisation selon leur utilisation réelle.
 
 ### Réserve sur les variantes avec slash en production
 
-Le test strict de redirection en un seul saut relève ${liveRedirects?.failures.length ?? 'un nombre non mesuré de'} écarts sur ${liveRedirects?.checked ?? '?'} contrôles en production : Vercel normalise encore les anciennes variantes avec slash via un 308 vers la variante sans slash, puis applique le 301 vers la destination pertinente. Exemple : /portfolio/ → /portfolio → /realisations. Les paramètres de requête restent préservés et la destination répond 200. Ce n’est ni une boucle ni une 404, mais l’objectif d’un seul saut n’est pas atteint sur ces variantes et n’est pas déclaré validé.
+Le test strict de redirection en un seul saut relève 25 écarts sur 50 contrôles en production : Vercel normalise encore les anciennes variantes avec slash via un 308 vers la variante sans slash, puis applique le 301 vers la destination pertinente. Exemple : /portfolio/ → /portfolio → /realisations. Les paramètres de requête restent préservés et la destination répond 200. Ce n’est ni une boucle ni une 404, mais l’objectif d’un seul saut n’est pas atteint sur ces variantes et n’est pas déclaré validé.
 
 Le build 1.16.b préserve explicitement le drapeau skipTrailingSlashRedirect omis du manifeste runtime Next 16. Cela rétablit sa présence dans l’artefact, sans suffire à supprimer cette normalisation au niveau Vercel. Une règle projet a été essayée puis retirée, car elle ne supprimait pas le détour non plus. Les autres redirections restent versionnées ; aucune destination arbitraire vers l’accueil n’a été ajoutée. Le passage HTTP vers HTTPS et du domaine nu vers www reste permanent (308).
 
@@ -118,6 +90,3 @@ Le formulaire local signale volontairement l’absence de configuration email. L
 Les scripts audit-public-seo.mjs, check-public-rendering.cjs, check-seo-assets.cjs, audit-semantic-similarity.cjs et check-seo-lighthouse.cjs sont versionnés. Le runtime navigateur peut être fourni avec BROWSER_RUNTIME. Pour une nouvelle publication, crawler de nouveau la production et comparer les résultats, plutôt que réutiliser les chiffres de cet instantané.
 
 Références : [métadonnées Next.js](https://nextjs.org/docs/app/api-reference/functions/generate-metadata), [titres dans Google Search](https://developers.google.com/search/docs/appearance/title-link), [Core Web Vitals](https://web.dev/articles/vitals).
-`;
-fs.writeFileSync('docs/seo-global-1.16.b.md', doc);
-console.log(JSON.stringify({ report: 'docs/seo-global-1.16.b.md', pages: indexable.length, performancePages: performance.length }));
