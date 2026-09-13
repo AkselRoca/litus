@@ -70,8 +70,8 @@ export function generateOrganizationSchema() {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Litus',
-        url: 'https://litus.fr',
-        logo: 'https://litus.fr/logo.png',
+        url: 'https://www.litus.fr',
+        logo: 'https://www.litus.fr/logo.png',
         description:
             'Agence web locale spécialisée en création de sites, SEO local et Google Ads pour PME et artisans à Lorient et Le Mans.',
         telephone: '+33744985521',

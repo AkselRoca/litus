@@ -17,7 +17,7 @@
 .gad-section { padding: 56px 0; scroll-margin-top: 115px; }
 :where(.gad-content) h2 { color: var(--gad-ink); font-size: clamp(28px, 2.65vw, 38px); font-weight: 650; line-height: 1.15; letter-spacing: -.043em; margin: 0 0 13px; text-wrap: pretty; }
 :where(.gad-content) h2 em { color: var(--gad-accent); font-style: normal; }
-:where(.gad-content) h3 { font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; color: var(--gad-ink); }
+:where(.gad-content) :is(h3,.seo-visual-title) { font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; color: var(--gad-ink); }
 :where(.gad-content) p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--gad-muted); }
 .gad-kicker { display: flex; gap: 10px; align-items: center; margin: 0 0 13px; color: var(--gad-muted); font-size: 10px; font-weight: 550; letter-spacing: .075em; line-height: 1.55; text-transform: uppercase; }
 .gad-kicker > span { flex-shrink: 0; width: 24px; height: 1.5px; background: var(--gad-orange); }
@@ -63,7 +63,7 @@
 .gad-benefit-card.gad-tone-sage .gad-benefit-icon { color: var(--gad-sage); background: #47836b0d; }
 .gad-benefit-card.gad-tone-rose .gad-benefit-icon { color: #c36b59; background: #c36b590d; }
 .dark .gad-benefit-card.gad-tone-rose .gad-benefit-icon { color: #edaa98; }
-.gad-benefit-card h3 { margin: 0 0 11px; font-size: 18px; }
+.gad-benefit-card :is(h3,.seo-visual-title) { margin: 0 0 11px; font-size: 18px; }
 .gad-benefit-card p { font-size: 13px; line-height: 1.65; }
 .gad-method-section { background: #eef4f8; border-block: 1px solid #e3ecf1; }
 .dark .gad-method-section { background: #1c2c3b; border-color: var(--gad-line); }
@@ -84,7 +84,7 @@
 .dark .gad-local-visual { background: #253831; border-color: var(--gad-line); }
 .gad-local-visual-heading { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 15px; }
 .gad-local-visual-heading > span { display: grid; place-items: center; flex-shrink: 0; width: 42px; height: 42px; background: var(--gad-card); border-radius: 11px; color: var(--gad-orange); }
-.gad-local-visual h3 { font-size: 25px; line-height: 1.18; letter-spacing: -.04em; margin: 0 0 9px; }
+.gad-local-visual :is(h3,.seo-visual-title) { font-size: 25px; line-height: 1.18; letter-spacing: -.04em; margin: 0 0 9px; }
 .gad-local-visual-heading p { font-size: 11px; }
 .gad-local-map { position: relative; height: 135px; margin: 0 -27px 18px; background: #e9f0e8; overflow: hidden; }
 .dark .gad-local-map { background: #2c4239; }
@@ -140,7 +140,7 @@
   .gad-heading-split { gap: 35px; }
   .gad-benefits-grid { gap: 16px; }
   .gad-benefit-card { padding: 23px 18px; }
-  .gad-benefit-card h3 { font-size: 17px; }
+  .gad-benefit-card :is(h3,.seo-visual-title) { font-size: 17px; }
   .gad-local-grid { gap: 36px; }
   .gad-local-visual { padding: 23px; }
   .gad-local-map { margin-inline: -23px; }
@@ -164,12 +164,12 @@
   .gad-heading-split { grid-template-columns: 1fr; gap: 15px; }
   .gad-benefits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
   .gad-benefit-card { padding: 24px; }
-  .gad-benefit-card h3 { font-size: 19px; }
+  .gad-benefit-card :is(h3,.seo-visual-title) { font-size: 19px; }
   .gad-heading-row { flex-wrap: wrap; gap: 20px; align-items: flex-start; }
   .gad-local-grid { grid-template-columns: 1fr; gap: 26px; }
   .gad-local-copy > p:not(.gad-kicker) { max-width: 650px; }
   .gad-local-visual { max-width: 650px; width: 100%; padding: 28px; }
-  .gad-local-visual h3 { font-size: 27px; }
+  .gad-local-visual :is(h3,.seo-visual-title) { font-size: 27px; }
   .gad-local-map { margin-inline: -28px; }
   .gad-local-queries button { font-size: 13px; }
   .gad-projects-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -196,13 +196,13 @@
   .gad-pilot-item > svg { width: 24px; height: 24px; }
   .gad-benefits-grid { gap: 12px; }
   .gad-benefit-card { padding: 19px 14px; }
-  .gad-benefit-card h3 { font-size: 16px; }
+  .gad-benefit-card :is(h3,.seo-visual-title) { font-size: 16px; }
   .gad-benefit-card p { font-size: 12px; }
   .gad-benefit-icon { width: 37px; height: 37px; margin-bottom: 15px; }
   .gad-benefit-icon svg { width: 21px; height: 21px; }
   .gad-local-copy h2 br { display: none; }
   .gad-local-visual { padding: 21px 17px 19px; }
-  .gad-local-visual h3 { font-size: 24px; }
+  .gad-local-visual :is(h3,.seo-visual-title) { font-size: 24px; }
   .gad-local-visual-heading p { font-size: 11px; }
   .gad-local-map { margin-inline: -17px; height: 120px; }
   .gad-local-queries button { font-size: 11px; padding-inline: 10px; gap: 7px; }
@@ -218,7 +218,7 @@
   .gad-benefits-grid { grid-template-columns: 1fr; }
   .gad-benefit-card { padding: 22px; }
   .gad-benefit-card p { font-size: 13px; }
-  .gad-benefit-card h3 { font-size: 18px; }
+  .gad-benefit-card :is(h3,.seo-visual-title) { font-size: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .gad-page *, .gad-page *::before, .gad-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

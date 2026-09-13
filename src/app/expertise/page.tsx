@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { AiPillars, ExpertiseDirectory } from '@/components/expertise/ExpertiseDirectory'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,7 +8,7 @@ import { ExpertiseBreadcrumb } from '@/components/expertise/ExpertiseArticle'
 import { ExpertiseExplorer } from '@/components/expertise/ExpertiseExplorer'
 import { expertiseMetadata, expertiseSchema } from '@/lib/expertise/seo'
 
-export const metadata = expertiseMetadata('Expertises web, logiciels & automatisation | Litus', 'Explorez les expertises Litus par besoin : sites, e-commerce, SEO, CRM, collaboration, applications, ChatGPT, Codex, Claude et n8n. Des outils reliés à vos usages métier.', '/expertise')
+export const metadata = pageMetadata("/expertise", expertiseMetadata('Expertises web, logiciels & automatisation | Litus', 'Explorez les expertises Litus par besoin : sites, e-commerce, SEO, CRM, collaboration, applications, ChatGPT, Codex, Claude et n8n. Des outils reliés à vos usages métier.', '/expertise'))
 const offers = [
   { label: 'Création de site internet', text: 'Votre offre, clairement présentée.', href: '/creation-site-internet', icon: Monitor, tone: 'web' },
   { label: 'E-commerce', text: 'Une boutique pensée pour vendre.', href: '/creation-site-ecommerce', icon: ShoppingBag, tone: 'commerce' },

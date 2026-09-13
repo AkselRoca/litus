@@ -20,6 +20,7 @@ module.exports = {
         '/api/*',
         '/blog/*',
         '/blog-sitemap.xml',
+        '/portfolio-sitemap.xml',
         '/ressources/confirmation',
         '/ressources/guide-prix',
         '/creation-outils-ia/opengraph-image',
@@ -28,7 +29,7 @@ module.exports = {
         '/refonte-site-internet/opengraph-image',
     ],
     robotsTxtOptions: {
-        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],
+        additionalSitemaps: ['https://www.litus.fr/blog-sitemap.xml', 'https://www.litus.fr/portfolio-sitemap.xml'],
         policies: [
             {
                 userAgent: '*',
@@ -38,7 +39,7 @@ module.exports = {
         ],
     },
     additionalPaths: async (config) => Promise.all(
-        ['/blog', '/expertise', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))
+        ['/blog', '/expertise', '/contact'].map(path => config.transform(config, path))
     ),
     transform: async (config, path) => {
         if (excludedLegacyPaths.has(path.replace(/\/$/, ''))) return null

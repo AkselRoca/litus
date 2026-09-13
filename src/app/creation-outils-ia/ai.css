@@ -21,10 +21,10 @@
 .ai-hero-proof svg { width: 19px; height: 19px; color: var(--ai-orange); flex-shrink: 0; stroke-width: 1.6; }
 .ai-container { width: min(1280px, calc(100% - 96px)); margin-inline: auto; }
 .ai-section { padding-block: 64px; scroll-margin-top: 110px; }
-.ai-content :is(h2, h3, h4, p) { margin: 0; }
+.ai-content :is(h2, :is(h3,.seo-visual-title), h4, p) { margin: 0; }
 .ai-content h2 { font-size: clamp(29px, 2.8vw, 41px); font-weight: 650; letter-spacing: -.043em; line-height: 1.14; color: var(--ai-ink); text-wrap: pretty; }
 .ai-content h2 em { color: var(--ai-accent); font-style: normal; }
-.ai-content h3 { font-size: 18px; font-weight: 600; letter-spacing: -.025em; line-height: 1.3; }
+.ai-content :is(h3,.seo-visual-title) { font-size: 18px; font-weight: 600; letter-spacing: -.025em; line-height: 1.3; }
 .ai-content p { font-size: 14px; line-height: 1.75; color: var(--ai-muted); }
 .ai-content .ai-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; text-transform: uppercase; font-size: 10px; font-weight: 550; letter-spacing: .075em; line-height: 1.5; color: var(--ai-muted); }
 .ai-kicker::before { content: ''; width: 25px; height: 1.5px; background: var(--ai-orange); flex: none; }
@@ -68,7 +68,7 @@
 .ai-workflow-panel[hidden] { display: none; }
 .ai-workflow-context { display: grid; grid-template-columns: 1fr 1.15fr; gap: 6px 38px; margin-bottom: 26px; min-height: 89px; }
 .ai-workflow-context > span { color: var(--ai-accent); font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
-.ai-workflow-context h3 { font-size: 22px; }
+.ai-workflow-context :is(h3,.seo-visual-title) { font-size: 22px; }
 .ai-workflow-context > p { grid-column: 2; grid-row: 1 / 3; font-size: 13px; }
 .ai-workflow-context p strong { display: block; color: var(--ai-ink); margin-bottom: 3px; font-weight: 550; }
 .ai-workflow-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
@@ -87,7 +87,7 @@
 .ai-benefit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; }
 .ai-benefit-grid article + article { border-left: 1px solid var(--ai-line); padding-left: 30px; }
 .ai-benefit-grid .ai-icon { border-radius: 50%; margin-bottom: 19px; }
-.ai-benefit-grid h3 { font-size: 17px; }
+.ai-benefit-grid :is(h3,.seo-visual-title) { font-size: 17px; }
 .ai-benefit-grid p { font-size: 13px; margin-top: 11px; }
 .ai-integration-section { background: #20313f; color: #f5f3ee; }
 .ai-integration-section .ai-kicker, .ai-integration-section p { color: #bbc9d2; }
@@ -128,7 +128,7 @@
 .ai-method-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .ai-method-grid article { display: flex; flex-direction: column; border: 1px solid var(--ai-line); border-radius: 12px; padding: 24px 21px; background: var(--ai-paper); }
 .ai-method-number { color: var(--ai-orange); font-size: 23px; font-weight: 500; letter-spacing: -.04em; margin-bottom: 17px; }
-.ai-method-grid h3 { font-size: 17px; }
+.ai-method-grid :is(h3,.seo-visual-title) { font-size: 17px; }
 .ai-method-grid p { font-size: 12px; margin-block: 11px 21px; }
 .ai-method-grid article > strong { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--ai-line); font-size: 11px; line-height: 1.6; font-weight: 500; color: var(--ai-accent); }
 .ai-team-line { display: flex; align-items: center; gap: 17px; margin-top: 28px; }
@@ -143,7 +143,7 @@
 .ai-trust-layout > div:first-child > p:not(.ai-kicker) { margin-block: 19px 24px; }
 .ai-trust-list { display: grid; gap: 24px; }
 .ai-trust-list article { display: flex; gap: 18px; }
-.ai-trust-list h3 { font-size: 16px; }
+.ai-trust-list :is(h3,.seo-visual-title) { font-size: 16px; }
 .ai-trust-list p { font-size: 13px; margin-top: 7px; }
 .ai-faq-section { border-top: 1px solid var(--ai-line); background: var(--ai-card); }
 .ai-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; align-items: start; }
@@ -218,13 +218,13 @@
   .ai-case-grid { grid-template-columns: 1fr; gap: 12px; }
   .ai-case { padding: 21px; }
   .ai-case-top { margin-bottom: 14px; }
-  .ai-case h3 { font-size: 19px; }
+  .ai-case :is(h3,.seo-visual-title) { font-size: 19px; }
   .ai-case > p { margin-bottom: 17px; }
   .ai-workflow-tabs { gap: 4px; padding: 6px; }
   .ai-workflow-tabs button { min-height: 52px; flex-direction: column; align-items: flex-start; justify-content: center; font-size: 10px; gap: 6px; padding: 9px 8px; }
   .ai-workflow-tabs button svg { display: none; }
   .ai-workflow-panel { padding: 21px 17px 17px; }
-  .ai-workflow-context h3 { font-size: 20px; }
+  .ai-workflow-context :is(h3,.seo-visual-title) { font-size: 20px; }
   .ai-workflow-context > p { font-size: 12px; }
   .ai-workflow-steps { grid-template-columns: 1fr; gap: 18px; }
   .ai-workflow-steps > div { padding: 19px; }
@@ -233,7 +233,7 @@
   .ai-workflow-step-icon { margin-bottom: 12px; }
   .ai-content .ai-workflow-measure { font-size: 10px; }
   .ai-benefit-grid { gap: 26px 20px; }
-  .ai-benefit-grid h3 { font-size: 16px; }
+  .ai-benefit-grid :is(h3,.seo-visual-title) { font-size: 16px; }
   .ai-benefit-grid p { font-size: 12px; line-height: 1.65; }
   .ai-integration-map { gap: 10px; }
   .ai-integration-sources > span, .ai-integration-targets > span { font-size: 10px; min-height: 84px; }
@@ -246,7 +246,7 @@
   .ai-integration-map > p { font-size: 9px; }
   .ai-method-grid { grid-template-columns: 1fr; gap: 12px; }
   .ai-method-grid article { padding: 22px; }
-  .ai-method-grid h3 { font-size: 19px; }
+  .ai-method-grid :is(h3,.seo-visual-title) { font-size: 19px; }
   .ai-method-grid p { font-size: 13px; }
   .ai-method-number { margin-bottom: 10px; }
   .ai-team-line { gap: 12px; }
@@ -254,7 +254,7 @@
   .ai-team-line > a { margin-left: 0; font-size: 12px; }
   .ai-trust-list article { gap: 13px; }
   .ai-trust-list .ai-icon { width: 36px; height: 36px; }
-  .ai-trust-list h3 { font-size: 16px; }
+  .ai-trust-list :is(h3,.seo-visual-title) { font-size: 16px; }
   .ai-faq-grid details { padding-inline: 17px; }
   .ai-faq-grid summary { min-height: 62px; font-size: 12px; gap: 12px; }
   .ai-faq-grid details p { font-size: 12px; }

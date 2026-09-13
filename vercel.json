@@ -1,34 +1,297 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
-    "buildCommand": "npm run build",
-    "devCommand": "npm run dev",
-    "installCommand": "npm install",
-    "framework": "nextjs",
-    "redirects": [
-        { "source": "/artisans/", "destination": "/artisan", "statusCode": 301 },
-        { "source": "/artisans", "destination": "/artisan", "statusCode": 301 }
-    ],
-    "regions": [
-        "cdg1"
-    ],
-    "crons": [{ "path": "/api/cron/editorial", "schedule": "*/5 * * * *" }],
-    "headers": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/portfolio/",
+      "destination": "/realisations",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/realisations",
+      "statusCode": 301
+    },
+    {
+      "source": "/agence-web/",
+      "destination": "/a-propos",
+      "statusCode": 301
+    },
+    {
+      "source": "/agence-web",
+      "destination": "/a-propos",
+      "statusCode": 301
+    },
+    {
+      "source": "/nous-contacter/",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/nous-contacter",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/creation-de-site-internet/",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/creation-de-site-internet",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-catalogue/",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-catalogue",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-e-commerce/",
+      "destination": "/creation-site-ecommerce",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-e-commerce",
+      "destination": "/creation-site-ecommerce",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/referencement-naturel/",
+      "destination": "/referencement-naturel",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/referencement-naturel",
+      "destination": "/referencement-naturel",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/publicite-en-ligne/",
+      "destination": "/google-ads",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/publicite-en-ligne",
+      "destination": "/google-ads",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/frront-end-back-end/",
+      "destination": "/developpement-web-sur-mesure",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/frront-end-back-end",
+      "destination": "/developpement-web-sur-mesure",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/automatisation/",
+      "destination": "/automatisation",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/automatisation",
+      "destination": "/automatisation",
+      "statusCode": 301
+    },
+    {
+      "source": "/refonte-murasaki-team/",
+      "destination": "/realisations/murasaki-team",
+      "statusCode": 301
+    },
+    {
+      "source": "/refonte-murasaki-team",
+      "destination": "/realisations/murasaki-team",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/west-clotures/",
+      "destination": "/realisations/west-clotures-paysage",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/west-clotures",
+      "destination": "/realisations/west-clotures-paysage",
+      "statusCode": 301
+    },
+    {
+      "source": "/ressources/guide-prix/",
+      "destination": "/ressources/cahier-des-charges",
+      "statusCode": 301
+    },
+    {
+      "source": "/ressources/guide-prix",
+      "destination": "/ressources/cahier-des-charges",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap_index.xml/",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap.xml/",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-vitrine/",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-vitrine",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-internet/",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/creation-site-internet",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/front-end-back-end/",
+      "destination": "/developpement-web-sur-mesure",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/front-end-back-end",
+      "destination": "/developpement-web-sur-mesure",
+      "statusCode": 301
+    },
+    {
+      "source": "/creation-site-e-commerce/",
+      "destination": "/creation-site-ecommerce",
+      "statusCode": 301
+    },
+    {
+      "source": "/creation-site-e-commerce",
+      "destination": "/creation-site-ecommerce",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-de-confidentialite/",
+      "destination": "/politique-confidentialite",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-de-confidentialite",
+      "destination": "/politique-confidentialite",
+      "statusCode": 301
+    },
+    {
+      "source": "/confidentialite/",
+      "destination": "/politique-confidentialite",
+      "statusCode": 301
+    },
+    {
+      "source": "/confidentialite",
+      "destination": "/politique-confidentialite",
+      "statusCode": 301
+    },
+    {
+      "source": "/cookies/",
+      "destination": "/politique-confidentialite#cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/cookies",
+      "destination": "/politique-confidentialite#cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-de-cookies/",
+      "destination": "/politique-confidentialite#cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-de-cookies",
+      "destination": "/politique-confidentialite#cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-cookies/",
+      "destination": "/politique-confidentialite#cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-cookies",
+      "destination": "/politique-confidentialite#cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/realisations/Demetis-immobilier/",
+      "destination": "/realisations/demetis-immo",
+      "statusCode": 301
+    },
+    {
+      "source": "/realisations/Demetis-immobilier",
+      "destination": "/realisations/demetis-immo",
+      "statusCode": 301
+    },
+    {
+      "source": "/artisans/",
+      "destination": "/artisan",
+      "statusCode": 301
+    },
+    {
+      "source": "/artisans",
+      "destination": "/artisan",
+      "statusCode": 301
+    }
+  ],
+  "regions": [
+    "cdg1"
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/editorial",
+      "schedule": "*/5 * * * *"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
         {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "X-Content-Type-Options",
-                    "value": "nosniff"
-                },
-                {
-                    "key": "X-Frame-Options",
-                    "value": "DENY"
-                },
-                {
-                    "key": "X-XSS-Protection",
-                    "value": "1; mode=block"
-                }
-            ]
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
-    ]
+      ]
+    }
+  ]
 }

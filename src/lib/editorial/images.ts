@@ -10,7 +10,7 @@ type Candidate = { url: string; thumb: string; title: string; description: strin
 const reusableLicense = /^(?:CC0|Public domain|CC BY(?:-SA)? [1-4]\.0)$/i
 export async function findImages(query: string): Promise<Candidate[]> {
   const params = new URLSearchParams({ action: 'query', format: 'json', generator: 'search', gsrsearch: query, gsrnamespace: '6', gsrlimit: '10', prop: 'imageinfo', iiprop: 'url|size|extmetadata|mime', iiurlwidth: '1200' })
-  const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`, { headers: { 'User-Agent': 'LitusEditorial/1.0 (https://litus.fr/contact)' }, signal: AbortSignal.timeout(25000) })
+  const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`, { headers: { 'User-Agent': 'LitusEditorial/1.0 (https://www.litus.fr/contact)' }, signal: AbortSignal.timeout(25000) })
   if (!response.ok) throw new Error(`Wikimedia HTTP ${response.status}`)
   const data = await response.json()
   const pages = Object.values(data.query?.pages ?? {}) as { title: string; imageinfo?: { url: string; thumburl?: string; descriptionurl: string; width: number; height: number; mime: string; extmetadata: Record<string, { value: string }> }[] }[]

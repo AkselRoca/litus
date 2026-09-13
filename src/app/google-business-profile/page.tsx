@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,13 +10,13 @@ import './google-business-profile.css'
 
 const title = 'Google Business Profile : création, optimisation & gestion | Litus'
 const description = 'Une fiche Google claire et suivie : informations, catégories, services, photos et avis. Litus vous accompagne sur Google Business Profile, anciennement Google My Business.'
-const url = 'https://litus.fr/google-business-profile'
+const url = 'https://www.litus.fr/google-business-profile'
 const contact = '/contact?objet=Google%20Business%20Profile'
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/google-business-profile", {
   title: { absolute: title }, description, alternates: { canonical: url },
   openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
-}
+})
 const pillars = [
   { icon: Store, title: 'Les bonnes informations', text: 'Nom réel, catégorie pertinente, coordonnées, horaires habituels et exceptionnels : nous passons en revue les informations qui permettent de comprendre votre activité.', deliverable: 'Une base cohérente et documentée.' },
   { icon: Camera, title: 'Une présentation fidèle', text: 'Vos lieux, vos prestations et votre accueil méritent des photos authentiques. Nous organisons les contenus disponibles et identifions ce qu’il reste à préparer.', deliverable: 'Des éléments utiles avant la visite.' },
@@ -37,8 +38,8 @@ const faqs = [
   { question: 'Quelle différence avec un accompagnement SEO local ?', answer: 'La fiche Google est un point de contact sur Google Search et Maps. Le SEO local couvre un ensemble plus large : votre site, ses pages locales, les informations qui présentent votre entreprise et leur cohérence. Selon votre besoin, nous pouvons travailler la fiche seule ou l’intégrer à un accompagnement local plus complet.' },
 ]
 const structuredData = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Service', '@id': `${url}#service`, name: 'Création, optimisation et gestion de Google Business Profile', description, url, serviceType: 'Accompagnement de fiche d’établissement Google', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
-  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Google Business Profile', item: url }] },
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Création, optimisation et gestion de Google Business Profile', description, url, serviceType: 'Accompagnement de fiche d’établissement Google', provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Google Business Profile', item: url }] },
   { '@type': 'FAQPage', mainEntity: faqs.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
 ] }
 

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,11 +11,11 @@ import './refonte.css'
 
 const title = 'Refonte de site internet : UX, performance & migration SEO | Litus'
 const description = 'Faites évoluer votre site avec Litus : audit de l’existant, design, contenus, parcours mobile et migration SEO préparée. Une refonte sur mesure, avec un suivi clair.'
-const url = 'https://litus.fr/refonte-site-internet'
-export const metadata: Metadata = { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] }, twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] } }
+const url = 'https://www.litus.fr/refonte-site-internet'
+export const metadata: Metadata = pageMetadata("/refonte-site-internet", { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] }, twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] } })
 const schema = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Service', '@id': `${url}#service`, name: 'Refonte de site internet', description, url, serviceType: 'Audit, refonte UX et technique, reprise des contenus et préparation de la migration SEO', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
-  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Refonte de site internet', item: url }] },
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Refonte de site internet', description, url, serviceType: 'Audit, refonte UX et technique, reprise des contenus et préparation de la migration SEO', provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Refonte de site internet', item: url }] },
   { '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: refonteFaq.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
 ] }
 

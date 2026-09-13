@@ -1,12 +1,13 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/templates/ServicePageTemplate'
 import { Search, MapPin, TrendingUp, Target, Globe, ShieldCheck, Mail, Trophy, Smartphone, MousePointerClick } from 'lucide-react'
 import { SeoLocalHero } from './SeoLocalHero'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/seo-local", {
     title: 'Agence SEO Local Lorient & Le Mans - Référencement Google',
-    description: 'Devenez N°1 sur Google dans votre ville. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.',
-}
+    description: 'Améliorez votre visibilité locale sur Google. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.',
+})
 
 const realizations = [
     { image: '/realisations/aire des iles site internet crée par litus agence web.jpeg', link: '#', title: 'Aire des Îles' },
@@ -22,7 +23,7 @@ export default function SeoLocalPage() {
             hero={<SeoLocalHero />}
             title="SEO Local : Dominez Votre Ville"
             subtitle="Soyez le premier choix quand vos clients cherchent vos services sur Google à Lorient ou Le Mans."
-            description="Avoir un site ne suffit plus. Il doit être visible. Notre expertise en référencement local vous propulse en haut des résultats Google et Google Maps."
+            description="Avoir un site ne suffit plus. Il doit être visible. Notre expertise en référencement local travaille votre visibilité sur Google et Google Maps."
             heroImage="/hero-seo.png"
 
             seoContent={
@@ -30,13 +31,13 @@ export default function SeoLocalPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                                97% des consommateurs cherchent en ligne avant d’acheter localement
+                                Vos clients recherchent des services près de chez eux
                             </h2>
                             <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                                 Si vous n’êtes pas dans le <strong>« Pack Local » (les 3 premiers résultats carte)</strong>, vous n’existez pas pour de nombreux clients.
                             </p>
                             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Chez Litus, nous ne vendons pas du « vent » ou des abonnements SEO obscurs. Nous mettons en place une stratégie mécanique et prouvée pour positionner votre entreprise devant vos concurrents sur <strong>Lorient</strong>, <strong>Vannes</strong> et <strong>Le Mans</strong>.
+                                Chez Litus, nous ne vendons pas du « vent » ou des abonnements SEO obscurs. Nous mettons en place une stratégie mesurable pour améliorer votre présence locale sur <strong>Lorient</strong>, <strong>Vannes</strong> et <strong>Le Mans</strong>.
                             </p>
                         </div>
                         <div className="relative h-64 md:h-full min-h-[300px] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-white/5 dark:to-white/10 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-100 dark:border-white/5">

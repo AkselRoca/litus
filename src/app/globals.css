@@ -169,7 +169,7 @@ a {
 /* Une seule famille typographique pour tous les titres du site. */
 h1,
 h2,
-h3 {
+:is(h3,.seo-visual-title) {
     font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 

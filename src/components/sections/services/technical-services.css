@@ -5,7 +5,7 @@
 .tech-decision-list { display: grid; gap: 16px; }
 .tech-decision-list article { display: flex; gap: 20px; padding: 22px; border: 1px solid var(--bs-line); background: var(--bs-card); border-radius: 13px; }
 .tech-decision-list article > span { font-size: 13px; color: var(--bs-accent); padding-top: 2px; }
-.tech-decision-list article h3 { font-size: 17px; }
+.tech-decision-list article :is(h3,.seo-visual-title) { font-size: 17px; }
 .tech-decision-list article p { font-size: 13px; margin-top: 10px; }
 .tech-architecture { display: flex; flex-direction: column; align-items: center; padding: 30px; border: 1px solid var(--bs-line); border-radius: 18px; background: var(--bs-card); }
 .tech-architecture > div { display: grid; grid-template-columns: 40px 1fr; gap: 5px 15px; width: 100%; border: 1px solid var(--bs-line); border-radius: 11px; padding: 18px; background: var(--bs-soft); }
@@ -18,7 +18,7 @@
 .tech-method { display: grid; grid-template-columns: repeat(4,1fr); gap: 26px; }
 .tech-method article { min-width: 0; border-top: 1px solid var(--bs-line); padding-top: 23px; }
 .tech-method article > span { font-size: 13px; color: var(--bs-accent); }
-.tech-method article h3 { font-size: 16px; margin-top: 15px; }
+.tech-method article :is(h3,.seo-visual-title) { font-size: 16px; margin-top: 15px; }
 .tech-method article p { font-size: 13px; margin-top: 12px; }
 .tech-related { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 25px; padding-top: 24px; }
 .tech-related a { font-size: 12px; color: var(--bs-muted); text-underline-offset: 4px; }
@@ -38,8 +38,8 @@
 .api-service-types { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .api-service-types article { padding: 23px 0; border-top: 1px solid var(--bs-line); display: grid; grid-template-columns: 36px 1fr; gap: 10px; }
 .api-service-types article > svg { width: 23px; height: 23px; color: var(--bs-orange); }
-.api-service-types h3 { font-size: 16px; }
+.api-service-types :is(h3,.seo-visual-title) { font-size: 16px; }
 .api-service-types p { margin-top: 10px; font-size: 13px; }
 .technical-service-page .service-hero-backdrop { opacity: .37; filter: blur(4px); }
 @media (max-width: 850px) { .tech-method, .api-service-types { grid-template-columns: repeat(2,1fr); } .api-pairs { grid-template-columns: 1fr; } .api-pair { display: grid; grid-template-columns: 140px 1fr; gap: 0 20px; } .api-pair > div { grid-row: span 2; margin: 0; } .api-pair p { margin-top: 8px; } }
-@media (max-width: 560px) { .tech-intent-strip, .tech-method, .api-service-types { grid-template-columns: 1fr; gap: 18px; } .tech-method article { padding-top: 18px; } .tech-method article h3 { margin-top: 8px; } .tech-architecture { padding: 18px; } .tech-architecture > div { padding: 16px; grid-template-columns: 27px 1fr; gap: 6px 10px; } .tech-architecture strong { font-size: 14px; } .tech-architecture span { font-size: 11px; } .api-pair { display: block; padding: 23px; } .api-pair > div { margin-bottom: 18px; } .api-scope { padding: 19px; } .api-scope > div { font-size: 12px; } .api-service-types article { padding-block: 18px 0; } }
+@media (max-width: 560px) { .tech-intent-strip, .tech-method, .api-service-types { grid-template-columns: 1fr; gap: 18px; } .tech-method article { padding-top: 18px; } .tech-method article :is(h3,.seo-visual-title) { margin-top: 8px; } .tech-architecture { padding: 18px; } .tech-architecture > div { padding: 16px; grid-template-columns: 27px 1fr; gap: 6px 10px; } .tech-architecture strong { font-size: 14px; } .tech-architecture span { font-size: 11px; } .api-pair { display: block; padding: 23px; } .api-pair > div { margin-bottom: 18px; } .api-scope { padding: 19px; } .api-scope > div { font-size: 12px; } .api-service-types article { padding-block: 18px 0; } }

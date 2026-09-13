@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { Metadata } from 'next'
 import { GrandsComptesHero } from './_components/GrandsComptesHero'
 import { GrandsComptesStats } from './_components/GrandsComptesStats'
@@ -6,10 +7,10 @@ import { GrandsComptesSolutions } from './_components/GrandsComptesSolutions'
 import { ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/grands-comptes", {
     title: 'Agence web pour grands comptes & ETI : refonte et acquisition | Litus',
     description: 'Refonte corporate, sites sur mesure, SEO et Google Ads pour grands comptes et ETI. Un projet cadré avec vos équipes, des outils connectés et un suivi dans la durée.',
-}
+})
 
 export default function GrandsComptesPage() {
     return (
@@ -37,7 +38,7 @@ export default function GrandsComptesPage() {
                     
                     <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-2xl p-2 pl-6 flex items-center shadow-lg hover:shadow-xl transition-shadow dark:bg-[#111]">
                         <input 
-                            type="email" 
+                            type="email" aria-label="Votre adresse email professionnelle" autoComplete="email"
                             placeholder="votre-email@entreprise.com" 
                             className="bg-transparent border-none outline-none flex-1 text-slate-900 dark:text-white placeholder:text-slate-400 w-full"
                         />

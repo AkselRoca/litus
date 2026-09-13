@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { Metadata } from 'next'
 import { PmeHero } from './_components/PmeHero'
 import { PmeStats } from './_components/PmeStats'
@@ -7,10 +8,10 @@ import { LeadMagnetInline } from '@/components/lead-magnets'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/pme", {
     title: 'Agence web pour PME : site sur mesure, SEO & Google Ads | Litus',
     description: 'Faites grandir votre PME avec un site sur mesure, une stratégie SEO et Google Ads, et un suivi des demandes. Une équipe à vos côtés, de la refonte au pilotage.',
-}
+})
 
 export default function PmePage() {
     return (

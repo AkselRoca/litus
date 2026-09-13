@@ -3,7 +3,7 @@ import { generateOrganizationSchema } from '@/lib/schema';
 import type { Trade } from './catalog';
 
 export const artisanOrigin = 'https://www.litus.fr';
-const organizationId = 'https://litus.fr/#organization';
+const organizationId = 'https://www.litus.fr/#organization';
 
 export function artisanMetadata(title: string, description: string, path: string, image: string, alt: string): Metadata {
   const url = `${artisanOrigin}${path}`;

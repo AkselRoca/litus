@@ -10,4 +10,5 @@ Host: https://www.litus.fr
 
 # Sitemaps
 Sitemap: https://www.litus.fr/sitemap.xml
-Sitemap: https://litus.fr/blog-sitemap.xml
+Sitemap: https://www.litus.fr/blog-sitemap.xml
+Sitemap: https://www.litus.fr/portfolio-sitemap.xml

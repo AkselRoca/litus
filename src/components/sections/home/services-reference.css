@@ -170,7 +170,7 @@
   background: #f3f1ee;
   color: #25292b;
 }
-.litus-editorial .services-reference-card h3 {
+.litus-editorial .services-reference-card :is(h3,.seo-visual-title) {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: -0.045em;
@@ -229,9 +229,9 @@
 .services-reference-card:hover .services-reference-divider {
   background: #efc4b0;
 }
-.litus-editorial .services-reference-featured h3,
-.litus-editorial .services-reference-card:hover h3,
-.litus-editorial .services-reference-card:focus-visible h3 {
+.litus-editorial .services-reference-featured :is(h3,.seo-visual-title),
+.litus-editorial .services-reference-card:hover :is(h3,.seo-visual-title),
+.litus-editorial .services-reference-card:focus-visible :is(h3,.seo-visual-title) {
   color: #913313;
 }
 .services-reference-featured .services-reference-price,
@@ -248,7 +248,7 @@
 }
 .services-reference-icon,
 .services-reference-arrow,
-.services-reference-card h3,
+.services-reference-card :is(h3,.seo-visual-title),
 .services-reference-price {
   transition:
     color 240ms,
@@ -329,7 +329,7 @@
   background: #263240f5;
   border-color: #414955;
 }
-.dark .services-reference-card h3 {
+.dark .services-reference-card :is(h3,.seo-visual-title) {
   color: #f3f1eb;
 }
 .dark .services-reference-label,
@@ -348,9 +348,9 @@
   background: #44342d;
   border-color: #98674f;
 }
-.dark .services-reference-featured h3,
-.dark .services-reference-card:hover h3,
-.dark .services-reference-card:focus-visible h3,
+.dark .services-reference-featured :is(h3,.seo-visual-title),
+.dark .services-reference-card:hover :is(h3,.seo-visual-title),
+.dark .services-reference-card:focus-visible :is(h3,.seo-visual-title),
 .dark .services-reference-featured .services-reference-price,
 .dark .services-reference-card:hover .services-reference-price {
   color: #ffc09b;
@@ -380,7 +380,7 @@
     width: 50px;
     height: 50px;
   }
-  .litus-editorial .services-reference-card h3 {
+  .litus-editorial .services-reference-card :is(h3,.seo-visual-title) {
     font-size: 18px;
   }
   .litus-editorial .services-reference-description,
@@ -445,7 +445,7 @@
   .services-reference-divider {
     display: none;
   }
-  .services-reference-card h3 {
+  .services-reference-card :is(h3,.seo-visual-title) {
     grid-column: 3;
   }
   .services-reference-description {
@@ -541,7 +541,7 @@
     width: 24px;
     height: 24px;
   }
-  .litus-editorial .services-reference-card h3 {
+  .litus-editorial .services-reference-card :is(h3,.seo-visual-title) {
     grid-column: 3 / 5;
     grid-row: 1;
     font-size: 17px;

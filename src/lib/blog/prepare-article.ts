@@ -24,7 +24,10 @@ function figure(image: BlogImage): string {
 export function prepareArticle(html: string, images: BlogImage[] = []) {
   const headings: ArticleHeading[] = []
   const usedIds = new Set<string>()
-  let content = html.replace(/<h([23])\b([^>]*)>([\s\S]*?)<\/h\1>/gi, (_match, level: string, attributes: string, inner: string) => {
+  let previousLevel = 1
+  let content = html.replace(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/gi, (_match, level: string, attributes: string, inner: string) => {
+    level = String(Math.min(Math.max(2, Number(level)), previousLevel + 1))
+    previousLevel = Number(level)
     const text = headingText(inner)
     const suppliedId = /(?:^|\s)id\s*=\s*["']([^"']+)["']/i.exec(attributes)?.[1]
     const base = suppliedId || text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section'
@@ -32,7 +35,7 @@ export function prepareArticle(html: string, images: BlogImage[] = []) {
     let suffix = 2
     while (usedIds.has(id)) id = `${base}-${suffix++}`
     usedIds.add(id)
-    headings.push({ id, text, level: Number(level) as 2 | 3 })
+    if (Number(level) <= 3) headings.push({ id, text, level: Number(level) as 2 | 3 })
     const remainingAttributes = attributes.replace(/(?:^|\s)id\s*=\s*["'][^"']*["']/i, '')
     return `<h${level}${remainingAttributes} id="${escapeHtml(id)}">${inner}</h${level}>`
   })

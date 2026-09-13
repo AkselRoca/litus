@@ -54,7 +54,7 @@ export function validateQuality(item: Item, archiveSlugs: Set<string>, now = new
     require(claim.supported && source?.official && claim.evidence.length >= 25 && evidenceMatches(source.text, claim.evidence), 'Claim evidence does not occur in an authoritative fetched source')
   }
   const schema = articleSchema(item)
-  require(schema.headline && schema.description && schema.image?.length === 3 && !Number.isNaN(Date.parse(schema.datePublished)) && schema.mainEntityOfPage['@id'] === `https://litus.fr/blog/${item.seo?.slug}`, 'Invalid structured data/canonical')
+  require(schema.headline && schema.description && schema.image?.length === 3 && !Number.isNaN(Date.parse(schema.datePublished)) && schema.mainEntityOfPage['@id'] === `https://www.litus.fr/blog/${item.seo?.slug}`, 'Invalid structured data/canonical')
   return { passed: errors.length === 0, score: errors.length ? Math.min(review?.score ?? 0, 84) : review!.score, errors, checkedAt: now.toISOString(), fingerprint: fingerprint(item) }
 }
 export async function checkUrls(item: Item, origin: string) {

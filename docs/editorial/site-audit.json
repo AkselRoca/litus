@@ -73,7 +73,7 @@
         "/",
         "/contact?objet=Projet%20au%20Mans",
         "/realisations",
-        "/realisations/Demetis-immobilier",
+        "/realisations/demetis-immo",
         "/realisations/aspire-energie"
       ],
       "titles": [
@@ -1257,13 +1257,13 @@
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                                97% des consommateurs cherchent en ligne avant d’acheter localement\n                            "
+          "text": "\r\n                                Vos clients recherchent des services près de chez eux\n                            "
         }
       ],
       "links": [],
       "titles": [
         "Agence SEO Local Lorient & Le Mans - Référencement Google",
-        "Devenez N°1 sur Google dans votre ville. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
+        "Améliorez votre visibilité locale sur Google. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
         "Aire des Îles",
         "Aspire Marketing",
         "Azra Photographie",
@@ -1825,7 +1825,7 @@
         "/",
         "/contact?objet=Projet%20au%20Mans",
         "/realisations",
-        "/realisations/Demetis-immobilier",
+        "/realisations/demetis-immo",
         "/realisations/aspire-energie"
       ],
       "titles": [
@@ -2571,20 +2571,7 @@
     },
     {
       "file": "src/app/automatisation/_components/AutomationHeroDemo.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "{model.source}"
-        },
-        {
-          "level": 3,
-          "text": "{phase === 1 ? 'Entreprise exemple' : 'Un devis prêt à vérifier.'}"
-        },
-        {
-          "level": 3,
-          "text": "{phase === 0 ? 'Une nouvelle demande.' : phase === 1 ? 'Les informations sont réunies.' : phase === 2 ? 'Un devis prêt à vérifier.' : 'Votre équipe prend le relais.'}"
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": [
         "Demande reçue",
@@ -2978,10 +2965,6 @@
       "file": "src/app/contact/_components/ContactHero.tsx",
       "headings": [
         {
-          "level": 2,
-          "text": "Envoyez-nous votre demande"
-        },
-        {
           "level": 1,
           "text": "Parlons de votrenouveau projet"
         }
@@ -3130,12 +3113,7 @@
     },
     {
       "file": "src/app/creation-landing-page/_components/LandingHeroDemo.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "{model.title}"
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": [
         "Votre projet mérite un devis clair.",
@@ -3996,12 +3974,7 @@
     },
     {
       "file": "src/app/google-business-profile/_components/BusinessProfileDemo.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "Votre établissement"
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": [
         "Informations",
@@ -4428,6 +4401,12 @@
       ]
     },
     {
+      "file": "src/app/portfolio-sitemap.xml/route.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/realisations/[slug]/CaseStudyTemplate.tsx",
       "headings": [
         {
@@ -4570,12 +4549,7 @@
     },
     {
       "file": "src/app/referencement-naturel/_components/SeoStrategyDemo.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "{panels[phase].title}"
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": [
         "Des pages accessibles.",
@@ -4651,16 +4625,7 @@
     },
     {
       "file": "src/app/refonte-site-internet/_components/RefonteHeroDemo.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "{view === 0 ? 'Une entreprise, de nombreux services.' : 'Le bon service. Une prochaine étape claire.'}"
-        },
-        {
-          "level": 3,
-          "text": "Les bonnes pages,aux bonnes adresses."
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": []
     },
@@ -4777,12 +4742,7 @@
     },
     {
       "file": "src/app/seo-local/SeoLocalHero.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "{result.title}"
-        }
-      ],
+      "headings": [],
       "links": [
         "/contact?objet=seo"
       ],
@@ -4802,13 +4762,13 @@
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                                97% des consommateurs cherchent en ligne avant d’acheter localement\n                            "
+          "text": "\r\n                                Vos clients recherchent des services près de chez eux\n                            "
         }
       ],
       "links": [],
       "titles": [
         "Agence SEO Local Lorient & Le Mans - Référencement Google",
-        "Devenez N°1 sur Google dans votre ville. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
+        "Améliorez votre visibilité locale sur Google. Stratégie de référencement local (GMB, SEO On-page) pour artisans et PME. Audit gratuit.",
         "Aire des Îles",
         "Aspire Marketing",
         "Azra Photographie",
@@ -5057,12 +5017,7 @@
     },
     {
       "file": "src/components/expertise/ConnectedVisual.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "{d.visual.title}"
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": []
     },
@@ -5174,12 +5129,7 @@
     },
     {
       "file": "src/components/expertise/ExpertisePlayground.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "Un projet bien cadré."
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": []
     },
@@ -5273,16 +5223,7 @@
     },
     {
       "file": "src/components/layout/ExpertiseMenu.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "{group.title}"
-        },
-        {
-          "level": 2,
-          "text": "Nos outils de travail"
-        }
-      ],
+      "headings": [],
       "links": [
         "/expertise",
         "/contact",
@@ -5292,23 +5233,15 @@
     },
     {
       "file": "src/components/layout/Footer.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "{column.title}"
-        },
-        {
-          "level": 2,
-          "text": "Parlons de vos objectifs."
-        }
-      ],
+      "headings": [],
       "links": [
         "/",
         "/contact?objet=rendez-vous",
         "/contact",
         "/mentions-legales",
         "/politique-confidentialite",
-        "/sitemap.xml"
+        "/sitemap.xml",
+        "/politique-confidentialite#cookies"
       ],
       "titles": [
         "Nos services",
@@ -5323,16 +5256,7 @@
     },
     {
       "file": "src/components/layout/Header.tsx",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Expertises"
-        },
-        {
-          "level": 2,
-          "text": "{group.title}"
-        }
-      ],
+      "headings": [],
       "links": [
         "/artisan",
         "/pme",
@@ -5394,6 +5318,36 @@
       "titles": []
     },
     {
+      "file": "src/components/lead-magnet/ResourceGuide.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{guide.title}"
+        },
+        {
+          "level": 3,
+          "text": "{section.title}"
+        }
+      ],
+      "links": [
+        "/google-business-profile",
+        "/seo-local",
+        "/automatisation",
+        "/expertise/n8n",
+        "/integrations-api"
+      ],
+      "titles": [
+        "Une checklist pour une fiche Google Business Profile plus fiable",
+        "Que vérifier sur votre fiche établissement ?",
+        "Comment utiliser la checklist ?",
+        "Faut-il aussi travailler le site internet ?",
+        "Repérer les tâches répétitives avant de les automatiser",
+        "Quels processus observer ?",
+        "Comment prioriser un premier scénario ?",
+        "L’intelligence artificielle est-elle indispensable ?"
+      ]
+    },
+    {
       "file": "src/components/lead-magnets/BriefMagnet.tsx",
       "headings": [
         {
@@ -5408,16 +5362,7 @@
     },
     {
       "file": "src/components/lead-magnets/LeadMagnetInline.tsx",
-      "headings": [
-        {
-          "level": 3,
-          "text": "{magnet.title}"
-        },
-        {
-          "level": 3,
-          "text": "\r\n                                Téléchargement en cours !\r\n                            "
-        }
-      ],
+      "headings": [],
       "links": [],
       "titles": []
     },
@@ -5544,6 +5489,7 @@
       ],
       "links": [
         "/realisations",
+        "/association",
         "/contact"
       ],
       "titles": []
@@ -7970,6 +7916,28 @@
       ]
     },
     {
+      "file": "src/lib/seo/metadata.test.ts",
+      "headings": [],
+      "links": [
+        "/portfolio/client.webp"
+      ],
+      "titles": [
+        "Expert Shopify | Litus",
+        "React",
+        "Des interfaces adaptées.",
+        "Mentions légales",
+        "Client"
+      ]
+    },
+    {
+      "file": "src/lib/seo/metadata.ts",
+      "headings": [],
+      "links": [
+        "/litus-og-social.png"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/lib/utils.ts",
       "headings": [],
       "links": [],
@@ -8000,7 +7968,7 @@
       "titles": []
     }
   ],
-  "sitemap": "const legacyUrls = require('./src/lib/seo/legacy-urls.json')\nconst excludedLegacyPaths = new Set([\n    ...legacyUrls.redirects.map(({ source }) => source),\n    ...legacyUrls.gone,\n    ...legacyUrls.noindex,\n    '/apple-icon.png', '/icon.png', '/opengraph-image.png', '/twitter-image.png',\n])\n\n/** @type {import('next-sitemap').IConfig} */\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://www.litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\n    '/artisans',\n        ...excludedLegacyPaths,\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/ressources/confirmation',\n        '/ressources/guide-prix',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://litus.fr/blog-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', '/realisations/fg-chronodep', '/realisations/loumor-debarras'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\n        if (excludedLegacyPaths.has(path.replace(/\\/$/, ''))) return null\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
+  "sitemap": "const legacyUrls = require('./src/lib/seo/legacy-urls.json')\nconst excludedLegacyPaths = new Set([\n    ...legacyUrls.redirects.map(({ source }) => source),\n    ...legacyUrls.gone,\n    ...legacyUrls.noindex,\n    '/apple-icon.png', '/icon.png', '/opengraph-image.png', '/twitter-image.png',\n])\n\n/** @type {import('next-sitemap').IConfig} */\nmodule.exports = {\r\n    siteUrl: process.env.SITE_URL || 'https://www.litus.fr',\r\n    generateRobotsTxt: true,\r\n    generateIndexSitemap: true,\n    exclude: [\n    '/artisans',\n        ...excludedLegacyPaths,\n        '/admin',\r\n        '/admin/*',\r\n        '/login-admin',\r\n        '/api/*',\n        '/blog/*',\n        '/blog-sitemap.xml',\n        '/portfolio-sitemap.xml',\n        '/ressources/confirmation',\n        '/ressources/guide-prix',\n        '/creation-outils-ia/opengraph-image',\n        '/creation-application-web/opengraph-image',\n        '/creation-landing-page/opengraph-image',\n        '/refonte-site-internet/opengraph-image',\n    ],\r\n    robotsTxtOptions: {\n        additionalSitemaps: ['https://www.litus.fr/blog-sitemap.xml', 'https://www.litus.fr/portfolio-sitemap.xml'],\n        policies: [\r\n            {\r\n                userAgent: '*',\r\n                allow: '/',\r\n                disallow: ['/admin', '/login-admin', '/api'],\r\n            },\r\n        ],\r\n    },\n    additionalPaths: async (config) => Promise.all(\n        ['/blog', '/expertise', '/contact'].map(path => config.transform(config, path))\n    ),\n    transform: async (config, path) => {\n        if (excludedLegacyPaths.has(path.replace(/\\/$/, ''))) return null\n        let priority = 0.7\r\n        let changefreq = 'weekly'\r\n\r\n        if (path === '/') {\n            priority = 1.0\n            changefreq = 'daily'\n        } else if (path.startsWith('/agence-web-')) {\n            priority = 0.95\n            changefreq = 'weekly'\n        } else if (path.startsWith('/services') || ['/creation-site-internet', '/creation-site-ecommerce', '/creation-landing-page', '/refonte-site-internet', '/referencement-naturel', '/seo-local', '/google-business-profile', '/google-ads', '/developpement-web-sur-mesure', '/integrations-api', '/creation-outils-ia', '/creation-application-web', '/automatisation'].includes(path)) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path === '/expertise' || path.startsWith('/expertise/')) {\n            priority = 0.85\n            changefreq = 'monthly'\n        } else if (path.startsWith('/tarifs')) {\n            priority = 0.9\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/blog')) {\r\n            priority = 0.8\r\n            changefreq = 'weekly'\r\n        } else if (path.startsWith('/etudes-de-cas')) {\r\n            priority = 0.8\r\n            changefreq = 'monthly'\r\n        } else if (path.startsWith('/metiers') || path.startsWith('/villes')) {\r\n            priority = 0.7\r\n            changefreq = 'monthly'\r\n        }\r\n\r\n        return {\r\n            loc: path,\r\n            changefreq,\r\n            priority,\r\n            lastmod: new Date().toISOString(),\r\n        }\r\n    },\r\n}\r\n",
   "cron": [
     {
       "path": "/api/cron/editorial",

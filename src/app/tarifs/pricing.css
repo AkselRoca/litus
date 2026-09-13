@@ -371,7 +371,7 @@
   font-weight: 650;
 }
 
-.pricing-pack-heading h3 {
+.pricing-pack-heading :is(h3,.seo-visual-title) {
   margin-bottom: 5px;
   font-size: 22px;
   font-weight: 650;
@@ -980,8 +980,8 @@
   text-transform: uppercase;
 }
 
-.pricing-entry-card h3,
-.pricing-complete-card h3 {
+.pricing-entry-card :is(h3,.seo-visual-title),
+.pricing-complete-card :is(h3,.seo-visual-title) {
   margin-bottom: 12px;
   font-size: 24px;
   font-weight: 650;
@@ -1223,7 +1223,7 @@
 .pricing-recommendation-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 24px; border-radius: 16px; background: rgba(233,94,42,.1); color: var(--litus-orange); }
 .pricing-recommendation-icon svg { width: 24px; }
 .pricing-recommendation > p:first-of-type { color: var(--litus-orange); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.pricing-recommendation h3 { margin: 8px 0 3px; font-size: clamp(34px, 4vw, 55px); font-weight: 650; letter-spacing: -.055em; }
+.pricing-recommendation :is(h3,.seo-visual-title) { margin: 8px 0 3px; font-size: clamp(34px, 4vw, 55px); font-weight: 650; letter-spacing: -.055em; }
 .pricing-recommendation > strong { display: block; color: var(--litus-heading-accent); font-size: clamp(23px, 2.4vw, 33px); }
 .pricing-recommendation > p:last-of-type { max-width: 540px; margin-top: 16px; color: var(--pricing-muted); font-size: 14px; line-height: 1.6; }
 .pricing-recommendation > a { width: min(100%, 320px); margin-top: 25px; }
@@ -1253,7 +1253,7 @@
 }
 
 .pricing-comparison > div { display: flex; align-items: center; gap: 15px; }
-.pricing-comparison h3 { margin-bottom: 3px; font-size: 16px; font-weight: 650; }
+.pricing-comparison :is(h3,.seo-visual-title) { margin-bottom: 3px; font-size: 16px; font-weight: 650; }
 .pricing-comparison p { color: var(--pricing-muted); font-size: 11px; }
 .pricing-comparison > button { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 44px; padding: 10px 16px; border: 1px solid #8390a2; border-radius: 99px; font-size: 11px; font-weight: 650; white-space: nowrap; }
 .pricing-comparison > button svg { width: 15px; transition: transform .2s; }

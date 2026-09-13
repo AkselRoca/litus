@@ -57,3 +57,18 @@ html.dark body .services-reference-signature { color: #c0c8cc; }
 html body .services-reference-signature { color: #685e57 !important; }
 html.dark body .services-reference-signature { color: #c0c8cc !important; }
 .territory-coast-photo picture, .territory-coast-background { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.seo-skip-link{position:fixed;left:16px;top:12px;z-index:1000;padding:12px 18px;background:#fff;color:#10283f;border:2px solid #c6421b;border-radius:8px;transform:translateY(-200%)}.seo-skip-link:focus{transform:none}
+
+/* Public SEO audit: readable secondary text, keeping the existing palette. */
+html:not(.dark) .portfolio-cta { background: #be4017; color: #fff; }
+html:not(.dark) .ex-directory-heading > p,
+html:not(.dark) .ex-directory-grid small,
+html:not(.dark) .ex-technical-usecases-label,
+html:not(.dark) .ex-technical-usecases article > span,
+html:not(.dark) .ex-technical-usecases article p,
+html:not(.dark) .ex-prose p { color: #526879; }
+html:not(.dark) .ex-prose a { color: #a83714; }
+html:not(.dark) .asso-photo-pair figcaption,
+html:not(.dark) .asso-admin-demo figcaption { color: #526879; }
+html:not(.dark) #seo-hero ~ section .text-gray-500 { color: #586371; }

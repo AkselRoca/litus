@@ -4,7 +4,7 @@
 .gad-client-case-copy>p:not(.gad-kicker) { margin:19px 0; max-width:540px; }
 .gad-client-case-budget { display:flex; gap:15px; padding:23px 0; margin:25px 0; border-block:1px solid var(--gad-line); }
 .gad-client-case-budget>svg { flex-shrink:0; margin-top:2px; color:var(--gad-sage); }
-.gad-client-case-budget h3 { margin:0 0 12px; font-size:19px; }
+.gad-client-case-budget :is(h3,.seo-visual-title) { margin:0 0 12px; font-size:19px; }
 .gad-client-case-copy>a { display:inline-flex; }
 .gad-client-case-results { min-width:0; }
 .gad-client-case-results .acquisition-results { padding:clamp(25px,3vw,40px); box-shadow:0 23px 55px #132a3815; }

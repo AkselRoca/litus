@@ -1,30 +1,156 @@
 {
   "auditedAt": "2026-09-12",
   "redirects": [
-    { "source": "/portfolio", "destination": "/realisations", "reason": "Ancienne liste des projets", "evidence": "Ancien resultat de recherche et URL fournie" },
-    { "source": "/agence-web", "destination": "/a-propos", "reason": "Presentation de l'agence et de son equipe", "evidence": "Ancienne page indexee : A propos - L'agence web Litus" },
-    { "source": "/nous-contacter", "destination": "/contact", "reason": "Formulaire et coordonnees de contact", "evidence": "Ancienne page indexee et URL fournie" },
-    { "source": "/creation-de-site-internet", "destination": "/creation-site-internet", "reason": "Creation de sites internet", "evidence": "URL fournie par Litus" },
-    { "source": "/services/creation-site-catalogue", "destination": "/creation-site-internet", "reason": "Presentation de produits sans vente en ligne : site vitrine, pas e-commerce", "evidence": "Ancienne page indexee et contenu analyse" },
-    { "source": "/services/creation-site-e-commerce", "destination": "/creation-site-ecommerce", "reason": "Conception de boutiques en ligne", "evidence": "Ancienne page indexee et contenu analyse" },
-    { "source": "/services/referencement-naturel", "destination": "/referencement-naturel", "reason": "Meme prestation SEO", "evidence": "Ancienne page indexee et contenu analyse" },
-    { "source": "/services/publicite-en-ligne", "destination": "/google-ads", "reason": "L'ancien contenu porte sur les campagnes Google Ads", "evidence": "Ancienne page indexee : Gestion de campagne GoogleADS" },
-    { "source": "/services/frront-end-back-end", "destination": "/developpement-web-sur-mesure", "reason": "Developpement front-end, back-end et integrations", "evidence": "Ancien slug indexe, avec sa faute frront" },
-    { "source": "/services/automatisation", "destination": "/automatisation", "reason": "Workflows, automatisations et outils connectes", "evidence": "Ancienne page indexee et contenu analyse" },
-    { "source": "/refonte-murasaki-team", "destination": "/realisations/murasaki-team", "reason": "Meme client et meme projet de refonte", "evidence": "Ancienne et nouvelle pages identifiees ; destination 200" },
-    { "source": "/portfolios/west-clotures", "destination": "/realisations/west-clotures-paysage", "reason": "Meme realisation West Clotures", "evidence": "Ancienne page indexee ; destination 200" },
-    { "source": "/ressources/guide-prix", "destination": "/ressources/cahier-des-charges", "reason": "Remplacement du guide demande par Litus, deja effectue dans l'application", "evidence": "Ancienne redirection applicative 308 remplacee par une 301 HTTP" },
-    { "source": "/sitemap_index.xml", "destination": "/sitemap.xml", "reason": "Ancien index de sitemaps WordPress vers l'index actuel", "evidence": "Endpoint historique controle : 404 ; index actuel : 200" },
-    { "source": "/wp-sitemap.xml", "destination": "/sitemap.xml", "reason": "Ancien index natif WordPress vers l'index actuel", "evidence": "Endpoint historique controle : 404 ; index actuel : 200" },
-    { "source": "/services/creation-site-vitrine", "destination": "/creation-site-internet", "reason": "Alias explicite de la prestation site vitrine", "evidence": "Alias preventif, indexation ancienne non confirmee" },
-    { "source": "/services/creation-site-internet", "destination": "/creation-site-internet", "reason": "Alias de la prestation sous l'ancienne arborescence services", "evidence": "Alias preventif, indexation ancienne non confirmee" },
-    { "source": "/services/front-end-back-end", "destination": "/developpement-web-sur-mesure", "reason": "Variante corrigee du slug historique frront-end-back-end", "evidence": "Alias preventif" },
-    { "source": "/creation-site-e-commerce", "destination": "/creation-site-ecommerce", "reason": "Variante orthographique de la prestation e-commerce", "evidence": "Alias preventif" },
-    { "source": "/politique-de-confidentialite", "destination": "/politique-confidentialite", "reason": "Centralisation de la politique de confidentialite", "evidence": "Alias preventif de page legale" },
-    { "source": "/confidentialite", "destination": "/politique-confidentialite", "reason": "Centralisation de la politique de confidentialite", "evidence": "Alias preventif de page legale" },
-    { "source": "/cookies", "destination": "/politique-confidentialite#cookies", "reason": "La politique actuelle contient deja la gestion des cookies", "evidence": "Lien cookies du footer et contenu actuel" },
-    { "source": "/politique-de-cookies", "destination": "/politique-confidentialite#cookies", "reason": "Section cookies de la politique actuelle", "evidence": "Alias preventif de page legale" },
-    { "source": "/politique-cookies", "destination": "/politique-confidentialite#cookies", "reason": "Section cookies de la politique actuelle", "evidence": "Alias preventif de page legale" }
+    {
+      "source": "/portfolio",
+      "destination": "/realisations",
+      "reason": "Ancienne liste des projets",
+      "evidence": "Ancien resultat de recherche et URL fournie"
+    },
+    {
+      "source": "/agence-web",
+      "destination": "/a-propos",
+      "reason": "Presentation de l'agence et de son equipe",
+      "evidence": "Ancienne page indexee : A propos - L'agence web Litus"
+    },
+    {
+      "source": "/nous-contacter",
+      "destination": "/contact",
+      "reason": "Formulaire et coordonnees de contact",
+      "evidence": "Ancienne page indexee et URL fournie"
+    },
+    {
+      "source": "/creation-de-site-internet",
+      "destination": "/creation-site-internet",
+      "reason": "Creation de sites internet",
+      "evidence": "URL fournie par Litus"
+    },
+    {
+      "source": "/services/creation-site-catalogue",
+      "destination": "/creation-site-internet",
+      "reason": "Presentation de produits sans vente en ligne : site vitrine, pas e-commerce",
+      "evidence": "Ancienne page indexee et contenu analyse"
+    },
+    {
+      "source": "/services/creation-site-e-commerce",
+      "destination": "/creation-site-ecommerce",
+      "reason": "Conception de boutiques en ligne",
+      "evidence": "Ancienne page indexee et contenu analyse"
+    },
+    {
+      "source": "/services/referencement-naturel",
+      "destination": "/referencement-naturel",
+      "reason": "Meme prestation SEO",
+      "evidence": "Ancienne page indexee et contenu analyse"
+    },
+    {
+      "source": "/services/publicite-en-ligne",
+      "destination": "/google-ads",
+      "reason": "L'ancien contenu porte sur les campagnes Google Ads",
+      "evidence": "Ancienne page indexee : Gestion de campagne GoogleADS"
+    },
+    {
+      "source": "/services/frront-end-back-end",
+      "destination": "/developpement-web-sur-mesure",
+      "reason": "Developpement front-end, back-end et integrations",
+      "evidence": "Ancien slug indexe, avec sa faute frront"
+    },
+    {
+      "source": "/services/automatisation",
+      "destination": "/automatisation",
+      "reason": "Workflows, automatisations et outils connectes",
+      "evidence": "Ancienne page indexee et contenu analyse"
+    },
+    {
+      "source": "/refonte-murasaki-team",
+      "destination": "/realisations/murasaki-team",
+      "reason": "Meme client et meme projet de refonte",
+      "evidence": "Ancienne et nouvelle pages identifiees ; destination 200"
+    },
+    {
+      "source": "/portfolios/west-clotures",
+      "destination": "/realisations/west-clotures-paysage",
+      "reason": "Meme realisation West Clotures",
+      "evidence": "Ancienne page indexee ; destination 200"
+    },
+    {
+      "source": "/ressources/guide-prix",
+      "destination": "/ressources/cahier-des-charges",
+      "reason": "Remplacement du guide demande par Litus, deja effectue dans l'application",
+      "evidence": "Ancienne redirection applicative 308 remplacee par une 301 HTTP"
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "reason": "Ancien index de sitemaps WordPress vers l'index actuel",
+      "evidence": "Endpoint historique controle : 404 ; index actuel : 200"
+    },
+    {
+      "source": "/wp-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "reason": "Ancien index natif WordPress vers l'index actuel",
+      "evidence": "Endpoint historique controle : 404 ; index actuel : 200"
+    },
+    {
+      "source": "/services/creation-site-vitrine",
+      "destination": "/creation-site-internet",
+      "reason": "Alias explicite de la prestation site vitrine",
+      "evidence": "Alias preventif, indexation ancienne non confirmee"
+    },
+    {
+      "source": "/services/creation-site-internet",
+      "destination": "/creation-site-internet",
+      "reason": "Alias de la prestation sous l'ancienne arborescence services",
+      "evidence": "Alias preventif, indexation ancienne non confirmee"
+    },
+    {
+      "source": "/services/front-end-back-end",
+      "destination": "/developpement-web-sur-mesure",
+      "reason": "Variante corrigee du slug historique frront-end-back-end",
+      "evidence": "Alias preventif"
+    },
+    {
+      "source": "/creation-site-e-commerce",
+      "destination": "/creation-site-ecommerce",
+      "reason": "Variante orthographique de la prestation e-commerce",
+      "evidence": "Alias preventif"
+    },
+    {
+      "source": "/politique-de-confidentialite",
+      "destination": "/politique-confidentialite",
+      "reason": "Centralisation de la politique de confidentialite",
+      "evidence": "Alias preventif de page legale"
+    },
+    {
+      "source": "/confidentialite",
+      "destination": "/politique-confidentialite",
+      "reason": "Centralisation de la politique de confidentialite",
+      "evidence": "Alias preventif de page legale"
+    },
+    {
+      "source": "/cookies",
+      "destination": "/politique-confidentialite#cookies",
+      "reason": "La politique actuelle contient deja la gestion des cookies",
+      "evidence": "Lien cookies du footer et contenu actuel"
+    },
+    {
+      "source": "/politique-de-cookies",
+      "destination": "/politique-confidentialite#cookies",
+      "reason": "Section cookies de la politique actuelle",
+      "evidence": "Alias preventif de page legale"
+    },
+    {
+      "source": "/politique-cookies",
+      "destination": "/politique-confidentialite#cookies",
+      "reason": "Section cookies de la politique actuelle",
+      "evidence": "Alias preventif de page legale"
+    },
+    {
+      "source": "/realisations/Demetis-immobilier",
+      "destination": "/realisations/demetis-immo",
+      "reason": "Ancien lien de la page Le Mans",
+      "evidence": "Audit HTML global"
+    }
   ],
   "gone": [
     "/services/community-management",
@@ -33,12 +159,25 @@
   "noindex": [
     "/mentions-legales",
     "/politique-confidentialite",
-    "/contenu-retire"
+    "/contenu-retire",
+    "/territories/credits.html"
   ],
   "unresolved": [
-    { "source": "/accofin", "reason": "Ancienne etude de cas reelle, mais aucune page Accofin actuelle : /realisations/accofin renvoie 404. Ne pas rediriger vers un autre client." },
-    { "source": "/portfolios/accofin", "reason": "Meme projet Accofin sans equivalent actuel. Decision editoriale necessaire : restaurer la realisation ou retirer definitivement." },
-    { "source": "/creation-japan-hunter", "reason": "Projet retire a la demande de Litus. Pas d'equivalent actuel a substituer ; conserver la 404 plutot qu'une fausse equivalence." },
-    { "source": "/vos-questions", "reason": "Ancienne FAQ generale sur abonnements, formations, SEO et delais. Aucune FAQ equivalente unique dans les pages actuelles ; ne pas la renvoyer arbitrairement vers tarifs ou accueil." }
+    {
+      "source": "/accofin",
+      "reason": "Ancienne etude de cas reelle, mais aucune page Accofin actuelle : /realisations/accofin renvoie 404. Ne pas rediriger vers un autre client."
+    },
+    {
+      "source": "/portfolios/accofin",
+      "reason": "Meme projet Accofin sans equivalent actuel. Decision editoriale necessaire : restaurer la realisation ou retirer definitivement."
+    },
+    {
+      "source": "/creation-japan-hunter",
+      "reason": "Projet retire a la demande de Litus. Pas d'equivalent actuel a substituer ; conserver la 404 plutot qu'une fausse equivalence."
+    },
+    {
+      "source": "/vos-questions",
+      "reason": "Ancienne FAQ generale sur abonnements, formations, SEO et delais. Aucune FAQ equivalente unique dans les pages actuelles ; ne pas la renvoyer arbitrairement vers tarifs ou accueil."
+    }
   ]
 }

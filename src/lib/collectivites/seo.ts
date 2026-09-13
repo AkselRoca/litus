@@ -8,7 +8,7 @@ export function civicMetadata(title: string, description: string, path = '/colle
 }
 export function civicSchema(title: string, description: string, path: string, faq: CivicFaq[], image: string) {
   const url = base + path
-  const organization = { ...generateOrganizationSchema(), '@context': undefined, '@id': 'https://litus.fr/#organization' }
+  const organization = { ...generateOrganizationSchema(), '@context': undefined, '@id': 'https://www.litus.fr/#organization' }
   const breadcrumb = [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: base + '/' }, { '@type': 'ListItem', position: 2, name: 'Collectivités', item: base + '/collectivites' }]
   if (path !== '/collectivites') breadcrumb.push({ '@type': 'ListItem', position: 3, name: title, item: url })
   return { '@context': 'https://schema.org', '@graph': [organization,

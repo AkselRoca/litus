@@ -35,7 +35,7 @@ describe('Home, directory, categories and expertise routes stay aligned', () => 
     const routes = new Set(expertisePages.map(page => `/expertise/${page.slug}`))
     function resolve(href: string) {
       if (!href.startsWith('/') || href.startsWith('//')) throw new Error(`Invalid internal link: ${href}`)
-      const url = new URL(href, 'https://litus.fr')
+      const url = new URL(href, 'https://www.litus.fr')
       if (url.pathname.startsWith('/expertise/')) expect(routes.has(url.pathname), href).toBe(true)
       else expect(existsSync(path.join(process.cwd(), 'src/app', url.pathname, 'page.tsx')), href).toBe(true)
     }

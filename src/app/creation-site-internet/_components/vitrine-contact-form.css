@@ -20,7 +20,7 @@
   --vitrine-form-field: #141d27;
   --vitrine-form-line: #364352;
 }
-.vitrine-form.vitrine-form-success h3 { margin: 0 0 8px; color: var(--vitrine-form-ink); font-size: clamp(22px, 2vw, 27px); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; }
+.vitrine-form.vitrine-form-success :is(h3,.seo-visual-title) { margin: 0 0 8px; color: var(--vitrine-form-ink); font-size: clamp(22px, 2vw, 27px); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; }
 .vitrine-form.vitrine-form-success > p { margin: 0; color: var(--vitrine-form-muted); font-size: 14px; line-height: 1.6; }
 .vitrine-form .vitrine-form-fields { display: grid; min-width: 0; gap: 14px; margin: 0; padding: 0; border: 0; }
 .vitrine-form .vitrine-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -59,7 +59,7 @@
 .vitrine-form.vitrine-form-success { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 370px; }
 .vitrine-form .vitrine-form-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; margin-bottom: 22px; border-radius: 50%; background: #e95e2a12; color: #c7431b; }
 .dark .vitrine-form .vitrine-form-success-icon { color: #f7916b; }
-.vitrine-form.vitrine-form-success h3:focus { outline: none; }
+.vitrine-form.vitrine-form-success :is(h3,.seo-visual-title):focus { outline: none; }
 .vitrine-form .vitrine-form-retry { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 0 0 4px; border: 0; border-bottom: 1px solid #e95e2a; border-radius: 0; background: none; color: var(--vitrine-form-ink); font: inherit; font-size: 13px; cursor: pointer; }
 .vitrine-form .vitrine-form-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @keyframes vitrine-form-spin { to { transform: rotate(360deg); } }

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Search, MousePointer2 } from 'lucide-react';
@@ -15,7 +16,7 @@ const faq = [
   { question: 'Je propose plusieurs métiers : dois-je créer plusieurs sites ?', answer: 'Pas forcément. Un même site peut présenter plusieurs activités cohérentes, avec une page utile par prestation et un formulaire qui oriente la demande. Nous évitons de multiplier les sites ou les pages très proches lorsque cela complique la gestion sans aider le visiteur.' },
 ];
 
-export const metadata = artisanMetadata('Création de sites internet pour artisans', 'Un site adapté à votre métier : plombier, électricien, couvreur, paysagiste et artisans du bâtiment. Création web, SEO local et Google Ads avec Litus.', '/artisan', '/artisan/menuisier-metier.webp', 'Atelier de menuiserie avec outils et établis de travail');
+export const metadata = pageMetadata("/artisan", artisanMetadata('Création de sites internet pour artisans', 'Un site adapté à votre métier : plombier, électricien, couvreur, paysagiste et artisans du bâtiment. Création web, SEO local et Google Ads avec Litus.', '/artisan', '/artisan/menuisier-metier.webp', 'Atelier de menuiserie avec outils et établis de travail'));
 
 export default function ArtisanHub() {
   const schema = artisanSchema();

@@ -62,7 +62,7 @@ const articles: Omit<BlogArticle, 'readTimeMinutes'>[] = [
     updatedAt: '2026-09-09',
     excerpt: 'Identifiez ce qui freine vos visiteurs et distinguez les corrections ciblées d’une refonte complète, en préservant ce qui fonctionne déjà.',
     category: 'Site Web', city: 'Le Mans', publishedAt, authorName,
-    coverImage: '/realisations/Demetis-website.webp', coverImageAlt: 'Capture de la page d’accueil du site Demetis Immo, agence immobilière au Mans',
+    coverImage: '/realisations/demetis-website.webp', coverImageAlt: 'Capture de la page d’accueil du site Demetis Immo, agence immobilière au Mans',
     coverImageCredit: { label: 'Capture du site Demetis Immo · Illustration de site web', href: '/realisations/Demetis-immo' },
     content: `
 <p>Un site ancien n’est pas automatiquement un mauvais site. À l’inverse, une apparence récente peut cacher un formulaire défaillant ou des pages difficiles à comprendre. Pour une entreprise du Mans, la bonne question est de savoir si le site présente encore l’offre actuelle et aide les visiteurs à passer à l’étape suivante.</p>

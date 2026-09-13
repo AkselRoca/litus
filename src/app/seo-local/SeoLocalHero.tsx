@@ -115,13 +115,13 @@ export function SeoLocalHero() {
       secondaryAction={{ label: 'Voir les tarifs', href: '#tarifs' }}
       proof={
           <div className="seo-hero-trust" aria-label="Nos engagements">
-            <div><Star className="is-star" aria-hidden="true" /><p><strong>5/5 Google</strong><span>+ de 60 avis clients</span></p></div>
-            <div><ShieldCheck className="is-shield" aria-hidden="true" /><p><strong>Garantie Résultat</strong><span>Un accompagnement transparent</span></p></div>
+            <div><Star className="is-star" aria-hidden="true" /><p><strong>5/5 Google</strong><span>Des avis clients vérifiés</span></p></div>
+            <div><ShieldCheck className="is-shield" aria-hidden="true" /><p><strong>Suivi des résultats</strong><span>Un accompagnement transparent</span></p></div>
             <div><Rocket className="is-rocket" aria-hidden="true" /><p><strong>Livraison Rapide</strong><span>Des actions concrètes, sans attente</span></p></div>
           </div>
       }
       visual={
-        <motion.div className="seo-hero-demo" initial={false}>
+        <motion.div className="seo-hero-demo" aria-hidden="true" initial={false}>
           <div className="seo-hero-orbit" aria-hidden="true" />
           <div className="seo-serp" aria-label="Démonstration animée d'une progression dans les résultats Google">
             <div className="seo-serp-head">
@@ -139,7 +139,7 @@ export function SeoLocalHero() {
                       <span className="seo-result-rank">{index + 1}</span>
                       <div className="seo-result-body">
                         <div className="seo-result-site">{result.client ? <Image src="/logo-sans-fond.png" width={20} height={20} alt="" /> : <i />}{result.domain}{isTopThree && <motion.b initial={reduceMotion ? false : { opacity: 0, scale: .9 }} animate={{ opacity: 1, scale: 1 }} transition={reduceMotion ? { duration: 0 } : undefined}>Top 3 <TrendingUp /></motion.b>}</div>
-                        <h2>{result.title}</h2>
+                        <div className="seo-result-title">{result.title}</div>
                         <p>{result.description}</p>
                       </div>
                     </motion.article>

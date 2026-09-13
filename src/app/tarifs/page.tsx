@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,12 +18,12 @@ import { PricingContent } from '@/components/sections/PricingContent'
 import { LeadMagnetSection } from '@/components/lead-magnets'
 import './pricing.css'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/tarifs", {
   title: 'Tarifs - Agence Web Transparente | Litus',
   description:
     'Site internet dès 99 €/mois, SEO dès 99 €/mois et gestion Google Ads à 129 €/mois. Choisissez votre besoin puis faites évoluer votre accompagnement Litus.',
   keywords: ['tarifs agence web', 'prix site internet', 'devis SEO', 'tarifs Google Ads'],
-}
+})
 
 const heroBenefits = [
   { icon: Layers3, title: 'Des offres complètes', detail: 'Tout ce qu’il faut, en un seul pack' },

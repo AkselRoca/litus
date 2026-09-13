@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { siteIdentitySchema } from '@/lib/seo/metadata'
 import './editorial.css'
 import './performance-a11y.css'
 import { CONSENT_BOOTSTRAP } from '@/lib/cookie-consent'
@@ -19,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default: 'Litus - Agence Web Lorient & Le Mans | Sites, SEO, Google Ads',
-    template: '%s | Litus',
+    template: '%s',
   },
   description:
     'Agence web locale spécialisée en création de sites, SEO et applications sur-mesure. Proximité, transparence et résultats pour artisans, PME et collectivités.',
@@ -34,14 +35,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Litus' }],
   creator: 'Litus',
-  metadataBase: new URL('https://litus.fr'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL('https://www.litus.fr'),
+
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://litus.fr',
+    url: 'https://www.litus.fr',
     title: 'Litus - Agence Web Lorient & Le Mans',
     description:
       'Agence web locale spécialisée en création de sites, SEO et applications sur-mesure.',
@@ -92,6 +91,7 @@ export default function RootLayout({
     <html lang="fr" className={`${inter.variable} light`} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP }} /></head>
       <body className="min-h-screen-dynamic flex flex-col">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteIdentitySchema) }} />
         <ThemeProvider>
           <LenisProvider>
             <AnalyticsProvider>

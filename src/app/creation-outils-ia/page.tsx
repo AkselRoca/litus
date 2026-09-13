@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { AiPillars } from '@/components/expertise/ExpertiseDirectory'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -16,15 +17,15 @@ import './ai.css'
 
 const title = 'Création d’outils IA sur mesure pour entreprise | Litus'
 const description = 'Litus crée vos outils IA sur mesure : assistants internes, agents métier, recherche documentaire et automatisations connectées à votre CRM et à vos données.'
-const url = 'https://litus.fr/creation-outils-ia'
+const url = 'https://www.litus.fr/creation-outils-ia'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/creation-outils-ia", {
   title: { absolute: title },
   description,
   alternates: { canonical: '/creation-outils-ia' },
   openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
-}
+})
 
 const useCaseIcons = { knowledge: BookOpenText, agent: Network, search: FileSearch, content: FileText, leads: Target, mail: Mail, data: Database, workflow: Workflow, interface: PanelTop }
 const benefits = [
@@ -43,8 +44,8 @@ const method = [
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Service', '@id': `${url}#service`, name: 'Création d’outils IA sur mesure pour entreprise', description, serviceType: 'Développement et intégration d’outils d’intelligence artificielle sur mesure', url, provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' }, availableChannel: { '@type': 'ServiceChannel', serviceUrl: 'https://litus.fr/contact' } },
-    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Création d’outils IA', item: url }] },
+    { '@type': 'Service', '@id': `${url}#service`, name: 'Création d’outils IA sur mesure pour entreprise', description, serviceType: 'Développement et intégration d’outils d’intelligence artificielle sur mesure', url, provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' }, availableChannel: { '@type': 'ServiceChannel', serviceUrl: 'https://www.litus.fr/contact' } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Création d’outils IA', item: url }] },
     { '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: aiFaq.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
   ],
 }

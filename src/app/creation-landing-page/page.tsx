@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,11 +11,11 @@ import './landing.css'
 
 const title = 'Création de landing page sur mesure & conversion | Litus'
 const description = 'Litus crée des landing pages adaptées à vos campagnes : offre claire, design sur mesure, formulaires et suivi des demandes. Google Ads, lancement ou prise de rendez-vous.'
-const url = 'https://litus.fr/creation-landing-page'
-export const metadata: Metadata = { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] }, twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] } }
+const url = 'https://www.litus.fr/creation-landing-page'
+export const metadata: Metadata = pageMetadata("/creation-landing-page", { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] }, twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] } })
 const schema = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Service', '@id': `${url}#service`, name: 'Création de landing page sur mesure', description, url, serviceType: 'Conception de pages d’atterrissage et optimisation du parcours de conversion', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
-  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Création de landing page', item: url }] },
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Création de landing page sur mesure', description, url, serviceType: 'Conception de pages d’atterrissage et optimisation du parcours de conversion', provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Création de landing page', item: url }] },
   { '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: landingFaq.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
 ] }
 

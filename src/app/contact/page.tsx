@@ -1,12 +1,13 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import { ContactHero } from './_components/ContactHero'
 import { contactConfiguration } from '@/lib/contact/config'
 import './contact.css'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/contact", {
     title: 'Contact - Litus',
     description: 'Parlons de votre projet web. Contactez Litus à Lorient et au Mans : sites web, e-commerce et visibilité locale. Réponse sous 24 h ouvrées.',
-}
+})
 
 export default async function ContactPage({ searchParams }: { searchParams: Promise<{ objet?: string | string[] }> }) {
     const query = await searchParams

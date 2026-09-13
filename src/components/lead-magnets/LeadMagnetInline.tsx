@@ -11,9 +11,11 @@ interface LeadMagnetInlineProps {
     magnetId: LeadMagnetId
     /** Compact mode for sidebar */
     compact?: boolean
+    headingLevel?: 2 | 3
 }
 
-export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInlineProps) {
+export function LeadMagnetInline({ magnetId, compact = false, headingLevel = 3 }: LeadMagnetInlineProps) {
+    const Heading = headingLevel === 2 ? 'h2' : 'h3'
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -81,7 +83,7 @@ export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInline
                             {/* Text */}
                             <div className={compact ? '' : 'text-center'}>
                                 <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-semibold mb-1">{magnet.subtitle}</p>
-                                <h3 className={`${compact ? 'text-base' : 'text-xl'} font-bold text-gray-900 dark:text-white mb-2 leading-tight`}>{magnet.title}</h3>
+                                <Heading className={`${compact ? 'text-base' : 'text-xl'} font-bold text-gray-900 dark:text-white mb-2 leading-tight`}>{magnet.title}</Heading>
                                 <p className={`text-gray-600 dark:text-gray-400 text-sm ${compact ? 'mb-4' : 'mb-6'} leading-relaxed`}>
                                     {magnet.description}
                                 </p>
@@ -90,7 +92,7 @@ export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInline
                             {/* Form */}
                             <form onSubmit={handleSubmit} className="space-y-2.5">
                                 <input
-                                    type="text"
+                                    type="text" aria-label="Votre prénom" autoComplete="given-name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Votre prénom"
@@ -98,7 +100,7 @@ export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInline
                                     className={`w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-black/50 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${magnet.ringColor} text-sm transition-all shadow-sm`}
                                 />
                                 <input
-                                    type="email"
+                                    type="email" aria-label="Votre adresse email" autoComplete="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="votre@email.com"
@@ -136,9 +138,9 @@ export function LeadMagnetInline({ magnetId, compact = false }: LeadMagnetInline
                             className="text-center py-6"
                         >
                             <CheckCircle className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                            <Heading className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                                 Téléchargement en cours !
-                            </h3>
+                            </Heading>
                             <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">
                                 Le PDF va se télécharger automatiquement.
                             </p>

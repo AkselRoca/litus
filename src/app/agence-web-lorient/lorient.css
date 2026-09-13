@@ -36,14 +36,14 @@
 .lorient-team-portraits figcaption { margin-top:11px;color:var(--lm-muted);font-size:11px; }
 .lorient-person-name { display:flex;align-items:center;gap:12px;font-weight:650;font-size:23px;letter-spacing:-.03em; }
 .lorient-person-name>span { display:inline-flex;align-items:center;gap:4px;color:#62746a;font-size:10px;font-weight:500;letter-spacing:0; }
-.lorient-team-person h3 { max-width:310px;margin:9px 0;font-size:15px;font-weight:550;line-height:1.45; }
+.lorient-team-person :is(h3,.seo-visual-title) { max-width:310px;margin:9px 0;font-size:15px;font-weight:550;line-height:1.45; }
 .lorient-team-person>p:last-child:not(.lorient-person-name) { color:var(--lm-muted);font-size:13px;line-height:1.6; }
 .lorient-team-complement { padding-top:19px;margin-top:20px;border-top:1px solid var(--lr-border); }
 .lorient-team-complement .lorient-person-name { font-size:17px;margin-bottom:6px; }
 .lorient-proximity-proofs { display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:55px;padding-top:30px;border-top:1px solid var(--lr-border); }
 .lorient-proximity-proofs li { display:flex;align-items:flex-start;gap:12px; }
 .lorient-proximity-proofs svg { flex-shrink:0;width:21px;height:21px;margin-top:3px;color:var(--litus-orange);stroke-width:1.6; }
-.lorient-proximity-proofs h3 { font-size:13px;font-weight:600;line-height:1.4; }
+.lorient-proximity-proofs :is(h3,.seo-visual-title) { font-size:13px;font-weight:600;line-height:1.4; }
 .lorient-proximity-proofs p { color:var(--lm-muted);font-size:11px;line-height:1.6;margin-top:6px; }
 .lorient-service-top { display:flex;align-items:center;justify-content:space-between; }
 .lorient-service-top>svg { width:26px;height:26px;color:var(--litus-orange);stroke-width:1.6; }
@@ -66,7 +66,7 @@
 .lorient-project-image>span svg { width:18px; }
 .lorient-project-copy { padding:28px 32px 30px; }
 .lorient-project-location { display:flex;align-items:center;gap:6px;color:var(--litus-heading-accent);font-size:11px; }
-.lorient-project-copy h3 { margin:13px 0 12px;font-size:28px;letter-spacing:-.04em;font-weight:600; }
+.lorient-project-copy :is(h3,.seo-visual-title) { margin:13px 0 12px;font-size:28px;letter-spacing:-.04em;font-weight:600; }
 .lorient-project-copy>p:not(.lorient-project-location) { color:var(--lm-muted);font-size:13px;line-height:1.65;max-width:440px; }
 .lorient-project-copy ul { display:flex;flex-wrap:wrap;gap:7px;margin-top:20px; }
 .lorient-project-copy li { padding:5px 9px;background:#eeeee9;border-radius:4px;color:#657078;font-size:10px; }
@@ -126,7 +126,7 @@
   .lorient-coverage-grid { grid-template-columns:1fr;gap:35px; }
   .lorient-coverage-copy { order:-1; }
   .lorient-project-copy { padding:25px; }
-  .lorient-project-copy h3 { font-size:24px; }
+  .lorient-project-copy :is(h3,.seo-visual-title) { font-size:24px; }
   .lorient-work-footer { align-items:flex-start;flex-direction:column;gap:14px; }
 }
 @media(max-width:560px) {
@@ -159,7 +159,7 @@
 }
 @media(prefers-reduced-motion:reduce) { .lorient-page *, .lorient-page *:before, .lorient-page *:after { animation:none!important;transition:none!important;scroll-behavior:auto!important; } }
 .lorient-project-name { display:flex;align-items:center;justify-content:space-between;gap:15px;margin-block:13px 12px; }
-.lorient-project-name h3 { margin:0; }
+.lorient-project-name :is(h3,.seo-visual-title) { margin:0; }
 .lorient-project-name img { flex-shrink:0;width:84px;height:44px;object-fit:contain; }
 .dark .lorient-project-name img { background:#faf9f6;border-radius:5px;padding:4px; }
 @media(max-width:700px) and (min-width:561px) { .lorient-project-name { flex-wrap:wrap; } }

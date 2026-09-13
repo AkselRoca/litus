@@ -33,7 +33,7 @@ export function generateBlogArticleMetadata(data: BlogArticleData): Metadata {
     title: { absolute: data.metaTitle || `${data.title} | Litus` },
     description: data.metaDescription || data.excerpt, keywords: null,
     alternates: { canonical: `/blog/${data.slug}` },
-    openGraph: { title: data.metaTitle || data.title, description: data.metaDescription || data.excerpt, type: 'article', url: `https://litus.fr/blog/${data.slug}`, publishedTime: data.publishedAtIso, modifiedTime: data.updatedAtIso || data.publishedAtIso, authors: [data.author.name], images: data.coverImage ? [{ url: data.coverImage, alt: data.coverImageAlt || data.title }] : [] },
+    openGraph: { title: data.metaTitle || data.title, description: data.metaDescription || data.excerpt, type: 'article', url: `https://www.litus.fr/blog/${data.slug}`, publishedTime: data.publishedAtIso, modifiedTime: data.updatedAtIso || data.publishedAtIso, authors: [data.author.name], images: data.coverImage ? [{ url: data.coverImage, alt: data.coverImageAlt || data.title }] : [] },
     twitter: { card: 'summary_large_image', title: data.metaTitle || data.title, description: data.metaDescription || data.excerpt, images: data.coverImage ? [data.coverImage] : [] },
   }
 }

@@ -16,7 +16,7 @@
 .art-section { padding-block: 52px; scroll-margin-top: 112px; }
 :where(.art-content) h2 { font-family: var(--font-inter), sans-serif; font-size: clamp(28px, 2.65vw, 38px); font-weight: 650; line-height: 1.15; letter-spacing: -.043em; color: var(--art-ink); margin: 0 0 13px; text-wrap: pretty; }
 :where(.art-content) h2 em { color: var(--litus-orange); font-style: normal; }
-:where(.art-content) h3 { font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; color: var(--art-ink); }
+:where(.art-content) :is(h3,.seo-visual-title) { font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; color: var(--art-ink); }
 :where(.art-content) p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--art-muted); }
 .art-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 13px; font-size: 10px; font-weight: 550; letter-spacing: .075em; line-height: 1.55; color: var(--art-muted); text-transform: uppercase; }
 .art-kicker::before { content: ''; width: 24px; height: 1.5px; background: var(--litus-orange); flex-shrink: 0; }
@@ -55,7 +55,7 @@
 .art-tone-2 .art-icon { background: color-mix(in srgb, var(--litus-orange) 14%, var(--art-card)); }
 .art-tone-3 .art-icon { background: color-mix(in srgb, var(--litus-orange) 4%, var(--art-card)); }
 .art-reality-card .art-icon { margin-bottom: 16px; }
-.art-reality-card h3 { font-size: 18px; margin: 0 0 11px; }
+.art-reality-card :is(h3,.seo-visual-title) { font-size: 18px; margin: 0 0 11px; }
 .art-reality-card p { font-size: 13px; line-height: 1.6; }
 .art-trades { background: var(--art-card); padding-bottom: 19px; }
 .art-trades-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
@@ -76,10 +76,10 @@
 .art-solutions-intro { max-width: 590px; margin-bottom: 26px; }
 .art-solutions-list { display: grid; gap: 23px; margin: 25px 0 0; padding: 0; }
 .art-solutions-list li { display: flex; gap: 17px; align-items: flex-start; }
-.art-solutions-list h3 { font-size: 18px; margin: 0 0 6px; }
-.art-solutions-list h3 a { display: inline-flex; align-items: baseline; gap: 9px; }
-.art-solutions-list h3 svg { flex-shrink: 0; color: var(--litus-orange); transition: transform 180ms ease; }
-.art-solutions-list h3 a:hover svg { transform: translate(2px, -2px); }
+.art-solutions-list :is(h3,.seo-visual-title) { font-size: 18px; margin: 0 0 6px; }
+.art-solutions-list :is(h3,.seo-visual-title) a { display: inline-flex; align-items: baseline; gap: 9px; }
+.art-solutions-list :is(h3,.seo-visual-title) svg { flex-shrink: 0; color: var(--litus-orange); transition: transform 180ms ease; }
+.art-solutions-list :is(h3,.seo-visual-title) a:hover svg { transform: translate(2px, -2px); }
 .art-solutions-list p { font-size: 13px; line-height: 1.6; max-width: 530px; }
 .art-local-links { margin-top: 27px; padding-top: 18px; border-top: 1px solid var(--art-line); font-size: 12px; max-width: 590px; }
 .art-local-links a { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--litus-orange) 70%, transparent); text-underline-offset: 3px; }
@@ -93,7 +93,7 @@
   .art-benefit > strong { font-size: 16px; }
   .art-reality-grid { gap: 16px; }
   .art-reality-card { padding: 21px 18px; }
-  .art-reality-card h3 { font-size: 17px; }
+  .art-reality-card :is(h3,.seo-visual-title) { font-size: 17px; }
   .art-trades-grid { gap: 10px; }
   .art-trade { flex-direction: column; align-items: flex-start; gap: 9px; padding: 15px; }
   .art-trade-detail p { max-width: 590px; }
@@ -110,7 +110,7 @@
   .art-benefits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 23px; }
   .art-reality-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
   .art-reality-card { padding: 24px; }
-  .art-reality-card h3 { font-size: 19px; }
+  .art-reality-card :is(h3,.seo-visual-title) { font-size: 19px; }
   .art-trades-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   .art-trade { flex-direction: row; align-items: center; min-height: 80px; font-size: 12px; padding: 13px; }
   .art-trade-detail { gap: 19px; }
@@ -139,7 +139,7 @@
   .art-benefit > span { width: 39px; height: 39px; margin-bottom: 10px; }
   .art-reality-grid { gap: 12px; }
   .art-reality-card { padding: 19px 14px; }
-  .art-reality-card h3 { font-size: 16px; }
+  .art-reality-card :is(h3,.seo-visual-title) { font-size: 16px; }
   .art-reality-card p { font-size: 12px; }
   .art-icon { width: 37px; height: 37px; }
   .art-icon svg { width: 21px; height: 21px; }
@@ -151,13 +151,13 @@
   .art-solutions { padding-top: 0; }
   .art-solutions-list { gap: 23px; }
   .art-solutions-list li { gap: 13px; }
-  .art-solutions-list h3 { font-size: 17px; }
+  .art-solutions-list :is(h3,.seo-visual-title) { font-size: 17px; }
   .art-solutions-list p, .art-local-links { font-size: 12px; }
 }
 @media (max-width: 360px) {
   .art-reality-grid { grid-template-columns: 1fr; }
   .art-reality-card { padding: 22px; }
-  .art-reality-card h3 { font-size: 18px; }
+  .art-reality-card :is(h3,.seo-visual-title) { font-size: 18px; }
   .art-trade { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {

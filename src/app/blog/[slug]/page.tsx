@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { BlogArticleTemplate, generateBlogArticleMetadata, type BlogArticleData } from '@/components/templates/BlogArticleTemplate'
@@ -28,7 +29,7 @@ async function articleData(slug: string): Promise<BlogArticleData | null> {
   }
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+async function resolvePageMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const data = await articleData(slug)
   return data ? generateBlogArticleMetadata(data) : { title: 'Article introuvable | Litus', robots: { index: false, follow: false } }
@@ -48,15 +49,20 @@ export default async function BlogPostPage({ params }: PageProps) {
   const schema = {
     '@context': 'https://schema.org', '@type': 'BlogPosting',
     headline: data.title, description: data.metaDescription || data.excerpt, datePublished: data.publishedAtIso, dateModified: data.updatedAtIso,
-    url: `https://litus.fr/blog/${data.slug}`, mainEntityOfPage: { '@type': 'WebPage', '@id': `https://litus.fr/blog/${data.slug}` },
-    inLanguage: 'fr-FR', image: data.coverImage ? new URL(data.coverImage, 'https://litus.fr').href : undefined,
+    url: `https://www.litus.fr/blog/${data.slug}`, mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.litus.fr/blog/${data.slug}` },
+    inLanguage: 'fr-FR', image: data.coverImage ? new URL(data.coverImage, 'https://www.litus.fr').href : undefined,
     author: { '@type': data.author.name.includes('Litus') ? 'Organization' : 'Person', name: data.author.name },
-    publisher: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' },
+    publisher: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' },
   }
   const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' },
-    { '@type': 'ListItem', position: 2, name: 'Litus Inside', item: 'https://litus.fr/blog' },
-    { '@type': 'ListItem', position: 3, name: data.title, item: `https://litus.fr/blog/${data.slug}` },
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' },
+    { '@type': 'ListItem', position: 2, name: 'Litus Inside', item: 'https://www.litus.fr/blog' },
+    { '@type': 'ListItem', position: 3, name: data.title, item: `https://www.litus.fr/blog/${data.slug}` },
   ] }
   return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, breadcrumb]).replace(/</g, '\\u003c') }} /><BlogArticleTemplate data={data} /></>
+}
+
+export async function generateMetadata(props: Parameters<typeof resolvePageMetadata>[0]) {
+  const params = await props.params
+  return pageMetadata("/blog/" + params.slug, await resolvePageMetadata(props))
 }

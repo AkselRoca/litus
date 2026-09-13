@@ -33,7 +33,8 @@ function CountUp({ value, prefix = '', suffix = '' }: { value: number; prefix?: 
   const ref = useRef<HTMLSpanElement>(null)
   const visible = useInView(ref, { once: true, amount: .7 })
   const reduced = useReducedMotion()
-  const [current, setCurrent] = useState(0)
+  // Keep the server and first client render identical, including reduced motion.
+  const [current, setCurrent] = useState(value)
   useEffect(() => {
     if (!visible || reduced) return
     let frame = 0
@@ -46,7 +47,7 @@ function CountUp({ value, prefix = '', suffix = '' }: { value: number; prefix?: 
     frame = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(frame)
   }, [visible, reduced, value])
-  return <span ref={ref}>{prefix}{reduced ? value : current}{suffix}</span>
+  return <span ref={ref}>{prefix}{current}{suffix}</span>
 }
 
 export function CaseStudyTemplate({ data }: { data: CaseStudyData }) {

@@ -130,3 +130,9 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Nouvelle page /association : site associatif, HelloAsso, adhesions, dons, evenements, benevoles, espace membres et outils connectes.
 - Entree Associations dans Solutions desktop/mobile et footer ; trois photos reelles Pexels locales, reference Femmes des Territoires, FAQ et maillage SEO.
 - Conditions HelloAsso, recus fiscaux, Ad Grants et RGPD documentees dans docs/association-sources.md.
+
+## 1.16.a - Audit SEO global
+- Metadonnees normalisees a la source : marque unique, canonical propre par route, Open Graph/Twitter coherents et hote www.
+- Titres de navigation et de demonstrations rendus non hierarchiques sans changer leur style ; contact H1 premier, formulaire mobile conserve.
+- Sitemap dynamique des realisations, corrections de liens, credits techniques noindex, article de test exclu du parcours public sans suppression en base.
+- Audit reproductible via scripts/audit-public-seo.mjs ; controles avant/apres et limites documentes.

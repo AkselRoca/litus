@@ -78,7 +78,7 @@ export function ServicePageTemplate({
     faqs,
 }: ServicePageProps) {
     return (
-        <main className="min-h-screen bg-white dark:bg-[#050505] overflow-hidden selection:bg-orange-500/30">
+        <div className="min-h-screen bg-white dark:bg-[#050505] overflow-hidden selection:bg-orange-500/30">
 
             {hero ?? <ServiceHero
                 id="service-title"
@@ -89,7 +89,7 @@ export function ServicePageTemplate({
                 visual={<div className="service-hero-photo"><Image src={heroImage || '/hero-studio-editorial.webp'} alt={`Illustration du service : ${title}`} fill priority sizes="(max-width: 850px) 100vw, 52vw" className={heroImagePosition} /></div>}
                 proof={<div className="service-hero-assurances">
                     <span><Star aria-hidden="true" />5/5 Google</span>
-                    <span><ShieldCheck aria-hidden="true" />Garantie Résultat</span>
+                    <span><ShieldCheck aria-hidden="true" />Suivi des résultats</span>
                     <span><Rocket aria-hidden="true" />Livraison Rapide</span>
                 </div>}
             />}
@@ -192,7 +192,7 @@ export function ServicePageTemplate({
                                     <div className="absolute inset-0 border-[8px] border-white/20 z-20 rounded-2xl pointer-events-none" />
                                     <img
                                         src={featuredProject.image}
-                                        alt="Projet Client"
+                                        alt={`Aperçu du projet ${featuredProject.title}`} width={1440} height={960} loading="lazy" decoding="async"
                                         className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
@@ -317,6 +317,6 @@ export function ServicePageTemplate({
                 </div>
             </section>
 
-        </main>
+        </div>
     )
 }

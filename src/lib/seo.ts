@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 const siteConfig = {
     name: 'Litus',
     description: 'Agence web à Lorient & Le Mans. Sites web performants, SEO local et Google Ads pour les PME et artisans qui veulent dominer leur zone de chalandise.',
-    url: 'https://litus.fr',
+    url: 'https://www.litus.fr',
     ogImage: '/litus-og-social.png',
     author: 'Litus',
     phone: '+33 7 44 98 55 21',

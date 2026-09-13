@@ -16,7 +16,7 @@ export async function fetchPublic(urlValue: string, options: { image?: boolean; 
   if (!addresses.length || addresses.some(a => !isPublicAddress(a.address))) throw new Error('Private source address blocked')
   const address = addresses.find(a => a.family === 4) ?? addresses[0]
   return new Promise((resolve, reject) => {
-    const request = https.get(url, { headers: { 'User-Agent': 'LitusEditorial/1.0 (+https://litus.fr/contact)', Accept: options.image ? 'image/*' : 'text/html,application/json,text/plain' },
+    const request = https.get(url, { headers: { 'User-Agent': 'LitusEditorial/1.0 (+https://www.litus.fr/contact)', Accept: options.image ? 'image/*' : 'text/html,application/json,text/plain' },
       lookup: ((_host: string, options: { all?: boolean }, cb: (...args: unknown[]) => void) => options.all ? cb(null, [address]) : cb(null, address.address, address.family)) as never,
     }, response => {
       if ([301, 302, 303, 307, 308].includes(response.statusCode ?? 0) && response.headers.location) {

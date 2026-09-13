@@ -65,7 +65,7 @@
 .about-values-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .about-value-card { border: 1px solid var(--about-line); border-radius: 13px; padding: 23px; background: var(--about-card); }
 .about-value-card > span { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; background: #e95e2a0e; color: #e95e2a; margin-bottom: 14px; }
-.about-value-card h3 { font-size: 21px; font-weight: 650; letter-spacing: -.035em; margin-bottom: 10px; }
+.about-value-card :is(h3,.seo-visual-title) { font-size: 21px; font-weight: 650; letter-spacing: -.035em; margin-bottom: 10px; }
 .about-value-card p { font-size: 15px; line-height: 1.5; color: var(--about-muted); }
 .about-team-section { padding: 39px 0 38px; }
 .about-team-heading { display: flex; justify-content: space-between; align-items: center; gap: 35px; margin-bottom: 26px; }
@@ -83,7 +83,7 @@
 .about-person-linkedin:focus-visible { outline: 2px solid #e95e2a; outline-offset: 3px; }
 .about-person-linkedin svg { width: 18px; height: 18px; stroke-width: 2; }
 .about-person-heading { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
-.about-person-heading h3 { font-size: 23px; font-weight: 700; letter-spacing: -.04em; margin-bottom: 3px; }
+.about-person-heading :is(h3,.seo-visual-title) { font-size: 23px; font-weight: 700; letter-spacing: -.04em; margin-bottom: 3px; }
 .about-person-heading p { font-size: 12px; color: var(--about-muted); line-height: 1.5; }
 .about-person-heading q { font-size: 12px; max-width: 143px; transform: rotate(-7deg); color: #657083; text-align: center; line-height: 1.5; }
 .about-person-city { display: flex; gap: 7px; align-items: center; margin-top: 10px; font-size: 11px; color: var(--about-muted); }
@@ -138,7 +138,7 @@
   .about-person-card { grid-template-columns: 145px minmax(0,1fr); gap: 18px; padding: 15px; }
   .about-person-heading q { display: none; }
   .about-person-photo { min-height: 230px; }
-  .about-person-heading h3 { font-size: 21px; }
+  .about-person-heading :is(h3,.seo-visual-title) { font-size: 21px; }
   .about-final-cta .about-handwriting { display: none; }
 }
 @media (max-width: 1000px) {
@@ -218,7 +218,7 @@
   .about-values-grid { gap: 12px; }
   .about-value-card { padding: 17px 14px; }
   .about-value-card > span { width: 40px; height: 40px; border-radius: 12px; }
-  .about-value-card h3 { font-size: 18px; }
+  .about-value-card :is(h3,.seo-visual-title) { font-size: 18px; }
   .about-value-card p { font-size: 13px; line-height: 1.55; }
   .about-team-section { padding: 30px 0; }
   .about-team-heading { display: block; }
@@ -231,7 +231,7 @@
   .about-person-linkedin svg { width: 16px; height: 16px; }
   .about-person-info { display: contents; }
   .about-person-heading { display: block; align-self: center; }
-  .about-person-heading h3 { font-size: 24px; }
+  .about-person-heading :is(h3,.seo-visual-title) { font-size: 24px; }
   .about-person-heading q { display: none; }
   .about-person-heading p { font-size: 12px; }
   .about-person-city { grid-column: 1 / -1; margin: 0; }

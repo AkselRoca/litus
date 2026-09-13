@@ -1,3 +1,5 @@
+import { ResourceGuide } from '@/components/lead-magnet/ResourceGuide'
+import { pageMetadata } from '@/lib/seo/metadata'
 import { HeroBackdrop } from '@/components/ui/HeroBackdrop'
 import { Metadata } from 'next'
 import { notFound, permanentRedirect } from 'next/navigation'
@@ -9,7 +11,7 @@ interface LeadMagnetPageProps {
     }>
 }
 
-export async function generateMetadata({ params }: LeadMagnetPageProps): Promise<Metadata> {
+async function resolvePageMetadata({ params }: LeadMagnetPageProps): Promise<Metadata> {
     const resolvedParams = await params
     const magnetId = resolvedParams.magnet as LeadMagnetId
     const magnet = LEAD_MAGNETS[magnetId]
@@ -54,9 +56,14 @@ export default async function LeadMagnetPage({ params }: LeadMagnetPageProps) {
                 </div>
 
                 <div className="max-w-xl mx-auto">
-                    <LeadMagnetInline magnetId={magnetId} />
+                    <LeadMagnetInline magnetId={magnetId} headingLevel={2} /><ResourceGuide magnetId={magnetId} />
                 </div>
             </div>
         </div>
     )
+}
+
+export async function generateMetadata(props: Parameters<typeof resolvePageMetadata>[0]) {
+  const params = await props.params
+  return pageMetadata("/ressources/" + params.magnet, await resolvePageMetadata(props))
 }

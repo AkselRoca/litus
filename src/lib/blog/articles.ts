@@ -111,7 +111,7 @@ export const getBlogArticles = cache(async (): Promise<BlogArticle[]> => {
     .map(article => bySlug.get(article.slug) ?? article)
   const localSlugs = new Set(prioritized.map(article => article.slug))
   const automated = await publishedEditorial()
-  const combined = new Map([...prioritized, ...existing.filter(article => !localSlugs.has(article.slug)), ...automated].map(article => [article.slug, article]))
+  const combined = new Map([...prioritized, ...existing.filter(article => !localSlugs.has(article.slug)), ...automated].filter(article => article.slug !== 'test-123').map(article => [article.slug, article]))
   return addBacklinkOverlays([...combined.values()].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)))
 })
 

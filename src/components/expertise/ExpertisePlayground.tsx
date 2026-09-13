@@ -22,7 +22,7 @@ export function ExpertisePlayground({ kind }: { kind: 'react' | 'tailwind' | 'st
     <div className="ex-demo-title"><div><small>Bibliothèque de composants</small><strong>Une identité. Des règles partagées.</strong></div><span className="ex-code-mark">{'{ }'}</span></div>
     <div className="ex-demo-filters" role="group" aria-label="Thème de l’exemple">{['Clair', 'Contraste'].map(value => <button key={value} type="button" aria-pressed={theme === value} onClick={() => setTheme(value)}>{value}</button>)}</div>
     <div className="ex-component-preview" data-theme={theme}>
-      <span className="ex-sample-label">Exemple de carte</span><h3>Un projet bien cadré.</h3><p>Les mêmes espacements, les mêmes états et une action identifiable.</p>
+      <span className="ex-sample-label">Exemple de carte</span><div className="seo-visual-title">Un projet bien cadré.</div><p>Les mêmes espacements, les mêmes états et une action identifiable.</p>
       <a href="#composants" className="ex-sample-button">Voir les composants<ArrowRight size={16} aria-hidden="true" /></a>
       <div className="ex-token-row" aria-label="Couleurs de cet exemple"><span style={{ background: '#e95e2a' }} /><span style={{ background: '#172536' }} /><span style={{ background: '#f7f6f2' }} /><code>brand / ink / paper</code></div>
     </div><p className="ex-demo-note">Exemple Litus, pas un thème imposé par Tailwind.</p>

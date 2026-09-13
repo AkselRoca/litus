@@ -15,7 +15,7 @@ export function ContactHero({ subject = '', available = true }: { subject?: stri
         <div className="contact-form-wrap">
           <aside className="contact-handwritten contact-form-note" aria-hidden="true">Des projets<br />qui ont du sens<svg viewBox="0 0 62 72" fill="none"><path d="M45 4c6 23-3 38-31 51m0 0 6-16m-6 16 18-1" /></svg></aside>
           <div className="contact-form-card">
-            <div className="contact-form-heading"><h2>Envoyez-nous votre demande</h2><p>Un retour sous 24 h ouvrées. Les champs marqués <span>*</span> sont obligatoires.</p></div>
+            <div className="contact-form-heading"><div className="contact-form-title">Envoyez-nous votre demande</div><p>Un retour sous 24 h ouvrées. Les champs marqués <span>*</span> sont obligatoires.</p></div>
             {!available && <p className="contact-service-notice" role="status">L’envoi par formulaire est momentanément indisponible. Vous pouvez nous écrire à <a href="mailto:litusagency@gmail.com">litusagency@gmail.com</a> ou nous appeler au <a href="tel:+33744985521">07 44 98 55 21</a>.</p>}
             <ContactRequestForm subject={subject} />
             <ul className="contact-form-reassurance" aria-label="Nos engagements">
@@ -46,7 +46,7 @@ export function ContactHero({ subject = '', available = true }: { subject?: stri
             <figure className="contact-client-review">
               <span className="contact-review-quote" aria-hidden="true">“</span>
               <blockquote>Professionnel à l’écoute qui est très réactif. Fourni un travail rapide et sérieux. Merci.</blockquote>
-              <figcaption><div><strong>Julie Langlais</strong><a href={reviewsUrl} target="_blank" rel="noopener noreferrer">Avis publié sur Google<span className="sr-only"> (nouvel onglet)</span></a></div><span className="contact-review-stars" aria-label="5 étoiles sur 5">{Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}</span></figcaption>
+              <figcaption><div><strong>Julie Langlais</strong><a href={reviewsUrl} target="_blank" rel="noopener noreferrer">Avis publié sur Google<span className="sr-only"> (nouvel onglet)</span></a></div><span className="contact-review-stars" role="img" aria-label="5 étoiles sur 5">{Array.from({ length: 5 }, (_, index) => <Star key={index} aria-hidden="true" />)}</span></figcaption>
             </figure>
           </div>
         </div>

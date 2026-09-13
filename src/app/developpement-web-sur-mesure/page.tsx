@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Blocks, Check, ChevronDown, Code2, FileCheck2, Fingerprint, GitBranch, LifeBuoy, LockKeyhole, PanelTop, SlidersHorizontal, Unplug } from 'lucide-react'
@@ -11,7 +12,7 @@ import '@/components/sections/services/technical-services.css'
 const path = '/developpement-web-sur-mesure'
 const name = 'Développement web sur mesure'
 const description = 'Configurateur, réservation, module métier ou évolution technique : Litus développe les fonctionnalités web adaptées à votre activité et à votre site existant.'
-export const metadata = serviceMetadata({ path, name, title: 'Développement web sur mesure : modules & fonctionnalités | Litus', description, image: '/blog/photos/bureau-notes-analyse.webp' })
+export const metadata = pageMetadata("/developpement-web-sur-mesure", serviceMetadata({ path, name, title: 'Développement web sur mesure : modules & fonctionnalités | Litus', description, image: '/blog/photos/bureau-notes-analyse.webp' }))
 const contact = '/contact?objet=D%C3%A9veloppement%20web%20sur%20mesure'
 const questions = [
   { question: 'Quelle différence avec une application web sur mesure ?', answer: 'Le développement sur mesure peut ajouter une fonction précise à un site existant : configurateur, réservation, moteur de recherche ou administration. Une application web correspond à un produit plus complet, avec ses utilisateurs, ses écrans et ses parcours métier. Nous déterminons le bon périmètre ensemble.' },

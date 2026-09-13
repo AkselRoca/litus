@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,7 +8,7 @@ import {
 } from 'lucide-react'
 import './le-mans.css'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/agence-web-le-mans", {
   title: 'Agence web Le Mans | Création de site, SEO & Google Ads',
   description: 'Litus accompagne les entreprises du Mans et de la Sarthe : création et refonte de sites internet, SEO local, Google Ads et e-commerce. Échangez avec Arthur au Mans.',
   keywords: ['agence web Le Mans', 'création site internet Le Mans', 'SEO Le Mans', 'Google Ads Le Mans', 'agence digitale Sarthe'],
@@ -15,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Litus, agence web au Mans et en Sarthe',
     description: 'Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.',
-    url: 'https://litus.fr/agence-web-le-mans',
+    url: 'https://www.litus.fr/agence-web-le-mans',
     images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }],
   },
   twitter: { card: 'summary_large_image', title: 'Litus, agence web au Mans et en Sarthe', description: 'Sites internet, référencement naturel et acquisition pour les entreprises du Mans et de toute la Sarthe.', images: ['/litus-og-social.png'] },
-}
+})
 
 const services = [
   { icon: Monitor, title: 'Création de site internet', text: 'Des sites sur mesure, rapides et conçus pour transformer vos visiteurs en clients.', href: '/creation-site-internet' },
@@ -56,9 +57,9 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Litus — Agence web Le Mans',
-  url: 'https://litus.fr/agence-web-le-mans',
+  url: 'https://www.litus.fr/agence-web-le-mans',
   telephone: '+33744985521',
-  image: 'https://litus.fr/le-mans-centre-cathedrale.webp',
+  image: 'https://www.litus.fr/le-mans-centre-cathedrale.webp',
   description: 'Agence web au Mans spécialisée en création de sites internet, SEO local, Google Ads et e-commerce.',
   areaServed: ['Le Mans', 'Allonnes', 'Sablé-sur-Sarthe', 'La Flèche', 'Mamers', 'Sarthe'],
   priceRange: '€€',
@@ -122,8 +123,8 @@ export default function AgenceWebLeMansPage() {
 
     <section className="lemans-work lemans-section" aria-labelledby="lemans-work-title"><div className="lemans-shell">
       <div className="lemans-section-heading"><div><p className="lemans-kicker">Réalisations</p><h2 id="lemans-work-title">Des entreprises locales<br />qui avancent avec nous.</h2></div><Link href="/realisations">Voir toutes les réalisations <ArrowRight /></Link></div>
-      <div className="lemans-projects"><article><div><p>Immobilier · Le Mans</p><h3>Demetis Immobilier</h3><span>Un site plus clair pour valoriser les biens et renforcer la visibilité locale.</span><Link href="/realisations/Demetis-immobilier">Voir le projet <ChevronRight /></Link></div><Image src="/realisations/Demetis-website.webp" alt="Site internet de Demetis Immobilier" width={720} height={480} /></article><article><div><p>Transition énergétique</p><h3>Aspire Énergie</h3><span>Une présence digitale structurée pour rendre une offre technique simple à comprendre.</span><Link href="/realisations/aspire-energie">Voir le projet <ChevronRight /></Link></div><Image src="/realisations/aspire-website.webp" alt="Site internet d’Aspire Énergie" width={720} height={480} /></article></div>
-      <div className="lemans-client-strip"><p>Ils nous font confiance</p>{['Demetis','nos-travaux','aspire','prodis'].map(name => <Image key={name} src={`/clients/${name}.webp`} alt={name === 'Demetis' ? 'Demetis Immobilier' : name === 'nos-travaux' ? 'Nos Travaux' : name === 'aspire' ? 'Aspire Énergie' : 'Prodis Environnement'} width={150} height={58} />)}</div>
+      <div className="lemans-projects"><article><div><p>Immobilier · Le Mans</p><h3>Demetis Immobilier</h3><span>Un site plus clair pour valoriser les biens et renforcer la visibilité locale.</span><Link href="/realisations/demetis-immo">Découvrir Demetis Immo <ChevronRight /></Link></div><Image src="/realisations/demetis-website.webp" alt="Site internet de Demetis Immobilier" width={720} height={480} /></article><article><div><p>Transition énergétique</p><h3>Aspire Énergie</h3><span>Une présence digitale structurée pour rendre une offre technique simple à comprendre.</span><Link href="/realisations/aspire-energie">Voir le projet <ChevronRight /></Link></div><Image src="/realisations/aspire-website.webp" alt="Site internet d’Aspire Énergie" width={720} height={480} /></article></div>
+      <div className="lemans-client-strip"><p>Ils nous font confiance</p>{['demetis','nos-travaux','aspire','prodis'].map(name => <Image key={name} src={`/clients/${name}.webp`} alt={name === 'demetis' ? 'Demetis Immobilier' : name === 'nos-travaux' ? 'Nos Travaux' : name === 'aspire' ? 'Aspire Énergie' : 'Prodis Environnement'} width={150} height={58} />)}</div>
     </div></section>
 
     <section className="lemans-method lemans-section" aria-labelledby="lemans-method-title"><div className="lemans-shell"><p className="lemans-eyebrow"><span />Notre méthode</p><h2 id="lemans-method-title">Un accompagnement clair<br /><span>et efficace.</span></h2><ol>{steps.map(({ icon: Icon, title, text }, index) => <li key={title}><span><Icon /></span><small>0{index + 1}.</small><h3>{title}</h3><p>{text}</p>{index < steps.length - 1 && <ArrowRight className="lemans-step-arrow" />}</li>)}</ol></div></section>

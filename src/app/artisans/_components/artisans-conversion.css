@@ -12,7 +12,7 @@
 .art-conversion .art-container { width: min(1280px, calc(100% - 96px)); margin-inline: auto; }
 .art-conversion h2 { margin: 0; color: var(--art-ink); font-family: var(--font-inter), sans-serif; font-size: clamp(28px, 2.65vw, 38px); font-weight: 650; line-height: 1.15; letter-spacing: -.043em; text-wrap: pretty; }
 .art-conversion h2 em { color: var(--litus-orange); font-style: normal; }
-.art-conversion h3 { margin: 0; color: var(--art-ink); font-family: var(--font-inter), sans-serif; font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
+.art-conversion :is(h3,.seo-visual-title) { margin: 0; color: var(--art-ink); font-family: var(--font-inter), sans-serif; font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
 .art-conversion .art-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; color: var(--art-muted); font-size: 10px; font-weight: 650; line-height: 1.4; letter-spacing: .12em; text-transform: uppercase; }
 .art-conversion .art-kicker::before { content: ''; width: 25px; height: 1px; flex: none; background: var(--litus-orange); }
 .art-conversion button:focus-visible,
@@ -29,7 +29,7 @@
 .art-conversion .art-guide-card-heading { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
 .art-conversion .art-guide-icon { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; flex: none; border-radius: 12px; background: color-mix(in srgb, var(--litus-orange) 10%, transparent); color: var(--litus-orange); }
 .art-conversion .art-guide-card-heading p { margin: 0 0 7px; color: var(--art-muted); font-size: 10px; font-weight: 550; line-height: 1.4; letter-spacing: .04em; }
-.art-conversion .art-guide-card-heading h3 { font-size: 18px; line-height: 1.3; }
+.art-conversion .art-guide-card-heading :is(h3,.seo-visual-title) { font-size: 18px; line-height: 1.3; }
 .art-conversion .art-guide-form fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; min-width: 0; margin: 0; padding: 0; border: 0; }
 .art-conversion .art-guide-field { min-width: 0; }
 .art-conversion .art-guide-field label { display: block; margin-bottom: 6px; color: var(--art-ink); font-size: 12px; font-weight: 600; line-height: 1.4; }
@@ -51,7 +51,7 @@
 .art-conversion .art-guide-privacy a { color: var(--art-ink); text-decoration: underline; text-decoration-color: var(--art-muted); text-underline-offset: 3px; }
 .art-conversion .art-guide-success { padding-block: 11px; }
 .art-conversion .art-guide-success .art-guide-icon { margin-bottom: 17px; }
-.art-conversion .art-guide-success h3:focus { outline: none; }
+.art-conversion .art-guide-success :is(h3,.seo-visual-title):focus { outline: none; }
 .art-conversion .art-guide-success > p { margin: 12px 0 0; color: var(--art-muted); font-size: 14px; line-height: 1.6; }
 .art-conversion .art-guide-spinner { animation: art-guide-spin 1s linear infinite; }
 .art-conversion .art-guide-sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -61,10 +61,10 @@
 .art-conversion .art-faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 13px 22px; }
 .art-conversion .art-faq-item { min-width: 0; border: 1px solid var(--art-line); border-radius: 11px; background: var(--art-card); transition: border-color .2s ease; }
 .art-conversion .art-faq-item.is-open { border-color: color-mix(in srgb, var(--litus-orange) 35%, var(--art-line)); }
-.art-conversion .art-faq-item h3 { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
-.art-conversion .art-faq-item h3 button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 62px; margin: 0; padding: 17px 21px; border: 0; border-radius: 11px; background: transparent; color: var(--art-ink); font: inherit; line-height: 1.5; text-align: left; cursor: pointer; }
-.art-conversion .art-faq-item h3 button svg { flex: none; color: var(--art-muted); transition: transform .24s ease; }
-.art-conversion .art-faq-item.is-open h3 button svg { transform: rotate(180deg); color: var(--litus-orange); }
+.art-conversion .art-faq-item :is(h3,.seo-visual-title) { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+.art-conversion .art-faq-item :is(h3,.seo-visual-title) button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 62px; margin: 0; padding: 17px 21px; border: 0; border-radius: 11px; background: transparent; color: var(--art-ink); font: inherit; line-height: 1.5; text-align: left; cursor: pointer; }
+.art-conversion .art-faq-item :is(h3,.seo-visual-title) button svg { flex: none; color: var(--art-muted); transition: transform .24s ease; }
+.art-conversion .art-faq-item.is-open :is(h3,.seo-visual-title) button svg { transform: rotate(180deg); color: var(--litus-orange); }
 .art-conversion .art-faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
 .art-conversion .art-faq-item.is-open .art-faq-answer { grid-template-rows: 1fr; }
 .art-conversion .art-faq-answer > div { min-height: 0; overflow: hidden; }
@@ -111,7 +111,7 @@
   .art-conversion .art-guide-form fieldset { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .art-conversion .art-guide-field input { font-size: 16px; }
   .art-conversion .art-faq-grid { gap: 12px; }
-  .art-conversion .art-faq-item h3 button { padding-inline: 17px; }
+  .art-conversion .art-faq-item :is(h3,.seo-visual-title) button { padding-inline: 17px; }
   .art-conversion .art-faq-answer p { padding-inline: 17px; }
   .art-conversion .art-final-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .art-conversion .art-final-actions .site-cta-primary,
@@ -123,7 +123,7 @@
   .art-conversion .art-guide-card { padding: 22px 20px; }
   .art-conversion .art-guide-card-heading { gap: 12px; }
   .art-conversion .art-guide-icon { width: 40px; height: 40px; border-radius: 10px; }
-  .art-conversion .art-guide-card-heading h3 { font-size: 17px; }
+  .art-conversion .art-guide-card-heading :is(h3,.seo-visual-title) { font-size: 17px; }
   .art-conversion .art-guide-form fieldset,
   .art-conversion .art-faq-grid,
   .art-conversion .art-final-actions { grid-template-columns: minmax(0, 1fr); }
@@ -132,7 +132,7 @@
 @media (prefers-reduced-motion: reduce) {
   .art-conversion .art-guide-field input,
   .art-conversion .art-faq-item,
-  .art-conversion .art-faq-item h3 button svg,
+  .art-conversion .art-faq-item :is(h3,.seo-visual-title) button svg,
   .art-conversion .art-faq-answer { transition: none; }
   .art-conversion .art-guide-spinner { animation: none; }
 }

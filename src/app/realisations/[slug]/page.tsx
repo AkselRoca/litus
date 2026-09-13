@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { notFound, permanentRedirect } from 'next/navigation';
@@ -46,7 +47,7 @@ async function projectData(slug: string): Promise<{ story?: PortfolioStory; lega
   return { related, story: { slug, title: project.title, sourceUrl: project.link, sector: list(project.categories)[0] || 'Projet web', categories: list(project.categories), stack: list(project.tags), headline: description, summary: description, scope: description, focus: [], links: [], cover, gallery: [cover], accent: '#f45420', tone: '#eee9e2', order: project.order, scopeOnly: false, archived: true } };
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+async function resolvePageMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const data = await projectData(slug === 'demetis-immobilier' ? 'demetis-immo' : slug);
   if (!data) return { title: 'Projet introuvable | Litus', robots: { index: false, follow: false } };
@@ -75,4 +76,9 @@ export default async function RealisationPage({ params }: { params: Promise<{ sl
   // This describes Litus's case-study article, not authorship of the entire client website.
   const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: `${title} : notre accompagnement`, description, image, mainEntityOfPage: `https://www.litus.fr/realisations/${slug}`, author: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, about: { '@type': 'Organization', name: title, ...(data.story?.sourceUrl ? { url: data.story.sourceUrl } : {}) } };
   return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />{data.legacy ? <CaseStudyTemplate data={data.legacy} /> : <PortfolioCaseStudy story={data.story!} related={data.related} />}</>;
+}
+
+export async function generateMetadata(props: Parameters<typeof resolvePageMetadata>[0]) {
+  const params = await props.params
+  return pageMetadata("/realisations/" + params.slug, await resolvePageMetadata(props))
 }

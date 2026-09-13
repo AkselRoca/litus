@@ -43,7 +43,7 @@ export function ExpertiseArticle({ page }: { page: ExpertisePage }) {
   const contact = expertiseContact(tool.name)
   const schema = expertiseSchema(page)
   const leadImage = expertiseScenes[page.slug][0]
-  const structuredData = { ...schema, '@graph': schema['@graph'].map(node => node['@type'] === 'WebPage' ? { ...node, primaryImageOfPage: { '@type': 'ImageObject', contentUrl: `https://litus.fr${expertiseImage(leadImage.file)}`, caption: leadImage.alt, width: leadImage.width, height: leadImage.height } } : node) }
+  const structuredData = { ...schema, '@graph': schema['@graph'].map(node => node['@type'] === 'WebPage' ? { ...node, primaryImageOfPage: { '@type': 'ImageObject', contentUrl: `https://www.litus.fr${expertiseImage(leadImage.file)}`, caption: leadImage.alt, width: leadImage.width, height: leadImage.height } } : node) }
   return <div className={`business-service expertise-page expertise-${page.slug}`} style={expertiseStyle(page.slug)}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <ExpertiseBreadcrumb name={tool.name} />

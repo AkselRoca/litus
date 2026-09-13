@@ -1,11 +1,12 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/politique-confidentialite", {
     title: 'Politique de Confidentialité | Litus',
     description: 'Découvrez comment Litus protège et gère vos données personnelles conformément au RGPD.',
     alternates: { canonical: '/politique-confidentialite' },
     robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
-}
+})
 
 export default function PolitiqueConfidentialitePage() {
     return (

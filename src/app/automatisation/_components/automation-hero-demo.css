@@ -35,7 +35,7 @@
 .auto-demo-document-label { display: flex; align-items: center; gap: 6px; margin: 0 0 20px; font-size: 8px; line-height: 1.4; color: var(--bs-muted, #627180); }
 .auto-demo-document-label svg { width: 13px; height: 13px; color: #e95e2a; flex: none; }
 .auto-demo-document-label > span { padding: 3px 5px; margin-left: auto; background: var(--bs-soft, #eef2f3); border-radius: 4px; font-size: 7px; }
-.auto-demo-document h3 { margin: 0 0 15px; font-size: 17px; line-height: 1.25; font-weight: 600; letter-spacing: -.035em; }
+.auto-demo-document :is(h3,.seo-visual-title) { margin: 0 0 15px; font-size: 17px; line-height: 1.25; font-weight: 600; letter-spacing: -.035em; }
 .auto-demo-document blockquote { margin: 0; font-size: 12px; line-height: 1.7; color: var(--bs-muted, #627180); }
 .auto-demo-field-note { margin: 15px 0 0; font-size: 9px; line-height: 1.6; color: var(--bs-muted, #627180); }
 .auto-demo-document dl { margin: 0; }
@@ -78,7 +78,7 @@
   .auto-demo-document { padding: 12px; }
   .auto-demo-document-label { flex-wrap: wrap; font-size: 8px; margin-bottom: 15px; }
   .auto-demo-document-label > span { display: none; }
-  .auto-demo-document h3 { font-size: 16px; }
+  .auto-demo-document :is(h3,.seo-visual-title) { font-size: 16px; }
   .auto-demo-caption { font-size: 8px; }
 }
 @media (max-width: 560px) {
@@ -106,10 +106,10 @@
   .auto-demo-mobile-panel p { margin: 0; font-size: 11px; line-height: 1.5; color: var(--bs-muted, #627180); }
   .auto-demo-mobile-panel .auto-demo-mobile-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; font-size: 9px; }
   .auto-demo-mobile-label span { background: #e95e2a0a; color: var(--bs-accent, #c7431b); padding: 3px 5px; border-radius: 4px; font-size: 8px; }
-  .auto-demo-mobile-panel h3 { margin: 0 0 7px; font-size: 15px; line-height: 1.25; font-weight: 600; letter-spacing: -.025em; }
+  .auto-demo-mobile-panel :is(h3,.seo-visual-title) { margin: 0 0 7px; font-size: 15px; line-height: 1.25; font-weight: 600; letter-spacing: -.025em; }
   .auto-demo-document { min-height: 224px; padding: 16px 18px; }
   .auto-demo-document-label { font-size: 9px; margin-bottom: 15px; }
-  .auto-demo-document h3 { font-size: 19px; }
+  .auto-demo-document :is(h3,.seo-visual-title) { font-size: 19px; }
   .auto-demo-document blockquote { font-size: 13px; }
   .auto-demo-document dl > div { grid-template-columns: 48px 1fr; font-size: 10px; padding-block: 8px; }
   .auto-demo-validation { font-size: 9px; }

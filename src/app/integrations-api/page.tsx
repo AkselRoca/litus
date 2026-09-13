@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { ExpertiseServiceLinks } from '@/components/expertise/ExpertiseServiceLinks'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ import '@/components/sections/services/technical-services.css'
 const path = '/integrations-api'
 const name = 'Intégrations & API'
 const description = 'Litus développe vos intégrations API et connecteurs sur mesure : CRM, ERP, e-commerce, facturation et synchronisation de données, avec des échanges suivis et documentés.'
-export const metadata = serviceMetadata({ path, name, title: 'Intégrations API & connecteurs sur mesure pour entreprise | Litus', description, image: '/blog/photos/bureau-reunion-clair.webp' })
+export const metadata = pageMetadata("/integrations-api", serviceMetadata({ path, name, title: 'Intégrations API & connecteurs sur mesure pour entreprise | Litus', description, image: '/blog/photos/bureau-reunion-clair.webp' }))
 const contact = '/contact?objet=Int%C3%A9grations%20%26%20API'
 const questions = [
   { question: 'Quelle différence entre une intégration API et une automatisation ?', answer: 'L’intégration relie des systèmes et définit comment leurs données sont échangées. L’automatisation orchestre des actions selon des événements ou des règles. Un même projet peut combiner les deux : synchroniser une commande dans le CRM, puis déclencher une tâche de suivi.' },

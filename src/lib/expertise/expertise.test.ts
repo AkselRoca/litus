@@ -17,7 +17,7 @@ describe('Expertise cluster', () => {
     expect(new Set(expertisePages.map(page => page.sections.map(section => section.kind).join(','))).size).toBeGreaterThanOrEqual(5)
   })
   it('builds a safe contextual contact URL', () => {
-    const url = new URL(expertiseContact('Stripe & API'), 'https://litus.fr')
+    const url = new URL(expertiseContact('Stripe & API'), 'https://www.litus.fr')
     expect(url.pathname).toBe('/contact')
     expect(url.searchParams.get('objet')).toBe('Expertise Stripe & API')
   })
@@ -57,7 +57,7 @@ describe('Expertise cluster', () => {
       const path = expertisePath(page.slug)
       const metadata = expertiseMetadata(page.title, page.description, path)
       expect(metadata.alternates?.canonical).toBe(path)
-      expect(metadata.openGraph).toMatchObject({ title: page.title, url: `https://litus.fr${path}` })
+      expect(metadata.openGraph).toMatchObject({ title: page.title, url: `https://www.litus.fr${path}` })
       expect(metadata.twitter).toMatchObject({ title: page.title, description: page.description })
       expect(page.title.length).toBeLessThanOrEqual(85)
       expect(page.description.length).toBeLessThanOrEqual(180)
@@ -65,8 +65,8 @@ describe('Expertise cluster', () => {
     it('connects WebPage, Service and a three-level breadcrumb', () => {
       const graph = expertiseSchema(page)['@graph']
       expect(graph.map(item => item['@type'])).toEqual(['WebPage', 'BreadcrumbList', 'FAQPage', 'Service'])
-      expect(graph[1]).toMatchObject({ itemListElement: [{ position: 1 }, { position: 2 }, { position: 3, item: `https://litus.fr/expertise/${page.slug}` }] })
-      expect(graph[0]).toMatchObject({ mainEntity: { '@id': `https://litus.fr/expertise/${page.slug}#service` } })
+      expect(graph[1]).toMatchObject({ itemListElement: [{ position: 1 }, { position: 2 }, { position: 3, item: `https://www.litus.fr/expertise/${page.slug}` }] })
+      expect(graph[0]).toMatchObject({ mainEntity: { '@id': `https://www.litus.fr/expertise/${page.slug}#service` } })
     })
   })
 })

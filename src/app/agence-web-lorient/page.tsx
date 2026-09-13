@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,18 +17,18 @@ const title = 'Agence web Lorient : site internet, SEO & Google Ads | Litus'
 const description = 'Litus accompagne les entreprises de Lorient et du Morbihan : création de sites, SEO et Google Ads. Échangez avec Aksel, présent dans le secteur.'
 const contactHref = '/contact?objet=Projet%20%C3%A0%20Lorient'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/agence-web-lorient", {
   title: { absolute: title },
   description,
   keywords: null,
   alternates: { canonical: '/agence-web-lorient' },
   openGraph: {
-    title, description, url: 'https://litus.fr/agence-web-lorient',
+    title, description, url: 'https://www.litus.fr/agence-web-lorient',
     type: 'website', locale: 'fr_FR', siteName: 'Litus',
     images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }],
   },
   twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
-}
+})
 
 const services = [
   { icon: Monitor, title: 'Création de site internet', text: 'Présenter votre activité avec un site vitrine clair, professionnel et pensé pour faciliter les demandes de contact.', href: '/creation-site-internet', link: 'Découvrir les sites vitrine' },
@@ -55,11 +56,11 @@ const faqs = [
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Organization', '@id': 'https://litus.fr/#organization', name: 'Litus', url: 'https://litus.fr', telephone: '+33744985521', email: 'litusagency@gmail.com' },
-    { '@type': 'WebPage', '@id': 'https://litus.fr/agence-web-lorient#webpage', url: 'https://litus.fr/agence-web-lorient', name: title, description, inLanguage: 'fr-FR', about: { '@id': 'https://litus.fr/#organization' }, breadcrumb: { '@id': 'https://litus.fr/agence-web-lorient#breadcrumb' } },
-    { '@type': 'BreadcrumbList', '@id': 'https://litus.fr/agence-web-lorient#breadcrumb', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' },
-      { '@type': 'ListItem', position: 2, name: 'Agence web Lorient', item: 'https://litus.fr/agence-web-lorient' },
+    { '@type': 'Organization', '@id': 'https://www.litus.fr/#organization', name: 'Litus', url: 'https://www.litus.fr', telephone: '+33744985521', email: 'litusagency@gmail.com' },
+    { '@type': 'WebPage', '@id': 'https://www.litus.fr/agence-web-lorient#webpage', url: 'https://www.litus.fr/agence-web-lorient', name: title, description, inLanguage: 'fr-FR', about: { '@id': 'https://www.litus.fr/#organization' }, breadcrumb: { '@id': 'https://www.litus.fr/agence-web-lorient#breadcrumb' } },
+    { '@type': 'BreadcrumbList', '@id': 'https://www.litus.fr/agence-web-lorient#breadcrumb', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' },
+      { '@type': 'ListItem', position: 2, name: 'Agence web Lorient', item: 'https://www.litus.fr/agence-web-lorient' },
     ] },
   ],
 }
@@ -116,7 +117,7 @@ export default function AgenceWebLorientPage() {
     <section id="realisations-locales" className="lemans-work lemans-section" aria-labelledby="lorient-work-title"><div className="lemans-shell">
       <div className="lemans-section-heading"><div><p className="lemans-eyebrow"><span aria-hidden="true" />Réalisations dans le Morbihan</p><h2 id="lorient-work-title">Des entreprises d’ici<br /><span>qui nous font confiance.</span></h2></div><p>Nous accompagnons déjà plusieurs entreprises du pays de Lorient et du Morbihan. Découvrez leurs projets et le travail réalisé pour mieux présenter leur activité et développer leur présence en ligne.</p></div>
       <div className="lorient-projects">{lorientProjects.map(project => <article key={project.href}>
-        <Link href={project.href} className="lorient-project-image" tabIndex={-1} aria-hidden="true"><Image src={project.image} alt="" width={1440} height={1000} sizes="(max-width: 560px) 100vw, 50vw" /><span><ArrowRight aria-hidden="true" /></span></Link>
+        <Link href={project.href} className="lorient-project-image" aria-label={`Découvrir le projet ${project.name}`}><Image src={project.image} alt="" width={1440} height={1000} sizes="(max-width: 560px) 100vw, 50vw" /><span><ArrowRight aria-hidden="true" /></span></Link>
         <div className="lorient-project-copy"><p className="lorient-project-location"><MapPin size={14} aria-hidden="true" />{project.location}</p><div className="lorient-project-name"><h3>{project.name}</h3><Image src={project.logo} alt={`Logo ${project.name}`} width={100} height={52} /></div><p>{project.description}</p><ul>{project.services.map(service => <li key={service}>{service}</li>)}</ul><Link href={project.href}>Voir le projet <ArrowRight aria-hidden="true" /></Link></div>
       </article>)}</div>
       <div className="lorient-work-footer"><p>Des activités différentes. La même attention portée à chaque projet.</p><Link href="/realisations">Toutes nos réalisations <ArrowRight size={16} aria-hidden="true" /></Link></div>

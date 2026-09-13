@@ -2,7 +2,7 @@ import { createHash, timingSafeEqual } from 'node:crypto'
 import inventory from './site-inventory.json'
 import type { Draft, InternalLink, Item } from './types'
 
-export const ORIGIN = 'https://litus.fr'
+export const ORIGIN = 'https://www.litus.fr'
 export const INTERVAL = 4 * 24 * 60 * 60 * 1000
 export const services = inventory.services
 export const publicRoutes = new Set(inventory.routes)

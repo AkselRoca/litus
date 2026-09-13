@@ -37,6 +37,7 @@ export function PublicLayoutWrapper({ children }: PublicLayoutWrapperProps) {
 
     return (
         <>
+            <a href="#main" className="seo-skip-link">Aller au contenu principal</a>
             <Header />
             <main id="main" className="flex-1">
                 {children}

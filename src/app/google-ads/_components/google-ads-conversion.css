@@ -23,7 +23,7 @@
 .gad-conversion h2 { margin: 0; color: var(--gad-conversion-ink); font-family: var(--font-inter), sans-serif; font-size: clamp(28px, 2.65vw, 38px); font-weight: 650; line-height: 1.15; letter-spacing: -.043em; text-wrap: pretty; }
 .gad-conversion h2 em { color: #c7431b; font-style: normal; }
 .dark .gad-conversion h2 em { color: #f48c64; }
-.gad-conversion h3 { margin: 0; color: var(--gad-conversion-ink); font-family: var(--font-inter), sans-serif; font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
+.gad-conversion :is(h3,.seo-visual-title) { margin: 0; color: var(--gad-conversion-ink); font-family: var(--font-inter), sans-serif; font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
 .gad-conversion .gad-conversion-eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 15px; color: var(--gad-conversion-muted); font-size: 10px; font-weight: 650; line-height: 1.4; letter-spacing: .12em; text-transform: uppercase; }
 .gad-conversion .gad-conversion-eyebrow::before { content: ''; width: 24px; height: 1px; flex: none; background: #e95e2a; }
 
@@ -51,10 +51,10 @@
 .gad-conversion .gad-faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px 22px; }
 .gad-conversion .gad-faq-item { min-width: 0; border: 1px solid var(--gad-conversion-line); border-radius: 12px; background: var(--gad-conversion-paper); transition: border-color .2s ease; }
 .gad-conversion .gad-faq-item.is-open { border-color: #c6cfcf; }
-.gad-conversion .gad-faq-item h3 { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
-.gad-conversion .gad-faq-item h3 button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 63px; margin: 0; padding: 18px 21px; border: 0; border-radius: 12px; background: transparent; color: var(--gad-conversion-ink); font: inherit; line-height: 1.5; text-align: left; cursor: pointer; }
-.gad-conversion .gad-faq-item h3 button svg { flex: none; color: var(--gad-conversion-muted); transition: transform .24s ease; }
-.gad-conversion .gad-faq-item.is-open h3 button svg { transform: rotate(180deg); }
+.gad-conversion .gad-faq-item :is(h3,.seo-visual-title) { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+.gad-conversion .gad-faq-item :is(h3,.seo-visual-title) button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 63px; margin: 0; padding: 18px 21px; border: 0; border-radius: 12px; background: transparent; color: var(--gad-conversion-ink); font: inherit; line-height: 1.5; text-align: left; cursor: pointer; }
+.gad-conversion .gad-faq-item :is(h3,.seo-visual-title) button svg { flex: none; color: var(--gad-conversion-muted); transition: transform .24s ease; }
+.gad-conversion .gad-faq-item.is-open :is(h3,.seo-visual-title) button svg { transform: rotate(180deg); }
 .gad-conversion .gad-faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .26s ease; }
 .gad-conversion .gad-faq-item.is-open .gad-faq-answer { grid-template-rows: 1fr; }
 .gad-conversion .gad-faq-answer > div { min-height: 0; overflow: hidden; }
@@ -72,7 +72,7 @@
 .gad-conversion .gad-contact-copy .gad-contact-location { margin-top: 28px; padding-top: 21px; border-top: 1px solid var(--gad-conversion-line); font-size: 12px; line-height: 1.7; }
 
 .gad-conversion .gad-form { width: 100%; min-width: 0; padding: 28px; border: 1px solid var(--gad-conversion-line); border-radius: 18px; background: var(--gad-conversion-surface); box-shadow: 0 12px 30px #25314206; }
-.gad-conversion .gad-form > h3 { font-size: 20px; }
+.gad-conversion .gad-form > :is(h3,.seo-visual-title) { font-size: 20px; }
 .gad-conversion .gad-form-required { margin: 7px 0 21px; color: var(--gad-conversion-muted); font-size: 11px; line-height: 1.5; }
 .gad-conversion .gad-form-fields { display: grid; min-width: 0; gap: 15px; margin: 0; padding: 0; border: 0; }
 .gad-conversion .gad-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -106,7 +106,7 @@
 .gad-conversion .gad-form-spinner { animation: gad-form-spin 1s linear infinite; }
 .gad-conversion .gad-form-success { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 370px; }
 .gad-conversion .gad-form-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; margin-bottom: 21px; border-radius: 50%; background: #e95e2a12; color: #c7431b; }
-.gad-conversion .gad-form-success h3:focus { outline: none; }
+.gad-conversion .gad-form-success :is(h3,.seo-visual-title):focus { outline: none; }
 .gad-conversion .gad-form-success > p { margin: 14px 0 22px; color: var(--gad-conversion-muted); font-size: 14px; line-height: 1.65; }
 .gad-conversion .gad-form-success .site-cta-secondary { display: inline-flex; align-items: center; gap: 12px; height: auto; padding: 12px 20px; border-radius: 999px; font-size: 13px; white-space: normal; }
 .gad-conversion button:focus-visible,
@@ -140,7 +140,7 @@
   .gad-conversion .gad-offers-heading { text-align: left; }
   .gad-conversion .gad-offers-heading .gad-conversion-eyebrow { justify-content: flex-start; }
   .gad-conversion .gad-faq-grid { gap: 11px; }
-  .gad-conversion .gad-faq-item h3 button { padding: 17px; }
+  .gad-conversion .gad-faq-item :is(h3,.seo-visual-title) button { padding: 17px; }
   .gad-conversion .gad-faq-answer p { padding: 0 17px 18px; }
   .gad-conversion .gad-contact-grid { gap: 28px; }
   .gad-conversion .gad-contact { scroll-margin-top: 95px; }
@@ -165,7 +165,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .gad-conversion .gad-faq-item,
-  .gad-conversion .gad-faq-item h3 button svg,
+  .gad-conversion .gad-faq-item :is(h3,.seo-visual-title) button svg,
   .gad-conversion .gad-faq-answer,
   .gad-conversion .gad-form-field input,
   .gad-conversion .gad-form-field textarea,

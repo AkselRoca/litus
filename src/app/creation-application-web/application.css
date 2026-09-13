@@ -22,7 +22,7 @@
 .application-workspace-panel-head > span { font-size:10px; color:var(--bs-muted); letter-spacing:.065em; }
 .application-workspace-panel-head button { display:flex; align-items:center; gap:6px; padding:5px; border:0; border-radius:4px; background:transparent; color:var(--bs-muted); font:inherit; font-size:10px; cursor:pointer; }
 .application-workspace-panel-head svg { width:13px; height:13px; }
-.application-workspace-panel > h3 { font-size:21px; }
+.application-workspace-panel > :is(h3,.seo-visual-title) { font-size:21px; }
 .business-content .application-workspace-panel > p { margin-top:10px; font-size:13px; min-height:46px; }
 .application-workspace-record { display:flex; justify-content:space-between; align-items:center; gap:15px; margin-top:23px; }
 .application-workspace-record > div { display:grid; gap:5px; }
@@ -48,7 +48,7 @@
 .application-outcomes-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:35px; }
 .application-outcomes-grid > article { padding:0 26px 0 0; }
 .application-outcomes-grid > article + article { padding-left:30px; border-left:1px solid var(--bs-line); }
-.application-outcomes-grid h3 { margin-top:20px; }
+.application-outcomes-grid :is(h3,.seo-visual-title) { margin-top:20px; }
 .application-outcomes-grid p { margin-top:11px; font-size:13px; }
 .application-meeting-photo { aspect-ratio:1.5; }
 .application-meeting-photo > img { object-position:center 60%; }
@@ -70,22 +70,22 @@
 .application-method { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; }
 .application-method > article { display:flex; flex-direction:column; border-top:1px solid var(--bs-line); padding-top:22px; }
 .application-method > article > span { color:#f4a27d; font-size:13px; margin-bottom:19px; }
-.application-method h3 { font-size:17px; }
+.application-method :is(h3,.seo-visual-title) { font-size:17px; }
 .application-method p { margin-top:12px; font-size:13px; }
 .application-method strong { margin-top:auto; padding-top:20px; font-size:11px; line-height:1.6; font-weight:500; color:#f4a27d; }
 .application-care-list { display:grid; gap:22px; }
 .application-care-list article { display:flex; gap:18px; padding-bottom:22px; border-bottom:1px solid var(--bs-line); }
-.application-care-list h3 { font-size:16px; }
+.application-care-list :is(h3,.seo-visual-title) { font-size:16px; }
 .application-care-list p { margin-top:8px; font-size:13px; }
 .application-related { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px 40px; margin-top:25px; }
 .application-related a { display:flex; align-items:center; gap:10px; color:var(--bs-muted); font-size:12px; line-height:1.5; }
 .application-related svg { color:var(--bs-orange); }
 @media(max-width:1150px) { .application-use-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .application-workspace { gap:26px; grid-template-columns:.65fr 1.35fr; } .application-workspace-panel { padding:22px; } .application-workspace-action { padding:13px; gap:8px; } }
 @media(max-width:850px) { .application-workspace { grid-template-columns:1fr; gap:22px; } .application-role-tabs { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; } .application-role-tabs button { padding:14px 10px; justify-content:center; font-size:12px; gap:7px; } .application-role-tabs button > svg:last-child { display:none; } .business-content .application-workspace-hint { margin-top:16px; } .business-content .application-example-label { margin-top:8px; } .application-method { grid-template-columns:repeat(2,minmax(0,1fr)); } .application-outcomes-grid { gap:18px; } .application-outcomes-grid > article { padding-right:0; } .application-outcomes-grid > article + article { padding-left:18px; } }
-@media(max-width:560px) { .application-use-grid { grid-template-columns:1fr; } .application-outcomes-grid { grid-template-columns:1fr; gap:24px; } .application-outcomes-grid > article + article { padding-left:0; border-left:0; padding-top:24px; border-top:1px solid var(--bs-line); } .application-role-tabs button { flex-direction:column; align-items:center; padding:12px 6px; gap:7px; font-size:11px; } .application-role-tabs button > svg { width:19px; height:19px; } .application-workspace-panel { padding:18px; min-height:455px; } .application-workspace-panel > h3 { font-size:19px; } .application-workspace-panel-head { margin-bottom:20px; } .application-workspace-record { flex-direction:column; align-items:flex-start; gap:9px; } .application-workspace-action { display:grid; grid-template-columns:21px 1fr; min-height:130px; padding:12px; } .application-workspace-action > svg { width:20px; } .application-workspace-action button { grid-column:2; margin-left:0; width:fit-content; } .application-workspace-history { min-height:130px; padding:12px; } .application-workspace-record strong { font-size:13px; } .business-content .application-workspace-panel > p { min-height:69px; } .application-workspace-panel > .application-workspace-access { align-items:flex-start; } .application-meeting-photo { aspect-ratio:1.18; } .application-integration-visual { padding:20px 15px; } .application-integration-top,.application-integration-bottom { gap:12px; } .application-integration-top > span,.application-integration-bottom > span { flex-direction:column; padding:12px 8px; font-size:11px; gap:7px; } .application-integration-center { width:90%; padding:20px 12px; } .application-integration-center strong { font-size:17px; } .application-integration-visual > p { font-size:10px; } .application-method { grid-template-columns:1fr; gap:26px; } .application-method > article { padding-top:18px; } .application-method > article > span { margin-bottom:12px; } .application-care-list article { gap:13px; } .application-care-list .business-icon { width:37px; height:37px; } .application-care-list .business-icon svg { width:20px; height:20px; } .application-related { flex-direction:column; align-items:flex-start; gap:14px; } }
+@media(max-width:560px) { .application-use-grid { grid-template-columns:1fr; } .application-outcomes-grid { grid-template-columns:1fr; gap:24px; } .application-outcomes-grid > article + article { padding-left:0; border-left:0; padding-top:24px; border-top:1px solid var(--bs-line); } .application-role-tabs button { flex-direction:column; align-items:center; padding:12px 6px; gap:7px; font-size:11px; } .application-role-tabs button > svg { width:19px; height:19px; } .application-workspace-panel { padding:18px; min-height:455px; } .application-workspace-panel > :is(h3,.seo-visual-title) { font-size:19px; } .application-workspace-panel-head { margin-bottom:20px; } .application-workspace-record { flex-direction:column; align-items:flex-start; gap:9px; } .application-workspace-action { display:grid; grid-template-columns:21px 1fr; min-height:130px; padding:12px; } .application-workspace-action > svg { width:20px; } .application-workspace-action button { grid-column:2; margin-left:0; width:fit-content; } .application-workspace-history { min-height:130px; padding:12px; } .application-workspace-record strong { font-size:13px; } .business-content .application-workspace-panel > p { min-height:69px; } .application-workspace-panel > .application-workspace-access { align-items:flex-start; } .application-meeting-photo { aspect-ratio:1.18; } .application-integration-visual { padding:20px 15px; } .application-integration-top,.application-integration-bottom { gap:12px; } .application-integration-top > span,.application-integration-bottom > span { flex-direction:column; padding:12px 8px; font-size:11px; gap:7px; } .application-integration-center { width:90%; padding:20px 12px; } .application-integration-center strong { font-size:17px; } .application-integration-visual > p { font-size:10px; } .application-method { grid-template-columns:1fr; gap:26px; } .application-method > article { padding-top:18px; } .application-method > article > span { margin-bottom:12px; } .application-care-list article { gap:13px; } .application-care-list .business-icon { width:37px; height:37px; } .application-care-list .business-icon svg { width:20px; height:20px; } .application-related { flex-direction:column; align-items:flex-start; gap:14px; } }
 @media(max-width:560px) {
  .application-role-tabs button { text-align:center; }
- .application-workspace-panel > h3 { min-height:50px; }
+ .application-workspace-panel > :is(h3,.seo-visual-title) { min-height:50px; }
  .business-content .application-workspace-panel > p:not(.application-workspace-access) { min-height:92px; }
  .application-workspace-action,.application-workspace-history { min-height:148px; }
 }

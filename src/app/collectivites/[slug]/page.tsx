@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Check } from 'lucide-react'
@@ -9,7 +10,7 @@ import { CivicButton, CivicCards, CivicFaqs, CivicFinal, CivicHeading, CivicPhot
 export const dynamicParams = false
 export function generateStaticParams() { return civicPages.map(page => ({ slug: page.slug })) }
 type Props = { params: Promise<{ slug: string }> }
-export async function generateMetadata({ params }: Props) {
+async function resolvePageMetadata({ params }: Props) {
   const { slug } = await params
   const page = civicPages.find(item => item.slug === slug)
   if (!page) notFound()
@@ -33,4 +34,9 @@ export default async function CivicDetailPage({ params }: Props) {
       <CivicFinal />
     </div>
   </div>
+}
+
+export async function generateMetadata(props: Parameters<typeof resolvePageMetadata>[0]) {
+  const params = await props.params
+  return pageMetadata("/collectivites/" + params.slug, await resolvePageMetadata(props))
 }

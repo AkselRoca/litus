@@ -28,7 +28,7 @@
   line-height: 1.12;
   margin-bottom: 22px;
 }
-.litus-editorial h3 {
+.litus-editorial :is(h3,.seo-visual-title) {
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.025em;
@@ -199,7 +199,7 @@
   color: var(--litus-slate);
 }
 .dark .editorial-link:hover,
-.dark .service-row:hover h3,
+.dark .service-row:hover :is(h3,.seo-visual-title),
 .dark .service-row:hover .service-arrow {
   color: var(--litus-paper);
 }
@@ -385,7 +385,7 @@
 .service-row p {
   font-size: 14px;
 }
-.service-row h3 {
+.service-row :is(h3,.seo-visual-title) {
   font-size: 21px;
 }
 .service-price {
@@ -395,7 +395,7 @@
 .service-arrow {
   font-size: 23px;
 }
-.service-row:hover h3,
+.service-row:hover :is(h3,.seo-visual-title),
 .service-row:hover .service-arrow {
   color: var(--litus-slate);
 }
@@ -417,7 +417,7 @@
   border-top: 1px solid var(--line);
   padding: 24px 0;
 }
-.agency-principles h3 {
+.agency-principles :is(h3,.seo-visual-title) {
   margin-bottom: 12px;
 }
 .agency-principles p {
@@ -727,7 +727,7 @@
   font-weight: 600;
   white-space: nowrap;
 }
-.litus-editorial .seo-result h3 {
+.litus-editorial .seo-result :is(h3,.seo-visual-title) {
   margin: 3px 0 2px;
   overflow: hidden;
   color: #1a0dab;
@@ -923,7 +923,7 @@
     padding: 5px 7px;
     font-size: 9px;
   }
-  .litus-editorial .seo-result h3 {
+  .litus-editorial .seo-result :is(h3,.seo-visual-title) {
     margin-top: 2px;
     font-size: 13px;
   }
@@ -1035,7 +1035,7 @@
   border-top: 1px solid var(--line);
   padding-top: 20px;
 }
-.process-list h3 {
+.process-list :is(h3,.seo-visual-title) {
   font-size: 19px;
   margin: 22px 0 13px;
 }

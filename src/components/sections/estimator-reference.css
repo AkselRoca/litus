@@ -101,7 +101,7 @@
 #estimateur .reference-audit-photo figcaption > svg { color: #f17e55; flex: none; }
 #estimateur .reference-audit-card { padding: 28px; border: 1px solid #e7e5e1; border-radius: 17px; background: #fcfbf9d9; box-shadow: 0 10px 35px -27px #343e4a24; min-width: 0; }
 #estimateur .reference-audit-card-heading { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 28px; }
-#estimateur .reference-audit-card h3 { margin: 0 0 8px; font-size: clamp(22px, 1.26vw, 26px); font-weight: 580; line-height: 1.2; letter-spacing: -.045em; color: var(--audit-ink); }
+#estimateur .reference-audit-card :is(h3,.seo-visual-title) { margin: 0 0 8px; font-size: clamp(22px, 1.26vw, 26px); font-weight: 580; line-height: 1.2; letter-spacing: -.045em; color: var(--audit-ink); }
 #estimateur .reference-audit-card .form-description { margin: 0; font-size: clamp(13px, .78vw, 16px); line-height: 1.5; color: var(--audit-muted); }
 #estimateur .reference-analysis-mark { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border: 1px solid #eae7e3; border-radius: 12px; background: #f5f4f1; color: var(--audit-muted); font-size: clamp(10px, .58vw, 12px); line-height: 1.4; flex-shrink: 0; }
 #estimateur .reference-analysis-mark > svg { color: #ff642a; flex: none; }
@@ -137,7 +137,7 @@
   #estimateur .reference-analysis-mark { max-width: 139px; padding: 8px; gap: 7px; font-size: 10px; }
   #estimateur .reference-analysis-mark > svg { width: 17px; height: 17px; }
   #estimateur .reference-audit-card-heading { gap: 9px; }
-  #estimateur .reference-audit-card h3 { font-size: 21px; }
+  #estimateur .reference-audit-card :is(h3,.seo-visual-title) { font-size: 21px; }
   #estimateur .reference-audit-card .form-description { font-size: 12px; }
   #estimateur .reference-audit-card input { font-size: 14px; }
   #estimateur .reference-eyebrow { margin-bottom: 29px; font-size: 12px; }
@@ -153,7 +153,7 @@
   #estimateur .reference-eyebrow { margin-bottom: 27px; font-size: 12px; }
   #estimateur .reference-audit-copy .reference-intro { font-size: 16px; }
   #estimateur .reference-audit-actions { margin-top: 25px; }
-  #estimateur .reference-audit-card h3 { font-size: 26px; }
+  #estimateur .reference-audit-card :is(h3,.seo-visual-title) { font-size: 26px; }
   #estimateur .reference-audit-card .form-description { font-size: 15px; }
   #estimateur .reference-analysis-mark { font-size: 12px; }
   #estimateur .reference-audit-photo figcaption { right: 14px; bottom: 23px; font-size: 18px; padding: 11px 13px; }
@@ -172,7 +172,7 @@
   #estimateur .reference-audit-photo figcaption { right: 22px; bottom: 26px; font-size: 21px; padding: 13px 16px; }
   #estimateur .reference-audit-card { padding: 23px 20px; }
   #estimateur .reference-audit-card-heading { flex-wrap: wrap; gap: 16px; margin-bottom: 25px; }
-  #estimateur .reference-audit-card h3 { font-size: 25px; }
+  #estimateur .reference-audit-card :is(h3,.seo-visual-title) { font-size: 25px; }
   #estimateur .reference-audit-card .form-description { font-size: 14px; }
   #estimateur .reference-analysis-mark { padding: 9px 11px; font-size: 11px; }
   #estimateur .reference-audit-card input { height: 49px; font-size: 16px; }

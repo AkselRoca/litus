@@ -1,13 +1,14 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import { SitesVitrineHero } from './_components/SitesVitrineHero'
 import { VitrineContent } from './_components/VitrineContent'
 import { ExpertiseServiceLinks } from '@/components/expertise/ExpertiseServiceLinks'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/creation-site-internet", {
   title: 'Création de Sites Internet à Lorient, Vannes & Le Mans',
   description:
     'Agence web locale. Création de sites vitrine performants et design pour artisans, PME et professions libérales. Devis gratuit sous 24h.',
-}
+})
 
 export default function SitesVitrinePage() {
   return (

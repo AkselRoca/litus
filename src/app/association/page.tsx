@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Image from 'next/image'
@@ -7,12 +8,12 @@ import './association.css'
 
 const url = 'https://www.litus.fr/association'
 const description = 'Création et refonte de site pour association : HelloAsso, dons, adhésions, événements et espace membres. Litus simplifie le quotidien de vos bénévoles.'
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/association", {
   title: 'Création de site internet pour association | Litus', description,
   alternates: { canonical: url },
   openGraph: { title: 'Un site qui facilite la vie de votre association | Litus', description, url, type: 'website', locale: 'fr_FR', images: [{ url: '/association/action-collective-nettoyage-plage.webp', width: 1200, height: 800, alt: 'Des adultes et des enfants participent ensemble au nettoyage d’une plage' }] },
   twitter: { card: 'summary_large_image', title: 'Création de site internet pour association | Litus', description, images: ['/association/action-collective-nettoyage-plage.webp'] },
-}
+})
 
 const faq = [
   ['Quel est le prix d’un site internet pour association ?', 'Le budget dépend des parcours à créer, des contenus à reprendre et des connexions nécessaires. Un site de présentation avec formulaires HelloAsso intégrés ne demande pas le même travail qu’un espace adhérents privé relié à un CRM. Notre devis distingue création ou refonte, intégrations, formation, hébergement et maintenance. Nous pouvons prioriser une première version utile, puis prévoir les évolutions.'],

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,12 +12,12 @@ import './application.css'
 
 const title = 'Création d’application web sur mesure pour entreprise | Litus'
 const description = 'CRM, espace client, extranet ou logiciel métier : Litus conçoit des applications web sur mesure pour vos équipes, connectées à vos données et à vos outils.'
-const url = 'https://litus.fr/creation-application-web'
-export const metadata: Metadata = {
+const url = 'https://www.litus.fr/creation-application-web'
+export const metadata: Metadata = pageMetadata("/creation-application-web", {
   title: { absolute: title }, description, alternates: { canonical: '/creation-application-web' },
   openGraph: { title, description, url, siteName: 'Litus', locale: 'fr_FR', type: 'website', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
-}
+})
 const uses = [
   { icon: FolderKanban, title: 'CRM & suivi commercial', text: 'Réunir les contacts, les demandes et les prochaines actions. Retrouver l’historique d’un prospect sans multiplier les fichiers.', detail: 'Du premier contact au suivi client.' },
   { icon: UsersRound, title: 'Espaces clients & extranets', text: 'Donner à vos clients ou partenaires un accès aux documents, aux demandes et à l’avancement qui les concernent.', detail: 'Un espace utile, avec les bons accès.' },
@@ -30,8 +31,8 @@ const method = [
   { title: 'Déployer et accompagner', text: 'Préparer la mise en service, la prise en main et la documentation. Organiser le support et les prochaines évolutions.', result: 'Un outil suivi dans la durée.' },
 ]
 const jsonLd = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Service', '@id': `${url}#service`, name: 'Création d’application web sur mesure', description, url, serviceType: 'Conception et développement d’applications web métier', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
-  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Applications web', item: url }] },
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Création d’application web sur mesure', description, url, serviceType: 'Conception et développement d’applications web métier', provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Applications web', item: url }] },
   { '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: applicationFaq.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
 ] }
 

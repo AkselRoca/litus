@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,13 +10,13 @@ import './referencement-naturel.css'
 
 const title = 'Référencement naturel SEO : audit, stratégie & contenu | Litus'
 const description = 'Une stratégie SEO adaptée à votre entreprise : audit technique, recherche de mots-clés, contenus et maillage. Litus améliore votre site et suit les actions utiles.'
-const url = 'https://litus.fr/referencement-naturel'
+const url = 'https://www.litus.fr/referencement-naturel'
 const contact = '/contact?objet=R%C3%A9f%C3%A9rencement%20naturel%20SEO'
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/referencement-naturel", {
   title: { absolute: title }, description, alternates: { canonical: url },
   openGraph: { title, description, url, siteName: 'Litus', type: 'website', locale: 'fr_FR', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
-}
+})
 const services = [
   { icon: FileSearch, title: 'Audit & priorités SEO', text: 'Comprendre les pages, les recherches et les obstacles actuels. Nous examinons les données disponibles et distinguons les corrections nécessaires des pistes à tester.', result: 'Un état des lieux et une feuille de route.' },
   { icon: Settings2, title: 'Technique & structure', text: 'Examiner l’exploration, l’indexation, les URL de référence et les liens internes. Nous rapprochons les problèmes détectés des pages importantes pour votre activité.', result: 'Des interventions hiérarchisées.' },
@@ -36,8 +37,8 @@ const faqs = [
   { question: 'Quel budget prévoir pour une stratégie SEO ?', answer: 'Le budget dépend du nombre de pages, de l’état technique, des contenus à préparer et du rythme d’accompagnement. Nous proposons un périmètre chiffré après un premier échange et l’examen des informations disponibles. La production, l’intégration et le suivi sont précisés pour que vous sachiez ce qui est inclus.' },
 ]
 const structuredData = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'Service', '@id': `${url}#service`, name: 'Référencement naturel SEO', description, url, serviceType: 'Audit et accompagnement en référencement naturel', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
-  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Référencement naturel', item: url }] },
+  { '@type': 'Service', '@id': `${url}#service`, name: 'Référencement naturel SEO', description, url, serviceType: 'Audit et accompagnement en référencement naturel', provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Référencement naturel', item: url }] },
   { '@type': 'FAQPage', mainEntity: faqs.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
 ] }
 

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import Link from 'next/link'
 import { Check, ShieldCheck, FileText, Landmark } from 'lucide-react'
 import { CollectivitesHero } from './_components/CollectivitesHero'
@@ -8,7 +9,7 @@ import { civicMetadata, civicSchema } from '@/lib/collectivites/seo'
 
 const title = 'Création et refonte de sites pour collectivités | Litus'
 const description = 'Sites de mairies et intercommunalités, démarches en ligne, accessibilité et autonomie des agents. Litus conçoit un web utile aux habitants et aux services.'
-export const metadata = civicMetadata(title, description)
+export const metadata = pageMetadata("/collectivites", civicMetadata(title, description))
 const sections: CivicSection[] = [
   { id: 'mobile', label: 'Le quotidien tient dans une main', title: 'Sur mobile, l’information essentielle ne doit pas attendre.', paragraphs: ['Un horaire avant de se déplacer, une adresse, un contact à appeler, une inscription scolaire : les usages municipaux commencent souvent sur un téléphone. Nous concevons ces accès dès les premières maquettes, et pas seulement après avoir réduit la version desktop.', 'Des zones tactiles confortables, une navigation courte et des formulaires lisibles rendent le parcours plus simple. Le clic pour appeler et l’accès à l’adresse sont prévus sur le site livré avec les coordonnées réelles de votre service.'], points: ['Horaires, accueil et contact faciles à retrouver.', 'Agenda, écoles et alertes lisibles sans zoom.', 'Pages légères, adaptées aux connexions variables.'], visual: 'mobile', link: { label: 'Le site internet de votre mairie', href: '/collectivites/site-internet-mairie' } },
   { id: 'accessibilite', label: 'Un enjeu de service public', title: 'L’accessibilité n’est pas une option graphique.', paragraphs: ['Un menu utilisable au clavier, une erreur de formulaire compréhensible, un titre correctement structuré : ces détails déterminent si une personne peut terminer son parcours. Nous travaillons les interfaces et les contenus ensemble, y compris les documents qui donnent accès à un service.', 'Le diagnostic, les corrections et l’audit de conformité sont des prestations distinctes à cadrer. Un score automatique ou un module ajouté au site ne prouve pas une conformité RGAA. La déclaration doit s’appuyer sur une évaluation effective.'], visual: 'accessibility', source: civicSources.declaration, link: { label: 'Notre approche de l’accessibilité RGAA', href: '/collectivites/accessibilite-rgaa' } },

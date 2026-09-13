@@ -10,7 +10,7 @@
 .seo-hero-trust .is-rocket { color: #397bea; }
 .seo-hero-trust p { display: flex; min-width: 0; flex-direction: column; gap: 4px; }
 .seo-hero-trust strong { font-size: 13px; }
-.seo-hero-trust span { color: #778293; font-size: 10px; line-height: 1.4; }
+.seo-hero-trust span { color: #576b81; font-size: 10px; line-height: 1.4; }
 .dark .seo-hero-trust span { color: #aab3bf; }
 
 /* Only the Google demonstration lives here. ServiceHero owns the hero grid,
@@ -47,8 +47,8 @@
 .seo-result-site img { object-fit: contain; }
 .seo-result-site b { display: flex; align-items: center; gap: 3px; margin-left: auto; padding: 5px 9px; border-radius: 999px; background: #dff5e5; color: #23864b; font-size: 9px; white-space: nowrap; }
 .seo-result-site b svg { width: 11px; height: 11px; }
-.seo-hero-result h2 { margin: 0; color: #174ea6; font-size: 14px; font-weight: 520; line-height: 1.2; letter-spacing: 0; }
-.dark .seo-hero-result h2 { color: #8ab4f8; }
+.seo-hero-result .seo-result-title { margin: 0; color: #174ea6; font-size: 14px; font-weight: 520; line-height: 1.2; letter-spacing: 0; }
+.dark .seo-hero-result .seo-result-title { color: #8ab4f8; }
 .seo-hero-result p { margin-top: 3px; color: #6f7884; font-size: 9px; line-height: 1.3; }
 .seo-hero-result.is-client { border-color: #e95e2a42; background: #fffaf7; }
 .dark .seo-hero-result.is-client { background: #e95e2a0c; }
@@ -94,7 +94,7 @@
   .seo-serp-tabs { gap: 14px; font-size: 10px; }
   .seo-serp-tabs span:last-child { display: none; }
   .seo-hero-result { grid-template-columns: 18px minmax(0, 1fr); padding-inline: 4px; }
-  .seo-hero-result h2 { font-size: 12px; }
+  .seo-hero-result .seo-result-title { font-size: 12px; }
   .seo-float-local { min-width: 145px; }
   .seo-float-clients { min-width: 175px; }
   .seo-float-clients strong { font-size: 14px; }
@@ -120,7 +120,7 @@
   .seo-hero-result { grid-template-columns: 20px minmax(0, 1fr); min-height: 66px; padding: 6px 4px; }
   .seo-hero-result:nth-of-type(4):not(.is-client), .seo-hero-result:nth-of-type(5):not(.is-client) { display: none; }
   .seo-result-rank { padding-top: 14px; }
-  .seo-hero-result h2 { font-size: 11px; }
+  .seo-hero-result .seo-result-title { font-size: 11px; }
   .seo-hero-result p { max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .seo-float-card { padding: 10px 12px; border-radius: 13px; }
   .seo-float-traffic { right: 0; top: 0; min-width: 175px; }

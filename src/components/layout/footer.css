@@ -139,7 +139,7 @@
   font-size: 14px;
   font-weight: 650;
 }
-.footer-nav-column h2 {
+.footer-nav-column :is(h2,.seo-nav-title) {
   margin-bottom: 22px;
   font-size: 18px;
   font-weight: 650;
@@ -207,7 +207,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
 }
-.footer-cta h2 {
+.footer-cta :is(h2,.seo-nav-title) {
   position: relative;
   max-width: 310px;
   margin-bottom: 19px;
@@ -216,7 +216,7 @@
   letter-spacing: -0.05em;
   line-height: 1.04;
 }
-.footer-cta h2 span {
+.footer-cta :is(h2,.seo-nav-title) span {
   display: block;
   color: var(--litus-heading-accent);
 }
@@ -379,7 +379,7 @@
     align-items: center;
   }
   .footer-cta-label,
-  .footer-cta h2,
+  .footer-cta :is(h2,.seo-nav-title),
   .footer-cta > p:not(.footer-cta-label) {
     grid-column: 1;
   }
@@ -490,7 +490,7 @@
     display: block;
     padding: 34px 26px 29px;
   }
-  .footer-cta h2 {
+  .footer-cta :is(h2,.seo-nav-title) {
     max-width: 350px;
     font-size: 36px;
   }
@@ -525,7 +525,7 @@
     padding-inline: 6px;
     border-left: 0;
   }
-  .footer-nav-column h2 {
+  .footer-nav-column :is(h2,.seo-nav-title) {
     margin-bottom: 13px;
   }
   .footer-nav-column a {
@@ -534,7 +534,7 @@
   .footer-cta {
     padding-inline: 21px;
   }
-  .footer-cta h2 {
+  .footer-cta :is(h2,.seo-nav-title) {
     font-size: 32px;
   }
   .footer-legal {

@@ -1,12 +1,13 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/mentions-legales", {
   title: 'Mentions légales',
   description: 'Mentions légales du site litus.fr, édité par Aksel Roca et Arthur Geveaux.',
   alternates: { canonical: '/mentions-legales' },
   robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
-}
+})
 
 export default function MentionsLegalesPage() {
   return (

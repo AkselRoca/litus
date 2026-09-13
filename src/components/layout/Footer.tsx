@@ -93,7 +93,7 @@ export function Footer() {
             {footerColumns.map(column => (
               <section className="footer-nav-column" key={column.number}>
                 <p className="footer-column-number">{column.number}</p>
-                <h2>{column.title}</h2>
+                <div className="seo-nav-title">{column.title}</div>
                 <ul>
                   {column.links.map(([label, href]) => (
                     <li key={label}><Link href={href}><span>{label}</span><ChevronRight aria-hidden="true" /></Link></li>
@@ -106,7 +106,7 @@ export function Footer() {
           <aside className="footer-cta" aria-labelledby="footer-cta-title">
             <span className="footer-cta-mark" aria-hidden="true" />
             <p className="footer-cta-label">UN PROJET ?</p>
-            <h2 id="footer-cta-title">Parlons de vos <span>objectifs.</span></h2>
+            <div className="seo-nav-title" id="footer-cta-title">Parlons de vos <span>objectifs.</span></div>
             <p>Un échange de 15 minutes pour comprendre vos besoins et vous conseiller.</p>
             <Link href="/contact?objet=rendez-vous" className="footer-cta-button">Prendre rendez-vous <ArrowRight aria-hidden="true" /></Link>
             <Link href="/contact" className="footer-cta-link">Nous contacter directement <ArrowRight aria-hidden="true" /></Link>
@@ -124,13 +124,13 @@ export function Footer() {
           <div className="footer-copyright">
             <p>© 2026 Litus. Tous droits réservés.</p>
             <small>Conçu et développé en France, pour les entreprises locales.</small>
-          <small className="footer-build">Build 1.15.a</small>
+          <small className="footer-build">Build 1.16.a</small>
           </div>
           <nav className="footer-legal" aria-label="Informations légales">
             <Link href="/mentions-legales">Mentions légales</Link>
             <Link href="/politique-confidentialite">Confidentialité</Link>
             <a href="/sitemap.xml">Plan du site</a>
-            <Link href="/politique-confidentialite">Politique de cookies</Link>
+            <Link href="/politique-confidentialite#cookies">Politique de cookies</Link>
           </nav>
           <p className="footer-mission">Faire grandir les entreprises locales.<span aria-hidden="true" /></p>
         </div>

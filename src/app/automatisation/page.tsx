@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo/metadata'
 import { AiPillars } from '@/components/expertise/ExpertiseDirectory'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -10,15 +11,15 @@ import './automatisation.css'
 
 const title = 'Automatisation des processus & intégrations API | Litus'
 const description = 'Litus connecte vos logiciels et automatise vos tâches répétitives : formulaires, CRM, devis et notifications. Des scénarios sur mesure, documentés et suivis.'
-const pageUrl = 'https://litus.fr/automatisation'
+const pageUrl = 'https://www.litus.fr/automatisation'
 const contactHref = '/contact?objet=Automatisation%20%26%20int%C3%A9grations%20API'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/automatisation", {
   title: { absolute: title }, description,
   alternates: { canonical: '/automatisation' },
   openGraph: { title, description, url: pageUrl, siteName: 'Litus', type: 'website', locale: 'fr_FR', images: [{ url: '/litus-og-social.png', width: 1200, height: 630, alt: 'Litus — Votre agence web pour développer votre activité.' }] },
   twitter: { card: 'summary_large_image', title, description, images: ['/litus-og-social.png'] },
-}
+})
 
 const needs = [
   { icon: FolderSync, title: 'Moins de ressaisies', text: 'Une information collectée au bon endroit peut alimenter les outils qui en ont besoin, selon vos règles.' },
@@ -51,8 +52,8 @@ const faqs = [
 ]
 const structuredData = {
   '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Service', '@id': `${pageUrl}#service`, name: 'Automatisation des processus et intégrations API', description, url: pageUrl, serviceType: 'Automatisation de processus et intégration de logiciels', provider: { '@type': 'Organization', name: 'Litus', url: 'https://litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
-    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Automatisation', item: pageUrl }] },
+    { '@type': 'Service', '@id': `${pageUrl}#service`, name: 'Automatisation des processus et intégrations API', description, url: pageUrl, serviceType: 'Automatisation de processus et intégration de logiciels', provider: { '@type': 'Organization', name: 'Litus', url: 'https://www.litus.fr' }, areaServed: { '@type': 'Country', name: 'France' } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.litus.fr' }, { '@type': 'ListItem', position: 2, name: 'Automatisation', item: pageUrl }] },
     { '@type': 'FAQPage', '@id': `${pageUrl}#faq-automatisation`, mainEntity: faqs.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) },
   ],
 }
