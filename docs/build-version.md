@@ -112,3 +112,4 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Retrait de inlineCss : la diminution des requetes CSS n'a pas compense la regression observee sur mobile lors de trois mesures du build 1.14.c.
 - Conservation des optimisations JS/images et des animations natives.
 - Priorite aux temps reels et aux parcours fonctionnels, pas a la disparition artificielle des avertissements de couverture.
+- Validation finale production : performance mobile 99/97/97 (mediane 97), desktop 100 ; autres categories 100 ; JS inutilise environ 27 Kio contre 69 Kio initialement. Les alertes CSS partagees et de compatibilite ne sont pas supprimees artificiellement.
