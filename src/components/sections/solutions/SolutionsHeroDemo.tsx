@@ -109,6 +109,7 @@ const duration = 3600
 /** Fixed-size, illustrative journeys. The tabs change the view; no form or data is sent. */
 export function SolutionsHeroDemo({ variant }: SolutionsHeroDemoProps) {
   const model = content[variant]
+  const availableTabs = variant === 'collectivites' ? [tabs[0], tabs[1], { label: 'Services', icon: MessageSquare }, { label: 'Accessibilité', icon: CircleCheck }] : tabs
   const BrandIcon = model.icon
   const id = useId()
   const clipId = `${id}-curve-clip`
@@ -143,18 +144,18 @@ export function SolutionsHeroDemo({ variant }: SolutionsHeroDemoProps) {
 
   function onTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next: number
-    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length
-    else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length
+    if (event.key === 'ArrowRight') next = (index + 1) % availableTabs.length
+    else if (event.key === 'ArrowLeft') next = (index + availableTabs.length - 1) % availableTabs.length
     else if (event.key === 'Home') next = 0
-    else if (event.key === 'End') next = tabs.length - 1
+    else if (event.key === 'End') next = availableTabs.length - 1
     else return
     event.preventDefault()
     selectTab(next)
     tabRefs.current[next]?.focus()
   }
 
-  const note = active === 0 ? model.siteNote : active === 1 ? model.visibilityNote : model.followNote
-  const noteDetail = active === 0 ? model.siteDetail : active === 1 ? model.visibilityDetail : model.followDetail
+  const note = active === 3 ? 'Des usages pris en compte' : active === 0 ? model.siteNote : active === 1 ? model.visibilityNote : model.followNote
+  const noteDetail = active === 3 ? 'Principes illustrés, sans résultat d’audit.' : active === 0 ? model.siteDetail : active === 1 ? model.visibilityDetail : model.followDetail
 
   return (
     <div ref={ref} className="sol-hero-demo" data-variant={variant} data-hydrated={hydrated} data-animate={!staticPresentation} role="group" aria-label={`Aperçu interactif : ${model.name.toLowerCase()}`}>
@@ -163,7 +164,7 @@ export function SolutionsHeroDemo({ variant }: SolutionsHeroDemoProps) {
         <div className="sol-demo-browser-bar" aria-hidden="true"><span><i /><i /><i /></span><small>Un parcours pensé pour vous</small><span className="sol-demo-browser-line" /></div>
 
         <div className="sol-demo-tabs" role="tablist" aria-label="Explorer le parcours digital">
-          {tabs.map((tab, index) => {
+          {availableTabs.map((tab, index) => {
             const Icon = tab.icon
             return <button key={tab.label} ref={element => { tabRefs.current[index] = element }} type="button" role="tab" id={`${id}-tab-${index}`} aria-controls={`${id}-panel-${index}`} aria-selected={active === index} tabIndex={active === index ? 0 : -1} onClick={() => selectTab(index)} onKeyDown={event => onTabKeyDown(event, index)}><Icon aria-hidden="true" />{tab.label}</button>
           })}
@@ -201,12 +202,13 @@ export function SolutionsHeroDemo({ variant }: SolutionsHeroDemoProps) {
           })}</ol>
         </div>
 
+        {variant === 'collectivites' && <div className="sol-demo-panel sol-demo-civic-accessibility" role="tabpanel" id={`${id}-panel-3`} aria-labelledby={`${id}-tab-3`} hidden={active !== 3} tabIndex={0}><span>UN SERVICE POUR TOUS</span><p>Lire, naviguer,<br />terminer sa démarche.</p><ul>{['Navigation au clavier', 'Contrastes et textes lisibles', 'Formulaires compréhensibles', 'Documents et alternatives'].map(label => <li key={label}><CircleCheck size={17} aria-hidden="true" />{label}</li>)}</ul><small>Exemples de conception. La conformité nécessite une évaluation.</small></div>}
         <div className="sol-demo-result" data-ready={contactVisible} aria-hidden={!contactVisible}>
           {active === 0 ? <svg className="sol-demo-result-trend" viewBox="0 0 80 44" aria-hidden="true"><path className="sol-demo-trend-base" d="M3 39H77" /><path className="sol-demo-trend-line" pathLength="100" strokeDasharray="100" strokeDashoffset={100 * (1 - trendProgress)} d="M4 34C15 34 15 24 25 26S40 21 48 20S63 15 75 5" /><path className="sol-demo-trend-tip" d="M66 5H75V14" opacity={trendProgress >= .98 ? 1 : 0} /></svg> : <span className="sol-demo-result-icon">{active === 1 ? <ChartNoAxesColumnIncreasing aria-hidden="true" /> : <CircleCheck aria-hidden="true" />}</span>}
           <p><strong>{note}</strong><span>{noteDetail}</span></p>
         </div>
       </div>
-      <div className="sol-hero-demo-controls"><span>Aperçu illustratif · explorez les onglets</span>{hydrated && !reducedMotion && <button type="button" onClick={() => { if (complete) { setElapsed(0); setPlaying(true) } else setPlaying(value => !value) }} aria-label={`${complete ? 'Rejouer' : playing ? 'Mettre en pause' : 'Reprendre'} l’aperçu ${tabs[active].label.toLowerCase()}`} aria-pressed={complete ? undefined : !playing}>{complete ? <RotateCcw aria-hidden="true" /> : playing ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}{complete ? 'Rejouer' : playing ? 'Pause' : 'Reprendre'}</button>}</div>
+      <div className="sol-hero-demo-controls"><span>Aperçu illustratif · explorez les onglets</span>{hydrated && !reducedMotion && <button type="button" onClick={() => { if (complete) { setElapsed(0); setPlaying(true) } else setPlaying(value => !value) }} aria-label={`${complete ? 'Rejouer' : playing ? 'Mettre en pause' : 'Reprendre'} l’aperçu ${availableTabs[active].label.toLowerCase()}`} aria-pressed={complete ? undefined : !playing}>{complete ? <RotateCcw aria-hidden="true" /> : playing ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}{complete ? 'Rejouer' : playing ? 'Pause' : 'Reprendre'}</button>}</div>
     </div>
   )
 }

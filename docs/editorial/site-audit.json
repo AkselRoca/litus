@@ -302,23 +302,70 @@
       "path": "/blog"
     },
     {
+      "file": "src/app/collectivites/[slug]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{page.heading.slice(0, split)}{page.accent}"
+        }
+      ],
+      "links": [
+        "/",
+        "/collectivites"
+      ],
+      "titles": [],
+      "path": "/collectivites/[slug]"
+    },
+    {
       "file": "src/app/collectivites/page.tsx",
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                            Modernisez le lien avec vos concitoyens.\r\n                        "
+          "text": "Le numérique prolongela vie du territoire."
         },
         {
-          "level": 2,
-          "text": "\r\n                            Votre site respecte-t-il les normes RGAA ?\r\n                        "
+          "level": 3,
+          "text": "Protéger et maintenir"
+        },
+        {
+          "level": 3,
+          "text": "Collecter avec mesure"
+        },
+        {
+          "level": 3,
+          "text": "{name}"
+        },
+        {
+          "level": 3,
+          "text": "À la création ou à la refonte"
+        },
+        {
+          "level": 3,
+          "text": "Pendant la vie du site"
+        },
+        {
+          "level": 3,
+          "text": "À réunir avant notre échange"
         }
       ],
       "links": [
-        "/contact"
+        "/collectivites/site-internet-mairie",
+        "/collectivites/accessibilite-rgaa",
+        "/collectivites/demarches-en-ligne",
+        "/expertise/wordpress",
+        "/referencement-naturel",
+        "/developpement-web-sur-mesure",
+        "/",
+        "/collectivites/refonte-site-collectivite",
+        "/ressources/cahier-des-charges"
       ],
       "titles": [
-        "Sites internet & services en ligne pour collectivités | Litus",
-        "Création et refonte de sites pour collectivités et acteurs publics. Une information claire, une meilleure visibilité sur Google et un accompagnement de vos équipes."
+        "Sur mobile, l’information essentielle ne doit pas attendre.",
+        "L’accessibilité n’est pas une option graphique.",
+        "Relier les habitants au bon service.",
+        "Publier une actualité ne devrait pas devenir un projet.",
+        "Le référencement public répond à une question concrète.",
+        "Moins de poids. Plus d’usage."
       ],
       "path": "/collectivites"
     },
@@ -2474,9 +2521,104 @@
       "titles": []
     },
     {
+      "file": "src/app/collectivites/[slug]/page.tsx",
+      "headings": [
+        {
+          "level": 1,
+          "text": "{page.heading.slice(0, split)}{page.accent}"
+        }
+      ],
+      "links": [
+        "/",
+        "/collectivites"
+      ],
+      "titles": []
+    },
+    {
+      "file": "src/app/collectivites/_components/CivicInteractive.tsx",
+      "headings": [
+        {
+          "level": 3,
+          "text": "Comment pouvons-nous vous aider ?"
+        },
+        {
+          "level": 3,
+          "text": "Une publication, simplement."
+        },
+        {
+          "level": 3,
+          "text": "{stages[step].title}"
+        }
+      ],
+      "links": [
+        "/collectivites/demarches-en-ligne",
+        "/collectivites/demarches-en-ligne#existant",
+        "/collectivites/site-communaute-de-communes#competences",
+        "/collectivites/demarches-en-ligne#orientation",
+        "/collectivites/site-internet-mairie#contenus"
+      ],
+      "titles": [
+        "Comprendre la démarche",
+        "Rejoindre le bon outil",
+        "Connaître la suite"
+      ]
+    },
+    {
+      "file": "src/app/collectivites/_components/CivicShared.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "Lire. Naviguer. Agir."
+        },
+        {
+          "level": 3,
+          "text": "Votre intercommunalité"
+        },
+        {
+          "level": 3,
+          "text": "L’essentiel,à portée de main."
+        },
+        {
+          "level": 3,
+          "text": "Aller à l’essentiel.Charger le nécessaire."
+        },
+        {
+          "level": 3,
+          "text": "{page.short}"
+        },
+        {
+          "level": 2,
+          "text": "Parlons de votre territoire.Et de ceux qui y vivent."
+        }
+      ],
+      "links": [
+        "/contact",
+        "/collectivites/site-internet-mairie#habitants",
+        "/collectivites/demarches-en-ligne",
+        "/collectivites/site-internet-mairie#contenus"
+      ],
+      "titles": []
+    },
+    {
       "file": "src/app/collectivites/_components/CollectivitesHero.tsx",
       "headings": [],
-      "links": [],
+      "links": [
+        "/collectivites/place-publique-hotel-de-ville.webp",
+        "/contact",
+        "/realisations"
+      ],
       "titles": []
     },
     {
@@ -2530,23 +2672,67 @@
       "titles": []
     },
     {
+      "file": "src/app/collectivites/collectivites.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/collectivites/layout.tsx",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
       "file": "src/app/collectivites/page.tsx",
       "headings": [
         {
           "level": 2,
-          "text": "\r\n                            Modernisez le lien avec vos concitoyens.\r\n                        "
+          "text": "Le numérique prolongela vie du territoire."
         },
         {
-          "level": 2,
-          "text": "\r\n                            Votre site respecte-t-il les normes RGAA ?\r\n                        "
+          "level": 3,
+          "text": "Protéger et maintenir"
+        },
+        {
+          "level": 3,
+          "text": "Collecter avec mesure"
+        },
+        {
+          "level": 3,
+          "text": "{name}"
+        },
+        {
+          "level": 3,
+          "text": "À la création ou à la refonte"
+        },
+        {
+          "level": 3,
+          "text": "Pendant la vie du site"
+        },
+        {
+          "level": 3,
+          "text": "À réunir avant notre échange"
         }
       ],
       "links": [
-        "/contact"
+        "/collectivites/site-internet-mairie",
+        "/collectivites/accessibilite-rgaa",
+        "/collectivites/demarches-en-ligne",
+        "/expertise/wordpress",
+        "/referencement-naturel",
+        "/developpement-web-sur-mesure",
+        "/",
+        "/collectivites/refonte-site-collectivite",
+        "/ressources/cahier-des-charges"
       ],
       "titles": [
-        "Sites internet & services en ligne pour collectivités | Litus",
-        "Création et refonte de sites pour collectivités et acteurs publics. Une information claire, une meilleure visibilité sur Google et un accompagnement de vos équipes."
+        "Sur mobile, l’information essentielle ne doit pas attendre.",
+        "L’accessibilité n’est pas une option graphique.",
+        "Relier les habitants au bon service.",
+        "Publier une actualité ne devrait pas devenir un projet.",
+        "Le référencement public répond à une question concrète.",
+        "Moins de poids. Plus d’usage."
       ]
     },
     {
@@ -6947,6 +7133,41 @@
     },
     {
       "file": "src/lib/cloudinary.ts",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/lib/collectivites/content.ts",
+      "headings": [],
+      "links": [
+        "/collectivites/refonte-site-collectivite",
+        "/expertise/wordpress",
+        "/collectivites/demarches-en-ligne",
+        "/ressources/cahier-des-charges",
+        "/collectivites/accessibilite-rgaa",
+        "/referencement-naturel",
+        "/collectivites/site-internet-mairie",
+        "/refonte-site-internet",
+        "/developpement-web-sur-mesure",
+        "/collectivites",
+        "/integrations-api",
+        "/collectivites/site-communaute-de-communes",
+        "/creation-application-web"
+      ],
+      "titles": [
+        "Création de site internet pour mairie et commune | Litus",
+        "Un site de mairie pensé pour les habitants : démarches, agenda, informations pratiques et publication autonome. Cadrons le projet de votre commune.",
+        "Votre organigramme n’est pas le parcours de vos habitants.",
+        "Une page utile répond avant de renvoyer vers un PDF.",
+        "Vos agents doivent pouvoir faire vivre le site.",
+        "Le bon service, sans créer un parcours supplémentaire.",
+        "Le prix dépend aussi de ce qu’il faut reprendre et maintenir.",
+        "Refonte de site de collectivité : migration et SEO | Litus"
+      ]
+    },
+    {
+      "file": "src/lib/collectivites/seo.ts",
       "headings": [],
       "links": [],
       "titles": []

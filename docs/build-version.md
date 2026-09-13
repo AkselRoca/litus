@@ -1,5 +1,9 @@
 # Version du build visible dans le footer
 
+## 1.14.a - Collectivites et services publics
+
+Refonte du hub Collectivites, cinq pages dediees (mairie, refonte, RGAA, demarches, intercommunalites), prototypes interactifs sans collecte, photographies Pexels locales et maillage SEO. Sources et choix editoriaux : docs/collectivites-1.14.a.md. Publication conditionnee au build et aux verifications demandees.
+
 Le numéro de build affiché dans le footer se trouve dans `src/components/layout/Footer.tsx`, dans le texte `Build ...`.
 
 ## Règle d'incrémentation

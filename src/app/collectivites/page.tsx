@@ -1,80 +1,52 @@
-import { Metadata } from 'next'
+import Link from 'next/link'
+import { Check, ShieldCheck, FileText, Landmark } from 'lucide-react'
 import { CollectivitesHero } from './_components/CollectivitesHero'
-import { CollectivitesStats } from './_components/CollectivitesStats'
-import { CollectivitesPainPoints } from './_components/CollectivitesPainPoints'
-import { CollectivitesSolutions } from './_components/CollectivitesSolutions'
-import { FileText } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
+import { CivicSearch } from './_components/CivicInteractive'
+import { CivicButton, CivicCards, CivicFaqs, CivicFinal, CivicHeading, CivicPhoto, CivicSections, CivicTextLink, CivicVisual } from './_components/CivicShared'
+import { civicSources, hubFaq, type CivicSection } from '@/lib/collectivites/content'
+import { civicMetadata, civicSchema } from '@/lib/collectivites/seo'
 
-export const metadata: Metadata = {
-    title: 'Sites internet & services en ligne pour collectivités | Litus',
-    description: 'Création et refonte de sites pour collectivités et acteurs publics. Une information claire, une meilleure visibilité sur Google et un accompagnement de vos équipes.',
-}
-
+const title = 'Création et refonte de sites pour collectivités | Litus'
+const description = 'Sites de mairies et intercommunalités, démarches en ligne, accessibilité et autonomie des agents. Litus conçoit un web utile aux habitants et aux services.'
+export const metadata = civicMetadata(title, description)
+const sections: CivicSection[] = [
+  { id: 'mobile', label: 'Le quotidien tient dans une main', title: 'Sur mobile, l’information essentielle ne doit pas attendre.', paragraphs: ['Un horaire avant de se déplacer, une adresse, un contact à appeler, une inscription scolaire : les usages municipaux commencent souvent sur un téléphone. Nous concevons ces accès dès les premières maquettes, et pas seulement après avoir réduit la version desktop.', 'Des zones tactiles confortables, une navigation courte et des formulaires lisibles rendent le parcours plus simple. Le clic pour appeler et l’accès à l’adresse sont prévus sur le site livré avec les coordonnées réelles de votre service.'], points: ['Horaires, accueil et contact faciles à retrouver.', 'Agenda, écoles et alertes lisibles sans zoom.', 'Pages légères, adaptées aux connexions variables.'], visual: 'mobile', link: { label: 'Le site internet de votre mairie', href: '/collectivites/site-internet-mairie' } },
+  { id: 'accessibilite', label: 'Un enjeu de service public', title: 'L’accessibilité n’est pas une option graphique.', paragraphs: ['Un menu utilisable au clavier, une erreur de formulaire compréhensible, un titre correctement structuré : ces détails déterminent si une personne peut terminer son parcours. Nous travaillons les interfaces et les contenus ensemble, y compris les documents qui donnent accès à un service.', 'Le diagnostic, les corrections et l’audit de conformité sont des prestations distinctes à cadrer. Un score automatique ou un module ajouté au site ne prouve pas une conformité RGAA. La déclaration doit s’appuyer sur une évaluation effective.'], visual: 'accessibility', source: civicSources.declaration, link: { label: 'Notre approche de l’accessibilité RGAA', href: '/collectivites/accessibilite-rgaa' } },
+  { id: 'demarches', label: 'Moins de détours', title: 'Relier les habitants au bon service.', paragraphs: ['État civil, rendez-vous, réservation de salle, inscription ou signalement : le site explique le parcours et oriente vers l’outil approprié. Nous identifions d’abord vos services existants pour éviter de recréer un formulaire qui ferait double emploi.', 'Les démarches nationales, les portails métier et les formulaires locaux n’ont pas tous les mêmes conditions d’accès. Les raccordements sont étudiés avec vos services et les éditeurs concernés. Une confirmation doit expliquer la suite, pas seulement afficher que le message est parti.'], visual: 'procedure', link: { label: 'Organiser vos démarches en ligne', href: '/collectivites/demarches-en-ligne' } },
+  { id: 'agents', label: 'Une équipe qui garde la main', title: 'Publier une actualité ne devrait pas devenir un projet.', paragraphs: ['Vos agents doivent pouvoir ajouter un événement, corriger les horaires, publier un document ou programmer une alerte. Nous préparons des modèles guidés, des droits adaptés et un circuit de validation proportionné à votre organisation.', 'Le choix du CMS tient compte de l’équipe et des outils en place. La formation s’appuie sur vos contenus ; la documentation accompagne les tâches courantes. L’autonomie éditoriale ne remplace pas la maintenance technique, qui fait l’objet d’un périmètre distinct.'], visual: 'cms', link: { label: 'Nos usages de WordPress', href: '/expertise/wordpress' } },
+  { id: 'referencement', label: 'Être trouvé, pour rendre service', title: 'Le référencement public répond à une question concrète.', paragraphs: ['« Horaires mairie », « inscription cantine », « déchèterie près de chez moi » : la bonne réponse est une page claire, rattachée au bon territoire. Nous travaillons les intitulés, la structure des contenus, les liens et les informations pratiques pour faciliter leur découverte.', 'Le moteur interne complète cette visibilité : recherche par besoin, suggestions, types de contenus et résultats utiles même lorsque l’habitant n’utilise pas le vocabulaire administratif. Les contenus et documents importants restent accessibles par la navigation, sans dépendre du seul moteur de recherche.'], points: ['Des titres précis et des URLs stables.', 'Un maillage entre démarches, services, lieux et contacts.', 'Une lecture des recherches sans résultat pour améliorer les contenus.'], link: { label: 'Découvrir notre approche SEO', href: '/referencement-naturel' } },
+  { id: 'performance', label: 'Un site sobre et réactif', title: 'Moins de poids. Plus d’usage.', paragraphs: ['Nous privilégions des images dimensionnées, des formats adaptés, un contenu HTML disponible dès le chargement et des scripts limités à leur utilité. Le cache et la diffusion des ressources se choisissent selon l’hébergement et les contraintes du projet.', 'Les mesures en laboratoire aident à repérer les ralentissements. Les données de terrain, lorsqu’elles sont disponibles, complètent cette lecture des Core Web Vitals. Un score ponctuel ne garantit pas une expérience identique sur chaque appareil ou réseau : les parcours essentiels doivent être testés en conditions réalistes.'], visual: 'performance', link: { label: 'Développement web adapté à vos usages', href: '/developpement-web-sur-mesure' } },
+]
+const method = [
+  ['Cadrer', 'Vos publics, vos contraintes, les services prioritaires et les responsabilités.'],
+  ['Organiser', 'Une arborescence et des contenus structurés autour des usages.'],
+  ['Concevoir', 'Des maquettes desktop et mobile confrontées aux parcours clés.'],
+  ['Développer', 'Les gabarits, l’administration et les connexions prévues au périmètre.'],
+  ['Reprendre', 'Des contenus triés, migrés et relus avec les services concernés.'],
+  ['Tester l’accessibilité', 'Des contrôles documentés et l’évaluation adaptée au projet.'],
+  ['Faire la recette', 'Les démarches, formulaires, droits, erreurs et rendus sur différents écrans.'],
+  ['Mettre en ligne', 'Une bascule préparée avec sauvegarde, redirections et contrôles.'],
+  ['Former', 'Vos agents travaillent sur les tâches qu’ils auront à réaliser.'],
+  ['Maintenir', 'Des responsabilités, une assistance et des évolutions contractualisées.'],
+]
 export default function CollectivitesPage() {
-    return (
-        <div className="bg-slate-50 dark:bg-[#050505] min-h-screen overflow-x-clip">
-            <CollectivitesHero />
-            <CollectivitesStats />
-            <CollectivitesPainPoints />
-
-            {/* Massive CTA Collectivités (Moved UP) */}
-            <section className="relative py-32 bg-[#020617] overflow-hidden">
-                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-600/10 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-red-500/5 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
-
-                <div className="container-fluid relative z-10 text-center">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
-                            Modernisez le lien avec <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-200">vos concitoyens.</span>
-                        </h2>
-
-                        <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                            Rendez vos démarches accessibles, libérez du temps à vos agents de mairie, et protégez vos données face aux menaces numériques.
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <Button size="lg" className="h-16 px-10 text-lg bg-orange-600 hover:bg-orange-500 text-white shadow-xl shadow-orange-600/20 rounded-full" href="/contact">
-                                <span className="mr-2">🏛️</span> Contacter notre équipe
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <CollectivitesSolutions />
-
-            {/* CTA Collectivités Direct */}
-            <section className="py-24 relative overflow-hidden bg-white dark:bg-[#0a0a0a] border-t border-slate-200 dark:border-white/5">
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
-                
-                <div className="container-fluid relative z-10 text-center">
-                    <div className="max-w-4xl mx-auto">
-                        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-200 dark:border-emerald-500/20">
-                            <FileText className="w-4 h-4" /> Analyse Gratuite
-                        </span>
-                        
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-                            Votre site respecte-t-il les normes RGAA ?
-                        </h2>
-                        
-                        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">
-                            La loi imposera bientôt des sanctions aux communes dont le site exclut les personnes en situation de handicap. Demandez un diagnostic gratuit de l&apos;accessibilité et de la sécurité de votre portail actuel.
-                        </p>
-                        
-                        <div className="max-w-xl mx-auto bg-slate-50 dark:bg-[#111] border border-slate-200 dark:border-white/10 rounded-2xl p-2 pl-6 flex flex-col sm:flex-row items-center shadow-lg hover:shadow-xl transition-shadow">
-                            <input 
-                                type="email" 
-                                placeholder="votre-email@mairie-exemple.fr" 
-                                className="bg-transparent border-none outline-none flex-1 text-slate-900 dark:text-white placeholder:text-slate-400 w-full mb-4 sm:mb-0"
-                            />
-                            <Button className="shrink-0 w-full sm:w-auto bg-orange-600 hover:bg-orange-500 rounded-xl" href="/contact">
-                                Demander un Diagnostic
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    )
+  return <div className="civic-page civic-hub">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(civicSchema(title, description, '/collectivites', hubFaq, '/collectivites/place-publique-hotel-de-ville.webp')).replace(/</g, '\\u003c') }} />
+    <CollectivitesHero />
+    <div className="civic-container">
+      <nav aria-label="Fil d’Ariane" className="civic-breadcrumb"><Link href="/">Accueil</Link><span aria-hidden="true">/</span><span aria-current="page">Collectivités</span></nav>
+      <section className="civic-section civic-audience" id="solutions"><CivicHeading label="À chaque territoire, son organisation" title="Création et refonte de sites internet pour collectivités."><p>Un site public doit informer, orienter et permettre d’agir. Nous adaptons le projet à vos compétences et aux moyens de vos équipes, plutôt que d’imposer le même portail à tous.</p></CivicHeading><ul className="civic-audiences">{['Mairies', 'Communes', 'Communautés de communes', 'Intercommunalités', 'Agglomérations', 'Syndicats', 'Établissements publics', 'Acteurs parapublics'].map(item => <li key={item}><Landmark size={15} aria-hidden="true" />{item}</li>)}</ul><CivicCards /></section>
+      <section id="usages" className="civic-section civic-split"><div><CivicHeading label="Une réponse, pas un labyrinthe" title="L’information utile doit se trouver en quelques gestes." /><div className="civic-prose"><p>Les habitants cherchent une cantine, un acte, un horaire ou un interlocuteur. Nous partons de leurs demandes pour hiérarchiser l’accueil, les accès rapides et le moteur de recherche.</p><p>Essayez les exemples ci-contre. Ils illustrent comment relier un besoin à une réponse compréhensible, sans présenter un faux site municipal comme une référence Litus.</p></div><ul className="civic-checklist"><li><Check size={17} aria-hidden="true" />Des mots du quotidien avant les noms de directions.</li><li><Check size={17} aria-hidden="true" />Des contenus utiles dès la première visite.</li><li><Check size={17} aria-hidden="true" />Une solution de contact quand le parcours ne suffit pas.</li></ul></div><CivicSearch /></section>
+      <section id="architecture" className="civic-section"><CivicHeading label="Une architecture lisible" title="Quatre portes d’entrée. Des réponses bien rangées."><p>Vie quotidienne, territoire, institution et démarches peuvent former une base claire. Les rubriques finales viennent de vos compétences, de vos contenus et des tâches à accomplir.</p></CivicHeading><CivicVisual type="architecture" /></section>
+      <div className="civic-photo-pair"><CivicPhoto name="place" /><div><p className="civic-eyebrow">Des lieux. Des services. Des habitants.</p><h2>Le numérique prolonge<br />la vie du territoire.</h2><p>Il ne remplace pas l’accueil, les agents ou les équipements. Il facilite leur découverte et prépare un échange plus utile.</p><CivicPhoto name="bibliotheque" /></div></div>
+      <CivicSections sections={sections} />
+      <section id="securite" className="civic-section civic-security"><CivicHeading label="Sécurité & protection des données" title="La confiance se construit aussi derrière l’écran."><p>Hébergement, accès, mises à jour et formulaires : les responsabilités doivent être connues avant la mise en ligne.</p></CivicHeading><div className="civic-security-grid"><article><ShieldCheck aria-hidden="true" /><h3>Protéger et maintenir</h3><p>HTTPS, accès limités au nécessaire, mises à jour suivies, sauvegardes et essais de restauration. Les modalités de supervision et d’intervention sont définies selon le périmètre convenu.</p><p className="civic-source"><a href={civicSources.security.href}>{civicSources.security.label}</a></p></article><article><FileText aria-hidden="true" /><h3>Collecter avec mesure</h3><p>Finalité, données nécessaires, destinataires et durée de conservation sont clarifiés avec la collectivité et son DPO. Les contraintes d’archives publiques doivent être prises en compte ; tout ne se règle pas par une case de consentement.</p><p className="civic-source"><a href={civicSources.privacy.href}>{civicSources.privacy.label}</a></p></article></div><p className="civic-prose">Les traceurs et services tiers font l’objet d’un inventaire. Leur activation, l’information des usagers et, lorsque nécessaire, le recueil du consentement sont définis selon leurs finalités et le cadre applicable, sans ajouter une mesure publicitaire par défaut à un site public.</p></section>
+      <section id="methode" className="civic-section"><CivicHeading label="Un cadre pour avancer ensemble" title="Un interlocuteur. Des étapes. Des décisions claires."><p>Une méthode qui laisse de la place à vos services, sans les perdre dans le vocabulaire technique.</p></CivicHeading><ol className="civic-method">{method.map(([name, detail], index) => <li key={name}><span className="civic-method-number">{String(index + 1).padStart(2, '0')}</span><h3>{name}</h3><p>{detail}</p></li>)}</ol></section>
+      <section id="refonte" className="civic-section civic-split"><div><CivicHeading label="Votre site existe déjà" title="Moderniser sans effacer ce qui compte." /><div className="civic-prose"><p>Une refonte commence par un inventaire : pages consultées, documents, formulaires, anciens liens et outils connectés. Les contenus sont arbitrés avec vos services avant d’être repris.</p><p>Le plan de migration conserve les adresses utiles ou prépare des redirections pertinentes. La recette inclut les parcours habitants, l’administration et la formation, pas seulement l’apparence de la nouvelle page d’accueil.</p></div><CivicTextLink link={{ label: 'Préparer une refonte de site de collectivité', href: '/collectivites/refonte-site-collectivite' }} /></div><CivicVisual type="migration" /></section>
+      <section id="budget" className="civic-section civic-budget"><CivicHeading label="Un budget qui se comprend" title="Chiffrer un périmètre. Pas seulement un nombre de pages."><p>Le devis sépare le projet initial de son exploitation. La reprise documentaire, les intégrations et le travail de validation peuvent peser autant que le développement.</p></CivicHeading><div className="civic-budget-grid"><div><h3>À la création ou à la refonte</h3><ul>{['Cadrage, architecture et maquettes', 'Développement et connexions métier', 'Reprise des contenus et documents', 'Accessibilité, recette et formation'].map(item => <li key={item}>{item}</li>)}</ul></div><div><h3>Pendant la vie du site</h3><ul>{['Hébergement et services nécessaires', 'Maintenance et mises à jour', 'Sauvegardes, assistance et évolutions', 'Réversibilité et restitution des données'].map(item => <li key={item}>{item}</li>)}</ul></div></div><p>Vos procédures de commande publique, votre calendrier et vos responsabilités de validation sont pris en compte dans le cadrage. Aucun tarif standard ne remplace l’étude de votre besoin.</p><CivicButton>Définir le périmètre de votre projet</CivicButton></section>
+      <section id="cahier-des-charges" className="civic-section civic-brief"><div><CivicHeading label="Bien préparer la suite" title="Un cahier des charges qui pose les bonnes questions." /><p>Objectifs, publics, services, contenus, migration, accessibilité, données, hébergement, maintenance, formation et planning : un document clair facilite les arbitrages et la comparaison des propositions.</p><p>Notre générateur généraliste peut servir de première trame. Il doit être complété par vos exigences de collectivité et ne remplace pas les pièces de votre consultation.</p><CivicTextLink link={{ label: 'Commencer une première trame de cahier des charges', href: '/ressources/cahier-des-charges' }} /></div><aside><span className="civic-icon"><FileText aria-hidden="true" /></span><h3>À réunir avant notre échange</h3><ul className="civic-checklist">{['L’adresse et les accès du site actuel', 'Les démarches et outils déjà utilisés', 'Les contenus et documents à reprendre', 'Les équipes contributrices et validations', 'Le calendrier et l’enveloppe envisagés'].map(item => <li key={item}><Check size={17} aria-hidden="true" />{item}</li>)}</ul></aside></section>
+      <CivicFaqs items={hubFaq} />
+      <CivicFinal />
+    </div>
+  </div>
 }

@@ -1,0 +1,38 @@
+{
+  "place": {
+    "src": "/collectivites/place-publique-hotel-de-ville.webp",
+    "width": 1440,
+    "height": 960,
+    "alt": "Place pavée et hôtel de ville illuminé à la tombée du jour en France",
+    "author": "Bastien Neves",
+    "source": "https://www.pexels.com/photo/city-square-with-illuminated-townhouses-against-blue-sky-at-dusk-13207999/",
+    "bytes": 121722
+  },
+  "rue": {
+    "src": "/collectivites/vie-locale-rue-village-francais.webp",
+    "width": 731,
+    "height": 1080,
+    "alt": "Passants dans une rue de village français bordée de maisons à colombages",
+    "author": "Magda Ehlers",
+    "source": "https://www.pexels.com/photo/charming-french-village-street-with-historic-buildings-31754156/",
+    "bytes": 105938
+  },
+  "mairie": {
+    "src": "/collectivites/facade-hotel-de-ville-paris.webp",
+    "width": 1440,
+    "height": 960,
+    "alt": "Façade en pierre de l’Hôtel de Ville de Paris et ses détails architecturaux",
+    "author": "Tove Liu",
+    "source": "https://www.pexels.com/photo/hotel-de-ville-in-paris-france-4213217/",
+    "bytes": 204912
+  },
+  "bibliotheque": {
+    "src": "/collectivites/usagers-lecture-bibliotheque.webp",
+    "width": 1440,
+    "height": 960,
+    "alt": "Adultes réunis autour d’un livre ouvert dans une bibliothèque",
+    "author": "cottonbro studio",
+    "source": "https://www.pexels.com/photo/people-in-a-library-6344233/",
+    "bytes": 73046
+  }
+}
