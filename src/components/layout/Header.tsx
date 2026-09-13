@@ -19,6 +19,7 @@ const personas = [
   { label: 'PME', href: '/pme', icon: Building2 },
   { label: 'Grands Comptes', href: '/grands-comptes', icon: UsersRound },
   { label: 'Collectivités', href: '/collectivites', icon: Landmark },
+  { label: 'Associations', href: '/association', icon: UsersRound },
 ]
 const resources = [
   { label: 'Blog', href: '/blog', icon: Newspaper },

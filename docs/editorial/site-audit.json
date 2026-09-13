@@ -226,6 +226,123 @@
       "path": "/artisans"
     },
     {
+      "file": "src/app/association/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{title}"
+        },
+        {
+          "level": 1,
+          "text": "Création de site internet pour association."
+        },
+        {
+          "level": 3,
+          "text": "Vous gardez votre compte.Nous soignons le parcours."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "Les bons réglages avant le premier paiement."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "Un exemple concret : la nouvelle adhésion."
+        },
+        {
+          "level": 3,
+          "text": "Nous partons aussi de ce que vous utilisez déjà."
+        },
+        {
+          "level": 3,
+          "text": "Une rencontre à partager."
+        },
+        {
+          "level": 3,
+          "text": "Un ancrage local. Ou un réseau national."
+        },
+        {
+          "level": 3,
+          "text": "Des campagnes au service de votre mission."
+        },
+        {
+          "level": 3,
+          "text": "Un suivi compréhensible par le bureau."
+        },
+        {
+          "level": 3,
+          "text": "Données & sécurité"
+        },
+        {
+          "level": 3,
+          "text": "Accessibilité & mobile"
+        },
+        {
+          "level": 3,
+          "text": "Performance & cookies"
+        },
+        {
+          "level": 3,
+          "text": "Écouter le terrain"
+        },
+        {
+          "level": 3,
+          "text": "Choisir les priorités"
+        },
+        {
+          "level": 3,
+          "text": "Construire & transmettre"
+        },
+        {
+          "level": 3,
+          "text": "Faire vivre le site"
+        },
+        {
+          "level": 3,
+          "text": "Création, refonte, maintenance : on distingue les postes."
+        },
+        {
+          "level": 2,
+          "text": "Parlons de votre association."
+        }
+      ],
+      "links": [
+        "/association/action-collective-nettoyage-plage.webp",
+        "/",
+        "/automatisation",
+        "/integrations-api",
+        "/expertise/google-workspace",
+        "/creation-outils-ia",
+        "/expertise/wordpress",
+        "/expertise/nextjs",
+        "/referencement-naturel",
+        "/seo-local",
+        "/google-ads",
+        "/realisations/femmes-des-territoires",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/ressources/cahier-des-charges"
+      ],
+      "titles": [
+        "Création de site internet pour association | Litus",
+        "Un site qui facilite la vie de votre association | Litus",
+        "Création de site internet pour association | Litus",
+        "Dons ponctuels ou réguliers",
+        "Adhésions & cotisations",
+        "Billetterie & inscriptions",
+        "Financement participatif",
+        "Petite boutique associative"
+      ],
+      "path": "/association"
+    },
+    {
       "file": "src/app/automatisation/page.tsx",
       "headings": [
         {
@@ -2329,6 +2446,128 @@
       "headings": [],
       "links": [],
       "titles": []
+    },
+    {
+      "file": "src/app/association/association.css",
+      "headings": [],
+      "links": [],
+      "titles": []
+    },
+    {
+      "file": "src/app/association/page.tsx",
+      "headings": [
+        {
+          "level": 2,
+          "text": "{title}"
+        },
+        {
+          "level": 1,
+          "text": "Création de site internet pour association."
+        },
+        {
+          "level": 3,
+          "text": "Vous gardez votre compte.Nous soignons le parcours."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "Les bons réglages avant le premier paiement."
+        },
+        {
+          "level": 3,
+          "text": "{title}"
+        },
+        {
+          "level": 3,
+          "text": "Un exemple concret : la nouvelle adhésion."
+        },
+        {
+          "level": 3,
+          "text": "Nous partons aussi de ce que vous utilisez déjà."
+        },
+        {
+          "level": 3,
+          "text": "Une rencontre à partager."
+        },
+        {
+          "level": 3,
+          "text": "Un ancrage local. Ou un réseau national."
+        },
+        {
+          "level": 3,
+          "text": "Des campagnes au service de votre mission."
+        },
+        {
+          "level": 3,
+          "text": "Un suivi compréhensible par le bureau."
+        },
+        {
+          "level": 3,
+          "text": "Données & sécurité"
+        },
+        {
+          "level": 3,
+          "text": "Accessibilité & mobile"
+        },
+        {
+          "level": 3,
+          "text": "Performance & cookies"
+        },
+        {
+          "level": 3,
+          "text": "Écouter le terrain"
+        },
+        {
+          "level": 3,
+          "text": "Choisir les priorités"
+        },
+        {
+          "level": 3,
+          "text": "Construire & transmettre"
+        },
+        {
+          "level": 3,
+          "text": "Faire vivre le site"
+        },
+        {
+          "level": 3,
+          "text": "Création, refonte, maintenance : on distingue les postes."
+        },
+        {
+          "level": 2,
+          "text": "Parlons de votre association."
+        }
+      ],
+      "links": [
+        "/association/action-collective-nettoyage-plage.webp",
+        "/",
+        "/automatisation",
+        "/integrations-api",
+        "/expertise/google-workspace",
+        "/creation-outils-ia",
+        "/expertise/wordpress",
+        "/expertise/nextjs",
+        "/referencement-naturel",
+        "/seo-local",
+        "/google-ads",
+        "/realisations/femmes-des-territoires",
+        "/creation-site-internet",
+        "/refonte-site-internet",
+        "/ressources/cahier-des-charges"
+      ],
+      "titles": [
+        "Création de site internet pour association | Litus",
+        "Un site qui facilite la vie de votre association | Litus",
+        "Création de site internet pour association | Litus",
+        "Dons ponctuels ou réguliers",
+        "Adhésions & cotisations",
+        "Billetterie & inscriptions",
+        "Financement participatif",
+        "Petite boutique associative"
+      ]
     },
     {
       "file": "src/app/automatisation/_components/AutomationHeroDemo.tsx",
@@ -5099,6 +5338,7 @@
         "/pme",
         "/grands-comptes",
         "/collectivites",
+        "/association",
         "/blog",
         "/ressources/cahier-des-charges",
         "/tarifs",

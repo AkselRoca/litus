@@ -125,3 +125,8 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Bouton Charger plus apres Femmes des Territoires, puis Menuiserie Jerome Rio, puis par lots de six.
 - Ordre, cartes, hero et composition editoriale conserves ; compteur reel et reinitialisation au changement de filtre.
 - Focus clavier sur le premier nouveau projet ; toutes les realisations restent disponibles sans JavaScript.
+
+## 1.15.a - Solution Associations
+- Nouvelle page /association : site associatif, HelloAsso, adhesions, dons, evenements, benevoles, espace membres et outils connectes.
+- Entree Associations dans Solutions desktop/mobile et footer ; trois photos reelles Pexels locales, reference Femmes des Territoires, FAQ et maillage SEO.
+- Conditions HelloAsso, recus fiscaux, Ad Grants et RGPD documentees dans docs/association-sources.md.
