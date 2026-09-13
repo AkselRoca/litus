@@ -120,3 +120,8 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Avis aligne en bas a gauche, decale de 35 % de sa hauteur vers l'exterieur, sans contact avec le formulaire.
 - Formulaire conserve en premier dans le DOM et dans la grille tablette/mobile, puis contenu et photo.
 - Aucun texte ni champ du formulaire modifie ; seuls les styles de composition et les tailles responsives de l'image evoluent.
+
+## 1.14.f - Realisations par lots
+- Bouton Charger plus apres Femmes des Territoires, puis Menuiserie Jerome Rio, puis par lots de six.
+- Ordre, cartes, hero et composition editoriale conserves ; compteur reel et reinitialisation au changement de filtre.
+- Focus clavier sur le premier nouveau projet ; toutes les realisations restent disponibles sans JavaScript.

@@ -1,14 +1,15 @@
 'use client';
 
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Grid2X2, List, Workflow } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Grid2X2, List, Workflow } from 'lucide-react';
 import { Caveat } from 'next/font/google';
 import { portfolioSlug } from '@/lib/portfolio-slugs';
 import type { PortfolioStory } from '@/lib/portfolio-catalog';
 import './portfolio-reference.css';
 import './portfolio-original-hero.css';
+import './portfolio-pagination.css';
 import { AcquisitionResults } from './AcquisitionResults';
 
 const handwriting = Caveat({ preload: false, subsets: ['latin'], weight: ['400', '500', '600'], display: 'swap' });
@@ -20,8 +21,29 @@ function values(value: string | null): string[] {
 export default function PortfolioEditorial({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState('Tous');
   const [layout, setLayout] = useState<'portfolio' | 'list'>('portfolio');
+  const [batch, setBatch] = useState(0);
+  const gridRef = useRef<HTMLDivElement>(null);
   const filters = useMemo(() => ['Tous', ...new Set(projects.flatMap((project) => project.editorial?.categories ?? values(project.categories)))], [projects]);
   const visible = useMemo(() => projects.filter((project) => filter === 'Tous' || (project.editorial?.categories ?? values(project.categories)).includes(filter)), [projects, filter]);
+  const batchEnds = useMemo(() => {
+    const endAfter = (slug: string) => visible.findIndex((project) => (project.editorial?.slug ?? portfolioSlug(project.title)) === slug) + 1;
+    const first = filter === 'Tous' ? endAfter('femmes-des-territoires') || 6 : 6;
+    const ends = [Math.min(first, visible.length)];
+    if (filter === 'Tous' && ends[0] < visible.length) {
+      const second = endAfter('menuiserie-jerome-rio');
+      ends.push(Math.min(second > ends[0] ? second : ends[0] + 8, visible.length));
+    }
+    while (ends[ends.length - 1] < visible.length) ends.push(Math.min(ends[ends.length - 1] + 6, visible.length));
+    return ends;
+  }, [visible, filter]);
+  const shownCount = batchEnds[Math.min(batch, batchEnds.length - 1)];
+  const loadMore = () => {
+    const firstNewIndex = shownCount;
+    setBatch((current) => current + 1);
+    requestAnimationFrame(() => {
+      gridRef.current?.querySelectorAll<HTMLElement>('.portfolio-art')[firstNewIndex]?.focus({ preventScroll: true });
+    });
+  };
   return (
     <section className="portfolio-editorial has-original-hero" aria-labelledby="portfolio-title">
       <div className="portfolio-container">
@@ -33,11 +55,12 @@ export default function PortfolioEditorial({ projects }: { projects: Project[] }
           <aside aria-hidden="true" className={`portfolio-original-note is-right ${handwriting.className}`}><span>╱ ╱</span>Plus de visibilité,<br />plus de clients</aside>
         </header>
         <div className="portfolio-toolbar">
-          <div className="portfolio-filters" aria-label="Filtrer les réalisations">{filters.map((item) => <button type="button" key={item} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item}{item === 'Tous' && <span>{projects.length}</span>}</button>)}</div>
+          <div className="portfolio-filters" aria-label="Filtrer les réalisations">{filters.map((item) => <button type="button" key={item} aria-pressed={filter === item} onClick={() => { setFilter(item); setBatch(0); }}>{item}{item === 'Tous' && <span>{projects.length}</span>}</button>)}</div>
           <div className="portfolio-view" aria-label="Présentation des projets"><button type="button" onClick={() => setLayout('portfolio')} aria-pressed={layout === 'portfolio'} aria-label="Composition portfolio"><Grid2X2 size={18} /></button><button type="button" onClick={() => setLayout('list')} aria-pressed={layout === 'list'} aria-label="Liste des projets"><List size={18} /></button></div>
         </div>
-        <p className="portfolio-result-count" role="status">{visible.length} réalisation{visible.length > 1 ? 's' : ''}{filter !== 'Tous' ? ` · ${filter}` : ' · Une sélection de notre travail'}</p>
-        <div id="portfolio-projects" className={`portfolio-mosaic${layout === 'list' ? ' is-list' : ''}`}>
+        <p className="portfolio-result-count" role="status" aria-atomic="true">{shownCount} sur {visible.length} réalisation{visible.length > 1 ? 's' : ''}{filter !== 'Tous' ? ` · ${filter}` : ' · Une sélection de notre travail'}</p>
+        <noscript><style>{'.portfolio-project[hidden]{display:block!important}.portfolio-load-more,.portfolio-result-count{display:none!important}'}</style></noscript>
+        <div ref={gridRef} id="portfolio-projects" className={`portfolio-mosaic${layout === 'list' ? ' is-list' : ''}`}>
           {visible.map((project, index) => {
             const story = project.editorial;
             const slug = story?.slug ?? portfolioSlug(project.title);
@@ -47,7 +70,7 @@ export default function PortfolioEditorial({ projects }: { projects: Project[] }
             const span = story?.performance ? 8 : [8, 4, 4, 8, 8, 4, 6, 6, 8, 4, 4, 8][index % 12];
             const layered = !story?.performance && secondary && span >= 8 && layout === 'portfolio';
             return (
-              <article key={project.id} className={`portfolio-project portfolio-span-${story?.performance ? 8 : span}${story?.archived ? ' is-archive' : ''}`} style={{ '--project-accent': story?.accent ?? '#ff581c', '--project-tone': story?.tone ?? '#efebe4', '--project-delay': `${Math.min(index % 4, 3) * 75}ms` } as CSSProperties}>
+              <article key={project.id} hidden={index >= shownCount} className={`portfolio-project portfolio-span-${story?.performance ? 8 : span}${story?.archived ? ' is-archive' : ''}`} style={{ '--project-accent': story?.accent ?? '#ff581c', '--project-tone': story?.tone ?? '#efebe4', '--project-delay': `${Math.min(index % 4, 3) * 75}ms` } as CSSProperties}>
                 <Link href={`/realisations/${slug}`} className={`portfolio-art${story?.performance ? ' is-acquisition' : cover?.kind === 'brand' ? ' is-photographic' : ' is-interface'}${layered ? ' is-layered' : ''}`} aria-label={`Découvrir ${story?.performance ? 'le cas Google Ads' : 'le projet'} ${project.title}`}>
                   {story?.performance ? <AcquisitionResults title={story.title} results={story.performance} compact /> : <div className="portfolio-image-frame">
                     {cover?.kind !== 'brand' && <div className="portfolio-browser" aria-hidden="true"><i /><i /><i /><span>{project.title}</span></div>}
@@ -68,6 +91,10 @@ export default function PortfolioEditorial({ projects }: { projects: Project[] }
             );
           })}
         </div>
+        {shownCount < visible.length && <div className="portfolio-load-more">
+          <button type="button" className="portfolio-cta" onClick={loadMore} aria-controls="portfolio-projects">Charger plus de réalisations <ArrowDown size={18} aria-hidden="true" /></button>
+          <p>Encore {visible.length - shownCount} réalisation{visible.length - shownCount > 1 ? 's' : ''} à découvrir</p>
+        </div>}
         <div className="portfolio-closing-note"><span className={handwriting.className}>Des métiers différents. La même attention.</span><p>Création de site, e-commerce, acquisition ou conseil : chaque fiche précise le périmètre de notre accompagnement.</p></div>
       </div>
     </section>
