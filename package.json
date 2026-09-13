@@ -6,7 +6,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/editorial-inventory.mjs",
     "build": "prisma generate && next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "node scripts/preserve-routing-config.cjs && next-sitemap",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",

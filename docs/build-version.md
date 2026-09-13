@@ -136,3 +136,6 @@ Ajout des deux redirections 301 /artisans et /artisans/ dans vercel.json pour ev
 - Titres de navigation et de demonstrations rendus non hierarchiques sans changer leur style ; contact H1 premier, formulaire mobile conserve.
 - Sitemap dynamique des realisations, corrections de liens, credits techniques noindex, article de test exclu du parcours public sans suppression en base.
 - Audit reproductible via scripts/audit-public-seo.mjs ; controles avant/apres et limites documentes.
+
+## 1.16.b
+Correctif de publication SEO : preserve-routing-config.cjs conserve skipTrailingSlashRedirect dans la configuration Next transmise a Vercel. Les redirections et la canonicalisation restent definies dans next.config.ts.
