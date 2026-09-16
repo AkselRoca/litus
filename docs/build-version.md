@@ -172,3 +172,7 @@ Hero photo, Lorient et Le Mans, trois projets documentes, methode, Maps, tarifs 
 ## 1.20.b - Logo client dans la hero
 
 Remplacement de Prodis par Femmes des Territoires dans le bandeau de confiance de la home. Logo officiel optimise en WebP local, lien et texte alternatif actualises, composition conservee. Source : https://www.femmesdesterritoires.fr/wp-content/uploads/2024/09/logo-big.svg.
+
+## 1.20.c - Anciennes URLs Search Console
+
+301 explicites pour les anciennes realisations, landing et archives site vitrine/SEO. Ancien doublon Aspire regroupe sur Aspire Energie. Flux RSS et deux scripts WordPress obsoletes retires en 410, sans redirection vers l'accueil. Regles Next et Vercel synchronisees ; detail dans docs/redirections-1.20.c.md.

@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-09-12",
+  "auditedAt": "2026-09-16",
   "redirects": [
     {
       "source": "/portfolio",
@@ -150,11 +150,77 @@
       "destination": "/realisations/demetis-immo",
       "reason": "Ancien lien de la page Le Mans",
       "evidence": "Audit HTML global"
+    },
+    {
+      "source": "/landing",
+      "destination": "/creation-landing-page",
+      "reason": "Prestation landing pages",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/aire-des-iles",
+      "destination": "/realisations/aire-des-iles",
+      "reason": "Meme projet Aire des Iles",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/fondants-parfumes",
+      "destination": "/realisations/fondants-parfumes",
+      "reason": "Meme boutique Fondants Parfumes",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/bolay-paysagiste",
+      "destination": "/realisations/le-bolay-paysagiste",
+      "reason": "Meme entreprise Le Bolay Paysagiste",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/aspire-marketing",
+      "destination": "/realisations/aspire-energie",
+      "reason": "Ancien doublon Aspire retire et regroupe sous Aspire Energie a la demande de Litus",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/femmes-des-territoires-prix",
+      "destination": "/realisations/femmes-des-territoires",
+      "reason": "Reference du meme client regroupee dans la fiche Femmes des Territoires",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/geoproxio",
+      "destination": "/realisations/geoproxio",
+      "reason": "Meme projet Geoproxio",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/tag/site-vitrine",
+      "destination": "/creation-site-internet",
+      "reason": "Ancienne archive thematique site vitrine vers le service correspondant",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/tag/referencement",
+      "destination": "/referencement-naturel",
+      "reason": "Ancienne archive thematique SEO vers le service correspondant",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
+    },
+    {
+      "source": "/portfolios/loumor-debarras",
+      "destination": "/realisations/loumor-debarras",
+      "reason": "Autre ancienne reference encore presente dans les resultats de recherche",
+      "evidence": "Export Search Console fourni par Litus et correspondance avec les pages actuelles ; Loumor repere dans les resultats de recherche"
     }
   ],
   "gone": [
     "/services/community-management",
-    "/services/photos-et-videos-professionnelles"
+    "/services/photos-et-videos-professionnelles",
+    "/wp-includes/js/wp-emoji-release.min.js",
+    "/wp-content/plugins/burst-statistics/assets/js/build/burst-goals.js",
+    "/tag/refonte/feed",
+    "/tag/site-internet/feed",
+    "/portfolio-category/e-commerce/feed",
+    "/portfolio-category/enseigne/feed"
   ],
   "noindex": [
     "/mentions-legales",

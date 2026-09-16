@@ -264,6 +264,106 @@
       "source": "/artisans",
       "destination": "/artisan",
       "statusCode": 301
+    },
+    {
+      "source": "/landing/",
+      "destination": "/creation-landing-page",
+      "statusCode": 301
+    },
+    {
+      "source": "/landing",
+      "destination": "/creation-landing-page",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/aire-des-iles/",
+      "destination": "/realisations/aire-des-iles",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/aire-des-iles",
+      "destination": "/realisations/aire-des-iles",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/fondants-parfumes/",
+      "destination": "/realisations/fondants-parfumes",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/fondants-parfumes",
+      "destination": "/realisations/fondants-parfumes",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/bolay-paysagiste/",
+      "destination": "/realisations/le-bolay-paysagiste",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/bolay-paysagiste",
+      "destination": "/realisations/le-bolay-paysagiste",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/aspire-marketing/",
+      "destination": "/realisations/aspire-energie",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/aspire-marketing",
+      "destination": "/realisations/aspire-energie",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/femmes-des-territoires-prix/",
+      "destination": "/realisations/femmes-des-territoires",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/femmes-des-territoires-prix",
+      "destination": "/realisations/femmes-des-territoires",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/geoproxio/",
+      "destination": "/realisations/geoproxio",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/geoproxio",
+      "destination": "/realisations/geoproxio",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/site-vitrine/",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/site-vitrine",
+      "destination": "/creation-site-internet",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/referencement/",
+      "destination": "/referencement-naturel",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/referencement",
+      "destination": "/referencement-naturel",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/loumor-debarras/",
+      "destination": "/realisations/loumor-debarras",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolios/loumor-debarras",
+      "destination": "/realisations/loumor-debarras",
+      "statusCode": 301
     }
   ],
   "regions": [
