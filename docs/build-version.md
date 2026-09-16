@@ -168,3 +168,7 @@ Parcours activite/ville puis email obligatoire avant calcul et affichage. Estima
 ## 1.20.a - SEO local editorial et photographique
 
 Hero photo, Lorient et Le Mans, trois projets documentes, methode, Maps, tarifs et FAQ. Images WebP locales avec dimensions et credits, captures non recadrees, ancres conservees, metadata et donnees structurees. Retrait des performances non justifiees et de la demonstration animee a chiffres fictifs. Sources : docs/seo-local-1.20.a.md.
+
+## 1.20.b - Logo client dans la hero
+
+Remplacement de Prodis par Femmes des Territoires dans le bandeau de confiance de la home. Logo officiel optimise en WebP local, lien et texte alternatif actualises, composition conservee. Source : https://www.femmesdesterritoires.fr/wp-content/uploads/2024/09/logo-big.svg.

@@ -8,7 +8,7 @@ const clients = [
   { name: 'Demetis Immobilier', image: 'demetis', url: 'https://www.Demetisimmo.fr/' },
   { name: 'Nos Travaux', image: 'nos-travaux-logo', url: 'https://www.nos-travaux.fr/' },
   { name: 'Aspire Énergie', image: 'aspire', url: 'https://www.aspire-energie.com/' },
-  { name: 'Prodis Environnement', image: 'prodis', url: 'https://www.prodis-environnement.com/' },
+  { name: 'Femmes des Territoires', image: 'femmes-des-territoires', url: 'https://www.femmesdesterritoires.fr/' },
 ]
 
 function HeroCurves() {
